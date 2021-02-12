@@ -1,0 +1,1758 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Here are examples of everything new in ECMAScript 2016, 2017, and 2018, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Here are examples of everything new in ECMAScript 2016, 2017, and 2018 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Here are examples of everything new in ECMAScript 2016, 2017, and 2018</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ES2018/">
+                                <span class="chip bg-color">ES2018</span>
+                            </a>
+                        
+                            <a href="/tags/ES2016/">
+                                <span class="chip bg-color">ES2016</span>
+                            </a>
+                        
+                            <a href="/tags/ES2017/">
+                                <span class="chip bg-color">ES2017</span>
+                            </a>
+                        
+                            <a href="/tags/examples/">
+                                <span class="chip bg-color">examples</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-04-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/here-are-examples-of-everything-new-in-ecmascript-2016-2017-and-2018-d52fa3b5a70e/">Here are examples of everything new in ECMAScript 2016, 2017, and 2018</a></p>
+</blockquote>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/Qf1LDT7ckSUhVlKPgo1AZbna-xqa4Tvlmak4"></p>
+<p>It’s hard to keep track of what’s new in JavaScript (ECMAScript). And it’s even harder to find useful code examples.</p>
+<p>So in this article, I’ll cover all 18 features that are listed in the <a target="_blank" rel="noopener" href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">TC39’s finished proposals</a> that were added in ES2016, ES2017, and ES2018 (final draft) and show them with useful examples.</p>
+<blockquote>
+<p>This is a pretty long post but should be an easy read. Think of this as “<strong>Netflix binge reading.”</strong> By the end of this, I promise that you’ll have a ton of knowledge about all these features.</p>
+</blockquote>
+<p>OK, let’s go over these one by one.</p>
+<h2 id="ECMAScript-2016"><a href="#ECMAScript-2016" class="headerlink" title="ECMAScript 2016"></a>ECMAScript 2016</h2><p><img src="https://cdn-media-1.freecodecamp.org/images/44fYmBIMt2XrYNJgDfEFr5IX0SLCEdnNj2EP"></p>
+<h3 id="1-Array-prototype-includes"><a href="#1-Array-prototype-includes" class="headerlink" title="1. Array.prototype.includes"></a>1. <code>Array.prototype.includes</code></h3><p><code>includes</code> is a simple instance method on the Array and helps to easily find if an item is in the Array (including <code>NaN</code> unlike <code>indexOf</code>).</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/0FvN0UrpiwG3vS7AwCxhgFdkmUtRBzsty8Fg"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">NaN</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Instead of</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//Use</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//PS: Note the indexOf doesnt work for searching NaN</span>
+arr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+arr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//-1 (doesn't work for NaN)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2016 or ES7 — Array.prototype.includes()</p>
+<blockquote>
+<p>Trivia: the JavaScript spec people wanted to name it <code>contains</code> , but this was apparently already used by Mootools so they used <code>includes</code> .</p>
+</blockquote>
+<h3 id="2-Exponentiation-infix-operator"><a href="#2-Exponentiation-infix-operator" class="headerlink" title="2. Exponentiation infix operator"></a>2. Exponentiation <code>infix operator</code></h3><p>Math operations like addition and subtraction have infix operators like <code>+</code> and <code>-</code> , respectively. Similar to them, the <code>**</code> infix operator is commonly used for exponent operation. In ECMAScript 2016, the <code>**</code> was introduced instead of <code>Math.pow</code> .</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/gtlnVadz1PTBCP3Quu9KLabgpNI-nC3Bw8-r" alt="ECMAScript 2016 or ES7 — ** Exponent infix operator"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Instead od..</span>
+Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//49</span>
+
+<span class="token comment">//Use</span>
+<span class="token number">7</span> <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token comment">//49</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ECMAScript-2017"><a href="#ECMAScript-2017" class="headerlink" title="ECMAScript 2017"></a>ECMAScript 2017</h2><p><img src="https://cdn-media-1.freecodecamp.org/images/HmFguQSmejxvd4hxOcVsTnWT8XhUoWclGsOj"></p>
+<h3 id="1-Object-values"><a href="#1-Object-values" class="headerlink" title="1. Object.values()"></a>1. Object.values()</h3><p><code>Object.values()</code> is a new function that’s similar to <code>Object.keys()</code> but returns all the values of the Object’s own properties excluding any value(s) in the prototypical chain.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/8R384SuwAciT2kI9YsAKBh-vxFrSvErxCjWa" alt="ECMAScript 2017 (ES8)— Object.values()"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token constant">BMW</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> Teals<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token constant">BYD</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//ES2015</span>
+<span class="token comment">//Instead of..</span>
+<span class="token keyword">const</span> vals <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span> cars<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>vals<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[3,2,1]</span>
+
+<span class="token comment">//ES2017 and onwards</span>
+<span class="token comment">//Use ...</span>
+<span class="token keyword">const</span> values <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[3,2,1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-Object-entries"><a href="#2-Object-entries" class="headerlink" title="2. Object.entries()"></a>2. Object.entries()</h3><p><code>Object.entries()</code> is related to <code>Object.keys</code> , but instead of returning just keys, it returns both keys and values in the array fashion. This makes it very simple to do things like using objects in loops or converting objects into Maps.</p>
+<p><strong>Example 1:</strong></p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/1b3wqDqdI1DW2qx9U2aBNjVHkdsK2PHsOfJB" alt="ECMAScript 2017 (ES8) — Using Object.entries() in loops"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token constant">BMW</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> Tesla<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token constant">BYD</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//ES5.1</span>
+<span class="token comment">//Instead of extracting keys and then again loopping</span>
+Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'key: '</span> <span class="token operator">+</span> key <span class="token operator">+</span> <span class="token string">' value: '</span> <span class="token operator">+</span> cars<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//ES2017(ES2018)</span>
+<span class="token comment">//Use Object.entries</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">key: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Example 2:</strong></p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/96Jw9lz3xZ7QUsymo0x73YGz9gfTaNnlUhUd" alt="ECMAScript 2017 (ES8) — Using Object.entries() to convert Object to Map"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token constant">BMW</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> Tesla<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token constant">BYD</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//ES2015</span>
+<span class="token comment">//Instead of ..</span>
+<span class="token comment">//Get object keys and then each item to Map in a loop</span>
+<span class="token keyword">const</span> map1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  map1<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> cars<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Map  &#123;"BMW" => 3, "Tesla" => 2, "BYD" => 1&#125;</span>
+
+<span class="token comment">//ES2017 and onwards</span>
+<span class="token comment">//Use Object.entries</span>
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Map  &#123;"BMW" => 3, "Tesla" => 2, "BYD" => 1&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-String-padding"><a href="#3-String-padding" class="headerlink" title="3. String padding"></a>3. String padding</h3><p>Two instance methods were added to String — <code>String.prototype.padStart</code> and <code>String.prototype.padEnd</code> — that allow appending/prepending either an empty string or some other string to the start or the end of the original string.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'someString'</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span>numberOfCharcters <span class="token punctuation">[</span><span class="token punctuation">,</span>stringForPadding<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token string">'5'</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// '         5'</span>
+<span class="token string">'5'</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'=*'</span><span class="token punctuation">)</span> <span class="token comment">//'=*=*=*=*=5'</span>
+
+<span class="token string">'5'</span><span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// '5         '</span>
+<span class="token string">'5'</span><span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'=*'</span><span class="token punctuation">)</span> <span class="token comment">//'5=*=*=*=*='</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>This comes in handy when we want to align things in scenarios like pretty print display or terminal print.</p>
+</blockquote>
+<h4 id="3-1-padStart-example"><a href="#3-1-padStart-example" class="headerlink" title="3.1 padStart example:"></a>3.1 padStart example:</h4><p>In the below example, we have a list of numbers of varying lengths. We want to prepend “0” so that all the items have the same length of 10 digits for display purposes. We can use <code>padStart(10, &#39;0&#39;)</code> to easily achieve this.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/pDLfNm4KHFG18gimi3kg37nufmeRaqlloadT" alt="ECMAScript 2017 — padStart example"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//ES2017</span>
+<span class="token comment">//If you have a list of items if varying lengths and want to</span>
+<span class="token comment">//format them for display purposes, you can use padStart</span>
+<span class="token keyword">const</span> formatted <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token number">1234</span><span class="token punctuation">,</span> <span class="token number">12345</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=></span> num<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//adds '0' until len is 10</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>formatted<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// prints:</span>
+<span class="token comment">// [</span>
+<span class="token comment">// "0000000000",</span>
+<span class="token comment">// "0000000001",</span>
+<span class="token comment">// "0000000012",</span>
+<span class="token comment">// "0000000123",</span>
+<span class="token comment">// "0000001234",</span>
+<span class="token comment">// "0000012345"</span>
+<span class="token comment">// ]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2-padEnd-example"><a href="#3-2-padEnd-example" class="headerlink" title="3.2 padEnd example:"></a>3.2 padEnd example:</h4><p><code>padEnd</code> really comes in handy when we are printing multiple items of varying lengths and want to right-align them properly.</p>
+<p>The example below is a good realistic example of how <code>padEnd</code> , <code>padStart</code> , and <code>Object.entries</code> all come together to produce a beautiful output.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/HvUh0bvyojcU7KfimZiTWoPlHybupuK-Lpaf" alt="ECMAScript 2017 — padEnd, padStart and Object.Entries example"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">'🚙BMW'</span><span class="token operator">:</span> <span class="token string">'10'</span><span class="token punctuation">,</span>
+  <span class="token string">'🚘Tesla'</span><span class="token operator">:</span> <span class="token string">'5'</span><span class="token punctuation">,</span>
+  <span class="token string">'🚖Lamborghini'</span><span class="token operator">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>cars<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>name<span class="token punctuation">,</span> count<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//padEnd appends ' -' until the name becomes 20 characters</span>
+  <span class="token comment">//padStart prepends '0' until the count becomes 3 characters.</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token punctuation">.</span><span class="token function">padEnd</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token string">' -'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> Count: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>count<span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Prints..</span>
+<span class="token comment">// 🚙BMW - - - - - - -  Count: 010</span>
+<span class="token comment">// 🚘Tesla - - - - - -  Count: 005</span>
+<span class="token comment">// 🚖Lamborghini - - -  Count: 000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-3-⚠️-padStart-and-padEnd-on-Emojis-and-other-double-byte-chars"><a href="#3-3-⚠️-padStart-and-padEnd-on-Emojis-and-other-double-byte-chars" class="headerlink" title="3.3 ⚠️ padStart and padEnd on Emojis and other double-byte chars"></a>3.3 ⚠️ padStart and padEnd on Emojis and other double-byte chars</h4><p>Emojis and other double-byte chars are represented using multiple bytes of unicode. So padStart and padEnd might not work as expected!⚠️</p>
+<p>For example: Let’s say we are trying to pad the string <code>heart</code> to reach <code>10</code> characters with the ❤️ emoji. The result will look like below:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Notice that instead of 5 hearts, there are only 2 hearts and 1 heart that looks odd!</span>
+<span class="token string">'heart'</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">'❤️'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// prints.. '❤️❤️❤heart'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>This is because ❤️ is 2 code points long (<code>&#39;\u2764\uFE0F&#39;</code> )! The word <code>heart</code> itself is 5 characters, so we only have a total of 5 chars left to pad. So what happens is that JS pads two hearts using <code>&#39;\u2764\uFE0F&#39;</code> and that produces ❤️❤️. For the last one it simply uses the first byte of the heart <code>\u2764</code> which produces ❤</p>
+<p>So we end up with: <code>❤️❤️❤heart</code></p>
+<blockquote>
+<p>PS: You may use <a target="_blank" rel="noopener" href="https://encoder.internetwache.org/#tab_uni">this link</a> to check out unicode char conversions.</p>
+</blockquote>
+<h3 id="4-Object-getOwnPropertyDescriptors"><a href="#4-Object-getOwnPropertyDescriptors" class="headerlink" title="4. Object.getOwnPropertyDescriptors"></a>4. <code>Object.getOwnPropertyDescriptors</code></h3><p>This method returns all the details (including getter <code>get</code>and setter <code>set</code> methods) for all the properties of a given object. The main motivation to add this is to allow shallow copying / cloning an object into another object that also copies getter and setter functions as opposed to <code>Object.assign</code> <strong>.</strong></p>
+<p><strong>Object.assign shallow copies all the details except getter and setter functions of the original source object.</strong></p>
+<p>The example below shows the difference between <code>Object.assign</code> and <code>Object.getOwnPropertyDescriptors</code> along with <code>Object.defineProperties</code> to copy an original object <code>Car</code> into a new object <code>ElectricCar</code> . You’ll see that by using <code>Object.getOwnPropertyDescriptors</code> ,<code>discount</code> getter and setter functions are also copied into the target object.</p>
+<p>BEFORE…</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/7ZlAkKKdplx53IOn-jYMIPLdZSq90XhAP5jR" alt="Before — Using Object.assign"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> Car <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token string">'BMW'</span><span class="token punctuation">,</span>
+  price<span class="token operator">:</span> <span class="token number">1000000</span><span class="token punctuation">,</span>
+  <span class="token keyword">set</span> <span class="token function">discount</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>d <span class="token operator">=</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token keyword">get</span> <span class="token function">discount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Print details of Car object's 'discount' property</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>Car<span class="token punctuation">,</span> <span class="token string">'discount'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//prints..</span>
+<span class="token comment">// &#123;</span>
+<span class="token comment">//   get: [Function: get],</span>
+<span class="token comment">//   set: [Function: set],</span>
+<span class="token comment">//   enumerable: true,</span>
+<span class="token comment">//   configurable: true</span>
+<span class="token comment">// &#125;</span>
+
+<span class="token comment">//Copy Car's properties to ElectricCar using Object.assign</span>
+<span class="token keyword">const</span> ElectricCar <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Car<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Print details of ElectricCar object's 'discount' property</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>ElectricCar<span class="token punctuation">,</span> <span class="token string">'discount'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//prints..</span>
+<span class="token comment">// &#123;</span>
+<span class="token comment">//   value: undefined,</span>
+<span class="token comment">//   writable: true,</span>
+<span class="token comment">//   enumerable: true,</span>
+<span class="token comment">//   configurable: true</span>
+<span class="token comment">// &#125;</span>
+<span class="token comment">//⚠️ Notice that getters and setters are missing in ElectricCar object for 'discount' property !??</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>AFTER…</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/23g3sL3-pFGkRri0wOT3g3N2Qzn-oDcKjxVB" alt="ECMAScript 2017 (ES8) — Object.getOwnPropertyDescriptors"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> Car <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token string">'BMW'</span><span class="token punctuation">,</span>
+  price<span class="token operator">:</span> <span class="token number">1000000</span><span class="token punctuation">,</span>
+  <span class="token keyword">set</span> <span class="token function">discount</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>d <span class="token operator">=</span> x<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token keyword">get</span> <span class="token function">discount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Copy Car's properties to ElectricCar2 using Object.defineProperties</span>
+<span class="token comment">//and extract Car's properties using Object.getOwnPropertyDescriptors</span>
+<span class="token keyword">const</span> ElectricCar2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">defineProperties</span><span class="token punctuation">(</span>
+  <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptors</span><span class="token punctuation">(</span>Car<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Print details of ElectricCar2 object's 'discount' property</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>ElectricCar2<span class="token punctuation">,</span> <span class="token string">'discount'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//prints..</span>
+<span class="token comment">// &#123; get: [Function: get],  ??????</span>
+<span class="token comment">//   set: [Function: set],  ??????</span>
+<span class="token comment">//   enumerable: true,</span>
+<span class="token comment">//   configurable: true</span>
+<span class="token comment">// &#125;</span>
+<span class="token comment">// 🔥 Notice that getters and setters are present in the ElectricCar2 object for 'discount' property!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-Add-trailing-commas-in-the-function-parameters"><a href="#5-Add-trailing-commas-in-the-function-parameters" class="headerlink" title="5. Add trailing commas in the function parameters"></a>5. <code>Add trailing commas in the function parameters</code></h3><p>This is a minor update that allows us to have trailing commas after the last function parameter. Why? To help with tools like git blame to ensure only new developers get blamed.</p>
+<p>The below example shows the problem and the solution.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/KyY6NFFjMTOeAITlQNt-kKtE9q9E33vZrBbk" alt="ECMAScript 2017 (ES 8) — Trailing comma in function parameter"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//The problem</span>
+
+<span class="token comment">//Developer #1 creates this</span>
+<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>
+  name<span class="token punctuation">,</span>
+  age<span class="token punctuation">,</span> <span class="token comment">// Trailing comma after age para throws error</span>
+<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//Developer #2 adds address  parameter</span>
+<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>
+  name<span class="token punctuation">,</span>
+  age<span class="token punctuation">,</span> <span class="token comment">// adds a comma because of comma,developer #1 will be blamed by tools like git etc</span>
+  address<span class="token punctuation">,</span> <span class="token comment">//adds this new parameter</span>
+<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>address <span class="token operator">=</span> address<span class="token punctuation">;</span> <span class="token comment">//add this line</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//solution ES2017</span>
+<span class="token comment">//ALoow Develop #1 to add a trailiing comma</span>
+<span class="token comment">//Develop #1 creates this</span>
+<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>
+  name<span class="token punctuation">,</span>
+  age<span class="token punctuation">,</span> <span class="token comment">// because of trailing comma, developer #1 doesnt need to change this line</span>
+<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>Note: You can also call functions with trailing commas!</p>
+</blockquote>
+<h3 id="6-Async-Await"><a href="#6-Async-Await" class="headerlink" title="6. Async/Await"></a>6. Async/Await</h3><p>This, by far, is the most important and most useful feature if you ask me. Async functions allows us to not deal with callback hell and make the entire code look simple.</p>
+<p>The <code>async</code> keyword tells the JavaScript compiler to treat the function differently. The compiler pauses whenever it reaches the <code>await</code> keyword within that function. It assumes that the expression after <code>await</code> returns a promise and waits until the promise is resolved or rejected before moving further.</p>
+<p>In the example below, the <code>getAmount</code> function is calling two asynchronous functions <code>getUser</code> and <code>getBankBalance</code> . We can do this in promise, but using <code>async await</code> is more elegant and simple.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/JYCOVItTbISYtWjgbt2lDVdyk8KOOjYVk2sc" alt="ECMAScript 2017 (ES 8) — Async Await basic example"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Instead of</span>
+<span class="token comment">//ES2015 Promise</span>
+<span class="token keyword">function</span> <span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">getUser</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>getBankBalance<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">amount</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//Use ..</span>
+<span class="token comment">//ES2017</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAmount2</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> user <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getUser</span><span class="token punctuation">(</span>userId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> amount <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getBankBalance</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//$1,000</span>
+<span class="token function">getAmount2</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//$1,000</span>
+
+<span class="token keyword">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token parameter">userId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'john'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">getBankBalance</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">==</span> <span class="token string">'john'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'$1,000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'unknown user'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-1-Async-functions-themselves-return-a-Promise"><a href="#6-1-Async-functions-themselves-return-a-Promise" class="headerlink" title="6.1 Async functions themselves return a Promise."></a>6.1 Async functions themselves return a Promise.</h4><p>If you are waiting for the result from an async function, you need to use Promise’s <code>then</code> syntax to capture its result.</p>
+<p>In the following example, we want to log the result using <code>console.log</code> but not within the doubleAndAdd. So we want to wait and use <code>then</code> syntax to pass the result to <code>console.log</code> .</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/xnz7tfy5QVKp9VXjcVjqUoMXDwHZuGFX8rd1" alt="ECMAScript 2017 (ES 8) — Async Await themselves returns Promise"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Async funct ions themselves return a Promise!</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  a <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  b <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//Usage:</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token function">resolve</span><span class="token punctuation">(</span>param <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-2-Calling-async-await-in-parallel"><a href="#6-2-Calling-async-await-in-parallel" class="headerlink" title="6.2 Calling async/await in parallel"></a>6.2 Calling async/await in parallel</h4><p>In the previous example we are calling await twice, but each time we are waiting for one second (total 2 seconds). Instead we can parallelize it since <code>a</code> and <code>b</code> are not dependent on each other using <code>Promise.all</code>.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/kWJN5r5sz0F5o2XIpO1qmspgT1BujE0YTTtk"></p>
+<p>ECMAScript 2017 (ES 8) — Using Promise.all to parallelize async/await</p>
+<h4 id="6-3-Error-handling-async-await-functions"><a href="#6-3-Error-handling-async-await-functions" class="headerlink" title="6.3 Error handling async/await functions"></a>6.3 Error handling async/await functions</h4><p>There are various ways to handle errors when using async await.</p>
+<h4 id="Option-1-—-Use-try-catch-within-the-function"><a href="#Option-1-—-Use-try-catch-within-the-function" class="headerlink" title="Option 1 — Use try catch within the function"></a>Option 1 — Use try catch within the function</h4><p><img src="https://cdn-media-1.freecodecamp.org/images/PfUYa9Vo5hTFbCHaE5XnaiPjuV4VmUNVWtVh" alt="ECMAScript 2017 — **Use try catch within the async/await function**"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Option 1 - Use try catch within the function</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    a <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    b <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token number">NaN</span><span class="token punctuation">;</span> <span class="token comment">//return something</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//?Usage:</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// NaN</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+
+<span class="token keyword">function</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> val <span class="token operator">=</span> param <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      <span class="token function">isNaN</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Option-2—-Catch-every-await-expression"><a href="#Option-2—-Catch-every-await-expression" class="headerlink" title="Option 2— Catch every await expression"></a>Option 2— Catch every await expression</h4><p>Since every <code>await</code> expression returns a Promise, you can catch errors on each line as shown below.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/wGCb4bAga1z9mkI1FwKRhYFugCL00pUTeavM" alt="ECMAScript 2017 — **Use try catch every await expression**"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Option 2 - *Catch* errors on  every await line</span>
+<span class="token comment">//as each await expression is a Promise in itself</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  a <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'"a" is NaN'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ?</span>
+  b <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'"b" is NaN'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ?</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>a <span class="token operator">||</span> <span class="token operator">!</span>b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token number">NaN</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//?Usage:</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// NaN  and logs:  "a" is NaN</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+
+<span class="token keyword">function</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> val <span class="token operator">=</span> param <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      <span class="token function">isNaN</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Option-3-—-Catch-the-entire-async-await-function"><a href="#Option-3-—-Catch-the-entire-async-await-function" class="headerlink" title="Option 3 — Catch the entire async-await function"></a>Option 3 — Catch the entire async-await function</h4><p><img src="https://cdn-media-1.freecodecamp.org/images/bYcQiaVTX1wRzOGg0Vh13TYg5WW8qSVu0DS6" alt="ECMAScript 2017 — **Catch the entire async/await function at the end**"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Option 3 - Dont do anything but handle outside the function</span>
+<span class="token comment">//since async / await returns a promise, we can catch the whole function's error</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  a <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  b <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//?Usage:</span>
+<span class="token function">doubleAndAdd</span><span class="token punctuation">(</span><span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>log<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ???&lt;------- use "catch"</span>
+
+<span class="token keyword">function</span> <span class="token function">doubleAfter1Sec</span><span class="token punctuation">(</span><span class="token parameter">param</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> val <span class="token operator">=</span> param <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      <span class="token function">isNaN</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token number">NaN</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ECMAScript-2018"><a href="#ECMAScript-2018" class="headerlink" title="ECMAScript 2018"></a>ECMAScript 2018</h2><p><img src="https://cdn-media-1.freecodecamp.org/images/G9wavF5qssi1AP4C2lF9WgiQ7Hm766eWGt6J"></p>
+<blockquote>
+<p>ECMAScript is currently in final draft and will be out in June or July 2018. All the features covered below are in Stage-4 and will be part of ECMAScript 2018.</p>
+</blockquote>
+<h4 id="1-Shared-memory-and-atomics"><a href="#1-Shared-memory-and-atomics" class="headerlink" title="1. Shared memory and atomics"></a>1. <a target="_blank" rel="noopener" href="https://github.com/tc39/ecmascript_sharedmem">Shared memory and atomics</a></h4><p>This is a huge, pretty advanced feature and is a core enhancement to JS engines.</p>
+<p><strong>The main idea is to bring some sort of multi-threading feature to JavaScript so that JS developers can write high-performance, concurrent programs in the future by allowing to manage memory by themselves instead of letting JS engine manage memory.</strong></p>
+<p>This is done by a new type of a global object called <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">SharedArrayBuffer</a> that essentially stores data in a <strong><em>shared</em></strong> <strong>memory space</strong>. So this data can be shared between the main JS thread and web-worker threads.</p>
+<p>Until now, if we want to share data between the main JS thread and web-workers, we had to copy the data and send it to the other thread using <code>postMessage</code> . Not anymore!</p>
+<p>You simply use SharedArrayBuffer and the data is instantly accessible by both the main thread and multiple web-worker threads.</p>
+<p>But sharing memory between threads can cause race conditions. To help avoid race conditions, the “<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics"><em>Atomics</em></a>“ global object is introduced. <em>Atomics</em> provides various methods to lock the shared memory when a thread is using its data. It also provides methods to update such data in that shared memory safely.</p>
+<blockquote>
+<p>The recommendation is to use this feature via some library, but right now there are no libraries built on top of this feature.</p>
+</blockquote>
+<p>If you are interested, I recommend reading:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://lucasfcosta.com/2017/04/30/JavaScript-From-Workers-to-Shared-Memory.html"><em>From Workers to Shared Memor</em></a><em>y — <a target="_blank" rel="noopener" href="http://lucasfcosta.com/">lucasfcosta</a></em></li>
+<li><a target="_blank" rel="noopener" href="https://hacks.mozilla.org/category/code-cartoons/a-cartoon-intro-to-sharedarraybuffers/"><em>A cartoon intro to SharedArrayBuffers</em></a> <em>— <a href="/news/here-are-examples-of-everything-new-in-ecmascript-2016-2017-and-2018-d52fa3b5a70e/undefined">Lin Clark</a></em></li>
+<li><a target="_blank" rel="noopener" href="http://2ality.com/2017/01/shared-array-buffer.html"><em>Shared memory and atomics</em></a> <em>— <a target="_blank" rel="noopener" href="http://rauschma.de/">Dr. Axel Rauschmayer</a></em></li>
+</ol>
+<h4 id="2-Tagged-Template-literal-restriction-removed"><a href="#2-Tagged-Template-literal-restriction-removed" class="headerlink" title="2. Tagged Template literal restriction removed"></a>2. Tagged Template literal restriction removed</h4><p>First, we need to clarify what a “Tagged Template literal” is so we can understand this feature better.</p>
+<p>In ES2015+, there is a feature called a tagged template literal that allows developers to customize how strings are interpolated. For example, in the standard way strings are interpolated like below…</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/qijvAdivaNWMbUMxVg4rer3K1BWYl7bbCcO5"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Standard string literal interpolation</span>
+<span class="token keyword">const</span> firstname <span class="token operator">=</span> <span class="token string">'Raja'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> greetings <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>firstname<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greetings<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"Hello Raja!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In the tagged literal, you can write a function to receive the hardcoded parts of the string literal, for example <code>[ ‘Hello ‘, ‘!’ ]</code> , and the replacement variables, for example,<code>[ &#39;Raja&#39;]</code> , as parameters into a custom function (for example <code>greet</code> ), and return whatever you want from that custom function.</p>
+<p>The below example shows that our custom “Tag” function <code>greet</code> appends time of the day like “Good Morning!” “Good afternoon,” and so on depending on the time of the day to the string literal and returns a custom string.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/aRMqlDhbYudFqPvnNhfrPYkyKXgTkaEn87t0" alt="Tag function example that shows custom string interpolation"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//A "Tag" function returns a custom string literal.</span>
+<span class="token comment">//In this example, greet calls timeGreet() to append Good //Morning/Afternoon/Evening depending on the time of the day.</span>
+
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token parameter">hardCodedPartsArray<span class="token punctuation">,</span> <span class="token operator">...</span>replacementPartsArray</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>hardCodedPartsArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[ 'Hello ', '!' ]</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>replacementPartsArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//[ 'Raja' ]</span>
+
+  <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  hardCodedPartsArray<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">string<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> replacementPartsArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      str <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>string<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>replacementPartsArray<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      str <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>string<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token function">timeGreet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span> <span class="token comment">//&lt;-- append Good morning/afternoon/evening here</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> str<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//?Usage:</span>
+<span class="token keyword">const</span> firstName <span class="token operator">=</span> <span class="token string">'Raja'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> greetings <span class="token operator">=</span> greet<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>firstName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span> <span class="token comment">//??&lt;-- Tagged literal</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greetings<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//'Hello  Raja! Good Morning!' ?</span>
+
+<span class="token keyword">function</span> <span class="token function">timeGreet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> hr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> hr <span class="token operator">&lt;</span> <span class="token number">12</span>
+    <span class="token operator">?</span> <span class="token string">'Good Morning!'</span>
+    <span class="token operator">:</span> hr <span class="token operator">&lt;</span> <span class="token number">18</span>
+    <span class="token operator">?</span> <span class="token string">'Good Afternoon!'</span>
+    <span class="token operator">:</span> <span class="token string">'Good Evening!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now that we discussed what “Tagged” functions are, many people want to use this feature in different domains, like in Terminal for commands and HTTP requests for composing URIs, and so on.</p>
+<h4 id="⚠️The-problem-with-Tagged-String-literal"><a href="#⚠️The-problem-with-Tagged-String-literal" class="headerlink" title="⚠️The problem with Tagged String literal"></a>⚠️The problem with Tagged String literal</h4><p>The problem is that ES2015 and ES2016 specs doesn’t allow using escape characters like “\u” (unicode), “\x”(hexadecimal) unless they look exactly like <code>\u00A9</code> or \u{2F804} or \xA9.</p>
+<p>So if you have a Tagged function that internally uses some other domain’s rules (like Terminal’s rules), that may need to use <strong>\ubla123abla</strong> that doesn’t look like \u0049 or \u{@F804}, then you would get a syntax error.</p>
+<p>In ES2018, the rules are relaxed to allow such seemingly invalid escape characters as long as the Tagged function returns the values in an object with a “cooked” property (where invalid characters are “undefined”), and then a “raw” property (with whatever you want).</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">myTagFunc</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> cooked<span class="token operator">:</span> <span class="token string">'undefined'</span><span class="token punctuation">,</span> raw<span class="token operator">:</span> str<span class="token punctuation">.</span>raw<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">var</span> str <span class="token operator">=</span> myTagFunc<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hi \ubla123abla</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span> <span class="token comment">//call myTagFunc</span>
+
+str<span class="token punctuation">;</span> <span class="token comment">// &#123; cooked: "undefined", raw: "hi \\unicode" &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-“dotall”-flag-for-Regular-expression"><a href="#3-“dotall”-flag-for-Regular-expression" class="headerlink" title="3. “dotall” flag for Regular expression"></a>3. “dotall” flag for Regular expression</h3><p>Currently in RegEx, although the dot(“.”) is supposed to match a single character, it doesn’t match new line characters like <code>\n \r \f etc</code>.</p>
+<p>For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Before</span>
+<span class="token operator">/</span>first<span class="token punctuation">.</span>second<span class="token operator">/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'first\nsecond'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>This enhancement makes it possible for the dot operator to match any single character. In order to ensure this doesn’t break anything, we need to use <code>\s</code> flag when we create the RegEx for this to work.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//ECMAScript 2018</span>
+<span class="token operator">/</span>first<span class="token punctuation">.</span>second<span class="token operator">/</span>s<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'first\nsecond'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true   Notice: /s ??</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Here is the overall API from the <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-regexp-dotall-flag">proposal</a> doc:</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/leiiozJApb5rPA97rUqBOvzvEtVguXtPcOrk"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> re <span class="token operator">=</span> <span class="token regex">/foo.bar/s</span><span class="token punctuation">;</span>
+<span class="token comment">//Or,const re = new RegExp('foo.bar','s');</span>
+
+re<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'foo\nbar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//-> true</span>
+re<span class="token punctuation">.</span>dotAll<span class="token punctuation">;</span> <span class="token comment">//-> true</span>
+re<span class="token punctuation">.</span>flags<span class="token punctuation">;</span> <span class="token comment">//-> 's'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2018 — Regex dotAll feature allows matching even \n via “.” via /s flag</p>
+<h3 id="4-RegExp-Named-Group-Captures"><a href="#4-RegExp-Named-Group-Captures" class="headerlink" title="4. RegExp Named Group Captures ?"></a>4. RegExp Named Group Captures ?</h3><p>This enhancement brings a useful RegExp feature from other languages like Python, Java and so on called “Named Groups.” This features allows developers writing RegExp to provide names (identifiers) in the format<code>(?&lt;name&gt;...)</code> for different parts of the group in the RegExp. They can then use that name to grab whichever group they need with ease.</p>
+<h4 id="4-1-Basic-Named-group-example"><a href="#4-1-Basic-Named-group-example" class="headerlink" title="4.1 Basic Named group example"></a>4.1 Basic Named group example</h4><p>In the below example, we are using <code>(?&lt;year&gt;) (?&lt;month&gt;) and (?&lt;day&gt;)</code> names to group different parts of the date RegEx. The resulting object will now contain a <code>groups</code> property with properties <code>year</code>, <code>month</code> , and <code>day</code> with corresponding values.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/TkGEzq1zFYdE-YP8YJadJ7VacNhF9gsyf7FB"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Before</span>
+<span class="token keyword">let</span> re1 <span class="token operator">=</span> <span class="token regex">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> result1 <span class="token operator">=</span> re1<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'2015-01-02'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//Prints..</span>
+<span class="token comment">//["2015-01-02", "2015", "01", "02", index: 0, input: "2015-01-02", groups: undefined]</span>
+
+<span class="token comment">//AFTER (Ecmascript 2018)</span>
+<span class="token keyword">let</span> re2 <span class="token operator">=</span> <span class="token regex">/(?&lt;year>\d&#123;4&#125;)-(?&lt;month>\d&#123;2&#125;)-(?&lt;day>\d&#123;2&#125;)/u</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> result2 <span class="token operator">=</span> re2<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'2015-01-02'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//Prints..</span>
+<span class="token comment">//["2015-01-02", "2015", "01", "02", index: 0, input: "2015-01-02", groups: &#123;day: "02",month: "01",year: "2015"&#125;]</span>
+
+<span class="token comment">// 🚀USAGE:</span>
+<span class="token comment">//Say you want to know the year, you can do..</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result2<span class="token punctuation">.</span>groups<span class="token punctuation">.</span>year<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//2015</span>
+<span class="token comment">//source:https://github.com/tc39/proposal-regexp-named-groups</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2018 — Regex named groups example</p>
+<h4 id="4-2-Using-Named-groups-inside-regex-itself"><a href="#4-2-Using-Named-groups-inside-regex-itself" class="headerlink" title="4.2 Using Named groups inside regex itself"></a>4.2 Using Named groups inside regex itself</h4><p>We can use the <code>\k&lt;group name&gt;</code> format to back reference the group within the regex itself. The following example shows how it works.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hc1rRx9L0IPX0BG0CGtqUWIRf2KRAHC-5P7R"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//In the example below, we have a group called "fruit</span>
+<span class="token comment">//It can either match apple"or " orange". We can back reference</span>
+<span class="token comment">//this group's result using "\k&lt;group name>"that is, (\k&lt;fruit>)</span>
+<span class="token comment">//so it matches the same word on both sides of the ==</span>
+<span class="token keyword">let</span> sameWords <span class="token operator">=</span> <span class="token regex">/(?&lt;fruit>apple|orange)==\k&lt;fruit>/u</span><span class="token punctuation">;</span>
+sameWords<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple==apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+sameWords<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'orange==orange'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+sameWords<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple==orange'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2018 — Regex named groups back referencing via <code>\k&lt;group name&gt;</code></p>
+<h4 id="4-3-Using-named-groups-in-String-prototype-replace"><a href="#4-3-Using-named-groups-in-String-prototype-replace" class="headerlink" title="4.3 Using named groups in String.prototype.replace"></a>4.3 Using named groups in String.prototype.replace</h4><p>The named group feature is now baked into String’s <code>replace</code> instance method. So we can easily swap words in the string.</p>
+<p>For example, change “firstName, lastName” to “lastName, firstName”.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/bQvxKQY6VfUNRGjeAsCXm0EJEDCbgPe0ti0S"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Convert "firstName lastName" into "lastname, firstName"</span>
+<span class="token keyword">let</span> re <span class="token operator">=</span> <span class="token regex">/(?&lt;firstName>[A-Za-z]+) (?&lt;lastName>[A-Za-z]+$)/u</span><span class="token punctuation">;</span>
+<span class="token string">'Raja Rao'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>re<span class="token punctuation">,</span> <span class="token string">'$&lt;lastName>, $&lt;firstName>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"Rao, Raja"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2018 — Using RegEx’s named groups feature in replace function</p>
+<h3 id="5-Rest-properties-for-Objects"><a href="#5-Rest-properties-for-Objects" class="headerlink" title="5. Rest properties for Objects"></a>5. Rest properties for Objects</h3><p>Rest operator <code>...</code> (three dots) allows us to extract Object properties that are not already extracted.</p>
+<h4 id="5-1-You-can-use-rest-to-help-extract-only-properties-you-want"><a href="#5-1-You-can-use-rest-to-help-extract-only-properties-you-want" class="headerlink" title="5.1 You can use rest to help extract only properties you want"></a>5.1 You can use rest to help extract only properties you want</h4><p><img src="https://cdn-media-1.freecodecamp.org/images/WBZ31BCucgiEXjxal3IkEEdHFbkk3PwpbzGF" alt="ECMAScript 2018 — Object destructuring via rest"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Extract firstName and age</span>
+<span class="token comment">//and store the rest of the items in 'remaining' variable</span>
+<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> firstName<span class="token punctuation">,</span> age<span class="token punctuation">,</span> <span class="token operator">...</span>remaining <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  firstName<span class="token operator">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span>
+  lastName<span class="token operator">:</span> <span class="token string">'smith'</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+  height<span class="token operator">:</span> <span class="token string">'5.10'</span><span class="token punctuation">,</span>
+  race<span class="token operator">:</span> <span class="token string">'martian'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+firstName<span class="token punctuation">;</span> <span class="token comment">// john</span>
+age<span class="token punctuation">;</span> <span class="token comment">// 20</span>
+remaining<span class="token punctuation">;</span> <span class="token comment">// &#123;lastName: "smith", height: "5.10", race: "martian"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-2-Even-better-you-can-remove-unwanted-items"><a href="#5-2-Even-better-you-can-remove-unwanted-items" class="headerlink" title="5.2 Even better, you can remove unwanted items! ??"></a>5.2 Even better, you can remove unwanted items! ??</h4><p><img src="https://cdn-media-1.freecodecamp.org/images/jMNJhSOaReoiWi9Z6LZdQYmxT0aVHedQiRKO" alt="ECMAScript 2018 — Object destructuring via rest"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//let's say was want to remove SSN, we don't have to Loop</span>
+<span class="token comment">//through the whole object and create a new cleanObj</span>
+
+<span class="token comment">//Simply use rest destructuring to extract out SSN</span>
+<span class="token comment">//and keep the remaining in cleanobj</span>
+<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> <span class="token constant">SSN</span><span class="token punctuation">,</span> <span class="token operator">...</span>cleanObj <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  firstName<span class="token operator">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span>
+  LastName<span class="token operator">:</span> <span class="token string">'smith'</span><span class="token punctuation">,</span>
+  <span class="token constant">SSN</span><span class="token operator">:</span> <span class="token string">'123-45-6789'</span><span class="token punctuation">,</span>
+  race<span class="token operator">:</span> <span class="token string">'martian'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+cleanObj<span class="token punctuation">;</span> <span class="token comment">// &#123;firstName: "john", LastName: "smith", race: "martian"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-Spread-properties-for-Objects"><a href="#6-Spread-properties-for-Objects" class="headerlink" title="6. Spread properties for Objects"></a>6. Spread properties for Objects</h3><p><strong>Spread properties also look just like rest properties with three dots <code>...</code> but the difference is that you use spread to create (restructure) new objects.</strong></p>
+<blockquote>
+<p><strong>Tip: the spread operator is used in the right side of the equals sign. The rest are used in the left-side of the equals sign.</strong></p>
+</blockquote>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/Kw63nZhNAIkprEucTKQou35zzTDcvoXenX4D" alt="ECMAScript 2018 — Object restructuring via spread"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> fiName<span class="token operator">:</span> <span class="token string">'john'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> account <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'bofa'</span><span class="token punctuation">,</span> amount<span class="token operator">:</span> <span class="token string">'$1000'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token comment">//Extract persons and account's properties via spread operator</span>
+<span class="token comment">//and add it to a new object</span>
+<span class="token keyword">const</span> personAndAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>person<span class="token punctuation">,</span> <span class="token operator">...</span>account <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+personAndAccount<span class="token punctuation">;</span> <span class="token comment">// &#123;fiName: "john", age: 20, name: "bofa", amount: "$1000"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-RegExp-Lookbehind-Assertions"><a href="#7-RegExp-Lookbehind-Assertions" class="headerlink" title="7. RegExp Lookbehind Assertions"></a>7. RegExp Lookbehind Assertions</h3><p>This is an enhancement to the RegEx that allows us to ensure some string exists immediately <em>__before__\</em> some other string.</p>
+<p>You can now use a group <code>(?&lt;=…)</code> <strong>(question mark, less than, equals)</strong> to look behind for positive assertion.</p>
+<p>Further, you can use <code>(?&lt;!…)</code> <strong>(question mark, less than, exclamation)</strong>, to look behind for a negative assertion. Essentially this will match as long as the -ve assertion passes.</p>
+<p><strong>Positive Assertion:</strong> Let’s say we want to ensure that the <code>#</code> sign exists before the word <code>winning</code> (that is: <code>#winning</code>) and want the regex to return just the string “winning”. Here is how you’d write it.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/sz6nM4Fzby9XVG96i8eUCvzoE705bGAEeHb7" alt="ECMAScript 2018 — `(?&lt;=…) for positive assertion`"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token regex">/(?&lt;=#).*/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'winning'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span>
+<span class="token operator">/</span><span class="token punctuation">(</span><span class="token operator">?</span><span class="token operator">&lt;=</span>#<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token operator">/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'#winning'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+<span class="token comment">//Before</span>
+<span class="token string">'#winning'</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/#.*/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// '#winning' ..match includes #</span>
+
+<span class="token comment">//AFTER ES2018</span>
+<span class="token string">'#winnin'</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/(?&lt;=#).*/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 'winning'  no #..# is just for verification)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Negative Assertion:</strong> Let’s say we want to extract numbers from lines that have € signs and not $ signs before those numbers.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/KA-ZXAVf2GOH65G1ndEwkkl7fEFyTaxWDPlL" alt="ECMAScript 2018 — (?&lt;!…) for negative assertions"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//number 3.00 was not matched because of '$' sign before it</span>
+<span class="token string">'A gallon of milk is $3.00'</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/(?&lt;!\$)\d+\.?\d+/</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//null</span>
+<span class="token comment">//number 2.43 was matched because '$' sign was not before it</span>
+<span class="token comment">//when mathed, it doesn"t include the € sign!</span>
+<span class="token string">'A gallon of milk is €2.43'</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/(?&lt;!\$)\d+\.?\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//2.43</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-RegExp-Unicode-Property-Escapes"><a href="#8-RegExp-Unicode-Property-Escapes" class="headerlink" title="8. RegExp Unicode Property Escapes"></a>8. <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-regexp-unicode-property-escapes">RegExp Unicode Property Escapes</a></h3><p>It was not easy to write RegEx to match various unicode characters. Things like <code>\w</code> , <code>\W</code> , <code>\d</code> etc only match English characters and numbers. But what about numbers in other languages like Hindi, Greek, and so on?</p>
+<p>That’s where Unicode Property Escapes come in. <strong>It turns out Unicode adds metadata properties for each symbol (character) and uses it to group or characterize various symbols.</strong></p>
+<p>For example, Unicode database groups all Hindi characters(हिन्दी) under a property called <code>Script</code> with value <code>Devanagari</code> and another property called <code>Script_Extensions</code> with the same value <code>Devanagari</code>. So we can search for <code>Script=Devanagari</code> and get all Hindi characters.</p>
+<p><strong><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Devanagari_(Unicode_block)">Devanagari</a> can be used for various Indian languages like Marathi, Hindi, Sanskrit, and so on.</strong></p>
+<p>Starting in ECMAScript 2018, we can use <code>\p</code> to escape characters along with <code>&#123;Script=Devanagari&#125;</code> to match all those Indian characters. <strong>That is, we can use:</strong> <code>****\p&#123;Script=Devanagari&#125;****</code> <strong>in the RegEx to match all Devanagari characters.</strong></p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/zCjtuGGGmBvzUO9b2cCdqraXfEavM4KrQBhN" alt="ECMAScript 2018 — showing \p"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//The following matches multiple hindi character</span>
+<span class="token operator">/</span><span class="token operator">^</span>\p<span class="token punctuation">&#123;</span>Script<span class="token operator">=</span>Devanagari<span class="token punctuation">&#125;</span><span class="token operator">+</span>$<span class="token operator">/</span>u<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'हिन्दी'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+<span class="token comment">//PS:there are 3 hindi characters h</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Similarly, Unicode database groups all Greek characters under <code>Script_Extensions</code> (and <code>Script</code> ) property with the value <code>Greek</code> . So we can search for all Greek characters using <code>Script_Extensions=Greek</code> or <code>Script=Greek</code> .</p>
+<p><strong>That is, we can use:</strong> <code>****\p&#123;Script=Greek&#125;****</code> <strong>in the RegEx to match all Greek characters.</strong></p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hXu3bf5S3R68S0NgqCY6qpBP69HdAShaJdgx" alt="ECMAScript 2018 — showing \p"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//The following matches a single Greek character</span>
+<span class="token operator">/</span>\p<span class="token punctuation">&#123;</span>Script_Extensions<span class="token operator">=</span>Greek<span class="token punctuation">&#125;</span><span class="token operator">/</span>u<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'π'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Further, the Unicode database stores various types of Emojis under the boolean properties <code>Emoji</code>, <code>Emoji_Component</code>, <code>Emoji_Presentation</code>, <code>Emoji_Modifier</code>, and <code>Emoji_Modifier_Base</code> with property values as `true`. So we can search for all Emojis by simply selecting <code>Emoji</code> to be true.</p>
+<p><strong>That is, we can use:</strong> <code>****\p&#123;Emoji&#125;****</code> <strong>,</strong><code>****\Emoji_Modifier****</code> <strong>and so on to match various kinds of Emojis.</strong></p>
+<p>The following example will make it all clear.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/hp2GXlB3IanbeH9m1fEOzXglZJiofBKUxdY6" alt="ECMAScript 2018 — showing how \p can be used for various emojis"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//The following matches an Emoji character</span>
+<span class="token operator">/</span>\p<span class="token punctuation">&#123;</span>Emoji<span class="token punctuation">&#125;</span><span class="token operator">/</span>u<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'❤️'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+
+<span class="token comment">//The following fails because yellow emojis don't need/have Emoji_Modifier!</span>
+<span class="token regex">/\p&#123;Emoji&#125;\p&#123;Emoji_Modifier&#125;/u</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'👌'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//false</span>
+
+<span class="token comment">//The following matches an emoji character\p&#123;Emoji&#125; followed by \p&#123;Emoji_Modifier&#125;</span>
+<span class="token regex">/\p&#123;Emoji&#125;\p&#123;Emoji_Modifier&#125;/u</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'👌🏿'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+
+<span class="token comment">//Explaination:</span>
+<span class="token comment">//By default the victory emoji is yellow color.</span>
+<span class="token comment">//If we use a brown, black or other variations of the same emoji, they are considered</span>
+<span class="token comment">//as variations of the original Emoji and are represented using two unicode characters.</span>
+<span class="token comment">//One for the original emoji, followed by another unicode character for the color.</span>
+<span class="token comment">//</span>
+<span class="token comment">//So in the below example, although we only see a single brown victory emoji,</span>
+<span class="token comment">//it actually uses two unicode characters, one for the emoji and another</span>
+<span class="token comment">// for the brown color.</span>
+<span class="token comment">//</span>
+<span class="token comment">//In Unicode database, these colors have Emoji_Modifier property.</span>
+<span class="token comment">//So we need to use both \p&#123;Emoji&#125; and \p&#123;Emoji_Modifier&#125; to properly and</span>
+<span class="token comment">//completely match the brown emoji.</span>
+<span class="token operator">/</span>\p<span class="token punctuation">&#123;</span>Emoji<span class="token punctuation">&#125;</span>\p<span class="token punctuation">&#123;</span>Emoji_Modifier<span class="token punctuation">&#125;</span><span class="token operator">/</span>u<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'👌🏿'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Lastly, we can use capital “P”(</strong><code>\P</code> <strong>) escape character instead of small p (</strong><code>\p</code> )<strong>, to negate the matches.</strong></p>
+<p>References:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://mathiasbynens.be/notes/es-unicode-property-escapes"><strong>ECMAScript 2018 Proposal</strong></a></li>
+<li><a target="_blank" rel="noopener" href="https://mathiasbynens.be/notes/es-unicode-property-escapes"><strong>https://mathiasbynens.be/notes/es-unicode-property-escapes</strong></a></li>
+</ol>
+<h3 id="8-Promise-prototype-finally"><a href="#8-Promise-prototype-finally" class="headerlink" title="8. Promise.prototype.finally()"></a>8. Promise.prototype.finally()</h3><p><code>finally()</code> is a new instance method that was added to Promise. The main idea is to allow running a callback after either <code>resolve</code> or <code>reject</code> to help clean things up. The <code>****finally****</code> <strong>callback is called without any value and is always executed no matter what.</strong></p>
+<p>Let’s look at various cases.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/yQ99TgkxFshSnmlQqdfFMM73kQcxAcKH2VHl" alt="ECMAScript 2018 — finally() in resolve case"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Resolve case...</span>
+<span class="token keyword">let</span> started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'all good'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//logs 'all good'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//skipped</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This function is always executed!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    started <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//clean up</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/KlH72OCk03Fj3AXXtaB-gXVnxDFKEtWz7nUp" alt="ECMAScript 2018 — finally() in reject case"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Reject case...</span>
+<span class="token keyword">let</span> started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'reject apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//logs 'reject apple'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//catch is skipped</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//Notice that no value is passed here!</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This function is always executed!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    started <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//clean up</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/WFFh7DJihhy4C2bGH86n2g5bZ9vyoNu1h7WU" alt="ECMASCript 2018 — finally() in Error thrown from Promise case"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Error case 1...</span>
+<span class="token comment">//Error thrown from Promise</span>
+<span class="token keyword">let</span> started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//skipped</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//catch is called since there was an error</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//Notice that no value is passed here!</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This function is always executed!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    started <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//clean up</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/Y34QmvZuh3kYeob2HC3W4fFXB2fFkpRLvfND" alt="ECMAScript 2018 — Error thrown from within **catch** case"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Error thrown from "catch" case...</span>
+<span class="token keyword">let</span> started <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> myPromise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'something happend'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//skipped</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'throw another error'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">finally</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//Yhis is stilled called w/o any value</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'This function is always executed!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    started <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//clean up</span>
+    <span class="token comment">//Note: error from the  catch will need to</span>
+    <span class="token comment">//be handled by the calling function elsethere!</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="9-Asynchronous-Iteration"><a href="#9-Asynchronous-Iteration" class="headerlink" title="9. Asynchronous Iteration"></a>9. Asynchronous Iteration</h3><p>This is an extremely useful feature. Basically it allows us to create loops of async code with ease!</p>
+<p>This feature adds a new <strong>“for-await-of”</strong> loop that allows us to call async functions that return promises (or Arrays with a bunch of promises) in a loop. The cool thing is that the loop waits for each Promise to resolve before doing to the next loop.</p>
+<p><img src="https://cdn-media-1.freecodecamp.org/images/XAZiwAIhT8JdwhA5y7GMP8Dm4oJ1tyqsI5Qo"></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> promises <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">//BEFORE:</span>
+<span class="token comment">//for-of uses regular sync iterator</span>
+<span class="token comment">//doesn't wait for promise to resolve</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> obj <span class="token keyword">of</span> promises<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Logs 3 promise objects</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//AFTER</span>
+<span class="token comment">//for-await-of uses Async iterator</span>
+<span class="token comment">//Waits for Promise to resolve for each Loop</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> obj <span class="token keyword">of</span> promises<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Logs 1,2, 3</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//promise, promise, promise</span>
+
+<span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//1, 2, 3.. prints values</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>ECMAScript 2018 — Async Iterator via for-await-of</p>
+<p>That’s pretty much it!</p>
+<p>If this was useful, please click the clap ? button down below a few times to show your support! ⬇⬇⬇ ??</p>
+<h3 id="My-Other-Posts"><a href="#My-Other-Posts" class="headerlink" title="My Other Posts"></a>My Other Posts</h3><p><del><a target="_blank" rel="noopener" href="https://medium.com/@rajaraodv/latest"><em>https://medium.com/@rajaraodv/latest</em></a></del></p>
+<h4 id="Related-ECMAScript-2015-posts"><a href="#Related-ECMAScript-2015-posts" class="headerlink" title="Related ECMAScript 2015+ posts"></a>Related ECMAScript 2015+ posts</h4><ol>
+<li><strong><a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/check-out-these-useful-ecmascript-2015-es6-tips-and-tricks-6db105590377"><em>Check out these useful ECMAScript 2015 (ES6) tips and tricks</em></a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://medium.com/@rajaraodv/5-javascript-bad-parts-that-are-fixed-in-es6-c7c45d44fd81#.7e2s6cghy"><em>5 JavaScript “Bad” Parts That Are Fixed In ES6</em></a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://medium.com/@rajaraodv/is-class-in-es6-the-new-bad-part-6c4e6fe1ee65#.4hqgpj2uv"><em>Is “Class” In ES6 The New “Bad” Part?</em></a></strong></li>
+</ol>
+<hr>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-04-03T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/vue-sibling-component-communication/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Vue Sibling Component Communication">
+                        
+                        <span class="card-title">Vue Sibling Component Communication</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Component-Communication/">
+                        <span class="chip bg-color">Component Communication</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/vuejs-parent-child-communication/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="VueJs Parent Child Communication">
+                        
+                        <span class="card-title">VueJs Parent Child Communication</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Component-Communication/">
+                        <span class="chip bg-color">Component Communication</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

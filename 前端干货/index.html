@@ -1,0 +1,1550 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端干货, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端干货 | 庄引的博客</title><meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端干货</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-28
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6864113282354479111">https://juejin.im/post/6864113282354479111</a></p>
+</blockquote>
+<p>入职新公司好几天了, 给大家分享下面试的经历.</p>
+<p>希望能对找工作的同学有帮助.</p>
+<h3 id="1-为什么辞职？"><a href="#1-为什么辞职？" class="headerlink" title="1 为什么辞职？"></a>1 为什么辞职？</h3><p>马老板说了, 离职无非两个原因,<strong>「一个是受委屈了, 一个是钱少了」</strong></p>
+<p>我确实觉得钱少了, 因为去年又买了一套房, 两套房贷压着, 并且也有了可以涨薪的能力. 但更重要的是觉得发展受限, 我上家公司是家外包, 18 年 10 月份入职的, 20 年 8 月份离职. 程序员如果深感技术受限, 会非常焦虑的, 也容易否定自我.</p>
+<p>2 年时间在项目中技术并没有明显的提升, 一些新的知识点或者新的尝试也不会让你做, 因为所有的任务都是上面分配下来的. 所以对于大多数新的技能都是通过下班后自己的个人项目进行尝试的.</p>
+<p>身边很多同事都是 30 多岁了, 这个年纪跳出外包的机会比较小了, 或者意味今后他们的程序员生涯都会在外包待着.</p>
+<p>这不是我想要的生活, 18 年有面了自研公司, 而且工资比外包高, 由于种种原因, 还是选择了外包, 当初走错了一条路, 导致现在又要退回去走另外一条. 我希望在 30 岁前能真正理解前端这个行业, 像一位老者回顾人生, 能读透. 如果可能的话, 我大概会在 30 岁前成为真正的高级前端工程师, 这两天我也对自己做了新的规划, 希望真 2023 年能对现在的自己说, 感谢曾经的你, 我来接棒.</p>
+<p><strong>「当你想离职了, 你要相信, 你这个想法大概率是个正确决定」</strong>, 这个时候不要犹豫, 说明你已经意识到你不适合这里了, 抓紧走, 越快越好.</p>
+<h3 id="2-面试经历"><a href="#2-面试经历" class="headerlink" title="2 面试经历"></a>2 面试经历</h3><p>换工作的想法是今年 6 月份就有了, 有看掘金上面很多知识点的总结和相关面经, 说实话,<strong>「这些面经大多用的上.」</strong></p>
+<p>我面试的公司有 10 几家, 有外包的, 自研的, 电话的, 视频的, 现场的都有, 外包是他们打过来的. 给出的 offer 最高的是 18.5k, 最低 16k, 我工作经验 4 年, 这个工资基本是行情价. 当然那些比较牛逼或是 985,211 的同学拿的工资会高很多, 但是毕竟少数, 这里不做讨论.</p>
+<p>我是在职的时候就去面试了, 因为担心疫情原因, 招聘需求会减少. 实际面试过程中, 前端的需求还是较多的 (可能也跟我最近 2 年没有去面试, 对前两年的需求没有感知有关) 有一些规律可以给大家说一下,<strong>「大公司会把 80% 的时间花在问项目上, 小公司或者外包会把 80% 时间问一些技术点上面」</strong>.</p>
+<h3 id="3-面试会问什么"><a href="#3-面试会问什么" class="headerlink" title="3 面试会问什么"></a>3 面试会问什么</h3><h3 id="3-1-具体题型"><a href="#3-1-具体题型" class="headerlink" title="3.1 具体题型"></a>3.1 具体题型</h3><p>为了保证招聘公司能招聘到合适的员工, 以下所有面试题都不会指出具体的公司. 以下问题分为 <strong>「必问题」</strong>, 和 <strong>「大概率问题」</strong>,<strong>「小概率问题」</strong></p>
+<p>这个概率值是通过对面试的这 10 几个公司, 做了全面的统计得出来的 (<strong>「不具有普适性」</strong>)</p>
+<p>有些问题大家都会, 我就不贴答案了</p>
+<h4 id="必问题-必问题-必问题"><a href="#必问题-必问题-必问题" class="headerlink" title="必问题 必问题 必问题"></a>必问题 必问题 必问题</h4><ol>
+<li>vue 响应式原理？详细说一下过程.</li>
+</ol>
+<p>可以看一下 <a target="_blank" rel="noopener" href="https://juejin.im/post/6850418111985352711">这篇文章</a> 或者掘金相关文章.<br>真是必问题, 无论外包还是自研, 还是电话, 都会问这个题.</p>
+<p>2.vue 的生命周期</p>
+<ul>
+<li>必问题, 大概说一下每个周期的特点</li>
+<li>为什么会有生命周期</li>
+<li>项目中有用到哪几个钩子函数</li>
+<li>SSR 有哪几个钩子函数</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782">vue 相关面试总结, 第 3 条</a></p>
+<p>3.HTML5 或者 css3 的新特性</p>
+<p>这个问题虽然不是 100% 问到, 但是绝大多数公司都问了, 我就放入这个分类吧, 你不会有意见吧 (有意见我也不会听啊)</p>
+<ul>
+<li><p>你有用到哪些新标签</p>
+</li>
+<li><p>新特性主要包括哪几大块？你项目中有用到哪些？</p>
+</li>
+<li><p>canvas 有用过吗</p>
+<ol start="4">
+<li>作用域, 闭包, 原型链</li>
+</ol>
+</li>
+<li><p>说一下三者的概念 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848">参考第 3 条 第 4 条 第 6 条</a></p>
+</li>
+<li><p>原型链有什么用处 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848">参考第 6 条</a></p>
+</li>
+<li><p>怎么实现原型链继承 <a target="_blank" rel="noopener" href="https://juejin.im/post/6854573211397390350#heading-57">参考第 12.1 条</a></p>
+</li>
+<li><p>你项目中什么地方用到了闭包？为什么要用？原理是什么？</p>
+</li>
+</ul>
+<p>好吧, 这 3 个问题, 从我入行起就一直被问.</p>
+<p>5.es6</p>
+<ul>
+<li><p>项目中有用到哪些 es6 的特性 (他重点想让你说出箭头函数和 promise, 毫无疑问他还准备了 this 相关的问题)</p>
+</li>
+<li><p>说下 es5 和 es6 箭头函数中 this 的指向</p>
+</li>
+<li><p>有哪些办法可以改变 this<a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848#heading-37">参考第 5 条</a></p>
+</li>
+<li><p>promise 怎么使用？它解决了什么问题？</p>
+</li>
+<li><p>怎么中断 promise？ (可以返回一个空的 promise, 既无 resolve 也没有 reject) <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848#heading-37">参考第 13 条, 建议把整条都过一遍</a></p>
+<ol start="6">
+<li>性能优化</li>
+</ol>
+</li>
+<li><p>上个项目的性能优化是怎么做的</p>
+</li>
+<li><p>代码层面怎么做性能优化</p>
+</li>
+<li><p>webpack 怎么做性能优化</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903876177592328">参考文章</a></p>
+<h4 id="大概率题-大概率题"><a href="#大概率题-大概率题" class="headerlink" title="大概率题 大概率题"></a>大概率题 大概率题</h4><p>大概率题是基本 50% 以上会被问到</p>
+<ol>
+<li>flex</li>
+</ol>
+<p>一些做移动端开发的大概率会问, 尤其是做 ui-app 的</p>
+<ul>
+<li>有用过 flex 吗</li>
+<li>说下 flex 有哪些属性</li>
+<li>使用 flex 实现垂直居中</li>
+<li>使用 flex 实现九宫格布局</li>
+</ul>
+<ol start="2">
+<li>响应式布局</li>
+</ol>
+<ul>
+<li>你知道哪几种响应式布局的方式</li>
+<li>说下 rem,em,px 的区别</li>
+<li>说下 rem 的实现</li>
+</ul>
+<ol start="3">
+<li>块元素有哪些</li>
+</ol>
+<ul>
+<li>说下块元素和行内元素的区别和特点</li>
+<li>知道哪些空元素 (类似于 img 这样的单标签元素)</li>
+</ul>
+<ol start="4">
+<li><p>css 中有哪些属性是可以继承的</p>
+</li>
+<li><p>了解 css 的动画吗？说下 transform</p>
+</li>
+<li><p>vuex</p>
+</li>
+</ol>
+<ul>
+<li>项目中有用到 vuex 吗</li>
+<li>如果不用 vuex 有什么其它的替代方案 (可以说下其它的组件通信方式)</li>
+<li>vuex 有哪些优势和缺点 (功能强大, 但相比 eventBus 会更重一点)</li>
+<li>vuex 有哪些属性 (5 大属性)</li>
+<li>说一下 vuex 的 action 和 mutation 的区别</li>
+<li>有看过 vuex 的源码吗 (老哥, 现在是你的表演时间了)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 7 条</a></p>
+<ol start="7">
+<li>指令</li>
+</ol>
+<ul>
+<li>v-model 的本质是什么 (语法糖) <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 17 条</a></li>
+<li>.sync 有用过吗？它是怎么用的 (本质还是语法糖, 父组件省略 v-on 事件)</li>
+</ul>
+<ol start="8">
+<li>vue 的 diff 运算</li>
+</ol>
+<ul>
+<li>看过相关源码吗</li>
+<li>说下你的理解</li>
+<li>diff 中的 key 有什么作用</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 11 条</a></p>
+<p>9.v-show 和 v-if 的区别</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 4 条</a></p>
+<p>10.vue 路由</p>
+<ul>
+<li>路由有哪几种</li>
+<li>说下这几种路由的区别</li>
+<li>history 需要后台配置相关的 url 吗</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 9 条</a></p>
+<p>11.i18n</p>
+<ul>
+<li><p>怎么配置的</p>
+</li>
+<li><p>怎么切换语言</p>
+<ol start="12">
+<li>看你用了 socket, 说一下它是怎么通讯的</li>
+</ol>
+<p>13.2 个页面怎么进行通讯</p>
+</li>
+<li><p>同域名的 2 个页面怎么通讯</p>
+</li>
+<li><p>不同域的 2 个页面怎么通讯</p>
+<ol start="14">
+<li>虚拟 dom</li>
+</ol>
+</li>
+<li><p>说下你对虚拟 dom 的理解</p>
+</li>
+<li><p>虚拟 dom 的实现原理</p>
+</li>
+<li><p>虚拟 dom 的优缺点</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 12 条 13 条</a></p>
+<ol start="15">
+<li>为什么 data 要设置成函数</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 18 条</a></p>
+<p>16.Computed 和 Watch</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 24 条</a></p>
+<ol start="17">
+<li>长列表优化</li>
+</ol>
+<ul>
+<li>项目中有用到渲染列表吗</li>
+<li>怎么优化这种长列表</li>
+<li>如果不做分页呢？在前端有什么办法做优化</li>
+</ul>
+<p>这个问题现场面试的时候, 被问到了几次, 正常的是通过分页优化的, 但是如果不分页呢？那我就需要做类似按需加载的方式了. 可以参考 <strong>「云中桥」</strong> 的文章, 写的非常详细了.</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782#heading-11">参考文章第 30 条</a> 以及 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844903938894872589">云中桥的这个系列文章</a></p>
+<ol start="18">
+<li>深拷贝与浅拷贝的区别</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848#heading-21">参考第 7 条</a></p>
+<ul>
+<li><p>手写深拷贝 <a target="_blank" rel="noopener" href="https://juejin.im/post/6854573211397390350#heading-15">参考第 4 条</a></p>
+</li>
+<li><p>怎么实现浅拷贝 (object.asign)</p>
+<ol start="19">
+<li>数组</li>
+</ol>
+</li>
+<li><p>有用过数组的那些方法</p>
+</li>
+<li><p>怎么实现数组去重</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904160719011848#heading-22">参考第 8 条</a></p>
+<ol start="20">
+<li>回流和重绘</li>
+</ol>
+<ul>
+<li>说一下两者的区别</li>
+<li>说一下什么场景会触发</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904191018680333">参考第 3 条</a></p>
+<ol start="21">
+<li>存储</li>
+</ol>
+<ul>
+<li>说一下浏览器的存储方式和区别</li>
+<li>说一下强缓存和协商缓存</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904191018680333">参考第 4 条</a></p>
+<p>22.http</p>
+<ul>
+<li><p>说一下常用的 http 状态码</p>
+</li>
+<li><p>说一下请求头包含哪些 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904191018680333#heading-11">参考第 4-2 条</a></p>
+<ol start="23">
+<li>浏览器的渲染流程</li>
+</ol>
+</li>
+<li><p>直接说渲染的流程就行了 <a target="_blank" rel="noopener" href="https://juejin.im/post/6844904191018680333#heading-18">参考第 6-1 条</a></p>
+</li>
+</ul>
+<h4 id="小概率题"><a href="#小概率题" class="headerlink" title="小概率题"></a>小概率题</h4><p>个别公司会问, 小于 50%</p>
+<ol>
+<li>说一下你怎么封装组件的</li>
+</ol>
+<p>因为组件是复用的, 我们要考虑暴露出属性和事件, 供不同的地方引入, 组件里面也有动态和静态的内容.</p>
+<ol start="2">
+<li>怎么创建一个三角形</li>
+</ol>
+<p>4 条边框, 3 条透明, 只显示一条</p>
+<ol start="3">
+<li>垂直居中</li>
+</ol>
+<p>方法较多</p>
+<ol start="4">
+<li>link 标签和 import 标签的区别</li>
+</ol>
+<p>这个只有一家公司在电话面试中问过</p>
+<ol start="5">
+<li><p>事件的执行机制</p>
+</li>
+<li><p>事件的委托 / 代理</p>
+</li>
+<li><p>说一下内存泄漏的场景</p>
+</li>
+<li><p>网络分层</p>
+</li>
+</ol>
+<ul>
+<li>网络分层分为哪几层</li>
+<li>说一下 tcp3 次握手的用途</li>
+</ul>
+<ol start="9">
+<li>跨域</li>
+</ol>
+<ul>
+<li>跨域有哪些解决方案</li>
+<li>vue 开发怎么配置代理</li>
+<li>vue 配置的代理属于正向代理还是反向代理</li>
+</ul>
+<ol start="10">
+<li>路由的权限控制</li>
+</ol>
+<p>主要在路由拦截的通过 router.addRoutes 去动态添加后台返回的权限表.</p>
+<ol start="11">
+<li><p>说下你对 webpack 的了解</p>
+</li>
+<li><p>性能优化</p>
+</li>
+</ol>
+<p>说下你上个项目有做过哪些优化 / 或者你了解哪些优化</p>
+<p>接下的内容放在第二篇, 因为掘金限制了字数</p>
+<hr>
+<h3 id="3-2-开放题"><a href="#3-2-开放题" class="headerlink" title="3.2 开放题"></a>3.2 开放题</h3><h4 id="1-你今后的规划是什么？"><a href="#1-你今后的规划是什么？" class="headerlink" title="1. 你今后的规划是什么？"></a>1. 你今后的规划是什么？</h4><p>建议没有提前准备, 不然你一下说不上来的. 还好我年初的时候有做过清晰的规划, 算是必问题了.</p>
+<h4 id="2-你有什么优缺点"><a href="#2-你有什么优缺点" class="headerlink" title="2. 你有什么优缺点"></a>2. 你有什么优缺点</h4><p>个人不喜欢这样的问题, 但还真得说</p>
+<p>我当时说 优点: 有自我驱动力 缺点: 有些焦虑</p>
+<p>肯定会追问, 有自我驱动力体现在哪里, 可以说下班后自学 node,ui-app, 数据库等等. 焦虑体现在行业内很多人掌握的知识点深刻且广泛, 并且有自己的一套学习方法 (<strong>「比如掘金里面这么多大佬, 每次看你们的文章我都很焦虑啊」</strong>), 相比, 自己并没有这么出色.</p>
+<p>又追问: 那你觉得为什么别人说这么出色呢？<br>答: 因为别人看了相关的知识点会用自己理解再整理输出, 这样理解的更加深刻, 也有助于复盘, 我目前正在这样做.</p>
+<h4 id="3-你觉得你来到我们团队能为我们带来什么"><a href="#3-你觉得你来到我们团队能为我们带来什么" class="headerlink" title="3. 你觉得你来到我们团队能为我们带来什么"></a>3. 你觉得你来到我们团队能为我们带来什么</h4><p>这个应该是面试官要考虑的东西.<br>这个我当时没答好, 会说话的可以多说点.</p>
+<h4 id="4-你为什么要离职-为什么要来我们公司"><a href="#4-你为什么要离职-为什么要来我们公司" class="headerlink" title="4. 你为什么要离职 / 为什么要来我们公司"></a>4. 你为什么要离职 / 为什么要来我们公司</h4><p>说真话吗, 这个可以自己先准备好话术吧, 建议说实话.</p>
+<h4 id="5-介绍下你上个项目-并且说一下你上个项目用到了哪些技术点"><a href="#5-介绍下你上个项目-并且说一下你上个项目用到了哪些技术点" class="headerlink" title="5. 介绍下你上个项目, 并且说一下你上个项目用到了哪些技术点"></a>5. 介绍下你上个项目, 并且说一下你上个项目用到了哪些技术点</h4><p>很多人会觉得上个项目没什么可说的, 用的技术都是比较大众, 如果是这样的话, 你就需要对上个项目梳理. 我一开始也觉得我们上个项目没什么说的, 梳理以后发现有很多自己没有意识到的技术点.</p>
+<h4 id="5-你还有什么要问我的吗"><a href="#5-你还有什么要问我的吗" class="headerlink" title="5. 你还有什么要问我的吗"></a>5. 你还有什么要问我的吗</h4><ul>
+<li>可以问下团队成员情况</li>
+<li>项目组的技术栈</li>
+<li>项目是新开发还是迭代</li>
+</ul>
+<p>面试的时候该问面试官什么问题呢?</p>
+<ol>
+<li>工资架构,无责底薪</li>
+<li>福利待遇</li>
+<li>试用期时长,转正要求</li>
+<li>上班时长,午体时间</li>
+<li>加班概率,加班补助</li>
+<li>岗位职责</li>
+<li>晋升渠道</li>
+<li>团队规模</li>
+<li>调岗要求</li>
+</ol>
+<p>如果实在没问题了, 可以说刚才在人事那里 / 上一个面试官那里有了大致的了解了.</p>
+<h3 id="4-教训"><a href="#4-教训" class="headerlink" title="4 教训"></a>4 教训</h3><p>最后说个教训吧, 是真教训！大公司会问一些项目的细节, 所以你必须对你自己做的项目非常了解, 包括各个模块实现的步骤, 思路, 项目的配置, 为什么要这么配置, 不要觉得你的项目很简单, 当你把所有代码都仔细过一遍, 你会发现你的项目有很多值得你深入的地方.</p>
+<p><strong>「项目上欠下的技术债, 面试大概率会被吊打.」</strong> 我这次就深刻的意识到了, 所以如果你不急着离职的话, 打开你项目一点点把业务梳理一边, 一点点的过一遍代码, 即使是别人写的. 分析里面用到的每个技术点, 看一下相关的配置文件, 会发现配置也是很有意思的地方.</p>
+<p><strong>「祝大家大能找到自己喜欢的工作.」</strong></p>
+<h3 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML&amp;CSS"></a>HTML&amp;CSS</h3><ul>
+<li>浏览器内核</li>
+<li>盒模型、flex 布局、两 / 三栏布局、水平 / 垂直居中;</li>
+<li>BFC、清除浮动;</li>
+<li>CSS3 动画、HTML5 新特性.</li>
+</ul>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><ul>
+<li>继承、原型链、this 指向、设计模式、call, apply, bind,;</li>
+<li>new 实现、防抖节流、let, var, const 区别、暂时性死区、event、loop;</li>
+<li>promise 使用及实现、promise 并行执行和顺序执行;</li>
+<li>async/await 的优缺点;</li>
+<li>闭包、垃圾回收和 ** 内存泄漏 **、数组方法、数组乱序, 数组扁平化、事件委托、事件监听、事件模型</li>
+</ul>
+<h3 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h3><ul>
+<li>vue 数据双向绑定原理;</li>
+<li>vue computed 原理、computed 和 watch 的区别;</li>
+<li>vue 编译器结构图、生命周期、vue 组件通信;</li>
+<li>MVVM 模式、MVC 模式理解;</li>
+<li>vue dom diff、vuex、vue-router</li>
+</ul>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><ul>
+<li>HTTP1, HTTP2, HTTPS、常见的 http 状态码;</li>
+<li>浏览从输入网址到回车发生了什么;</li>
+<li>前端安全 (CSRF、XSS)</li>
+<li>前端跨域、浏览器缓存、cookie, session, token, localstorage, sessionstorage;</li>
+<li>TCP 连接 (三次握手, 四次挥手)</li>
+</ul>
+<h3 id="性能相关"><a href="#性能相关" class="headerlink" title="性能相关"></a>性能相关</h3><ul>
+<li>图片优化的方式</li>
+<li>500 张图片, 如何实现预加载优化</li>
+<li>懒加载具体实现</li>
+<li>减少 http 请求的方式</li>
+</ul>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6864112589161365512">前端面试总结 2020 年 8 月 16 家公司 (附真实面试题)1</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844904166742048782">前端知识体系 (2)-vue 篇</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/fengshi123/blog/issues/14">30 道 Vue 面试题, 内含详细讲解 (涵盖入门到精通, 自测 Vue 掌握程度) #14</a></p>
+</li>
+</ul>
+<!--
+## 呕心沥血整理, GIF 动图 100 部带番号！带番号！带番号 [100P]
+
+ABP-307
+![](https://louimg.com/u/2020/07/28/zk9qyd.gif)
+DASD-293
+![](https://louimg.com/u/2020/07/28/zkahmq.gif)
+DXMG-029
+![](https://louimg.com/u/2020/07/28/zkbdcv.gif)
+GVG-130
+![](https://louimg.com/u/2020/07/28/zkcew7.gif)
+HNDS-033
+![](https://louimg.com/u/2020/07/28/zkcy74.gif)
+HXAD-005
+![](https://louimg.com/u/2020/07/28/zkd7h9.gif)
+IESP-607
+![](https://louimg.com/u/2020/07/28/zkecng.gif)
+IPZ-551
+![](https://louimg.com/u/2020/07/28/zkeog7.gif)
+IPZ-563
+![](https://louimg.com/u/2020/07/28/zkogg3.gif)
+IPZ-573
+![](https://louimg.com/u/2020/07/28/zkpo5c.gif)
+IPZ-574
+![](https://louimg.com/u/2020/07/28/zkqoji.gif)
+JUX-327
+![](https://louimg.com/u/2020/07/28/zkrnol.gif)
+KAWD-647
+![](https://louimg.com/u/2020/07/28/zkskjw.gif)
+MCB-06-SD
+![](https://louimg.com/u/2020/07/28/zktnrt.gif)
+mide227
+![](https://louimg.com/u/2020/07/28/zku5iz.gif)
+MILD-972
+![](https://louimg.com/u/2020/07/28/zkv9ad.gif)
+MILD-972
+![](https://louimg.com/u/2020/07/28/zkvk92.gif)
+REAL-535
+![](https://louimg.com/u/2020/07/28/zkwkr5.gif)
+SNIS-351
+![](https://louimg.com/u/2020/07/28/zkxbgr.gif)
+TPPN-057
+![](https://louimg.com/u/2020/07/28/zky8u8.gif)
+abp - 229
+![](https://louimg.com/u/2020/07/28/10i6g9t.gif)
+AKA-007
+![](https://louimg.com/u/2020/07/28/10i7hie.gif)
+AVOP-060
+![](https://louimg.com/u/2020/07/28/10i92ve.gif)
+BF-390
+![](https://louimg.com/u/2020/07/28/10ialj8.gif)
+BF-391
+![](https://louimg.com/u/2020/07/28/10ic2xv.gif)
+FSET-556
+![](https://louimg.com/u/2020/07/28/a5683tj.gif)
+jux - 610
+![](https://louimg.com/u/2020/07/28/10inrms.gif)
+MIDE-055
+![](https://louimg.com/u/2020/07/28/10ipl01.gif)
+MUM-132
+![](https://louimg.com/u/2020/07/28/10iq6r8.gif)
+MXBD-170
+![](https://louimg.com/u/2020/07/28/10iqpv2.gif)
+MXGS-762
+![](https://louimg.com/u/2020/07/28/10irns9.gif)
+ONSD-489
+![](https://louimg.com/u/2020/07/28/10is8ct.gif)
+SNIS-420
+![](https://louimg.com/u/2020/07/28/10ithin.gif)
+SNIS-421
+![](https://louimg.com/u/2020/07/28/10iuer1.gif)
+ZIZG-011
+![](https://louimg.com/u/2020/07/28/10ivygt.gif)
+042815-863
+![](https://louimg.com/u/2020/07/28/10nd3c2.gif)
+060615_093
+![](https://louimg.com/u/2020/07/28/10ndsqq.gif)
+061215-898
+![](https://louimg.com/u/2020/07/28/10nenqe.gif)
+ABP-312
+![](https://louimg.com/u/2020/07/28/10nfggv.gif)
+AVOP-008
+![](https://louimg.com/u/2020/07/28/10nhitp.gif)
+DVDES-851
+![](https://louimg.com/u/2020/07/28/10niuhv.gif)
+GVG-152
+![](https://louimg.com/u/2020/07/28/10njosu.gif)
+MIAD-795
+![](https://louimg.com/u/2020/07/28/10nkphp.gif)
+MIDE-036
+![](https://louimg.com/u/2020/07/28/10nm3wy.gif)
+MIDE-066
+![](https://louimg.com/u/2020/07/28/10nncue.gif)
+MIDE-187
+![](https://louimg.com/u/2020/07/28/10nonw9.gif)
+MIDE-226
+![](https://louimg.com/u/2020/07/28/10nyltl.gif)
+PGD-767
+![](https://louimg.com/u/2020/07/28/10nzs7f.gif)
+SNIS-353
+![](https://louimg.com/u/2020/07/28/10o0ywc.gif)
+SNIS-387
+![](https://louimg.com/u/2020/07/28/10o2oo1.gif)
+STAR-609
+![](https://louimg.com/u/2020/07/28/10o3obe.gif)
+VAGU-124
+![](https://louimg.com/u/2020/07/28/10o4svf.gif)
+XVSR-054
+![](https://louimg.com/u/2020/07/28/10o5r4q.gif)
+XVSR-060
+![](https://louimg.com/u/2020/07/28/10o75ef.gif)
+ABP-256
+![](https://louimg.com/u/2020/07/28/10s8hxg.gif)
+ABP-313
+![](https://louimg.com/u/2020/07/28/10s9kq4.gif)
+ARM-439
+![](https://louimg.com/u/2020/07/28/10svii8.gif)
+CESD-120
+CESD-120 感じすぎていっぱい潮吹きごめんなさい… 3 涎を垂れ流すほど感じまくる 絶頂潮吹き 55 噴射！！ 千乃あずみ
+![](https://louimg.com/u/2020/07/28/10swurm.gif)
+DDB-271
+![](https://louimg.com/u/2020/07/28/10sxhiu.gif)
+EBOD-451
+![](https://louimg.com/u/2020/07/28/10sycte.gif)
+HND-191
+![](https://louimg.com/u/2020/07/28/10szhpp.gif)
+MIDE-234
+![](https://louimg.com/u/2020/07/28/10t0pq8.gif)
+MILD-979
+![](https://louimg.com/u/2020/07/28/10tb1bg.gif)
+MIMK-034
+![](https://louimg.com/u/2020/07/28/10tc60q.gif)
+OKSN-243
+![](https://louimg.com/u/2020/07/28/10td8j3.gif)
+OVG-023
+![](https://louimg.com/u/2020/07/28/10temob.gif)
+RBD-542
+![](https://louimg.com/u/2020/07/28/10tfb1f.gif)
+RBD-542
+![](https://louimg.com/u/2020/07/28/10tg4m3.gif)
+RDT-223
+![](https://louimg.com/u/2020/07/28/10tgv7u.gif)
+RKI-393
+![](https://louimg.com/u/2020/07/28/10tho1z.gif)
+SNIS-305
+![](https://louimg.com/u/2020/07/28/10tiwl0.gif)
+STAR-252
+![](https://louimg.com/u/2020/07/28/10tk97k.gif)
+STAR-352
+![](https://louimg.com/u/2020/07/28/10tlnnf.gif)
+TYOD-268
+![](https://louimg.com/u/2020/07/28/10tmzce.gif)
+ABP-272
+![](https://louimg.com/u/2020/07/28/10xkp6z.gif)
+ABP-319
+![](https://louimg.com/u/2020/07/28/10xlh8r.gif)
+ARM-442
+![](https://louimg.com/u/2020/07/28/10xmhrs.gif)
+BIST-014
+![](https://louimg.com/u/2020/07/28/10xn3ee.gif)
+KAWD-657
+![](https://louimg.com/u/2020/07/28/a9ck220.gif)
+KAWD-659
+![](https://louimg.com/u/2020/07/28/10xoi6y.gif)
+LAF-51
+![](https://louimg.com/u/2020/07/28/10xpmxe.gif)
+MIDE-170
+![](https://louimg.com/u/2020/07/28/10xquvs.gif)
+MIDE-191
+![](https://louimg.com/u/2020/07/28/10xrzrv.gif)
+MILD-980
+![](https://louimg.com/u/2020/07/28/10xsruq.gif)
+MILD-984
+![](https://louimg.com/u/2020/07/28/10xtedn.gif)
+RBD-656
+![](https://louimg.com/u/2020/07/28/10y3lmr.gif)
+RBD-656
+![](https://louimg.com/u/2020/07/28/10y4l88.gif)
+SKY-123
+![](https://louimg.com/u/2020/07/28/10y5kwc.gif)
+XVSR-048
+![](https://louimg.com/u/2020/07/28/10y6lef.gif)
+051915-880
+![](https://louimg.com/u/2020/07/28/1118uvk.gif)
+CND-138
+![](https://louimg.com/u/2020/07/28/111a2fs.gif)
+DASD-239
+![](https://louimg.com/u/2020/07/28/111b3nf.gif)
+FSET-537
+![](https://louimg.com/u/2020/07/28/111c3sl.gif)
+JUFD-458
+![](https://louimg.com/u/2020/07/28/111dddc.gif)
+MDYD-887
+![](https://louimg.com/u/2020/07/28/111nd0f.gif)
+MXGS-773
+![](https://louimg.com/u/2020/07/28/111o5bd.gif)
+MXGS-779
+![](https://louimg.com/u/2020/07/28/111p6w0.gif)
+NITR-139
+![](https://louimg.com/u/2020/07/28/111qx1c.gif)
+RBD-680
+![](https://louimg.com/u/2020/07/28/111sgee.gif)
+WWW-025
+![](https://louimg.com/u/2020/07/28/111tfux.gif) -->
+<!-- flag of hidden posts -->
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-10-28T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/%E5%89%8D%E7%AB%AF%E5%B9%B2%E8%B4%A7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="前端干货">
+                        
+                        <span class="card-title">前端干货</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/%E5%89%8D%E7%AB%AF%E5%B9%B2%E8%B4%A7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="前端干货">
+                        
+                        <span class="card-title">前端干货</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1813 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Tips and Tricks for Better JavaScript Conditionals and Match Criteria, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Tips and Tricks for Better JavaScript Conditionals and Match Criteria | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Tips and Tricks for Better JavaScript Conditionals and Match Criteria</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tips/">
+                                <span class="chip bg-color">Tips</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-06-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://devinduct.com/blogpost/35/tips-and-tricks-for-better-javascript-conditionals-and-match-criteria" title="用 JavaScript 编写更好的条件语句">Tips and Tricks for Better JavaScript Conditionals and Match Criteria</a></p>
+</blockquote>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>If you enjoy seeing the clean code, like me, you will try to write yours with as little conditional statements as possible. In general, object-oriented programming enables us to avoid conditionals and to replace them with polymorphism and inheritance. I believe we should follow these principles as much as we can.</p>
+<blockquote>
+<p>如果像我一样喜欢看干净的代码, 则将尝试使用尽可能少的条件语句来编写代码. 通常, 面向对象的编程使我们能够避免条件, 并用多态性和继承代替它们. 我相信我们应该尽可能地遵循这些原则.</p>
+</blockquote>
+<p>As I mentioned in a different article, <a target="_blank" rel="noopener" href="https://devinduct.com/blogpost/22/javascript-clean-code-best-practices">JavaScript Clean Code Best Practices</a>, you are not writing the code just for the machine, you are writing it for the <em>“future self”</em> and for the <em>“other guy”</em>.</p>
+<blockquote>
+<p>正如我在另一篇文章 “JavaScript 干净代码最佳实践” 中提到的那样, 您并不是在为机器编写代码, 而是为 “未来的自己” 和 “其他人” 编写代码.</p>
+</blockquote>
+<p>On the other hand, due to various reasons, we might end up with conditionals in our code. Maybe we had a tight deadline to fix a bug, or not using a conditional statement would be too much of a change to our code base, etc. This article is written to get you through those cases and to help you organize the conditional statements you use.</p>
+<blockquote>
+<p>另一方面, 由于各种原因, 我们可能会在代码中出现条件. 也许我们的修复期限很紧, 或者不使用条件语句将对我们的代码库造成太大的更改, 等等. 本文旨在帮助您解决这些情况并帮助您组织条件语句.</p>
+</blockquote>
+<!--
+在任何编程语言中, 代码需要根据不同的条件在给定的输入中做不同的决定和执行相应的动作.
+
+例如, 在一个游戏中, 如果玩家生命点为 0, 游戏结束. 在天气应用中, 如果在早上被查看, 显示一个日出图片, 如果是晚上, 则显示星星和月亮. 在这篇文章中, 我们将探索 JavaScript 中所谓的条件语句如何工作.
+
+如果你使用 JavaScript 工作, 你将写很多包含条件调用的代码. 条件调用可能初学很简单, 但是还有比写一对对 if/else 更多的东西. 这里有些编写更好更清晰的条件代码的有用提示. -->
+
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>Below are the tips about how you can structure the <code>if...else</code> statements and how you can write less to achieve more. Enjoy!</p>
+<blockquote>
+<p>以下是有关如何构造 <code>if...else</code> 语句以及如何编写更少代码以实现目标的提示. 开始吧！</p>
+</blockquote>
+<h3 id="1-First-Things-First-Trivial-but-NOT-Trivial"><a href="#1-First-Things-First-Trivial-but-NOT-Trivial" class="headerlink" title="1. First Things First, Trivial, but NOT Trivial"></a>1. First Things First, Trivial, but NOT Trivial</h3><p>Don’t use negative conditionals (they can be confusing) and use conditional shorthands for <code>boolean</code> variables. I cannot stress this enough, especially the part about the negative conditionals. It’s an unnatural way of doing things.</p>
+<blockquote>
+<p>不要使用否定条件 (它们可能会造成混淆), 而对布尔变量使用条件速记. 我不能特别强调这一点, 尤其是关于否定条件的部分. 这是一种不自然的做事方式.</p>
+</blockquote>
+<p>Bad</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isEmailNotVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// implementation</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isEmailNotVerified</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do something...</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isVerified <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do something...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Good</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isEmailVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// implementation</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmailVerified</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do something...</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>isVerified<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// do something...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now, when we have the above things clear, we can start.</p>
+<blockquote>
+<p>现在, 当我们清楚以上几点之后, 就可以开始了.</p>
+</blockquote>
+<h3 id="2-For-Multiple-Conditions-use-Array-includes"><a href="#2-For-Multiple-Conditions-use-Array-includes" class="headerlink" title="2. For Multiple Conditions, use Array.includes"></a>2. For Multiple Conditions, use <code>Array.includes</code></h3><p>使用 <code>Array.includes</code> 进行多条件选择</p>
+<p>Let’s say that we want to check if the car model is <code>renault</code> or <code>peugeot</code> in our function. The code might look something like this:</p>
+<blockquote>
+<p>假设我们要检查汽车模型在功能上是 <code>雷诺</code> 还是 <code>标致</code> . 该代码可能看起来像这样:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>model <span class="token operator">===</span> <span class="token string">'renault'</span> <span class="token operator">||</span> model <span class="token operator">===</span> <span class="token string">'peugeot'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'model valid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Considering that we have only two models, it might look acceptable to do it like that, but what if we want to do a check against another model? Or a couple of them more? If we add more <code>or</code> statements the code will be harder to maintain and not that clean. In order to make it cleaner, we can rewrite the function to look like this:</p>
+<blockquote>
+<p>考虑到我们只有两个模型, 这样做看起来是可以接受的, 但是如果我们要检查另一个模型怎么办？还是其中几个？如果我们添加更多或语句, 则代码将更难维护且不够清晰. 为了使其更整洁, 我们可以将函数重写为如下形式:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'peugeot'</span><span class="token punctuation">,</span> <span class="token string">'renault'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'model valid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The code above looks nicer already. In order to make it even better, we can create a variable to hold the car models:</p>
+<blockquote>
+<p>上面的代码看起来已经更好了. 为了使它更好, 我们可以创建一个变量来保存汽车模型:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> models <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'peugeot'</span><span class="token punctuation">,</span> <span class="token string">'renault'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>models<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'model valid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now, if we want to do a check against more models, all we need to do is add a new array item. Also, if it was something important, we could declare the <code>models</code> variable somewhere out of the scope of the function and reuse it wherever we need it. That way we centralize it and make maintenance a breeze, considering that we only need to change that one place in our code.</p>
+<blockquote>
+<p>现在, 如果我们要检查更多的模型, 我们要做的就是添加一个新的数组项. 同样, 如果这很重要, 我们可以在函数范围之外的某个地方声明模型变量, 并在需要时重用它. 这样, 我们就可以集中精力并使维护变得轻而易举, 因为我们只需要在代码中更改一个位置即可.</p>
+</blockquote>
+<h3 id="3-For-Matching-All-Criteria-use-Array-every-or-Array-find"><a href="#3-For-Matching-All-Criteria-use-Array-every-or-Array-find" class="headerlink" title="3. For Matching All Criteria use Array.every or Array.find"></a>3. For Matching All Criteria use <code>Array.every</code> or <code>Array.find</code></h3><blockquote>
+<p>要匹配所有条件, 请使用 <code>Array.every</code> 或 <code>Array.find</code></p>
+</blockquote>
+<p>In this example, we want to check if every car model is the one passed to our function. To achieve this in more <code>imperative</code> manner, we would do something like this:</p>
+<blockquote>
+<p>在此示例中, 我们要检查是否每种汽车模型都能通过我们的函数. 为了以更紧急的方式实现这一目标, 我们将执行以下操作:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'renault'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1956</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'peugeot'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1968</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1977</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> isValid <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> car <span class="token keyword">of</span> cars<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isValid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    isValid <span class="token operator">=</span> car<span class="token punctuation">.</span>model <span class="token operator">===</span> model<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">return</span> isValid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>If you prefer the imperative way of doing things, the code above might be fine. On the other hand, if you don’t care what’s going on under the hood, you can rewrite the function above and use <code>Array.every</code> or <code>Array.find</code> to achieve the same result.</p>
+<blockquote>
+<p>如果您喜欢命令式的处理方式, 则上面的代码可能会很好. 另一方面, 如果您不关心幕后情况, 则可以重写上面的函数, 并使用 <code>Array.every</code> 或 <code>Array.find</code> 来获得相同的结果.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 推荐</span>
+  <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> car<span class="token punctuation">.</span>model <span class="token operator">===</span> model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>By using <code>Array.find</code>, with a little tweak we can achieve the same result, and the performance should be the same because both functions execute callback for each element in the array and return <code>false</code> immediately if a <em>falsy</em> item is found.</p>
+<blockquote>
+<p>通过使用 <code>Array.find</code> 进行一些微调, 我们可以获得相同的结果, 并且性能应该是相同的, 因为两个函数都对数组中的每个元素执行回调, 并且如果发现虚假项, 则立即返回 <code>false</code>.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 不推荐</span>
+  <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> car<span class="token punctuation">.</span>model <span class="token operator">!==</span> model<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-For-Matching-Partial-Criteria-use-Array-some"><a href="#4-For-Matching-Partial-Criteria-use-Array-some" class="headerlink" title="4. For Matching Partial Criteria use Array.some"></a>4. For Matching Partial Criteria use <code>Array.some</code></h3><blockquote>
+<p>对于匹配部分条件, 请使用 <code>Array.some</code></p>
+</blockquote>
+<p>Like <code>Array.every</code> does for all criteria, this method makes checking if our array contains one or more items pretty easy. To do it, we need to provide a callback and return a boolean value based on the criteria.</p>
+<blockquote>
+<p>就像 <code>Array.every</code> 都适用于所有条件一样, 此方法使检查数组是否包含一项或多项非常容易. 为此, 我们需要提供一个回调并根据条件返回一个布尔值.</p>
+</blockquote>
+<p>We could achieve the same result by writing a similar <code>for...loop</code> statement like the one written above, but luckily we have cool JavaScript functions doing things for us.</p>
+<blockquote>
+<p>我们可以通过编写类似于上面编写的 <code>for...loop</code> 语句来获得相同的结果, 但是幸运的是, 我们有很酷的 JavaScript 函数为我们做事.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'renault'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1956</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'peugeot'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1968</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1977</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">checkForAnyModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> car<span class="token punctuation">.</span>model <span class="token operator">===</span> model<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkForAnyModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-Return-Early-Instead-of-if-else-Branching"><a href="#5-Return-Early-Instead-of-if-else-Branching" class="headerlink" title="5. Return Early Instead of if...else Branching"></a>5. Return Early Instead of <code>if...else</code> Branching</h3><blockquote>
+<p>提前退出 / 提前返回, 而不是 <code>if...else</code> 分支</p>
+</blockquote>
+<p>When I was a student, I was taught that a function should have only one return statement and that it should return from a single location only. This is not a bad approach if handled with care, meaning that we should recognize the situation when it would lead to conditional nesting hell. Multiple branches and <code>if...else</code> nesting can be a pain if it goes out of control.</p>
+<blockquote>
+<p>当我还是一个学生的时候, 我被告知一个函数应该只有一个 return 语句, 并且只能从一个位置返回. 如果谨慎处理, 这不是一个坏方法, 这意味着我们应该认识到会导致条件嵌套地狱的情况. 如果失去控制, 多个分支以及 <code>if...else</code> 嵌套可能会很麻烦.</p>
+</blockquote>
+<p>On the other hand, if the code base is big, and contains a lot of lines, a return statement somewhere in the deep would be a problem. Nowadays we practice separation of concerns and SOLID principles, therefore, a large number of code lines should be a rare occasion.</p>
+<blockquote>
+<p>另一方面, 如果代码库很大, 并且包含很多行, 那么在深处某处的 return 语句将是一个问题. 如今, 我们将关注点与 SOLID 原则分离开来, 因此, 大量的代码行应该很少见.</p>
+</blockquote>
+<p>Let’s create an example to illustrate this, and say that we want to display the model and manufacturing year of the given car.</p>
+<blockquote>
+<p>让我们创建一个示例来说明这一点, 并说我们要显示给定汽车的型号和制造年份.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> result<span class="token punctuation">;</span> <span class="token comment">// first, we need to define a result value</span>
+
+  <span class="token comment">// check if car exists</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>car<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// check if car model exists</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>car<span class="token punctuation">.</span>model<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// check if car year exists</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>car<span class="token punctuation">.</span>year<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        result <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Car model: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>car<span class="token punctuation">.</span>model<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">; Manufacturing year: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>car<span class="token punctuation">.</span>year<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        result <span class="token operator">=</span> <span class="token string">'No car year'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      result <span class="token operator">=</span> <span class="token string">'No car model'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    result <span class="token operator">=</span> <span class="token string">'No car'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span> <span class="token comment">// our single return statement</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car model'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car year'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Car model: ford; Manufacturing year: 1988;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>As you can see, the code above is pretty long even for this simple problem of ours. Imagine what would happen if we had more complex logic. A lot of <code>if...else</code> statements.</p>
+<blockquote>
+<p>如您所见, 即使对于我们这个简单的问题, 上面的代码也相当长. 想象一下, 如果我们拥有更复杂的逻辑, 将会发生什么. 很多 <code>if...else</code> 语句.</p>
+</blockquote>
+<p>We could refactor the function above in more steps making it better in each one. For example, use ternary operators, include <code>&amp;&amp;</code> conditions, etc, but I will skip right to the very end and show you how, by using the modern JavaScript features and multiple return statements, it can be extremely simplified.</p>
+<blockquote>
+<p>我们可以通过更多的步骤来重构上面的函数, 从而使每个函数都更好. 例如, 使用三元运算符, 包含 <code>&amp;&amp;</code> 条件等, 但是我将直接跳到最后, 向您展示如何使用现代 JavaScript 功能和多个 return 语句将其简化.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>model<span class="token punctuation">,</span> year<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>model <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>year<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car'</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>model<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car model'</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>year<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car year'</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// here we are free to do whatever we want with the model or year</span>
+  <span class="token comment">// we made sure that they exist</span>
+  <span class="token comment">// no more checks required</span>
+
+  <span class="token comment">// doSomething(model);</span>
+  <span class="token comment">// doSomethingElse(year);</span>
+
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Car model: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>model<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">; Manufacturing year: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>year<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car model'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car year'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Car model: ford; Manufacturing year: 1988;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In the refactored version, we included destructuring and default parameters. The default parameter will ensure that we have a value to destruct if we pass <code>undefined</code>. Note that if we pass a <code>null</code> value the function will throw an error and this is the advantage of the previous approach, because in that case, when <code>null</code> is passed the output will be <code>&#39;No car&#39;</code>.</p>
+<blockquote>
+<p>在重构版本中, 我们包括了解构和默认参数. 默认参数将确保如果传递未定义的值, 则我们将有一个要破坏的值. 请注意, 如果我们传递一个 <code>null</code> 值, 该函数将抛出错误, 这是前一种方法的优点, 因为在这种情况下, 当传递 <code>null</code> 时, 输出将为 <code>&#39;No car&#39;</code>.</p>
+</blockquote>
+<p>Object destructuring will ensure that the function gets only what it needs. For example, if we include additional property in the given car object it will not be available inside our function.</p>
+<blockquote>
+<p>对象解构将确保该功能仅获得所需的功能. 例如, 如果我们在给定的汽车对象中包含其他属性, 则该属性在我们的函数中将不可用.</p>
+</blockquote>
+<p>Depending on the preference, developers will follow one of these paths. The practice has shown me that, usually, the code is written somewhere in-between these two approaches. Many people consider <code>if...else</code> statements easier to understand, which helps them to follow the program flow with less struggle.</p>
+<blockquote>
+<p>根据喜好, 开发人员将遵循以下路径之一. 实践表明, 通常, 代码是在这两种方法之间的某个位置编写的. 许多人认为,… 其他语句更易于理解, 这有助于他们以较少的麻烦来遵循程序流程.</p>
+</blockquote>
+<h3 id="6-Use-Indexing-or-Maps-Instead-of-switch-Statement"><a href="#6-Use-Indexing-or-Maps-Instead-of-switch-Statement" class="headerlink" title="6. Use Indexing or Maps Instead of switch Statement"></a>6. Use Indexing or Maps Instead of <code>switch</code> Statement</h3><blockquote>
+<p>使用索引或映射代替 <code>switch</code> 语句</p>
+</blockquote>
+<p>Let’s say that we want to get car models based on the given state.</p>
+<blockquote>
+<p>假设我们要根据给定状态获取汽车模型.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">getCarsByState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token string">'usa'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'france'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'Renault'</span><span class="token punctuation">,</span> <span class="token string">'Peugeot'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">'italy'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'Fiat'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Ford', 'Dodge']</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Fiat']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The code above can be refactored to exclude the <code>switch</code> statement totally.</p>
+<blockquote>
+<p>上面的代码可以重构为完全排除 <code>switch</code> 语句.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'france'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Renault'</span><span class="token punctuation">,</span> <span class="token string">'Peugeot'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Fiat'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getCarsByState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//outputs ['Ford', 'Dodge']</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Fiat']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Alternatively, we could create a class for each state with a list of available cars and use it when needed, but that is a topic for another post. This post is about conditionals. A more appropriate change would be to use an object literal.</p>
+<blockquote>
+<p>或者, 我们可以为每个状态创建一个带有可用汽车列表的类, 并在需要时使用它, 但这是另一篇文章的主题. 这篇文章是关于条件的. 更合适的更改是使用对象字面量.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> carState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  usa<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  france<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Renault'</span><span class="token punctuation">,</span> <span class="token string">'Peugeot'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  italy<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Fiat'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getCarsByState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> carState<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Ford', 'Dodge']</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'france'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Renault', 'Peugeot']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-Use-Optional-Chaining-and-Nullish-Coalescing"><a href="#7-Use-Optional-Chaining-and-Nullish-Coalescing" class="headerlink" title="7. Use Optional Chaining and Nullish Coalescing"></a>7. Use Optional Chaining and Nullish Coalescing</h3><blockquote>
+<p>使用可选的链接和空位合并</p>
+</blockquote>
+<p>This section I can start by saying, <em>“Finally”</em>. In my opinion, these two functionalities are a very useful addition to the JavaScript language. As a person coming from the C# world, I can say that I use these quite often.</p>
+<blockquote>
+<p>我可以先说 “最后” 这一节. 在我看来, 这两个功能是对 JavaScript 语言的非常有用的补充. 作为来自 C＃领域的人, 我可以说我经常使用它们.</p>
+</blockquote>
+<p>At the moment of writing this, these options were not fully supported, and you needed to use Babel to compile the code written in such a manner. You can check the <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-optional-chaining">optional chaining here</a> and the <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-nullish-coalescing">nullish coalescing here</a>.</p>
+<blockquote>
+<p>在撰写本文时, 这些选项尚未得到完全支持, 您需要使用 Babel 来编译以这种方式编写的代码. 您可以在此处检查可选链操作符 (ECMAScript proposal at stage 4 of the process.) 和在此处空值合并运算符(Stage 4).</p>
+</blockquote>
+<p>Optional chaining enables us to handle tree-like structures without explicitly checking if the intermediate nodes exist, and nullish coalescing works great in combination with optional chaining and it’s used to ensure the default value for an unexisting one.</p>
+<blockquote>
+<p>可选链操作符接使我们能够处理树状结构, 而无需显式检查中间节点是否存在, 并且空值合并与可选链操作符接结合使用非常有效, 它可用于确保不存在的默认值.</p>
+</blockquote>
+<p>Let’s back up the statements above with some examples, and start with the old way of doing things.</p>
+<blockquote>
+<p>让我们用一些示例来备份上面的语句, 并从旧的处理方式开始.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> car <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  model<span class="token operator">:</span> <span class="token string">'Fiesta'</span><span class="token punctuation">,</span>
+  manufacturer<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span> <span class="token string">'Ford'</span><span class="token punctuation">,</span>
+    address<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      street<span class="token operator">:</span> <span class="token string">'Some Street Name'</span><span class="token punctuation">,</span>
+      number<span class="token operator">:</span> <span class="token string">'5555'</span><span class="token punctuation">,</span>
+      state<span class="token operator">:</span> <span class="token string">'USA'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// to get the car model</span>
+<span class="token keyword">const</span> model <span class="token operator">=</span> <span class="token punctuation">(</span>car <span class="token operator">&amp;&amp;</span> car<span class="token punctuation">.</span>model<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">'default model'</span><span class="token punctuation">;</span>
+<span class="token comment">// to get the manufacturer street</span>
+<span class="token keyword">const</span> street <span class="token operator">=</span>
+  <span class="token punctuation">(</span>car <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>address <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>address<span class="token punctuation">.</span>street<span class="token punctuation">)</span> <span class="token operator">||</span>
+  <span class="token string">'default street'</span><span class="token punctuation">;</span>
+<span class="token comment">// request an un-existing property</span>
+<span class="token keyword">const</span> phoneNumber <span class="token operator">=</span>
+  car <span class="token operator">&amp;&amp;</span>
+  car<span class="token punctuation">.</span>manufacturer <span class="token operator">&amp;&amp;</span>
+  car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>address <span class="token operator">&amp;&amp;</span>
+  car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>phoneNumber<span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Fiesta'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>street<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Some Street Name'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>phoneNumber<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>So, if we wanted to print out if the car manufacturer is from the USA, the code would look something like this:</p>
+<blockquote>
+<p>因此, 如果我们想打印出这家汽车制造商来自美国, 那么代码将如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarManufacturerState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    car <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>address <span class="token operator">&amp;&amp;</span>
+    car<span class="token punctuation">.</span>manufacturer<span class="token punctuation">.</span>address<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token string">'USA'</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Is from USA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">checkCarManufacturerState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Is from USA'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>I don’t need to tell you how messy this can become in case of a more complex object structure. Many libraries, like lodash, for example, have their own functions as workarounds, but we don’t want that, we want to be able to do it in vanilla js. Let’s see a new way of doing things.</p>
+<blockquote>
+<p>我不需要告诉您在对象结构更复杂的情况下这会变得多么混乱. 例如, 诸如 lodash 的许多库都有其自身的变通办法, 但我们不希望那样, 我们希望能够在 vanilla js 中实现. 让我们看看一种新的做事方式.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// to get the car model</span>
+<span class="token keyword">const</span> model <span class="token operator">=</span> car<span class="token operator">?.</span>model <span class="token operator">??</span> <span class="token string">'default model'</span><span class="token punctuation">;</span>
+<span class="token comment">// to get the manufacturer street</span>
+<span class="token keyword">const</span> street <span class="token operator">=</span> car<span class="token operator">?.</span>manufacturer<span class="token operator">?.</span>address<span class="token operator">?.</span>street <span class="token operator">??</span> <span class="token string">'default street'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// to check if the car manufacturer is from the USA</span>
+<span class="token keyword">const</span> <span class="token function-variable function">checkCarManufacturerState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>car<span class="token operator">?.</span>manufacturer<span class="token operator">?.</span>address<span class="token operator">?.</span>state <span class="token operator">===</span> <span class="token string">'USA'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Is from USA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This look a lot prettier and shorter, and to me, very logical. If you’re wondering why should you use <code>??</code> instead of <code>||</code>, just think of what values can evaluate as <code>true</code> or <code>false</code>, and you will have a possible unintended output.</p>
+<blockquote>
+<p>这看起来更漂亮, 更短, 对我来说, 非常合乎逻辑. 如果您想知道为什么要使用 <code>??</code> 代替 <code>||</code>, 只需考虑可以将哪些值评估为 <code>true</code> 或 <code>false</code>, 您将可能得到意外的输出.</p>
+</blockquote>
+<p>And one thing off topic, which is very neat. Optional chaining also supports the DOM API, which is very cool, meaning that you can do something like this:</p>
+<blockquote>
+<p>还有一件事情是非常整洁的. 可选链操作符接还支持 DOM API, 这非常酷, 这意味着您可以执行以下操作:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> value <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input#user-name'</span><span class="token punctuation">)</span><span class="token operator">?.</span>value<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining (?.) - JavaScript | MDN</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator">Nullish coalescing operator (??) - JavaScript | MDN</a></p>
+</li>
+</ul>
+</blockquote>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Ok, that’s it what I have for now. If you liked the article, keep me juiced up for more by <a target="_blank" rel="noopener" href="https://ko-fi.com/milosprotic">buying me a coffee</a> and subscribe here or follow me on <a target="_blank" rel="noopener" href="https://twitter.com/protic_milos">twitter</a> to stay tuned.</p>
+<blockquote>
+<p>好的, 这就是我现在所拥有的. 如果您喜欢这篇文章, 请给我买一杯咖啡, 让我更加着迷, 并在此处订阅或在 Twitter 上关注我, 以保持关注.</p>
+</blockquote>
+<p>Thank you for reading and see you in the next article.</p>
+<blockquote>
+<p>感谢您阅读并在下一篇文章中见.</p>
+</blockquote>
+<!-- ## [日本] 我最喜爱的女优们及推荐影片 (第一弹)
+
+<details><summary><b>1.    VueJS 是什么？</b></summary>
+<p>
+排名不分先后哦, 第一次分享, 大家多多包含.
+
+### めぐり (藤浦めぐ)(藤浦惠)
+
+丰满 / 熟女 / 演技好 / 欲望不满
+
+[MEYD-134 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 めぐり](https://www.javbus.com/MEYD-134)
+
+经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.javbus.com/series/jpi) 系列
+
+![](https://www.evernote.com/shard/s737/res/3dc389d0-0ecd-434e-8824-c7ebe1cf3e65)
+
+### 奥田咲
+
+丰乳 / 熟女 / 演技好 / 邻家姐姐
+
+[SSNI-631 相部屋 NTR 絶倫部下と巨乳上司が朝から晩まで、不倫セックスに明け暮れた出張先の夜 奥田咲](https://www.javbus.com/SSNI-631)
+
+![](https://www.evernote.com/shard/s737/res/84b35d59-01e1-4742-938d-23bc28cdbc0c)
+
+[SSNI-743 あの夏から 5 ヵ月経っても… ど田舎の冬はやっぱりヤルことがなくて 隣の巨乳奥さんの誘惑に乗っかりじっとり交尾三昧で毎日暖め合う. 奥田咲](https://www.javbus.com/SSNI-743)
+
+![](https://www.evernote.com/shard/s737/res/2608e487-d61a-4bfc-90a7-aac2a4e37a69)
+
+### 本田岬
+
+美乳美腿美臀 / 人妻 / 演技好 / 气质美女
+
+[JUX-634 親父の女 本田岬](https://www.javbus.com/JUX-634)
+
+![](https://www.evernote.com/shard/s737/res/a350cdec-ce45-4306-ab2d-1f828071c36b)
+
+[PPPD-531 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 本田岬](https://www.javbus.com/PPPD-531)
+
+![](https://www.evernote.com/shard/s737/res/607e37cd-9bf4-4beb-b8af-1c71fd167e8d)
+
+[MEYD-248 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 本田岬](https://www.javbus.com/MEYD-248)
+
+经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.javbus.com/series/jpi) 系列
+
+![](https://www.evernote.com/shard/s737/res/c99d24da-e62e-4bf6-a348-289bb3fde337)
+
+### 大浦真奈美
+
+美臀 / 肤白 / 易推倒 / 软妹
+
+[HBAD-458 桃尻未亡人 親族棒の虜になり人生最大の追撃昇天 大浦真奈美](https://www.javbus.com/HBAD-458)
+
+![](https://www.evernote.com/shard/s737/res/e9168212-90af-47d5-8bd5-c66aa9e4e927)
+
+[MIAA-168 アソコを舐められるだけなら浮気じゃないよね？ 大浦真奈美](https://www.javbus.com/MIAA-168)
+
+![](https://www.evernote.com/shard/s737/res/dd3af81b-2727-481c-a420-c37d01c9fecf)
+
+[ADN-229 妻を寝取られ鬱勃起 大浦真奈美](https://www.javbus.com/ADN-229)
+
+![](https://www.evernote.com/shard/s737/res/02be62cd-aace-47fd-b94f-76f67af9d170)
+
+### 大橋未久
+
+美腿 / 肤白 / 气质女神
+
+[MIDE-020 タイトスカート女教師 大橋未久](https://www.javbus.com/MIDE-020) 经典的 [タイトスカート女教師](https://www.javbus.com/series/4ht) 系列
+
+![](https://www.evernote.com/shard/s737/res/749c55eb-009d-4f18-9792-c5b577308d47)
+
+[121914-760 無修正 カリビアンコム 慟哭の女教師 後編 〜だらしない生き物に堕ちた女〜](https://www.javbus.com/121914-760)
+
+![](https://www.evernote.com/shard/s737/res/8bc3735e-ba70-4557-918d-9dd6f915e0a3)
+
+[HEYZO-0783 大橋未久 続々生中～色白美肌美人を徹底的に責める～](https://www.javbus.com/HEYZO-0783)
+
+![](https://www.evernote.com/shard/s737/res/f6a92c76-bbc8-4852-bd87-73b1d3c3af74)
+
+- [MIDD-953 超絶品ソープ嬢 大橋未久](https://www.javbus.com/MIDD-953)
+- [MIDE-040 主人と給仕 大橋未久](https://www.javbus.com/MIDE-040)
+- [MIDE-051 パンチラ誘惑お姉さん 大橋未久](https://www.javbus.com/MIDE-051)
+
+### [古川いおり](https://www.javbus.com/star/9mi)
+
+短暂的短发时期发现的女优, 短发嘛总之就是给人很飒爽的感觉, 片中跟男同学做爱的那段把古川的翘臀完美的展现出来, 圆润的肉感的翘臀微微的流汗, 伴随着撞击更显得精致完美, 翘而不肥, 有弹性却不松软, 搭配着修长弹性的美腿, 趴在上边干的欢.
+
+[STAR-700 古川いおり 滴る雨、汗、涙… びしょびしょになるほど発情し、夢中で快楽を求める濡れ透け女子校生](https://www.javbus.com/STAR-700)
+
+![](https://www.evernote.com/shard/s737/res/0b681015-be4d-4f8b-b805-dacaba1828e3)
+
+![](https://www.evernote.com/shard/s737/res/d3d9207e-b190-4cfc-8488-78f6f352c267)
+
+### 酒井ももか
+
+肤白 / 翘臀 / 小巧惹人怜
+
+[BIST-007 Bi STYLE 美専属デビュー 美巨乳 × 肉体美 絶世の究極 BODY 酒井ももか](https://www.javbus.com/BIST-007)
+
+![](https://www.evernote.com/shard/s737/res/7407908f-b5d2-46bb-8adc-d838d25ba6b9)
+
+![](https://www.evernote.com/shard/s737/res/97db39ec-37a7-4153-9a6c-501ece4f6bd3)
+
+这部是唯一珍藏的有码片, 把湿身诱惑和情趣内衣诱惑两个题材都完美的表现出来, 虽然胸是隆的, 但瑕不掩瑜, 酒井白皙的皮肤, 娇小的身材, 无辜的表情更是惹人怜爱.
+
+[080815_130 グラマラス 酒井ももか](https://www.javbus.com/080815_130)
+
+![](https://www.evernote.com/shard/s737/res/e1bc7920-3a1e-4298-9359-fdf962a53ca1)
+
+![](https://www.evernote.com/shard/s737/res/4dab5e32-fef5-4ff0-b9de-dfbcb1cbbb44)
+
+这部无码片把酒井粉嫩的私处展露无遗, 翘臀非常诱惑, 黑色丝袜更是加分, 男优忍不住两连射, 非常尽兴.
+
+### 蓮実クレア
+
+身材好 / 演技好 / 邻家人妻
+
+[ADN-204 あなた、許して….- 隣の男に犯されて 6- 蓮実クレア](https://www.javbus.com/ADN-204)
+
+![](https://www.evernote.com/shard/s737/res/30492483-1a63-46dd-aec0-ec60b63dcdbb)
+
+![](https://www.evernote.com/shard/s737/res/4549a41c-31d2-4452-baf5-618d763e1554)
+
+这部影片非常好的展现了蓮実的好身材以及好演技, 最后同时高潮的画面更是非常优秀, 蓮実的背部很完美, 很有线条感, 加上翘臀美乳整个身材非常好.
+
+### 森ななこ
+
+[ADN-049 夫には言えない羞恥の性癖 森ななこ](https://www.javbus.com/ADN-049)
+
+![](https://www.evernote.com/shard/s737/res/becf4f43-2c5f-4145-9bfd-319da9bc709c)
+
+![](https://www.evernote.com/shard/s737/res/15f8f9b6-4c5e-42be-b06c-a584d9983ff9)
+
+![](https://www.evernote.com/shard/s737/res/a54b647b-2d5b-400f-bb15-edbeb21b9aaf)
+
+唯一珍藏的森奈奈子的影片, 这部影片非常好的把森奈的柔软的身体, 易推倒的感觉都表现得非常好, 剧情方面也是非常优秀, 被侵犯的过程从抗拒到接受到享受, 后边在厨房主动口角的情节更是让人心醉, 口技当然也是非常之好啦.
+
+第一个看上去不错是我的菜下来品鉴
+
+森ななこ 当年的入坑之作 [MIDD-419 魅惑の巨乳女教師 森ななこ](https://www.javbus.com/MIDD-419)
+
+森ななこ 我关注了好久, 到后面整体给人感觉不行了, 可能是年纪大了, 当年我因为她的那部女教师入坑的
+
+我好像记得第三部这个... 沙发上那段的长腿天下无敌...
+
+### [山岸逢花](https://www.javbus.com/star/rew)
+
+美腿美臀 / 皮肤白皙 / 欲望人妻
+
+[PRED-178 誰かの代わりでなくて.～憧れの恩師の息子と恋に落ちた女教師～ 山岸逢花](https://www.javbus.com/PRED-178)
+
+![](https://www.evernote.com/shard/s737/res/cd2f64ee-7c42-4d3a-9dfc-fc656fc1516c)
+
+![](https://www.evernote.com/shard/s737/res/74a805dc-2381-4866-99b9-ea285ace37cd)
+
+本片属于剧情向, 山岸逢花饰演的老师暗恋自己曾经的老师也是男主的父亲, 从东京转校而来的男主一开始遭受同学排挤, 在山岸老师悉心关照下逐渐融入环境, 一次男主感冒山岸老师前往探望, 男主向老师陈述自己家庭不幸进而表达自己对老师的爱意, 在一番半推半就之下老师接受了男主的求爱, 两人交合在一起最终男主内射山岸老师, 之后更在教室内偷情干到内射连连非常, 浴室内给男主口爆, 之后男主的母亲希望男主回到东京, 最后分手炮中老师希望不耽误男主主动提出断绝这种不正常的关系, 在多次内射后男主依偎在老师的坏里. 本篇凸显了山岸白皙细嫩的皮肤, 粉色的私处隐约可见, 剧情精彩, 充斥着欲望的荷尔蒙, 不得不说山岸的演技非常优秀.
+
+[PRED-099 誘惑いじわる大好き！美尻スゴすぎ逢花先生 山岸逢花](https://www.javbus.com/PRED-099)
+
+![](https://www.evernote.com/shard/s737/res/86c1374f-84af-4d8c-9264-03daaee31730)
+
+![](https://www.evernote.com/shard/s737/res/d4190b7d-9bbd-4d2f-8d91-a2eb7d3c2d6f)
+
+本片山岸依然饰演老师的角色, 各种丝袜诱惑, 无论是黑色过膝网袜还是黑色包臀丝袜还是肉丝短丝袜都有精彩的演绎, 充分展示了山岸老师的美腿美臀, 白皙的皮肤更是非常加分, 不得不说的是老师的气质还是非常好的, 眼神也是非常诱惑.
+
+### 深田えいみ
+
+深田无疑是整容非常成功的一个了, 姣好的脸庞, 丰满的乳房, 身材娇小, 各种题材都有尝试, 涉猎广泛, 去年下半年在女优中异军突起, 之后疯狂发片, 后边出的片子没有就以前的精神气了, 毕竟消耗过多.
+
+[MIAA-037 僕を助けてくれる幼なじみがいじめっこに犯されているのを見て勃起した 深田えいみ](https://www.javbus.com/MIAA-037)
+
+![](https://www.evernote.com/shard/s737/res/aa3991a2-8b0d-4d1b-a27c-a4fea3a473b5)
+
+![](https://www.evernote.com/shard/s737/res/fa86617b-ca1d-451f-ad64-b831c6d8522f)
+
+优秀的凌辱篇, 众人围观的做爱场面非常劲爆.
+
+[KANE-010 拘束男をひたすらヌキまくる逆レ ● プ痴女 強制射精スペシャル 深田えいみ](https://www.javbus.com/KANE-010)
+
+![](https://www.evernote.com/shard/s737/res/c7dc6875-eccd-4648-8ae5-7d3e56c4ece9)
+
+![](https://www.evernote.com/shard/s737/res/b7c36cbf-94d2-4447-b09f-4a54f9a3a481)
+
+女上位, 情趣内衣, 拘束 S 题材, 第一次注意到深田就是这部片子, 当时感觉就是漂亮, 身材夜很有看点, 皮肤白皙更是加分.
+
+说明一下本人只是为了把我所喜爱的女优及珍藏的精选影片分享给大家, 加上最近比较有空, 就想着尽快的把这份作业做完. 看到有人喷我为了赚金钱, 首先我不知道怎么样可以赚金钱, 也从来没有研究过这种无聊问题, 更不知道金钱在论坛有什么用, 本人在论坛潜水多年也从大家的分享中收获发现很多好片, 所以也希望有更多的好帖出现, 如此论坛才会更有活力. 其实口味不同非常正常, 也欢迎一起交流讨论.
+
+### 水卜さくら
+
+娇小可爱 / 童颜巨乳 / 肌肤白皙
+
+[MIDE-775 地味な教え子のノーブラ、ポロリ、透け乳首 着衣巨乳の再会でゲス勃起 水卜さくら](https://www.javbus.com/MIDE-775)
+
+![](https://www.evernote.com/shard/s737/res/40a70a69-591c-4cdc-8c87-a5efc0ecf3c8)
+
+![](https://www.evernote.com/shard/s737/res/b65ff8d1-c305-47dc-bfde-b62c4fd9d320)
+
+这部影片很好的展示了湿身诱惑, 毛衣诱惑, 水卜老师只要遇到好的导演好的题材片子都会不赖.
+
+[MIDE-736 高級ランジェリー試着モニターでやってきた内気なバイト女子大生をセクハラ公開羞恥レ × プ輪 ● 水卜さくら](https://www.javbus.com/MIDE-736)
+
+![](https://www.evernote.com/shard/s737/res/6ac9a612-ee22-49bf-a916-dbfe679357bc)
+
+![](https://www.evernote.com/shard/s737/res/cd57f6af-a13c-4424-8795-cb3165395f3f)
+
+水卜老师的片子很多都很经典, 这次挑几个出来分享, 这部影片的特色就是情趣内衣诱惑, 水卜的好身材真是穿哪一套都非常出彩.
+
+[MIDE-761 両親が不在の間、暇なド田舎に預けられた私は近所のオジさんを誘惑して勝手にまたがり腰を振り続けた… 水卜さくら](https://www.javbus.com/MIDE-761)
+
+![](https://www.evernote.com/shard/s737/res/f4ff0de2-61e1-4d3e-b838-6f2023a1dea0)
+
+![](https://www.evernote.com/shard/s737/res/640bfc9c-3d30-4275-b35b-0f21a36f2e37)
+
+这部属于剧情向, 情节非常好, 水卜在乡下诱惑邻居大叔, 小哥, 光线打的也是优秀, 把水卜老师的好身材展露无遗, 不得不说水卜的演技进步很大, 像这部影片就让人很有带入感, 相信以后水卜老师会有更精彩的作品带给大家.
+
+### 水野朝陽
+
+[PPPD-481 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 水野朝陽](https://www.javbus.com/PPPD-481)
+
+![](https://www.evernote.com/shard/s737/res/20eb8eba-b8e1-42ad-b830-482b1da148f6)
+
+![](https://www.evernote.com/shard/s737/res/8aabaaa0-3451-4cfc-944a-4da8ead00ce5)
+
+水野老师是我喜欢很久的一个女优了, 身材没得说, 堪称完美的巨乳翘臀, 身材高挑 (162cm) 有肉感而且紧实匀称, 不像很多巨乳丰满女优身材松垮比例失调, 可以说浑身都是宝贝(有点张雨绮的那个意思). 气质属于端庄成熟的大女人, 演技也是属于上等, 总之如果能有这样的女人怕是会整天把玩爱不释手, 可惜的是很多片子光线和剧情没有把水野老师的美表现出来.
+
+[MIAD-928 絶倫オヤジと即ハメ立ちバック 水野朝陽](https://www.javbus.com/MIAD-928)
+
+![](https://www.evernote.com/shard/s737/res/6bb4dcb5-b56d-4040-be1f-1f4e79f86f5c)
+
+![](https://www.evernote.com/shard/s737/res/91c3709c-50fd-494d-8b28-886fc192bc78)
+
+### 松下紗栄子
+
+[ADN-203 未熟な姦情 年下部下と人妻 OL 松下紗栄子](https://www.javbus.com/ADN-203)
+
+![](https://www.evernote.com/shard/s737/res/39eb70ba-5de3-4db8-82d7-8bef77d616a8)
+
+![](https://www.evernote.com/shard/s737/res/9e2332ca-11b0-4e51-9595-34261592f991)
+
+松下老师气质非常好, 演技更是一流, 一对巨乳总是引人注目, 高挑的身材也是非常紧致, 而且松下老师的片子很多都是剧情片, 虽然很多都是相似的套路, 但仍然很有观感和代入感, 最让我心动的就是松下老师有很多吞精的情节, 看着老师顺从的吞下口爆出来的精液真是让人顶到不行, 慢慢的征服感和幸福感, 让人非常的满足. 如果有一位愿意口爆并吞下你射出的精液的女孩子那一定是非常的享受了, 何况还是像松下老师这样的高挑气质美女.
+
+[ADN-216 かつて文学少女だった国語教師が、いつしか情事に溺れて…. 松下紗栄子](https://www.javbus.com/ADN-216)
+
+![](https://www.evernote.com/shard/s737/res/827fdcdc-46ec-459c-aa25-df1cbf62b28c)
+
+![](https://www.evernote.com/shard/s737/res/248dc2b5-c0f9-466f-91e5-62ee8b8ed934)
+
+[ADN-219 となり妻 背徳の昼下がり 松下紗栄子](https://www.javbus.com/ADN-219)
+
+![](https://www.evernote.com/shard/s737/res/8245e1e1-50b6-4e28-ae34-7e3e71a84736)
+
+![](https://www.evernote.com/shard/s737/res/6fc2f564-bf73-447c-ac06-47de76efacde)
+
+这两部也值得一看, 一起推荐了.
+
+### [篠田ゆう](https://www.javbus.com/star/2pv)
+
+美尻 / 美乳 / 软妹子
+
+[ADN-142 あなた、許して….- 再会は淫らな嘘に濡れて - 2 篠田ゆう](https://www.javbus.com/ADN-142)
+
+![](https://www.evernote.com/shard/s737/res/facf88dc-70af-45c0-a669-5524cae5f4d9)
+
+![](https://www.evernote.com/shard/s737/res/ea62b60a-a26d-4db4-9ad2-e3e574b6badd)
+
+[篠田](https://www.javbus.com/star/2pv) 老师柔韧性非常好, 腰也很细, 把一副美尻完美的展示在人面前, 童颜美乳更是加分, 另外这部片子剧情也很不错, 唯一珍藏的有码片.
+
+[021014-540 尻力](https://www.javbus.com/021014-540)
+
+![](https://www.evernote.com/shard/s737/res/ebe199cf-3efb-4f31-a3d8-95e99c005c5e)
+
+![](https://www.evernote.com/shard/s737/res/119e538c-e1db-4c44-829b-682f74736df7)
+
+篠田老师的小穴真的是非常粉嫩了, 这部无码片把老师的美尻的力量完美的展示出来, 白嫩的皮肤更是优秀, 篠田老师的美尻我可以玩很久, 早上顶着这样的屁股晨勃都忍不住来一发啊.
+
+### 佐山愛
+
+丰满熟女人妻 / 欲求不满 / 演技好
+
+[MEYD-402 地味そうに見えた隣家の文学系人妻がある日部屋を間違えオナニーをしている僕の部屋に入ってきた. 見た目とは裏腹に物凄い肉食でねっちょり僕を犯しまくる. 佐山愛](https://www.javbus.com/MEYD-402)
+
+![](https://www.evernote.com/shard/s737/res/fa5ac6f8-be95-408a-b184-c246b410963c)
+
+![](https://www.evernote.com/shard/s737/res/2118f5b4-612f-4974-bb65-a65869cfbf60)
+
+佐山老师饰演戴着眼镜的隔壁人妻老师, 看到男主自赎口水都流出来了, 情不自禁诱惑男主, 佐山老师的眼神让人无法自拔, 表演也让人很有代入感, 佐山老师身材并不是非常好, 但是可贵的是把熟女的欲望完美的展示出来, 不是那种可望不可及的而是贴近日常生活的激情.
+
+[MEYD-485 未だに現役で母さんを抱きまくる僕の絶倫オヤジに嫁が欲情して危険日狙って中出し逆夜這い 佐山愛](https://www.javbus.com/MEYD-485)
+
+![](https://www.evernote.com/shard/s737/res/d4d99a5c-2f52-4d70-86ee-6bd345abe992)
+
+![](https://www.evernote.com/shard/s737/res/8914c574-dff1-423a-95f3-fe40940918a3)
+
+一部欲求不满的乱伦片, 佐山老师的公公每天都和婆婆干的很欢, 声音更是经常让男主感到羞愧和烦躁, 于是男主让佐山下去劝说, 没成想佐山看到了公婆的激情画面, 公公的厉害让婆婆都有点吃不消, 佐山忍不住隔着薄薄的壁窗自慰, 后边趁着婆婆外出主动到诱惑正在洗澡的公公, 从主动口交到在各种场所偷情, 后边更是怀上了公公的孩子, 剧情可谓非常优秀.
+
+[PPPD-637 雨宿りで露わになった女上司の濡れ透け巨乳に僕は理性を失った 佐山愛](https://www.javbus.com/PPPD-637)
+
+![](https://www.evernote.com/shard/s737/res/82121bd9-8dfd-4929-b3a3-02915eec9d95)
+
+![](https://www.evernote.com/shard/s737/res/710ec486-9316-4ea4-a567-2d7868942a6a)
+
+依然是一部剧情向的片子, T 恤湿衣诱惑. 都市丽人 OL 和下属的偷情, 很有生活感.
+
+</p>
+</details> -->
+
+<!--
+## 系列
+
+- [痴女系お姉](https://www.javbus.com/search/%E7%97%B4%E5%A5%B3%E7%B3%BB%E3%81%8A%E5%A7%89&type=&parent=ce)
+
+  - ABP-890 職場痴女姊姊 vol.10 職場 春咲涼 的 5 種情景
+    【中文簡介】︰PRESTIGE 專屬女優『春咲 涼』在職場瘋狂獵食男人！時而激烈時而嚴厲！刺激男人心靈的變化多端的誘惑滿足自己的慾望！在訓話過程中看到部下的美腿發情的變態上司, OL 用淫語和焦灼懲罰他！護士用手淫榨取住院時累積的精子！美容師用極致舌技和精油按摩緩解下半身僵硬！超 S 賓館櫃檯女郎用唾液幫助散發著惡臭的客人消毒！女教師親自幫助青春期學生解決煩惱！超美痴女姊姊的 5 種場景, 釋放男人們凝聚的慾望！
+
+
+
+## 演員
+
+### [希島あいり](https://www.javbus.com/star/9pj)
+
+- [MEYD-536 ソープ嬢の愛人と NG なしでハメまくる非日常フルオプション中出し不倫 希島あいり](https://www.javbus.com/meyd-536)
+  MEYD-536 和泡泡浴女郎情婦盡情瘋狂做愛的非日常全套服務內射偷情 希島愛理
+  【中文簡介】︰「為你提供夫人做不到的服務！」高級泡泡浴店 No.1 女郎愛理, 露出小惡魔笑容立即口交. 不需要任何麻煩步驟的好女人, 擁有極致泡泡浴技巧的最棒情婦. 什麼都可以, 只要時間允許, 就可以持續直接內射. 讓人想做愛無數次的美貌. 與泡泡浴女郎情婦度過的夢幻時光.
+- [MEYD-401 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 希島あいり](https://www.javbus.com/meyd-401)
+  MEYD-401 欲求不滿社區人妻和讓人受孕大叔的揮汗激烈中出外遇 希島愛理
+  【中文簡介】︰先生是醫生, 住在社區的愛理某天目擊先生偷情現場. 在先生身邊是同社區的已婚婦女. 先生跟人妻雙不倫. 和對方的先生田中討論後, 不可置信的兩人就這樣目擊到偷情現場. 受到打擊的兩人, 因為寂寞拉近了距離. 人生的伴侶背叛的心, 互相取暖走向不倫的結局.
+
+### めぐり (藤浦めぐ)
+
+- [MEYD-115 本番なしのマットヘルスに行って出てきたのは隣家の高慢な美人妻. 弱みを握った僕は本番も中出しも強要！店外でも言いなりの性奴隷にした めぐり](https://www.javbus.com/meyd-115)
+  MEYD-115 來到禁止性交易的泰國浴出現的竟是隔壁鄰居的高傲美女人妻, 握有她把柄的我強迫她性交！不管在店外也成為聽話的性奴隸 惠理
+
+## 識別碼
+
+- [IPX-361 DEBUT 琴宮リオナ スケベの真骨頂！これが天然のセックスの天才だ！](https://www.javbus.com/ipx-361) 不用演技！真的是性愛的天才！熟知男人愉悅地帶的驚異淫技！讓人爽翻天的性愛表現！積極度 100 分！沉穩外表看不出來的超下流！千萬別錯過！
+
+* [PRED-091 中出し OK！いじわる囁き淫語で犯してあげる 麻倉憂](https://www.javbus.com/pred-091)PRED-091 可以內射！用這種惡作劇一樣的下流話來侵犯你 麻倉憂【中文簡介】︰【PREMIUM 專屬版決定！】麻倉憂侵犯你的耳朵第一人稱視角的性愛體驗！用正常體位舔耳朵, 有一點施虐女感覺的女教師口交, 用嘴舔乳頭, 幫你打飛機, 淫蕩的聲音不斷的在腦海中回蕩！第一人稱視角的內射性愛！ PRED-091 耳机专用之麻仓优在耳边说着淫语让你中出
+
+* [WANZ-657 エアコンが壊れたので出張ヨガインストラクターを呼んでみた僕.](https://www.javbus.com/WANZ-657)
+
+* [PPPD-392 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX めぐり](https://www.javbus.com/PPPD-392)
+* [PPPD-575 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX 本田岬](https://www.javbus.com/PPPD-575) PPPD-575 和每天不中出 10 發不會完的粘著大叔的濃厚性交 本田岬 這大叔性欲旺盛到一天不射個 10 發就無法滿足、持續用肉棒抽插本田岬的豐滿肉體！激烈肏穴射 10 發前都不會停、這就是性男和欲女的本能啊！
+
+- HAVD-837 新婚妻子水岛津实被父亲强行寝取堕落
+- JUFE-062 緊貼口爆唾液癡女 本田岬
+  【中文簡介】︰知名度飆升中的偶像．本田岬有個不能對任何人說的淫亂秘密. 那就是她會用淫亂肉體貼上來, 伸出淫舌舔遍男人全身, 發出陣陣淫語從肉棒搾出滿滿的精液…. 看似可愛卻很淫亂的她, 今天也要給粉絲、工作人員獻上特別服務….
+- [VENU-953 脱掉內褲將外甥精子榨乾的叔母 理々香](https://www.javbus.com/VENU-953)
+- VENU-857 脱掉內褲將外甥精子榨乾的叔母 澤村麗子
+  影片資訊 【商品番號】︰VENU-857﻿ 【影片主角】︰澤村レイコ (澤村麗子 高坂保奈美 高坂ますみ) 【中文簡介】︰老公單身出外工作, 為此找來外甥裕也和澤村麗子住在一起. 就這樣平安無事過了幾個月, 某天麗子看到了拿起內褲猛聞的裕也, 看著裕也的肉棒讓她動心起來….
+- [VENU-951 為了讓母親成為自己玩物強迫讓母親裝上貞操帶禁欲的兒子 紗々原ゆり](https://www.javbus.com/VENU-951)
+- VENU-920 為了讓母親成為自己玩物強迫讓母親裝上貞操帶禁欲的兒子 川上優
+  【中文簡介】︰總是想著母親—優, 並且帶著男女愛的兒子, 把母親當作一個女人, 想要把她據為己有的扭曲慾望滿溢後開始失控. 「今天起就由我來管理母親的性慾」順從本能襲擊優的兒子, 強行給她戴上貞操帶, 打算支配她的身體. 雖然優為兒子的行動感到困惑, 並且拼命地抵抗, 然而身體還是漸漸地無法壓抑身體的難
+- VENU-778 被突然上門的老婆的姐姐不停榨精兩天一夜 鷹宮唯
+  【中文簡介】︰妻子和朋友出去旅行了, 就在ひろゆき想著終於能夠一個人自在一下時, 妻子的姐姐鷹宮唯突然找上了他的家門. 因為鷹宮唯幫他做了所有的家務, 他也不好意思讓她走人. 但是他沒想到她真正的目的居然是來釋放性慾……
+
+- BF-478 全片主觀 中出家庭教師 佐佐木明希
+  全片主觀佐佐木明將成為你的專屬家教老師穿著曝露的服裝大露乳溝及內褲色誘以中出大量精液作為認真唸書的獎勵成績不好的話也以性交作為處罰!? 替無法集中精神唸書的學生們打手槍及口交消耗精力...!
+  佐佐木明希在人氣系列「主觀視點內射女家教」登場啦！和巨乳大姐家教緊貼著秘密教課！肉棒早已快膛炸了！大家都想幹的大姐家教就在這裡！ 出演者: 佐々木あき (佐佐木明希)
+
+- JUFD-916 沒有防備的爆乳姐姐被性能力超強的弟弟幹個爽 本來想誘惑童貞弟弟的…… 想不到卻被反殺了！ 君島美緒
+  【中文簡介】︰在東京做模特的美緒時隔很久回到了家裡, 發現弟弟連學校都不願意去每天就待在家裡, 於是她用去學校就給弟弟揉胸作為條件誘惑弟弟, 這讓弟弟的性慾覺醒了, 他粗暴地揉弄了她的巨乳並內射了她.
+
+- IPX-506 對無奶罩女上司的無自覺誘惑誤會發情的失控中出激烈抽插 岬奈奈美
+  【中文簡介】︰前輩, 粉紅奶頭看光光了不是嗎？無奶罩健康法？這對性慾旺盛的我來說太過刺激了. 憧憬的女上司對淫事沒有自覺, 面對她無自覺的誘惑讓我的絕讚大屌失控. 利用只要逼迫就無法拒絕來毫不在意地抽插！抽插！中出激烈抽插！已經射了幾次了吧？兩發？三發？就算射精了也還是停不下來. 腰就是停不下來.
+
+- VRTM-477 吻技超群的繼母和處男兒子的喇舌緊貼中出性交
+  【中文簡介】︰和老公因為無性生活而許久沒做的妻子, 由於繼子總是埋頭讀書而有所擔心. 於是她教了繼子各種東西, 讓他的老二完全勃起. 首先是打手槍, 再來是用舌頭回來不停地舔遍兒子肉棒的每個角落. 接著一邊被年輕老二不停地攪弄子宮, 一邊止不住地接吻. 彼此的舌頭就這麼順著慾望動個不停, 最後緊貼著喇舌並腔內射精.
+
+- VRTM-506 「不可以插入、但是可以教你接吻方法！」接吻技巧超棒的姐姐 要和處男弟弟嘴巴 SEX！互相連 ​​ 續濃厚舌吻 不斷流出愛液的小穴被肉棒無套插入！常常舌吻著密著內射 SEX！
+
+【中文簡介】︰為了考試來到東京的處男弟弟姊姊在房間內好好教導性教育！「不可以插入喔、如果是接吻的話我可以教你！」弟弟接吻也不會姊姊只好詳細解說沒想到處男弟弟完全勃起！充滿唾液的舌頭多次交纏姊姊也被這樣久違的舌吻點燃慾火！邊玩弄著小穴邊接吻著！順從著慾望舌頭不斷扭動著！跨越了姊弟關係就這樣近親相姦內射了！
+
+- JUFD-578 狂おしいほど受精したがる岬と朝から晩までえげつない生中出し SEX 性欲が強すぎるスケベな妻と濃密な子作り生活 本田岬
+  你終於娶到一位理想的新娘啦、下班一回家本田岬就在門口等著給你幹、看到那甜蜜笑臉疲勞都飛走啦、吃完晚餐補充完能量後馬上專心幹砲造人！從早到晚瘋狂猛幹狂肏真是超讚啊！
+
+* SW-478 近所のママ友たちのパンチラ＆パイチラで僕の思春期チ ○ コはカッチカチ 3 「ママには内緒で大人のカラダ教えてあげよっか」
+  住公寓附近的這 5 位太太們都太淫亂啦、她們總是一直露春光害我的思春期肉棒天天看到大勃起、後來終於忍不住被她們慢速抽插享肉棒、肏滿 5 人穴深處後榨乾最後一滴洨！
+
+- SW-477 我周圍都是人妻！完全不受歡迎的我這個處男入學後被人妻們不停誘惑
+  我這個吊車尾非常不情願地進了定時制學校. 可班上全是太太只有我一個男的. 對年輕青春期肉棒充滿 興趣的人妻們用
+
+- SW-474 搬家後鄰居一家的母親和姐妹都是巨乳！搖擺著巨乳歡迎單身一個人住的我, 不吃白不吃, 把媽媽, 姐姐, 妹妹, 都上了！
+  搬家後去隔壁打招呼, 結果隔壁太太和女兒姐妹穿著低胸的衣服來迎接我. 巨乳母女對單身一個人住的我充滿興趣, 擔心我寂寞就來用巨乳誘惑我. 我自然沒法拒絕. 被爆乳母女的巨乳接著肉棒榨精了.
+
+- SW-473 想摩擦緊致連褲襪. 對近鄰隔壁少妻的肉感連褲襪大腿發情, 太太也興奮起來問是不是想和我做愛？
+  近鄰的少婦們來跟我母親喝茶, 沙鷗發們的肉感大腿和連褲襪包裹的臀部誘惑我的
+
+- SW-472 男友住院沒法做愛慾求不滿的女人穿著迷你裙內褲走光讓我興奮隔著簾布摸她的屁股, 她也興奮起來在男友旁邊騎到我的肉棒上
+  來探望臨床的女人穿著超短褲, 隔著簾布看著那肉感臀部就讓人勃起. 沒法跟男友做愛的慾求不滿女絕對是在誘惑我吧. 於是隔著簾布去摸她的屁股, 發情的她在睡著的男友旁邊給我口交, 主動插入.
+
+- SW-470 哥哥, 怎麼一直盯著我看呀？成長變成 JK 的表姊妹們天真無邪的逼近最愛的表哥, 引誘一起洗澡後, 當然勃起. 終於忍耐不住而抱緊幹
+  見到久違的表姊妹後, 長大成非常可愛女高中生而很驚訝! 而且如以前般會來纏著表哥, 很令人受不了. 引誘一起去洗澡後, 對表姊妹的成長中的成熟身體大興奮! 邊覺得不可以的邊把肉棒插入了小穴裡! 表姊妹也有了感覺而開始嬌喘. -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-06-19T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/how-to-clone-objects-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="How to Clone Objects in JavaScript">
+                        
+                        <span class="card-title">How to Clone Objects in JavaScript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-06-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Clone/">
+                        <span class="chip bg-color">Clone</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/functional-js-do-more-with-reduce/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Functional JavaScript: How to use array reduce for more than just numbers">
+                        
+                        <span class="card-title">Functional JavaScript: How to use array reduce for more than just numbers</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-05-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/reduce/">
+                        <span class="chip bg-color">reduce</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

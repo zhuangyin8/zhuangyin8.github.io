@@ -1,0 +1,1269 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Functional JavaScript: What are higher-order functions, and why should anyone care?, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Functional JavaScript: What are higher-order functions, and why should anyone care? | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Functional JavaScript: What are higher-order functions, and why should anyone care?</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://jrsinclair.com/articles/2019/what-is-a-higher-order-function-and-why-should-anyone-care/">Functional JavaScript: What are higher-order functions, and why should anyone care?</a></p>
+</blockquote>
+<!-- Written by James Sinclair on the 2<sup>nd</sup> July 2019 -->
+
+<p>“Higher-order function” is one of those phrases people throw around a lot. But it’s rare for anyone to stop to explain what that means. Perhaps you already know what a higher-order function is. But how do we use them in the real world? What are some practical examples of when and how they’re useful? Can we use them for manipulating the DOM? Or, are people who use higher-order functions showing off? Are they over-complicating code for no good reason?</p>
+<p>I happen to think higher order functions are useful. In fact, I think they are one of the most important features of JavaScript as a language. But before we get on to that, let’s start by breaking down what a higher-order function is. To get there, we start with functions as variables.</p>
+<h2 id="Functions-as-first-class-citizens"><a href="#Functions-as-first-class-citizens" class="headerlink" title="Functions as first-class citizens."></a>Functions as first-class citizens.</h2><p>In JavaScript, we have at least three different ways of writing a new function. <a href="#fn:1" id="fnref:1" title="see footnote"><sup>1</sup></a> First, we can write a <em>function declaration</em>. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Take a DOM element and wrap it in a list item element.</span>
+<span class="token keyword">function</span> <span class="token function">itemise</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  li<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> li<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>I hope that’s familiar. But, you probably know we could also write it as a <em>function expression</em>. That might look like so:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">itemise</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  li<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> li<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>And then, there’s yet another way to write the same function: As an <em>arrow function</em>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">itemise</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  li<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> li<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>For our purposes, all three functions are essentially the same. <a href="#fn:2" id="fnref:2" title="see footnote"><sup>2</sup></a> But notice that the last two examples assign the function to a variable. It seems like such a small thing. Why <em>not</em> assign a function to a variable? But this is a Big Deal. Functions in JavaScript are ‘first class’. That is, we can:</p>
+<ul>
+<li>Assign functions to variables;</li>
+<li>Pass functions as arguments to other functions; and</li>
+<li>Return functions from other functions. <a href="#fn:3" id="fnref:3" title="see footnote"><sup>3</sup></a></li>
+</ul>
+<p>That’s nice, but what does this have to do with higher-order functions? Well, pay attention to those last two points. We’ll come back to them in a moment. Meanwhile, let’s look at some examples.</p>
+<p>We’ve seen assigning functions to variables. What about passing them as parameters though? Let’s write a function that we can use with DOM elements. If we run <code>document.querySelectorAll()</code> we get back a <code>NodeList</code> rather than an array. <code>NodeList</code> doesn’t have a <code>.map()</code> method like arrays do, so let’s write one:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Apply a given function to every item in a NodeList and return an array.</span>
+<span class="token keyword">function</span> <span class="token function">elListMap</span><span class="token punctuation">(</span><span class="token parameter">transform<span class="token punctuation">,</span> list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// list might be a NodeList, which doesn't have .map(), so we convert</span>
+  <span class="token comment">// it to an array.</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>list<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>transform<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Grab all the spans on the page with the class 'for-listing'.</span>
+<span class="token keyword">const</span> mySpans <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'span.for-listing'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Wrap each one inside an &lt;li> element. We re-use the</span>
+<span class="token comment">// itemise() function from earlier.</span>
+<span class="token keyword">const</span> wrappedList <span class="token operator">=</span> <span class="token function">elListMap</span><span class="token punctuation">(</span>itemise<span class="token punctuation">,</span> mySpans<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In this example, we pass our <code>itemise</code> function as an argument to the <code>elListMap</code> function. But we can use our <code>elListMap</code> function for more than creating lists. For example, we might use it to add a class to a set of elements.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">addSpinnerClass</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'spinner'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> el<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Find all the buttons with class 'loader'</span>
+<span class="token keyword">const</span> loadButtons <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'button.loader'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Add the spinner class to all the buttons we found.</span>
+<span class="token function">elListMap</span><span class="token punctuation">(</span>addSpinnerClass<span class="token punctuation">,</span> loadButtons<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Our <code>elLlistMap</code> function takes a function as a parameter, <code>transform</code>. This means we can re-use the <code>elListMap</code> function to do a bunch of different tasks.</p>
+<p>We’ve now seen an example of passing functions as parameters. But what about returning a function from a function? What might that look like?</p>
+<p>Let’s start by writing a regular old function. We want to take a list of <code>&lt;li&gt;</code> elements and wrap them in a <code>&lt;ul&gt;</code>. Not so difficult:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">wrapWithUl</span><span class="token punctuation">(</span><span class="token parameter">children</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> ul <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>children<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">listEl<span class="token punctuation">,</span> child</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    listEl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> listEl<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> ul<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>But what about if we later on have a bunch of paragraph elements we want to wrap in a <code>&lt;div&gt;</code>? No problem. We write a function for that too:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">wrapWithDiv</span><span class="token punctuation">(</span><span class="token parameter">children</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>children<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">divEl<span class="token punctuation">,</span> child</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    divEl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> divEl<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> div<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This will work fine. But those two functions are looking mighty similar. The only meaningful thing that changes between the two is the parent element we create.</p>
+<p>Now, we <em>could</em> write a function that takes two parameters: the type of parent element, and the list of children. But, there is another way to do it. We could create a function that returns a function. It might look something like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">createListWrapperFunction</span><span class="token punctuation">(</span><span class="token parameter">elementType</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Straight away, we return a function.</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">wrap</span><span class="token punctuation">(</span><span class="token parameter">children</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Inside our wrap function, we can 'see' the elementType parameter.</span>
+    <span class="token keyword">const</span> parent <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>elementType<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>children<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">parentEl<span class="token punctuation">,</span> child</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      parentEl<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> parentEl<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> parent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now, that may look a little complicated at first, so let’s break it down. We’ve created a function that does nothing but return another function. But, the returned function <em>remembers</em> the <code>elementType</code> parameter. Then, later, when we call the returned function, it knows what kind of element to create. So, we could create <code>wrapWithUl</code> and <code>wrapWithDiv</code> like so:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> wrapWithUl <span class="token operator">=</span> <span class="token function">createListWrapperFunction</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Our wrapWithUl() function now 'remembers' that it creates a ul element.</span>
+
+<span class="token keyword">const</span> wrapWithDiv <span class="token operator">=</span> <span class="token function">createListWreapperFunction</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Our wrapWithDiv() function now 'remembers' that it creates a div element.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This business where the returned function ‘remembers’ something has a technical name. We call it a <em>closure</em>. <a href="#fn:4" id="fnref:4" title="see footnote"><sup>4</sup></a> Closures are excessively handy, but we won’t worry too much about them right now.</p>
+<p>So, we’ve seen:</p>
+<ul>
+<li>Assigning a function to a variable;</li>
+<li>Passing a function as a parameter; and</li>
+<li>Returning a function from another function.</li>
+</ul>
+<p>All in all, having first-class functions seems pretty good. But what does this have to do with <em>higher-order</em> functions? Well, let’s see the definition of higher-order function.</p>
+<h2 id="What-is-a-higher-order-function"><a href="#What-is-a-higher-order-function" class="headerlink" title="What is a higher-order function?"></a>What is a higher-order function?</h2><p>A higher-order function is:</p>
+<blockquote>
+<p>A function that takes a function as an argument, or returns a function as a result <a href="#fn:5" id="fnref:5" title="see footnote"><sup>5</sup></a></p>
+</blockquote>
+<p>Sound familiar? In JavaScript, functions are first-class citizens. The phrase ‘higher-order functions’ describes functions which take advantage of this. There’s not much to it. It’s a fancy-sounding phrase for a simple concept.</p>
+<h2 id="Examples-of-higher-order-functions"><a href="#Examples-of-higher-order-functions" class="headerlink" title="Examples of higher-order functions"></a>Examples of higher-order functions</h2><p>Once you start looking though, you’ll see higher-order functions all over the place. The most common are functions that accept functions as parameters. So we’ll look at those first. Then we’ll go through some practical examples of functions that return functions.</p>
+<h3 id="Functions-that-accept-functions-as-parameters"><a href="#Functions-that-accept-functions-as-parameters" class="headerlink" title="Functions that accept functions as parameters"></a>Functions that accept functions as parameters</h3><p>Anywhere you pass a ‘callback’ function, you are using higher-order functions. These are everywhere in front-end development. One of the most common is the <code>.addEventListener()</code> method. We use this when we want to make actions happen in response to events. For example, if I want to make a button pop up an alert:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">showAlert</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Fallacies do not cease to be fallacies because they become fashions'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHTML <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;button type="button" class="js-alertbtn">
+  Show alert
+&lt;/button></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.js-alertbtn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+btn<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> showAlert<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In this example, we create a function that shows an alert. Then we add a button to the page. And finally, we pass our <code>showAlert()</code> function as an argument to <code>btn.addEventListener()</code>.</p>
+<p>We also see higher-order functions when we use <a target="_blank" rel="noopener" href="https://jrsinclair.com/articles/2017/javascript-without-loops/">array iteration methods</a>. That is, methods like <code>.map()</code>, <code>.filter()</code>, and <code>.reduce()</code>. We already saw this with our <code>elListMap()</code> function:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">elListMap</span><span class="token punctuation">(</span><span class="token parameter">transform<span class="token punctuation">,</span> list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>list<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>transform<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Higher-order functions also help us deal with delays and timing. The <code>setTimeout()</code> and <code>setInterval()</code> functions both help us manage <em>when</em> functions execute. For example, if we wanted to remove a highlight class after 30 seconds, we might do something like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">removeHighlights</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> highlightedElements <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.highlighted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">elListMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'highlighted'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> highlightedElements<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>removeHighlights<span class="token punctuation">,</span> <span class="token number">30000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Again, we create a function and pass it to another function as an argument.</p>
+<p>As you can see, we use functions that accept functions often in JavaScript. In fact, you probably use them already.</p>
+<h3 id="Functions-that-return-functions"><a href="#Functions-that-return-functions" class="headerlink" title="Functions that return functions"></a>Functions that return functions</h3><p>Functions that return functions aren’t as common as functions that accept functions. But they’re still useful. One of the most helpful examples is the <a target="_blank" rel="noopener" href="https://leanpub.com/javascriptallongesix/read#maybe"><code>maybe()</code></a> function. I’ve adapted this one from Reginald Braithewaite’s <a target="_blank" rel="noopener" href="https://leanpub.com/javascriptallongesix/read">JavaScript Allongé</a>. It looks like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">maybe</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">_maybe</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Note that the == is deliberate.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span> <span class="token operator">||</span> args<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token operator">=></span> a <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Rather than decode how it works right now, let’s look first at how we might use it. Let’s examine our function <code>elListMap()</code> again:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Apply a given function to every item in a NodeList and return an array.</span>
+<span class="token keyword">function</span> <span class="token function">elListMap</span><span class="token punctuation">(</span><span class="token parameter">transform<span class="token punctuation">,</span> list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// list might be a NodeList, which doesn't have .map(), so we convert</span>
+  <span class="token comment">// it to an array.</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>list<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>transform<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>What happens if we pass a <code>null</code> or <code>undefined</code> value in to <code>elListMap()</code> by accident? We get a <code>TypeError</code> and whatever we wer doing comes crashing to a halt. The <code>maybe()</code> function lets us fix that. We use it like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> safeElListMap <span class="token operator">=</span> <span class="token function">maybe</span><span class="token punctuation">(</span>elListMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">safeElListMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> x<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ￩ undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Instead of everything crashing to a halt, the function returns <code>undefined</code>. And if we were to pass that into another function protected by <code>maybe()</code>… it would return <code>undefined</code> again. And we can keep on using <code>maybe()</code> to protect any number of functions we like. Much simpler than writing a bazillion if-statements.</p>
+<p>Functions that return functions are also common in the React community. For example, <code>connect()</code> from <code>react-redux</code> is a function that returns a function.</p>
+<h2 id="So-what"><a href="#So-what" class="headerlink" title="So what?"></a>So what?</h2><p>We’ve seen some individual examples of what higher-order functions can do. But so what? What do they give us that we wouldn’t have without them? Is there something bigger here than a handful of contrived examples?</p>
+<p>To answer that question, let’s examine one more example. Consider the built-in array method <code>.sort()</code>. It has its problems, yes. It mutates the array instead of returning a new one. But let’s ignore that for a second. The <code>.sort()</code> method is a higher-order function. It takes a function as one of its parameters.</p>
+<p>How does it work? Well, if we want to sort an array of numbers, we first create a comparison funtion. It might look something like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">compareNumbers</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">></span> b<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token comment">/* else */</span> <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Then, to sort the array, we use it like so:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+nums<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>compareNumbers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 〕[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We can sort a list of numbers. But how useful is that? How often do we have a list of numbers that need sorting? Not so often. If I need to sort something, it’s more often an array of objects. Something more like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> typeaheadMatches <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'bogey'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.25</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'bog'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'bog'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'bog'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'boggle'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'bog'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'bogey'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.25</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'bog'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'toboggan'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.15</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'bog'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    keyword<span class="token operator">:</span> <span class="token string">'bag'</span><span class="token punctuation">,</span>
+    weight<span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span>
+    matchedChars<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'g'</span><span class="token punctuation">]</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Imagine we want to sort this array by the <code>weight</code> of each entry. Well, we <em>could</em> write a new sorting function from scratch. But we don’t need to. Instead, we create a new comparison function.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">compareTypeaheadResult</span><span class="token punctuation">(</span><span class="token parameter">word1<span class="token punctuation">,</span> word2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> <span class="token function">compareNumbers</span><span class="token punctuation">(</span>word1<span class="token punctuation">.</span>weight<span class="token punctuation">,</span> word2<span class="token punctuation">.</span>weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+typeaheadMatches<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>compareTypeaheadResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>typeaheadMatches<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 〕[&#123;keyword: "bog", weight: 0.5, matchedChars: ["bog"]&#125;, … ]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We can write a comparison function for any kind of array we want. The <code>.sort()</code> method makes a deal with us. It says: “If you can give me a comparison function, I will sort any array. Don’t worry about what’s in the array. If you give me a comparison function, I’ll sort it.” So we don’t have to worry about writing a sorting algorithm ourselves. We focus on the much more simple task of comparing two elements.</p>
+<p>Now, imagine if we didn’t have higher-order functions. We could not pass a function to the <code>.sort()</code> method. We would have to write a new sorting function any time we needed to sort a different kind of array. Or, we’d end up re-inventing the same thing with function pointers or objects. Either way would be much clumsier.</p>
+<p>We do have higher-order functions though. And this lets us separate the sorting function from the comparison function. Imagine if a clever browser engineer came along and updated <code>.sort()</code> to use a faster algorithm. Everyone’s code would benefit, regardless of what’s inside the arrays they’re sorting. And there’s <a target="_blank" rel="noopener" href="https://jrsinclair.com/javascript-array-methods-cheat-sheet">a whole collection of higher-order array functions</a> that follow this pattern.</p>
+<p>That brings us to the broader idea. The <code>.sort()</code> method <em>abstracts</em> the task of <em>sorting</em> away from what’s <em>in</em> the array. We have what we call a ‘separation of concerns’. Higher-order functions let us create abstractions that would be clumsy or impossible otherwise. And creating abstractions is 80% of software engineering.</p>
+<p>Whenever we refactor our code to remove repetition, we’re createing abstractions. We see a pattern, and replace it with an abstract representation of that pattern. As a result, our code becomes more concise and easier to understand. At least, that’s the idea.</p>
+<p>Higher-order functions are a powerful tool for creating abstractions. And there’s a whole field of mathematics related to abstractions. It’s called <em>Category Theory</em>. To be more accurate, Category Theory is about finding abstractions of abstractions. To put it another way, it’s about finding patterns of patterns. And over the last 70 years or so, clever programmers have been stealing their ideas. These ideas show up as programming language features and libraries. If we learn these patterns of patterns, we can sometimes remove whole swathes of code. Or reduce complex problems down to elegant combinations of simple building blocks. Those building block are higher-order functions. And this is why higher-order functions are important. Because with them, we have another powerful tool to fight complexity in our code.</p>
+<p>If you’d like to learn more about higher-order functions, here’s some references:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://eloquentjavascript.net/05_higher_order.html">Higher-Order Functions</a>: Chapter 5 of <em>Eloquent JavaScript</em> by Marijn Haverbeke.</li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99">Higher Order Functions</a>: Part of the <em>Composing Sofware</em> series by Eric Elliott.</li>
+<li><a target="_blank" rel="noopener" href="https://www.sitepoint.com/higher-order-functions-javascript/">Higher-Order Functions in JavaScript</a> by M. David Green for Sitepoint.</li>
+</ul>
+<p>You’re probably using higher-order functions already. JavaScript makes it so easy for us that we don’t think about them much. But it’s handy to know what people are talking about when they throw around the phrase. It’s not so complicated. But behind that one small idea, there’s a lot of power.</p>
+<hr>
+<p><strong>Update 3 July 2019:</strong> If you’re more experienced with functional programming, you may have noticed I’ve used impure functions and some… verbose function names. This isn’t because I don’t know about impure functions or general functional programming principles. And it’s not how I would write function names in production code. This is an educational piece, so I’ve tried to choose practical examples that beginners will understand. Sometimes that means making compromises. I’ve written elsewhere about <a target="_blank" rel="noopener" href="https://jrsinclair.com/articles/2018/how-to-deal-with-dirty-side-effects-in-your-pure-functional-javascript/">functional purity</a> and <a target="_blank" rel="noopener" href="https://jrsinclair.com/articles/2016/gentle-introduction-to-functional-javascript-intro/">general functional programming principles</a>, for anyone who might be interested.</p>
+<hr>
+<ol>
+
+<li id="fn:1">
+There's more than three ways to write a function, but we can talk about that another time. <a href="#fnref:1"title="return to body">&nbsp;↩</a>
+</li>
+
+<li id="fn:2">
+This is not always true. All three ways of writing functions have subtle differences in practice. The differences are to do with what happens to the magic <code>this</code> keyword and labels in stack traces. <a href="#fnref:2" title="return to body">&nbsp;↩</a>
+</li>
+
+<li id="fn:3">
+Wikipedia contributors (2019). ‘First–class citizen,’ <em>Wikipedia, the free encyclopedia,</em> viewed 19 June 2019, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/First-class_citizen">https://en.wikipedia.org/wiki/First-class_citizen</a>. <a href="#fnref:3" title="return to body">&nbsp;↩</a>
+</li>
+
+<li id="fn:4">
+If you'd like to learn more about closures, try <a target="_blank" rel="noopener" href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36">Master the JavaScript Interview: What is a Closure?</a> by Eric Elliott. <a href="#fnref:4"title="return to body">&nbsp;↩</a>
+</li>
+
+<li id="fn:5">
+<em>Higher Order Function</em> (2014), viewed 19 June 2019, <a target="_blank" rel="noopener" href="http://wiki.c2.com/?HigherOrderFunction">http://wiki.c2.com/?HigherOrderFunction</a>. <a href="#fnref:5" title="return to body">&nbsp;↩</a>
+</li>
+
+</ol>
+
+<!-- 1.  There's more than three ways to write a function, but we can talk about that another time. [ ↩](#fnref:1'return to body')
+
+1.  This is not always true. All three ways of writing functions have subtle differences in practice. The differences are to do with what happens to the magic `this` keyword and labels in stack traces. [↩](https://jrsinclair.com/articles/2019/what-is-a-higher-order-function-and-why-should-anyone-care/#fnref:2 'return to body')
+
+2.  Wikipedia contributors (2019). ‘First–class citizen,’ _Wikipedia, the free encyclopedia,_ viewed 19 June 2019, [https://en.wikipedia.org/wiki/First-class_citizen](https://en.wikipedia.org/wiki/First-class_citizen). [ ↩](https://jrsinclair.com/articles/2019/what-is-a-higher-order-function-and-why-should-anyone-care/#fnref:3 'return to body')
+
+3.  If you'd like to learn more about closures, try [Master the JavaScript Interview: What is a Closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36) by Eric Elliott. [ ↩](https://jrsinclair.com/articles/2019/what-is-a-higher-order-function-and-why-should-anyone-care/#fnref:4'return to body')
+
+4.  _Higher Order Function_ (2014), viewed 19 June 2019, [http://wiki.c2.com/?HigherOrderFunction](http://wiki.c2.com/?HigherOrderFunction). [ ↩](https://jrsinclair.com/articles/2019/what-is-a-higher-order-function-and-why-should-anyone-care/#fnref:5 'return to body')-->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-07-02T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/reactjs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="李光耀：“李嘉诚对国家的贡献，不足一提”">
+                        
+                        <span class="card-title">李光耀：“李嘉诚对国家的贡献，不足一提”</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                    政治
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9D%8E%E5%98%89%E8%AF%9A/">
+                        <span class="chip bg-color">李嘉诚</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/javascript-questions/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript Questions">
+                        
+                        <span class="card-title">JavaScript Questions</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Question/">
+                        <span class="chip bg-color">Question</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

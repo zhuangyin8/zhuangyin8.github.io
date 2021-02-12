@@ -1,0 +1,1624 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Webpack - A Detailed Introduction, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Webpack - A Detailed Introduction | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Webpack - A Detailed Introduction</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Webpack/">
+                                <span class="chip bg-color">Webpack</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-02-21
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2017/02/a-detailed-introduction-to-webpack/">Webpack - A Detailed Introduction</a></p>
+</blockquote>
+<p>JavaScript module bundling has been around for a while. RequireJS had its first commits in 2009, then Browserify made its debut, and since then several other bundlers have spawned across the Internet. Among that group, <em>webpack</em> has jumped out as one of the best. If you’re not familiar with it, we hope that this article will get you started with this powerful tool.</p>
+<blockquote>
+<p>JavaScript 模块捆绑已经存在了一段时间. RequireJS 在 2009 年首次提交,然后 Browserify 首次亮相,此后,其他几个捆绑软件在互联网上产生.在这些中,webpack 已跃升为最好的之一.如果您不熟悉它,我们希望本文可以帮助您开始使用此功能强大的工具.</p>
+</blockquote>
+<p>In most programming languages (including ECMAScript 2015+, which is one of the most recent versions of the standard for JavaScript, but isn’t fully supported across all browsers yet), you can separate your code into multiple files and import those files into your application to use the functionality contained in them. This wasn’t built into browsers, so module bundlers were built to bring this capability in a couple forms: by asynchronously loading modules and running them when they have finished loading, or by combining all of the necessary files into a single JavaScript file that would be loaded via a <code>&lt;script&gt;</code> tag in the HTML.</p>
+<blockquote>
+<p>在大多数编程语言中(包括 ECMAScript 2015+,这是 JavaScript 标准的最新版本之一,但尚未在所有浏览器中完全支持),您可以将代码分成多个文件,然后将这些文件导入到您的应用程序以使用其中包含的功能.它不是内置在浏览器中的,因此模块捆绑器是为了以几种形式实现此功能:通过异步加载模块并在模块完成加载后运行它们,或者将所有必要的文件组合到一个 JavaScript 文件中,通过 HTML 中的 <code>&lt;script&gt;</code> 标记加载.</p>
+</blockquote>
+<p><img src="/images/bundle-your-scripts.png" alt="Webpack Introduction"></p>
+<p>Without the module loaders and bundlers, you could always combine your files manually or load your HTML with countless <code>&lt;script&gt;</code> tags, but that has several disadvantages:</p>
+<blockquote>
+<p>没有模块加载器和捆绑器,您总是可以手动组合文件或使用无数 <code>&lt;script&gt;</code> 标记加载 HTML,但这有几个缺点:</p>
+</blockquote>
+<ul>
+<li>You need to keep track of the proper order in which the files should load, including which files depend on which other files and making sure not to include any files you don’t need.</li>
+<li>Multiple <code>&lt;script&gt;</code> tags means multiple calls to the server to load all of your code, which is worse for performance.</li>
+<li>Obviously, this entails a lot of manual work, instead of letting the computer do it for you.</li>
+</ul>
+<blockquote>
+<ul>
+<li>您需要跟踪文件加载的正确顺序,包括哪些文件取决于其他文件,并确保不包含不需要的文件.</li>
+<li>多个 <code>&lt;script&gt;</code> 标记意味着多次调用服务器以加载您的所有代码,这会降低性能.</li>
+<li>显然,这需要大量的手动工作,而不是让计算机替您完成.</li>
+</ul>
+</blockquote>
+<p>Most module bundlers also integrate directly with npm or Bower to easily allow you to add third-party dependencies to your application. Just install them and throw in a line of code to import them into your application. Then, run your module bundler, and you’ll have your third-party code combined with your application code, or, if you configure it correctly, you can have all of your third-party code in a separate file, so that when you update the application code, users don’t need to download the vendor code when they need to update their cache of your application code.</p>
+<blockquote>
+<p>大多数模块捆绑器还直接与 npm 或 Bower 集成,以轻松地允许您向应用程序中添加第三方依赖项.只需安装它们并放入一行代码即可将它们导入您的应用程序.然后,运行模块捆绑程序,您将使您的第三方代码与应用程序代码结合在一起,或者,如果配置正确,则可以将所有第三方代码存储在单独的文件中,以便在您执行更新应用程序代码,用户无需在需要更新其应用程序代码缓存时下载供应商代码.</p>
+</blockquote>
+<h3 id="Why-Webpack"><a href="#Why-Webpack" class="headerlink" title="Why Webpack?"></a>Why Webpack?</h3><p>Now that you have basic knowledge of the purpose of webpack, why should you choose webpack over the competition? There are a few reasons:</p>
+<blockquote>
+<p>既然您已经了解了 webpack 的用途,那么为什么要在竞争中选择 webpack？有几个原因:</p>
+</blockquote>
+<ul>
+<li>Its relative newness gives it a leg up because it is able to work around or avoid the shortcomings and problems that have popped up in its predecessors.</li>
+<li>Getting started is simple. If you’re just looking to bundle a bunch of JavaScript files together without any other fancy stuff, you won’t even need a configuration file.</li>
+<li>Its plugin system enables it to do so much more, making it quite powerful. So, it might be the only build tool you need.</li>
+</ul>
+<blockquote>
+<ul>
+<li>它的相对新颖性使其一臂之力,因为它能够解决或避免其前代产品中出现的缺点和问题.</li>
+<li>入门很简单.如果您只是想将一堆 JavaScript 文件捆绑在一起而没有其他花哨的东西,那么您甚至不需要配置文件.</li>
+<li>它的插件系统使它可以做更多的事情,使其功能强大.因此,它可能是您唯一需要的构建工具.</li>
+</ul>
+</blockquote>
+<p>I’ve seen only a few other module bundlers and build tools that can say the same thing, but webpack seems to have one thing over those: a large community that can help when you get stuck. Browserify’s community is probably just as big, if not larger, but it lacks a few of the potentially essential features that come with webpack. With all the praise I’ve given webpack, I’m sure you’re just waiting for me to move on and show some code, right? Let’s do that, then.</p>
+<blockquote>
+<p>我只见过其他几个模块捆绑程序和构建工具,它们可以说同样的话,但是 webpack 似乎在这上面有一件事:一个大型社区,当您遇到困难时可以提供帮助.Browserify 的社区可能同样大,甚至更大,但缺少 Webpack 附带的一些潜在的基本功能.有了我对 webpack 的所有好评,我确定您只是在等我继续展示一些代码,对吗？那我们做吧.</p>
+</blockquote>
+<h3 id="Setting-Up-Webpack"><a href="#Setting-Up-Webpack" class="headerlink" title="Setting Up Webpack"></a>Setting Up Webpack</h3><p>Before we can use webpack, we need to install it. To do that, we’re going to need Node.js and npm, both of which I’m just going to assume you have. If you don’t have them installed, then the <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js website</a> is a great place to start.</p>
+<blockquote>
+<p>在使用 webpack 之前,我们需要先安装它.为此,我们将需要 Node.js 和 npm,这两个我只是假设您已经拥有.如果您没有安装它们,那么 Node.js 网站是一个不错的起点.</p>
+</blockquote>
+<p>Now, there are two ways to install webpack (or any other CLI package, for that matter): globally or locally. If you install it globally, you can use it no matter what directory you’re in, but then it won’t be included as a dependency for your project, and you can’t switch between versions of webpack for different projects (some projects might need more work to upgrade to a later version, so they might have to wait). So, I prefer to install CLI packages locally and either use relative paths or <a target="_blank" rel="noopener" href="https://docs.npmjs.com/misc/scripts">npm scripts</a> to run the package. If you’re not used to installing CLI packages locally, you can read about it in a post I wrote about getting rid of <a target="_blank" rel="noopener" href="https://www.joezimjs.com/javascript/no-more-global-npm-packages/">global npm packages</a>.</p>
+<blockquote>
+<p>现在,有两种方法可以安装 webpack(或其他任何 CLI 软件包):全局或本地.如果在全球范围内安装它,则无论您在哪个目录中都可以使用它,但是它不会作为项目的依赖项包含在内,并且您无法在不同项目的 webpack 版本之间进行切换(某些项目可能需要更多工作才能升级到更高版本,因此他们可能需要等待).因此,我更喜欢在本地安装 CLI 软件包,并使用相对路径或 npm 脚本来运行该软件包.如果您不习惯在本地安装 CLI 软件包,可以在我写的关于摆脱全局 npm 软件包的帖子中阅读有关它的信息.</p>
+</blockquote>
+<p>We’re going to be using npm scripts for our examples anyway, so let’s just forge ahead with installing it locally. First things first: Create a directory for the project where we can experiment and learn about webpack. I have a <a target="_blank" rel="noopener" href="https://github.com/joezimjs/webpack-Introduction-Tutorial">repository on GitHub</a> that you can clone and whose branches you can switch between to follow along, or you can start a new project from scratch and maybe use my GitHub repository for comparison.</p>
+<blockquote>
+<p>无论如何,我们将在示例中使用 npm 脚本,因此让我们继续在本地安装它.首先,要做的是:为项目创建一个目录,在这里我们可以进行实验并了解 webpack.我在 GitHub 上有一个存储库,您可以克隆该存储库,并可以在其分支之间进行切换,或者可以从头开始一个新项目,也可以使用我的 GitHub 存储库进行比较.</p>
+</blockquote>
+<p>Once you’re inside the project directory via your console of choice, you’ll want to initialize the project with <code>npm init</code>. The information you provide really isn’t that important, though, unless you plan on publishing this project on npm.</p>
+<blockquote>
+<p>通过选择的控制台进入项目目录后,您将需要使用初始化项目 npm init.但是,除非您计划在 npm 上发布此项目,否则您提供的信息实际上并不那么重要.</p>
+</blockquote>
+<p>Now that you have a <code>package.json</code> file all set up (<code>npm init</code> created it), you can save your dependencies in there. So, let’s use npm to install webpack as a dependency with <code>npm install webpack -D</code>. (<code>-D</code> saves it in <code>package.json</code> as a development dependency; you could also use <code>–save-dev</code>.)</p>
+<blockquote>
+<p>既然已经 package.json 设置了所有文件(已 npm init 创建),则可以在其中保存依赖项.因此,让我们使用 npm 将 webpack 安装为依赖项 npm install webpack -D.(-D 将其保存 package.json 为开发依赖项；您也可以使用–save-dev.)</p>
+</blockquote>
+<p>Before we can use webpack, we should have a simple application to use it on. When I say simple, I mean it. First, let’s install <a target="_blank" rel="noopener" href="http://www.lodash.com/">Lodash</a> just so that we have a dependency to load into our simple app: <code>npm install lodash -S</code> (<code>-S</code> is the same as <code>–save</code>). Then, we’ll create a directory named <code>src</code>, and in there we’ll create a file named <code>main.js</code> with the following contents:</p>
+<blockquote>
+<p>在使用 webpack 之前,我们应该有一个简单的应用程序可以使用它.当我说简单时,我是说真的.首先,让我们安装 Lodash 只是让我们有一个依赖于负载到我们的简单的应用程序:npm install lodash -S(-S 相同–save).然后,我们将创建一个名为的目录 src,并在其中创建一个 main.js 包含以下内容的文件:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lodash/map'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">square</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> n <span class="token operator">*</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> square<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Pretty simple, right? We’re just creating a small array with the integers 1 through 6, then using Lodash’s <code>map</code> to create a new array by squaring the numbers from the original array. Finally, we’re outputting the new array to the console. This file can even be run by Node.js, which you can see by running <code>node src/main.js</code>, which should show this output: <code>[ 1, 4, 9, 16, 25, 36 ]</code>.</p>
+<blockquote>
+<p>很简单,对吧？我们只是用 1 到 6 的整数创建一个小数组,然后使用 Lodashmap 通过将原始数组中的数字平方来创建一个新数组.最后,我们将新数组输出到控制台.该文件甚至可以由 Node.js 运行,您可以通过运行查看该文件,该文件 node src/main.js 应显示以下输出:[ 1, 4, 9, 16, 25, 36 ].</p>
+</blockquote>
+<p>But we want to bundle up this tiny script with the Lodash code that we need and make it ready for browsers, which is where webpack comes in? How do we do that?</p>
+<blockquote>
+<p>但是,我们想将此小脚本与所需的 Lodash 代码捆绑在一起,并使其准备好供浏览器使用,这正是 webpack 的用武之地？我们该怎么做？</p>
+</blockquote>
+<h3 id="Using-Webpack-Command-Line"><a href="#Using-Webpack-Command-Line" class="headerlink" title="Using Webpack Command Line"></a>Using Webpack Command Line</h3><p>The easiest way to get started with using webpack without wasting time on a configuration file is just to run it from the command line. The simplest version of the command for webpack without using a configuration file takes an input file path and an output file path. Webpack will read from that input file, tracing through its dependency tree, combining all of the files together into a single file and outputting the file at the location you’ve specified as the output path. For this example, our input path is <code>src/main.js</code>, and we want to output the bundled file to <code>dist/bundle.js</code>. So, let’s create an npm script to do that (we don’t have webpack installed globally, so we can’t run it directly from the command line). In <code>package.json</code>, edit the <code>&quot;scripts&quot;</code> section to look like the following:</p>
+<blockquote>
+<p>开始使用 webpack 而不浪费时间在配置文件上的最简单方法是仅从命令行运行它.不使用配置文件的最简单版本的 webpack 命令采用输入文件路径和输出文件路径.Webpack 将从该输入文件中读取,并在其依赖关系树中进行跟踪,将所有文件组合在一起成为一个文件,然后在您指定为输出路径的位置输出该文件.在此示例中,我们的输入路径为 src/main.js,并且我们希望将捆绑的文件输出到 dist/bundle.js.因此,让我们创建一个 npm 脚本来做到这一点(我们没有全局安装 webpack,因此我们不能直接从命令行运行它).在中 package.json,编辑该”scripts”部分,使其如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+  <span class="token string">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"build"</span><span class="token operator">:</span> <span class="token string">"webpack src/main.js dist/bundle.js"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now, if you run <code>npm run build</code>, webpack should get to work. When it’s done, which shouldn’t take long, there should be a new <code>dist/bundle.js</code> file. Now you can run that file with Node.js (<code>node dist/bundle.js</code>) or run it in the browser with a simple HTML page and see the same result in the console.</p>
+<blockquote>
+<p>现在,如果您运行 npm run build,webpack 应该开始工作了.完成后(应该花很长时间),应该有一个新 dist/bundle.js 文件.现在,您可以使用 Node.js(node dist/bundle.js)运行该文件,或在浏览器中使用简单的 HTML 页面运行该文件,并在控制台中看到相同的结果.</p>
+</blockquote>
+<p>Before exploring webpack some more, let’s make our build scripts a little more professional by deleting the <code>dist</code> directory and its contents before rebuilding, and also adding some scripts to execute our bundle. The first thing we need to do is install <code>del-cli</code> so that we can delete directories without upsetting the people who don’t use the same operating system as us (don’t hate me because I use Windows); <code>npm install del-cli -D</code> should do the trick. Then, we’ll update our npm scripts to the following:</p>
+<blockquote>
+<p>在探索 webpack 之前,让我们使构建脚本更加专业,方法是 dist 在重建之前删除目录及其内容,并添加一些脚本来执行捆绑包.我们需要做的第一件事是安装,del-cli 这样我们就可以删除目录,而不会烦扰那些与我们使用相同操作系统的人(不要讨厌我,因为我使用 Windows)；npm install del-cli -D 应该可以.然后,我们将 npm 脚本更新为以下内容:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+  <span class="token string">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"prebuild"</span><span class="token operator">:</span> <span class="token string">"del-cli dist -f"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token operator">:</span> <span class="token string">"webpack src/main.js dist/bundle.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"execute"</span><span class="token operator">:</span> <span class="token string">"node dist/bundle.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"start"</span><span class="token operator">:</span> <span class="token string">"npm run build -s &amp;&amp; npm run execute -s"</span>
+  <span class="token punctuation">&#125;</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We kept <code>&quot;build&quot;</code> the same as before, but now we have <code>&quot;prebuild&quot;</code> to do some cleanup, which will run prior to <code>&quot;build&quot;</code> every time <code>&quot;build&quot;</code> is told to run. We also have <code>&quot;execute&quot;</code>, which uses Node.js to execute the bundled script, and we can use <code>&quot;start&quot;</code> to do it all with one command (the <code>-s</code> bit just makes it so that the npm scripts don’t output as much useless stuff to the console). Go ahead and run <code>npm start</code>. You should see webpack’s output, quickly followed by our squared array, show up in your console. Congratulations! You’ve just finished everything in the <code>example1</code> branch of the repository I mentioned earlier.</p>
+<blockquote>
+<p>我们保持”build”与以前相同的方式,但是现在我们必须”prebuild”进行一些清理,该清理将在”build”每次”build”被告知运行之前运行.我们也有”execute”使用,它使用 Node.js 执行捆绑的脚本,并且我们可以使用”start”一个命令来完成所有操作(-s 这样做只是为了使 npm 脚本不会向控制台输出太多无用的东西).继续运行 npm start.您应该在控制台中看到 webpack 的输出,紧接着是平方数组.恭喜你！您已经完成 example1 了前面提到的存储库分支中的所有内容.</p>
+</blockquote>
+<h3 id="Using-A-Configuration-File"><a href="#Using-A-Configuration-File" class="headerlink" title="Using A Configuration File"></a>Using A Configuration File</h3><p>As fun as it is to use the webpack command line to get started, once you start using more of webpack’s features, you’re going to want to move away from passing in all of your options via the command line and instead use a configuration file, which will have more capability but which will also be more readable because it’s written in JavaScript.</p>
+<blockquote>
+<p>使用 webpack 命令行非常有趣,一旦开始使用 webpack 的更多功能,您将希望不再通过命令行传递所有选项,而是使用配置文件,这将具有更多功能,但由于它是用 JavaScript 编写的,因此也更具可读性.</p>
+</blockquote>
+<p>So, let’s create that configuration file. Create a new file named <code>webpack.config.js</code> in your project’s root directory. This is the file name that webpack will look for by default, but you can pass the <code>–config [filename]</code> option to webpack if you want to name your configuration file something else or to put it in a different directory.</p>
+<blockquote>
+<p>因此,让我们创建该配置文件.webpack.config.js 在项目的根目录中创建一个新文件.这是 webpack 在默认情况下将查找的文件名,但是–config [filename]如果您想为配置文件命名其他名称或将其放置在其他目录中,则可以将选项传递给 webpack.</p>
+</blockquote>
+<p>For this tutorial, we’ll just use the standard file name, and for now we’ll try to get it working the same way that we had it working with just the command line. To do that, we need to add the following code to the config file:</p>
+<blockquote>
+<p>在本教程中,我们将仅使用标准文件名,而现在,我们将尝试使其工作与仅使用命令行一样.为此,我们需要将以下代码添加到配置文件中:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  entry<span class="token operator">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We’re specifying the input file and the output file, just like we did with the command line before. This is a JavaScript file, not a JSON file, so we need to export the configuration object — hence, the <code>module.exports</code>. It doesn’t exactly look nicer than specifying these options through the command line yet, but by the end of the article, you’ll be glad to have it all in here.</p>
+<blockquote>
+<p>我们指定输入文件和输出文件,就像我们之前使用命令行一样.这是一个 JavaScript 文件,而不是 JSON 文件,因此我们需要导出配置对象-因此,module.exports.看起来比通过命令行指定这些选项还不错,但是到本文结尾,您将很高兴在这里拥有所有这些.</p>
+</blockquote>
+<p>Now we can remove those options that we were passing to webpack from the scripts in our <code>package.json</code> file. Your scripts should look like this now:</p>
+<blockquote>
+<p>现在,我们可以从 package.json 文件中的脚本中删除传递给 webpack 的那些选项.您的脚本现在应如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+  <span class="token string">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"prebuild"</span><span class="token operator">:</span> <span class="token string">"del-cli dist -f"</span><span class="token punctuation">,</span>
+    <span class="token string">"build"</span><span class="token operator">:</span> <span class="token string">"webpack"</span><span class="token punctuation">,</span>
+    <span class="token string">"execute"</span><span class="token operator">:</span> <span class="token string">"node dist/bundle.js"</span><span class="token punctuation">,</span>
+    <span class="token string">"start"</span><span class="token operator">:</span> <span class="token string">"npm run build -s &amp;&amp; npm run execute -s"</span>
+  <span class="token punctuation">&#125;</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You can <code>npm start</code> like you did before, and it should look very familiar! That’s all we needed for the <code>example2</code> branch.</p>
+<blockquote>
+<p>您可以 npm start 像以前一样做,而且看起来应该很熟悉！这就是我们 example2 分支所需要的.</p>
+</blockquote>
+<h3 id="Using-Loaders"><a href="#Using-Loaders" class="headerlink" title="Using Loaders"></a>Using Loaders</h3><p>We have two primary ways to add to webpack’s capabilities: loaders and plugins. We’ll discuss plugins later. Right now we’ll focus on loaders, which are used to apply transformations or perform operations on files of a given type. You can chain multiple loaders together to handle a single file type. For example, you can specify that files with the <code>.js</code> extension will all be run through <a target="_blank" rel="noopener" href="http://eslint.org/">ESLint</a> and then will be compiled from ES2015 down to ES5 by <a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a>. If ESLint comes across a warning, it’ll be outputted to the console, and if it encounters any errors, it’ll prevent webpack from continuing.</p>
+<blockquote>
+<p>我们有两种主要的方法来增加 webpack 的功能:加载程序和插件.稍后我们将讨论插件.现在,我们将重点介绍加载器,该加载器用于对给定类型的文件应用转换或执行操作.您可以将多个加载程序链接在一起以处理单个文件类型.例如,您可以指定具有.js 扩展名的文件全部通过 ESLint 运行,然后由 Babel 从 ES2015 向下编译为 ES5 .如果 ESLint 遇到警告,它将被输出到控制台,如果遇到任何错误,它将阻止 webpack 继续.</p>
+</blockquote>
+<p>For our little application, we won’t be setting up any linting, but we will be setting up Babel to compile our code down to ES5. Of course, we should have some ES2015 code first, right? Let’s convert the code from our <code>main.js</code> file to the following:</p>
+<blockquote>
+<p>对于我们的小应用程序,我们将不会设置任何棉绒,但是将设置 Babel 来将代码编译为 ES5.当然,我们应该首先使用一些 ES2015 代码,对吗？让我们将代码从 main.js 文件转换为以下代码:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> map <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> n <span class="token operator">*</span> n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>This code is doing essentially the same exact thing, but (1) we’re using an arrow function instead of the named <code>square</code> function, and (2) we’re loading <code>map</code> from <code>‘lodash’</code> using ES2015’s <code>import</code>. This will actually load a larger Lodash file into our bundle because we’re asking for all of Lodash, instead of just asking for the code associated with <code>map</code> by requesting <code>‘lodash/map’</code>. You can change that first line to <code>import map from ‘lodash/map’</code> if you prefer, but I switched it to this for a few reasons:</p>
+<blockquote>
+<p>这段代码基本上是在做同样的事情,但(1)我们用箭头函数而不是指定的 square 功能,和(2)我们正在装载 map 从‘lodash’使用 ES2015 的 import.实际上,这将把更大的 Lodash 文件加载到我们的捆绑包中,因为我们需要所有 Lodash,而不是仅通过 request 来 map 请求与之关联的代码‘lodash/map’.您可以根据需要将第一行更改为 import map from ‘lodash/map’,但是出于以下几个原因,我将其切换为:</p>
+</blockquote>
+<ul>
+<li>In a large application, you’ll likely be using a pretty large chunk of the Lodash library, so you might as well load all of it.</li>
+<li>If you’re using Backbone.js, getting all of the functions you need loaded individually will be very difficult simply because there is no documentation specifying how much of it is needed.</li>
+<li>In the next major version of webpack, the developers plan to include something called tree-shaking, which eliminates unused portions of modules. So, this would work the same either way.</li>
+<li>I’d like to use it as an example to teach you the bullet points I just mentioned.<blockquote>
+<ul>
+<li>在大型应用程序中,您可能会使用 Lodash 库的很大一部分,因此您最好将其全部加载.</li>
+<li>如果您使用的是 Backbone.js,则很难单独加载所需的所有功能,这仅仅是因为没有文档说明需要多少功能.</li>
+<li>在 Webpack 的下一个主要版本中,开发人员计划包括称为”摇树”的功能,以消除模块中未使用的部分.因此,无论哪种方式都可以工作.</li>
+<li>我想以它为例来教您刚才提到的要点.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>(Note: These two ways of loading work with Lodash because the developers have explicitly created it to work that way. Not all libraries are set up to work this way.)</p>
+<blockquote>
+<p>(注意:这两种加载方式都可以与 Lodash 一起使用,因为开发人员已明确创建了该加载方式以这种方式工作.并非所有库都设置为以此方式运行.)</p>
+</blockquote>
+<p>Anyway, now that we have some ES2015, we need to compile it down to ES5 so that we can use it in decrepit browsers (<a target="_blank" rel="noopener" href="http://kangax.github.io/compat-table/es6/">ES2015 support</a> is actually looking pretty good in the latest browsers!). For this, we’ll need Babel and all of the pieces it needs to run with webpack. At a minimum, we’ll need <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-core">babel-core</a> (Babel’s core functionality, which does most of the work), <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-loader">babel-loader</a> (the webpack loader that interfaces with babel-core) and <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a> (which contains the rules that tell Babel to compile from ES2015 to ES5). We’ll also get <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-plugin-transform-runtime">babel-plugin-transform-runtime</a> and <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-polyfill">babel-polyfill</a>, both of which change the way Babel adds polyfills and helper functions to your code base, although each does it a bit differently, so they’re suited to different kinds of projects. Using both of them wouldn’t make much sense, and you might not want to use either of them, but I’m adding both of them here so that no matter which you choose, you’ll see how to do it. If you want to know more about them, you can read the documentation pages for the <a target="_blank" rel="noopener" href="http://babeljs.io/docs/usage/polyfill/">polyfill</a> and <a target="_blank" rel="noopener" href="http://babeljs.io/docs/plugins/transform-runtime/">runtime transform</a>.</p>
+<blockquote>
+<p>无论如何,现在我们有了一些 ES2015,我们需要将其编译为 ES5,以便可以在不完善的浏览器中使用它(最新的浏览器对 ES2015 的支持实际上看起来不错！).为此,我们将需要 Babel 及其与 webpack 一起运行所需的所有组件.至少,我们需要 babel-core(Babel 的核心功能,完成大部分工作),babel-loader(与 babel-core 交互的 webpack loader)和 babel-preset-es2015(其中包含以下规则)告诉 Babel 从 ES2015 编译到 ES5).我们还将获得 babel-plugin-transform-runtime 和 babel-polyfill,这两者都改变 ​​ 了 Babel 向代码库添加 polyfills 和 helper 函数的方式,尽管两者的执行方式有所不同,所以它们适用于不同类型的项目.同时使用它们并没有多大意义,并且您可能不想使用它们中的任何一个,但是我在此处添加了它们两者,因此无论您选择哪种方法,都将看到如何做.如果您想进一步了解它们,可以阅读 polyfill 和 runtime 转换的文档页面.</p>
+</blockquote>
+<p>Anyway, let’s install all of that: <code>npm i -D babel-core babel-loader babel-preset-es2015 babel-plugin-transform-runtime babel-polyfill</code>. And now let’s configure webpack to use it. First, we’ll need a section to add loaders. So, update <code>webpack.config.js</code> to this:</p>
+<blockquote>
+<p>无论如何,让我们安装所有这些:npm i -D babel-core babel-loader babel-preset-es2015 babel-plugin-transform-runtime babel-polyfill.现在,让我们配置 webpack 来使用它.首先,我们需要一个部分来添加加载程序.因此,更新 webpack.config.js 为:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    entry<span class="token operator">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+    output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        path<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+        filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    module<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+            …
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We’ve added a property named <code>module</code>, and within that is the <code>rules</code> property, which is an array that holds the configuration for each loader you use. This is where we’ll be adding babel-loader. For each loader, we need to set a minimum of these two options: <code>test</code> and <code>loader</code>. <code>test</code> is usually a regular expression that is tested against the absolute path of each file. These regular expressions usually just test for the file’s extension; for example, <code>/\.js$/</code> tests whether the file name ends with <code>.js</code>. For ours, we’ll be setting this to <code>/\.jsx?$/</code>, which will match <code>.js</code> and <code>.jsx</code>, just in case you want to use React in your app. Now we’ll need to specify <code>loader</code>, which specifies which loaders to use on files that pass the <code>test</code>.</p>
+<blockquote>
+<p>我们添加了一个名为 module 的 rules 属性,在其中是属性,该属性是一个数组,其中包含您使用的每个加载程序的配置.这是我们将添加 babel-loader 的地方.对于每个加载程序,我们至少需要设置以下两个选项:test 和 loader.test 通常是针对每个文件的绝对路径测试的正则表达式.这些正则表达式通常只是测试文件的扩展名.例如,<code>/\.js$/</code> 测试文件名是否以结尾.js.对于我们来说,我们将其设置为 <code>/\.jsx?$/</code>,它将与.js 和匹配.jsx,以防万一您想在应用程序中使用 React.现在我们需要指定 loader,它指定要在通过的文件上使用哪些加载程序 test.</p>
+</blockquote>
+<p>This can be specified by passing in a string with the loaders’ names, separated by an exclamation mark, such as <code>‘babel-loader!eslint-loader’</code>. webpack reads these from right to left, so <code>eslint-loader</code> will be run before <code>babel-loader</code>. If a loader has specific options that you want to specify, you can use query string syntax. For example, to set the <code>fakeoption</code> option to <code>true</code> for Babel, we’d change that previous example to <code>‘babel-loader?fakeoption=true!eslint-loader</code>. You can also use the <code>use</code> option instead of the <code>loader</code> option which allows you to pass in an array of loaders if you think that’d be easier to read and maintain. For example, the last examples would be changed to <code>use: [‘babel-loader?fakeoption=true’, ‘eslint-loader’]</code>, which can always be changed to multiple lines if you think it would be more readable.</p>
+<blockquote>
+<p>可以通过传入带有装载程序名称的字符串来指定,该字符串用感叹号(例如)分隔‘babel-loader!eslint-loader’.webpack 从右到左读取这些内容,因此 eslint-loader 将在之前运行 babel-loader.如果加载程序具有要指定的特定选项,则可以使用查询字符串语法.例如,要将 Babel 的 fakeoption 选项设置 true 为,我们将前面的示例更改为‘babel-loader?fakeoption=true!eslint-loader.如果您认为更易于阅读和维护,则也可以使用该 use 选项代替该 loader 选项,该选项允许您传入一系列加载程序.例如,最后的示例将更改为 use: [‘babel-loader?fakeoption=true’, ‘eslint-loader’],如果您认为它更具可读性,则可以始终将其更改为多行.</p>
+</blockquote>
+<p>Because Babel is the only loader we’ll be using, this is what our loader configuration looks like so far:</p>
+<blockquote>
+<p>因为 Babel 是我们将要使用的唯一装载程序,所以到目前为止,这是我们的装载程序配置:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span> test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>If you’re using only one loader, as we are, then there is an alternative way to specify options for the loader, rather than using the query strings: by using the <code>options</code> object, which will just be a map of key-value pairs. So, for the <code>fakeoption</code> example, our config would look like this:</p>
+<blockquote>
+<p>如果您像我们一样只使用一个加载程序,则可以使用另一种方法为加载程序指定选项,而不是使用查询字符串:通过使用 options 对象,该对象将只是键值对的映射.因此,对于该 fakeoption 示例,我们的配置如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            fakeoption<span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We will be using this syntax to set a few options for Babel:</p>
+<blockquote>
+<p>我们将使用此语法为 Babel 设置一些选项:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'transform-runtime'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We need to set the presets so that all of the ES2015 features will be transformed into ES5, and we’re also setting it up to use the transform-runtime plugin that we installed. As mentioned, this plugin isn’t necessary, but it’s there to show you how to do it. An alternative would be to use the <code>.babelrc</code> file to set these options, but then I wouldn’t be able to show you how to do it in webpack. In general, I would recommend using <code>.babelrc</code>, but we’ll keep the configuration in here for this project.</p>
+<blockquote>
+<p>我们需要设置预设,以便将所有 ES2015 功能都转换为 ES5,并且我们还将其设置为使用我们安装的 transform-runtime 插件.如前所述,此插件不是必需的,但在那里可以向您展示如何做.一种替代方法是使用该.babelrc 文件来设置这些选项,但是这样我将无法向您展示如何在 webpack 中进行操作.通常,我建议使用.babelrc,但是我们将在此处保留此项目的配置.</p>
+</blockquote>
+<p>There’s just one more thing we need to add for this loader. We need to tell Babel not to process files in the <code>node_modules</code> folder, which should speed up the bundling process. We can do this by adding the <code>exclude</code> property to the loader to specify not to do anything to files in that folder. The value for <code>exclude</code> should be a regular expression, so we’ll set it to <code>/node_modules/</code>.</p>
+<blockquote>
+<p>我们只需要为该加载器添加一件事.我们需要告诉 Babel 不要处理该 node_modules 文件夹中的文件,这将加快捆绑过程.我们可以通过将 exclude 属性添加到加载器以指定对该文件夹中的文件不执行任何操作来做到这一点.的值 exclude 应为正则表达式,因此我们将其设置为/node_modules/.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'transform-runtime'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Alternatively, we could have used the <code>include</code> property and specified that we should only use the <code>src</code> directory, but I think we’ll leave it as it is. With that, you should be able to run <code>npm start</code> again and get working ES5 code for the browser as a result. If you decide that you’d rather use the polyfill instead of the transform-runtime plugin, then you’ll have a change or two to make. First, you can delete the line that contains <code>plugins: [‘transform-runtime],</code> (you can also uninstall the plugin via npm if you’re not going to use it). Then, you need to edit the <code>entry</code> section of the webpack configuration so that it looks like this:</p>
+<blockquote>
+<p>另外,我们可以使用该 include 属性并指定只使用 src 目录,但我认为我们将保留它.这样,您应该能够 npm start 再次运行并获得浏览器的有效 ES5 代码.如果您决定宁愿使用 polyfill 而不是 transform-runtime 插件,那么将需要进行一两个更改.首先,您可以删除其中包含的行 plugins: [‘transform-runtime],(如果您不打算使用插件,也可以通过 npm 卸载插件).然后,您需要编辑 entrywebpack 配置的部分,使其如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">entry<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'babel-polyfill'</span><span class="token punctuation">,</span>
+    <span class="token string">'./src/main.js'</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Instead of using a string to specify a single entry point, we use an array to specify multiple entry files, the new one being the polyfill. We specify the polyfill first so that it’ll show up in the bundled file first, which is necessary to ensure that the polyfills exist before we try to use them in our code.</p>
+<blockquote>
+<p>我们使用数组指定多个入口文件,而不是使用字符串指定单个入口点,新的是 polyfill.我们首先指定 polyfill,以便它首先显示在捆绑的文件中,这是确保在我们尝试在代码中使用 polyfill 之前确保其存在的必要条件.</p>
+</blockquote>
+<p>Instead of using webpack’s configuration, we could have added a line at the top of <code>src/main.js</code>, <code>import ‘babel-polyfill;</code>, which would accomplish the exact same thing in this case. We used the webpack entry configuration instead because we’ll need it to be there for our last example, and because it’s a good example to show how to combine multiple entries into a single bundle. Anyway, that’s it for the <code>example3</code> branch of the repository. Once again, you can run <code>npm start</code> to verify that it’s working.</p>
+<blockquote>
+<p>而不是使用的 WebPack 的配置,我们可以在上面添加了一行 src/main.js,import ‘babel-polyfill;,这将完成在这种情况下,同样的事情.我们改用了 webpack 条目配置,因为在上一个示例中我们将需要它,并且因为它是一个很好的示例,展示了如何将多个条目组合到一个包中.无论如何,仅是 example3 存储库分支.再次,您可以运行 npm start 以验证其是否正常运行.</p>
+</blockquote>
+<h3 id="Using-The-Handlebars-Loader"><a href="#Using-The-Handlebars-Loader" class="headerlink" title="Using The Handlebars Loader"></a>Using The Handlebars Loader</h3><p>Let’s add another loader in there: Handlebars. The Handlebars loader will compile a Handlebars template into a function, which is what will be imported into the JavaScript when you import a Handlebars file. This is the sort of thing that I love about loaders: you can import non-JavaScript files, and when it’s all bundled, what is imported will be something useable by JavaScript. Another example would be to use a loader that allows you to import an image file and that transforms the image into a base64-encoded URL string that can be used in the JavaScript to add an image inline to the page. If you chain multiple loaders, one of the loaders might even optimize the image to be a smaller file size.</p>
+<blockquote>
+<p>让我们在其中添加另一个加载器:车把.Handlebars 加载器会将 Handlebars 模板编译成一个函数,当您导入 Handlebars 文件时,该函数将被导入到 JavaScript 中.这是我对加载程序最喜欢的一种东西:您可以导入非 JavaScript 文件,并且将它们全部打包后,导入的内容将可以被 JavaScript 使用.另一个示例是使用加载程序,该加载程序允许您导入图像文件,并将图像转换为 base64 编码的 URL 字符串,该字符串可在 JavaScript 中用于向页面内联添加图像.如果链接多个加载程序,则其中一个加载程序甚至可能会将映像优化为较小的文件大小.</p>
+</blockquote>
+<p>As usual, the first thing we need to do is install the loader with <code>npm install -D handlebars-loader</code>. If you try to use it, though, you’ll find that it also needs Handlebars itself: <code>npm install -D handlebars</code>. This is so that you have control over which version of Handlebars to use without needing to sync your version with the loader version. They can evolve independently.</p>
+<blockquote>
+<p>与往常一样,我们要做的第一件事是使用安装安装加载程序 npm install -D handlebars-loader.但是,如果尝试使用它,您会发现它本身也需要 Handlebars :npm install -D handlebars.这样,您就可以控制使用哪个版本的车把,而无需将您的版本与加载程序版本同步.它们可以独立发展.</p>
+</blockquote>
+<p>Now that we have both of these installed, we have a Handlebars template to use. Create a file named <code>numberlist.hbs</code> in the <code>src</code> directory with the following contents:</p>
+<blockquote>
+<p>现在我们已经安装了这两个工具,现在有了一个 Handlebars 模板可以使用.numberlist.hbs 在 src 目录中创建一个包含以下内容的文件:</p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  &#123;&#123;#each numbers as |number i|&#125;&#125;
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>&#123;&#123;number&#125;&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  &#123;&#123;/each&#125;&#125;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This template expects an array (of numbers judging by the variable names, but it should work even if they aren’t numbers) and creates an unordered list with the contents.</p>
+<blockquote>
+<p>该模板需要一个数组(由变量名判断为数字,但是即使它们不是数字,它也可以工作)并创建一个包含内容的无序列表.</p>
+</blockquote>
+<p>Now, let’s adjust our JavaScript file to use that template to output a list created from the template, rather than just logging out the array itself. Your <code>main.js</code> file should now look like this:</p>
+<blockquote>
+<p>现在,让我们调整 JavaScript 文件以使用该模板输出从模板创建的列表,而不只是注销数组本身.您的 main.js 文件现在应如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> map <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> template <span class="token keyword">from</span> <span class="token string">'./numberlist.hbs'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> numbers <span class="token operator">=</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> n <span class="token operator">*</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">template</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> numbers <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Sadly, this won’t work right now because webpack doesn’t know how to import <code>numberlist.hbs</code>, because it’s not JavaScript. If we want to, we could add a bit to the <code>import</code> statement that informs webpack to use the Handlebars loader:</p>
+<blockquote>
+<p>遗憾的是,由于 webpack 不知道如何导入 numberlist.hbs(因为它不是 JavaScript),因此目前无法正常工作.如果愿意,可以在 import 声明中添加一些内容,以通知 webpack 使用 Handlebars 加载器:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> map <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> template <span class="token keyword">from</span> <span class="token string">'handlebars-loader!./numberlist.hbs'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> numbers <span class="token operator">=</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> n <span class="token operator">*</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">template</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> numbers <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>By prefixing the path with the name of a loader and separating the loader’s name from the file path with an exclamation point, we tell webpack to use that loader for that file. With this, we don’t have to add anything to the configuration file. However, in a large project, you’ll likely be loading in several templates, so it would make more sense to tell webpack in the configuration file that we should use Handlebars so that we don’t need to add <code>handlebars!</code> to the path for every single import of a template. Let’s update the configuration:</p>
+<blockquote>
+<p>通过在路径前面加上加载程序的名称,并用感叹号将加载程序的名称与文件路径分开,我们告诉 webpack 将那个加载程序用于该文件.这样,我们不必在配置文件中添加任何内容.但是,在大型项目中,您可能会加载多个模板,因此在配置文件中告诉 webpack 我们应该使用 Handlebars 更为有意义,这样我们就不必 handlebars!为每个单独的路径添加路径导入模板.让我们更新配置:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span><span class="token comment">/* babel loader config… */</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span> test<span class="token operator">:</span> <span class="token regex">/\.hbs$/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'handlebars-loader'</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This one was simple. All we needed to do was specify that we wanted handlebars-loader to handle all files with the <code>.hbs</code> extension. That’s it! We’re done with Handlebars and the <code>example4</code> branch of the repository. Now when you run <code>npm start</code>, you’ll see the webpack bundling output, as well as this:</p>
+<blockquote>
+<p>这个很简单.我们需要做的就是指定我们希望 handlebars-loader 处理带有.hbs 扩展名的所有文件.而已！我们已经完成了 Handlebars 和 example4 存储库的分支.现在,当您运行时 npm start,您将看到 webpack 捆绑输出以及以下内容:</p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>16<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>25<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>36<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Using-Plugins"><a href="#Using-Plugins" class="headerlink" title="Using Plugins"></a>Using Plugins</h3><p>Plugins are the way, other than loaders, to install custom functionality into webpack. You have much more freedom to add them to the webpack workflow because they aren’t limited to being used only while loading specific file types; they can be injected practically anywhere and are, therefore, able to do much more. It’s hard to give an impression of how much plugins can do, so I’ll just send you to the list of <a target="_blank" rel="noopener" href="https://www.npmjs.com/search?q=webpack-plugin">npm packages that have “webpack-plugin”</a> in the name, which should be a pretty good representation.</p>
+<blockquote>
+<p>除加载程序外,插件是将自定义功能安装到 webpack 中的一种方式.您有更大的自由将它们添加到 webpack 工作流中,因为它们不仅限于仅在加载特定文件类型时使用；它们几乎可以在任何地方注射,因此能够做得更多.很难给人以多少插件印象,所以我只将您发送到名称中带有” webpack-plugin”的 npm 软件包列表,这应该是一个很好的表示.</p>
+</blockquote>
+<p>We’ll only be touching on two plugins for this tutorial (one of which we’ll see later). We’ve already gone quite long with this post, so why be excessive with even more plugin examples, right? The first plugin we’ll use is <a target="_blank" rel="noopener" href="https://github.com/ampedandwired/html-webpack-plugin">HTML Webpack Plugin</a>, which simply generates an HTML file for us — we can finally start using the web!</p>
+<blockquote>
+<p>在本教程中,我们仅涉及两个插件(稍后将介绍其中一个).我们对这篇文章已经走了很长时间,所以为什么要过多使用更多的插件示例,对吗？我们将使用的第一个插件是 HTML Webpack Plugin,它可以为我们简单地生成一个 HTML 文件-我们终于可以开始使用网络了！</p>
+</blockquote>
+<p>Before using the plugin, let’s update our scripts so that we can run a simple web server to test our application. First, we need to install a server: <code>npm i -D http-server</code>. Then, we’ll change our <code>execute</code> script to the <code>server</code> script and update the <code>start</code> script accordingly:</p>
+<blockquote>
+<p>在使用插件之前,让我们更新脚本,以便我们可以运行简单的 Web 服务器来测试我们的应用程序.首先,我们需要安装服务器:npm i -D http-server.然后,将 execute 脚本更改为 server 脚本并相应地更新 start 脚本:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">…
+<span class="token string">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">"prebuild"</span><span class="token operator">:</span> <span class="token string">"del-cli dist -f"</span><span class="token punctuation">,</span>
+  <span class="token string">"build"</span><span class="token operator">:</span> <span class="token string">"webpack"</span><span class="token punctuation">,</span>
+  <span class="token string">"server"</span><span class="token operator">:</span> <span class="token string">"http-server ./dist"</span><span class="token punctuation">,</span>
+  <span class="token string">"start"</span><span class="token operator">:</span> <span class="token string">"npm run build -s &amp;&amp; npm run server -s"</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+…<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>After the webpack build is done, <code>npm start</code> will also start up a web server, and you can navigate to <code>localhost:8080</code> to view your page. Of course, we still need to create that page with the plugin, so let’s move on to that. First, we need to install the plugin: <code>npm i -D html-webpack-plugin</code>.</p>
+<blockquote>
+<p>完成 webpack 构建后,npm start 还将启动 Web 服务器,您可以导航到 localhost:8080 以查看页面.当然,我们仍然需要使用插件来创建该页面,让我们继续进行下去.首先,我们需要安装插件:npm i -D html-webpack-plugin.</p>
+</blockquote>
+<p>When that’s done, we need to hop into <code>webpack.config.js</code> and make it look like this:</p>
+<blockquote>
+<p>完成后,我们需要进入 webpack.config.js 并使其如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> HtmlwebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  entry<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'babel-polyfill'</span><span class="token punctuation">,</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span> plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'transform-runtime'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> test<span class="token operator">:</span> <span class="token regex">/\.hbs$/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'handlebars-loader'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">HtmlwebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The two changes we made were to import the newly installed plugin at the top of the file and then add a <code>plugins</code> section at the end of the configuration object, where we passed in a new instance of our plugin.</p>
+<blockquote>
+<p>我们进行的两个更改是将新安装的插件导入文件顶部,然后 plugins 在配置对象的末尾添加一个部分,在此我们传入了插件的新实例.</p>
+</blockquote>
+<p>At this point, we aren’t passing in any options to the plugin, so it’s using its standard template, which doesn’t include much, but it does include our bundled script. If you run <code>npm start</code> and then visit the URL in the browser, you’ll see a blank page, but you should see that HTML being outputted to the console if you open your developer’s tools.</p>
+<blockquote>
+<p>在这一点上,我们没有向插件传递任何选项,因此它正在使用其标准模板,该模板虽然不包含太多内容,但确实包含了捆绑脚本.如果您运行 npm start 然后在浏览器中访问 URL,则会看到一个空白页,但是如果您打开开发人员的工具,则应该看到 HTML 输出到控制台.</p>
+</blockquote>
+<p>We should probably have our own template and get that HTML to be spitted out onto the page rather than into the console, so that a “normal” person could actually get something from this page. First, let’s make our template by creating an <code>index.html</code> file in the <code>src</code> directory. By default, it’ll use EJS for the templating, however, you can configure the plugin to <a target="_blank" rel="noopener" href="https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md">use any template language</a> available to webpack. We’ll use the default EJS because it doesn’t make much difference. Here are the contents of that file:</p>
+<blockquote>
+<p>我们可能应该拥有自己的模板,并将 HTML 分散到页面上而不是控制台上,以便”正常”人实际上可以从该页面中获得一些东西.首先,让我们通过 index.html 在 src 目录中创建文件来制作模板.默认情况下,它将使用 EJS 作为模板,但是,您可以将插件配置为使用可用于 webpack 的任何模板语言.我们将使用默认的 EJS,因为它没有太大的区别.这是该文件的内容:</p>
+</blockquote>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>&lt;%= htmlWebpackPlugin.options.title %><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>This is my Index.html Template<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You’ll notice a few things:</p>
+<ul>
+<li>We’re using an option passed to the plugin to define the title (just because we can).</li>
+<li>There’s nothing to specify where the scripts should be added. This is because the plugin will add the scripts to the end of the <code>body</code> tag by default.</li>
+<li>There’s a random <code>div</code> with an <code>id</code> in there. We’ll be using this now.<blockquote>
+<ul>
+<li>我们正在使用传递给插件的选项来定义标题(正因为如此).</li>
+<li>没有什么可以指定将脚本添加到何处的.这是因为 body 默认情况下,插件会将脚本添加到标签的末尾.</li>
+<li>有一个随机 div 与 id 在那里.我们现在将使用它.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>We now have the template we want; so, at the very least, we won’t have a blank page. Let’s update <code>main.js</code> so that it appends that HTML to that <code>div</code>, instead of putting it into the console. To do this, just update the last line of <code>main.js</code> to <code>document.getElementById(&quot;app-container&quot;).innerHTML = template(&#123;numbers&#125;);</code>.</p>
+<blockquote>
+<p>现在,我们有了所需的模板；因此,至少我们不会有空白页.让我们进行更新,main.js 以便将 HTML 附加到该 HTMLdiv 而不是将其放入控制台.为此,只需将的最后一行更新 main.js 为 document.getElementById(“app-container”).innerHTML = template({numbers});.</p>
+</blockquote>
+<p>We also need to update our webpack configuration to pass in a couple options to the plugin. Your config file should now look like this:</p>
+<blockquote>
+<p>我们还需要更新 webpack 配置,以将几个选项传递给插件.您的配置文件现在应如下所示:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> HtmlwebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  entry<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'babel-polyfill'</span><span class="token punctuation">,</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span> plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'transform-runtime'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> test<span class="token operator">:</span> <span class="token regex">/\.hbs$/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'handlebars-loader'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlwebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      title<span class="token operator">:</span> <span class="token string">'Intro to webpack'</span><span class="token punctuation">,</span>
+      template<span class="token operator">:</span> <span class="token string">'src/index.html'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The <code>template</code> option specifies where to find our template, and the <code>title</code> option is passed into the template. Now, if you run <code>npm start</code>, you should see the following in your browser:</p>
+<blockquote>
+<p>该 template 选项指定在哪里可以找到我们的模板,该 title 选项将传递到模板中.现在,如果您运行 npm start,您应该在浏览器中看到以下内容:</p>
+</blockquote>
+<p><img src="https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/1ba29833-352d-41a5-9965-6caba0ba2ae8/index-html-template-opt.png" alt="webpack"></p>
+<p>That brings us to the end of the <code>example5</code> branch of the repository, in case you’re following along in there. Each plugin will likely have very different options and configurations of their own, because there are so many of them and they can do a wide variety of things, but in the end, they’re practically all added to the <code>plugins</code> array in <code>webpack.config.js</code>. There are also many other ways to handle how the HTML page is generated and populated with file names, which can be handy once you start adding cache-busting hashes to the end of the bundle file names.</p>
+<blockquote>
+<p>example5 如果您一直在其中,那将我们带到存储库分支的末尾.每个插件可能会有各自不同的选项和配置,因为它们太多了,它们可以做各种各样的事情,但是最后,它们实际上都被添加到的 plugins 数组中 webpack.config.js.还有许多其他方法来处理如何生成 HTML 页并使用文件名填充 HTML 页,一旦开始在捆绑文件名的末尾添加缓存清除散列,这将非常方便.</p>
+</blockquote>
+<p>If you look at the example project’s repository, you’ll see an <a target="_blank" rel="noopener" href="https://github.com/joezimjs/webpack-Introduction-Tutorial/tree/example6"><code>example6</code></a> branch where I added JavaScript minification via a plugin, but that isn’t necessary unless you want to make some changes to the configuration of UglifyJS. If you don’t like the default settings of UglifyJS, check out the repository (you should only need to look at <code>webpack.config.js</code>) to figure out how to use the plugin and configure it. But if you’re good with the default settings, then all you need to do is pass the <code>-p</code> argument when you run <code>webpack</code> on the command line.</p>
+<blockquote>
+<p>如果查看示例项目的存储库,将看到一个 example6 分支,在该分支中我通过插件添加了 JavaScript 压缩,但这不是必需的,除非您想对 UglifyJS 的配置进行一些更改.如果您不喜欢 UglifyJS 的默认设置,请查看存储库(您只需要查看 webpack.config.js),以了解如何使用该插件并对其进行配置.但是,如果您对默认设置满意,那么您只需在命令行上-p 运行时传递参数即可 webpack.</p>
+</blockquote>
+<p>That argument is the “production” shortcut, which is equivalent to using <code>–optimize-minimize</code> and <code>–optimize-occurence-order</code> arguments, the first of which minifies the JavaScript and the second of which optimizes the order in which the modules are included in the bundled script, making for a slightly smaller file size and slightly faster execution. The repository has been done for a while, and I learned about the <code>-p</code> option later, so I decided to keep the plugin example for UglifyJS in there, while informing you of an easier way. Another shortcut you can use is <code>-d</code>, which will show more debugging information from the webpack output, and which will generate source maps without any extra configuration. You can use plenty more <a target="_blank" rel="noopener" href="http://webpack.github.io/docs/cli.html">command line shortcuts</a> if that’s easier for you.</p>
+<blockquote>
+<p>该参数是”生产”快捷方式,等效于 using–optimize-minimize 和–optimize-occurence-order 参数,其中第一个用于压缩 JavaScript,第二个用于优化模块包含在捆绑脚本中的顺序,从而使文件大小略小并且执行速度更快.存储库已经完成了一段时间,-p 后来我了解了该选项,因此我决定将 UglifyJS 的插件示例保存在其中,同时向您介绍一种更简单的方法.您可以使用的另一个快捷方式是-d,它将显示来自 webpack 输出的更多调试信息,并且无需任何额外配置即可生成源映射.如果您更方便,则可以使用更多的命令行快捷方式.</p>
+</blockquote>
+<h3 id="Lazy-Loading-Chunks"><a href="#Lazy-Loading-Chunks" class="headerlink" title="Lazy-Loading Chunks"></a>Lazy-Loading Chunks</h3><p>One thing that I really enjoyed with RequireJS and couldn’t quite get to work with Browserify (though it may be possible) is lazy-loading modules. One massive JavaScript file will help by limiting the number of HTTP requests required, but it practically guarantees that code will be downloaded that won’t necessarily be used by the visitor in that session.</p>
+<blockquote>
+<p>我真的很喜欢 RequireJS 并且无法完全使用 Browserify(虽然有可能)的一件事是延迟加载模块.一个庞大的 JavaScript 文件将通过限制所需的 HTTP 请求数量来提供帮助,但实际上可以保证将下载该会话中访客不一定要使用的代码.</p>
+</blockquote>
+<p>Webpack has a way of splitting a bundle into chunks that can be lazy-loaded, and it doesn’t even require any configuration. All you need to do is write your code in one of two ways, and webpack will handle the rest. Webpack gives you two methods to do this, one based on CommonJS and the other based on AMD. To lazy-load a module using CommonJS, you’d write something like this:</p>
+<blockquote>
+<p>Webpack 可以将捆绑包拆分为可以延迟加载的块,甚至不需要任何配置.您所需要做的就是用以下两种方法之一编写代码,而 webpack 将处理其余的代码.Webpack 为您提供了两种方法,一种基于 CommonJS,另一种基于 AMD.要使用 CommonJS 延迟加载模块,可以编写如下代码:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">require<span class="token punctuation">.</span><span class="token function">ensure</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'module-a'</span><span class="token punctuation">,</span> <span class="token string">'module-b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">require</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module-a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module-b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// …</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Use <code>require.ensure</code>, which will make sure the module is available (but not execute it) and pass in an array of module names and then a callback. To actually use the module within that callback, you’ll need to <code>require</code> it explicitly in there using the argument passed to your callback.</p>
+<blockquote>
+<p>使用 require.ensure,这将确保模块可用(但不执行),并传入模块名称数组,然后传递回调.要在该回调中实际使用该模块,您需要 require 使用传递给您的回调的参数在其中显式地使用它.</p>
+</blockquote>
+<p>Personally, this feels verbose to me, so let’s look at the AMD version:</p>
+<blockquote>
+<p>就我个人而言,这很冗长,因此让我们看一下 AMD 版本:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'module-a'</span><span class="token punctuation">,</span> <span class="token string">'module-b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// …</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>With AMD, you use <code>require</code>, pass in an array of module dependencies, then pass a callback. The arguments for the callback are references to each of the dependencies in the same order that they appear in the array.</p>
+<blockquote>
+<p>使用 AMD 时,请使用 require,传入模块依赖关系数组,然后传递回调.回调的参数是对每个依赖项的引用,其引用顺序与它们在数组中出现的顺序相同.</p>
+</blockquote>
+<p>Webpack 2 also supports <code>System.import</code>, which uses promises rather than callbacks. I think this will be a useful improvement, although wrapping this in a promise shouldn’t be hard if you really want them now. Note, however, that <code>System.import</code> is already deprecated in favor of the newer specification for <code>import()</code>. The caveat here, though, is that Babel (and TypeScript) will throw syntax errors if you use it. You can use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/babel-plugin-dynamic-import-webpack">babel-plugin-dynamic-import-webpack</a>, but that will convert it to <code>require.ensure</code> rather than just helping Babel see the new <code>import</code> function as legal and leave it alone so webpack can handle it. I don’t see AMD or <code>require.ensure</code> going away any time soon, and <code>System.import</code> will be supported until version 3, which should be decently far in the future, so just use whichever one you fancy the best.</p>
+<blockquote>
+<p>Webpack 2 还支持 System.import,它使用承诺而不是回调.我认为这将是有益的改进,尽管如果您现在真的想要,将其包装在一个诺言中并不难.但是请注意,System.import 为了支持较新的规范,已经不建议这样做 import().不过,需要注意的是,如果您使用 Babel(和 TypeScript),它将抛出语法错误.您可以使用 babel-plugin-dynamic-import-webpack,但是它将转换为,require.ensure 而不仅仅是帮助 Babel 将该新 import 功能视为合法并将其保留,以便 webpack 可以处理它.我看不到 AMD 或 require.ensure 很快就会消失,并且 System.import 直到第 3 版都将受到支持,该版本应该会在将来相当长的一段时间,因此请使用您最喜欢的一个.</p>
+</blockquote>
+<p>Let’s augment our code to wait for a couple seconds, then lazy-load in the Handlebars template and output the list to the screen. To do that, we’ll remove the <code>import</code> of the template near the top and wrap the last line in a <code>setTimeout</code> and an AMD version of <code>require</code> for the template:</p>
+<blockquote>
+<p>让我们扩展代码以等待几秒钟,然后延迟加载到 Handlebars 模板中并将列表输出到屏幕.为此,我们将 import 在顶部附近移除模板的,并将最后一行包装在 setTimeout 和的 AMD 版本中 require:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> map <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'lodash'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> numbers <span class="token operator">=</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> n <span class="token operator">*</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'./numberlist.hbs'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">template</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app-container'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token function">template</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> numbers <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Now, if you run <code>npm start</code>, you’ll see that another asset is generated, which should be named <code>1.bundle.js</code>. If you open up the page in your browser and open your development tools to watch the network traffic, you’ll see that after a 2-second delay, the new file is finally loaded and executed. This, my friend, isn’t all that difficult to implement but it can be huge for saving on file size and can make the user’s experience so much better.</p>
+<blockquote>
+<p>现在,如果您运行 npm start,将会看到生成了另一个资产,该资产应命名为 1.bundle.js.如果您在浏览器中打开页面并打开开发工具来监视网络流量,则会看到经过 2 秒的延迟后,新文件终于被加载并执行.我的朋友,这并不是很难实现,但是对于节省文件大小来说可能是巨大的,并且可以使用户的使用体验更好.</p>
+</blockquote>
+<p>Note that these sub-bundles, or chunks, contain all of their dependencies, except for the ones that are included in each of their parent chunks. (You can have multiple entries that each lazy-load this chunk and that, therefore, have different dependencies loaded into each parent.)</p>
+<blockquote>
+<p>请注意,这些子捆绑(或大块)包含其所有依赖关系,但每个父捆绑中都包含这些依赖项.(您可以有多个条目,每个条目都是延迟加载此块的,因此每个父级都有不同的依赖项.)</p>
+</blockquote>
+<h3 id="Creating-A-Vendor-Chunk"><a href="#Creating-A-Vendor-Chunk" class="headerlink" title="Creating A Vendor Chunk"></a>Creating A Vendor Chunk</h3><p>Let’s talk about one more optimization that can be made: vendor chunks. You can define a separate bundle to be built that will store “common” or third-party code that is unlikely to change. This allows visitors to cache your libraries in a separate file from your application code, so that the libraries won’t need to be downloaded again when you update the application.</p>
+<blockquote>
+<p>让我们谈谈可以进行的另一项优化:供应商组块.您可以定义要构建的单独捆绑包,该捆绑包将存储不太可能更改的”通用”或第三方代码.这使访问者可以将您的库与应用程序代码缓存在一个单独的文件中,从而在更新应用程序时无需再次下载这些库.</p>
+</blockquote>
+<p>To do this, we’ll use a plugin that comes with webpack, called <code>CommonsChunkPlugin</code>. Because it’s included, we don’t need to install anything; all we need to do is make some edits to <code>webpack.config.js</code>:</p>
+<blockquote>
+<p>为此,我们将使用 webpack 附带的插件,名为 CommonsChunkPlugin.因为包含了它,所以我们不需要安装任何东西.我们要做的就是对进行一些编辑 webpack.config.js:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> HtmlwebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'html-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> UglifyJsPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack/lib/optimize/UglifyJsPlugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> CommonsChunkPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack/lib/optimize/CommonsChunkPlugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  entry<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    vendor<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'babel-polyfill'</span><span class="token punctuation">,</span> <span class="token string">'lodash'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    main<span class="token operator">:</span> <span class="token string">'./src/main.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'./dist'</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">&#123;</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.jsx?$/</span><span class="token punctuation">,</span>
+        loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+        exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        options<span class="token operator">:</span> <span class="token punctuation">&#123;</span> plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'transform-runtime'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'es2015'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span> test<span class="token operator">:</span> <span class="token regex">/\.hbs$/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'handlebars-loader'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">HtmlwebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      title<span class="token operator">:</span> <span class="token string">'Intro to webpack'</span><span class="token punctuation">,</span>
+      template<span class="token operator">:</span> <span class="token string">'src/index.html'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">UglifyJsPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      beautify<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      mangle<span class="token operator">:</span> <span class="token punctuation">&#123;</span> screw_ie8<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      compress<span class="token operator">:</span> <span class="token punctuation">&#123;</span> screw_ie8<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> warnings<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      comments<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">new</span> <span class="token class-name">CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+      name<span class="token operator">:</span> <span class="token string">'vendor'</span><span class="token punctuation">,</span>
+      filename<span class="token operator">:</span> <span class="token string">'vendor.bundle.js'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Line 3 is where we import the plugin. Then, in the <code>entry</code> section, we use a different setup, an object literal, to specify multiple entry points. The <code>vendor</code> entry marks what will be included in the vendor chunk — which includes the polyfill as well as Lodash — and we put our main entry file into the <code>main</code> entry. Then, we simply need to add the <code>CommonsChunkPlugin</code> to the <code>plugins</code> section, specifying the “vendor” chunk as the chunk to base it on and specifying that the vendor code will be stored in a file named <code>vendor.bundle.js</code>.</p>
+<blockquote>
+<p>第 3 行是我们导入插件的位置.然后,在本 entry 节中,我们使用不同的设置(对象文字)来指定多个入口点.该 vendor 入口标记是什么将包括在供应商大块-其中包括填充工具以及 Lodash -我们把我们的主入口文件到 main 项.然后,我们只需要简单地添加 CommonsChunkPlugin 到 plugins 部分,指定”供应商”作为一块块基地它,并指定供应商代码将被存储在一个文件名为 vendor.bundle.js.</p>
+</blockquote>
+<p>By specifying the “vendor” chunk, this plugin will pull all of the dependencies specified by that chunk out of the other entry files and only place them in this vendor chunk. If you do not specify a chunk name here, it’ll create a separate file based on the dependencies that are shared between the entries.</p>
+<blockquote>
+<p>通过指定”供应商”块,此插件将从该块指定的所有依赖项中拉出其他条目文件,并将其仅放置在该供应商块中.如果您在此处未指定块名称,它将基于条目之间共享的依赖关系创建一个单独的文件.</p>
+</blockquote>
+<p>When you run webpack, you should see three JavaScript files now: <code>bundle.js</code>, <code>1.bundle.js</code> and <code>vendor.bundle.js</code>. You can run <code>npm start</code> and view the result in the browser if you’d like. It seems that webpack will even put the majority of its own code for handling the loading of different modules into the vendor chunk, which is definitely useful.</p>
+<blockquote>
+<p>当您运行的 WebPack,你现在应该看到三个 JavaScript 文件:bundle.js,1.bundle.js 和 vendor.bundle.js.您可以 npm start 根据需要在浏览器中运行并查看结果.似乎 webpack 甚至会将自己的大部分代码用于将不同模块的加载处理到供应商块中,这绝对有用.</p>
+</blockquote>
+<p>And that concludes the <code>example8</code> branch, as well as the tutorial. I have touched on quite a bit, but it only gives you a tiny taste of what is possible with webpack. Webpack enables easy <a target="_blank" rel="noopener" href="http://glenmaddern.com/articles/css-modules">CSS modules</a>, cache-busting hashes, image optimization and much much more — so much that even if I wrote a massive book on the subject, I couldn’t show you everything, and by the time I finished writing that book, most (if not all) of it would be outdated! So, give webpack a try today, and let me know if it improves your workflow. God bless and happy coding!</p>
+<blockquote>
+<p>到这里就结束了 example8 分公司,以及教程.我已经谈了很多,但是它仅使您对 webpack 可能产生的影响有少许了解.Webpack 启用了简单的 CSS 模块,消除缓存的哈希值,图像优化等更多功能,以至于即使我写了一本有关该主题的大量书籍,也无法向您展示所有内容,而当我写完这本书时,大多数(如果不是全部)将过时了！因此,请立即尝试使用 webpack,让我知道它是否可以改善您的工作流程.愿上帝保佑并祝您编码愉快！</p>
+</blockquote>
+<h4 id="Further-Reading-on-SmashingMag"><a href="#Further-Reading-on-SmashingMag" class="headerlink" title="Further Reading on SmashingMag:"></a>Further Reading on SmashingMag:</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2017/02/web-development-reading-list-168/">Preload With Webpack</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/06/harness-machines-productive-task-runners/">How To Harness The Machines: Being Productive With Task Runners</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/02/writing-next-generation-reusable-javascript-modules/">Writing Next Generation Reusable JavaScript Modules in ECMAScript 6</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/">A Glimpse Into The Future With React Native For Web</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2017-02-21T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/%E5%A9%9A%E5%90%8E%E5%92%8C%E8%B0%90%E7%94%9F%E6%B4%BB%E5%85%AC%E7%BA%A6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="婚后和谐生活公约">
+                        
+                        <span class="card-title">婚后和谐生活公约</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-03-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A9%9A%E5%A7%BB/">
+                        <span class="chip bg-color">婚姻</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/javascript-without-loops/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="JavaScript Without Loops">
+                        
+                        <span class="card-title">JavaScript Without Loops</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

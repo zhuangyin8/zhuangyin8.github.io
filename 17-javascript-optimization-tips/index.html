@@ -1,0 +1,1411 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="17 Javascript optimization tips, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>17 Javascript optimization tips | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">17 Javascript optimization tips</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tips/">
+                                <span class="chip bg-color">Tips</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-01-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/17-javascript-optimization-tips-3gil">17 Javascript optimization tips</a></p>
+</blockquote>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/i/ejezjwd81ld46em12d9f.jpg" alt="Cover image for 17 Javascript optimization tips"></p>
+<p>You might be using <code>Javascript</code> development for a long time but sometimes you might not be updated with newest beautiful features that it offers which can solve your issues without writing extra codes. These techniques can help you write clean and optimized JavaScript Code. Moreover, these topics can help you to prepare yourself for JavaScript interviews in 2021.</p>
+<p>After one of my articles about <a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/8-useful-javascript-tricks-you-didn-t-know-in-4-minutes-3npb">8 neat javascript skills you didn’t know in 4 minutes</a>, here I am coming with a new series to cover shorthand techniques that help you to write more clean and optimized JavaScript Code.My motive is to introduce all the JavaScript best practices such as shorthand and features which we must know as a frontend developer to make our life easier in 2021.This is a Cheat list for JavaScript Coding you <strong>must</strong> know in <code>2021</code>.</p>
+<h2 id="1-If-with-multiple-conditions"><a href="#1-If-with-multiple-conditions" class="headerlink" title="1. If with multiple conditions"></a>1. If with multiple conditions</h2><p>We can store multiple values in the array and we can use the array <code>includes</code> method.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//longhand</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token string">'abc'</span> <span class="token operator">||</span> x <span class="token operator">===</span> <span class="token string">'def'</span> <span class="token operator">||</span> x <span class="token operator">===</span> <span class="token string">'ghi'</span> <span class="token operator">||</span> x <span class="token operator">===</span> <span class="token string">'jkl'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//logic</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//shorthand</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'abc'</span><span class="token punctuation">,</span> <span class="token string">'def'</span><span class="token punctuation">,</span> <span class="token string">'ghi'</span><span class="token punctuation">,</span> <span class="token string">'jkl'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//logic</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="2-If-true-…-else-Shorthand"><a href="#2-If-true-…-else-Shorthand" class="headerlink" title="2. If true … else Shorthand"></a>2. If true … else Shorthand</h2><p>This is a greater shortcut for when we have <code>if-else</code> conditions that do not contain bigger logics inside. We can simply use the <code>ternary operators</code> to achieve this shorthand.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">let</span> test<span class="token operator">:</span> boolean<span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  test <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+  test <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">let</span> test <span class="token operator">=</span> x <span class="token operator">></span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token comment">//or we can simply use</span>
+<span class="token keyword">let</span> test <span class="token operator">=</span> x <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>test<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<p>After nesting the condition we remain with something which looks like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token keyword">let</span> test2 <span class="token operator">=</span> <span class="token punctuation">(</span>x <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'greater 100'</span> <span class="token operator">:</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'less 50'</span> <span class="token operator">:</span> <span class="token string">'between 50 and 100'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>test2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "greater than 100"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="3-Null-Undefined-Empty-Checks"><a href="#3-Null-Undefined-Empty-Checks" class="headerlink" title="3. Null, Undefined, Empty Checks"></a>3. Null, Undefined, Empty Checks</h2><p>When we do create new variables sometimes we want to check if the variable we are referencing for its value is not <code>null</code> or <code>undefined</code>. JavaScript does have a really good shorthand to achieve these functions.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">||</span> first <span class="token operator">!==</span> <span class="token keyword">undefined</span> <span class="token operator">||</span> first <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> second <span class="token operator">=</span> first<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">let</span> second <span class="token operator">=</span> first <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="4-Null-Value-checks-and-Assigning-Default-Value"><a href="#4-Null-Value-checks-and-Assigning-Default-Value" class="headerlink" title="4. Null Value checks and Assigning Default Value"></a>4. Null Value checks and Assigning Default Value</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> first <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+<span class="token keyword">let</span> second <span class="token operator">=</span> first <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"null check"</span><span class="token punctuation">,</span> test2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// output will be ""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="5-Undefined-Value-checks-and-Assigning-Default-Value"><a href="#5-Undefined-Value-checks-and-Assigning-Default-Value" class="headerlink" title="5. Undefined Value checks and Assigning Default Value"></a>5. Undefined Value checks and Assigning Default Value</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> first<span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+<span class="token keyword">let</span> second <span class="token operator">=</span> first <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"undefined check"</span><span class="token punctuation">,</span> test2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// output will be ""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="6-foreach-Loop-Shorthand"><a href="#6-foreach-Loop-Shorthand" class="headerlink" title="6.foreach Loop Shorthand"></a>6.foreach Loop Shorthand</h2><p>This is a useful short hand for iteration</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> testData<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> testData<span class="token punctuation">)</span> or  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> testData<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<p>Array for each variable</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">testData</span><span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> index<span class="token punctuation">,</span> array</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test['</span> <span class="token operator">+</span> index <span class="token operator">+</span> <span class="token string">'] = '</span> <span class="token operator">+</span> element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>testData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// prints: test[0] = 11, test[1] = 24, test[2] = 32</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="7-Comparison-returns"><a href="#7-Comparison-returns" class="headerlink" title="7. Comparison returns"></a>7. Comparison returns</h2><p>Using the comparison in the <code>return</code> statement will avoid our 5 lines of code and reduced them to 1 line.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">let</span> test<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">checkReturn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>test <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> test<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">callMe</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token function">checkReturn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//output test</span>
+<span class="token keyword">function</span> <span class="token function">callMe</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">function</span> <span class="token function">checkReturn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> test <span class="token operator">||</span> <span class="token function">callMe</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="8-Short-function-calling"><a href="#8-Short-function-calling" class="headerlink" title="8. Short function calling**"></a>8. Short function calling**</h2><p>We can achieve these types of functions using <code>ternary operator</code>.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">function</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> test3 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>test3 <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Shorthand</span>
+<span class="token punctuation">(</span>test3 <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">?</span> test1 <span class="token operator">:</span> test2<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="9-Switch-shorthand"><a href="#9-Switch-shorthand" class="headerlink" title="9. Switch shorthand"></a>9. Switch shorthand</h2><p>We can save the conditions in the <code>key-value</code> objects and can be used based on the conditions.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+    <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+    <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token comment">// And so on...</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token number">1</span><span class="token operator">:</span> test1<span class="token punctuation">,</span>
+  <span class="token number">2</span><span class="token operator">:</span> test2<span class="token punctuation">,</span>
+  <span class="token number">3</span><span class="token operator">:</span> test<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+data<span class="token punctuation">[</span>anything<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">[</span>anything<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="11-Implicit-Return-Shorthand"><a href="#11-Implicit-Return-Shorthand" class="headerlink" title="11.Implicit Return Shorthand"></a>11.Implicit Return Shorthand</h2><p>With the use of <code>arrow functions</code>, we can return the value directly without having to write a <code>return</code> statement.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">Longhand<span class="token operator">:</span>
+<span class="token comment">//longhand</span>
+<span class="token keyword">function</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token parameter">diameter</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> diameter
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//shorthand</span>
+<span class="token function-variable function">getArea</span> <span class="token operator">=</span> <span class="token parameter">diameter</span> <span class="token operator">=></span> <span class="token punctuation">(</span>
+  Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">*</span> diameter<span class="token punctuation">;</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="12-Lookup-Conditions-Shorthand"><a href="#12-Lookup-Conditions-Shorthand" class="headerlink" title="12.Lookup Conditions Shorthand"></a>12.Lookup Conditions Shorthand</h2><p>If we have code to check the type and based on the type need to call different methods we either have the option to use multiple <code>else ifs</code> or go for the <code>switch</code>, but what if we have better shorthand than that?</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Longhand</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'test1'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'test2'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'test3'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'test4'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">test4</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Invalid value '</span> <span class="token operator">+</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Shorthand</span>
+<span class="token keyword">var</span> types <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  test1<span class="token operator">:</span> test1<span class="token punctuation">,</span>
+  test2<span class="token operator">:</span> test2<span class="token punctuation">,</span>
+  test3<span class="token operator">:</span> test3<span class="token punctuation">,</span>
+  test4<span class="token operator">:</span> test4<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> func <span class="token operator">=</span> types<span class="token punctuation">[</span>type<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">!</span>func <span class="token operator">&amp;&amp;</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Invalid value '</span> <span class="token operator">+</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="13-Object-entries"><a href="#13-Object-entries" class="headerlink" title="13.Object.entries()"></a>13.Object.entries()</h2><p>This feature helps to convert the object to an <code>array of objects</code>.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> test1<span class="token operator">:</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> test2<span class="token operator">:</span> <span class="token string">'cde'</span><span class="token punctuation">,</span> test3<span class="token operator">:</span> <span class="token string">'efg'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/** Output:
+    [ [ 'test1', 'abc' ],
+      [ 'test2', 'cde' ],
+      [ 'test3', 'efg' ]
+    ]
+    **/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="14-Object-values"><a href="#14-Object-values" class="headerlink" title="14. Object.values()"></a>14. Object.values()</h2><p>This is also a new feature introduced in <code>ES8</code> that performs a similar function to <code>Object.entries()</code>, but without the key part:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> test1<span class="token operator">:</span> <span class="token string">'abc'</span><span class="token punctuation">,</span> test2<span class="token operator">:</span> <span class="token string">'cde'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arr <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">/** Output:
+    [ 'abc', 'cde']
+    **/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="15-Repeat-a-string-multiple-times"><a href="#15-Repeat-a-string-multiple-times" class="headerlink" title="15. Repeat a string multiple times"></a>15. Repeat a string multiple times</h2><p>To repeat the same characters again and again we can use the <code>for loop</code> and add them in the same <code>loop</code> but what if we have a shorthand for this?</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//longhand</span>
+<span class="token keyword">let</span> test <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  test <span class="token operator">+=</span> <span class="token string">'test '</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// test test test test test</span>
+<span class="token comment">//shorthand</span>
+<span class="token string">'test '</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="16-Power-Shorthand"><a href="#16-Power-Shorthand" class="headerlink" title="16. Power Shorthand"></a>16. Power Shorthand</h2><p>Shorthand for a Math exponent power function:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//longhand</span>
+Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 8</span>
+<span class="token comment">//shorthand</span>
+<span class="token number">2</span> <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">// 8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="17-Numeric-Separators"><a href="#17-Numeric-Separators" class="headerlink" title="17. Numeric Separators"></a>17. Numeric Separators</h2><p>You can now easily separate numbers with just an <code>_</code> . This will make life of developers working with large numbers more easier.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//old syntax</span>
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">98234567</span><span class="token punctuation">;</span>
+
+<span class="token comment">//new syntax</span>
+<span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">98_234_567</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Enter fullscreen mode Exit fullscreen mode</p>
+<h2 id="If-you-would-like-to-get-update-yourself-with-the-latest-features-of-JavaScript-newest-version-ES2021-ES12-check-below"><a href="#If-you-would-like-to-get-update-yourself-with-the-latest-features-of-JavaScript-newest-version-ES2021-ES12-check-below" class="headerlink" title="If you would like to get update yourself with the latest features of JavaScript newest version(ES2021/ES12) check below:"></a>If you would like to get update yourself with the latest features of JavaScript newest version<code>(ES2021/ES12)</code> check below:</h2><h2 id="1-replaceAll-returns-a-new-string-with-all-matches-of-a-pattern-replaced-by-the-new-replacement-word"><a href="#1-replaceAll-returns-a-new-string-with-all-matches-of-a-pattern-replaced-by-the-new-replacement-word" class="headerlink" title="1. replaceAll():** returns a new string with all matches of a pattern replaced by the new replacement word."></a>1. replaceAll():** returns a new string with all matches of a pattern replaced by the new replacement word.</h2><h2 id="2-Promise-any-It-takes-an-iterable-of-Promise-objects-and-as-one-promise-fulfills-return-a-single-promise-with-the-value"><a href="#2-Promise-any-It-takes-an-iterable-of-Promise-objects-and-as-one-promise-fulfills-return-a-single-promise-with-the-value" class="headerlink" title="2.Promise.any():** It takes an iterable of Promise objects and as one promise fulfills, return a single promise with the value."></a>2.Promise.any():** It takes an iterable of Promise objects and as one promise fulfills, return a single promise with the value.</h2><h2 id="3-weakref-This-object-holds-a-weak-reference-to-another-object-without-preventing-that-object-from-getting-garbage-collected"><a href="#3-weakref-This-object-holds-a-weak-reference-to-another-object-without-preventing-that-object-from-getting-garbage-collected" class="headerlink" title="3. weakref:** This object holds a weak reference to another object without preventing that object from getting garbage-collected."></a>3. weakref:** This object holds a weak reference to another object without preventing that object from getting garbage-collected.</h2><h2 id="4-FinalizationRegistry-Lets-you-request-a-callback-when-an-object-is-garbage-collected"><a href="#4-FinalizationRegistry-Lets-you-request-a-callback-when-an-object-is-garbage-collected" class="headerlink" title="4. FinalizationRegistry:** Lets you request a callback when an object is garbage collected."></a>4. FinalizationRegistry:** Lets you request a callback when an object is garbage collected.</h2><h2 id="5-Private-visibility-modifier-for-methods-and-accessors-Private-methods-can-be-declared-with"><a href="#5-Private-visibility-modifier-for-methods-and-accessors-Private-methods-can-be-declared-with" class="headerlink" title="5. Private visibility:** modifier for methods and accessors: Private methods can be declared with #."></a>5. Private visibility:** modifier for methods and accessors: <code>Private methods</code> can be declared with <code>#</code>.</h2><h2 id="6-Logical-Operators-amp-amp-and-operators"><a href="#6-Logical-Operators-amp-amp-and-operators" class="headerlink" title="6. Logical Operators:** &amp;&amp; and || operators."></a>6. Logical Operators:** &amp;&amp; and || operators.</h2><h2 id="7-Intl-ListFormat-This-object-enables-language-sensitive-list-formatting"><a href="#7-Intl-ListFormat-This-object-enables-language-sensitive-list-formatting" class="headerlink" title="7. Intl.ListFormat:** This object enables language-sensitive list formatting."></a>7. Intl.ListFormat:** This object enables language-sensitive list formatting.</h2><h2 id="8-Intl-DateTimeFormat-This-object-enables-language-sensitive-date-and-time-formatting"><a href="#8-Intl-DateTimeFormat-This-object-enables-language-sensitive-date-and-time-formatting" class="headerlink" title="8. Intl.DateTimeFormat:** This object enables language-sensitive date and time formatting."></a>8. Intl.DateTimeFormat:** This object enables language-sensitive date and time formatting.</h2><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion**"></a>Conclusion**</h2><p>What’s more, there we have it. 17 ways to optimize your code with modern JavaScript techniques.</p>
+<p>👋<strong>Let’s be friends!</strong> Follow me on <a target="_blank" rel="noopener" href="https://twitter.com/graphicblessing">Twitter</a> and <a target="_blank" rel="noopener" href="https://instagram.com/blessingartcreator">instagram</a> for more related content. Don’t forget to follow me also here on <a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator">Dev</a> as well to get updated for new content.</p>
+<h2 id="Stay-safe-🏠"><a href="#Stay-safe-🏠" class="headerlink" title="Stay safe 🏠"></a>Stay safe 🏠</h2><h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>Subscribe</p>
+<pre><code>![pic](https://res.cloudinary.com/practicaldev/image/fetch/s--LJElwS3f--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/535180/d48ed195-d9dd-410f-90f6-5751e01d9d61.png)</code></pre>
+<p>Image Upload image</p>
+<p>Templates Templates <a href="/p/editor_guide" title="Markdown Guide">Editor guide</a></p>
+<p>Personal Moderator</p>
+<p><img src="https://practicaldev-herokuapp-com.freetls.fastly.net/assets/loading-ellipsis-b714cf681fd66c853ff6f03dd161b77aa3c80e03cdc06f478b695f42770421e9.svg" alt="loading"></p>
+<p><a href="/settings/response-templates">Create template</a></p>
+<p>Templates let you quickly answer FAQs or store snippets for re-use.</p>
+<p>Submit Preview <a href="/404.html">Dismiss</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/andrewbridge"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OY1Xz_0i--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/553556/1934373c-fde0-4255-8d92-ab2b1d719db8.png" alt="andrewbridge profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/andrewbridge">Andrew Bridge</a> • <a target="_blank" rel="noopener" href="https://dev.to/andrewbridge/comment/1ao3b">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/andrewbridge/comment/1ao3b">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>There are some good tips here! I hadn’t come across the numeric separators, and it’s great to see a <code>replaceAll</code> method after years of having to reach for a regex for that simple task!</p>
+<p>One thing I’d note is being careful with falsey checks, in #3 your <code>Longhand</code> version would allow any value other than those you’ve specified. The <code>Shorthand</code> version would also fail the value <code>0</code> and <code>false</code>. If you’re working with numbers, that can cause tricky to find bugs later on.</p>
+<p>The other bit may be more of a preference but nested ternary statements or function calls via a ternary (as in #8) are quite hard to read compared to the “long” alternative and that could make it far more susceptible to bugs and harder to find it when it comes up. I’d far prefer 5 clear lines of code and let my minifier convert it to a one liner before I push my code live!</p>
+<p>Anyway, great list! Thanks!</p>
+<p>Favorite heart outline button Favorite heart outline button 3  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao3b">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/alexchen1875"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dLgLwHG0--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/567394/e0644808-c280-4daa-8e7a-1a8e37aeb1bc.jpeg" alt="alexchen1875 profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/alexchen1875">AlexChen</a> • <a target="_blank" rel="noopener" href="https://dev.to/alexchen1875/comment/1ao99">Jan 26</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/alexchen1875/comment/1ao99">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>nice~<br>The code is used by the machine,and another function is to show it to people .<br>We have to make some trade-offs</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao99">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/jupiteris"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--IkspgD91--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/327911/cee52371-f79f-49dd-8d6e-665b2f90a606.jpeg" alt="jupiteris profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/jupiteris">Jupiter Programmer</a> • <a target="_blank" rel="noopener" href="https://dev.to/jupiteris/comment/1ao3e">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/jupiteris/comment/1ao3e">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>real experience!!!</p>
+<p>Favorite heart outline button Favorite heart outline button 3  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao3e">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/kpmcdowellmo"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--rsd1lN8L--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/262529/440ff8e5-dbb9-43a4-abf4-3f36cf6b6e37.jpeg" alt="kpmcdowellmo profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/kpmcdowellmo">Keven McDowell</a> • <a target="_blank" rel="noopener" href="https://dev.to/kpmcdowellmo/comment/1ao94">Jan 26</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/kpmcdowellmo/comment/1ao94">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>This list contains some good tips. Using an object in place of a switch statement is one of my favorite tricks to use. For your first tip, you may want to also consider using an object, since Array.includes is at worst a O(n) operation compared to an object lookup, which is a O(1) operation.</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao94">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/marcelcruz"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--UitGBHQI--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/185303/276205fc-88e3-4184-aec4-f5b8846def6d.jpg" alt="marcelcruz profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/marcelcruz">Marcel Cruz</a> • <a target="_blank" rel="noopener" href="https://dev.to/marcelcruz/comment/1ao2d">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/marcelcruz/comment/1ao2d">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Those are great tips, and they improve readability a lot. Thanks for sharing!</p>
+<p>Favorite heart outline button Favorite heart outline button 3  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao2d">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--j_akXqaO--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/411915/9ba6cfb3-7df5-41b2-9327-58fe6eedf5af.jpg" alt="blessingartcreator profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator">Blessing Hirwa Author</a> • <a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2p">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2p">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Glad to hear that.</p>
+<p>Favorite heart outline button Favorite heart outline button 2  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao2p">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/gershomlapaix"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--cRF6IpRr--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/539611/4fc361f4-7438-4a83-b789-1efef5356a00.jpeg" alt="gershomlapaix profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/gershomlapaix">Nsengiyumva Gershom La paix</a> • <a target="_blank" rel="noopener" href="https://dev.to/gershomlapaix/comment/1ao00">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/gershomlapaix/comment/1ao00">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Thank you <a target="_blank" rel="noopener" href="https://dev.to/blessing">@blessing</a><br>Great work!!</p>
+<p>Favorite heart outline button Favorite heart outline button 2  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao00">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--j_akXqaO--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/411915/9ba6cfb3-7df5-41b2-9327-58fe6eedf5af.jpg" alt="blessingartcreator profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator">Blessing Hirwa Author</a> • <a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2o">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2o">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Thanks mate.</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao2o">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lfidelino"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--yQC5qhl5--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/566568/450beabb-1b0c-4259-97fe-55c8c2f74ad0.jpeg" alt="lfidelino profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lfidelino">Lawrence Fidelino</a> • <a target="_blank" rel="noopener" href="https://dev.to/lfidelino/comment/1anpg">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/lfidelino/comment/1anpg">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Thanks! I’ll implement some of these in the future. I especially didn’t know about the last one.</p>
+<p>Favorite heart outline button Favorite heart outline button 2  likes <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1anpg">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--j_akXqaO--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/411915/9ba6cfb3-7df5-41b2-9327-58fe6eedf5af.jpg" alt="blessingartcreator profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator">Blessing Hirwa Author</a> • <a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2n">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/blessingartcreator/comment/1ao2n">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>It really saved me a headache. Thank me later.</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao2n">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/sgnilreutr"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--We6iPm0E--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/369756/2b86ac2e-abe4-467b-b0ea-8c58887c384a.png" alt="sgnilreutr profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/sgnilreutr">sgnilreutr</a> • <a target="_blank" rel="noopener" href="https://dev.to/sgnilreutr/comment/1ao67">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/sgnilreutr/comment/1ao67">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>Thanks for those tips! I already love them and will thankfully implement them in future projects, cheers!</p>
+<p>PS: I am missing a number 10? 🕵️‍♂️</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao67">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/shadowtime2000"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--0_pC6nXX--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/430316/b99ee86e-ce58-45df-a310-c3a372bca9c6.png" alt="shadowtime2000 profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/shadowtime2000">shadowtime2000</a> • <a target="_blank" rel="noopener" href="https://dev.to/shadowtime2000/comment/1ao91">Jan 26</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/shadowtime2000/comment/1ao91">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>When I hear optimization I think making the file size smaller and having the code run faster, not refactors that make the code a lot cleaner.</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao91">Comment button Reply</a></p>
+<p>Collapse Expand</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/michelledev3"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--9uYrs3Ph--/c_fill,f_auto,fl_progressive,h_50,q_auto,w_50/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/552793/007f2345-bf88-4613-837e-dae3549b6116.jpg" alt="michelledev3 profile image"></a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/michelledev3">michelledev</a> • <a target="_blank" rel="noopener" href="https://dev.to/michelledev3/comment/1ao7i">Jan 25</a></p>
+<p>Dropdown menu</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/michelledev3/comment/1ao7i">Copy link</a></p>
+</li>
+<li><p><a href="#">Hide</a></p>
+</li>
+</ul>
+<p>love this content, thanks for sharing!</p>
+<p>Favorite heart outline button Favorite heart outline button 1  like <a href="#/blessingartcreator/17-javascript-optimization-tips-3gil/comments/new/1ao7i">Comment button Reply</a></p>
+<p><a href="/code-of-conduct">Code of Conduct</a> • <a href="/report-abuse">Report abuse</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-01-26T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/centering-css-complete-guide/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Centering in CSS - A Complete Guide">
+                        
+                        <span class="card-title">Centering in CSS - A Complete Guide</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Flexbox/">
+                        <span class="chip bg-color">Flexbox</span>
+                    </a>
+                    
+                    <a href="/tags/Guide/">
+                        <span class="chip bg-color">Guide</span>
+                    </a>
+                    
+                    <a href="/tags/Grid/">
+                        <span class="chip bg-color">Grid</span>
+                    </a>
+                    
+                    <a href="/tags/Centering/">
+                        <span class="chip bg-color">Centering</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/javascript-visualized-generators-and-iterators/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="6 💡🎁 JavaScript Visualized: Generators and Iterators">
+                        
+                        <span class="card-title">6 💡🎁 JavaScript Visualized: Generators and Iterators</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                    <a href="/tags/Generators/">
+                        <span class="chip bg-color">Generators</span>
+                    </a>
+                    
+                    <a href="/tags/Iterators/">
+                        <span class="chip bg-color">Iterators</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

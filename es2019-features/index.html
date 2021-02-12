@@ -1,0 +1,1398 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="What&#39;s new in JavaScript - ES2019, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>What&#39;s new in JavaScript - ES2019 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">What&#39;s new in JavaScript - ES2019</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ES2019/">
+                                <span class="chip bg-color">ES2019</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-04-06
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2019">Features tagged “ES2019”</a></p>
+</blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/subsume-json">Subsume JSON a.k.a. JSON ⊂ ECMAScript</a> 14 August 2019</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/stable-sort">Stable <code>Array.prototype.sort</code></a> 02 July 2019</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/symbol-description"><code>Symbol.prototype.description</code></a> 25 June 2019</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/object-fromentries"><code>Object.fromEntries</code></a> 18 June 2019</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/array-flat-flatmap"><code>Array.prototype.flat</code> and <code>Array.prototype.flatMap</code></a> 11 June 2019</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/well-formed-json-stringify">Well-formed <code>JSON.stringify</code></a> 11 September 2018</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/optional-catch-binding">Optional <code>catch</code> binding</a> 27 March 2018</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/string-trimming"><code>String.prototype.trimStart</code> and <code>String.prototype.trimEnd</code></a> 26 March 2018</li>
+<li><a target="_blank" rel="noopener" href="https://v8.dev/features/function-tostring">Revised <code>Function.prototype.toString</code></a> 25 March 2018</li>
+</ol>
+<p>Recently, TC39 committee has approved and added few bunch of feature to ECMAScript 2019 Standard, which are ported to major JavaScript engine like V8,SpiderMonkey…</p>
+<blockquote>
+<p>最近,TC39 委员会批准并向 ECMAScript 2019 Standard 添加了一些功能,这些功能已移植到主要的 JavaScript 引擎(如 V8,SpiderMonkey 等)中.</p>
+</blockquote>
+<h2 id="Revised-Function-prototype-toString"><a href="#Revised-Function-prototype-toString" class="headerlink" title="Revised Function.prototype.toString"></a>Revised <code>Function.prototype.toString</code></h2><p><a target="_blank" rel="noopener" href="https://tc39.es/Function-prototype-toString-revision/">Function.prototype.toString()</a> now returns exact slices of source code text, including whitespace and comments. Here’s an example comparing the old and the new behavior:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Note the comment between the `function` keyword</span>
+<span class="token comment">// and the function name, as well as the space following</span>
+<span class="token comment">// the function name.</span>
+<span class="token keyword">function</span> <span class="token comment">/* a comment */</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Previously, in V8:</span>
+foo<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'function foo() &#123;&#125;'</span>
+<span class="token comment">//             ^ no comment</span>
+<span class="token comment">//                ^ no space</span>
+
+<span class="token comment">// Now:</span>
+foo<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'function /* comment */ foo () &#123;&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/toString">Function.prototype.toString</a></p>
+</blockquote>
+<h2 id="String-prototype-trimStart-and-String-prototype-trimEnd"><a href="#String-prototype-trimStart-and-String-prototype-trimEnd" class="headerlink" title="String.prototype.trimStart and String.prototype.trimEnd"></a><code>String.prototype.trimStart</code> and <code>String.prototype.trimEnd</code></h2><p>ES2019 introduces <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-string-left-right-trim">String.prototype.trimStart() and String.prototype.trimEnd()</a>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> string <span class="token operator">=</span> <span class="token string">'  hello world  '</span><span class="token punctuation">;</span>
+string<span class="token punctuation">.</span><span class="token function">trimStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'hello world  '</span>
+string<span class="token punctuation">.</span><span class="token function">trimEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → '  hello world'</span>
+string<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ES5</span>
+<span class="token comment">// → 'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This functionality was previously available through the non-standard trimLeft() and trimRight() methods, which remain as aliases of the new methods for backward compatibility.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> string <span class="token operator">=</span> <span class="token string">'  hello world  '</span><span class="token punctuation">;</span>
+string<span class="token punctuation">.</span><span class="token function">trimStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'hello world  '</span>
+string<span class="token punctuation">.</span><span class="token function">trimLeft</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'hello world  '</span>
+string<span class="token punctuation">.</span><span class="token function">trimEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → '  hello world'</span>
+string<span class="token punctuation">.</span><span class="token function">trimRight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → '  hello world'</span>
+string<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ES5</span>
+<span class="token comment">// → 'hello world'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart">String.prototype.trimStart()</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd">String.prototype.trimEnd()</a><!-- - [String.prototype.matchAll()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll) -->
+
+</li>
+</ul>
+<h2 id="Optional-catch-binding"><a href="#Optional-catch-binding" class="headerlink" title="Optional catch binding"></a>Optional <code>catch</code> binding</h2><p>The <code>catch</code> clause of <code>try</code> statements used to require a binding:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">doSomethingThatMightThrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>exception<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//     ^^^^^^^^^</span>
+  <span class="token comment">// We must name the binding, even if we don’t use it!</span>
+  <span class="token function">handleException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In ES2019, <code>catch</code> can now be <a target="_blank" rel="noopener" href="https://tc39.es/proposal-optional-catch-binding/">used without a binding</a>. This is useful if you don’t have a need for the <code>exception</code> object in the code that handles the exception.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">doSomethingThatMightThrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// → No binding!</span>
+  <span class="token function">handleException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Well-formed-JSON-stringify"><a href="#Well-formed-JSON-stringify" class="headerlink" title="Well-formed JSON.stringify"></a>Well-formed <code>JSON.stringify</code></h2><p><code>JSON.stringify</code> was previously specified to return ill-formed Unicode strings if the input contains any lone surrogates:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'\uD800'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → '"�"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>The “well-formed <code>JSON.stringify</code>” proposal changes <code>JSON.stringify</code> so it outputs escape sequences for lone surrogates, making its output valid Unicode (and representable in UTF-8):</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'\uD800'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → '"\\ud800"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Note that <code>JSON.parse(stringified)</code> still produces the same results as before.</p>
+<p>This feature is a small fix that was long overdue in JavaScript. It’s one less thing to worry about as a JavaScript developer. In combination with <a target="_blank" rel="noopener" href="https://v8.dev/features/subsume-json">JSON ⊂ ECMAScript</a>, it enables safely embedding JSON-stringified data as literals into JavaScript programs, and writing the generated code to disk in any Unicode-compatible encoding (e.g. UTF-8). This is super useful for <a target="_blank" rel="noopener" href="https://v8.dev/features/subsume-json#embedding-json">metaprogramming use cases</a>.</p>
+<h2 id="Array-prototype-flat-and-Array-prototype-flatMap"><a href="#Array-prototype-flat-and-Array-prototype-flatMap" class="headerlink" title="Array.prototype.flat and Array.prototype.flatMap"></a><code>Array.prototype.flat</code> and <code>Array.prototype.flatMap</code></h2><h3 id="Array-prototype-flat"><a href="#Array-prototype-flat" class="headerlink" title="Array.prototype.flat"></a>Array.prototype.flat</h3><p>The array in this example is several levels deep: it contains an array which in turn contains another array.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">//            ^^^^^^^^^^^^^ outer array</span>
+<span class="token comment">//                ^^^^^^^^  inner array</span>
+<span class="token comment">//                    ^^^   innermost array</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Array#flat returns a flattened version of a given array.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">array<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [1, 2, [3]]</span>
+
+<span class="token comment">// …is equivalent to:</span>
+array<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [1, 2, [3]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The default depth is 1, but you can pass any number to recursively flatten up to that depth. To keep flattening recursively until the result contains no more nested arrays, we pass Infinity.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Flatten recursively until the array contains no more nested arrays:</span>
+array<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">Infinity</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [1, 2, 3]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Why is this method known as Array.prototype.flat and not Array.prototype.flatten? <a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2018/03/smooshgate">Read our #SmooshGate write-up to find out!</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">Array.prototype.flat</a></p>
+</blockquote>
+<h3 id="Array-prototype-flatMap"><a href="#Array-prototype-flatMap" class="headerlink" title="Array.prototype.flatMap"></a>Array.prototype.flatMap</h3><p>Here’s another example. We have a duplicate function that takes a value, and returns an array that contains that value twice. If we apply duplicate to each value in an array, we end up with a nested array.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">duplicate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>duplicate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [[2, 2], [3, 3], [4, 4]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You can then call flat on the result to flatten the array:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>duplicate<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 🐌</span>
+<span class="token comment">// → [2, 2, 3, 3, 4, 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Since this pattern is so common in functional programming, there’s now a dedicated flatMap method for it.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>duplicate<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 🚀</span>
+<span class="token comment">// → [2, 2, 3, 3, 4, 4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>flatMap is a little bit more efficient compared to doing a map followed by a flat separately.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap">Array.prototype.flatMap</a></p>
+</blockquote>
+<h2 id="Object-fromEntries"><a href="#Object-fromEntries" class="headerlink" title="Object.fromEntries"></a><code>Object.fromEntries</code></h2><p><code>Object.fromEntries</code> is a useful addition to the built-in JavaScript library. Before explaining what it does, it helps to understand the pre-existing <code>Object.entries</code> API.</p>
+<h3 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries"></a>Object.entries</h3><p>The <code>Object.entries</code> API has been around for a while.</p>
+<p>For each key-value pair in an object, <code>Object.entries</code> gives you an array where the first element is the key, and the second element is the value.</p>
+<p><code>Object.entries</code> is especially useful in combination with <code>for-of</code>, as it enables you to very elegantly iterate over all key-value pairs in an object:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> entries <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [['x', 42], ['y', 50]]</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> entries<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The value of </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>key<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// Logs:</span>
+<span class="token comment">// The value of x is 42.</span>
+<span class="token comment">// The value of y is 50.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Unfortunately, there’s no easy way to go from the entries result back to an equivalent object… until now!</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">Object.entries()</a></p>
+</blockquote>
+<h3 id="Object-fromEntries-1"><a href="#Object-fromEntries-1" class="headerlink" title="Object.fromEntries"></a>Object.fromEntries</h3><p>The new <code>Object.fromEntries</code> API performs the inverse of <code>Object.entries</code>. This makes it easy to reconstruct an object based on its entries:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> entries <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → [['x', 42], ['y', 50]]</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>entries<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → &#123; x: 42, y: 50 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>One common use case is transforming objects. You can now do this by iterating over its entries, and then using array methods you might already be familiar with:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> abc<span class="token operator">:</span> <span class="token number">9001</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>
+  Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> key<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → &#123; x: 84, y: 100 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In this example, we’re <code>filter</code>ing the object to only get keys of length <code>1</code>, that is, only the keys <code>x</code> and <code>y</code>, but not the key <code>abc</code>. We then <code>map</code> over the remaining entries and return an updated key-value pair for each. In this example, we double each value by multiplying it by <code>2</code>. The end result is a new object, with only properties <code>x</code> and <code>y</code>, and the new values.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a></p>
+</blockquote>
+<h4 id="Objects-vs-maps"><a href="#Objects-vs-maps" class="headerlink" title="Objects vs. maps"></a>Objects vs. maps</h4><p>JavaScript also supports <code>Map</code>s, which are often a more suitable data structure than regular objects. So in code that you have full control over, you might be using maps instead of objects. However, as a developer, you do not always get to choose the representation. Sometimes the data you’re operating on comes from an external API or from some library function that gives you an object instead of a map.</p>
+<p><code>Object.entries</code> made it easy to convert objects into maps:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token punctuation">&#123;</span> language<span class="token operator">:</span> <span class="token string">'JavaScript'</span><span class="token punctuation">,</span> coolness<span class="token operator">:</span> <span class="token number">9001</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Convert the object into a map:</span>
+<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  => &#123;"language" => "JavaScript", "coolness" => 9001&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The inverse is equally useful: even if your code is using maps, you might need to serialize your data at some point, for example to turn it into JSON to send an API request. Or maybe you need to pass the data to another library that expects an object instead of a map. In these cases, you need to create an object based on the map data. <code>Object.fromEntries</code> makes this trivial:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Convert the map back into an object:</span>
+<span class="token keyword">const</span> objectCopy <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → &#123; language: 'JavaScript', coolness: 9001 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>With both <code>Object.entries</code> and <code>Object.fromEntries</code> in the language, you can now easily convert between maps and objects.</p>
+<h3 id="Warning-beware-of-data-loss"><a href="#Warning-beware-of-data-loss" class="headerlink" title="Warning: beware of data loss"></a>Warning: beware of data loss</h3><p>When converting maps into plain objects like in the above example, there’s a implicit assumption that each key stringifies uniquely. If this assumption does not hold, data loss occurs:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → &#123; '[object Object]': 'b' &#125;</span>
+<span class="token comment">// Note: the value 'a' is nowhere to be found, since both keys</span>
+<span class="token comment">// stringify to the same value of '[object Object]'.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Before using <code>Object.fromEntries</code> or any other techique to convert a map into a object, make sure the map’s keys produce unique <code>toString</code> results.</p>
+<h2 id="Symbol-prototype-description"><a href="#Symbol-prototype-description" class="headerlink" title="Symbol.prototype.description"></a><code>Symbol.prototype.description</code></h2><p>JavaScript <code>Symbols</code> can be given a description upon creation:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//                    ^^^^^</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Previously, the only way to access this description programmatically was indirectly through <code>Symbol.prototype.toString()</code>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//                    ^^^^^</span>
+symbol<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → 'Symbol(foo)'</span>
+<span class="token comment">//           ^^^</span>
+symbol<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 🤔</span>
+<span class="token comment">// → 'foo'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>However, the code is slightly magical-looking, not very self-explanatory, and violates the “express intent, not implementation” principle. The above technique also doesn’t let you distinguish between a symbol with no description (i.e. <code>Symbol()</code>) and a symbol with the empty string as its description (i.e. <code>Symbol(&#39;&#39;)</code>).</p>
+<p><a target="_blank" rel="noopener" href="https://tc39.es/ecma262/#sec-symbol.prototype.description">The new <code>Symbol.prototype.description</code> getter</a> provides a more ergonomic way of accessing the description of a <code>Symbol</code>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//                    ^^^^^</span>
+symbol<span class="token punctuation">.</span>description<span class="token punctuation">;</span>
+<span class="token comment">// → 'foo'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>For <code>Symbols</code> without a description, the getter returns <code>undefined</code>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> symbol <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+symbol<span class="token punctuation">.</span>description<span class="token punctuation">;</span>
+<span class="token comment">// → undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/description">Symbol.prototype.description</a></p>
+</blockquote>
+<h2 id="Stable-Array-prototype-sort"><a href="#Stable-Array-prototype-sort" class="headerlink" title="Stable Array.prototype.sort"></a>Stable <code>Array.prototype.sort</code></h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jhon'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'David'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Ram'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Sita'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Ravan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Asura'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Milly'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">m<span class="token punctuation">,</span> n</span><span class="token punctuation">)</span> <span class="token operator">=></span> m<span class="token punctuation">.</span>age <span class="token operator">-</span> n<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// People with the same age retain their order.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Let’s say you have an array of dogs, where each dog has a name and a rating. (If this sounds like a weird example, you should know that there’s a Twitter account that specializes in exactly this… Don’t ask!)</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Note how the array is pre-sorted alphabetically by `name`.</span>
+<span class="token keyword">const</span> doggos <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Abby'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Bandit'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Choco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Daisy'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Elmo'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Falco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Ghost'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Sort the dogs by `rating` in descending order.</span>
+<span class="token comment">// (This updates `doggos` in place.)</span>
+doggos<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> b<span class="token punctuation">.</span>rating <span class="token operator">-</span> a<span class="token punctuation">.</span>rating<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The array is pre-sorted alphabetically by name. To sort by rating instead (so we get the highest-rated dogs first), we use <code>Array#sor</code>t, passing in a custom callback that compares the ratings. This is the result that you’d probably expect:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Choco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Ghost'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Bandit'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Falco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Abby'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Daisy'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Elmo'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The dogs are sorted by rating, but within each rating, they’re still sorted alphabetically by name. For example, Choco and Ghost have the same rating of 14, but Choco appears before Ghost in the sort result, because that’s the order they had in the original array as well.</p>
+<p>To get this result however, the JavaScript engine can’t just use any sorting algorithm — it has to be a so-called “stable sort”. For a long time, the JavaScript spec didn’t require sort stability for <code>Array#sort</code>, and instead left it up to the implementation. And because this behavior was unspecified, you could also get this sort result, where Ghost now suddenly appears before Choco:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Ghost'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment">// 😢</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Choco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">14</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment">// 😢</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Bandit'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Falco'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">13</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Abby'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Daisy'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Elmo'</span><span class="token punctuation">,</span> rating<span class="token operator">:</span> <span class="token number">12</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In other words, JavaScript developers could not rely on sort stability. In practice, the situation was even more infuriating, since some JavaScript engines would use a stable sort for short arrays and an unstable sort for larger arrays. This was really confusing, as developers would test their code, see a stable result, but then suddenly get an unstable result in production when the array was slightly bigger.</p>
+<p>But there’s some good news. We <a target="_blank" rel="noopener" href="https://github.com/tc39/ecma262/pull/1340">proposed a spec change</a> that makes <code>Array#sort</code> stable, and it was accepted. All major JavaScript engines now implement a stable <code>Array#sort</code>. It’s just one less thing to worry about as a JavaScript developer. Nice!</p>
+<p>(Oh, and <a target="_blank" rel="noopener" href="https://github.com/tc39/ecma262/pull/1433">we did the same thing for <code>TypedArray</code>s</a>: that sort is now stable as well.)</p>
+<blockquote>
+<p>Note: Although stability is now required per spec, JavaScript engines are still free to implement whatever sorting algorithm they prefer. V8 uses Timsort, for example. The spec does not mandate any particular sorting algorithm.</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.prototype.sort()</a></p>
+</blockquote>
+<h2 id="Subsume-JSON-a-k-a-JSON-⊂-ECMAScript"><a href="#Subsume-JSON-a-k-a-JSON-⊂-ECMAScript" class="headerlink" title="Subsume JSON a.k.a. JSON ⊂ ECMAScript"></a>Subsume JSON a.k.a. JSON ⊂ ECMAScript</h2><p>With <a target="_blank" rel="noopener" href="https://github.com/tc39/proposal-json-superset">the <em>JSON ⊂ ECMAScript</em> proposal</a>, JSON becomes a syntactic subset of ECMAScript. If you’re surprised that this wasn’t already the case, you’re not alone!</p>
+<h3 id="The-old-ES2018-behavior"><a href="#The-old-ES2018-behavior" class="headerlink" title="The old ES2018 behavior"></a>The old ES2018 behavior</h3><hr>
+<p>In ES2018, ECMAScript string literals couldn’t contain unescaped U+2028 LINE SEPARATOR and U+2029 PARAGRAPH SEPARATOR characters, because they are considered to be line terminators even in that context:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// A string containing a raw U+2028 character.</span>
+<span class="token keyword">const</span> <span class="token constant">LS</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token comment">// → ES2018: SyntaxError</span>
+
+<span class="token comment">// A string containing a raw U+2029 character, produced by `eval`:</span>
+<span class="token keyword">const</span> <span class="token constant">PS</span> <span class="token operator">=</span> <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'"\u2029"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → ES2018: SyntaxError</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This is problematic because JSON strings <em>can</em> contain these characters. As a result, developers had to implement specialized post-processing logic when embedding valid JSON into ECMAScript programs to handle these characters. Without such logic, the code would have subtle bugs, or even <a href="#security">security issues</a>!</p>
+<h3 id="The-new-behavior"><a href="#The-new-behavior" class="headerlink" title="The new behavior"></a>The new behavior</h3><p>In ES2019, string literals can now contain raw U+2028 and U+2029 characters, removing the confusing mismatch between ECMAScript and JSON.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// A string containing a raw U+2028 character.</span>
+<span class="token keyword">const</span> <span class="token constant">LS</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token comment">// → ES2018: SyntaxError</span>
+<span class="token comment">// → ES2019: no exception</span>
+
+<span class="token comment">// A string containing a raw U+2029 character, produced by `eval`:</span>
+<span class="token keyword">const</span> <span class="token constant">PS</span> <span class="token operator">=</span> <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'"\u2029"'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// → ES2018: SyntaxError</span>
+<span class="token comment">// → ES2019: no exception</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This small improvement greatly simplifies the mental model for developers (one less edge case to remember!), and reduces the need for specialized post-processing logic when embedding valid JSON into ECMAScript programs.</p>
+<h3 id="Embedding-JSON-into-JavaScript-programs"><a href="#Embedding-JSON-into-JavaScript-programs" class="headerlink" title="Embedding JSON into JavaScript programs"></a>Embedding JSON into JavaScript programs</h3><p>As a result of this proposal, <code>JSON.stringify</code> can now be used to generate valid ECMAScript string literals, object literals, and array literals. And because of the separate <a href="/features/well-formed-json-stringify"><em>well-formed <code>JSON.stringify</code></em> proposal</a>, these literals can safely be represented in UTF-8 and other encodings (which is helpful if you’re trying to write them to a file on disk). This is super useful for metaprogramming use cases, like dynamically creating JavaScript source code and writing it to disk.</p>
+<p>Here’s an example of creating a valid JavaScript program embedding a given data object, taking advantage of the JSON grammar now being a subset of ECMAScript:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// A JavaScript object (or array, or string) representing some data.</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  LineTerminators<span class="token operator">:</span> <span class="token string">'\n\r'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Note: the string contains 4 characters: '\n\r\u2028\u2029'.</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Turn the data into its JSON-stringified form. Thanks to JSON ⊂</span>
+<span class="token comment">// ECMAScript, the output of `JSON.stringify` is guaranteed to be</span>
+<span class="token comment">// a syntactically valid ECMAScript literal:</span>
+<span class="token keyword">const</span> jsObjectLiteral <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Create a valid ECMAScript program that embeds the data as an object</span>
+<span class="token comment">// literal.</span>
+<span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">const data = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>jsObjectLiteral<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">// → 'const data = &#123;"LineTerminators":"…"&#125;;'</span>
+<span class="token comment">// (Additional escaping is needed if the target is an inline &lt;script>.)</span>
+
+<span class="token comment">// Write a file containing the ECMAScript program to disk.</span>
+<span class="token function">saveToDisk</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> program<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The above script produces the following code, which evaluates to an equivalent object:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> LineTerminators<span class="token operator">:</span> <span class="token string">'\n\r'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Embedding-JSON-into-JavaScript-programs-with-JSON-parse"><a href="#Embedding-JSON-into-JavaScript-programs-with-JSON-parse" class="headerlink" title="Embedding JSON into JavaScript programs with JSON.parse"></a>Embedding JSON into JavaScript programs with <code>JSON.parse</code></h3><p>As explained in <a href="/blog/cost-of-javascript-2019#json"><em>the cost of JSON</em></a>, instead of inlining the data as a JavaScript object literal, like so:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token operator">:</span> <span class="token number">42</span><span class="token punctuation">,</span> bar<span class="token operator">:</span> <span class="token number">1337</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 🐌</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>…the data can be represented in JSON-stringified form, and then JSON-parsed at runtime, for improved performance in the case of large objects (10 kB+):</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'&#123;"foo":42,"bar":1337&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 🚀</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Here’s an example implementation:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// A JavaScript object (or array, or string) representing some data.</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  LineTerminators<span class="token operator">:</span> <span class="token string">'\n\r'</span><span class="token punctuation">,</span>
+  <span class="token comment">// Note: the string contains 4 characters: '\n\r\u2028\u2029'.</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Turn the data into its JSON-stringified form.</span>
+<span class="token keyword">const</span> json <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Now, we want to insert the JSON into a script body as a JavaScript</span>
+<span class="token comment">// string literal per https://v8.dev/blog/cost-of-javascript-2019#json,</span>
+<span class="token comment">// escaping special characters like `"` in the data.</span>
+<span class="token comment">// Thanks to JSON ⊂ ECMAScript, the output of `JSON.stringify` is</span>
+<span class="token comment">// guaranteed to be a syntactically valid ECMAScript literal:</span>
+<span class="token keyword">const</span> jsStringLiteral <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Create a valid ECMAScript program that embeds the JavaScript string</span>
+<span class="token comment">// literal representing the JSON data within a `JSON.parse` call.</span>
+<span class="token keyword">const</span> program <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">const data = JSON.parse(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>jsStringLiteral<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">);</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token comment">// → 'const data = JSON.parse("…");'</span>
+<span class="token comment">// (Additional escaping is needed if the target is an inline &lt;script>.)</span>
+
+<span class="token comment">// Write a file containing the ECMAScript program to disk.</span>
+<span class="token function">saveToDisk</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> program<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The above script produces the following code, which evaluates to an equivalent object:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'&#123;"LineTerminators":"\\n\\r"&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><a target="_blank" rel="noopener" href="https://github.com/GoogleChromeLabs/json-parse-benchmark">Google’s benchmark comparing <code>JSON.parse</code> with JavaScript object literals</a> leverages this technique in its build step. The Chrome DevTools “copy as JS” functionality has been <a target="_blank" rel="noopener" href="https://chromium-review.googlesource.com/c/chromium/src/+/1464719/9/third_party/blink/renderer/devtools/front_end/elements/DOMPath.js">simplified significantly</a> by adopting a similar technique.</p>
+<h3 id="A-note-on-security"><a href="#A-note-on-security" class="headerlink" title="A note on security"></a>A note on security</h3><p>JSON ⊂ ECMAScript reduces the mismatch between JSON and ECMAScript in the case of string literals specifically. Since string literals can occur within other JSON-supported data structures such as objects and arrays, it also addresses those cases, as the above code examples show.</p>
+<p>However, U+2028 and U+2029 are still treated as line terminator characters in other parts of the ECMAScript grammar. This means there are still cases where it’s unsafe to inject JSON into JavaScript programs. Consider this example, where a server injects some user-supplied content into an HTML response after running it through <code>JSON.stringify()</code>:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// Debug info:</span>
+  <span class="token comment">// User-Agent: &lt;%= JSON.stringify(ua) %></span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Note that the result of <code>JSON.stringify</code> is injected into a single-line comment within the script.</p>
+<p>When used like in the above example, <code>JSON.stringify()</code> is guaranteed to return a single line. The problem is that what constitutes a “single line” <a target="_blank" rel="noopener" href="https://speakerdeck.com/mathiasbynens/hacking-with-unicode?slide=136">differs between JSON and ECMAScript</a>. If <code>ua</code> contains an unescaped U+2028 or U+2029 character, we break out of the single-line comment and execute the rest of <code>ua</code> as JavaScript source code:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// Debug info:</span>
+  <span class="token comment">// User-Agent: "User-supplied string&lt;U+2028>  alert('XSS');//"</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- …is equivalent to: --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token comment">// Debug info:</span>
+  <span class="token comment">// User-Agent: "User-supplied string</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'XSS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>Note:</strong> In the above example, the raw unescaped U+2028 character is represented as <code>&lt;U+2028&gt;</code> to make it easier to follow.</p>
+</blockquote>
+<p>JSON ⊂ ECMAScript doesn’t help here, since it only impacts string literals — and in this case, <code>JSON.stringify</code>’s output is injected in a position where it does not produce a JavaScript string literal directly.</p>
+<p>Unless special post-processing for those two characters is introduced, the above code snippet presents a cross-site scripting vulnerability (XSS)!</p>
+<blockquote>
+<p><strong>Note:</strong> It’s crucially important to post-process user-controlled input to escape any special character sequences, depending on the context. In this particular case, we’re injecting into a <code>&lt;script&gt;</code> tag, so we must (also) <a target="_blank" rel="noopener" href="https://mathiasbynens.be/notes/etago#recommendations">escape <code>&lt;/script</code>, <code>&lt;script</code>, and <code>&lt;!-​-</code></a>.</p>
+</blockquote>
+<hr>
+<h2 id="BigInt"><a href="#BigInt" class="headerlink" title="BigInt"></a>BigInt</h2><p>A BigInt is created by appending n to the end of the integer or by calling the constructor.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> bnum1 <span class="token operator">=</span> <span class="token number">10n</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> bnum2 <span class="token operator">=</span> <span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//10n</span>
+<span class="token keyword">let</span> bnum3 <span class="token operator">=</span> <span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token number">10.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//(d8):1: RangeError: The number 10.5 cannot be converted to a BigInt because it is not an integer.</span>
+<span class="token keyword">let</span> bnum4 <span class="token operator">=</span> <span class="token function">BigInt</span><span class="token punctuation">(</span><span class="token string">'10.5'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//(d8):1: SyntaxError: Cannot convert 10.5 to a BigInt.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>BigInt can’t mix with numbers, but can concat with strings.</li>
+<li>Can’t use decimals.</li>
+<li>parseInt returns number.</li>
+<li><code>JSON.stringify</code> doesn’t support.<br>TypedArray BigInt64Array (-263 to 263-1) BigUint64Array (0 to 264-1)</li>
+</ul>
+<h2 id="globalThis"><a href="#globalThis" class="headerlink" title="globalThis:"></a>globalThis:</h2><ul>
+<li>Accessing global object from browser(window), node(global)…</li>
+<li>globalThis will infer the enviroment and return the global object .</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> <span class="token function-variable function">getGlobal</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> self <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> window<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> global <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> global<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'unable to locate global object'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Conclusion:-</p>
+<p>As we know, ECMAScript standards are used in various programming languages like Microsoft’s JScript, Oracle Nashorn Engine, it is strictly based on the language engine to choose which standard to support. let’s keep an eye on TC39 proposal for latest updates.</p>
+<p>Thanks for reading!!!</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-04-06T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/es2021-features/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="What&#39;s new in JavaScript - ES2021">
+                        
+                        <span class="card-title">What&#39;s new in JavaScript - ES2021</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-04-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES2021/">
+                        <span class="chip bg-color">ES2021</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/for-vs-for-each-vs-for-in-vs-for-of-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="For vs forEach() vs for/in vs for/of in JavaScript">
+                        
+                        <span class="card-title">For vs forEach() vs for/in vs for/of in JavaScript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-02-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

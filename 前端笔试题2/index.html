@@ -1,0 +1,2344 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端笔试题2, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端笔试题2 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端笔试题2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Interview/">
+                                <span class="chip bg-color">Interview</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-11-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <!-- ## 湖南星图 -->
+
+<ul>
+<li>px em</li>
+<li>数据类型</li>
+<li>跨域</li>
+<li>mvvm mvc</li>
+<li>闭包</li>
+<li>http https</li>
+<li>正则 “23 22” =&gt; “2322”</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'23 22'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\s/g</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">正则表达式</a></p>
+</blockquote>
+<p><img src="/images/map.jpg" alt="长沙地铁"></p>
+<ol>
+<li>精通使用 VUE 组件搭建前台框架,用原生 VUE.JS 或者 VUE 脚手架都可以,可以直接使用 element、antd 等组件元素；</li>
+<li>能灵活运用 CSS3、LESS 等去绘制页面元素的样式风格,统一风格的样式要做到全局控制.</li>
+<li>能熟练使用 echart,需要对其地图、热力图及其他常规图形组件有应用经验.</li>
+<li>懂得使用 mock、proxy,当前先使用 mock 数据来模拟页面数据内容,api 调用要模拟后期真实数据场景状态,get、post 及其数据参数都要相对标准.当切换真实后台后要通过 proxy 或者其他方式直接切换真实 api 地址.</li>
+<li>懂得使用 nginx 或者等同功能的 WEB 容器,部署前台页面,懂得如何使用其代理地址跳转.</li>
+<li>精通使用 Vue 及相关技术(Vue+Vue-router+Vuex+axios+webpack);</li>
+<li>具备前端工程化的能力,熟练使用 webpack3.x 或 4.x 及相关常见插件的配置使用;</li>
+</ol>
+<!--
+> [已上车 – 司机社](https://sijishe.vip/ysc)
+>
+> [已开车 – 次元饭](https://ciyuanfan.me/category/kaiche)
+>
+> [【Gif 福利帖】 - JAVLibrary](https://www.m45e.com/cn/publictopic.php?id=89136)
+
+2 月份—9 月份 GIF 已打包(多更新两个月),详见帖子[51 页](redirect.php?url=https%3A%2F%2Fwww.m45e.com%2Fcn%2Fpublictopic.php%3Fid%3D89136%26amp%3Bpage%3D51)... 7 月 23 号更新.已失效,没赶上的等下次再补吧！！！
+
+Today is February 18, 2020.
+
+引用:gif 一般多是视频中精华部分
+
+特开此贴,供大家交流比较不错,且吸引人的 gif
+开局五张动图,每日更新五张,附番号,供大家交流探讨！！
+
+1.YMDD-177
+
+![](https://i.imgur.com/01zDn2E.gif)
+
+2.259luxu-934
+
+![](https://i.imgur.com/sGqPUTq.gif)
+
+3.abp-167
+
+![](https://i.imgur.com/gMRUPMc.gif)
+
+4.FC2-702535
+
+![](https://i.imgur.com/3iZ4wdQ.gif)
+
+5.FC2-858528→ 磁力:magnet:?xt=urn:btih:e4d8184c0e553fd679943737ac21b624fea8b9e0
+
+![](https://i.imgur.com/G08H6Rv.gif)
+
+如有问题,可以在我另一篇帖子下面留言
+站内链接——http://www.n43a.com/cn/publictopic.php?id=88746
+
+论坛是大家共同讨论问题的地方,希望大家共同营造一个良好的氛围！！！
+(ps:图失效的话可以提醒我一下,我及时补)
+
+2 月 18 号更新:
+
+1.300MIUM-481
+
+![](https://i.imgur.com/P4mN0q1.gif)
+
+2.ssni-659(加了滤镜特效)
+
+![](https://i.imgur.com/8BhP29h.gif)
+
+3.MEKI-006
+
+![](https://i.imgur.com/cWqm034.gif)
+
+4.MEYD-106
+
+![](https://i.imgur.com/jWvQZn1.gif)
+
+5.HEYZO-0534
+
+![](https://i.imgur.com/FuRauzE.gif)
+
+2 月 19 号更新:
+
+1.259LUXU-1210
+
+![](https://i.imgur.com/3xVQDHW.gif)
+
+![](https://i.imgur.com/DFtfzIq.gif)
+
+![](https://i.imgur.com/eJPJwFy.gif)
+
+2.300MIUM-526
+
+![](https://i.imgur.com/lbJmMxF.gif)
+
+![](https://i.imgur.com/NAAwS7b.gif)
+
+3.345SIMM-309
+
+![](https://i.imgur.com/Oyo49lt.gif)
+
+4.MIDE-540
+
+![](https://i.imgur.com/Rrm2Pwf.gif)
+
+5.TEK-089
+
+![](https://i.imgur.com/oxmiFFh.gif)
+
+2 月 20 号更新:
+
+1.OAE-138
+
+![](https://i.imgur.com/ZBasBsP.gif)
+
+2.HEYZO-1245
+
+![](https://i.imgur.com/pFyygpd.gif)
+
+3.HEYZO-1172
+
+![](https://i.imgur.com/9Epsz5x.gif)
+
+1. [EBOD-370 女のカラダは齢38にしてこの美しきイキ姿で選ぶ. 林ゆな](https://www.javbus.com/EBOD-370)
+
+![](https://i.imgur.com/y2qmr1M.gif)
+
+5. [MXGS-724 猥褻おっぱいカフェ 木南日菜](https://www.javbus.com/MXGS-724)
+
+[极品豪乳 被操得一抖一抖的！小了白了兔,白了又了白^O^](https://www.avoo.vip/question/13001.html)
+
+![](https://i.imgur.com/gXGeMLM.gif)
+
+2 月 21 号更新:
+
+1.fset-566
+
+![](https://www.wifi599.com/forum/201901/14/073150gex0e1106grk0g1x.gif)
+
+2.IPX-043
+
+![](https://www.wifi599.com/forum/201901/14/073150upzfsdzxifd6sis2.gif)
+
+3.ipz-939
+
+![](https://www.wifi599.com/forum/201901/14/073150uez8buhqqjz6a52j.gif)
+
+4.REAL-529
+
+![](https://www.kanjiantu.com/images/2019/01/07/1-76f4ebf26244e852fd.gif)
+
+5.MBD-050
+
+![](https://i.imgur.com/1EcFGGZ.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦,注意身体)
+
+
+2 月 22 号更新:
+
+1.300mium-526 (256)
+
+![](https://i.imgur.com/Y1a2Yae.gif)
+
+2.ZIZG-006
+
+![](https://i.imgur.com/rcXcZwH.gif)
+
+3.JUFD-548
+
+![](https://www.vxotu.com/u/20191206/19283688.gif)
+
+4.MIDE-512
+
+![](https://www.vxotu.com/u/20191206/19353462.gif)
+
+5.gachi-1151
+
+![](https://i.imgur.com/QItONB3.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+![PGD-773 被公司老板拷住双手凌辱用贾吉巴疯狂抽插下体^_^](https://p.pstatp.com/origin/fe2400011ce689b0725d)
+
+https://www.dmmbus.one/PGD-773
+
+2 月 23 号更新:
+
+1.EDRG-001
+
+![](https://i.imgur.com/fX4gDMV.gif)
+
+2.090713-425
+
+![](https://i.imgur.com/iW120Wo.gif)
+
+3.080815_130
+
+![](https://i.imgur.com/xxcMCWc.gif)
+
+4.020616-091
+
+![](https://i.imgur.com/OekPP67.gif)
+
+5.AOZ-275Z
+
+![](https://i.imgur.com/hMHqgO7.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+本文章于 2020-02-24 00:22:18 作了修改.
+
+2 月 24 号更新:
+
+1.DV-1643
+
+![](https://i.imgur.com/faa0oru.gif)
+
+2.259LUXU-861
+
+![](https://i.imgur.com/X5ylERg.gif)
+
+3.ATID-318
+
+![](https://i.imgur.com/l2cVtTe.gif)
+
+4.BBI-163
+
+![](https://i.imgur.com/rzFzZ1i.gif)
+
+5.CCC-220(重口味！之前看见论坛有人求,所以今天特意发一下)
+
+![](https://i.imgur.com/za6OTUy.gif)
+
+---
+
+2 月 24 号补更:
+
+AOZ-188
+
+![](https://i.imgur.com/vlM8Kkc.gif)
+
+![](https://i.imgur.com/5PCnsSt.gif)
+
+![](https://i.imgur.com/rLrOkP6.gif)
+
+![](https://i.imgur.com/zQYm3X0.gif)
+
+![](https://i.imgur.com/p25shKf.gif)
+
+![](https://i.imgur.com/gGOt3IY.gif)
+
+---
+
+2 月 25 号更新:
+
+1.IPX-229
+
+![](https://i.imgur.com/tdAJnj4.gif)
+
+![](https://i.imgur.com/HYVeUmP.gif)
+
+![](https://i.imgur.com/58pk5WU.gif)
+
+2.FC2 PPV 647289
+
+![](https://i.imgur.com/P66flIX.gif)
+
+3.HERY-037
+
+![](https://i.imgur.com/7puUVm7.gif)
+
+4.fellatiojapan-296
+
+![](https://i.imgur.com/MY67DlK.gif)
+
+5.GTAL-007
+
+![](https://i.imgur.com/Y4qqudB.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+2 月 26 号更新:
+
+1.IPX-303
+
+![](https://i.imgur.com/LaL31cH.gif)
+
+2.IPX-283
+
+![](https://i.imgur.com/7FZv1kL.gif)
+
+3.JOB-027
+
+![](https://i.imgur.com/sCsw0cV.gif)
+
+4.k1347
+
+![](https://i.imgur.com/LuXR3u7.gif)
+
+5.IPX-317
+
+![](https://i.imgur.com/87W9kow.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+2 月 27 号更新:
+
+1.121016-443
+
+![](https://i.imgur.com/ymxFuPQ.gif)
+
+2.EBOD-431
+
+![](https://i.imgur.com/gkZYGbn.gif)
+
+3.HODV-20541
+
+![](https://i.imgur.com/gRZMFgY.gif)
+
+4.PTSP-002
+
+![](https://i.imgur.com/lixVIN2.gif)
+
+5.RCTD-018
+
+![](https://i.imgur.com/Lq3ai0V.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+2 月 27 号补更:
+
+FDD-1206
+
+![](https://i.imgur.com/FPT90yn.gif)
+
+![](https://i.imgur.com/vnfVDVw.gif)
+
+![](https://i.imgur.com/RBDgz0l.gif)
+
+![](https://i.imgur.com/zkQbeuE.gif)
+
+---
+
+2 月 28 号更新:
+
+1.JUFD-409
+
+![](https://i.imgur.com/FZycz6U.gif)
+
+2.n0925
+
+![](https://i.imgur.com/7bsOry6.gif)
+
+3.yal-069
+
+![](https://i.imgur.com/pFQVVvJ.gif)
+
+4.SSNI-624
+
+![](https://i.imgur.com/g2vz6op.gif)
+
+5.NHDTA-613
+
+![](https://i.imgur.com/78w1aWi.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+2 月 29 号更新:
+
+1.ABP-595
+
+![](https://i.imgur.com/Ywxcn5D.gif)
+
+2.KAWD-913
+
+![](https://i.imgur.com/44jlKon.gif)
+
+3.MXGS-840
+
+![](https://i.imgur.com/yGGnZAO.gif)
+
+4.SHKD-752
+
+![](https://i.imgur.com/PGJdYdq.gif)
+
+5.SOE-988
+
+![](https://i.imgur.com/4GL8BGO.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+本文章于 2020-03-01 00:11:27 作了修改.
+
+3 月 1 号更新:
+
+1.AVOP-156
+
+![](https://i.imgur.com/ap4QhPE.gif)
+
+2.Carib-112115-027
+
+![](https://i.imgur.com/ufZgi4s.gif)
+
+3.HEYZO-1199
+
+![](https://i.imgur.com/xj70oTn.gif)
+
+4.MIDE-219
+
+![](https://i.imgur.com/qQEziXS.gif)
+
+5.SSNI-348
+
+![](https://i.imgur.com/Yl1Bkkl.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 1 号补更:
+
+ABP-058
+
+![](https://i.imgur.com/sKrvzVk.gif)
+
+![](https://i.imgur.com/aMkcS9J.gif)
+
+![](https://i.imgur.com/Ex36jR5.gif)
+
+---
+
+3 月 2 号更新:
+
+1.300MAAN-293
+
+![](https://i.imgur.com/Y2tQPOP.gif)
+
+2.kinpatu86-0002
+
+![](https://i.imgur.com/No0uzZF.gif)
+
+3.MIMK-026
+
+![](https://i.imgur.com/kewTGRU.gif)
+
+4.SNIS-531
+
+![](https://i.imgur.com/q8OwUL6.gif)
+
+5.SSNI-319
+
+![](https://i.imgur.com/0YeIUNi.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 2 号补更:
+
+FE-094(有步兵版本)
+
+![](https://i.imgur.com/0DD4EVU.gif)
+
+女优:鈴川玲理
+骑兵番号:FE-094
+步兵番号:FDD-2002
+
+---
+
+3 月 3 号更新:
+
+1.KMI-094
+
+![](https://i.imgur.com/59d1CLy.gif)
+
+2.MIAA-037
+
+![](https://i.imgur.com/BLtMxol.gif)
+
+3.MIAD-826
+
+![](https://i.imgur.com/dS1q0l9.gif)
+
+4.MIDD-417
+
+![](https://i.imgur.com/wI0AFKK.gif)
+
+5.MIDD-944
+
+![](https://i.imgur.com/rk2MRfn.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 3 号补更:
+
+EBOD-339
+
+![](https://i.imgur.com/6gesIJs.gif)
+
+![](https://i.imgur.com/gSTJJXl.gif)
+
+![](https://i.imgur.com/2V9Ib9C.gif)
+
+---
+
+3 月 4 号更新:
+
+1.MIDE-184
+
+![](https://i.imgur.com/7G2VGf4.gif)
+
+2.JBS-021
+
+![](https://i.imgur.com/CXSypsA.gif)
+
+3.MIAD-754
+
+![](https://i.imgur.com/BrN9h7r.gif)
+
+4.STAR-833
+
+![](https://i.imgur.com/EXbUBf6.gif)
+
+5.WAT-008
+
+![](https://i.imgur.com/dqRlIMt.gif)
+
+6.ZUKO-060
+
+![](https://i.imgur.com/8H0IKmq.gif)
+
+打扰了各位,今天迟到了,多补一张！
+
+---
+
+3 月 5 号更新:
+
+1.MIGD-765
+
+![](https://i.imgur.com/MbbockK.gif)
+
+2.n1134
+
+![](https://i.imgur.com/Sm8PGPp.gif)
+
+3.PPPD-671
+
+![](https://i.imgur.com/BDvI16w.gif)
+
+4.SCute-346
+
+![](https://i.imgur.com/dVjMvHi.gif)
+
+5.SIRO-3093
+
+![](https://i.imgur.com/bxl1I27.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+本文章于 2020-03-07 00:22:41 作了修改.
+
+3 月 6 号更新:
+
+1.SNIS-561
+
+![](https://i.imgur.com/XmvuQ3z.gif)
+
+2.SNIS-939
+
+![](https://i.imgur.com/6GCPwWA.gif)
+
+3.SSNI-071
+
+![](https://i.imgur.com/ySVcUSs.gif)
+
+4.TAAK-017
+
+![](https://i.imgur.com/w7CP4Cq.gif)
+
+5.ADN-161
+
+![](https://i.imgur.com/HGPE1oA.gif)
+
+(ps:今天更新的晚,再给大家多补一组)
+
+3 月 6 号补更:
+
+SNIS-167
+
+![](https://i.imgur.com/8C3vAR4.gif)
+
+![](https://i.imgur.com/UawitkX.gif)
+
+---
+
+3 月 7 号更新:
+
+1.DANDY-423
+
+![](https://i.imgur.com/ooogLx2.gif)
+
+2.SSNI-436
+
+![](https://i.imgur.com/J5sxbfb.gif)
+
+3.SSPD-134
+
+![](https://i.imgur.com/5utKbRd.gif)
+
+4.SUJI-104
+
+![](https://i.imgur.com/7PYIbps.gif)
+
+5.T28-551
+
+![](https://i.imgur.com/wgOVLaK.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 8 号更新:
+
+1.DKDN-012
+
+![](https://i.imgur.com/r6Qr1Ji.gif)
+
+2.DVDES-786
+
+![](https://i.imgur.com/j68TIst.gif)
+
+3.DWD-022
+
+![](https://i.imgur.com/CbbYWWu.gif)
+
+4.EBOD-339
+
+![](https://i.imgur.com/SEiDVHS.gif)
+
+5.FSET-299
+
+![](https://i.imgur.com/Snm0Vdm.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 9 号更新:
+
+1.APAK-102
+
+![](https://i.imgur.com/sFXXxhN.gif)
+
+2.HAR-063
+
+![](https://i.imgur.com/V2Vkkos.gif)
+
+3.HODV-21002
+
+![](https://i.imgur.com/w6JNICZ.gif)
+
+4.PPPD-096
+
+![](https://i.imgur.com/ndLBjLa.gif)
+
+5.KRI-081
+
+![](https://i.imgur.com/idMmz0j.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 10 号更新:
+
+1.MIDE-390
+
+![](https://i.imgur.com/Pet2Zgj.gif)
+
+2.PGD-403
+
+![](https://i.imgur.com/gHsRdR5.gif)
+
+3.PGD-841
+
+![](https://i.imgur.com/ffCr762.gif)
+
+4.PPPD-322
+
+![](https://i.imgur.com/ZL0xkjt.gif)
+
+5.ABP-703
+
+![](https://i.imgur.com/OgoLeSq.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 10 号补更:
+
+ADN-125
+
+![](https://i.imgur.com/oA20H9Z.gif)
+
+![](https://i.imgur.com/cq7PPCj.gif)
+
+![](https://i.imgur.com/I7NrU0n.gif)
+
+![](https://i.imgur.com/Ps6Tgnd.gif)
+
+![](https://i.imgur.com/tM8b44u.gif)
+
+![](https://i.imgur.com/4yZqbpg.gif)
+
+---
+
+3 月 11 号更新:
+
+1.SDMU-629
+
+![](https://i.imgur.com/TTqIWxi.gif)
+
+2.SNIS-939
+
+![](https://i.imgur.com/1yvgDVt.gif)
+
+3.T28-404
+
+![](https://i.imgur.com/udPiHd2.gif)
+
+4.UMSO-102
+
+![](https://i.imgur.com/vOc7D0a.gif)
+
+5.SOE-458
+
+![](https://i.imgur.com/Z59u5hx.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 11 号补更:
+
+n1161
+
+![](https://i.imgur.com/8BkUBpu.gif)
+
+![](https://i.imgur.com/0TLqPeZ.gif)
+
+![](https://i.imgur.com/AdKidP0.gif)
+
+---
+
+3 月 12 号更新:
+
+1.missa-Under The Covers
+
+![](https://i.imgur.com/ZyuidhE.gif)
+
+2.Penelope Reed-Tonsil Tickling
+
+![](https://i.imgur.com/Tiy2q6y.gif)
+
+3.Penny Pax - Peeping Tom gets Revenge on Busty Blonde
+
+![](https://i.imgur.com/CakYa8e.gif)
+
+4.TeenCurves.14.05.22.Victoria.Paradice
+
+![](https://i.imgur.com/nzJNjiM.gif)
+
+5.TeenSexCouple - Jessica and Dave
+
+![](https://i.imgur.com/T7Sf6wV.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 13 号更新:
+
+1.Kiara Lord Strings of Passion
+
+![](https://i.imgur.com/CnYvCeP.gif)
+
+2.LATEX COVERED ROSSY BUSH SUBMITS TO MIA REESE
+
+![](https://i.imgur.com/MBxTDe1.gif)
+
+3.noelle.easton.morning.glory
+
+![](https://i.imgur.com/qoPS4rB.gif)
+
+4.SCARED SCHOOLGIRL GOT CHASED THROUGH THE WOODS AND FUCKED BY A STALKER
+
+![](https://i.imgur.com/AXRDiUS.gif)
+
+5.WowPorn.13.09.24.Vika.B.Believe.In.Love
+
+![](https://i.imgur.com/wMYvLo4.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 14 号更新:
+
+1.jul-155
+
+![](https://i.imgur.com/H0SpqXW.gif)
+
+2.HEYZO-1751
+
+![](https://i.imgur.com/d2emxBx.gif)
+
+3.AOZ-275Z
+
+![](https://i.imgur.com/ilHIpXr.gif)
+
+4.(Caribbean)(020919-856)
+
+![](https://i.imgur.com/nodn0gy.gif)
+
+5.AOZ-275Z
+
+![](https://i.imgur.com/fuvv1uQ.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 14 号补更:
+
+BRK-002
+
+![](https://i.imgur.com/FqYIOdM.gif)
+
+---
+
+本文章于 2020-03-15 12:55:30 作了修改.
+
+3 月 15 号更新:
+
+1.071213_625
+
+![](https://i.imgur.com/DAJVmFk.gif)
+
+2.071318-706
+
+![](https://i.imgur.com/1pjPCG0.gif)
+
+3.110715-017
+
+![](https://i.imgur.com/IB3ac7L.gif)
+
+4.ABS-100
+
+![](https://i.imgur.com/rqSLsm3.gif)
+
+5.KK-026
+
+![](https://i.imgur.com/xiGLoEk.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 15 号补更:
+
+SSNI-392
+
+![](https://i.imgur.com/RTbL6Xw.gif)
+
+![](https://i.imgur.com/9deGzm8.gif)
+
+---
+
+本文章于 2020-03-16 00:03:30 作了修改.
+
+3 月 16 号更新:
+
+1.042818_01
+
+![](https://i.imgur.com/8lDC8R2.gif)
+
+2.ADN-142
+
+![](https://i.imgur.com/qm2yhlb.gif)
+
+3.FSET-416
+
+![](https://i.imgur.com/b8SKFxB.gif)
+
+4.DASD-572
+
+![](https://i.imgur.com/dliDNnn.gif)
+
+5.SHKD-875
+
+![](https://i.imgur.com/zr1mh7Q.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 17 号更新:
+
+1.AP-508
+
+![](https://i.imgur.com/F7Nj5CW.gif)
+
+2.FAA-223
+
+![](https://i.imgur.com/1pvJQkF.gif)
+
+3.FC2-834923
+
+![](https://i.imgur.com/1HOMavQ.gif)
+
+4.NNPJ-075
+
+![](https://i.imgur.com/O9DQsY0.gif)
+
+5.XRW-467
+
+![](https://i.imgur.com/U7YSz6H.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 18 号更新:
+
+相部屋 NTR 专题,番号已在 gif 中标明
+
+1. CAWD_020 伊藤舞雪
+
+![](https://i.imgur.com/1o5OuS1.gif)
+
+2. IPX-416 桃乃木かな
+
+![](https://i.imgur.com/w9QKTdx.gif)
+
+3. IPX-461 松下紗栄子
+
+![](https://i.imgur.com/NCsywcl.gif)
+
+> 这个系列我全部看过了,个人认为最好看的是 ipx-298 389 398 分别是美美奈 明理妹纸,枫哥,IPX-358 也不错,相沢超好看,超顺眼
+
+4. SSNI-631 奥田咲
+
+![](https://i.imgur.com/hItgR1Z.gif)
+
+5. SSNI-727 宇都宮しをん
+
+![](https://i.imgur.com/kWpjfqo.gif)
+
+(本次 gif 可能略大,需多加载一会)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 18 号补更:
+
+JUL-021
+
+![](https://i.imgur.com/ldpHLTh.gif)
+
+---
+
+3 月 19 号更新:
+
+1. BDA-040
+
+![](https://i.imgur.com/mlnojwy.gif)
+
+2. FC2-668848
+
+![](https://i.imgur.com/N4UFCYy.gif)
+
+3. HEYZO-0782
+
+![](https://i.imgur.com/AYHBZ5d.gif)
+
+4. NGOD-070
+
+![](https://i.imgur.com/nr3xPYD.gif)
+
+5. RCTD-119
+
+![](https://i.imgur.com/XS4YzCS.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 20 号更新:
+
+1.AGEMIX-091
+
+![](https://i.imgur.com/JuZ9lHp.gif)
+
+2.AVOP-227
+
+![](https://i.imgur.com/BWZHuXm.gif)
+
+3.BBAN-008
+
+![](https://i.imgur.com/CeVw5Il.gif)
+
+4.BDD-038
+
+![](https://i.imgur.com/LTPRqWv.gif)
+
+5.DASD-321
+
+![](https://i.imgur.com/oKibrW6.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+3 月 20 号补更:
+
+PRED-200
+
+![](https://i.imgur.com/S2rUGJX.gif)
+
+![](https://i.imgur.com/5VSJBuX.gif)
+
+![](https://i.imgur.com/aehgC1E.gif)
+
+---
+
+3 月 21 号更新:
+
+1.GVG-627
+
+![](https://i.imgur.com/zeQDIgb.gif)
+
+2.HEYZO-1337
+
+![](https://i.imgur.com/dJ7C2pW.gif)
+
+3.hzgd-136
+
+![](https://i.imgur.com/vK8fAzT.gif)
+
+4.jul-120
+
+![](https://i.imgur.com/Jwn1kHI.gif)
+
+5.shkd-851
+
+![](https://i.imgur.com/ITo0jju.gif)
+
+---
+
+3 月 22 号更新:
+
+1.111512-184
+
+![](https://i.imgur.com/9CzpoLW.gif)
+
+2.club-556
+
+![](https://i.imgur.com/GFAErbN.gif)
+
+3.docp-162
+
+![](https://i.imgur.com/2varaF2.gif)
+
+4.dvdms-379
+
+![](https://i.imgur.com/rt6gHpF.gif)
+
+5.VANDR-004
+
+![](https://i.imgur.com/KxRsnXJ.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 23 号更新:
+
+1.259LUXU-652
+
+![](https://i.imgur.com/nYMqbgv.gif)
+
+2.AVOP-125
+
+![](https://i.imgur.com/rhfnzMm.gif)
+
+3.FSKT-033
+
+![](https://i.imgur.com/mnwTP2y.gif)
+
+4.SW-318
+
+![](https://i.imgur.com/mZSVHXx.gif)
+
+5.YRH-097
+
+![](https://i.imgur.com/URbd6We.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 24 号更新:
+
+1.club-552
+
+![](https://i.imgur.com/hF8YyVg.gif)
+
+2.eyan-063
+
+![](https://i.imgur.com/vIIknzQ.gif)
+
+3.snis-659
+
+![](https://i.imgur.com/6kuty0Y.gif)
+
+4.ssni-141
+
+![](https://i.imgur.com/bxec4vi.gif)
+
+5.ure-015
+
+![](https://i.imgur.com/BZv9A16.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 25 号更新:
+
+1.CRPD-368
+
+![](https://i.imgur.com/fy1ODDg.gif)
+
+2.FLAV-234
+
+![](https://i.imgur.com/b9Ym7OA.gif)
+
+3.MIDE-726
+
+![](https://i.imgur.com/n05bGMv.gif)
+
+4.PGD-718
+
+![](https://i.imgur.com/2kig34G.gif)
+
+5.PTSP-002
+
+![](https://i.imgur.com/EwmCOhm.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 26 号更新:
+
+1.FSET-597
+
+![](https://i.imgur.com/8ivWU1j.gif)
+
+2.GVG-046
+
+![](https://i.imgur.com/GmPAqkT.gif)
+
+3.HXAD-020
+
+![](https://i.imgur.com/tnudLtW.gif)
+
+4.IPX-118
+
+![](https://i.imgur.com/5S6DsYS.gif)
+
+5.IPX-160
+
+![](https://i.imgur.com/IaHQUdb.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 27 号更新:
+
+1.avop-210
+
+![](https://i.imgur.com/HrhjDGn.gif)
+
+2.dvdms-351
+
+![](https://i.imgur.com/YRqG770.gif)
+
+3.jufd-037
+
+![](https://i.imgur.com/TXOa1MD.gif)
+
+4.mide-733
+
+![](https://i.imgur.com/FmLDwfD.gif)
+
+5.msfh-010
+
+![](https://i.imgur.com/QIjYEfp.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 28 号更新:
+
+1.010915_01
+
+![](https://i.imgur.com/M04A95P.gif)
+
+2.022716_253
+
+![](https://i.imgur.com/8ni1gfo.gif)
+
+3.032517_505
+
+![](https://i.imgur.com/3bpjy5J.gif)
+
+4.010415-774
+
+![](https://i.imgur.com/Z7aOE3G.gif)
+
+5.SKY-308
+
+![](https://i.imgur.com/BjumrCQ.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 29 号更新:
+
+1.AKO-093
+
+![](https://i.imgur.com/iJsW3eX.gif)
+
+2.DVDES-664
+
+![](https://i.imgur.com/xpuQCPY.gif)
+
+3.RTP-035
+
+![](https://i.imgur.com/xXRBfTS.gif)
+
+4.SGA-010
+
+![](https://i.imgur.com/alM0k8u.gif)
+
+5.WANZ-150
+
+![](https://i.imgur.com/p0EfMfK.gif)
+
+(ps:夜深了,时间不早了,各位早点休息哦！晚安,做个好梦)
+
+---
+
+3 月 30 号更新:已下载(30)
+
+---
+
+本文章于 2020-07-24 19:00:13 作了修改.
+
+比较忙,上论坛的时间也少了很多,抽不出时间每天更新,因此每个月进行一次汇总打包....大家见谅！！
+
+汇总更新——将三十天的 Gif 一次性打包,每天 5 张,保持不变.大家可以直接下载就行.....
+
+
+本次更新说明如下:
+本次更新依旧会补上之前已失效的文件,同时还包括七月份、八月份以及九月份的 GIF(上论坛时间少,提前更新两个月份的)
+下次更新时间待定,GIF 一直会更新到年底(12 月份)
+其中本次打包中,八月份的 GIF 质量可能略差(画质以及动图大小不均匀等)
+
+PS:动图可以多看看、多了解,对于自己破案找线索有很大帮助的.
+GIF 番号如有出处错误的可以私聊我(在评论区指出的话,因为没有消息提醒,可能存在没看到的情况)——本人提供的番号出处错误的,会负责找出原出处(有些是直接搜集的,可能原作者存在番号备注错误)
+
+![](https://i.imgur.com/RsuXsT9.png)
+
+本次不设置次数限制了,大家在链接有效期下载即可
+
+二月份及三月份 GIF——[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2F0d12e5aa0a2946),提取码:aqkew5
+
+四月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2Fbb0f9f7c571e4a),提取码:2pukix
+
+五月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2Fee129bec63dc45),提取码:txf5p3
+
+六月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2Fd9ca57f864e64c),提取码:twy86r
+
+七月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2F9a2a924f2c3543),提取码:g2454p
+
+八月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2Ff22476cd484241),提取码:nqtr8g
+
+九月份 GIF——————[传送门](redirect.php?url=https%3A%2F%2Fc-t.work%2Fs%2Fcc885fc896604e),提取码:xk35iw
+
+没用过奶牛盘可以先自行创建一个号,转存到自己的网盘——[创建](redirect.php?url=https%3A%2F%2Fcowtransfer.com%2F%3Flx_guid%3Df6fc1a84-fc3e-458d-bfff-7b081e0dbc55)(点击创建,注册能获得一个月网盘会员)
+
+_解压密码:jav2020(不知道肯定是新来的)_ -->
+
+<!--
+
+## 老司机带你看精品 自截 gif 侵犯办公室里的黑丝美腿少妇 推荐！！
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/726389838efd594bb401942aa119b002/tumblr_or06271x521ve8rtqo1_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/726389838efd594bb401942aa119b002/tumblr_or06271x521ve8rtqo1_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/d468ab18748a35ff36674a1b6342d2e6/tumblr_or06271x521ve8rtqo3_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/d468ab18748a35ff36674a1b6342d2e6/tumblr_or06271x521ve8rtqo3_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/cea058039b8c47daf22ea97dec35c154/tumblr_or06271x521ve8rtqo2_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/cea058039b8c47daf22ea97dec35c154/tumblr_or06271x521ve8rtqo2_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/2c99835b9dfc5eec25bc05ec374c4483/tumblr_or06271x521ve8rtqo4_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/2c99835b9dfc5eec25bc05ec374c4483/tumblr_or06271x521ve8rtqo4_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/e742d62c9e5fb42afb127fffdf478213/tumblr_or06271x521ve8rtqo5_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/e742d62c9e5fb42afb127fffdf478213/tumblr_or06271x521ve8rtqo5_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/343a0113b6cd64d9feba3f5c302b6dac/tumblr_or06271x521ve8rtqo6_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/343a0113b6cd64d9feba3f5c302b6dac/tumblr_or06271x521ve8rtqo6_640.gif)
+
+[![SHKD-724 オフィスレディの湿ったパンスト 桜木凛](https://64.media.tumblr.com/4f3432ec4a9defd35d27ac8ab8a06425/tumblr_or06271x521ve8rtqo7_640.gif 'SHKD-724 オフィスレディの湿ったパンスト 桜木凛')](https://64.media.tumblr.com/4f3432ec4a9defd35d27ac8ab8a06425/tumblr_or06271x521ve8rtqo7_640.gif)
+
+老司机带你看精品 自截 gif 侵犯办公室里的黑丝美腿少妇 推荐！！
+
+汤友推荐的一个番号.说是这俩天看这片撸了好几次了.我就下了片子看了下,没想到片子质量这么好.首先:女优颜值很高,完美御姐气质！看上去冷冰冰的还有点神圣不可侵犯的那种感觉.题材就是猥亵侵犯这种题材,女优演技很不错.讲得是公司老板看上这妹子很久了在办公室想强上没成功,这时公司的狗腿阿姨看出了老板的意思,建议老板带着妹子去出差.顺便在外地把事情办了.老板心领神会.带着妹子就商务旅游了,然后就一系列一发不可收拾的场景你懂得...女优从一开始的反感和厌恶到最后的任命和享受,演技表情我给满分.加上这一双长的没朋友的大长腿,在加上黑丝 OL 制服.怪不得那哥们撸好几次.
+
+实力安利一波,好片别错过.
+
+[SHKD-724 オフィスレディの湿ったパンスト 桜木凛 ](https://www.javbus.com/SHKD-724) -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-11-01T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/JavaScript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JavaScript 面试知识点总结">
+                        
+                        <span class="card-title">JavaScript 面试知识点总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-12-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/5-tips-to-write-better-conditionals-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="5 Tips to Write Better Conditionals in JavaScript">
+                        
+                        <span class="card-title">5 Tips to Write Better Conditionals in JavaScript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-09-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

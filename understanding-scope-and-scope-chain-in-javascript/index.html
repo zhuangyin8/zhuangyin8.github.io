@@ -1,0 +1,3564 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Understanding Scope and Scope Chain in JavaScript, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Understanding Scope and Scope Chain in JavaScript | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Understanding Scope and Scope Chain in JavaScript</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Scope-Chain/">
+                                <span class="chip bg-color">Scope Chain</span>
+                            </a>
+                        
+                            <a href="/tags/Scope/">
+                                <span class="chip bg-color">Scope</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-12-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.bitsrc.io/understanding-scope-and-scope-chain-in-javascript-f6637978cf53">Understanding Scope and Scope Chain in JavaScript</a></p>
+</blockquote>
+<blockquote>
+<p>Learn How JavaScript Engine Performs Variable Lookups</p>
+</blockquote>
+<!-- ![Image for post](https://miro.medium.com/max/1386/1*ZVIp-nBbxcRnqUhUTvLzTQ.jpeg) -->
+
+<p>Scope and Scope Chain are fundamental concepts of JavaScript and other programming languages. Yet, these concepts confuse many new JavaScript developers. The knowledge of these concepts is essential in mastering JavaScript.</p>
+<p>Having a proper understanding of these concepts will help you to write better, more efficient and clean code. Which will, in turn, help you to become a better JavaScript developer.</p>
+<p>So in this article, I will explain what scope and scope chain is, how JavaScript engine performs variable lookups and internals of these concepts.</p>
+<p>So without further ado, Let’s get started :)</p>
+<p><strong>Tip</strong>: When building JS apps, use open source tools like <a target="_blank" rel="noopener" href="https://github.com/teambit/bit">Bit</a> to build faster. Bit turns components into shared Lego pieces your team can easily share, find, use and develop in all your projects to build much faster together. Give it a try.</p>
+<h2 id="What-is-Scope"><a href="#What-is-Scope" class="headerlink" title="What is Scope?"></a>What is Scope?</h2><p>Scope in JavaScript refers to the accessibility or visibility of variables. That is, which parts of a program have access to the variable or where the variable is visible.</p>
+<h3 id="Why-is-Scope-Important"><a href="#Why-is-Scope-Important" class="headerlink" title="Why is Scope Important?"></a>Why is Scope Important?</h3><ol>
+<li>The main benefit of scope is security. That is, the variables can be accessed from only a certain area of the program. Using scope, we can avoid unintended modifications to the variables from other parts of the program.</li>
+<li>The scope also reduces the namespace collisions. That is, we can use the same variable names in different scopes.</li>
+</ol>
+<h2 id="Types-of-Scope"><a href="#Types-of-Scope" class="headerlink" title="Types of Scope"></a>Types of Scope</h2><p>There are three types of scope in JavaScript — 1) <strong>Global Scope,</strong> 2) <strong>Function Scope,</strong> and, 3) <strong>Block Scope.</strong></p>
+<h3 id="1-Global-Scope"><a href="#1-Global-Scope" class="headerlink" title="1. Global Scope"></a>1. Global Scope</h3><p>Any variable that’s not inside any function or block (a pair of curly braces), is inside the global scope. The variables in global scope can be accessed from anywhere in the program. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Prints 'Hello World!'</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-Local-Scope-or-Function-Scope"><a href="#2-Local-Scope-or-Function-Scope" class="headerlink" title="2. Local Scope or Function Scope"></a>2. Local Scope or Function Scope</h3><p>Variables declared inside a function is inside the local scope. They can only be accessed from within that function, that means they can’t be accessed from the outside code. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Prints 'Hello World!'</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Uncaught ReferenceError: greeting is not defined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-Block-Scope"><a href="#3-Block-Scope" class="headerlink" title="3. Block Scope"></a>3. Block Scope</h3><p>ES6 introduced <strong>let</strong> and <strong>const</strong> variables, unlike <strong>var</strong> variables, they can be scoped to the nearest pair of curly braces. That means, they can’t be accessed from outside that pair of curly braces. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> lang <span class="token operator">=</span> <span class="token string">'English'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Prints 'Hello World!'</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Prints 'English'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lang<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Uncaught ReferenceError: greeting is not defined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We can see that <code>var</code> variables can be used outside the block, that is, <code>var</code> variables are not block scoped.</p>
+<h2 id="Nested-Scope"><a href="#Nested-Scope" class="headerlink" title="Nested Scope"></a>Nested Scope</h2><p>Just like functions in JavaScript, a scope can be nested inside another scope. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Peter'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> greeting <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> lang <span class="token operator">=</span> <span class="token string">'English'</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>lang<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>greeting<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Here we have 3 scopes nested within each other. First, the block scope (created due to the <code>let</code> variable) is nested inside the local or function scope which is in turn nested inside the global scope.</p>
+<h2 id="Lexical-Scope"><a href="#Lexical-Scope" class="headerlink" title="Lexical Scope"></a>Lexical Scope</h2><blockquote>
+<p>词法作用域</p>
+</blockquote>
+<p>Lexical Scope (also known as Static Scope) literally means that scope is determined at the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lexical_analysis">lexing time</a> (generally referred to as compiling) rather than at runtime. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">printNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> number <span class="token operator">=</span> <span class="token number">54</span><span class="token punctuation">;</span>
+  <span class="token function">printNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Prints 42</span>
+<span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Here the <code>console.log(number)</code> will always print <code>42</code> no matter from where the function <code>printNumber()</code> is called. This is different from languages with the <strong>dynamic scope</strong> where the <code>console.log(number)</code> will print different value depending on from where the function <code>printNumber()</code> is called.</p>
+<p>If the above code was written in a language that supports dynamic scoping, the <code>console.log(number)</code> would have printed <code>54</code> instead.</p>
+<p>Using lexical scope we can determine the scope of the variable just by looking at the source code. Whereas in the case of dynamic scoping the scope can’t be determined until the code is executed.</p>
+<p>Most of the programming languages support lexical or static scope such as C, C++, Java, JavaScript. Perl supports both static and dynamic scoping.</p>
+<h2 id="Scope-Chain"><a href="#Scope-Chain" class="headerlink" title="Scope Chain"></a>Scope Chain</h2><p>When a variable is used in JavaScript, the JavaScript engine will try to find the variable’s value in the current scope. If it could not find the variable, it will look into the outer scope and will continue to do so until it finds the variable or reaches global scope.</p>
+<p>If it’s still could not find the variable, it will either implicitly declare the variable in the global scope (if not in strict mode) or return an error.</p>
+<p>For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> baz <span class="token operator">=</span> <span class="token string">'baz'</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Prints 'baz'</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Prints 'foo'</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  number <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Prints 42</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>When the function <code>bar()</code> is executed, the JavaScript engine looks for the <code>baz</code> variable and finds it in the current scope. Next, it looks for <code>foo</code> variable in the current scope and it can’t find it there, so it looks for the variable in outer scope and finds it there (i.e global scope).</p>
+<p>After that, we assign <code>42</code> to the number variable, so the JavaScript engine looks for the <code>number</code> variable in the current scope and after that in the outer scope.</p>
+<p>If the script is not in strict mode, the engine will create a new variable named <code>number</code> and assign <code>42</code> to it or return an error (if not in strict mode).</p>
+<p>So when a variable is used the engine will traverse the scope chain until it finds the variable.</p>
+<h2 id="How-Does-Scope-and-Scope-Chain-Work"><a href="#How-Does-Scope-and-Scope-Chain-Work" class="headerlink" title="How Does Scope and Scope Chain Work?"></a>How Does Scope and Scope Chain Work?</h2><p>Up until now, we have discussed what scope is and types of scope. Now let’s understand how JavaScript engine determines the scope of variables and perform variable lookups under the hood.</p>
+<p>In order to understand how JavaScript engine performs variable lookups, we have to understand the concept of lexical environment in JavaScript.</p>
+<h3 id="What-is-a-Lexical-Environment"><a href="#What-is-a-Lexical-Environment" class="headerlink" title="What is a Lexical Environment?"></a>What is a Lexical Environment?</h3><p>A <em>lexical environment</em> is a structure that holds <strong>identifier-variable mapping</strong>. (here <strong>identifier</strong> refers to the name of variables/functions, and the <strong>variable</strong> is the reference to actual object [including function object and array object] or primitive value).</p>
+<p>Simply put, a lexical environment is a place where variables and references to the objects are stored.</p>
+<p><strong>Note —</strong> Don’t confuse lexical scope with the lexical environment, lexical scope is a scope that is determined at compile time and a lexical environment is a place where variables are stored during the program execution.</p>
+<p>Conceptually a lexical environment looks like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">lexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  a<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  obj<span class="token operator">:</span> <span class="token operator">&lt;</span>ref<span class="token punctuation">.</span> to the object<span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>A new lexical environment is created for each lexical scope but only when the code in that scope is executed. The lexical environment also has a reference to its outer lexical environment ( i.e outer scope). For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">lexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  a<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
+  obj<span class="token operator">:</span> <span class="token operator">&lt;</span>ref<span class="token punctuation">.</span> to the object<span class="token operator">></span> 
+  outer<span class="token operator">:</span> <span class="token operator">&lt;</span>outer lexical environemt<span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="How-does-JavaScript-Engine-Perform-Variable-Lookups"><a href="#How-does-JavaScript-Engine-Perform-Variable-Lookups" class="headerlink" title="How does JavaScript Engine Perform Variable Lookups?"></a>How does JavaScript Engine Perform Variable Lookups?</h3><p>Now that we know what scope, scope chain and lexical environment are, let’s now understand how JavaScript engine uses the lexical environment to determine scope and scope chain.</p>
+<p>Let’s take a look at below code snippet to understand the above concepts.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'Peter'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>greeting<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>When the above script loads, a global lexical environment is created, which contains variables and functions defined inside the global scope. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">globalLexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  greeting<span class="token operator">:</span> <span class="token string">'Hello'</span>
+  greet<span class="token operator">:</span> <span class="token operator">&lt;</span>ref<span class="token punctuation">.</span> to greet <span class="token keyword">function</span><span class="token operator">></span>
+
+  outer<span class="token operator">:</span> <span class="token operator">&lt;</span><span class="token keyword">null</span><span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Here outer lexical environment is set to null because there is no outer scope after global scope.</p>
+<p>After that, a call to the <code>greet()</code> function is encountered. So a new lexical environment is created for the <code>greet()</code> function. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">functionLexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token string">'Peter'</span>
+
+  outer<span class="token operator">:</span> <span class="token operator">&lt;</span>globalLexicalEnvironment<span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Here outer lexical environment is set to <code>globalLexicalEnvironment</code> because its outer scope is the global scope.</p>
+<p>After that, the JavaScript engine executes the <code>console.log(`$&#123;greeting&#125; $&#123;name&#125;`)</code> statement.</p>
+<p>The JavaScript engine tries to find the <code>greeting</code> and <code>name</code> variables inside the function’s lexical environment. It finds the <code>name</code> variable inside the current lexical environment but it won’t be able to find the <code>greeting</code> variable inside the current lexical environment.</p>
+<p>So it looks inside the outer lexical environment (defined by the outer property i.e global lexical environment) and finds the <code>greeting</code> variable.</p>
+<p>Next, the JavaScript engine executes at the code inside the block. So it creates a new lexical environment for that block. For example:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">blockLexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  greeting<span class="token operator">:</span> <span class="token string">'Hello World'</span><span class="token punctuation">,</span> 
+  
+  outer<span class="token operator">:</span> <span class="token operator">&lt;</span>globalLexicalEnvironment<span class="token operator">></span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Next, the <code>console.log(greeting)</code> statement is executed, the JavaScript engine finds the variable in the current lexical environment and uses that variable. So it does not look inside the outer lexical environment (global lexical environment) for the variable.</p>
+<p><strong>Note —</strong> A new lexical environment is created only for <code>let</code> and <code>const</code> declarations, not <code>var</code> declarations. <code>var</code> declarations are added to the current lexical environment (global or function lexical environment).</p>
+<p>So when a variable is used in a program, the JavaScript engine will try to find the variable in the current lexical environment and if it could not find the variable there, it looks inside the outer lexical environment to find the variable. So that’s how the JavaScript engine performs variable lookups.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>So in a nutshell, a scope is an area where a variable is visible and accessible. Just like functions, scopes in JavaScript can be nested and the JavaScript engine traverses the scope chain to find the variables used in the program.</p>
+<p>JavaScript uses lexical scope which means that scope of variables is determined at compile time. The JavaScript engine uses the lexical environment to store the variables during the program execution.</p>
+<p>Scope and scope chain are fundamental concepts of JavaScript that every JavaScript developer should understand. Having a good knowledge of these concepts will help you to become a much more effective and better JavaScript developer.</p>
+<p>That’s it and if you found this article helpful, please click the clap 👏button below, you can also follow me on <a target="_blank" rel="noopener" href="https://medium.com/@Sukhjinder">Medium</a> and <a target="_blank" rel="noopener" href="https://twitter.com/sukhjinder_95">Twitter</a>, and if you have any doubt, feel free to comment! I’d be happy to help :)</p>
+<!--
+> [GIF 搬运+链接整合【GIF 搬运 31】](https://gifshare.blog.fc2blog.us/blog-entry-40.html)
+>
+> [kkpi](https://kkpi.blog.fc2blog.us/)
+
+#### ?
+
+<details><summary><b>?</b></summary>
+<p>
+
+2Candys 111567 鈴木ミント – クリスマス特別企画 限定配信 コスプレ天国 鈴木ミント ナース編
+magnet:?xt=urn:btih:4d8a9225e01606f80e939d9297f51184102e8b24
+![](https://www.skeimg.com/u/20200207/18480359.gif)
+
+---
+
+[020516_239](https://www.javbus.com/020516_239 '020516_239')
+![](https://www.skeimg.com/u/20200207/18480791.gif)
+
+---
+
+[ABP-426](https://www.javbus.com/ABP-426 'ABP-426')
+![](https://www.skeimg.com/u/20200207/18481344.gif)
+
+---
+
+[ABP-601](https://www.javbus.com/ABP-601 'ABP-601')
+![](https://www.skeimg.com/u/20200207/1848226.gif)
+
+---
+
+[ADZ-294](https://www.javbus.com/ADZ-294 'ADZ-294')
+![](https://www.skeimg.com/u/20200207/18482726.gif)
+
+---
+
+Anal With My Ex Husband and Best Friend
+![](https://www.skeimg.com/u/20200207/18483762.gif)
+
+---
+
+[AVOP-217](https://www.javbus.com/AVOP-217 'AVOP-217')
+![](https://www.skeimg.com/u/20200207/18484873.gif)
+
+---
+
+[FSET-540](https://www.javbus.com/FSET-540 'FSET-540')
+![](https://www.skeimg.com/u/20200207/18485857.gif)
+
+---
+
+[GACHIP-334](https://www.javbus.com/GACHIP-334 'GACHIP-334')
+![](https://www.skeimg.com/u/20200207/1849058.gif)
+
+---
+
+[HND-169](https://www.javbus.com/HND-169 'HND-169')
+![](https://www.skeimg.com/u/20200207/18491788.gif)
+
+---
+
+[IPZ-687](https://www.javbus.com/IPZ-687 'IPZ-687')
+![](https://www.skeimg.com/u/20200207/18492364.gif)
+
+---
+
+[IPZ-742](https://www.javbus.com/IPZ-742 'IPZ-742')
+![](https://www.skeimg.com/u/20200207/18492998.gif)
+
+---
+
+[MMND-143](https://www.javbus.com/MMND-143 'MMND-143')
+![](https://www.skeimg.com/u/20200207/18494151.gif)
+
+---
+
+[n0278](https://www.javbus.com/n0278 'n0278')
+![](https://www.skeimg.com/u/20200207/1849462.gif)
+
+---
+
+[NHDTA-527](https://www.javbus.com/NHDTA-527 'NHDTA-527')
+![](https://www.skeimg.com/u/20200207/18495991.gif)
+
+---
+
+SIRO-1794
+magnet:?xt=urn:btih:d80947e3d374fe7ad95e65b905a3b880ed046eb8
+![](https://www.skeimg.com/u/20200207/18500316.gif)
+
+---
+
+[SNIS-948](https://www.javbus.com/SNIS-948 'SNIS-948')
+![](https://www.skeimg.com/u/20200207/18501282.gif)
+
+---
+
+[WAT-008](https://www.javbus.com/WAT-008 'WAT-008')
+![](https://www.skeimg.com/u/20200207/18502577.gif)
+
+---
+
+WowGirls Because You Are Mine
+![](https://www.skeimg.com/u/20200207/1850342.gif)
+
+---
+
+セイバーガールズオーダー
+![](https://www.skeimg.com/u/20200207/18504142.gif)
+
+---
+
+图包链接: [毒盘](https://pan.baidu.com/s/1gjGorWF2Pwg68QLmhYfcJw '毒盘')
+提取码: hd9s
+
+![](//static.fc2blog.us/image/clap/cn/number/white/0.gif)
+
+---
+
+IPZ-014
+
+![](https://www.evernote.com/shard/s737/res/3a50121b-9826-4591-8955-04ecb88adfbf)
+
+葵司
+
+![](https://www.evernote.com/shard/s737/res/303b7043-c255-416a-b276-faa4e7d67137)
+
+NNPJ-075 風見あゆむ
+
+![](https://www.evernote.com/shard/s737/res/098f0095-4429-4e68-84af-2a24c5622a34)
+
+IPTD-651
+
+![](https://www.evernote.com/shard/s737/res/a916f81d-813b-431c-ba6e-c81e7d7d69aa)
+
+IPTD-587
+
+![](https://www.evernote.com/shard/s737/res/a25e96a6-a568-49cf-8711-48cd880ac481)
+
+HAVD-707
+
+![](https://www.evernote.com/shard/s737/res/1b08eeed-739f-4a75-8bfe-174633ceffbc)
+
+---
+
+[![](https://www.evernote.com/shard/s737/res/8a869ba7-f446-48aa-9b67-d4536bea0ebd)]()[![](https://www.evernote.com/shard/s737/res/3149a840-84b8-44df-b23c-afaa3177e936)]()[![](https://www.evernote.com/shard/s737/res/35411904-d3eb-453f-bfe1-7c3bed2bc66f)
+]()
+
+FSET-540 これぞ興奮の真骨頂！ バレないように彼女の親友とこっそりヤル！10 SPECIAL
+
+[![](https://www.evernote.com/shard/s737/res/1c7abfb0-7ea8-4dd8-9a99-e19fac567bed)](https://www.tumbex.com/danielwu1994.tumblr/post/164093302894/qiuchuchu-sw-106-1)[![](https://www.evernote.com/shard/s737/res/d558d73e-a411-4647-a005-38f750d0763f)
+](https://www.tumbex.com/danielwu1994.tumblr/post/164093302894/qiuchuchu-sw-106-1)
+
+SW-106-1 夢の近親相姦！年頃の姉貴たちは家族に内緒で勃ちやすい僕のチ ○ ポの面倒をみてくれているのです
+
+[![](https://www.evernote.com/shard/s737/res/b97be4e8-c227-4cdf-a47e-68576218046d)]()[![](https://www.evernote.com/shard/s737/res/be5660e7-ce7a-494e-8b04-cae85c54c717)]()[![](https://www.evernote.com/shard/s737/res/1e0a99b8-f558-4498-84bb-6805e74ea88f)]()[![](https://www.evernote.com/shard/s737/res/4ccc6519-3c5b-4f0b-a7da-b62dacca9e4d)]()[![](https://www.evernote.com/shard/s737/res/33fe4e9a-0f67-4bc3-b2d4-3ca8e070e5c6)
+]()
+
+[ WOSHINVWANG](https://www.tumbex.com/woshinvwang.tumblr/post/163270731482 'Source: woshinvwang')
+
+[![](https://www.evernote.com/shard/s737/res/c8924bbb-18e1-4991-a0f4-cacb329c41a6)
+](https://www.tumbex.com/danielwu1994.tumblr/post/164093274729/qiuchuchu-bbi-163-%E7%97%B4%E5%A5%B3%E6%95%99%E5%B8%AB%E3%81%8C%E7%8A%AF%E3%82%B9-%E6%BF%83%E5%8E%9A%E3%81%AA%E6%8E%A5%E5%90%BB%E3%81%A8%E7%8C%9B%E7%83%88%E3%81%AB%E7%B5%A1%E3%81%BF%E5%90%88%E3%81%86%E8%82%89%E4%BD%93)
+
+BBI-163 痴女教師が犯ス-濃厚な接吻と猛烈に絡み合う肉体- 司ミコト
+
+[![](https://www.evernote.com/shard/s737/res/95e01f5a-66ec-495f-9755-117ccdeb2857)
+](https://www.tumbex.com/danielwu1994.tumblr/post/164093296199/qiuchuchu-abp-288-%E4%BA%BA%E7%94%9F%E5%88%9D%E3%83%88%E3%83%A9%E3%83%B3%E3%82%B9%E7%8A%B6%E6%85%8B-%E6%BF%80%E3%82%A4%E3%82%AD%E7%B5%B6%E9%A0%82%E3%82%BB%E3%83%83%E3%82%AF%E3%82%B9-%E8%BC%9D%E6%9C%88%E3%81%82%E3%82%93%E3%82%8A)
+
+ABP-288 人生初・トランス状態 激イキ絶頂セックス 輝月あんり
+
+---
+
+[![](https://www.evernote.com/shard/s737/res/ebe42f89-2650-4494-ab6a-98b898a4e23d)]()[![](https://www.evernote.com/shard/s737/res/03800205-2674-419a-b667-c7c256b595f1)]()[![](https://www.evernote.com/shard/s737/res/1cdb05e6-638e-43bf-82e8-df55d01f67c8)]()[![](https://www.evernote.com/shard/s737/res/2663c7ae-1795-4239-b72a-49bce952c5ea)]()[![](https://www.evernote.com/shard/s737/res/71ab78c3-b1c7-4a48-a1d8-e72574d2a629)]()[![](https://www.evernote.com/shard/s737/res/1eab2b92-5412-4623-b10d-fbc70d9173fd)]()[![](https://www.evernote.com/shard/s737/res/628588f1-9e2a-42f1-912d-c0f7c24478fc)]()[![](https://www.evernote.com/shard/s737/res/dd41b2bf-e90a-4396-9d18-b0c03361375c)]()[![](https://www.evernote.com/shard/s737/res/a8f82259-8c05-4cf1-a256-a1c3e531aa5f)]()[![](https://www.evernote.com/shard/s737/res/89a4b413-5d6e-4e2b-b01e-a2ba3b297b31)
+]()
+
+[ttjav](https://www.tumbex.com/ttjav.tumblr/post/160267637372/mide-192-%E3%83%A9%E3%83%B3%E3%82%B8%E3%82%A7%E3%83%AA%E3%83%BC%E3%83%8Aspecial-julia):
+
+---
+
+MIDE-192 ランジェリーナ Special JULIA
+
+[![](https://www.evernote.com/shard/s737/res/8a4d0d0f-bd29-42bd-aa60-9824aff8260f)](https://www.tumbex.com/danielwu1994.tumblr/post/164093228604/qiuchuchu-katy-kiss-naughty-redhead-bunny)[![](https://www.evernote.com/shard/s737/res/81d26585-94f0-4fa5-ab5b-d190f62dcab7)
+](https://www.tumbex.com/danielwu1994.tumblr/post/164093228604/qiuchuchu-katy-kiss-naughty-redhead-bunny)
+
+Katy Kiss - Naughty Redhead Bunny
+
+磁力链接: magnet:?xt=urn:btih:F9C04E358825850DB70304E53E83D4995FDA91C9
+
+---
+
+[![](https://www.evernote.com/shard/s737/res/e515defc-aec0-4f79-88ce-99d21f9fcb50)]()[![](https://www.evernote.com/shard/s737/res/3aaca5f4-0ac3-4cd0-93d9-0b5c22fea8a4)]()[![](https://www.evernote.com/shard/s737/res/c87c0418-fe27-463c-a591-938df3b89d41)]()[![](https://www.evernote.com/shard/s737/res/62fdc9fd-f915-4c02-a0e2-2951b6acbfe7)]()[![](https://www.evernote.com/shard/s737/res/ff370a09-f6a8-4a61-b663-ac0d5168b418)
+]()
+
+[ttjav](https://www.tumbex.com/ttjav.tumblr/post/162495570102/s-model-01-%E6%9D%8F%E5%A0%82%E3%81%AA%E3%81%A4):
+
+S Model 01  杏堂なつ
+
+</p>
+</details>
+
+---
+
+#### [0000](https://kkpi.blog.fc2blog.us/blog-entry-67.html '0000')
+
+<details><summary><b>[0000](https://kkpi.blog.fc2blog.us/blog-entry-67.html '0000')</b></summary>
+<p>
+
+- 2020-06-14
+
+![23sdg2352w](https://iwtf1.caching.ovh/to/that/2020/06/14/23sdg2352w0c32fac9241dc6ab.gif)
+
+![43F1asfas](https://iwtf1.caching.ovh/to/that/2020/06/14/43F1asfas7cd65aad9cc8af81.gif)
+
+![a124xzz](https://iwtf1.caching.ovh/to/that/2020/06/14/a124xzzd9cd7423211f8056.gif)
+
+![ewt321z](https://iwtf1.caching.ovh/to/that/2020/06/14/ewt321zaa8a656070ef09d6.gif)
+
+![g2zgaq](https://iwtf1.caching.ovh/to/that/2020/06/14/g2zgaqf34513bdfa41eb53.gif)
+
+![iuiesg43](https://iwtf1.caching.ovh/to/that/2020/06/14/iuiesg43286f028c2a26f3d7.gif)
+
+![jt4xqwe4](https://iwtf1.caching.ovh/to/that/2020/06/14/jt4xqwe41f09882088dbedfb.gif)
+
+![s124zxar](https://iwtf1.caching.ovh/to/that/2020/06/14/s124zxaraf2f41f070ed28fa.gif)
+
+</p>
+</details>
+
+---
+
+#### [0060](https://kkpi.blog.fc2blog.us/blog-entry-66.html '0060')
+
+<details><summary><b>[0060](https://kkpi.blog.fc2blog.us/blog-entry-66.html '0060')</b></summary>
+<p>
+
+- 2020-05-24
+
+![ghfx346ds](https://iwtf1.caching.ovh/to/that/2020/05/24/ghfx346ds6cf989ce5282ebc6.gif)
+
+![cfh345adf](https://iwtf1.caching.ovh/to/that/2020/05/24/cfh345adf6178ee5341e37f8a.gif)
+
+![12sdf23sa](https://iwtf1.caching.ovh/to/that/2020/05/24/12sdf23sad07327656370a281.gif)
+
+![1u7sdf21](https://iwtf1.caching.ovh/to/that/2020/05/24/1u7sdf210021141a31cee03b.gif)
+
+![654jkgug](https://iwtf1.caching.ovh/to/that/2020/05/24/654jkgug98731f0692915d3b.gif)
+
+![43dfgq2346qa](https://iwtf1.caching.ovh/to/that/2020/05/24/43dfgq2346qa0bd64cb40a5d6334.gif)
+
+</p>
+</details>
+
+---
+
+#### [0059](https://kkpi.blog.fc2blog.us/blog-entry-65.html '0059')
+
+<details><summary><b>[0059](https://kkpi.blog.fc2blog.us/blog-entry-65.html '0059')</b></summary>
+<p>
+
+- 2020-05-10
+
+![12542sarq2](https://iwtf1.caching.ovh/to/that/2020/05/10/12542sarq24e7e1eb2f72881eb.gif)
+
+![dfg1zsd3](https://iwtf1.caching.ovh/to/that/2020/05/10/dfg1zsd35b884b492b01e5ec.gif)
+
+![sfdg12e](https://iwtf1.caching.ovh/to/that/2020/05/10/sfdg12e46eadd256250ddca.gif)
+
+![zdfsd2341](https://iwtf1.caching.ovh/to/that/2020/05/10/zdfsd234116039aecba57a697.gif)
+
+</p>
+</details>
+
+---
+
+#### [0058](https://kkpi.blog.fc2blog.us/blog-entry-64.html '0058')
+
+<details><summary><b>[0058](https://kkpi.blog.fc2blog.us/blog-entry-64.html '0058')</b></summary>
+<p>
+
+- 2020-04-26
+
+![20042601](https://iwtf1.caching.ovh/to/that/2020/04/26/200426016b4e23c2c4e96321.gif)
+
+![20042602](https://iwtf1.caching.ovh/to/that/2020/04/26/2004260241a23e2c5e818610.gif)
+
+![20042603](https://iwtf1.caching.ovh/to/that/2020/04/26/20042603de473c1cc28e4708.gif)
+
+![20042604](https://iwtf1.caching.ovh/to/that/2020/04/26/20042604f98caa53b225c901.gif)
+
+![20042605](https://iwtf1.caching.ovh/to/that/2020/04/26/20042605bb2a550919d034df.gif)
+
+![20042606](https://iwtf1.caching.ovh/to/that/2020/04/26/2004260617488bbec400fe22.gif)
+
+![20042607](https://iwtf1.caching.ovh/to/that/2020/04/26/200426079faf25c4b281f4a8.gif)
+
+</p>
+</details>
+
+---
+
+#### [0057](https://kkpi.blog.fc2blog.us/blog-entry-63.html '0057')
+
+<details><summary><b>[0057](https://kkpi.blog.fc2blog.us/blog-entry-63.html '0057')</b></summary>
+<p>
+
+- 2020-04-12
+
+![20041211](https://iwtf1.caching.ovh/to/that/2020/04/12/2004121123795a40cc86f50d.gif)
+
+![20041207](https://iwtf1.caching.ovh/to/that/2020/04/12/2004120766a5a9880ec88eb8.gif)
+
+![20041210](https://iwtf1.caching.ovh/to/that/2020/04/12/20041210ecac0cb13bee5b98.gif)
+
+![20041206](https://iwtf1.caching.ovh/to/that/2020/04/12/200412069defae3018f5399a.gif)
+
+![20041208](https://iwtf1.caching.ovh/to/that/2020/04/12/200412081d8be882ef07e811.gif)
+
+![20041209](https://iwtf1.caching.ovh/to/that/2020/04/12/20041209dc419549e8376eda.gif)
+
+![20041203](https://iwtf1.caching.ovh/to/that/2020/04/12/20041203c872d10d429f303f.gif)
+
+![20041202](https://iwtf1.caching.ovh/to/that/2020/04/12/20041202dadc5e136da6ab59.gif)
+
+![20041205](https://iwtf1.caching.ovh/to/that/2020/04/12/20041205a7d8299a28a268f7.gif)
+
+![20041201](https://iwtf1.caching.ovh/to/that/2020/04/12/20041201941ea11c1522005e.gif)
+
+![20041204](https://iwtf1.caching.ovh/to/that/2020/04/12/20041204faa278b5d229e8e1.gif)
+
+</p>
+</details>
+
+---
+
+#### [0056](https://kkpi.blog.fc2blog.us/blog-entry-62.html '0056')
+
+<details><summary><b>[0056](https://kkpi.blog.fc2blog.us/blog-entry-62.html '0056')</b></summary>
+<p>
+
+- 2020-04-04
+
+![20040401](https://iwtf1.caching.ovh/to/that/2020/04/04/20040401b2f14ce90618d273.gif)
+
+![20040402](https://iwtf1.caching.ovh/to/that/2020/04/04/2004040203e66baf4f61ff73.gif)
+
+![20040403](https://iwtf1.caching.ovh/to/that/2020/04/04/2004040301e8f4a8924854bb.gif)
+
+![20040404](https://iwtf1.caching.ovh/to/that/2020/04/04/200404046a875721be34bc84.gif)
+
+![20040405](https://iwtf1.caching.ovh/to/that/2020/04/04/200404056e5183cdd5e1d887.gif)
+
+![20040406](https://iwtf1.caching.ovh/to/that/2020/04/04/2004040633598fce92c6927a.gif)
+
+![20040407](https://iwtf1.caching.ovh/to/that/2020/04/04/20040407914eaf400d2a81c9.gif)
+
+![20040408](https://iwtf1.caching.ovh/to/that/2020/04/04/200404089b8ca43d4bee5a13.gif)
+
+![20040409](https://iwtf1.caching.ovh/to/that/2020/04/04/200404099bcb080cbbd549e5.gif)
+
+![20040410](https://iwtf1.caching.ovh/to/that/2020/04/04/2004041083cfb8127b5f8014.gif)
+
+![20040411](https://iwtf1.caching.ovh/to/that/2020/04/04/20040411ad06ff6379775c56.gif)
+
+![20040412](https://iwtf1.caching.ovh/to/that/2020/04/04/200404125811f7dc0d2a68db.gif)
+
+</p>
+</details>
+
+---
+
+#### [0055](https://kkpi.blog.fc2blog.us/blog-entry-61.html '0055')
+
+<details><summary><b>[0055](https://kkpi.blog.fc2blog.us/blog-entry-61.html '0055')</b></summary>
+<p>
+
+- 2020-03-29
+
+![20032901](https://iwtf1.caching.ovh/to/that/2020/03/29/20032901149a2ae6e6e64bce.gif)
+
+![20032902](https://iwtf1.caching.ovh/to/that/2020/03/29/20032902d51d5dec12ea6a39.gif)
+
+![20032903](https://iwtf1.caching.ovh/to/that/2020/03/29/20032903d1403de3cd38d863.gif)
+
+![20032904](https://iwtf1.caching.ovh/to/that/2020/03/29/200329040a58e20f8825363f.gif)
+
+![20032905](https://iwtf1.caching.ovh/to/that/2020/03/29/200329051860468efc688d42.gif)
+
+![20032906](https://iwtf1.caching.ovh/to/that/2020/03/29/2003290609bc63bc9e810294.gif)
+
+![20032907](https://iwtf1.caching.ovh/to/that/2020/03/29/2003290762b63b3a16de3e91.gif)
+
+![20032908](https://iwtf1.caching.ovh/to/that/2020/03/29/200329080c546d333d002421.gif)
+
+</p>
+</details>
+
+---
+
+#### [0054](https://kkpi.blog.fc2blog.us/blog-entry-60.html '0054')
+
+<details><summary><b>[0054](https://kkpi.blog.fc2blog.us/blog-entry-60.html '0054')</b></summary>
+<p>
+
+- 2020-03-22
+
+![20032219](https://iwtf1.caching.ovh/to/that/2020/03/22/20032219da5d538877d06204.gif)
+
+![20032218](https://iwtf1.caching.ovh/to/that/2020/03/22/20032218ab0e0f53b96a1296.gif)
+
+![20032217](https://iwtf1.caching.ovh/to/that/2020/03/22/2003221756fdf114c3c5f874.gif)
+
+![20032216](https://iwtf1.caching.ovh/to/that/2020/03/22/200322166460c85d8bb4a35a.gif)
+
+![20032215](https://iwtf1.caching.ovh/to/that/2020/03/22/20032215bd4f118cbe1f3297.gif)
+
+![20032213](https://iwtf1.caching.ovh/to/that/2020/03/22/20032213d1f5135cab24d360.gif)
+
+![20032214](https://iwtf1.caching.ovh/to/that/2020/03/22/20032214316d92027c5fabeb.gif)
+
+![20032211](https://iwtf1.caching.ovh/to/that/2020/03/22/20032211f4c665c2137276cb.gif)
+
+![20032212](https://iwtf1.caching.ovh/to/that/2020/03/22/2003221277380ab452c3db9a.gif)
+
+![20032210](https://iwtf1.caching.ovh/to/that/2020/03/22/200322106748073f38c0d3ad.gif)
+
+![20032209](https://iwtf1.caching.ovh/to/that/2020/03/22/200322095dc377c3708c8e31.gif)
+
+![20032208](https://iwtf1.caching.ovh/to/that/2020/03/22/20032208949be4dc34f9439c.gif)
+
+![20032207](https://iwtf1.caching.ovh/to/that/2020/03/22/2003220759205b62609ea995.gif)
+
+![20032206](https://iwtf1.caching.ovh/to/that/2020/03/22/200322062f89376d2bd8a609.gif)
+
+![20032204](https://iwtf1.caching.ovh/to/that/2020/03/22/20032204ce491cb26bfc75cc.gif)
+
+![20032205](https://iwtf1.caching.ovh/to/that/2020/03/22/20032205139adb6988050471.gif)
+
+![20032203](https://iwtf1.caching.ovh/to/that/2020/03/22/20032203afd04fce70e00a4d.gif)
+
+![20032202](https://iwtf1.caching.ovh/to/that/2020/03/22/2003220288cc93f95042c5f4.gif)
+
+![20032201](https://iwtf1.caching.ovh/to/that/2020/03/22/20032201a005647693e09fba.gif)
+
+</p>
+</details>
+
+---
+
+#### [0053](https://kkpi.blog.fc2blog.us/blog-entry-59.html '0053')
+
+<details><summary><b>[0053](https://kkpi.blog.fc2blog.us/blog-entry-59.html '0053')</b></summary>
+<p>
+
+- 2020-03-01
+
+![20022501](https://i.want.tf/to/that/2020/03/01/20022501a0befe52cf464abd.gif)
+
+![20022502](https://i.want.tf/to/that/2020/03/01/20022502ebab218c3db06ab3.gif)
+
+![20022801](https://i.want.tf/to/that/2020/03/01/20022801adb2a11c71b88f93.gif)
+
+![20022802](https://i.want.tf/to/that/2020/03/01/200228028ccaae43f4a0618c.gif)
+
+![20022803](https://i.want.tf/to/that/2020/03/01/20022803750f09d6c0bd04e8.gif)
+
+![20022804](https://i.want.tf/to/that/2020/03/01/20022804a97ff7ffed7f7ef7.gif)
+
+![20022805](https://i.want.tf/to/that/2020/03/01/200228053fc63fabdd3f27cc.gif)
+
+![20022901](https://i.want.tf/to/that/2020/03/01/20022901643c04b61b771d6e.gif)
+
+![20022902](https://i.want.tf/to/that/2020/03/01/20022902901b6656d9cbdf3c.gif)
+
+![20022903](https://i.want.tf/to/that/2020/03/01/20022903b987bf16dcf783d8.gif)
+
+![20022904](https://i.want.tf/to/that/2020/03/01/2002290426a0da6d365015ee.gif)
+
+![20022905](https://i.want.tf/to/that/2020/03/01/20022905e6c991a4abc461b9.gif)
+
+![20022906](https://i.want.tf/to/that/2020/03/01/20022906e0f168e17a562f28.gif)
+
+![20022907](https://i.want.tf/to/that/2020/03/01/200229071499a7b2d1c917c2.gif)
+
+![20022908](https://i.want.tf/to/that/2020/03/01/20022908d2b3aebb633bff4d.gif)
+
+![20030101](https://i.want.tf/to/that/2020/03/01/20030101dc7c7148becf5ed8.gif)
+
+![20030102](https://i.want.tf/to/that/2020/03/01/20030102e8988f99e54ec87f.gif)
+
+![20030103](https://i.want.tf/to/that/2020/03/01/2003010337cbc15482b14095.gif)
+
+![20030104](https://i.want.tf/to/that/2020/03/01/2003010469ace1f5d331879a.gif)
+
+![20030105](https://i.want.tf/to/that/2020/03/01/20030105887a0141d4533fd4.gif)
+
+![20030106](https://i.want.tf/to/that/2020/03/01/20030106677193c9014ea82b.gif)
+
+![20030107](https://i.want.tf/to/that/2020/03/01/200301071e662aa9e0d53f25.gif)
+
+![20030108](https://i.want.tf/to/that/2020/03/01/20030108648e88b600398013.gif)
+
+![20030109](https://i.want.tf/to/that/2020/03/01/20030109898304056ed03099.gif)
+
+![20030110](https://i.want.tf/to/that/2020/03/01/200301107a29f5e9f2cda052.gif)
+
+</p>
+</details>
+
+---
+
+#### [0052](https://kkpi.blog.fc2blog.us/blog-entry-58.html '0052')
+
+<details><summary><b>[0052](https://kkpi.blog.fc2blog.us/blog-entry-58.html '0052')</b></summary>
+<p>
+
+- 2020-02-24
+
+![20022487166ec7d176e584.gif](https://i.want.tf/to/that/2020/02/24/20022487166ec7d176e584.gif)
+
+</p>
+</details>
+
+---
+
+#### [0051](https://kkpi.blog.fc2blog.us/blog-entry-57.html '0051')
+
+<details><summary><b>[0051](https://kkpi.blog.fc2blog.us/blog-entry-57.html '0051')</b></summary>
+<p>
+
+- 2020-02-23
+
+![20022314](https://i.want.tf/to/that/2020/02/23/20022314a9e54fb7c18a5ef9.gif)
+
+![20022313](https://i.want.tf/to/that/2020/02/23/200223139f33335ef113c4a6.gif)
+
+![20022312](https://i.want.tf/to/that/2020/02/23/20022312ca092b21d95d476a.gif)
+
+![20022311](https://i.want.tf/to/that/2020/02/23/20022311781d44b3eb889ce2.gif)
+
+![20022310](https://i.want.tf/to/that/2020/02/23/200223106d837ac83f73fdc2.gif)
+
+![20022308](https://i.want.tf/to/that/2020/02/23/20022308ab5b134207afc3b8.gif)
+
+![20022309](https://i.want.tf/to/that/2020/02/23/2002230957b5538527387f2c.gif)
+
+![20022306](https://i.want.tf/to/that/2020/02/23/200223069b7859790d3fa7c8.gif)
+
+![20022307](https://i.want.tf/to/that/2020/02/23/20022307f6b8ac13c660bd11.gif)
+
+![20022304](https://i.want.tf/to/that/2020/02/23/20022304e9d46530d229671e.gif)
+
+![20022305](https://i.want.tf/to/that/2020/02/23/20022305c38802e71ade56cf.gif)
+
+![20022303](https://i.want.tf/to/that/2020/02/23/20022303fa531883f938a977.gif)
+
+![20022302](https://i.want.tf/to/that/2020/02/23/20022302104dcfc7ea1e0fa3.gif)
+
+![20022301](https://i.want.tf/to/that/2020/02/23/200223017fa0ce87faaedb78.gif)
+
+</p>
+</details>
+
+---
+
+#### [0050](https://kkpi.blog.fc2blog.us/blog-entry-56.html '0050')
+
+<details><summary><b>[0050](https://kkpi.blog.fc2blog.us/blog-entry-56.html '0050')</b></summary>
+<p>
+
+- 2020-02-20
+
+![20022001](https://i.want.tf/to/that/2020/02/20/20022001d086780376797b31.gif)
+
+![20022002](https://i.want.tf/to/that/2020/02/20/200220029553cb47b35103a9.gif)
+
+![20022003](https://i.want.tf/to/that/2020/02/20/20022003537aca837c608f1d.gif)
+
+![20022004](https://i.want.tf/to/that/2020/02/20/200220040c19d35b728c4124.gif)
+
+![20022005](https://i.want.tf/to/that/2020/02/20/20022005f13fed627608f977.gif)
+
+![20022006](https://i.want.tf/to/that/2020/02/20/20022006b780d5c86f07e6f0.gif)
+
+![20022007](https://i.want.tf/to/that/2020/02/20/20022007c48f0aaf89300ab3.gif)
+
+![20022008](https://i.want.tf/to/that/2020/02/20/20022008cdc680280c01d959.gif)
+
+![20022009](https://i.want.tf/to/that/2020/02/20/20022009cba94b9033b89446.gif)
+
+![20022010](https://i.want.tf/to/that/2020/02/20/200220101da1692b0b9dbdf7.gif)
+
+![20022011](https://i.want.tf/to/that/2020/02/20/2002201186b4ca0e46146844.gif)
+
+![20022012](https://i.want.tf/to/that/2020/02/20/20022012c78ce7dec553d088.gif)
+
+![20022013](https://i.want.tf/to/that/2020/02/20/2002201316471dc888047a60.gif)
+
+![20022014](https://i.want.tf/to/that/2020/02/20/20022014ffb9f4d4ba8ff3af.gif)
+
+</p>
+</details>
+
+---
+
+#### [0049](https://kkpi.blog.fc2blog.us/blog-entry-55.html '0049')
+
+<details><summary><b>[0049](https://kkpi.blog.fc2blog.us/blog-entry-55.html '0049')</b></summary>
+<p>
+
+- 2020-02-08
+
+![20020801](https://i.want.tf/to/that/2020/02/08/200208014045490c71965e2b.gif)
+
+![20020802](https://i.want.tf/to/that/2020/02/08/20020802f4325ec33fedf439.gif)
+
+![20020803](https://i.want.tf/to/that/2020/02/08/20020803a0971c8ef6ea6de1.gif)
+
+![20020804](https://i.want.tf/to/that/2020/02/08/2002080405be820eedef97da.gif)
+
+![20020805](https://i.want.tf/to/that/2020/02/08/200208050843ca61ade7d428.gif)
+
+![20020806](https://i.want.tf/to/that/2020/02/08/20020806e1bfc92c8a8e4c70.gif)
+
+![20020807](https://i.want.tf/to/that/2020/02/08/2002080765ba7c86c8812b29.gif)
+
+![20020808](https://i.want.tf/to/that/2020/02/08/2002080893d61560aecbc0cc.gif)
+
+</p>
+</details>
+
+---
+
+#### [0048](https://kkpi.blog.fc2blog.us/blog-entry-54.html '0048')
+
+<details><summary><b>[0048](https://kkpi.blog.fc2blog.us/blog-entry-54.html '0048')</b></summary>
+<p>
+
+- 2020-02-01
+
+![20013101](https://i.want.tf/to/that/2020/02/01/20013101818e09e04db9a551.gif)
+
+![20013102](https://i.want.tf/to/that/2020/02/01/2001310267c4b5d0a297e091.gif)
+
+![20013103](https://i.want.tf/to/that/2020/02/01/20013103102656a2a0233716.gif)
+
+![20013104](https://i.want.tf/to/that/2020/02/01/20013104b5ca506267065e07.gif)
+
+![20013105](https://i.want.tf/to/that/2020/02/01/200131056b05435c906ac162.gif)
+
+![20013106](https://i.want.tf/to/that/2020/02/01/20013106d3925d98b0d75296.gif)
+
+![20013107](https://i.want.tf/to/that/2020/02/01/200131076d1c48c807f28174.gif)
+
+![20013108](https://i.want.tf/to/that/2020/02/01/20013108d7e9b9a290766146.gif)
+
+![20013109](https://i.want.tf/to/that/2020/02/01/200131099b8dc2bd7958f49c.gif)
+
+![20013110](https://i.want.tf/to/that/2020/02/01/200131109800a856bdc3fd72.gif)
+
+![20013111](https://i.want.tf/to/that/2020/02/01/200131113d5d9bb637f81898.gif)
+
+![20013112](https://i.want.tf/to/that/2020/02/01/200131129c648a787343455f.gif)
+
+![20013113](https://i.want.tf/to/that/2020/02/01/20013113301e5496301766e4.gif)
+
+![20013114](https://i.want.tf/to/that/2020/02/01/2001311428487cf626c46921.gif)
+
+![20013115](https://i.want.tf/to/that/2020/02/01/2001311572d9d269ac711c63.gif)
+
+![20013116](https://i.want.tf/to/that/2020/02/01/20013116203e620f2157ef2c.gif)
+
+![20013117](https://i.want.tf/to/that/2020/02/01/20013117daf939488997ef5d.gif)
+
+![20013118](https://i.want.tf/to/that/2020/02/01/200131184ce9c449211ea8be.gif)
+
+![20013119](https://i.want.tf/to/that/2020/02/01/20013119f8b2c85dfa05b266.gif)
+
+![20013120](https://i.want.tf/to/that/2020/02/01/200131200841b1e6b71babfd.gif)
+
+![20013121](https://i.want.tf/to/that/2020/02/01/200131212445fab08333f762.gif)
+
+![20013122](https://i.want.tf/to/that/2020/02/01/20013122f33133b73954ff8f.gif)
+
+![20013123](https://i.want.tf/to/that/2020/02/01/20013123bfe81b902c1f8c55.gif)
+
+![20013124](https://i.want.tf/to/that/2020/02/01/20013124eb24e0f23276ca61.gif)
+
+![20013125](https://i.want.tf/to/that/2020/02/01/2001312529d56202d6468b6c.gif)
+
+![20013126](https://i.want.tf/to/that/2020/02/01/2001312675ca29a3470f9442.gif)
+
+![20013127](https://i.want.tf/to/that/2020/02/01/20013127039b934ba3d74ebf.gif)
+
+![20013128](https://i.want.tf/to/that/2020/02/01/200131285db7c859106d4793.gif)
+
+![20013129](https://i.want.tf/to/that/2020/02/01/20013129682269c276cefa5c.gif)
+
+![20013130](https://i.want.tf/to/that/2020/02/01/2001313035274ed5bbbbd0ad.gif)
+
+![20013131](https://i.want.tf/to/that/2020/02/01/2001313174741347fe406aa8.gif)
+
+</p>
+</details>
+
+---
+
+#### [0047](https://kkpi.blog.fc2blog.us/blog-entry-53.html '0047')
+
+<details><summary><b>[0047](https://kkpi.blog.fc2blog.us/blog-entry-53.html '0047')</b></summary>
+<p>
+
+- 2020-01-29
+
+![20012927](https://i.want.tf/to/that/2020/01/30/20012927360de02303382e65.gif)
+
+![20012926](https://i.want.tf/to/that/2020/01/30/20012926f616fd5d4e587b2d.gif)
+
+![20012925](https://i.want.tf/to/that/2020/01/30/20012925cc4dabba94344892.gif)
+
+![20012924](https://i.want.tf/to/that/2020/01/30/200129245ff7ba8f092ba643.gif)
+
+![20012923](https://i.want.tf/to/that/2020/01/30/2001292324661c5de967cd00.gif)
+
+![20012922](https://i.want.tf/to/that/2020/01/30/2001292237e10dfbbb959d55.gif)
+
+![20012920](https://i.want.tf/to/that/2020/01/30/20012920d596050198bdf8ee.gif)
+
+![20012921](https://i.want.tf/to/that/2020/01/30/20012921fa157f890e25b253.gif)
+
+![20012918](https://i.want.tf/to/that/2020/01/30/200129184acb9d8761fd732d.gif)
+
+![20012919](https://i.want.tf/to/that/2020/01/30/200129192327eaed215eb0d2.gif)
+
+![20012917](https://i.want.tf/to/that/2020/01/30/20012917643e04a0048b870c.gif)
+
+![20012916](https://i.want.tf/to/that/2020/01/30/2001291662629d01f48e69c5.gif)
+
+![20012915](https://i.want.tf/to/that/2020/01/30/2001291597fb65deda4b6995.gif)
+
+![20012913](https://i.want.tf/to/that/2020/01/30/20012913836fa1ce2b3cb276.gif)
+
+![20012914](https://i.want.tf/to/that/2020/01/30/200129148cca680a01ad368e.gif)
+
+![20012911](https://i.want.tf/to/that/2020/01/29/200129113b7c62151289c88d.gif)
+
+![20012912](https://i.want.tf/to/that/2020/01/29/200129122ed9e257f9ad36a8.gif)
+
+![20012909](https://i.want.tf/to/that/2020/01/29/200129091fa9245adc54813c.gif)
+
+![20012910](https://i.want.tf/to/that/2020/01/29/20012910e44bc37086f71fad.gif)
+
+![20012908](https://i.want.tf/to/that/2020/01/29/2001290818dde7f3be69ef6b.gif)
+
+![20012907](https://i.want.tf/to/that/2020/01/29/200129072cb18ab3983fcde2.gif)
+
+![20012905](https://i.want.tf/to/that/2020/01/29/2001290567bfbe9a3ebc9be8.gif)
+
+![20012906](https://i.want.tf/to/that/2020/01/29/200129066a4b68126ae68ac1.gif)
+
+![20012904](https://i.want.tf/to/that/2020/01/29/20012904b97b650ca6a398ac.gif)
+
+![20012903](https://i.want.tf/to/that/2020/01/29/2001290301ec654bde5a75ed.gif)
+
+![20012901](https://i.want.tf/to/that/2020/01/29/2001290125e3afab83f2ad8b.gif)
+
+![20012902](https://i.want.tf/to/that/2020/01/29/200129027459f3eb78c374e2.gif)
+
+</p>
+</details>
+
+---
+
+#### [0046](https://kkpi.blog.fc2blog.us/blog-entry-52.html '0046')
+
+<details><summary><b>[0046](https://kkpi.blog.fc2blog.us/blog-entry-52.html '0046')</b></summary>
+<p>
+
+- 2020-01-27
+
+![20012701](https://i.want.tf/to/that/2020/01/27/200127012dd3a91a52a69e5c.gif)
+
+![20012702](https://i.want.tf/to/that/2020/01/27/20012702912aecb182c4223d.gif)
+
+![20012703](https://i.want.tf/to/that/2020/01/27/20012703e3bf8e6c1c5a95ac.gif)
+
+![20012704](https://i.want.tf/to/that/2020/01/27/2001270499a324cd38353b16.gif)
+
+![20012705](https://i.want.tf/to/that/2020/01/27/20012705029ae0f405fab815.gif)
+
+![20012706](https://i.want.tf/to/that/2020/01/27/200127061da3f02c5bb57156.gif)
+
+![20012707](https://i.want.tf/to/that/2020/01/27/200127070ccf9ba6f15990c5.gif)
+
+![20012708](https://i.want.tf/to/that/2020/01/27/200127084d2b1134de2b63f5.gif)
+
+![20012709](https://i.want.tf/to/that/2020/01/27/20012709f6de715f3a51c114.gif)
+
+![20012710](https://i.want.tf/to/that/2020/01/27/200127100de4194ec8c44a44.gif)
+
+![20012711](https://i.want.tf/to/that/2020/01/27/200127114b90f7ab70cd381e.gif)
+
+![20012712](https://i.want.tf/to/that/2020/01/27/20012712dd476d0585a699ee.gif)
+
+![20012713](https://i.want.tf/to/that/2020/01/27/20012713492083a092173ccc.gif)
+
+![20012714](https://i.want.tf/to/that/2020/01/27/2001271470f1bf26ff0ce6db.gif)
+
+![20012715](https://i.want.tf/to/that/2020/01/27/20012715beb7947a42a582f8.gif)
+
+![20012716](https://i.want.tf/to/that/2020/01/27/200127160d4ccc155d77c84d.gif)
+
+![20012717](https://i.want.tf/to/that/2020/01/27/20012717ea7b86d5ed97fd12.gif)
+
+![20012718](https://i.want.tf/to/that/2020/01/27/20012718ad0eec00c5db4769.gif)
+
+![20012719](https://i.want.tf/to/that/2020/01/27/20012719959b87bb743da88d.gif)
+
+![20012720](https://i.want.tf/to/that/2020/01/27/20012720ab66d67bb363e219.gif)
+
+![20012721](https://i.want.tf/to/that/2020/01/27/20012721efdf923350312fcc.gif)
+
+</p>
+</details>
+
+---
+
+#### [0045](https://kkpi.blog.fc2blog.us/blog-entry-51.html '0045')
+
+<details><summary><b>[0045](https://kkpi.blog.fc2blog.us/blog-entry-51.html '0045')</b></summary>
+<p>
+
+- 2020-01-25
+
+![置顶](https://i.want.tf/to/that/2020/01/26/7a39e25fd708b9549105a3021f1ef4207d2fff09496b7245.png)
+
+![[Thz.la]ipx 081](https://i.want.tf/to/that/2020/01/26/Thz.laipx-0812f1106307c77566e.gif)
+
+![abp061hhb](https://i.want.tf/to/that/2020/01/26/abp061hhbc7b88f0516ec42e6.gif)
+
+![FC2PPV 1251482](https://i.want.tf/to/that/2020/01/26/FC2PPV-12514825cf71fa1170fd7bc.gif)
+
+![FC2PPV 1251689](https://i.want.tf/to/that/2020/01/26/FC2PPV-12516891035552cfea578f8.gif)
+
+![FC2 PPV 1252986](https://i.want.tf/to/that/2020/01/26/FC2-PPV-1252986bcb1c83d3b78751b.gif)
+
+![ipz 845 C](https://i.want.tf/to/that/2020/01/26/ipz-845-Cbe9c08f88a2afd2b.gif)
+
+![JUL 109](https://i.want.tf/to/that/2020/01/26/JUL-109e5912218a0d27e77.gif)
+
+![JUL 111](https://i.want.tf/to/that/2020/01/26/JUL-111c9bc344706032136.gif)
+
+![JUL 111 0](https://i.want.tf/to/that/2020/01/26/JUL-111_020929be7d857929f.gif)
+
+![stars 187](https://i.want.tf/to/that/2020/01/26/stars-18704c1f881b47da1a7.gif)
+
+![stars 188](https://i.want.tf/to/that/2020/01/26/stars-1888b556f60bdcd2509.gif)
+
+![stars 192](https://i.want.tf/to/that/2020/01/26/stars-192aa9ac299cf48dc9e.gif)
+
+</p>
+</details>
+
+---
+
+#### [0044](https://kkpi.blog.fc2blog.us/blog-entry-50.html '0044')
+
+<details><summary><b>[0044](https://kkpi.blog.fc2blog.us/blog-entry-50.html '0044')</b></summary>
+<p>
+
+- 2020-01-22
+
+![KBMS 077](https://i.want.tf/to/that/2020/01/22/KBMS-077bcb6ad9d8dfdab80.gif)
+
+![MIDE 134 Uncen](https://i.want.tf/to/that/2020/01/22/MIDE-134_Uncen8965584a62d0831c.gif)
+
+![S2MBD 008](https://i.want.tf/to/that/2020/01/22/S2MBD-0081f32afeff3193ff2.gif)
+
+![SIRO 3862](https://i.want.tf/to/that/2020/01/22/SIRO-38621289280278f46f59.gif)
+
+![siro 3880](https://i.want.tf/to/that/2020/01/22/siro-3880214e1d74a2315a55.gif)
+
+![SIRO 4013](https://i.want.tf/to/that/2020/01/22/SIRO-40132534827b4b19423d.gif)
+
+![ssni 546](https://i.want.tf/to/that/2020/01/22/ssni-546df9918e601bb7565.gif)
+
+![ssni 546 0](https://i.want.tf/to/that/2020/01/22/ssni-546_071177689d39fd78b.gif)
+
+![ssni 554](https://i.want.tf/to/that/2020/01/22/ssni-55499b2c8776f222c12.gif)
+
+![ssni 678](https://i.want.tf/to/that/2020/01/22/ssni-678149b8e6c1b1aa48e.gif)
+
+![tushy.19.08.14.lena.anderson](https://i.want.tf/to/that/2020/01/22/tushy.19.08.14.lena.anderson4d8fda9d7328a121.gif)
+
+![tushyraw.19.06.23.lena.anderson](https://i.want.tf/to/that/2020/01/22/tushyraw.19.06.23.lena.anderson6e69acfc8188202f.gif)
+
+![YMDD 177](https://i.want.tf/to/that/2020/01/22/YMDD-17706e1345693bba9e5.gif)
+
+![YMDD 177 0](https://i.want.tf/to/that/2020/01/22/YMDD-177_0f07c20fe702df7a4.gif)
+
+</p>
+</details>
+
+---
+
+#### [0043](https://kkpi.blog.fc2blog.us/blog-entry-49.html '0043')
+
+<details><summary><b>[0043](https://kkpi.blog.fc2blog.us/blog-entry-49.html '0043')</b></summary>
+<p>
+
+- 2020-01-20
+
+![ABP 365](https://i.want.tf/to/that/2020/01/20/ABP-365062845ad79977ea5.gif)
+
+![ABP 365 2](https://i.want.tf/to/that/2020/01/20/ABP-365_2641975815acd4ed0.gif)
+
+![abp 936](https://i.want.tf/to/that/2020/01/20/abp-9369aa297a80571e67f.gif)
+
+![abp 938](https://i.want.tf/to/that/2020/01/20/abp-9387dfc96f7215a6d59.gif)
+
+![ap 730 2](https://i.want.tf/to/that/2020/01/20/ap-730-20b455cf640578651.gif)
+
+![bijn 162](https://i.want.tf/to/that/2020/01/20/bijn-16246015a47fea826dc.gif)
+
+![dcx 108 2](https://i.want.tf/to/that/2020/01/20/dcx-108-2db1d0919ded005c2.gif)
+
+![dcx 108 2 0](https://i.want.tf/to/that/2020/01/20/dcx-108-2_021538a6a2f27b3aa.gif)
+
+![dcx 108 2 1](https://i.want.tf/to/that/2020/01/20/dcx-108-2_1b490ffcdcd7f06a5.gif)
+
+![docp 195](https://i.want.tf/to/that/2020/01/20/docp-1956bf12536f3b30c03.gif)
+
+![docp 197](https://i.want.tf/to/that/2020/01/20/docp-19711fb55b993c1c4a0.gif)
+
+![docp 197 0](https://i.want.tf/to/that/2020/01/20/docp-197_075fef418a9d47ecf.gif)
+
+![dtt 045 C](https://i.want.tf/to/that/2020/01/20/dtt-045-C4e3cb9014fe0257b.gif)
+
+![FC2PPV 1144420](https://i.want.tf/to/that/2020/01/20/FC2PPV-114442044abd2c4ac768482.gif)
+
+![FC2PPV 1144538](https://i.want.tf/to/that/2020/01/20/FC2PPV-114453870f054be9f67e5fe.gif)
+
+![FC2PPV 1145742](https://i.want.tf/to/that/2020/01/20/FC2PPV-1145742ed08b412e5d022aa.gif)
+
+![FC2PPV 1238273](https://i.want.tf/to/that/2020/01/20/FC2PPV-1238273af9bc2862e73b418.gif)
+
+![FC2PPV 1238881](https://i.want.tf/to/that/2020/01/20/FC2PPV-1238881b2f69d20bade18f7.gif)
+
+![FC2PPV 1240821](https://i.want.tf/to/that/2020/01/20/FC2PPV-124082145bba63ff90f0386.gif)
+
+![FSET 337B.HD](https://i.want.tf/to/that/2020/01/20/FSET-337B.HDfe4cb9826ee8ec62.gif)
+
+![FSET 337C.HD](https://i.want.tf/to/that/2020/01/20/FSET-337C.HD47fb561a5492f03d.gif)
+
+![iesp 654](https://i.want.tf/to/that/2020/01/20/iesp-654737979cf8ded0a7d.gif)
+
+![iesp 654 0](https://i.want.tf/to/that/2020/01/20/iesp-654_00ef781c8d4b84b2b.gif)
+
+![pred 206](https://i.want.tf/to/that/2020/01/20/pred-2060534bb189a66652e.gif)
+
+![pred 206 0](https://i.want.tf/to/that/2020/01/20/pred-206_0863324078afc3b11.gif)
+
+</p>
+</details>
+
+---
+
+#### [0042](https://kkpi.blog.fc2blog.us/blog-entry-48.html '0042')
+
+<details><summary><b>[0042](https://kkpi.blog.fc2blog.us/blog-entry-48.html '0042')</b></summary>
+<p>
+
+- 2020-01-19
+
+![pred 099](https://i.want.tf/to/that/2020/01/19/pred-099128edf4eb88a2197.gif)
+
+![pred 099 2](https://i.want.tf/to/that/2020/01/19/pred-099_243b8fe7533620bc9.gif)
+
+![pred 099 3](https://i.want.tf/to/that/2020/01/19/pred-099_39cc85dbd5476494b.gif)
+
+![pred 099 4](https://i.want.tf/to/that/2020/01/19/pred-099_4180a9e8ecb17fa65.gif)
+
+![pred 099 5](https://i.want.tf/to/that/2020/01/19/pred-099_5a08788951bc41883.gif)
+
+</p>
+</details>
+
+---
+
+#### [0041](https://kkpi.blog.fc2blog.us/blog-entry-44.html '0041')
+
+<details><summary><b>[0041](https://kkpi.blog.fc2blog.us/blog-entry-44.html '0041')</b></summary>
+<p>
+
+- 2020-01-05
+
+![259LUXU-1218679ec8b9417f6930.gif](https://i.want.tf/to/that/2020/01/05/259LUXU-1218679ec8b9417f6930.gif)
+
+![259LUXU-1218_21c3c54db9e506581.gif](https://i.want.tf/to/that/2020/01/05/259LUXU-1218_21c3c54db9e506581.gif)
+
+![300NTK-286052fed16a7325519.gif](https://i.want.tf/to/that/2020/01/05/300NTK-286052fed16a7325519.gif)
+
+![abp-937361bd07a38601de5.gif](https://i.want.tf/to/that/2020/01/05/abp-937361bd07a38601de5.gif)
+
+![abp-937_24efa8b03a990681d.gif](https://i.want.tf/to/that/2020/01/05/abp-937_24efa8b03a990681d.gif)
+
+![abp-937_399ff39a966b6164b.gif](https://i.want.tf/to/that/2020/01/05/abp-937_399ff39a966b6164b.gif)
+
+![abp-937_4133e62636ffb04a7.gif](https://i.want.tf/to/that/2020/01/05/abp-937_4133e62636ffb04a7.gif)
+
+![abp-937_50d7953a55635399a.gif](https://i.want.tf/to/that/2020/01/05/abp-937_50d7953a55635399a.gif)
+
+![ap-7288becabf450245413.gif](https://i.want.tf/to/that/2020/01/05/ap-7288becabf450245413.gif)
+
+![ap-728_2be964f3342c0fbb9.gif](https://i.want.tf/to/that/2020/01/05/ap-728_2be964f3342c0fbb9.gif)
+
+![docp-196cda48a70ea0d5022.gif](https://i.want.tf/to/that/2020/01/05/docp-196cda48a70ea0d5022.gif)
+
+![docp-196_2314083e75f5b5c52.gif](https://i.want.tf/to/that/2020/01/05/docp-196_2314083e75f5b5c52.gif)
+
+![FC2PPV-12323750185480e4e2a980e.gif](https://i.want.tf/to/that/2020/01/05/FC2PPV-12323750185480e4e2a980e.gif)
+
+![FC2PPV-1232375_234ab038c9bdb0d5d.gif](https://i.want.tf/to/that/2020/01/05/FC2PPV-1232375_234ab038c9bdb0d5d.gif)
+
+![hamesamurai003206b7d21f0192d164.gif](https://i.want.tf/to/that/2020/01/05/hamesamurai003206b7d21f0192d164.gif)
+
+![IPTD831_02bb3cc9e9344bd79c.gif](https://i.want.tf/to/that/2020/01/05/IPTD831_02bb3cc9e9344bd79c.gif)
+
+![onez-220ddaef996b5dc812f.gif](https://i.want.tf/to/that/2020/01/05/onez-220ddaef996b5dc812f.gif)
+
+![SDDE587C73fed09de024f8fe.gif](https://i.want.tf/to/that/2020/01/05/SDDE587C73fed09de024f8fe.gif)
+
+</p>
+</details>
+
+---
+
+#### [0040](https://kkpi.blog.fc2blog.us/blog-entry-43.html '0040')
+
+<details><summary><b>[0040](https://kkpi.blog.fc2blog.us/blog-entry-43.html '0040')</b></summary>
+<p>
+
+- 2020-01-01
+
+![259LUXU-121518f359fd33cbe05c.gif](https://i.want.tf/to/that/2020/01/01/259LUXU-121518f359fd33cbe05c.gif)
+
+![259LUXU-1215_2078ac89a98e5bad5.gif](https://i.want.tf/to/that/2020/01/01/259LUXU-1215_2078ac89a98e5bad5.gif)
+
+![326KJN-0034697edec6f20ecf9.gif](https://i.want.tf/to/that/2020/01/01/326KJN-0034697edec6f20ecf9.gif)
+
+![326KJN-003_294e13db472034037.gif](https://i.want.tf/to/that/2020/01/01/326KJN-003_294e13db472034037.gif)
+
+![326KJN-003_36fd934f0cdf0491d.gif](https://i.want.tf/to/that/2020/01/01/326KJN-003_36fd934f0cdf0491d.gif)
+
+![bban-2614e63ccded236deae.gif](https://i.want.tf/to/that/2020/01/01/bban-2614e63ccded236deae.gif)
+
+![bban-2623ce87e2641caf807.gif](https://i.want.tf/to/that/2020/01/01/bban-2623ce87e2641caf807.gif)
+
+![FC2PPV-1234388971667b4eb34bbef.gif](https://i.want.tf/to/that/2020/01/01/FC2PPV-1234388971667b4eb34bbef.gif)
+
+![FC2PPV-1235209656b8b7ddd56f49e.gif](https://i.want.tf/to/that/2020/01/01/FC2PPV-1235209656b8b7ddd56f49e.gif)
+
+</p>
+</details>
+
+---
+
+#### [0039](https://kkpi.blog.fc2blog.us/blog-entry-42.html '0039')
+
+<details><summary><b>[0039](https://kkpi.blog.fc2blog.us/blog-entry-42.html '0039')</b></summary>
+<p>
+
+- 2019-12-29
+
+![107SHYN-086879117a978a61573.gif](https://i.want.tf/to/that/2019/12/29/107SHYN-086879117a978a61573.gif)
+
+![107SHYN-087a55e5b76384ca9b7.gif](https://i.want.tf/to/that/2019/12/29/107SHYN-087a55e5b76384ca9b7.gif)
+
+![292MY-2732b9c46d5bd952816.gif](https://i.want.tf/to/that/2019/12/29/292MY-2732b9c46d5bd952816.gif)
+
+![292MY-276949c7c7f5ade43ba.gif](https://i.want.tf/to/that/2019/12/29/292MY-276949c7c7f5ade43ba.gif)
+
+![blk-41469893a7c769b84fd.gif](https://i.want.tf/to/that/2019/12/29/blk-41469893a7c769b84fd.gif)
+
+![blk-4186a242c29888f3285.gif](https://i.want.tf/to/that/2019/12/29/blk-4186a242c29888f3285.gif)
+
+![dkn-012a4def79ae2579566.gif](https://i.want.tf/to/that/2019/12/29/dkn-012a4def79ae2579566.gif)
+
+![sait-0194a891761432cbda9.gif](https://i.want.tf/to/that/2019/12/29/sait-0194a891761432cbda9.gif)
+
+![sdmf-00825e7af12e015193c.gif](https://i.want.tf/to/that/2019/12/29/sdmf-00825e7af12e015193c.gif)
+
+![SIRO-3825b116e9517a69b5f0.gif](https://i.want.tf/to/that/2019/12/29/SIRO-3825b116e9517a69b5f0.gif)
+
+![stars-164ba26b3707f218b87.gif](https://i.want.tf/to/that/2019/12/29/stars-164ba26b3707f218b87.gif)
+
+![stars-173758eeb15ec8eed87.gif](https://i.want.tf/to/that/2019/12/29/stars-173758eeb15ec8eed87.gif)
+
+![stars-173_2c2dbf8bbb7a2c79c.gif](https://i.want.tf/to/that/2019/12/29/stars-173_2c2dbf8bbb7a2c79c.gif)
+
+![stars-1757d6965e9160dda84.gif](https://i.want.tf/to/that/2019/12/29/stars-1757d6965e9160dda84.gif)
+
+</p>
+</details>
+
+---
+
+#### [0038](https://kkpi.blog.fc2blog.us/blog-entry-41.html '0038')
+
+<details><summary><b>[0038](https://kkpi.blog.fc2blog.us/blog-entry-41.html '0038')</b></summary>
+<p>
+
+- 2019-12-22
+
+![kin8-3181d1b86b8722499252.gif](https://i.want.tf/to/that/2019/12/22/kin8-3181d1b86b8722499252.gif)
+
+![kbi-0169025aff17cb9fc71.gif](https://i.want.tf/to/that/2019/12/22/kbi-0169025aff17cb9fc71.gif)
+
+![katu-059e56a4f56767aa712.gif](https://i.want.tf/to/that/2019/12/22/katu-059e56a4f56767aa712.gif)
+
+![jul-085d561a3c3614c5f06.gif](https://i.want.tf/to/that/2019/12/22/jul-085d561a3c3614c5f06.gif)
+
+![jul-0845155981ca9f349a9.gif](https://i.want.tf/to/that/2019/12/22/jul-0845155981ca9f349a9.gif)
+
+![jufe-092869ed35936372be2.gif](https://i.want.tf/to/that/2019/12/22/jufe-092869ed35936372be2.gif)
+
+![hnd-772cbd0f8dac6942264.gif](https://i.want.tf/to/that/2019/12/22/hnd-772cbd0f8dac6942264.gif)
+
+![fc2-ppv-12074045a40b6b0d741e731.gif](https://i.want.tf/to/that/2019/12/22/fc2-ppv-12074045a40b6b0d741e731.gif)
+
+![dasd-617213b98c60d57b90a.gif](https://i.want.tf/to/that/2019/12/22/dasd-617213b98c60d57b90a.gif)
+
+![dasd-622474c59992488ca74.gif](https://i.want.tf/to/that/2019/12/22/dasd-622474c59992488ca74.gif)
+
+![dasd-6159bf57fc122e4b9de.gif](https://i.want.tf/to/that/2019/12/22/dasd-6159bf57fc122e4b9de.gif)
+
+![cjod-2222754b553d16bfbb1.gif](https://i.want.tf/to/that/2019/12/22/cjod-2222754b553d16bfbb1.gif)
+
+![259LUXU-119841d7af58d7708212.gif](https://i.want.tf/to/that/2019/12/22/259LUXU-119841d7af58d7708212.gif)
+
+![200GANA-2226a30caf604028a444.gif](https://i.want.tf/to/that/2019/12/22/200GANA-2226a30caf604028a444.gif)
+
+</p>
+</details>
+
+---
+
+#### [0037](https://kkpi.blog.fc2blog.us/blog-entry-40.html '0037')
+
+<details><summary><b>[0037](https://kkpi.blog.fc2blog.us/blog-entry-40.html '0037')</b></summary>
+<p>
+
+- 2019-12-15
+
+![300MIUM-48619720430ad2c8e3c.gif](https://i.want.tf/to/that/2019/12/15/300MIUM-48619720430ad2c8e3c.gif)
+
+![300MIUM-486_2459d92f49a13181b.gif](https://i.want.tf/to/that/2019/12/15/300MIUM-486_2459d92f49a13181b.gif)
+
+![300MIUM-486_361f6dedbb79cbdab.gif](https://i.want.tf/to/that/2019/12/15/300MIUM-486_361f6dedbb79cbdab.gif)
+
+![1228-bf-226b75a4bf3e19f15d8.gif](https://i.want.tf/to/that/2019/12/15/1228-bf-226b75a4bf3e19f15d8.gif)
+
+![BF-23652d4024c5671e187.gif](https://i.want.tf/to/that/2019/12/15/BF-23652d4024c5671e187.gif)
+
+![BF-236_2beb3f5390d2853c1.gif](https://i.want.tf/to/that/2019/12/15/BF-236_2beb3f5390d2853c1.gif)
+
+![BF-236_3916ddd24bbdae265.gif](https://i.want.tf/to/that/2019/12/15/BF-236_3916ddd24bbdae265.gif)
+
+![BF-236_4269528e48eb30060.gif](https://i.want.tf/to/that/2019/12/15/BF-236_4269528e48eb30060.gif)
+
+![jufe-090cebd005440f1fd94.gif](https://i.want.tf/to/that/2019/12/15/jufe-090cebd005440f1fd94.gif)
+
+![miaa-14058023cab47acf12d.gif](https://i.want.tf/to/that/2019/12/15/miaa-14058023cab47acf12d.gif)
+
+![miaa-140_29788074f8c6fc08c.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_29788074f8c6fc08c.gif)
+
+![miaa-140_3f4e116a260fe8008.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_3f4e116a260fe8008.gif)
+
+![miaa-140_4dfb35e6098bbb723.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_4dfb35e6098bbb723.gif)
+
+![miaa-140_51316272249aecd44.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_51316272249aecd44.gif)
+
+![miaa-140_631b898b2bfd323ac.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_631b898b2bfd323ac.gif)
+
+![miaa-140_78a5510a8a805839b.gif](https://i.want.tf/to/that/2019/12/15/miaa-140_78a5510a8a805839b.gif)
+
+![mide-67766990e92133e0a39.gif](https://i.want.tf/to/that/2019/12/15/mide-67766990e92133e0a39.gif)
+
+![mide-677_273712d51dbf458dc.gif](https://i.want.tf/to/that/2019/12/15/mide-677_273712d51dbf458dc.gif)
+
+![mide-677_3a70e5111b816f846.gif](https://i.want.tf/to/that/2019/12/15/mide-677_3a70e5111b816f846.gif)
+
+![xvsr-491b50ef18667429d15.gif](https://i.want.tf/to/that/2019/12/15/xvsr-491b50ef18667429d15.gif)
+
+[0036](https://kkpi.blog.fc2blog.us/blog-entry-39.html '0036')
+
+---
+
+- 2019-12-08
+
+![259LUXU-1210a93ea4e75d48ea40.gif](https://i.want.tf/to/that/2019/12/08/259LUXU-1210a93ea4e75d48ea40.gif)
+
+![259LUXU-1210_2ee589c457933a830.gif](https://i.want.tf/to/that/2019/12/08/259LUXU-1210_2ee589c457933a830.gif)
+
+![259LUXU-1210_3166277a3072452f0.gif](https://i.want.tf/to/that/2019/12/08/259LUXU-1210_3166277a3072452f0.gif)
+
+![300MIUM-5268c4d0f20fd334c53.gif](https://i.want.tf/to/that/2019/12/08/300MIUM-5268c4d0f20fd334c53.gif)
+
+![300MIUM-526_2e35568d9c7cd076b.gif](https://i.want.tf/to/that/2019/12/08/300MIUM-526_2e35568d9c7cd076b.gif)
+
+![300MIUM-526_36b0f020e08b242dc.gif](https://i.want.tf/to/that/2019/12/08/300MIUM-526_36b0f020e08b242dc.gif)
+
+![300MIUM-526_43fb138865b6e5a01.gif](https://i.want.tf/to/that/2019/12/08/300MIUM-526_43fb138865b6e5a01.gif)
+
+![300MIUM-526_5b9fb1f3bcc84b8d4.gif](https://i.want.tf/to/that/2019/12/08/300MIUM-526_5b9fb1f3bcc84b8d4.gif)
+
+![345SIMM-3086c663ccae75daff0.gif](https://i.want.tf/to/that/2019/12/08/345SIMM-3086c663ccae75daff0.gif)
+
+![345SIMM-308_2af5e33015f632aa8.gif](https://i.want.tf/to/that/2019/12/08/345SIMM-308_2af5e33015f632aa8.gif)
+
+![345SIMM-309c73b0e7d56ed7159.gif](https://i.want.tf/to/that/2019/12/08/345SIMM-309c73b0e7d56ed7159.gif)
+
+![345SIMM-309_2091c361b34c05e29.gif](https://i.want.tf/to/that/2019/12/08/345SIMM-309_2091c361b34c05e29.gif)
+
+![abp-92800d06e3096d9a3d6.gif](https://i.want.tf/to/that/2019/12/08/abp-92800d06e3096d9a3d6.gif)
+
+![abp-928_22be1ee672bb11796.gif](https://i.want.tf/to/that/2019/12/08/abp-928_22be1ee672bb11796.gif)
+
+![abp-928_3458a63bac6eb25c8.gif](https://i.want.tf/to/that/2019/12/08/abp-928_3458a63bac6eb25c8.gif)
+
+![abp-928_46fc762d701417cc8.gif](https://i.want.tf/to/that/2019/12/08/abp-928_46fc762d701417cc8.gif)
+
+![abp-928_593013b6b4c3e094b.gif](https://i.want.tf/to/that/2019/12/08/abp-928_593013b6b4c3e094b.gif)
+
+![abp-928_6fcd3adf33dc90867.gif](https://i.want.tf/to/that/2019/12/08/abp-928_6fcd3adf33dc90867.gif)
+
+![abp-928_7428e53b3cc77fdaa.gif](https://i.want.tf/to/that/2019/12/08/abp-928_7428e53b3cc77fdaa.gif)
+
+![abp-929bbce84a00d566d85.gif](https://i.want.tf/to/that/2019/12/08/abp-929bbce84a00d566d85.gif)
+
+![abp-929_2d5d8fe7520d0408b.gif](https://i.want.tf/to/that/2019/12/08/abp-929_2d5d8fe7520d0408b.gif)
+
+![ebod-723df23d290e848f8a1.gif](https://i.want.tf/to/that/2019/12/08/ebod-723df23d290e848f8a1.gif)
+
+![ebod-723_2870c88867981e7b4.gif](https://i.want.tf/to/that/2019/12/08/ebod-723_2870c88867981e7b4.gif)
+
+![ebod-723_33430bd5a7e741a66.gif](https://i.want.tf/to/that/2019/12/08/ebod-723_33430bd5a7e741a66.gif)
+
+![ssni-6434abd3e0896c55644.gif](https://i.want.tf/to/that/2019/12/08/ssni-6434abd3e0896c55644.gif)
+
+![ssni-643_2c459a46e63ba3488.gif](https://i.want.tf/to/that/2019/12/08/ssni-643_2c459a46e63ba3488.gif)
+
+![ssni-643_34da8cd63e9f7711d.gif](https://i.want.tf/to/that/2019/12/08/ssni-643_34da8cd63e9f7711d.gif)
+
+![ssni-643_47199d8e3bb36cbdd.gif](https://i.want.tf/to/that/2019/12/08/ssni-643_47199d8e3bb36cbdd.gif)
+
+</p>
+</details>
+
+---
+
+#### [0035](https://kkpi.blog.fc2blog.us/blog-entry-38.html '0035')
+
+<details><summary><b>[0035](https://kkpi.blog.fc2blog.us/blog-entry-38.html '0035')</b></summary>
+<p>
+
+- 2019-12-01
+
+![259LUXU-1204594a43fd4a5a9874.gif](https://i.want.tf/to/that/2019/12/01/259LUXU-1204594a43fd4a5a9874.gif)
+
+![259LUXU-1204_2c1278f1696d9d5aa.gif](https://i.want.tf/to/that/2019/12/01/259LUXU-1204_2c1278f1696d9d5aa.gif)
+
+![259LUXU-1204_3e7990257cf6acb13.gif](https://i.want.tf/to/that/2019/12/01/259LUXU-1204_3e7990257cf6acb13.gif)
+
+![259LUXU-1204_421491b0bf64a9319.gif](https://i.want.tf/to/that/2019/12/01/259LUXU-1204_421491b0bf64a9319.gif)
+
+![300MIUM-522bc459c71b8f9a4a7.gif](https://i.want.tf/to/that/2019/12/01/300MIUM-522bc459c71b8f9a4a7.gif)
+
+![300MIUM-522_2c20dc128e8567ebd.gif](https://i.want.tf/to/that/2019/12/01/300MIUM-522_2c20dc128e8567ebd.gif)
+
+![330PER-1123d942b6d356dd8ab.gif](https://i.want.tf/to/that/2019/12/01/330PER-1123d942b6d356dd8ab.gif)
+
+![330PER-112_2e1dfc862cd8e2669.gif](https://i.want.tf/to/that/2019/12/01/330PER-112_2e1dfc862cd8e2669.gif)
+
+![330PER-112_31711f33440f9d8b7.gif](https://i.want.tf/to/that/2019/12/01/330PER-112_31711f33440f9d8b7.gif)
+
+![abp-923c52703c368871ff5.gif](https://i.want.tf/to/that/2019/12/01/abp-923c52703c368871ff5.gif)
+
+![abp-923_202076a3bacd4d70e.gif](https://i.want.tf/to/that/2019/12/01/abp-923_202076a3bacd4d70e.gif)
+
+![abp-923_35d0812f142fcab3f.gif](https://i.want.tf/to/that/2019/12/01/abp-923_35d0812f142fcab3f.gif)
+
+![abp-923_49deaaf92efc07c70.gif](https://i.want.tf/to/that/2019/12/01/abp-923_49deaaf92efc07c70.gif)
+
+![abp-923_5fd55172e00b42213.gif](https://i.want.tf/to/that/2019/12/01/abp-923_5fd55172e00b42213.gif)
+
+![abp-923_66e72e2c63622b1f5.gif](https://i.want.tf/to/that/2019/12/01/abp-923_66e72e2c63622b1f5.gif)
+
+![abp-923_7a2e80e3ccf584e32.gif](https://i.want.tf/to/that/2019/12/01/abp-923_7a2e80e3ccf584e32.gif)
+
+![AKB-0477fb8578e624da9b3.gif](https://i.want.tf/to/that/2019/12/01/AKB-0477fb8578e624da9b3.gif)
+
+![AKB-047_277dd10a70857e9e4.gif](https://i.want.tf/to/that/2019/12/01/AKB-047_277dd10a70857e9e4.gif)
+
+![AKB-047_30958b10592d79409.gif](https://i.want.tf/to/that/2019/12/01/AKB-047_30958b10592d79409.gif)
+
+![cpde-037b007136491c99297.gif](https://i.want.tf/to/that/2019/12/01/cpde-037b007136491c99297.gif)
+
+![cpde-037_2b9a290c31689701a.gif](https://i.want.tf/to/that/2019/12/01/cpde-037_2b9a290c31689701a.gif)
+
+![cpde-037_396e030f7184d98f6.gif](https://i.want.tf/to/that/2019/12/01/cpde-037_396e030f7184d98f6.gif)
+
+![fsdss-002b390e6a5608642c6.gif](https://i.want.tf/to/that/2019/12/01/fsdss-002b390e6a5608642c6.gif)
+
+![fsdss-002_2dd1fe6ba6adf4305.gif](https://i.want.tf/to/that/2019/12/01/fsdss-002_2dd1fe6ba6adf4305.gif)
+
+![stars-158ef400bf96d533b38.gif](https://i.want.tf/to/that/2019/12/01/stars-158ef400bf96d533b38.gif)
+
+![stars-158_249336acb0f565be6.gif](https://i.want.tf/to/that/2019/12/01/stars-158_249336acb0f565be6.gif)
+
+![stars-158_3c2daec81e0afa01c.gif](https://i.want.tf/to/that/2019/12/01/stars-158_3c2daec81e0afa01c.gif)
+
+![stars-158_457282a5911b0a852.gif](https://i.want.tf/to/that/2019/12/01/stars-158_457282a5911b0a852.gif)
+
+</p>
+</details>
+
+---
+
+#### [0034](https://kkpi.blog.fc2blog.us/blog-entry-37.html '0034')
+
+<details><summary><b>[0034](https://kkpi.blog.fc2blog.us/blog-entry-37.html '0034')</b></summary>
+<p>
+
+- 2019-11-24
+
+![ManyVids.com-Tweetney---Tatsumaki-needs-some-extra-cashc70441f8f29572f3.gif](https://i.want.tf/to/that/2019/11/24/ManyVids.com-Tweetney---Tatsumaki-needs-some-extra-cashc70441f8f29572f3.gif)
+
+![fc2-7783004ddd9ce701feb203.gif](https://i.want.tf/to/that/2019/11/24/fc2-7783004ddd9ce701feb203.gif)
+
+![fc2-778300_21f28617ffa7a619b.gif](https://i.want.tf/to/that/2019/11/24/fc2-778300_21f28617ffa7a619b.gif)
+
+![fc2ppv_00759551432305bbe1881da3.gif](https://i.want.tf/to/that/2019/11/24/fc2ppv_00759551432305bbe1881da3.gif)
+
+![fc2-ppv-1119209bace48fb53d8843f.gif](https://i.want.tf/to/that/2019/11/24/fc2-ppv-1119209bace48fb53d8843f.gif)
+
+![fc2-ppv-1119209_22b99f6006076bb0d.gif](https://i.want.tf/to/that/2019/11/24/fc2-ppv-1119209_22b99f6006076bb0d.gif)
+
+![fc2-ppv-1119209_37de30e8eaeee109c.gif](https://i.want.tf/to/that/2019/11/24/fc2-ppv-1119209_37de30e8eaeee109c.gif)
+
+![FC2-PPV-1185794b3b25d3b1c443fc6.gif](https://i.want.tf/to/that/2019/11/24/FC2-PPV-1185794b3b25d3b1c443fc6.gif)
+
+![FC2-PPV-1185794_2cb10cc2f250ee672.gif](https://i.want.tf/to/that/2019/11/24/FC2-PPV-1185794_2cb10cc2f250ee672.gif)
+
+</p>
+</details>
+
+---
+
+#### [0033](https://kkpi.blog.fc2blog.us/blog-entry-36.html '0033')
+
+<details><summary><b>[0033](https://kkpi.blog.fc2blog.us/blog-entry-36.html '0033')</b></summary>
+<p>
+
+- 2019-11-21
+
+![Desperate-Wetting-in-Metro-Station---Pornhub734f70e5df291676.gif](https://i.want.tf/to/that/2019/11/21/Desperate-Wetting-in-Metro-Station---Pornhub734f70e5df291676.gif)
+
+![Pervert-Porn-Videos-_-Fetish-Porn-Videos---Watch-Japanese-Porn---JADE-NETb5ba84c5f981db1e.gif](https://i.want.tf/to/that/2019/11/21/Pervert-Porn-Videos-_-Fetish-Porn-Videos---Watch-Japanese-Porn---JADE-NETb5ba84c5f981db1e.gif)
+
+![Collegue-Takes-Diuretic-2---Pornhub.com_366f94b1c0aea291b.gif](https://i.want.tf/to/that/2019/11/21/Collegue-Takes-Diuretic-2---Pornhub.com_366f94b1c0aea291b.gif)
+
+![Collegue-Takes-Diuretic-2---Pornhub.com_25581cb80d46654ea.gif](https://i.want.tf/to/that/2019/11/21/Collegue-Takes-Diuretic-2---Pornhub.com_25581cb80d46654ea.gif)
+
+</p>
+</details>
+
+---
+
+#### [0032](https://kkpi.blog.fc2blog.us/blog-entry-35.html '0032')
+
+<details><summary><b>[0032](https://kkpi.blog.fc2blog.us/blog-entry-35.html '0032')</b></summary>
+<p>
+
+- 2019-11-17
+
+![stars-103_49e3cd04669f46b25.gif](https://i.want.tf/to/that/2019/11/17/stars-103_49e3cd04669f46b25.gif)
+
+![stars-103_37ba1ad9359af08c1.gif](https://i.want.tf/to/that/2019/11/17/stars-103_37ba1ad9359af08c1.gif)
+
+![stars-103_2279dc4b1a323b636.gif](https://i.want.tf/to/that/2019/11/17/stars-103_2279dc4b1a323b636.gif)
+
+![Heydouga-4037-PPV418_58631c3bf9572c8b9.gif](https://i.want.tf/to/that/2019/11/17/Heydouga-4037-PPV418_58631c3bf9572c8b9.gif)
+
+![stars-10376e387f9ac2dbff5.gif](https://i.want.tf/to/that/2019/11/17/stars-10376e387f9ac2dbff5.gif)
+
+![Heydouga-4037-PPV418_4334ca61b8427576c.gif](https://i.want.tf/to/that/2019/11/17/Heydouga-4037-PPV418_4334ca61b8427576c.gif)
+
+![Heydouga-4037-PPV418_3e0c111496fd0ab14.gif](https://i.want.tf/to/that/2019/11/17/Heydouga-4037-PPV418_3e0c111496fd0ab14.gif)
+
+![Heydouga-4037-PPV418_25c453a1a6f3146fa.gif](https://i.want.tf/to/that/2019/11/17/Heydouga-4037-PPV418_25c453a1a6f3146fa.gif)
+
+![Heydouga-4037-PPV4187d5086b73abd5fe6.gif](https://i.want.tf/to/that/2019/11/17/Heydouga-4037-PPV4187d5086b73abd5fe6.gif)
+
+![FC2-PPV-119653182486c9a1b9391cc.gif](https://i.want.tf/to/that/2019/11/17/FC2-PPV-119653182486c9a1b9391cc.gif)
+
+![FC2PPV-1135510_322074445388a259d.gif](https://i.want.tf/to/that/2019/11/17/FC2PPV-1135510_322074445388a259d.gif)
+
+![FC2PPV-1135510dd5897206ccbd1f8.gif](https://i.want.tf/to/that/2019/11/17/FC2PPV-1135510dd5897206ccbd1f8.gif)
+
+![FC2PPV-1135510_26ad932042b8aff7d.gif](https://i.want.tf/to/that/2019/11/17/FC2PPV-1135510_26ad932042b8aff7d.gif)
+
+![FC2-PPV-972886_3a0c053609889b266.gif](https://i.want.tf/to/that/2019/11/17/FC2-PPV-972886_3a0c053609889b266.gif)
+
+![FC2-PPV-972886_21a04968040604638.gif](https://i.want.tf/to/that/2019/11/17/FC2-PPV-972886_21a04968040604638.gif)
+
+![FC2-PPV-972886d4d9a8b1681dcda4.gif](https://i.want.tf/to/that/2019/11/17/FC2-PPV-972886d4d9a8b1681dcda4.gif)
+
+</p>
+</details>
+
+---
+
+#### [0031](https://kkpi.blog.fc2blog.us/blog-entry-34.html '0031')
+
+<details><summary><b>[0031](https://kkpi.blog.fc2blog.us/blog-entry-34.html '0031')</b></summary>
+<p>
+
+- 2019-11-16
+
+![stars-102_41afcd8d8eb5aa2b8.gif](https://i.want.tf/to/that/2019/11/17/stars-102_41afcd8d8eb5aa2b8.gif)
+
+![stars-102_31fec06b27bcda5ba.gif](https://i.want.tf/to/that/2019/11/17/stars-102_31fec06b27bcda5ba.gif)
+
+![stars-102_28eef324c5f5b0919.gif](https://i.want.tf/to/that/2019/11/17/stars-102_28eef324c5f5b0919.gif)
+
+![stars-1020b77f868344a1050.gif](https://i.want.tf/to/that/2019/11/17/stars-1020b77f868344a1050.gif)
+
+![stars-101_5a621a24d7ae3c1fb.gif](https://i.want.tf/to/that/2019/11/17/stars-101_5a621a24d7ae3c1fb.gif)
+
+![stars-10153443a1990cec5a5.gif](https://i.want.tf/to/that/2019/11/17/stars-10153443a1990cec5a5.gif)
+
+![stars-101_4f693cd7460d8f82a.gif](https://i.want.tf/to/that/2019/11/17/stars-101_4f693cd7460d8f82a.gif)
+
+![stars-101_3efb893d6e2e261fd.gif](https://i.want.tf/to/that/2019/11/17/stars-101_3efb893d6e2e261fd.gif)
+
+![stars-101_2a50e41305bcde8c5.gif](https://i.want.tf/to/that/2019/11/17/stars-101_2a50e41305bcde8c5.gif)
+
+</p>
+</details>
+
+---
+
+#### [0030](https://kkpi.blog.fc2blog.us/blog-entry-33.html '0030')
+
+<details><summary><b>[0030](https://kkpi.blog.fc2blog.us/blog-entry-33.html '0030')</b></summary>
+<p>
+
+- 2019-11-16
+
+![urlh-010130b471b44f873ed.gif](https://i.want.tf/to/that/2019/11/16/urlh-010130b471b44f873ed.gif)
+
+![urlh-010_264e0296ed93031d6.gif](https://i.want.tf/to/that/2019/11/16/urlh-010_264e0296ed93031d6.gif)
+
+![urlh-010_365c1dbca258a7dbd.gif](https://i.want.tf/to/that/2019/11/16/urlh-010_365c1dbca258a7dbd.gif)
+
+![urlh-010_490c5329d57eb83e6.gif](https://i.want.tf/to/that/2019/11/16/urlh-010_490c5329d57eb83e6.gif)
+
+![urlh-010_514aaa5247528b257.gif](https://i.want.tf/to/that/2019/11/16/urlh-010_514aaa5247528b257.gif)
+
+![urlh-010_621493ef9a297dd44.gif](https://i.want.tf/to/that/2019/11/16/urlh-010_621493ef9a297dd44.gif)
+
+</p>
+</details>
+
+---
+
+#### [0029](https://kkpi.blog.fc2blog.us/blog-entry-32.html '0029')
+
+<details><summary><b>[0029](https://kkpi.blog.fc2blog.us/blog-entry-32.html '0029')</b></summary>
+<p>
+
+- 2019-11-10
+
+![shkd-869918e484fd7a4297e.gif](https://i.want.tf/to/that/2019/11/10/shkd-869918e484fd7a4297e.gif)
+
+![shkd-869_2916a6fe8e0166e8f.gif](https://i.want.tf/to/that/2019/11/10/shkd-869_2916a6fe8e0166e8f.gif)
+
+![shkd-869_31b103c16d5b5ed9a.gif](https://i.want.tf/to/that/2019/11/10/shkd-869_31b103c16d5b5ed9a.gif)
+
+![shkd-869_4ed07c2a5923067e7.gif](https://i.want.tf/to/that/2019/11/10/shkd-869_4ed07c2a5923067e7.gif)
+
+![shkd-869_5c8324e8e6baf5d03.gif](https://i.want.tf/to/that/2019/11/10/shkd-869_5c8324e8e6baf5d03.gif)
+
+![shkd-869_6b39cf24994cc60ff.gif](https://i.want.tf/to/that/2019/11/10/shkd-869_6b39cf24994cc60ff.gif)
+
+</p>
+</details>
+
+---
+
+#### [0028](https://kkpi.blog.fc2blog.us/blog-entry-31.html '0028')
+
+<details><summary><b>[0028](https://kkpi.blog.fc2blog.us/blog-entry-31.html '0028')</b></summary>
+<p>
+
+- 2019-11-09
+
+![hodv-2140296b6360209e3bcef.gif](https://i.want.tf/to/that/2019/11/10/hodv-2140296b6360209e3bcef.gif)
+
+![hodv-21402_2f2afda2b0836b69c.gif](https://i.want.tf/to/that/2019/11/10/hodv-21402_2f2afda2b0836b69c.gif)
+
+![hodv-21402_3907f709d0f72f940.gif](https://i.want.tf/to/that/2019/11/10/hodv-21402_3907f709d0f72f940.gif)
+
+![ssni-533343287d800d44a19.gif](https://i.want.tf/to/that/2019/11/10/ssni-533343287d800d44a19.gif)
+
+![ssni-533_216a5ffd935696c5e.gif](https://i.want.tf/to/that/2019/11/10/ssni-533_216a5ffd935696c5e.gif)
+
+![ssni-538a4f9d56054fa6fef.gif](https://i.want.tf/to/that/2019/11/10/ssni-538a4f9d56054fa6fef.gif)
+
+![ssni-538_274293face9f265a6.gif](https://i.want.tf/to/that/2019/11/10/ssni-538_274293face9f265a6.gif)
+
+![ssni-538_32cf6710cbc909227.gif](https://i.want.tf/to/that/2019/11/10/ssni-538_32cf6710cbc909227.gif)
+
+</p>
+</details>
+
+---
+
+#### [0027](https://kkpi.blog.fc2blog.us/blog-entry-30.html '0027')
+
+<details><summary><b>[0027](https://kkpi.blog.fc2blog.us/blog-entry-30.html '0027')</b></summary>
+<p>
+
+- 2019-11-03
+
+![10musume-121314_01b975df9ffb7945ff.gif](https://i.want.tf/to/that/2019/11/03/10musume-121314_01b975df9ffb7945ff.gif)
+![10musume-121314_01_21aede1a1ae7fba2c.gif](https://i.want.tf/to/that/2019/11/03/10musume-121314_01_21aede1a1ae7fba2c.gif)
+![10musume-121314_01_3dec3e1fa40459a30.gif](https://i.want.tf/to/that/2019/11/03/10musume-121314_01_3dec3e1fa40459a30.gif)
+![10musume-121314_01_44b282aa5d9017d7d.gif](https://i.want.tf/to/that/2019/11/03/10musume-121314_01_44b282aa5d9017d7d.gif)
+![300MAAN-47328477890808db52b.gif](https://i.want.tf/to/that/2019/11/03/300MAAN-47328477890808db52b.gif)
+![326REG-00155d605b884c3a89d.gif](https://i.want.tf/to/that/2019/11/03/326REG-00155d605b884c3a89d.gif)
+![326REG-001_2917b406171006c32.gif](https://i.want.tf/to/that/2019/11/03/326REG-001_2917b406171006c32.gif)
+![326REG-001_3b09853adb17121ce.gif](https://i.want.tf/to/that/2019/11/03/326REG-001_3b09853adb17121ce.gif)
+![20190706113544_HD_new8c562dc29e54541b.gif](https://i.want.tf/to/that/2019/11/03/20190706113544_HD_new8c562dc29e54541b.gif)
+![Erotic-Seduction-CFNM-Blowjobf2b2f6fbd36c4bd3.gif](https://i.want.tf/to/that/2019/11/03/Erotic-Seduction-CFNM-Blowjobf2b2f6fbd36c4bd3.gif)
+![fc2-663752_hde3506c7351e23fd8.gif](https://i.want.tf/to/that/2019/11/03/fc2-663752_hde3506c7351e23fd8.gif)
+![fc2-ppv-57852324a2447a3839f872.gif](https://i.want.tf/to/that/2019/11/03/fc2-ppv-57852324a2447a3839f872.gif)
+![fc2-ppv-578523-1b2827984594e3695.gif](https://i.want.tf/to/that/2019/11/03/fc2-ppv-578523-1b2827984594e3695.gif)
+![fc2-ppv-58514872e647091b1f9d7a.gif](https://i.want.tf/to/that/2019/11/03/fc2-ppv-58514872e647091b1f9d7a.gif)
+![FC2PPV-9114961f483b1a07f5b0db.gif](https://i.want.tf/to/that/2019/11/03/FC2PPV-9114961f483b1a07f5b0db.gif)
+![FC2PPV-911496_21be10dc45c882dd4.gif](https://i.want.tf/to/that/2019/11/03/FC2PPV-911496_21be10dc45c882dd4.gif)
+![heyzo_hd_10312ca7e3e0d116c70d.gif](https://i.want.tf/to/that/2019/11/03/heyzo_hd_10312ca7e3e0d116c70d.gif)
+![heyzo_hd_1031_2630fdd263e9169ab.gif](https://i.want.tf/to/that/2019/11/03/heyzo_hd_1031_2630fdd263e9169ab.gif)
+![ONEZ-207a9e95b05767a4903.gif](https://i.want.tf/to/that/2019/11/03/ONEZ-207a9e95b05767a4903.gif)
+![SpankBangbb58a1038a961668.gif](https://i.want.tf/to/that/2019/11/03/SpankBangbb58a1038a961668.gif)
+![wanz001610ea89b01828cf3ef.gif](https://i.want.tf/to/that/2019/11/03/wanz001610ea89b01828cf3ef.gif)
+![2ccfadc90c7bb9d4075fa6ea6cb43c48c62b5dbbc39cfb9d.gif](https://i.want.tf/to/that/2019/11/03/2ccfadc90c7bb9d4075fa6ea6cb43c48c62b5dbbc39cfb9d.gif)
+![_275b560ef94b33c7b.gif](https://i.want.tf/to/that/2019/11/03/_275b560ef94b33c7b.gif)
+
+</p>
+</details>
+
+---
+
+#### [0026](https://kkpi.blog.fc2blog.us/blog-entry-29.html '0026')
+
+<details><summary><b>[0026](https://kkpi.blog.fc2blog.us/blog-entry-29.html '0026')</b></summary>
+<p>
+
+- 2019-10-13
+
+![118lxvs0004338e4eaf219284615.gif](https://i.want.tf/to/that/2019/10/13/118lxvs0004338e4eaf219284615.gif)
+![300MAAN-3553d8d1470a9173c97.gif](https://i.want.tf/to/that/2019/10/13/300MAAN-3553d8d1470a9173c97.gif)
+![BF-057fd664a5a2c961742.gif](https://i.want.tf/to/that/2019/10/13/BF-057fd664a5a2c961742.gif)
+![BF-057_219e85321494fe3c7.gif](https://i.want.tf/to/that/2019/10/13/BF-057_219e85321494fe3c7.gif)
+![cesd-8211f0b25a0b383be41.gif](https://i.want.tf/to/that/2019/10/13/cesd-8211f0b25a0b383be41.gif)
+![cesd-821_21452ab8cc49f3e07.gif](https://i.want.tf/to/that/2019/10/13/cesd-821_21452ab8cc49f3e07.gif)
+![dpmi0004128e2e008ff5f197f.gif](https://i.want.tf/to/that/2019/10/13/dpmi0004128e2e008ff5f197f.gif)
+![dpmi00041_2033b28ee3f2e91ea.gif](https://i.want.tf/to/that/2019/10/13/dpmi00041_2033b28ee3f2e91ea.gif)
+![fc2ppv_1142937d18976b6f44859cc.gif](https://i.want.tf/to/that/2019/10/13/fc2ppv_1142937d18976b6f44859cc.gif)
+![FC2-PPV-10035.0429cca2917469233d.gif](https://i.want.tf/to/that/2019/10/13/FC2-PPV-10035.0429cca2917469233d.gif)
+![FC2-PPV-10035.04_2be305f23f906267a.gif](https://i.want.tf/to/that/2019/10/13/FC2-PPV-10035.04_2be305f23f906267a.gif)
+![FC2-PPV-10035.04_3c8b1f0565b361557.gif](https://i.want.tf/to/that/2019/10/13/FC2-PPV-10035.04_3c8b1f0565b361557.gif)
+![fc2-ppv-674250096926c19adc1f41.gif](https://i.want.tf/to/that/2019/10/13/fc2-ppv-674250096926c19adc1f41.gif)
+![fc2-ppv-674250_28555e264342b7148.gif](https://i.want.tf/to/that/2019/10/13/fc2-ppv-674250_28555e264342b7148.gif)
+![fc1003360de746ae8632add77.gif](https://i.want.tf/to/that/2019/10/13/fc1003360de746ae8632add77.gif)
+![fc1003360_2ec7decd0c8d00c15.gif](https://i.want.tf/to/that/2019/10/13/fc1003360_2ec7decd0c8d00c15.gif)
+![fellatiojapan-31717dcdec1f832f7dd.gif](https://i.want.tf/to/that/2019/10/13/fellatiojapan-31717dcdec1f832f7dd.gif)
+![IPX-253-Cdf97e198d735c5ab.gif](https://i.want.tf/to/that/2019/10/13/IPX-253-Cdf97e198d735c5ab.gif)
+![IPX-253-C_25a880c4c501448d9.gif](https://i.want.tf/to/that/2019/10/13/IPX-253-C_25a880c4c501448d9.gif)
+![IPX-253-C_320b7dd6745827ff6.gif](https://i.want.tf/to/that/2019/10/13/IPX-253-C_320b7dd6745827ff6.gif)
+![IPX-253-C_418c95ada5094b948.gif](https://i.want.tf/to/that/2019/10/13/IPX-253-C_418c95ada5094b948.gif)
+![IPX-372-C0e46837d70907bda.gif](https://i.want.tf/to/that/2019/10/13/IPX-372-C0e46837d70907bda.gif)
+![IPX-372-C_2d4fb58a2414d1552.gif](https://i.want.tf/to/that/2019/10/13/IPX-372-C_2d4fb58a2414d1552.gif)
+![IPX-372-C_33fffc87d1bff0637.gif](https://i.want.tf/to/that/2019/10/13/IPX-372-C_33fffc87d1bff0637.gif)
+![KBI-01989594dcce385a89c.gif](https://i.want.tf/to/that/2019/10/13/KBI-01989594dcce385a89c.gif)
+![KBI-019_27a57e49b5dfdd14c.gif](https://i.want.tf/to/that/2019/10/13/KBI-019_27a57e49b5dfdd14c.gif)
+![KBI-019_33ba8d95f6bfcb709.gif](https://i.want.tf/to/that/2019/10/13/KBI-019_33ba8d95f6bfcb709.gif)
+![mxgs00955e14cfef89e49cb0a.gif](https://i.want.tf/to/that/2019/10/13/mxgs00955e14cfef89e49cb0a.gif)
+![mxgs00955_2fdce1ffb81624a1f.gif](https://i.want.tf/to/that/2019/10/13/mxgs00955_2fdce1ffb81624a1f.gif)
+![n064191ee5bf8e76fbba6.gif](https://i.want.tf/to/that/2019/10/13/n064191ee5bf8e76fbba6.gif)
+![n0641_2aa82fb3c7956340c.gif](https://i.want.tf/to/that/2019/10/13/n0641_2aa82fb3c7956340c.gif)
+![n0641_3cb14c94d0058515a.gif](https://i.want.tf/to/that/2019/10/13/n0641_3cb14c94d0058515a.gif)
+![SMBD-100f45e450a9d020b1c.gif](https://i.want.tf/to/that/2019/10/13/SMBD-100f45e450a9d020b1c.gif)
+![SMBD-100_22cd24ce905e4036f.gif](https://i.want.tf/to/that/2019/10/13/SMBD-100_22cd24ce905e4036f.gif)
+![svdvd-6728fa599b7c6c9a396.gif](https://i.want.tf/to/that/2019/10/13/svdvd-6728fa599b7c6c9a396.gif)
+![svdvd-672_27224eb435e9ac815.gif](https://i.want.tf/to/that/2019/10/13/svdvd-672_27224eb435e9ac815.gif)
+![-----------------------------------973f0111c34a42d9.gif](https://i.want.tf/to/that/2019/10/13/-----------------------------------973f0111c34a42d9.gif)
+
+</p>
+</details>
+
+---
+
+#### [0025](https://kkpi.blog.fc2blog.us/blog-entry-28.html '0025')
+
+<details><summary><b>[0025](https://kkpi.blog.fc2blog.us/blog-entry-28.html '0025')</b></summary>
+<p>
+
+- 2019-10-06
+
+![300MAAN300MAAN-349--20-a5e8cc0df457961b.gif](https://i.want.tf/to/that/2019/10/06/300MAAN300MAAN-349--20-a5e8cc0df457961b.gif)
+![259LUXU-1150d7128d3494bec308.gif](https://i.want.tf/to/that/2019/10/06/259LUXU-1150d7128d3494bec308.gif)
+![300MAAN-462b2c95fb0b6b24003.gif](https://i.want.tf/to/that/2019/10/06/300MAAN-462b2c95fb0b6b24003.gif)
+![300MAAN-462_2461847e9b3dc6225.gif](https://i.want.tf/to/that/2019/10/06/300MAAN-462_2461847e9b3dc6225.gif)
+![092619_179-paco22521e55c5580ca1.gif](https://i.want.tf/to/that/2019/10/06/092619_179-paco22521e55c5580ca1.gif)
+![092619-001-carib32921a3ce54d5a2f.gif](https://i.want.tf/to/that/2019/10/06/092619-001-carib32921a3ce54d5a2f.gif)
+![ABP-88451f1c22bd2c3acc1.gif](https://i.want.tf/to/that/2019/10/06/ABP-88451f1c22bd2c3acc1.gif)
+![ABP-884_2fca41bf3cae365cc.gif](https://i.want.tf/to/that/2019/10/06/ABP-884_2fca41bf3cae365cc.gif)
+![dtt-029a2d787b91026ecdc.gif](https://i.want.tf/to/that/2019/10/06/dtt-029a2d787b91026ecdc.gif)
+![dtt-029_2ea993da76b4b5340.gif](https://i.want.tf/to/that/2019/10/06/dtt-029_2ea993da76b4b5340.gif)
+![FC2-PPV-11686257e35ec83d12b3226.gif](https://i.want.tf/to/that/2019/10/06/FC2-PPV-11686257e35ec83d12b3226.gif)
+![FC2-PPV-1168625_2beaff2b58d7039bf.gif](https://i.want.tf/to/that/2019/10/06/FC2-PPV-1168625_2beaff2b58d7039bf.gif)
+![FC2PPV-1170462afaa9c726bbe9ce6.gif](https://i.want.tf/to/that/2019/10/06/FC2PPV-1170462afaa9c726bbe9ce6.gif)
+![heyzo-2033f72416bb51cec916.gif](https://i.want.tf/to/that/2019/10/06/heyzo-2033f72416bb51cec916.gif)
+![hnd-723ea8e6eb9bea99995.gif](https://i.want.tf/to/that/2019/10/06/hnd-723ea8e6eb9bea99995.gif)
+![hnd-723_283ad693608567321.gif](https://i.want.tf/to/that/2019/10/06/hnd-723_283ad693608567321.gif)
+![mide-68699d3a1ad9fdc3347.gif](https://i.want.tf/to/that/2019/10/06/mide-68699d3a1ad9fdc3347.gif)
+![mide-686_2f24b6cd82af37a41.gif](https://i.want.tf/to/that/2019/10/06/mide-686_2f24b6cd82af37a41.gif)
+![S-Cute-663_chiharu_04-Chiharuaf9e1346b59eb559.gif](https://i.want.tf/to/that/2019/10/06/S-Cute-663_chiharu_04-Chiharuaf9e1346b59eb559.gif)
+![S-Cute-686_mitsuki_027afe4b6e1d583760.gif](https://i.want.tf/to/that/2019/10/06/S-Cute-686_mitsuki_027afe4b6e1d583760.gif)
+![sqte-268fd9f626658ffa05b.gif](https://i.want.tf/to/that/2019/10/06/sqte-268fd9f626658ffa05b.gif)
+![SSNI-315-c1ecfb07284823ddc.gif](https://i.want.tf/to/that/2019/10/06/SSNI-315-c1ecfb07284823ddc.gif)
+![SSNI-315-c_20cad914eb9e92af2.gif](https://i.want.tf/to/that/2019/10/06/SSNI-315-c_20cad914eb9e92af2.gif)
+![venu-8880c887415ae049d99.gif](https://i.want.tf/to/that/2019/10/06/venu-8880c887415ae049d99.gif)
+
+</p>
+</details>
+
+---
+
+#### [0024](https://kkpi.blog.fc2blog.us/blog-entry-27.html '0024')
+
+<details><summary><b>[0024](https://kkpi.blog.fc2blog.us/blog-entry-27.html '0024')</b></summary>
+<p>
+
+- 2019-09-22
+
+![082719_891-1pon1e4ce550e7c42ed2.gif](https://i.want.tf/to/that/2019/09/22/082719_891-1pon1e4ce550e7c42ed2.gif)
+![082719_891-1pon_2c1d9273d72473b70.gif](https://i.want.tf/to/that/2019/09/22/082719_891-1pon_2c1d9273d72473b70.gif)
+![082819-994-carib41058c9c335dc5ed.gif](https://i.want.tf/to/that/2019/09/22/082819-994-carib41058c9c335dc5ed.gif)
+![082819-994-carib_27fae3b5ee785f1c0.gif](https://i.want.tf/to/that/2019/09/22/082819-994-carib_27fae3b5ee785f1c0.gif)
+![091319-001-caribb54ccbdea16f8ea7.gif](https://i.want.tf/to/that/2019/09/22/091319-001-caribb54ccbdea16f8ea7.gif)
+![ABP-888c2caa913b4518ef5.gif](https://i.want.tf/to/that/2019/09/22/ABP-888c2caa913b4518ef5.gif)
+![FC2-1044174e31573a4d7b9aeb4.gif](https://i.want.tf/to/that/2019/09/22/FC2-1044174e31573a4d7b9aeb4.gif)
+![FC2PPV-1153078ffb0e320d1431f03.gif](https://i.want.tf/to/that/2019/09/22/FC2PPV-1153078ffb0e320d1431f03.gif)
+![FC2PPV-1154295e06f53f56b4a901d.gif](https://i.want.tf/to/that/2019/09/22/FC2PPV-1154295e06f53f56b4a901d.gif)
+![FC2PPV-1154880c64f270b6206cfe0.gif](https://i.want.tf/to/that/2019/09/22/FC2PPV-1154880c64f270b6206cfe0.gif)
+![FC2PPV-11592946aee97f56e1c0a6c.gif](https://i.want.tf/to/that/2019/09/22/FC2PPV-11592946aee97f56e1c0a6c.gif)
+![FC2PPV-1159897f15d3aead6638944.gif](https://i.want.tf/to/that/2019/09/22/FC2PPV-1159897f15d3aead6638944.gif)
+![heydouga-4181-01068a16f3ff0e3cce1.gif](https://i.want.tf/to/that/2019/09/22/heydouga-4181-01068a16f3ff0e3cce1.gif)
+![heyzo_hd_1773_full80854f7c54ed8b60.gif](https://i.want.tf/to/that/2019/09/22/heyzo_hd_1773_full80854f7c54ed8b60.gif)
+![heyzo_hd_1773_full_2555aea58af3b18c1.gif](https://i.want.tf/to/that/2019/09/22/heyzo_hd_1773_full_2555aea58af3b18c1.gif)
+![heyzo-210223d6c32f97673a04.gif](https://i.want.tf/to/that/2019/09/22/heyzo-210223d6c32f97673a04.gif)
+![ipx-347273faf98fdd70c9d.gif](https://i.want.tf/to/that/2019/09/22/ipx-347273faf98fdd70c9d.gif)
+![ipx-347_227569a5c4fd474dc.gif](https://i.want.tf/to/that/2019/09/22/ipx-347_227569a5c4fd474dc.gif)
+![ipx-35239d8ad4808ce0ea7.gif](https://i.want.tf/to/that/2019/09/22/ipx-35239d8ad4808ce0ea7.gif)
+![ipx-352_24bdd0f95a1871455.gif](https://i.want.tf/to/that/2019/09/22/ipx-352_24bdd0f95a1871455.gif)
+![ipx-352_34d3bd5cf1ae6ca4f.gif](https://i.want.tf/to/that/2019/09/22/ipx-352_34d3bd5cf1ae6ca4f.gif)
+![ipx-352_455eee5fa8449a283.gif](https://i.want.tf/to/that/2019/09/22/ipx-352_455eee5fa8449a283.gif)
+![ipx-352_520ed9f8ba14a5667.gif](https://i.want.tf/to/that/2019/09/22/ipx-352_520ed9f8ba14a5667.gif)
+![ipx-353f276c1485fb90521.gif](https://i.want.tf/to/that/2019/09/22/ipx-353f276c1485fb90521.gif)
+![jukujo-club-7765c5c120de7e6fd074.gif](https://i.want.tf/to/that/2019/09/22/jukujo-club-7765c5c120de7e6fd074.gif)
+![n1406_harf_01_kj5fdb752e9cb5efe8.gif](https://i.want.tf/to/that/2019/09/22/n1406_harf_01_kj5fdb752e9cb5efe8.gif)
+![n1406_harf_01_kj_274c520aecbd128bb.gif](https://i.want.tf/to/that/2019/09/22/n1406_harf_01_kj_274c520aecbd128bb.gif)
+![n1406_harf_01_kj_3f84c69f619edc141.gif](https://i.want.tf/to/that/2019/09/22/n1406_harf_01_kj_3f84c69f619edc141.gif)
+![n1406_harf_01_kj_415740861a0971634.gif](https://i.want.tf/to/that/2019/09/22/n1406_harf_01_kj_415740861a0971634.gif)
+![n1406_harf_01_kj_5fd753c7c4d6159dd.gif](https://i.want.tf/to/that/2019/09/22/n1406_harf_01_kj_5fd753c7c4d6159dd.gif)
+![n1409_model_01_yjdc0a12ae58779bb0.gif](https://i.want.tf/to/that/2019/09/22/n1409_model_01_yjdc0a12ae58779bb0.gif)
+![n1409_model_01_yj_2d94ce2e293185909.gif](https://i.want.tf/to/that/2019/09/22/n1409_model_01_yj_2d94ce2e293185909.gif)
+![n1409_model_01_yj_3e7b5b9bb03ff2236.gif](https://i.want.tf/to/that/2019/09/22/n1409_model_01_yj_3e7b5b9bb03ff2236.gif)
+![sdab-104ac9fb19793a8b36c.gif](https://i.want.tf/to/that/2019/09/22/sdab-104ac9fb19793a8b36c.gif)
+![xxx-av-206871a8def808b8571db.gif](https://i.want.tf/to/that/2019/09/22/xxx-av-206871a8def808b8571db.gif)
+![xxx-av-240724304173f2bde845c.gif](https://i.want.tf/to/that/2019/09/22/xxx-av-240724304173f2bde845c.gif)
+
+</p>
+</details>
+
+---
+
+#### [0023](https://kkpi.blog.fc2blog.us/blog-entry-26.html '0023')
+
+<details><summary><b>[0023](https://kkpi.blog.fc2blog.us/blog-entry-26.html '0023')</b></summary>
+<p>
+
+- 2019-09-13
+
+![stars-1119b6524b72f68b241.gif](https://i.want.tf/to/that/2019/09/13/stars-1119b6524b72f68b241.gif)
+![stars-111_2e04a66ee00fdc816.gif](https://i.want.tf/to/that/2019/09/13/stars-111_2e04a66ee00fdc816.gif)
+![SDMU-384510a602eac328c5a.gif](https://i.want.tf/to/that/2019/09/13/SDMU-384510a602eac328c5a.gif)
+![S-Cute-if_011_01-Rema6021aca4044b85f.gif](https://i.want.tf/to/that/2019/09/13/S-Cute-if_011_01-Rema6021aca4044b85f.gif)
+![mimk-06822b31e443f909f31.gif](https://i.want.tf/to/that/2019/09/13/mimk-06822b31e443f909f31.gif)
+![jufe-062f1a4499e3ecd87b2.gif](https://i.want.tf/to/that/2019/09/13/jufe-062f1a4499e3ecd87b2.gif)
+![ipx-362_356feb094257debf6.gif](https://i.want.tf/to/that/2019/09/13/ipx-362_356feb094257debf6.gif)
+![ipx-362ae875c410f09a5c7.gif](https://i.want.tf/to/that/2019/09/13/ipx-362ae875c410f09a5c7.gif)
+![ipx-362_287322537b79be698.gif](https://i.want.tf/to/that/2019/09/13/ipx-362_287322537b79be698.gif)
+![heyzo-20753f1d3ecbddd73d4a.gif](https://i.want.tf/to/that/2019/09/13/heyzo-20753f1d3ecbddd73d4a.gif)
+![heyzo-2074090dfc1858a7694c.gif](https://i.want.tf/to/that/2019/09/13/heyzo-2074090dfc1858a7694c.gif)
+![FC2PPV-11542181642fcc394c1d3a59.gif](https://i.want.tf/to/that/2019/09/13/FC2PPV-11542181642fcc394c1d3a59.gif)
+![FC2PPV-115413162a75366d936e1ed.gif](https://i.want.tf/to/that/2019/09/13/FC2PPV-115413162a75366d936e1ed.gif)
+![FC2-PPV-98756190724d25bea1cad4.gif](https://i.want.tf/to/that/2019/09/13/FC2-PPV-98756190724d25bea1cad4.gif)
+![300MIUM-45628f4dfc8b6f43c4e.gif](https://i.want.tf/to/that/2019/09/13/300MIUM-45628f4dfc8b6f43c4e.gif)
+![DFDM-011aac290f6912b9b93.gif](https://i.want.tf/to/that/2019/09/13/DFDM-011aac290f6912b9b93.gif)
+![259LUXU-1052df33c86d33ba510a.gif](https://i.want.tf/to/that/2019/09/13/259LUXU-1052df33c86d33ba510a.gif)
+![SBVB-0016-----Blu-ray2fbc92580f8fd635.gif](https://i.want.tf/to/that/2019/09/13/SBVB-0016-----Blu-ray2fbc92580f8fd635.gif)
+![Legsjapan--11-Rio-Kamimoto-16adf8d8471d7eca.gif](https://i.want.tf/to/that/2019/09/13/Legsjapan--11-Rio-Kamimoto-16adf8d8471d7eca.gif)
+
+</p>
+</details>
+
+---
+
+#### [0022](https://kkpi.blog.fc2blog.us/blog-entry-25.html '0022')
+
+<details><summary><b>[0022](https://kkpi.blog.fc2blog.us/blog-entry-25.html '0022')</b></summary>
+<p>
+
+- 2019-09-08
+
+![259LUXU-115942021a3997f474b0.gif](https://i.want.tf/to/that/2019/09/08/259LUXU-115942021a3997f474b0.gif)
+![326URF-0430117171e6fdcd054.gif](https://i.want.tf/to/that/2019/09/08/326URF-0430117171e6fdcd054.gif)
+![090319-998-carib9cc79baa9d7702cd.gif](https://i.want.tf/to/that/2019/09/08/090319-998-carib9cc79baa9d7702cd.gif)
+![090619-001-carib632136982011dbaa.gif](https://i.want.tf/to/that/2019/09/08/090619-001-carib632136982011dbaa.gif)
+![FC2PPV-115098952e1e7b02664cbf8.gif](https://i.want.tf/to/that/2019/09/08/FC2PPV-115098952e1e7b02664cbf8.gif)
+![FC2PPV-11554335213c54eb6d9d749.gif](https://i.want.tf/to/that/2019/09/08/FC2PPV-11554335213c54eb6d9d749.gif)
+![fellatiojapan-22846f49305cc542b40.gif](https://i.want.tf/to/that/2019/09/08/fellatiojapan-22846f49305cc542b40.gif)
+![hikr-13234152764614f5696.gif](https://i.want.tf/to/that/2019/09/08/hikr-13234152764614f5696.gif)
+![mdtm-5510fb95ede8cdd0be4.gif](https://i.want.tf/to/that/2019/09/08/mdtm-5510fb95ede8cdd0be4.gif)
+![mdtm-551_288ee24ab12c4be31.gif](https://i.want.tf/to/that/2019/09/08/mdtm-551_288ee24ab12c4be31.gif)
+![mdtm-551_33954fd5343a60b93.gif](https://i.want.tf/to/that/2019/09/08/mdtm-551_33954fd5343a60b93.gif)
+![mide-5850df1060b5d1c8ece.gif](https://i.want.tf/to/that/2019/09/08/mide-5850df1060b5d1c8ece.gif)
+![ssni-555fe873942031ffb3d.gif](https://i.want.tf/to/that/2019/09/08/ssni-555fe873942031ffb3d.gif)
+![ssni-555_2529dcdfa8201fa91.gif](https://i.want.tf/to/that/2019/09/08/ssni-555_2529dcdfa8201fa91.gif)
+![ssni-555_3f33dc6b6daa864b4.gif](https://i.want.tf/to/that/2019/09/08/ssni-555_3f33dc6b6daa864b4.gif)
+![venu-882cadfcdc3729b05cd.gif](https://i.want.tf/to/that/2019/09/08/venu-882cadfcdc3729b05cd.gif)
+![venu-882_2ee3fcea6e6b27604.gif](https://i.want.tf/to/that/2019/09/08/venu-882_2ee3fcea6e6b27604.gif)
+
+</p>
+</details>
+
+---
+
+#### [0021](https://kkpi.blog.fc2blog.us/blog-entry-24.html '0021')
+
+<details><summary><b>[0021](https://kkpi.blog.fc2blog.us/blog-entry-24.html '0021')</b></summary>
+<p>
+
+- 2019-09-01
+
+![390JAC-00728d99eb20e1f87f3.gif](https://i.want.tf/to/that/2019/09/01/390JAC-00728d99eb20e1f87f3.gif)
+![390JAC-007_2ba6600a93e945c9c.gif](https://i.want.tf/to/that/2019/09/01/390JAC-007_2ba6600a93e945c9c.gif)
+![abp-872a4e0600e82c18443.gif](https://i.want.tf/to/that/2019/09/01/abp-872a4e0600e82c18443.gif)
+![abp-872_26dd00cf49ec4297d.gif](https://i.want.tf/to/that/2019/09/01/abp-872_26dd00cf49ec4297d.gif)
+![abp-872_393ccac55da00cb28.gif](https://i.want.tf/to/that/2019/09/01/abp-872_393ccac55da00cb28.gif)
+![abp-872_4856f38e2d89ff72a.gif](https://i.want.tf/to/that/2019/09/01/abp-872_4856f38e2d89ff72a.gif)
+![abp-872_59a935ac386093e5b.gif](https://i.want.tf/to/that/2019/09/01/abp-872_59a935ac386093e5b.gif)
+![abp-872_6bc3a5fb3bd79450c.gif](https://i.want.tf/to/that/2019/09/01/abp-872_6bc3a5fb3bd79450c.gif)
+![abp-872_7add22893443afe2d.gif](https://i.want.tf/to/that/2019/09/01/abp-872_7add22893443afe2d.gif)
+![ABP-88933407c2a3ab52d94.gif](https://i.want.tf/to/that/2019/09/01/ABP-88933407c2a3ab52d94.gif)
+![ABP-889_293ca1c40ab740f31.gif](https://i.want.tf/to/that/2019/09/01/ABP-889_293ca1c40ab740f31.gif)
+![ABP-889_36d810366c07834fb.gif](https://i.want.tf/to/that/2019/09/01/ABP-889_36d810366c07834fb.gif)
+![ABP-889_436c48066f4fd7bd0.gif](https://i.want.tf/to/that/2019/09/01/ABP-889_436c48066f4fd7bd0.gif)
+![adn-210-C1c6b85b34b094790.gif](https://i.want.tf/to/that/2019/09/01/adn-210-C1c6b85b34b094790.gif)
+![adn-210-C_2e5faa4943325a92e.gif](https://i.want.tf/to/that/2019/09/01/adn-210-C_2e5faa4943325a92e.gif)
+![adn-210-C_317c5bc4f35318588.gif](https://i.want.tf/to/that/2019/09/01/adn-210-C_317c5bc4f35318588.gif)
+![adn-210-C_4cbcf92fd4f3347d1.gif](https://i.want.tf/to/that/2019/09/01/adn-210-C_4cbcf92fd4f3347d1.gif)
+![ap-6806a8c2116a2fef29f.gif](https://i.want.tf/to/that/2019/09/01/ap-6806a8c2116a2fef29f.gif)
+![ap-680_2ae6b3dcdb81f3ffd.gif](https://i.want.tf/to/that/2019/09/01/ap-680_2ae6b3dcdb81f3ffd.gif)
+![ap-680_3b672ca73129e9968.gif](https://i.want.tf/to/that/2019/09/01/ap-680_3b672ca73129e9968.gif)
+![ap-680_475bb6f29456c1492.gif](https://i.want.tf/to/that/2019/09/01/ap-680_475bb6f29456c1492.gif)
+![CB_ethereally_August-23-2019_15-58-12bfe812e1616227f4.gif](https://i.want.tf/to/that/2019/09/01/CB_ethereally_August-23-2019_15-58-12bfe812e1616227f4.gif)
+![CB_ethereally_August-23-2019_15-58-12_2eabaefb56586d847.gif](https://i.want.tf/to/that/2019/09/01/CB_ethereally_August-23-2019_15-58-12_2eabaefb56586d847.gif)
+![CB_ethereally_August-25-2019_07-02-131547315734d5079d.gif](https://i.want.tf/to/that/2019/09/01/CB_ethereally_August-25-2019_07-02-131547315734d5079d.gif)
+![CB_ethereally_August-25-2019_07-02-13_291bede7e685c7c84.gif](https://i.want.tf/to/that/2019/09/01/CB_ethereally_August-25-2019_07-02-13_291bede7e685c7c84.gif)
+![FC2PPV-1143908cf1aebd2eb42cce8.gif](https://i.want.tf/to/that/2019/09/01/FC2PPV-1143908cf1aebd2eb42cce8.gif)
+![FC2PPV-1147549-2646f08da14200b31.gif](https://i.want.tf/to/that/2019/09/01/FC2PPV-1147549-2646f08da14200b31.gif)
+![FHD-xrw-320970e4125f36b4e5c.gif](https://i.want.tf/to/that/2019/09/01/FHD-xrw-320970e4125f36b4e5c.gif)
+![FHD-xrw-320_2f042654b72f99aee.gif](https://i.want.tf/to/that/2019/09/01/FHD-xrw-320_2f042654b72f99aee.gif)
+![FHD-xrw-320_345ea6b4d2824da07.gif](https://i.want.tf/to/that/2019/09/01/FHD-xrw-320_345ea6b4d2824da07.gif)
+![IPZ-978-Ce34813f54fca7b8a.gif](https://i.want.tf/to/that/2019/09/01/IPZ-978-Ce34813f54fca7b8a.gif)
+![KTKZ-013.1080p456db33cbbbce6bb.gif](https://i.want.tf/to/that/2019/09/01/KTKZ-013.1080p456db33cbbbce6bb.gif)
+![KTKZ-013.1080p_26665b0ab0f106008.gif](https://i.want.tf/to/that/2019/09/01/KTKZ-013.1080p_26665b0ab0f106008.gif)
+![-c904c3a0806e0598.gif](https://i.want.tf/to/that/2019/09/01/-c904c3a0806e0598.gif)
+![-_287adeac28a834ddb.gif](https://i.want.tf/to/that/2019/09/01/-_287adeac28a834ddb.gif)
+
+</p>
+</details>
+
+---
+
+#### [0020](https://kkpi.blog.fc2blog.us/blog-entry-23.html '0020')
+
+<details><summary><b>[0020](https://kkpi.blog.fc2blog.us/blog-entry-23.html '0020')</b></summary>
+<p>
+
+- 2019-08-23
+
+![sw-639_2980ac4b253bb16b1.gif](https://i.want.tf/to/that/2019/08/23/sw-639_2980ac4b253bb16b1.gif)
+![sw-639ccf723b85293017d.gif](https://i.want.tf/to/that/2019/08/23/sw-639ccf723b85293017d.gif)
+![s-cute-687_mio_05_22753c919c0569acf.gif](https://i.want.tf/to/that/2019/08/23/s-cute-687_mio_05_22753c919c0569acf.gif)
+![s-cute-687_mio_05aa22676042407236.gif](https://i.want.tf/to/that/2019/08/23/s-cute-687_mio_05aa22676042407236.gif)
+![nhdtb-305_2f9cc6889dbdbfc60.gif](https://i.want.tf/to/that/2019/08/23/nhdtb-305_2f9cc6889dbdbfc60.gif)
+![nhdtb-305e836deaaa6f2329d.gif](https://i.want.tf/to/that/2019/08/23/nhdtb-305e836deaaa6f2329d.gif)
+![ipx-360_6bae633016c175d03.gif](https://i.want.tf/to/that/2019/08/23/ipx-360_6bae633016c175d03.gif)
+![ipx-360_56425888735ad0838.gif](https://i.want.tf/to/that/2019/08/23/ipx-360_56425888735ad0838.gif)
+![ipx-360_4397b631f26e876f2.gif](https://i.want.tf/to/that/2019/08/23/ipx-360_4397b631f26e876f2.gif)
+![ipx-360_34461825816248c51.gif](https://i.want.tf/to/that/2019/08/23/ipx-360_34461825816248c51.gif)
+![ipx-360_21aa79885a46a247a.gif](https://i.want.tf/to/that/2019/08/23/ipx-360_21aa79885a46a247a.gif)
+![ipx-360da9f4f53a0f44655.gif](https://i.want.tf/to/that/2019/08/23/ipx-360da9f4f53a0f44655.gif)
+![ipx-358_438c1f32f0a2c85a5.gif](https://i.want.tf/to/that/2019/08/23/ipx-358_438c1f32f0a2c85a5.gif)
+![ipx-358_3ae84300c3920816a.gif](https://i.want.tf/to/that/2019/08/23/ipx-358_3ae84300c3920816a.gif)
+![ipx-358_264bbbe11336e9157.gif](https://i.want.tf/to/that/2019/08/23/ipx-358_264bbbe11336e9157.gif)
+![ipx-3580eecb8021766b869.gif](https://i.want.tf/to/that/2019/08/23/ipx-3580eecb8021766b869.gif)
+![fset-842_2704340cd1b0b74f2.gif](https://i.want.tf/to/that/2019/08/23/fset-842_2704340cd1b0b74f2.gif)
+![fset-842_3bf4e216a99561a27.gif](https://i.want.tf/to/that/2019/08/23/fset-842_3bf4e216a99561a27.gif)
+![fset-8426b5859e65b0a5c10.gif](https://i.want.tf/to/that/2019/08/23/fset-8426b5859e65b0a5c10.gif)
+![dandy-6775d388536cb9ec6f2.gif](https://i.want.tf/to/that/2019/08/23/dandy-6775d388536cb9ec6f2.gif)
+
+</p>
+</details>
+
+---
+
+#### [0019](https://kkpi.blog.fc2blog.us/blog-entry-22.html '0019')
+
+<details><summary><b>[0019](https://kkpi.blog.fc2blog.us/blog-entry-22.html '0019')</b></summary>
+<p>
+
+- 2019-08-20
+
+![TSe291c7113c452b6a.gif](https://i.want.tf/to/that/2019/08/20/TSe291c7113c452b6a.gif)
+![Thai-Nymph-Pretends-To-Be-A-Good-Girl269287a3c2394170.gif](https://i.want.tf/to/that/2019/08/20/Thai-Nymph-Pretends-To-Be-A-Good-Girl269287a3c2394170.gif)
+![Teen-Blowjob-and-Oil-Handjob-with-Cumshot-POV_24de6f62e07330377.gif](https://i.want.tf/to/that/2019/08/20/Teen-Blowjob-and-Oil-Handjob-with-Cumshot-POV_24de6f62e07330377.gif)
+![Submissive-Elf-Fulfills-all-the-desires-of-her-Master-POV---LittleReislin---Modelhub797efcf8acc1dfae.gif](https://i.want.tf/to/that/2019/08/20/Submissive-Elf-Fulfills-all-the-desires-of-her-Master-POV---LittleReislin---Modelhub797efcf8acc1dfae.gif)
+![Teen-Blowjob-and-Oil-Handjob-with-Cumshot-POV3cb55787e3d094a8.gif](https://i.want.tf/to/that/2019/08/20/Teen-Blowjob-and-Oil-Handjob-with-Cumshot-POV3cb55787e3d094a8.gif)
+![naka-017d837fff507833a09.gif](https://i.want.tf/to/that/2019/08/20/naka-017d837fff507833a09.gif)
+![Kimmya963d0d81ae1dacb.gif](https://i.want.tf/to/that/2019/08/20/Kimmya963d0d81ae1dacb.gif)
+![Horny-British-Maid-gets-Deepthroated-and-gagged-Balls-deep-by-2-Cocks---JUSEBAR8b701de7a12403af.gif](https://i.want.tf/to/that/2019/08/20/Horny-British-Maid-gets-Deepthroated-and-gagged-Balls-deep-by-2-Cocks---JUSEBAR8b701de7a12403af.gif)
+![babes.18.12.16.ashley.lane.finishing.school.for.the.sexually.depraved12495a2a102c9a8c.gif](https://i.want.tf/to/that/2019/08/20/babes.18.12.16.ashley.lane.finishing.school.for.the.sexually.depraved12495a2a102c9a8c.gif)
+![babes.18.12.16.ashley.lane.finishing.school.for.the.sexually.depraved_214f6db4c6a57f1dc.gif](https://i.want.tf/to/that/2019/08/20/babes.18.12.16.ashley.lane.finishing.school.for.the.sexually.depraved_214f6db4c6a57f1dc.gif)
+![amateurallure.17.01.12.lena.anderson5cce656e3da380de.gif](https://i.want.tf/to/that/2019/08/20/amateurallure.17.01.12.lena.anderson5cce656e3da380de.gif)
+![Alice-D-in-gonzo-creampie-sex-scene-by-All-Internal_38e06359527d169be.gif](https://i.want.tf/to/that/2019/08/20/Alice-D-in-gonzo-creampie-sex-scene-by-All-Internal_38e06359527d169be.gif)
+![Alice-D-in-gonzo-creampie-sex-scene-by-All-Internal_253f22f361c512278.gif](https://i.want.tf/to/that/2019/08/20/Alice-D-in-gonzo-creampie-sex-scene-by-All-Internal_253f22f361c512278.gif)
+![Alice-D-in-gonzo-creampie-sex-scene-by-All-Internalc7ac99ff7323c083.gif](https://i.want.tf/to/that/2019/08/20/Alice-D-in-gonzo-creampie-sex-scene-by-All-Internalc7ac99ff7323c083.gif)
+![21n.17.05.03.tera.link.diary.of.love_35bd68399fe5f20c8.gif](https://i.want.tf/to/that/2019/08/20/21n.17.05.03.tera.link.diary.of.love_35bd68399fe5f20c8.gif)
+![21n.17.05.03.tera.link.diary.of.love_24b5f0f47e57046af.gif](https://i.want.tf/to/that/2019/08/20/21n.17.05.03.tera.link.diary.of.love_24b5f0f47e57046af.gif)
+![21n.17.05.03.tera.link.diary.of.love7524d2f08947b338.gif](https://i.want.tf/to/that/2019/08/20/21n.17.05.03.tera.link.diary.of.love7524d2f08947b338.gif)
+
+</p>
+</details>
+
+---
+
+#### [0018](https://kkpi.blog.fc2blog.us/blog-entry-21.html '0018')
+
+<details><summary><b>[0018](https://kkpi.blog.fc2blog.us/blog-entry-21.html '0018')</b></summary>
+<p>
+
+- 2019-08-18
+
+![300NTK-2174026cc1279e3af1d.gif](https://i.want.tf/to/that/2019/08/18/300NTK-2174026cc1279e3af1d.gif)
+![300NTK-217_2025db725b6b0198b.gif](https://i.want.tf/to/that/2019/08/18/300NTK-217_2025db725b6b0198b.gif)
+![080919-977-carib90aaab3a434e6ab8.gif](https://i.want.tf/to/that/2019/08/18/080919-977-carib90aaab3a434e6ab8.gif)
+![080919-977-carib_27210cf887c09b692.gif](https://i.want.tf/to/that/2019/08/18/080919-977-carib_27210cf887c09b692.gif)
+![081419_884-1pon6e7071f63ff2ced4.gif](https://i.want.tf/to/that/2019/08/18/081419_884-1pon6e7071f63ff2ced4.gif)
+![081419-982-carib363be8e2a22280b8.gif](https://i.want.tf/to/that/2019/08/18/081419-982-carib363be8e2a22280b8.gif)
+![081419-982-carib_28878719d821b66be.gif](https://i.want.tf/to/that/2019/08/18/081419-982-carib_28878719d821b66be.gif)
+![081419-982-carib_3e86f8111f1e18458.gif](https://i.want.tf/to/that/2019/08/18/081419-982-carib_3e86f8111f1e18458.gif)
+![FC2PPV-1128986-2030ecb2b8bf46bad.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-1128986-2030ecb2b8bf46bad.gif)
+![FC2PPV-1128986-2_2ced4a7e128d1f077.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-1128986-2_2ced4a7e128d1f077.gif)
+![FC2PPV-11344975e53208f565a3f52.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-11344975e53208f565a3f52.gif)
+![FC2PPV-1141842-17b932a15d003c05f.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-1141842-17b932a15d003c05f.gif)
+![FC2PPV-1141842-1_2dde394bb927bb2f5.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-1141842-1_2dde394bb927bb2f5.gif)
+![FC2PPV-114187064ce3ad62ac3722b.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-114187064ce3ad62ac3722b.gif)
+![FC2PPV-11419303f2e3a7a648fd5a1.gif](https://i.want.tf/to/that/2019/08/18/FC2PPV-11419303f2e3a7a648fd5a1.gif)
+![heyzo-2058b4332325c2d2becc.gif](https://i.want.tf/to/that/2019/08/18/heyzo-2058b4332325c2d2becc.gif)
+
+</p>
+</details>
+
+---
+
+#### [0017](https://kkpi.blog.fc2blog.us/blog-entry-20.html '0017')
+
+<details><summary><b>[0017](https://kkpi.blog.fc2blog.us/blog-entry-20.html '0017')</b></summary>
+<p>
+
+- 2019-08-16
+
+![300MAAN-4428307366566c75105.gif](https://i.want.tf/to/that/2019/08/16/300MAAN-4428307366566c75105.gif)
+![300MAAN-442_2d994013db4d1e031.gif](https://i.want.tf/to/that/2019/08/16/300MAAN-442_2d994013db4d1e031.gif)
+![326NKR-0070179b638d90e0c41.gif](https://i.want.tf/to/that/2019/08/16/326NKR-0070179b638d90e0c41.gif)
+![080619-975-carib0e92144baad04064.gif](https://i.want.tf/to/that/2019/08/16/080619-975-carib0e92144baad04064.gif)
+![080719-976-caribf7070b05ced90d56.gif](https://i.want.tf/to/that/2019/08/16/080719-976-caribf7070b05ced90d56.gif)
+![080719-976-carib_2c164925dc308680d.gif](https://i.want.tf/to/that/2019/08/16/080719-976-carib_2c164925dc308680d.gif)
+![FC2PPV-1137309-173e3043b6de885b2.gif](https://i.want.tf/to/that/2019/08/16/FC2PPV-1137309-173e3043b6de885b2.gif)
+![FC2PPV-1137309-2dad1fa59327cf0e6.gif](https://i.want.tf/to/that/2019/08/16/FC2PPV-1137309-2dad1fa59327cf0e6.gif)
+![FC2PPV-1138475-20669225d54310bbe.gif](https://i.want.tf/to/that/2019/08/16/FC2PPV-1138475-20669225d54310bbe.gif)
+![FC2PPV-1139863961d52c7801fbf15.gif](https://i.want.tf/to/that/2019/08/16/FC2PPV-1139863961d52c7801fbf15.gif)
+![FC2PPV-1139863_29f060486f0dc9c8b.gif](https://i.want.tf/to/that/2019/08/16/FC2PPV-1139863_29f060486f0dc9c8b.gif)
+![fellatiojapan-315fd22364ab7a68e93.gif](https://i.want.tf/to/that/2019/08/16/fellatiojapan-315fd22364ab7a68e93.gif)
+![jufd-927fe036d5f569b9f2b.gif](https://i.want.tf/to/that/2019/08/16/jufd-927fe036d5f569b9f2b.gif)
+![jufd-927_2760b37290db64ecb.gif](https://i.want.tf/to/that/2019/08/16/jufd-927_2760b37290db64ecb.gif)
+![jufd-927_374d07f27ac11edb4.gif](https://i.want.tf/to/that/2019/08/16/jufd-927_374d07f27ac11edb4.gif)
+![jufd-927_48b49a2ef66e2ac8c.gif](https://i.want.tf/to/that/2019/08/16/jufd-927_48b49a2ef66e2ac8c.gif)
+![jufd-927_50834e7c12cbeadce.gif](https://i.want.tf/to/that/2019/08/16/jufd-927_50834e7c12cbeadce.gif)
+![jufd-927_65516ade58ae24b38.gif](https://i.want.tf/to/that/2019/08/16/jufd-927_65516ade58ae24b38.gif)
+![n1401_paipan_05_ujecec605a24304f05.gif](https://i.want.tf/to/that/2019/08/16/n1401_paipan_05_ujecec605a24304f05.gif)
+![n1401_paipan_05_uj_2f1559f6b148ac0d5.gif](https://i.want.tf/to/that/2019/08/16/n1401_paipan_05_uj_2f1559f6b148ac0d5.gif)
+![n1402_goumou_02_gh05b66023a454cd17.gif](https://i.want.tf/to/that/2019/08/16/n1402_goumou_02_gh05b66023a454cd17.gif)
+
+</p>
+</details>
+
+---
+
+#### [0016](https://kkpi.blog.fc2blog.us/blog-entry-19.html '0016')
+
+<details><summary><b>[0016](https://kkpi.blog.fc2blog.us/blog-entry-19.html '0016')</b></summary>
+<p>
+
+- 2019-08-12
+
+![200GANA-213254d9942b303a91e3.gif](https://i.want.tf/to/that/2019/08/12/200GANA-213254d9942b303a91e3.gif)
+![073019_877-1poncfd4680ade2e26fa.gif](https://i.want.tf/to/that/2019/08/12/073019_877-1poncfd4680ade2e26fa.gif)
+![073019_877-1pon_2eba996624c343901.gif](https://i.want.tf/to/that/2019/08/12/073019_877-1pon_2eba996624c343901.gif)
+![bluee8ab69559bfa8c69.gif](https://i.want.tf/to/that/2019/08/12/bluee8ab69559bfa8c69.gif)
+![docp-162e0afe02b64a4b8a7.gif](https://i.want.tf/to/that/2019/08/12/docp-162e0afe02b64a4b8a7.gif)
+![docp-162_2a2e62a35bea2aa8a.gif](https://i.want.tf/to/that/2019/08/12/docp-162_2a2e62a35bea2aa8a.gif)
+![ipx-3616f82f3d7305ab772.gif](https://i.want.tf/to/that/2019/08/12/ipx-3616f82f3d7305ab772.gif)
+![ipx-361_2caa06155d730633d.gif](https://i.want.tf/to/that/2019/08/12/ipx-361_2caa06155d730633d.gif)
+![ipx-361_390fcf176340e7eef.gif](https://i.want.tf/to/that/2019/08/12/ipx-361_390fcf176340e7eef.gif)
+![Private.18.10.15.Big.Tit.Clany.Enjoys.Anal.XXX.1080p.MP4-KTRrarbg072537791b91d0bd.gif](https://i.want.tf/to/that/2019/08/12/Private.18.10.15.Big.Tit.Clany.Enjoys.Anal.XXX.1080p.MP4-KTRrarbg072537791b91d0bd.gif)
+![Titlec5d672e20711d4fb.gif](https://i.want.tf/to/that/2019/08/12/Titlec5d672e20711d4fb.gif)
+![xxx-av-239796868ad1c64d01108.gif](https://i.want.tf/to/that/2019/08/12/xxx-av-239796868ad1c64d01108.gif)
+
+</p>
+</details>
+
+---
+
+#### [0015](https://kkpi.blog.fc2blog.us/blog-entry-18.html '0015')
+
+<details><summary><b>[0015](https://kkpi.blog.fc2blog.us/blog-entry-18.html '0015')</b></summary>
+<p>
+
+- 2019-08-11
+
+![fellatiojapan-312_2c279a21e27285dd0.gif](https://i.want.tf/to/that/2019/08/11/fellatiojapan-312_2c279a21e27285dd0.gif)
+![stars-100_3d26131ff95ffd3e0.gif](https://i.want.tf/to/that/2019/08/11/stars-100_3d26131ff95ffd3e0.gif)
+![stars-100_28554528e8b28566d.gif](https://i.want.tf/to/that/2019/08/11/stars-100_28554528e8b28566d.gif)
+![stars-100810a7d83571016b6.gif](https://i.want.tf/to/that/2019/08/11/stars-100810a7d83571016b6.gif)
+![sm-miracle-e0969a3acab97c6a8c0f6.gif](https://i.want.tf/to/that/2019/08/11/sm-miracle-e0969a3acab97c6a8c0f6.gif)
+![hawa-180_4060c55fe99e42b0e.gif](https://i.want.tf/to/that/2019/08/11/hawa-180_4060c55fe99e42b0e.gif)
+![hawa-180_3a641b2d32c51cd33.gif](https://i.want.tf/to/that/2019/08/11/hawa-180_3a641b2d32c51cd33.gif)
+![hawa-180_2d2dc5cf82edba545.gif](https://i.want.tf/to/that/2019/08/11/hawa-180_2d2dc5cf82edba545.gif)
+![hawa-180446123492f729b3a.gif](https://i.want.tf/to/that/2019/08/11/hawa-180446123492f729b3a.gif)
+![fellatiojapan-312_367796733eba55b0e.gif](https://i.want.tf/to/that/2019/08/11/fellatiojapan-312_367796733eba55b0e.gif)
+![fellatiojapan-3121505780206698c2c.gif](https://i.want.tf/to/that/2019/08/11/fellatiojapan-3121505780206698c2c.gif)
+![chn-174_44bd3c06e0aa557a3.gif](https://i.want.tf/to/that/2019/08/11/chn-174_44bd3c06e0aa557a3.gif)
+![chn-174_3f3822bcaf84b7444.gif](https://i.want.tf/to/that/2019/08/11/chn-174_3f3822bcaf84b7444.gif)
+![chn-174_2c59289ad30a64181.gif](https://i.want.tf/to/that/2019/08/11/chn-174_2c59289ad30a64181.gif)
+![chn-1748d8b41c00c5f4c66.gif](https://i.want.tf/to/that/2019/08/11/chn-1748d8b41c00c5f4c66.gif)
+![BDA090_59fb38a9623cdc3a4.gif](https://i.want.tf/to/that/2019/08/11/BDA090_59fb38a9623cdc3a4.gif)
+![BDA090_4c49fd5cc8d4ff6a9.gif](https://i.want.tf/to/that/2019/08/11/BDA090_4c49fd5cc8d4ff6a9.gif)
+![BDA090_3dfa48d0f232dce65.gif](https://i.want.tf/to/that/2019/08/11/BDA090_3dfa48d0f232dce65.gif)
+![BDA090_26d4151f373d45da4.gif](https://i.want.tf/to/that/2019/08/11/BDA090_26d4151f373d45da4.gif)
+![BDA090f007adf3aa3ffa56.gif](https://i.want.tf/to/that/2019/08/11/BDA090f007adf3aa3ffa56.gif)
+![261ARA-397cee16a93a7f38c71.gif](https://i.want.tf/to/that/2019/08/11/261ARA-397cee16a93a7f38c71.gif)
+
+</p>
+</details>
+
+---
+
+#### [0014](https://kkpi.blog.fc2blog.us/blog-entry-17.html '0014')
+
+<details><summary><b>[0014](https://kkpi.blog.fc2blog.us/blog-entry-17.html '0014')</b></summary>
+<p>
+
+- 2019-08-09
+
+![dasd-550f792064de9045219.gif](https://i.want.tf/to/that/2019/08/09/dasd-550f792064de9045219.gif)
+![dasd-550_21f0725be8dcff355.gif](https://i.want.tf/to/that/2019/08/09/dasd-550_21f0725be8dcff355.gif)
+![dasd-550_3753816bc3443e32e.gif](https://i.want.tf/to/that/2019/08/09/dasd-550_3753816bc3443e32e.gif)
+![dasd-550_4c55cbb9ff144065e.gif](https://i.want.tf/to/that/2019/08/09/dasd-550_4c55cbb9ff144065e.gif)
+![rki-49655b0483f8c460752.gif](https://i.want.tf/to/that/2019/08/09/rki-49655b0483f8c460752.gif)
+![rki-496_2899c8600dbcfd44e.gif](https://i.want.tf/to/that/2019/08/09/rki-496_2899c8600dbcfd44e.gif)
+![sg017_magika_129ad98701b7764ee.gif](https://i.want.tf/to/that/2019/08/09/sg017_magika_129ad98701b7764ee.gif)
+![sg017_magika_2c8468c8a046d350e.gif](https://i.want.tf/to/that/2019/08/09/sg017_magika_2c8468c8a046d350e.gif)
+![vrtm-438232d44e20cb3e719.gif](https://i.want.tf/to/that/2019/08/09/vrtm-438232d44e20cb3e719.gif)
+![vrtm-438_24f757c1e16030718.gif](https://i.want.tf/to/that/2019/08/09/vrtm-438_24f757c1e16030718.gif)
+
+</p>
+</details>
+
+---
+
+#### [0013](https://kkpi.blog.fc2blog.us/blog-entry-16.html '0013')
+
+<details><summary><b>[0013](https://kkpi.blog.fc2blog.us/blog-entry-16.html '0013')</b></summary>
+<p>
+
+- 2019-08-06
+
+![300mium-43530a5086e5b3ef898.gif](https://i.want.tf/to/that/2019/08/06/300mium-43530a5086e5b3ef898.gif)
+![dasd-552b13dceab4604dde7.gif](https://i.want.tf/to/that/2019/08/06/dasd-552b13dceab4604dde7.gif)
+![dasd-552_2e8391ce6430302a9.gif](https://i.want.tf/to/that/2019/08/06/dasd-552_2e8391ce6430302a9.gif)
+![hnd-67993629b7ba9392e7d.gif](https://i.want.tf/to/that/2019/08/06/hnd-67993629b7ba9392e7d.gif)
+![hnd-679_2111088b4d11073ae.gif](https://i.want.tf/to/that/2019/08/06/hnd-679_2111088b4d11073ae.gif)
+![IPZ-266-C5296d025c3381540.gif](https://i.want.tf/to/that/2019/08/06/IPZ-266-C5296d025c3381540.gif)
+![IPZ-266-C_27263182e5852e17a.gif](https://i.want.tf/to/that/2019/08/06/IPZ-266-C_27263182e5852e17a.gif)
+![IPZ-266-C_3610cab2b7953ae4a.gif](https://i.want.tf/to/that/2019/08/06/IPZ-266-C_3610cab2b7953ae4a.gif)
+![juy-8828dd1c975eda0b586.gif](https://i.want.tf/to/that/2019/08/06/juy-8828dd1c975eda0b586.gif)
+![juy-882_2d061fd1d3e06bea8.gif](https://i.want.tf/to/that/2019/08/06/juy-882_2d061fd1d3e06bea8.gif)
+
+</p>
+</details>
+
+---
+
+#### [0012](https://kkpi.blog.fc2blog.us/blog-entry-15.html '0012')
+
+<details><summary><b>[0012](https://kkpi.blog.fc2blog.us/blog-entry-15.html '0012')</b></summary>
+<p>
+
+- 2019-08-04
+
+![326NKR-0042cb71410d6d9085d.gif](https://i.want.tf/to/that/2019/08/04/326NKR-0042cb71410d6d9085d.gif)
+![326NKR-004_2b88561e50937e7af.gif](https://i.want.tf/to/that/2019/08/04/326NKR-004_2b88561e50937e7af.gif)
+![abp408.Uncena0953605d8d55613.gif](https://i.want.tf/to/that/2019/08/04/abp408.Uncena0953605d8d55613.gif)
+![sdmu-9398377f685568e049a.gif](https://i.want.tf/to/that/2019/08/04/sdmu-9398377f685568e049a.gif)
+![sdmu-939_2c073df1101c1f87c.gif](https://i.want.tf/to/that/2019/08/04/sdmu-939_2c073df1101c1f87c.gif)
+![SIRO-390344c4e6ebf4598a9a.gif](https://i.want.tf/to/that/2019/08/04/SIRO-390344c4e6ebf4598a9a.gif)
+![UTAicee49bf79ab2d121cc1.gif](https://i.want.tf/to/that/2019/08/04/UTAicee49bf79ab2d121cc1.gif)
+
+</p>
+</details>
+
+---
+
+#### [0011](https://kkpi.blog.fc2blog.us/blog-entry-14.html '0011')
+
+<details><summary><b>[0011](https://kkpi.blog.fc2blog.us/blog-entry-14.html '0011')</b></summary>
+<p>
+
+- 2019-07-28
+
+![1pon-122315_213-1080p6954b96191eb37eb.gif](https://i.want.tf/to/that/2019/07/28/1pon-122315_213-1080p6954b96191eb37eb.gif)
+![1pon-122315_213-1080p_21394c359d6d4423f.gif](https://i.want.tf/to/that/2019/07/28/1pon-122315_213-1080p_21394c359d6d4423f.gif)
+![022417-380-carib-1080pcf4d180cc8de609f.gif](https://i.want.tf/to/that/2019/07/28/022417-380-carib-1080pcf4d180cc8de609f.gif)
+![022417-380-carib-1080p_225dfcd12eacfee08.gif](https://i.want.tf/to/that/2019/07/28/022417-380-carib-1080p_225dfcd12eacfee08.gif)
+![052919-930-carib-1080p01b449fd7b3fdd6b.gif](https://i.want.tf/to/that/2019/07/28/052919-930-carib-1080p01b449fd7b3fdd6b.gif)
+![100315_165-1pon-1080p71c3ba5a47261181.gif](https://i.want.tf/to/that/2019/07/28/100315_165-1pon-1080p71c3ba5a47261181.gif)
+![Chulin-Nakazawa--Transexjapan---transexjapan3ba13e153e56eff1.gif](https://i.want.tf/to/that/2019/07/28/Chulin-Nakazawa--Transexjapan---transexjapan3ba13e153e56eff1.gif)
+![fc2-605565_2c92c7afd3652ffe6.gif](https://i.want.tf/to/that/2019/07/28/fc2-605565_2c92c7afd3652ffe6.gif)
+![fc2-605565_hdbcec3f21f78cf1e4.gif](https://i.want.tf/to/that/2019/07/28/fc2-605565_hdbcec3f21f78cf1e4.gif)
+![FULL-Slutty-Maid-was-Fucked-and-Creampied---SolaZola---Pornhubbd0934cd8c36207b.gif](https://i.want.tf/to/that/2019/07/28/FULL-Slutty-Maid-was-Fucked-and-Creampied---SolaZola---Pornhubbd0934cd8c36207b.gif)
+![FULL-Slutty-Maid-was-Fucked-and-Creampied---SolaZola---Pornhub_20780056b092ed0d1.gif](https://i.want.tf/to/that/2019/07/28/FULL-Slutty-Maid-was-Fucked-and-Creampied---SolaZola---Pornhub_20780056b092ed0d1.gif)
+![kpc.19.04.17.eva.elfie.wined.her.up77dcf7d9e30f71fc.gif](https://i.want.tf/to/that/2019/07/28/kpc.19.04.17.eva.elfie.wined.her.up77dcf7d9e30f71fc.gif)
+![kpc.19.04.17.eva.elfie.wined.her.up_2b4c2ea2a6dd04d79.gif](https://i.want.tf/to/that/2019/07/28/kpc.19.04.17.eva.elfie.wined.her.up_2b4c2ea2a6dd04d79.gif)
+![Masem--TranSexJapan---transexjapan28da5076d2fd54f9.gif](https://i.want.tf/to/that/2019/07/28/Masem--TranSexJapan---transexjapan28da5076d2fd54f9.gif)
+
+</p>
+</details>
+
+---
+
+#### [0010](https://kkpi.blog.fc2blog.us/blog-entry-13.html '0010')
+
+<details><summary><b>[0010](https://kkpi.blog.fc2blog.us/blog-entry-13.html '0010')</b></summary>
+<p>
+
+- 2019-07-23
+
+![12451a0deb68dd1500e6e.gif](https://i.want.tf/to/that/2019/07/23/12451a0deb68dd1500e6e.gif)
+![2213135daacecdc88602a.gif](https://i.want.tf/to/that/2019/07/23/2213135daacecdc88602a.gif)
+![222228a21fcf7b386a2f7.gif](https://i.want.tf/to/that/2019/07/23/222228a21fcf7b386a2f7.gif)
+![412314323dc6cae360290.gif](https://i.want.tf/to/that/2019/07/23/412314323dc6cae360290.gif)
+![124315715be5303e085b66.gif](https://i.want.tf/to/that/2019/07/23/124315715be5303e085b66.gif)
+![213111c7996aabbad9bfce.gif](https://i.want.tf/to/that/2019/07/23/213111c7996aabbad9bfce.gif)
+![31241501cf9ff71d384dad.gif](https://i.want.tf/to/that/2019/07/23/31241501cf9ff71d384dad.gif)
+![41312368a5c45890e445c5.gif](https://i.want.tf/to/that/2019/07/23/41312368a5c45890e445c5.gif)
+![51211290e035cd583959c8.gif](https://i.want.tf/to/that/2019/07/23/51211290e035cd583959c8.gif)
+![52342113f6b26fb4ff0354.gif](https://i.want.tf/to/that/2019/07/23/52342113f6b26fb4ff0354.gif)
+![6537480ed5aa1c23cc9214.gif](https://i.want.tf/to/that/2019/07/23/6537480ed5aa1c23cc9214.gif)
+![2131411afcd785f2330e3b3.gif](https://i.want.tf/to/that/2019/07/23/2131411afcd785f2330e3b3.gif)
+![51231119698ecfb37c16bb4.gif](https://i.want.tf/to/that/2019/07/23/51231119698ecfb37c16bb4.gif)
+![111111113f0203185620dea2.gif](https://i.want.tf/to/that/2019/07/23/111111113f0203185620dea2.gif)
+![12312421d36956b001c70764.gif](https://i.want.tf/to/that/2019/07/23/12312421d36956b001c70764.gif)
+![36472513a7a2207af1eab9df.gif](https://i.want.tf/to/that/2019/07/23/36472513a7a2207af1eab9df.gif)
+![42311132cfffd98c7c501fa6.gif](https://i.want.tf/to/that/2019/07/23/42311132cfffd98c7c501fa6.gif)
+
+</p>
+</details>
+
+---
+
+#### [0009](https://kkpi.blog.fc2blog.us/blog-entry-12.html '0009')
+
+<details><summary><b>[0009](https://kkpi.blog.fc2blog.us/blog-entry-12.html '0009')</b></summary>
+<p>
+
+- 2019-07-20
+
+![82b17e426f08bb3d13dca84f711f9ccf99411561d77640ed.gif](https://i.want.tf/to/that/2019/07/20/82b17e426f08bb3d13dca84f711f9ccf99411561d77640ed.gif)
+![--.2016.-_2dc654d6cd92214fb.gif](https://i.want.tf/to/that/2019/07/20/--.2016.-_2dc654d6cd92214fb.gif)
+![--.2016.-61a6b3806114428d.gif](https://i.want.tf/to/that/2019/07/20/--.2016.-61a6b3806114428d.gif)
+![TD---Mila-Azul---164646358cbcae7129ac70.gif](https://i.want.tf/to/that/2019/07/20/TD---Mila-Azul---164646358cbcae7129ac70.gif)
+![FC2-PPV-11260692dafa5ce16bd8873.gif](https://i.want.tf/to/that/2019/07/20/FC2-PPV-11260692dafa5ce16bd8873.gif)
+![dtt-027_2d6ad6380a903f905.gif](https://i.want.tf/to/that/2019/07/20/dtt-027_2d6ad6380a903f905.gif)
+![dtt-0273d94de0200e681bb.gif](https://i.want.tf/to/that/2019/07/20/dtt-0273d94de0200e681bb.gif)
+![bokd-1514675ceab281cd866.gif](https://i.want.tf/to/that/2019/07/20/bokd-1514675ceab281cd866.gif)
+![300MIUM-447_2d6b7e0afc33448b2.gif](https://i.want.tf/to/that/2019/07/20/300MIUM-447_2d6b7e0afc33448b2.gif)
+![300MIUM-447c8c1d93b5d0d73ab.gif](https://i.want.tf/to/that/2019/07/20/300MIUM-447c8c1d93b5d0d73ab.gif)
+![259luxu-1134_35c5987372defc1b4.gif](https://i.want.tf/to/that/2019/07/20/259luxu-1134_35c5987372defc1b4.gif)
+![259luxu-1134_28bc34dabe4135dea.gif](https://i.want.tf/to/that/2019/07/20/259luxu-1134_28bc34dabe4135dea.gif)
+![259luxu-1134d0064c2ff2ac6c12.gif](https://i.want.tf/to/that/2019/07/20/259luxu-1134d0064c2ff2ac6c12.gif)
+![dtt-027_32af851ade1f57c05.gif](https://i.want.tf/to/that/2019/07/20/dtt-027_32af851ade1f57c05.gif)
+
+</p>
+</details>
+
+---
+
+#### [0008](https://kkpi.blog.fc2blog.us/blog-entry-11.html '0008')
+
+<details><summary><b>[0008](https://kkpi.blog.fc2blog.us/blog-entry-11.html '0008')</b></summary>
+<p>
+
+- 2019-07-13
+
+![SSNI-512_42b54f5475cdbfdbe.gif](https://i.want.tf/to/that/2019/07/13/SSNI-512_42b54f5475cdbfdbe.gif)
+![SSNI-512_36347fc06877be17d.gif](https://i.want.tf/to/that/2019/07/13/SSNI-512_36347fc06877be17d.gif)
+![SSNI-5129290abf556365bfd.gif](https://i.want.tf/to/that/2019/07/13/SSNI-5129290abf556365bfd.gif)
+![SSNI-512_2c3c401d5547f6dc1.gif](https://i.want.tf/to/that/2019/07/13/SSNI-512_2c3c401d5547f6dc1.gif)
+![miaa-119_4d2e91a1353ece9a8.gif](https://i.want.tf/to/that/2019/07/13/miaa-119_4d2e91a1353ece9a8.gif)
+![miaa-119_542527197463a54e4.gif](https://i.want.tf/to/that/2019/07/13/miaa-119_542527197463a54e4.gif)
+![miaa-119_361e24313e24af9ee.gif](https://i.want.tf/to/that/2019/07/13/miaa-119_361e24313e24af9ee.gif)
+![miaa-119_2424691676cf9e4da.gif](https://i.want.tf/to/that/2019/07/13/miaa-119_2424691676cf9e4da.gif)
+![miaa-119801330e38fdc0c5a.gif](https://i.want.tf/to/that/2019/07/13/miaa-119801330e38fdc0c5a.gif)
+![miaa-113_2f82ba37a409365ae.gif](https://i.want.tf/to/that/2019/07/13/miaa-113_2f82ba37a409365ae.gif)
+![miaa-113c739fe3d4a57a99a.gif](https://i.want.tf/to/that/2019/07/13/miaa-113c739fe3d4a57a99a.gif)
+![IPX-338-C_2e0c6da20c6d6403f.gif](https://i.want.tf/to/that/2019/07/13/IPX-338-C_2e0c6da20c6d6403f.gif)
+![IPX-338-C459255ad4431aa5d.gif](https://i.want.tf/to/that/2019/07/13/IPX-338-C459255ad4431aa5d.gif)
+![ipx-335293a4919911ed3a0.gif](https://i.want.tf/to/that/2019/07/13/ipx-335293a4919911ed3a0.gif)
+![ekdv-587507145f8fe339e14.gif](https://i.want.tf/to/that/2019/07/13/ekdv-587507145f8fe339e14.gif)
+
+</p>
+</details>
+
+---
+
+#### [0007](https://kkpi.blog.fc2blog.us/blog-entry-10.html '0007')
+
+<details><summary><b>[0007](https://kkpi.blog.fc2blog.us/blog-entry-10.html '0007')</b></summary>
+<p>
+
+</p>
+</details>
+
+---
+
+#### [0006](https://kkpi.blog.fc2blog.us/blog-entry-9.html '0006')
+
+<details><summary><b>[0006](https://kkpi.blog.fc2blog.us/blog-entry-9.html '0006')</b></summary>
+<p>
+
+- 2019-07-03
+
+![mide-663_54c14f607ea8881bb.gif](https://i.want.tf/to/that/2019/07/03/mide-663_54c14f607ea8881bb.gif)
+![mide-663_48f0ad2653f18012c.gif](https://i.want.tf/to/that/2019/07/03/mide-663_48f0ad2653f18012c.gif)
+![mide-663_3e36297d9b0b68e3b.gif](https://i.want.tf/to/that/2019/07/03/mide-663_3e36297d9b0b68e3b.gif)
+![mide-6639e4ea21594d70f29.gif](https://i.want.tf/to/that/2019/07/03/mide-6639e4ea21594d70f29.gif)
+![mide-663_2d40c8a9a9e86bb58.gif](https://i.want.tf/to/that/2019/07/03/mide-663_2d40c8a9a9e86bb58.gif)
+![mide-661_282bb286424f5e9c3.gif](https://i.want.tf/to/that/2019/07/03/mide-661_282bb286424f5e9c3.gif)
+![mide-661_361977ae9a37e8bf5.gif](https://i.want.tf/to/that/2019/07/03/mide-661_361977ae9a37e8bf5.gif)
+![mide-6611eae7e8f7f09bca5.gif](https://i.want.tf/to/that/2019/07/03/mide-6611eae7e8f7f09bca5.gif)
+![saba-5320fd7c3d168087b59.gif](https://i.want.tf/to/that/2019/07/03/saba-5320fd7c3d168087b59.gif)
+![300MAAN-4235c1feaad7d228b88.gif](https://i.want.tf/to/that/2019/07/03/300MAAN-4235c1feaad7d228b88.gif)
+![259LUXU-111624a374ce8176cf54.gif](https://i.want.tf/to/that/2019/07/03/259LUXU-111624a374ce8176cf54.gif)
+![jufe-073_275b2f29c56519771.gif](https://i.want.tf/to/that/2019/07/03/jufe-073_275b2f29c56519771.gif)
+![jufe-0736c4e9860a4605e84.gif](https://i.want.tf/to/that/2019/07/03/jufe-0736c4e9860a4605e84.gif)
+![clot-004_20e78244095ae9ec1.gif](https://i.want.tf/to/that/2019/07/03/clot-004_20e78244095ae9ec1.gif)
+![clot-004dc733aaac73c9e56.gif](https://i.want.tf/to/that/2019/07/03/clot-004dc733aaac73c9e56.gif)
+
+</p>
+</details>
+
+---
+
+#### [0005](https://kkpi.blog.fc2blog.us/blog-entry-8.html '0005')
+
+<details><summary><b>[0005](https://kkpi.blog.fc2blog.us/blog-entry-8.html '0005')</b></summary>
+<p>
+
+- 2019-06-30
+
+![1c94b1cc8679c62df.gif](https://i.want.tf/to/that/2019/06/30/1c94b1cc8679c62df.gif)
+![SMe652d081c9220bc1.gif](https://i.want.tf/to/that/2019/06/30/SMe652d081c9220bc1.gif)
+![HEYZO-1052f3bdb28d22c597f4.gif](https://i.want.tf/to/that/2019/06/30/HEYZO-1052f3bdb28d22c597f4.gif)
+![FC2PPV-111430680597034180880cc.gif](https://i.want.tf/to/that/2019/06/30/FC2PPV-111430680597034180880cc.gif)
+![FC2PPV-1114834e9e7d32f74a4ea50.gif](https://i.want.tf/to/that/2019/06/30/FC2PPV-1114834e9e7d32f74a4ea50.gif)
+![062919_01-10mu5fc8a8fa39fbb779.gif](https://i.want.tf/to/that/2019/06/30/062919_01-10mu5fc8a8fa39fbb779.gif)
+![062219-946-cariba2aca1a98fbf65e3.gif](https://i.want.tf/to/that/2019/06/30/062219-946-cariba2aca1a98fbf65e3.gif)
+![dasd-546_39ee03444b3cf5c62.gif](https://i.want.tf/to/that/2019/06/30/dasd-546_39ee03444b3cf5c62.gif)
+![dasd-546_251149dc166d26fe6.gif](https://i.want.tf/to/that/2019/06/30/dasd-546_251149dc166d26fe6.gif)
+![dasd-546ccfe3f4c24390809.gif](https://i.want.tf/to/that/2019/06/30/dasd-546ccfe3f4c24390809.gif)
+![FC2PPV-1114944_279ea03f5902078d0.gif](https://i.want.tf/to/that/2019/06/30/FC2PPV-1114944_279ea03f5902078d0.gif)
+![FC2PPV-1114944a5cbf83530eec5ff.gif](https://i.want.tf/to/that/2019/06/30/FC2PPV-1114944a5cbf83530eec5ff.gif)
+![FC2PPV-11095740d7f7c5574fb0b73.gif](https://i.want.tf/to/that/2019/06/30/FC2PPV-11095740d7f7c5574fb0b73.gif)
+
+</p>
+</details>
+
+---
+
+#### [0005](https://kkpi.blog.fc2blog.us/blog-entry-7.html '0005')
+
+<details><summary><b>[0005](https://kkpi.blog.fc2blog.us/blog-entry-7.html '0005')</b></summary>
+<p>
+
+- 2019-06-24
+
+![STAR-888ed8dd0808b126740.gif](https://i.want.tf/to/that/2019/06/25/STAR-888ed8dd0808b126740.gif)
+![SKSK-004eb1aa1349681b1a7.gif](https://i.want.tf/to/that/2019/06/25/SKSK-004eb1aa1349681b1a7.gif)
+![sdmu-938_27eac7d39ebce7d1b.gif](https://i.want.tf/to/that/2019/06/25/sdmu-938_27eac7d39ebce7d1b.gif)
+![sdmu-938ac05c37db3b8f622.gif](https://i.want.tf/to/that/2019/06/25/sdmu-938ac05c37db3b8f622.gif)
+![CJOD-194e1a13303d8bca896.gif](https://i.want.tf/to/that/2019/06/25/CJOD-194e1a13303d8bca896.gif)
+![CJOD-194_2f6b0752c1e11a964.gif](https://i.want.tf/to/that/2019/06/25/CJOD-194_2f6b0752c1e11a964.gif)
+![hotties.19.04.09.mai.honda.lost.in.translation_2c63b7a4eb65d3b0a.gif](https://i.want.tf/to/that/2019/06/25/hotties.19.04.09.mai.honda.lost.in.translation_2c63b7a4eb65d3b0a.gif)
+![hotties.19.04.09.mai.honda.lost.in.translation4105909cdcf6380a.gif](https://i.want.tf/to/that/2019/06/25/hotties.19.04.09.mai.honda.lost.in.translation4105909cdcf6380a.gif)
+![ipx-310_30b27ce73c1231098.gif](https://i.want.tf/to/that/2019/06/25/ipx-310_30b27ce73c1231098.gif)
+![ipx-310_25f606850f3b2e990.gif](https://i.want.tf/to/that/2019/06/25/ipx-310_25f606850f3b2e990.gif)
+![ipx-3106a3fe9fcd3af1a8d.gif](https://i.want.tf/to/that/2019/06/25/ipx-3106a3fe9fcd3af1a8d.gif)
+![fneo-014_5967adbf279715fb1.gif](https://i.want.tf/to/that/2019/06/25/fneo-014_5967adbf279715fb1.gif)
+![fneo-014_4c7a7b25520847eb8.gif](https://i.want.tf/to/that/2019/06/25/fneo-014_4c7a7b25520847eb8.gif)
+![fneo-014_369fba59f2ec0bcf1.gif](https://i.want.tf/to/that/2019/06/25/fneo-014_369fba59f2ec0bcf1.gif)
+![fneo-014_233d5bcee5ab9ba7b.gif](https://i.want.tf/to/that/2019/06/25/fneo-014_233d5bcee5ab9ba7b.gif)
+![fneo-01400b016570f4967d2.gif](https://i.want.tf/to/that/2019/06/25/fneo-01400b016570f4967d2.gif)
+![ipx-319_5c5df88ec9e4e1c4f.gif](https://i.want.tf/to/that/2019/06/25/ipx-319_5c5df88ec9e4e1c4f.gif)
+![ipx-319_478485c930b57c250.gif](https://i.want.tf/to/that/2019/06/25/ipx-319_478485c930b57c250.gif)
+![ipx-319_259229befc6dc2248.gif](https://i.want.tf/to/that/2019/06/25/ipx-319_259229befc6dc2248.gif)
+![ipx-319_35adfc410f9ac46c1.gif](https://i.want.tf/to/that/2019/06/25/ipx-319_35adfc410f9ac46c1.gif)
+![ipx-319c018fe0b1d0d8dee.gif](https://i.want.tf/to/that/2019/06/25/ipx-319c018fe0b1d0d8dee.gif)
+
+</p>
+</details>
+
+---
+
+#### [0004](https://kkpi.blog.fc2blog.us/blog-entry-6.html '0004')
+
+<details><summary><b>[0004](https://kkpi.blog.fc2blog.us/blog-entry-6.html '0004')</b></summary>
+<p>
+
+- 2019-06-19
+
+![abp-874_4f98525f28e69a107.gif](https://i.want.tf/to/that/2019/06/19/abp-874_4f98525f28e69a107.gif)
+![abp-874_3413ab369973b7350.gif](https://i.want.tf/to/that/2019/06/19/abp-874_3413ab369973b7350.gif)
+![abp-874_26f901bf339d658a9.gif](https://i.want.tf/to/that/2019/06/19/abp-874_26f901bf339d658a9.gif)
+![abp-874c5d80b6611626736.gif](https://i.want.tf/to/that/2019/06/19/abp-874c5d80b6611626736.gif)
+![259LUXU-1141_2928f98b29ce8a4ae.gif](https://i.want.tf/to/that/2019/06/19/259LUXU-1141_2928f98b29ce8a4ae.gif)
+![259LUXU-1141dcb71dcb03056f08.gif](https://i.want.tf/to/that/2019/06/19/259LUXU-1141dcb71dcb03056f08.gif)
+![----G-------------------------1080P--ad66074494f35654.gif](https://i.want.tf/to/that/2019/06/20/----G-------------------------1080P--ad66074494f35654.gif)
+![heyzo-2015a61bdf4473411a2c.gif](https://i.want.tf/to/that/2019/06/20/heyzo-2015a61bdf4473411a2c.gif)
+![061519_861-1pon9cdbf3df3db03865.gif](https://i.want.tf/to/that/2019/06/19/061519_861-1pon9cdbf3df3db03865.gif)
+![FC2PPV-11065932be86c97bc52a9ed.gif](https://i.want.tf/to/that/2019/06/20/FC2PPV-11065932be86c97bc52a9ed.gif)
+![FC2PPV-1106023437eb910524bae11.gif](https://i.want.tf/to/that/2019/06/20/FC2PPV-1106023437eb910524bae11.gif)
+![FC2PPV-1105774_2b359bd03052fa3b3.gif](https://i.want.tf/to/that/2019/06/20/FC2PPV-1105774_2b359bd03052fa3b3.gif)
+![FC2PPV-1105774e3d7fba7f894d111.gif](https://i.want.tf/to/that/2019/06/20/FC2PPV-1105774e3d7fba7f894d111.gif)
+![ssni-497_41b36071f16fa740c.gif](https://i.want.tf/to/that/2019/06/20/ssni-497_41b36071f16fa740c.gif)
+![ssni-497_29a178d0a6e1f5aa9.gif](https://i.want.tf/to/that/2019/06/20/ssni-497_29a178d0a6e1f5aa9.gif)
+![ssni-497_39070b22c5bc7d60c.gif](https://i.want.tf/to/that/2019/06/20/ssni-497_39070b22c5bc7d60c.gif)
+![ssni-49708cd22566f594a9e.gif](https://i.want.tf/to/that/2019/06/20/ssni-49708cd22566f594a9e.gif)
+
+</p>
+</details>
+
+---
+
+#### [0003](https://kkpi.blog.fc2blog.us/blog-entry-5.html '0003')
+
+<details><summary><b>[0003](https://kkpi.blog.fc2blog.us/blog-entry-5.html '0003')</b></summary>
+<p>
+
+- 2019-06-15
+
+![nhdtb-267_12f7e562540613eb63.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_12f7e562540613eb63.gif)
+![nhdtb-267_117d4cd4bcfb25767a.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_117d4cd4bcfb25767a.gif)
+![nhdtb-267_51603329abb71b57a.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_51603329abb71b57a.gif)
+![nhdtb-267_1056d56297121b1926.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_1056d56297121b1926.gif)
+![nhdtb-267_4aa2ea2e3f229afd7.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_4aa2ea2e3f229afd7.gif)
+![nhdtb-267_30630105b3a109d28.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_30630105b3a109d28.gif)
+![nhdtb-267_2cdb50b60ee3714b6.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-267_2cdb50b60ee3714b6.gif)
+![nhdtb-2674b564e0b9e564c15.gif](https://i.want.tf/to/that/2019/06/15/nhdtb-2674b564e0b9e564c15.gif)
+![300MAAN-4079c4a7932de031309.gif](https://i.want.tf/to/that/2019/06/15/300MAAN-4079c4a7932de031309.gif)
+![300MAAN-408f427bec5fb7e6d08.gif](https://i.want.tf/to/that/2019/06/15/300MAAN-408f427bec5fb7e6d08.gif)
+![IPX-304_24b9387e94f02d20b.gif](https://i.want.tf/to/that/2019/06/15/IPX-304_24b9387e94f02d20b.gif)
+![IPX-3043dd679c0b47f07dd.gif](https://i.want.tf/to/that/2019/06/15/IPX-3043dd679c0b47f07dd.gif)
+![rki-476ef549e8dee6536af.gif](https://i.want.tf/to/that/2019/06/15/rki-476ef549e8dee6536af.gif)
+![sdde-583_3bd0858940e958ae9.gif](https://i.want.tf/to/that/2019/06/15/sdde-583_3bd0858940e958ae9.gif)
+![sdde-583_4a20a5357c57b2297.gif](https://i.want.tf/to/that/2019/06/15/sdde-583_4a20a5357c57b2297.gif)
+![sdde-583_2db2e0accf876b5c8.gif](https://i.want.tf/to/that/2019/06/15/sdde-583_2db2e0accf876b5c8.gif)
+![sdde-583e3e36da5244a818d.gif](https://i.want.tf/to/that/2019/06/15/sdde-583e3e36da5244a818d.gif)
+![SDMU-936_20cdbed14f9d939b8.gif](https://i.want.tf/to/that/2019/06/15/SDMU-936_20cdbed14f9d939b8.gif)
+![SDMU-936f457966a9e1b5f36.gif](https://i.want.tf/to/that/2019/06/15/SDMU-936f457966a9e1b5f36.gif)
+![2.New-Folder2_2792744ddafae17c9.gif](https://i.want.tf/to/that/2019/06/15/2.New-Folder2_2792744ddafae17c9.gif)
+![2.New-Folder268304a0c1221e9a5.gif](https://i.want.tf/to/that/2019/06/15/2.New-Folder268304a0c1221e9a5.gif)
+
+- 2019-07-05
+- [GIF](/blog-category-1.html)
+
+![ekdv-586f5182d692795b319.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586f5182d692795b319.gif)
+![ekdv-586_2b10a7bd849d1f59f.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_2b10a7bd849d1f59f.gif)
+![ekdv-586_3b4ee574f6646f8a2.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_3b4ee574f6646f8a2.gif)
+![ekdv-586_4b3e7606204a68d07.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_4b3e7606204a68d07.gif)
+![ekdv-586_5c342b35aac6c78e0.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_5c342b35aac6c78e0.gif)
+![ekdv-586_618c3e76cf229e7c8.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_618c3e76cf229e7c8.gif)
+![ekdv-586_739e4e13731abe9de.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_739e4e13731abe9de.gif)
+![ekdv-586_8232cef8cd84704e5.gif](https://i.want.tf/to/that/2019/07/05/ekdv-586_8232cef8cd84704e5.gif)
+
+</p>
+</details>
+
+---
+
+#### [0002](https://kkpi.blog.fc2blog.us/blog-entry-4.html '0002')
+
+<details><summary><b>[0002](https://kkpi.blog.fc2blog.us/blog-entry-4.html '0002')</b></summary>
+<p>
+
+- 2019-06-12
+
+![S--YouFlix--832d18e108e12898.gif](https://i.want.tf/to/that/2019/06/12/S--YouFlix--832d18e108e12898.gif)
+![SSEX--YouFlix--9424010bde273d1f.gif](https://i.want.tf/to/that/2019/06/12/SSEX--YouFlix--9424010bde273d1f.gif)
+![SSEX42--YouFlix--_0bfab2409e63530f1.gif](https://i.want.tf/to/that/2019/06/12/SSEX42--YouFlix--_0bfab2409e63530f1.gif)
+![SSEX42--YouFlix--86da7cf8d02b9931.gif](https://i.want.tf/to/that/2019/06/12/SSEX42--YouFlix--86da7cf8d02b9931.gif)
+![S--YouFlix--81b860b59a744755.gif](https://i.want.tf/to/that/2019/06/12/S--YouFlix--81b860b59a744755.gif)
+![S--YouFlix--_0b6c98ba69e984e81.gif](https://i.want.tf/to/that/2019/06/12/S--YouFlix--_0b6c98ba69e984e81.gif)
+![Kim-Hyun-A-d9ed143deaab9512.gif](https://i.want.tf/to/that/2019/06/12/Kim-Hyun-A-d9ed143deaab9512.gif)
+![mide-658_3fce1fc58c1430381.gif](https://i.want.tf/to/that/2019/06/12/mide-658_3fce1fc58c1430381.gif)
+![mide-658_23f649c541531146a.gif](https://i.want.tf/to/that/2019/06/12/mide-658_23f649c541531146a.gif)
+![mide-6580b6bf7b549719197.gif](https://i.want.tf/to/that/2019/06/12/mide-6580b6bf7b549719197.gif)
+![honb-126_3e46abc8953396fb2.gif](https://i.want.tf/to/that/2019/06/12/honb-126_3e46abc8953396fb2.gif)
+![honb-1263b0bb03eb20fa751.gif](https://i.want.tf/to/that/2019/06/12/honb-1263b0bb03eb20fa751.gif)
+![honb-126_236f4ae4735dc7936.gif](https://i.want.tf/to/that/2019/06/12/honb-126_236f4ae4735dc7936.gif)
+![S--YouFlix--6c6ab3fa31e28f56.gif](https://i.want.tf/to/that/2019/06/12/S--YouFlix--6c6ab3fa31e28f56.gif)
+
+</p>
+</details>
+
+---
+
+#### [0001](https://kkpi.blog.fc2blog.us/blog-entry-3.html '0001')
+
+<details><summary><b>[0001](https://kkpi.blog.fc2blog.us/blog-entry-3.html '0001')</b></summary>
+<p>
+
+- 2019-06-10
+
+![259LUXU-11007a0b846ab9ec56e6.gif](https://i.want.tf/to/that/2019/06/10/259LUXU-11007a0b846ab9ec56e6.gif)
+![259LUXU-1100_26090bd9862bc4f7a.gif](https://i.want.tf/to/that/2019/06/10/259LUXU-1100_26090bd9862bc4f7a.gif)
+![259LUXU-111926fec659b4ab7b235.gif](https://i.want.tf/to/that/2019/06/10/259LUXU-111926fec659b4ab7b235.gif)
+![COSH-0263076a372cb9c4651.gif](https://i.want.tf/to/that/2019/06/10/COSH-0263076a372cb9c4651.gif)
+![gachig118419e2bc77fb5179e.gif](https://i.want.tf/to/that/2019/06/10/gachig118419e2bc77fb5179e.gif)
+![heyzo-08904ddc018c4e25f843.gif](https://i.want.tf/to/that/2019/06/10/heyzo-08904ddc018c4e25f843.gif)
+![Vixen---Lena-Anderson---I-Want-It-All882181ccb6f0ac00.gif](https://i.want.tf/to/that/2019/06/10/Vixen---Lena-Anderson---I-Want-It-All882181ccb6f0ac00.gif)
+![--153e736525f85f11.gif](https://i.want.tf/to/that/2019/06/10/--153e736525f85f11.gif)
+![.Mothers-Job.2017.KR.WEB287714fcf93a9c31.gif](https://i.want.tf/to/that/2019/06/10/.Mothers-Job.2017.KR.WEB287714fcf93a9c31.gif)
+![_2e3024ccecdf2ec2f.gif](https://i.want.tf/to/that/2019/06/10/_2e3024ccecdf2ec2f.gif)
+
+</p>
+</details>
+
+--- -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-12-19T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/front-end-performance-checklist-2019/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Front-End Performance Checklist 2019">
+                        
+                        <span class="card-title">Front-End Performance Checklist 2019</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-01-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Performance/">
+                        <span class="chip bg-color">Performance</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/JavaScript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JavaScript 面试知识点总结">
+                        
+                        <span class="card-title">JavaScript 面试知识点总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-12-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

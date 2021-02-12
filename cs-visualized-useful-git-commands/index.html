@@ -1,0 +1,1255 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="🌳🚀 CS Visualized: Useful Git Commands, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>🌳🚀 CS Visualized: Useful Git Commands | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">🌳🚀 CS Visualized: Useful Git Commands</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Visualized/">
+                                <span class="chip bg-color">Visualized</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Git/" class="post-category">
+                                Git
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1">🌳🚀 CS Visualized: Useful Git Commands</a></p>
+</blockquote>
+<p><img src="/images/rixan4h4z8y94eq89som.png" alt="Cover image for 🌳🚀 CS Visualized: Useful Git Commands"></p>
+<p>Although Git is a very powerful tool, I think most people would agree when I say it can also be… a total nightmare 😐 I’ve always found it very useful to visualize in my head what’s happening when working with Git: how are the branches interacting when I perform a certain command, and how will it affect the history? Why did my coworker cry when I did a hard reset on <code>master</code>, <code>force push</code>ed to origin and <code>rimraf</code>‘d the <code>.git</code> folder?</p>
+<blockquote>
+<p>尽管 Git 是一个非常强力的工具,但如果我说这也可能是一场噩梦 ,我想大多数人也会同意.在使用 Git 的时候,我发现在我的大脑中想象发生了什么是非常有用的:在我执行特定命令的时候,分支之间是如何相互影响的,以及它会如何影响历史日志？当我在 master 分支做了硬重置(hard reset),强制推送(force push)到 master 分支并且 rimraf .git 目录之后,我的同事为什么会哭？</p>
+</blockquote>
+<p>I thought it would be the perfect use case to create some visualized examples of the most common and useful commands! 🥳 Many of the commands I’m covering have optional arguments that you can use in order to change their behavior. In my examples, I’ll cover the default behavior of the commands without adding (too many) config options! 😄</p>
+<blockquote>
+<p>我认为为最常用和最有用的命令创建一些可视化的图例将会成为完美的使用示例！ 我涉及到的许多命令拥有可选的参数,您可以使用这些参数来更改命令的行为.在示例中,我将会涉及没有添加(太多)配置项命令的默认行为！</p>
+</blockquote>
+<h2 id="Merging"><a href="#Merging" class="headerlink" title="Merging"></a>Merging</h2><p>Having multiple branches is extremely convenient to keep new changes separated from each other, and to make sure you don’t accidentally push unapproved or broken changes to production. Once the changes have been approved, we want to get these changes in our production branch!</p>
+<blockquote>
+<p>拥有多个分支是很方便的,这样可以将不同的新修改互相隔离开,而且还能确保你不会意外地向生产代码推送未经许可或破损的代码修改.但一旦这些修改得到了批准许可,我们就需要将其部署到我们的生产分支中！</p>
+</blockquote>
+<p>One way to get the changes from one branch to another is by performing a <code>git merge</code>! There are two types of merges Git can perform: a <strong>fast-forward</strong>, or a <strong>no-fast-forward</strong> 🐢</p>
+<blockquote>
+<p>可将一个分支的修改融入到另一个分支的一种方式是执行 <code>git merge</code> .Git 可执行两种类型的合并:<strong>fast-forward</strong> 和 <strong>no-fast-forward</strong>.</p>
+</blockquote>
+<p>This may not make a lot of sense right now, so let’s look at the differences!</p>
+<blockquote>
+<p>现在你可能分不清,但我们马上就来看看它们的差异所在.</p>
+</blockquote>
+<h3 id="Fast-forward-ff"><a href="#Fast-forward-ff" class="headerlink" title="Fast-forward (--ff)"></a>Fast-forward (<code>--ff</code>)</h3><p>A <strong>fast-forward merge</strong> can happen when the current branch has no extra commits compared to the branch we’re merging. Git is… <em>lazy</em> and will first try to perform the easiest option: the fast-forward! This type of merge doesn’t create a new commit, but rather merges the commit(s) on the branch we’re merging right in the current branch 🥳</p>
+<blockquote>
+<p>在当前分支相比于我们要合并的分支没有额外的提交时,可以执行 <code>fast-forward</code> 合并.Git 很懒,首先会尝试执行最简单的选项:fast-forward！这类合并不会创建新的提交,而是会将我们正在合并的分支上的提交直接合并到当前分支.</p>
+</blockquote>
+<p><img src="/images/894znjv4oo9agqiz4dql.gif"></p>
+<p>Perfect! We now have all the changes that were made on the <code>dev</code> branch available on the <code>master</code> branch. So, what’s the <strong>no-fast-forward</strong> all about?</p>
+<blockquote>
+<p>完美！现在,我们在 <code>dev</code> 分支上所做的所有改变都合并到了 <code>master</code> 分支上.那么 no-fast-forward 又是什么意思呢？</p>
+</blockquote>
+<h3 id="No-fast-foward-no-ff"><a href="#No-fast-foward-no-ff" class="headerlink" title="No-fast-foward (--no-ff)"></a>No-fast-foward (<code>--no-ff</code>)</h3><p>It’s great if your current branch doesn’t have any extra commits compared to the branch that you want to merge, but unfortunately that’s rarely the case! If we committed changes on the current branch that the branch we want to merge doesn’t have, git will perform a <em>no-fast-forward</em> merge.</p>
+<blockquote>
+<p>如果你的当前分支相比于你想要合并的分支没有任何提交,那当然很好,但很遗憾现实情况很少如此！如果我们在当前分支上提交我们想要合并的分支不具备的改变,那么 git 将会执行 <em>no-fast-forward</em> 合并.</p>
+</blockquote>
+<p>With a no-fast-forward merge, Git creates a new <em>merging commit</em> on the active branch. The commit’s parent commits point to both the active branch and the branch that we want to merge!</p>
+<blockquote>
+<p>使用 no-fast-forward 合并时,Git 会在当前活动分支上创建新的 <em>merging commit</em> .这个提交的父提交既指向这个活动分支,也指向我们想要合并的分支！</p>
+</blockquote>
+<p><img src="/images/rf1o2b6eduboqwkigg3w.gif"></p>
+<p>No big deal, a perfect merge! 🎉 The <code>master</code> branch now contains all the changes that we’ve made on the <code>dev</code> branch.</p>
+<blockquote>
+<p>没什么大不了的,完美的合并！现在,<del>我们在 <code>dev</code> 分支上所做的所有改变都合并到了 <code>master</code> 分支上.</del> <code>master</code> 分支包含我们在 <code>dev</code> 分支上所做的所有改变.</p>
+</blockquote>
+<h3 id="Merge-Conflicts"><a href="#Merge-Conflicts" class="headerlink" title="Merge Conflicts"></a>Merge Conflicts</h3><p>Although Git is good at deciding how to merge branches and add changes to files, it cannot always make this decision all by itself 🙂 This can happen when the two branches we’re trying to merge have changes on the same line in the same file, or if one branch deleted a file that another branch modified, and so on.</p>
+<blockquote>
+<p>尽管 Git 能够很好地决定如何合并分支以及如何向文件添加修改,但它并不总是能完全自己做决定.当我们想要合并的两个分支的同一文件中的同一行代码上有不同的修改,或者一个分支删除了一个文件而另一个分支修改了这个文件时,Git 就不知道如何取舍了.</p>
+</blockquote>
+<p>In that case, Git will ask you to help decide which of the two options we want to keep! Let’s say that on both branches, we edited the first line in the <code>README.md</code>.</p>
+<blockquote>
+<p>在这样的情况下,Git 会询问你想要保留哪种选择？假设在这两个分支中,我们都编辑了 README.md 的第一行.</p>
+</blockquote>
+<p><img src="/images/m3nxmp67mqof5sa3iik9.png"></p>
+<p>If we want to merge <code>dev</code> into <code>master</code>, this will end up in a merge conflict: would you like the title to be <code>Hello!</code> or <code>Hey!</code>?</p>
+<p>如果我们想把 <code>dev</code> 合并到 <code>master</code>,就会出现一个合并冲突:你想要标题是 <code>Hello!</code> 还是 <code>Hey!</code>？</p>
+<p>When trying to merge the branches, Git will show you where the conflict happens. We can manually remove the changes we don’t want to keep, save the changes, add the changed file again, and commit the changes 🥳</p>
+<blockquote>
+<p>当尝试合并这些分支时,Git 会向你展示冲突出现的位置.我们可以手动移除我们不想保留的修改,保存这些修改,再次添加这个已修改的文件,然后提交这些修改.</p>
+</blockquote>
+<p><img src="/images/bcd5ajtoc0g5dxzmpfbq.gif"></p>
+<p>Yay! Although merge conflicts are often quite annoying, it makes total sense: Git shouldn’t just <em>assume</em> which change we want to keep.</p>
+<blockquote>
+<p>完成！尽管合并冲突往往很让人厌烦,但这是合理的:Git 不应该瞎猜我们想要保留哪些修改.</p>
+</blockquote>
+<hr>
+<h2 id="Rebasing"><a href="#Rebasing" class="headerlink" title="Rebasing"></a>Rebasing</h2><p>We just saw how we could apply changes from one branch to another by performing a <code>git merge</code>. Another way of adding changes from one branch to another is by performing a <code>git rebase</code>.</p>
+<blockquote>
+<p>我们刚看到可通过执行 <code>git merge</code> 将一个分支的修改应用到另一个分支.另一种可将一个分支的修改融入到另一个分支的方式是执行 <code>git rebase</code>.</p>
+</blockquote>
+<p>A <code>git rebase</code> <em>copies</em> the commits from the current branch, and puts these copied commits on top of the specified branch.</p>
+<blockquote>
+<p><code>git rebase</code> 会将当前分支的提交复制到指定的分支之上.</p>
+</blockquote>
+<p><img src="/images/dwyukhq8yj2xliq4i50e.gif"></p>
+<p>Perfect, we now have all the changes that were made on the <code>master</code> branch available on the <code>dev</code> branch! 🎊</p>
+<blockquote>
+<p>完美,现在我们在 <code>dev</code> 分支上获取了 <code>master</code> 分支上的所有修改.</p>
+</blockquote>
+<p>A big difference compared to merging, is that Git won’t try to find out which files to keep and not keep. The branch that we’re rebasing always has the latest changes that we want to keep! You won’t run into any merging conflicts this way, and keeps a nice linear Git history.</p>
+<blockquote>
+<p>变基与合并有一个重大的区别:Git 不会尝试确定要保留或不保留哪些文件.我们执行 rebase 的分支总是含有我们想要保留的最新近的修改！这样我们不会遇到任何合并冲突,而且可以保留一个漂亮的、线性的 Git 历史记录.</p>
+</blockquote>
+<p>This example shows rebasing on the <code>master</code> branch. In bigger projects, however, you usually don’t want to do that. A <code>git rebase</code> <strong>changes the history of the project</strong> as new hashes are created for the copied commits!</p>
+<blockquote>
+<p>上面这个例子展示了在 <code>master</code> 分支上的变基.但是,在更大型的项目中,你通常不需要这样的操作.<code>git rebase</code> 在为复制的提交创建新的 hash 时会修改项目的历史记录.</p>
+</blockquote>
+<p>Rebasing is great whenever you’re working on a feature branch, and the master branch has been updated. You can get all the updates on your branch, which would prevent future merging conflicts! 😄</p>
+<blockquote>
+<p>如果你在开发一个 feature 分支并且 master 分支已经更新过,那么变基就很好用.你可以在你的分支上获取所有更新,这能防止未来出现合并冲突.</p>
+</blockquote>
+<h3 id="Interactive-Rebase"><a href="#Interactive-Rebase" class="headerlink" title="Interactive Rebase"></a>Interactive Rebase</h3><p>Before rebasing the commits, we can modify them! 😃 We can do so with an <em>interactive rebase</em>. An interactive rebase can also be useful on the branch you’re currently working on, and want to modify some commits.</p>
+<blockquote>
+<p>在为提交执行变基之前,我们可以修改它们！我们可以使用 <em>交互式变基</em> 来完成这一任务.交互式变基在你当前开发的分支上以及想要修改某些提交时会很有用.</p>
+</blockquote>
+<p>There are 6 actions we can perform on the commits we’re rebasing:</p>
+<blockquote>
+<p>在我们正在 rebase 的提交上,我们可以执行以下 6 个动作:</p>
+</blockquote>
+<ul>
+<li><code>reword</code>: Change the commit message(<code>reword</code>:修改提交信息;)</li>
+<li><code>edit</code>: Amend this commit(<code>edit</code>:修改此提交;)</li>
+<li><code>squash</code>: Meld commit into the previous commit(<code>squash</code>:将提交融合到前一个提交中;)</li>
+<li><code>fixup</code>: Meld commit into the previous commit, without keeping the commit’s log message(<code>fixup</code>:将提交融合到前一个提交中,不保留该提交的日志消息;)</li>
+<li><code>exec</code>: Run a command on each commit we want to rebase(<code>exec</code>:在每个提交上运行我们想要 rebase 的命令;)</li>
+<li><code>drop</code>: Remove the commit(<code>drop</code>:移除该提交.)</li>
+</ul>
+<p>Awesome! This way, we can have full control over our commits. If we want to remove a commit, we can just <code>drop</code> it.</p>
+<blockquote>
+<p>很棒！这样我们就能完全控制我们的提交了.如果你想要移除一个提交,只需 <code>drop</code> 即可.</p>
+</blockquote>
+<p><img src="/images/msofpv7k6rcmpaaefscm.gif"></p>
+<p>Or if we want to squash multiple commits together to get a cleaner history, no problem!</p>
+<blockquote>
+<p>如果你想把多个提交融合到一起以便得到清晰的提交历史,那也没有问题！</p>
+</blockquote>
+<p><img src="/images/bc1r460xx1i0blu0lnnm.gif"></p>
+<p>Interactive rebasing gives you a lot of control over the commits you’re trying to rebase, even on the current active branch!</p>
+<blockquote>
+<p>交互式变基能为你在 rebase 时提供大量控制,甚至可以控制当前的活动分支.</p>
+</blockquote>
+<hr>
+<h2 id="Resetting"><a href="#Resetting" class="headerlink" title="Resetting"></a>Resetting</h2><p>It can happen that we committed changes that we didn’t want later on. Maybe it’s a <code>WIP</code> commit, or maybe a commit that introduced bugs! 🐛 In that case, we can perform a <code>git reset</code>.</p>
+<blockquote>
+<p>当我们不想要之前提交的修改时,就会用到这个命令.也许这是一个 <code>WIP</code> 提交或者可能是引入了 bug 的提交,这时候就要执行 <code>git reset</code>.</p>
+</blockquote>
+<p>A <code>git reset</code> gets rid of all the current staged files and gives us control over where <code>HEAD</code> should point to.</p>
+<blockquote>
+<p><code>git reset</code> 能让我们不再使用当前已暂存的文件,让我们可以控制 <code>HEAD</code> 应该指向的位置.</p>
+</blockquote>
+<h3 id="Soft-reset"><a href="#Soft-reset" class="headerlink" title="Soft reset"></a>Soft reset</h3><p>A <em>soft reset</em> moves <code>HEAD</code> to the specified commit (or the index of the commit compared to <code>HEAD</code>), without getting rid of the changes that were introduced on the commits afterward!</p>
+<blockquote>
+<p><em>软重置</em> 会将 <code>HEAD</code> 移至指定的提交(或与 <code>HEAD</code> 相比的提交的索引),而不会移除该提交之后加入的修改！</p>
+</blockquote>
+<p>Let’s say that we don’t want to keep the commit <code>9e78i</code> which added a <code>style.css</code> file, and we also don’t want to keep the commit <code>035cc</code> which added an <code>index.js</code> file. However, we do want to keep the newly added <code>style.css</code> and <code>index.js</code> file! A perfect use case for a soft reset.</p>
+<blockquote>
+<p>假设我们不想保留添加了一个 <code>style.css</code> 文件的提交 <code>9e78i</code>,而且我们也不想保留添加了一个 <code>index.js</code> 文件的提交 <code>035cc</code>.但是,我们确实又想要保留新添加的 <code>style.css</code> 和 <code>index.js</code> 文件！这是软重置的一个完美用例.</p>
+</blockquote>
+<p><img src="/images/je5240aqa5uw9d8j3ibb.gif"></p>
+<p>When typing <code>git status</code>, you’ll see that we still have access to all the changes that were made on the previous commits. This is great, as this means that we can fix the contents of these files and commit them again later on!</p>
+<blockquote>
+<p>输入 <code>git status</code> 后,你会看到我们仍然可以访问在之前的提交上做过的所有修改.这很好,这意味着我们可以修复这些文件的内容,之后再重新提交它们！</p>
+</blockquote>
+<h3 id="Hard-reset"><a href="#Hard-reset" class="headerlink" title="Hard reset"></a>Hard reset</h3><p>Sometimes, we don’t want to keep the changes that were introduced by certain commits. Unlike a soft reset, we shouldn’t need to have access to them any more. Git should simply reset its state back to where it was on the specified commit: this even includes the changes in your working directory and staged files! 💣</p>
+<blockquote>
+<p>有时候我们并不想保留某些提交引入的修改.不同于软重置,我们应该再也无需访问它们.Git 应该直接将整体状态直接重置到特定提交之前的状态:这甚至包括你在工作目录中和已暂存文件上的修改.</p>
+</blockquote>
+<p><img src="/images/hlh0kowt3hov1xhcku38.gif"></p>
+<p>Git has discarded the changes that were introduced on <code>9e78i</code> and <code>035cc</code>, and reset its state to where it was on commit <code>ec5be</code>.</p>
+<blockquote>
+<p>Git 丢弃了 <code>9e78i</code> 和 <code>035cc</code> 引入的修改,并将状态重置到了 <code>ec5be</code> 的状态.</p>
+</blockquote>
+<hr>
+<h2 id="Reverting"><a href="#Reverting" class="headerlink" title="Reverting"></a>Reverting</h2><p>Another way of undoing changes is by performing a <code>git revert</code>. By reverting a certain commit, we create a <em>new commit</em> that contains the reverted changes!</p>
+<blockquote>
+<p>另一种撤销修改的方法是执行 <code>git revert</code>.通过对特定的提交执行还原操作,我们会创建一个包含已还原修改的 <em>新提交</em>.</p>
+</blockquote>
+<p>Let’s say that <code>ec5be</code> added an <code>index.js</code> file. Later on, we actually realize we didn’t want this change introduced by this commit anymore! Let’s revert the <code>ec5be</code> commit.</p>
+<blockquote>
+<p>假设 <code>ec5be</code> 添加了一个 <code>index.js</code> 文件.但之后我们发现其实我们再也不需要由这个提交引入的修改了.那就还原 <code>ec5be</code> 提交吧！</p>
+</blockquote>
+<p><img src="/images/3kkd2ahn41zixs12xgpf.gif"></p>
+<p>Perfect! Commit <code>9e78i</code> reverted the changes that were introduced by the <code>ec5be</code> commit. Performing a <code>git revert</code> is very useful in order to undo a certain commit, without modifying the history of the branch.</p>
+<blockquote>
+<p>完美！提交 <code>9e78i</code> 还原了由提交 <code>ec5be</code> 引入的修改.在撤销特定的提交时,<code>git revert</code> 非常有用,同时也不会修改分支的历史.</p>
+</blockquote>
+<hr>
+<h2 id="Cherry-picking"><a href="#Cherry-picking" class="headerlink" title="Cherry-picking"></a>Cherry-picking</h2><p>When a certain branch contains a commit that introduced changes we need on our active branch, we can <code>cherry-pick</code> that command! By <code>cherry-pick</code>ing a commit, we create a new commit on our active branch that contains the changes that were introduced by the <code>cherry-pick</code>ed commit.</p>
+<blockquote>
+<p>当一个特定分支包含我们的活动分支需要的某个提交时,我们对那个提交执行 <code>cherry-pick</code>！对一个提交执行 <code>cherry-pick</code> 时,我们会在活动分支上创建一个新的提交,其中包含由<code>拣选</code>出来的提交所引入的修改.</p>
+</blockquote>
+<p>Say that commit <code>76d12</code> on the <code>dev</code> branch added a change to the <code>index.js</code> file that we want in our <code>master</code> branch. We don’t want the <em>entire</em> we just care about this one single commit!</p>
+<blockquote>
+<p>假设 dev 分支上的提交 <code>76d12</code> 为 <code>index.js</code> 文件添加了一项修改,而我们希望将其整合到 <code>master</code> 分支中.我们并不想要整个 <code>dev</code> 分支,而只需要这个提交！</p>
+</blockquote>
+<p><img src="/images/2dkjx4yeaal10xyvj29v.gif"></p>
+<p>Cool, the master branch now contains the changes that <code>76d12</code> introduced!</p>
+<blockquote>
+<p>现在 master 分支包含 <code>76d12</code> 引入的修改了.</p>
+</blockquote>
+<hr>
+<h2 id="Fetching"><a href="#Fetching" class="headerlink" title="Fetching"></a>Fetching</h2><p>If we have a remote Git branch, for example a branch on Github, it can happen that the remote branch has commits that the current branch doesn’t have! Maybe another branch got merged, your colleague pushed a quick fix, and so on.</p>
+<blockquote>
+<p>如果你有一个远程 Git 分支,比如在 GitHub 上的分支,当远程分支上包含当前分支没有的提交时,可以使用取回.比如当合并了另一个分支或你的同事推送了一个快速修复时.</p>
+</blockquote>
+<p>We can get these changes locally, by performing a <code>git fetch</code> on the remote branch! It doesn’t affect your local branch in any way: a <code>fetch</code> simply downloads new data.</p>
+<blockquote>
+<p>通过在这个远程分支上执行 <code>git fetch</code>,我们就可在本地获取这些修改.这不会以任何方式影响你的本地分支: <code>fetch</code> 只是单纯地下载新的数据而已.</p>
+</blockquote>
+<p><img src="/images/bulx1voegfji4vwgndh4.gif"></p>
+<p>We can now see all the changes that have been made since we last pushed! We can decide what we want to do with the new data now that we have it locally.</p>
+<blockquote>
+<p>现在我们可以看到自上次推送以来的所有修改了.这些新数据也已经在本地了,我们可以决定用这些新数据做什么了.</p>
+</blockquote>
+<hr>
+<h2 id="Pulling"><a href="#Pulling" class="headerlink" title="Pulling"></a>Pulling</h2><p>Although a <code>git fetch</code> is very useful in order to get the remote information of a branch, we can also perform a <code>git pull</code>. A <code>git pull</code> is actually two commands in one: a <code>git fetch</code>, and a <code>git merge</code>. When we’re pulling changes from the origin, we’re first fetching all the data like we did with a <code>git fetch</code>, after which the latest changes are automatically merged into the local branch.</p>
+<blockquote>
+<p>尽管 <code>git fetch</code> 可用于获取某个分支的远程信息,但我们也可以执行 <code>git pull</code>.<code>git pull</code> 实际上是两个命令合成了一个:<code>git fetch</code> 和<code>git merge</code>.当我们从来源拉取修改时,我们首先是像 <code>git fetch</code> 那样取回所有数据,然后最新的修改会自动合并到本地分支中.</p>
+</blockquote>
+<p><img src="/images/zifpnl1h6a4tk4qdc9sy.gif"></p>
+<p>Awesome, we’re now perfectly in sync with the remote branch and have all the latest changes! 🤩</p>
+<blockquote>
+<p>很好,我们现在与远程分支完美同步了,并且也有了所有最新的修改！</p>
+</blockquote>
+<hr>
+<h2 id="Reflog"><a href="#Reflog" class="headerlink" title="Reflog"></a>Reflog</h2><p>Everyone makes mistakes, and that’s totally okay! Sometimes it may feel like you’ve screwed up your git repo so badly that you just want to delete it entirely.</p>
+<blockquote>
+<p>每个人都会犯错,但犯错其实没啥！有时候你可能感觉你把 git repo 完全搞坏了,让你想完全删了了事.</p>
+</blockquote>
+<p><code>git reflog</code> is a very useful command in order to show a log of all the actions that have been taken! This includes merges, resets, reverts: basically any alteration to your branch.</p>
+<blockquote>
+<p><code>git reflog</code> 是一个非常有用的命令,可以展示已经执行过的所有动作的日志.包括合并、重置、还原,基本上包含你对你的分支所做的任何修改.</p>
+</blockquote>
+<p><img src="/images/1aqek1py1knwl926ele7.gif"></p>
+<p>If you made a mistake, you can easily redo this by resetting <code>HEAD</code> based on the information that <code>reflog</code> gives us!</p>
+<blockquote>
+<p>如果你犯了错,你可以根据 <code>reflog</code> 提供的信息通过重置 <code>HEAD</code> 来轻松地重做！</p>
+</blockquote>
+<p>Say that we actually didn’t want to merge the origin branch. When we execute the <code>git reflog</code> command, we see that the state of the repo before the merge is at <code>HEAD@&#123;1&#125;</code>. Let’s perform a <code>git reset</code> to point HEAD back to where it was on <code>HEAD@&#123;1&#125;</code>!</p>
+<blockquote>
+<p>假设我们实际上并不需要合并原有分支.当我们执行 <code>git reflog</code> 命令时,我们可以看到这个 repo 的状态在合并前位于 <code>HEAD@&#123;1&#125;</code>.那我们就执行一次 <code>git reset</code>,将 HEAD 重新指向在 <code>HEAD@&#123;1&#125;</code> 的位置.</p>
+</blockquote>
+<p><img src="/images/9z9rhtbw7mrigp0miijz.gif"></p>
+<p>We can see that the latest action has been pushed to the <code>reflog</code>!</p>
+<blockquote>
+<p>我们可以看到最新的动作已被推送给 <code>reflog</code>.</p>
+</blockquote>
+<hr>
+<p>Git has so many useful porcelain and plumbing commands, I wish I could cover them all! 😄 I know there are many other commands or alterations that I didn’t have time for to cover right now - let me know what your favorite/most useful commands are, and I may cover them in another post!</p>
+<p>And as always, feel free to reach out to me! 😊</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-04-02T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/javascript-visualized-promises-async-await/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await">
+                        
+                        <span class="card-title">7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                    <a href="/tags/Promises/">
+                        <span class="chip bg-color">Promises</span>
+                    </a>
+                    
+                    <a href="/tags/Async/">
+                        <span class="chip bg-color">Async</span>
+                    </a>
+                    
+                    <a href="/tags/Await/">
+                        <span class="chip bg-color">Await</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/%E7%BB%B4%E6%8A%A4%E5%A9%86%E5%AA%B3%E5%85%B3%E7%B3%BB%20%E8%80%81%E5%85%AC%E9%9C%80%E5%81%9A%E5%88%B0%E5%8D%81%E4%BA%8C%E6%88%92/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="维护婆媳关系老公需做到十二戒">
+                        
+                        <span class="card-title">维护婆媳关系老公需做到十二戒</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A9%9A%E5%A7%BB/">
+                        <span class="chip bg-color">婚姻</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

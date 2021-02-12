@@ -1,0 +1,1606 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="An Overview of Javascript Module Types, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>An Overview of Javascript Module Types | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">An Overview of Javascript Module Types</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                                <span class="chip bg-color">模块化</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+                                <span class="chip bg-color">工程化</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/">
+                                <span class="chip bg-color">组件化</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%A7%84%E8%8C%83%E5%8C%96/">
+                                <span class="chip bg-color">规范化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-10-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/ndesmic/an-overview-of-javascript-modules-dfg">An Overview of Javascript Module Types</a></p>
+</blockquote>
+<p>Javascript has gone though various forms of modules, most of which still exist to this day. While bundlers have done a good job of making certain things Just Work™ they also sweep a lot of things under the run. This can lead to things that do work but are not properly optimized.</p>
+<blockquote>
+<p>Javascript 已经通过了各种形式的模块, 其中大多数至今仍存在. bundlers 在做某些事情 “Just Work™” 方面做得很好, 但在运行过程中, 它们也可以扫除很多东西. 这可能会导致某些事情行之有效, 但却没有得到适当的优化.</p>
+</blockquote>
+<h2 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a>IIFE</h2><p>The most simple kind of module is the IIFE which stands for Immediately-Invoked Function Expression. What does this mean? Well I find it makes more sense when you look at the code:</p>
+<blockquote>
+<p>最简单的模块是 IIFE, 代表立即调用函数表达式. 这是什么意思？好吧, 当您查看代码时, 我觉得它更有意义:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    foo<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+globalThis<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Basically we wrap the whole thing in a function so that the scope prevents private implementations from leaking out. We can then attach things to the global scope under a namespace to avoid conflicts. I’m using the canonical and modern <code>globalThis</code> but <code>window</code> is perhaps more common, but that name doesn’t work in workers or node. The IIFE refers to defining a function and having it executed inline. In the above code this is done by wrapping it in parens and then calling it, however you may see it in other forms like this:</p>
+<blockquote>
+<p>基本上, 我们将整个内容包装在一个函数中, 这样作用域就可以防止私有实现泄漏出去. 然后, 我们可以将事物附加到命名空间下的全局范围中, 以避免冲突. 我正在使用规范的和现代的 <code>globalThis</code>, 但是 <code>window</code> 可能更常见, 但是该名称不适用于 worker 或 node. IIFE 是指定义一个函数并使其内联执行. 在上面的代码中, 这是通过将其包装在括号中然后调用它来完成的, 但是您可能会以其他形式看到它, 例如:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">~</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  window<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This is a bit of magic. You might notice the beginning <code>~</code> which is a binary-not operator. This cryptic mix of unary operator plus function causes the function to self execute without wrapping parens (and thus saving one character in minification). Note that any unary operator works so <code>!function()&#123;&#125;()</code> is also common.</p>
+<blockquote>
+<p>这有点神奇. 您可能会注意到开头〜是二进制非运算符. 一元运算符加函数的这种神秘的混合使函数可以自动执行而无需包装括号(从而在缩小中节省一个字符). 请注意, 任何一元运算符都起作用, 因此 <code>!function()&#123;&#125;()</code> 也很常见.</p>
+</blockquote>
+<p>This pattern can also have pseudo imports:</p>
+<blockquote>
+<p>此模式也可以具有伪导入:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ((myDep) => &#123;</span>
+<span class="token comment">//   function foo() &#123;</span>
+<span class="token comment">//     console.log(myDep.message);</span>
+<span class="token comment">//   &#125;</span>
+<span class="token comment">//   globalThis.myModule = &#123;</span>
+<span class="token comment">//     foo,</span>
+<span class="token comment">//   &#125;;</span>
+<span class="token comment">// &#125;)(myDep);</span>
+
+<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">myDep</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myDep<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    foo<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>myDep <span class="token operator">=</span> <span class="token punctuation">&#123;</span> message<span class="token operator">:</span> <span class="token string">'Hello World!'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+globalThis<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>By passing things into the parameter list of the self execution call, we expose them to the inside of the module. This doesn’t buy us a whole lot but we can do things like alias them, give them defaults, or locally clone data to protect it from outside mutation.</p>
+<blockquote>
+<p>通过将事物传递到自我执行调用的参数列表中, 我们将它们公开给模块内部. 这并不能给我们带来很多好处, 但是我们可以做一些事情, 例如给它们起别名, 为它们提供默认值或本地克隆数据以保护其免受外部突变的影响.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ((myDep, otherDep) => &#123;</span>
+<span class="token comment">//   function foo() &#123;</span>
+<span class="token comment">//     console.log(myDep.message + otherDep.message);</span>
+<span class="token comment">//   &#125;</span>
+<span class="token comment">//   globalThis.myModule = &#123;</span>
+<span class="token comment">//     foo,</span>
+<span class="token comment">//   &#125;;</span>
+<span class="token comment">// &#125;)(myDep || &#123; message: 'default'&#125;, myDep2);</span>
+
+<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">myDep<span class="token punctuation">,</span> otherDep</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myDep<span class="token punctuation">.</span>message <span class="token operator">+</span> otherDep<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    foo<span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>myDep <span class="token operator">=</span> <span class="token punctuation">&#123;</span> message<span class="token operator">:</span> <span class="token string">'Hello'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>myDep2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> message<span class="token operator">:</span> <span class="token string">'World!'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+globalThis<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The first “import” in the code above uses a default. JS has evolved better ways of doing this such as nullish coalescence <code>??</code>, default parameters etc. but <code>||</code> to do “truthy coalescence” is a common method from the time period in which these were popular. The second import internally aliases the dependency as <code>otherDep</code> rather than <code>myDep2</code>.</p>
+<blockquote>
+<p>上面的代码中的第一个 “导入” 使用默认值. JS 已经开发了更好的方法来实现此目的, 例如空值合并 <code>??</code>, 默认参数等, 但是 <code>||</code> 从流行的时代开始, 进行 “真正的合并” 是一种常见的方法. 第二个导入在内部将依赖项别名为 <code>otherDep</code> 而不是 <code>myDep2</code>.</p>
+</blockquote>
+<p>While I have not seen it much in the wild as the IIFE technique largely predates ES6, you can also get a lot of the benefits using braces to create a block scope and using <code>let</code> or <code>const</code>:</p>
+<blockquote>
+<p>虽然我没有看到很多东西, 因为 IIFE 技术早于 ES6, 但是使用括号创建块作用域并使用 <code>let</code> 或 <code>const</code> 也可以得到很多好处:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+globalThis<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This does do all the same encapsulation but there are no clear imports, you just grab them from the global scope. This only works with block scope variable declarations:</p>
+<blockquote>
+<p>这确实进行了所有相同的封装, 但是没有明确的导入, 您只需从全局范围中获取它们即可. 这仅适用于块作用域变量声明:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Don't do this</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+globalThis<span class="token punctuation">.</span>myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Here not only does <code>foo</code> get hoisted but it also creates a property <code>window.foo</code> and we’ve completely polluted global scope.</p>
+<blockquote>
+<p>这里 <code>foo</code> 不仅提升 , 还创建了一个属性 <code>window.foo</code>, 我们已经完全污染了全局范围.</p>
+</blockquote>
+<p>The biggest problem with this is it can become unwieldy when you have many modules. If one IIFE needs a function from another to be available then it has to be loaded below it otherwise the function will not exist when it comes to using it. This means the user ultimately must understand the load order and get it right.</p>
+<blockquote>
+<p>最大的问题是, 当您有许多模块时, 它可能变得笨拙. 如果一个 IIFE 需要另一个提供的功能, 则必须将其加载到其下方, 否则使用该功能将不存在. 这意味着用户最终必须了解装载顺序并正确处理.</p>
+</blockquote>
+<p>In complex applications this is very difficult and because those references might be used at various points in the app’s lifecycle we may not even find them all without interacting with the page.</p>
+<blockquote>
+<p>在复杂的应用程序中, 这非常困难, 并且由于这些引用可能会在应用程序生命周期的各个阶段使用, 因此, 如果不与页面进行交互, 我们甚至可能找不到它们.</p>
+</blockquote>
+<blockquote>
+<p>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.</p>
+</blockquote>
+<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>**What is CommonJS?**CommonJS is a module formatting system. It is a standard for structuring and organizing JavaScript code. CJS assists in the server-side development of apps and it’s format has heavily influenced NodeJS’s module management.</p>
+<blockquote>
+<p>什么是 CommonJS？ CommonJS 是一个模块格式化系统. 这是用于构造和组织 JavaScript 代码的标准. CJS 协助应用程序的服务器端开发, 其格式严重影响了 NodeJS 的模块管理.</p>
+</blockquote>
+<p>**Ok… So, what is a module?**A module is just a bit of code encapsulated in a file, and exported to another file. Modules focus on a single part of functionality and remain loosely coupled with other filed in an application. This is because there are no global or shared variables between modules, as they only communicate via the module.exports object. Any code that you want to be accessible in another file can be a module!</p>
+<blockquote>
+<p>好的, 那么, 什么是模块？模块只是封装在文件中的少量代码, 然后导出到另一个文件. 模块专注于功能的单个部分, 并与应用程序中的其他组件保持松散耦合. 这是因为模块之间没有全局变量或共享变量, 因为它们仅通过 module.exports 对象进行通信. 您希望在另一个文件中可访问的任何代码都可以是一个模块！</p>
+</blockquote>
+<p>**How can I use CommonJS?**CommonJS wraps each module in a function called ‘require’, and includes an object called ‘module.exports’, which exports code for availability to be required by other modules. All you have to do is add whatever you want accessible to other files onto the ‘exports’ object and require the module in the dependent file. the syntax for the require function is “var VariableName = require(‘moduleId_or_pathToModule’);”. Here’s an example…</p>
+<blockquote>
+<p>如何使用 CommonJS？ CommonJS 将每个模块包装在一个名为 “require” 的函数中, 并包含一个名为 “module.exports” 的对象, 该对象导出其他模块所需的可用性代码. 您要做的就是将您希望其他文件访问的所有内容添加到 “导出” 对象中, 并在相关文件中需要该模块. require 函数的语法是 “var VariableName = require(‘moduleId_or_pathToModule’);”.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// In circle.js</span>
+<span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">area</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token constant">PI</span> <span class="token operator">*</span> r <span class="token operator">*</span> r<span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">circumference</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token constant">PI</span> <span class="token operator">*</span> r<span class="token punctuation">;</span>
+
+<span class="token comment">//In some file</span>
+<span class="token keyword">const</span> circle <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./circle.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">The area of a circle of radius 4 is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>circle<span class="token punctuation">.</span><span class="token function">area</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>**Why would I need CommonJS?**CommonJS allows for code encapsulation, as modules with no global variables won’t conflict with each other when your application is run. CommonJS aids in dependancy-injection management. Modules are loaded synchronously, so modules that are dependent on other modules must be read further down in the code. The separation of functionality makes for much easier testing and debugging of code. Without module systems like CommonJS, dependancies had to be loaded in <code>&lt;script&gt;</code> tags in the header of an HTML file, OR all code had to be lumped together which is incredibly slow and inefficient for file loading. Not to mention, your app would completely crash if there was a bug in any part of the code! See the difference in managing dependencies here..</p>
+<blockquote>
+<p>为什么我需要 CommonJS？ CommonJS 允许代码封装, 因为没有全局变量的模块在运行应用程序时不会相互冲突. CommonJS 有助于依赖注入管理. 模块是同步加载的, 因此必须在代码中进一步读取依赖于其他模块的模块. 功能的分离使代码的测试和调试更加容易. 如果没有像 CommonJS 这样的模块系统, 则必须将依赖项加载到 HTML 文件头中的 <code>&lt;script&gt;</code> 标记中, 或者必须将所有代码集中在一起, 这对于文件加载而言非常缓慢且效率低下. 更不用说, 如果代码的任何部分有错误, 您的应用程序将完全崩溃！在此处查看管理依赖项的区别.</p>
+</blockquote>
+<p><img src="/images/1_PaC7jUGofVdCx6tH_Pay6A.png" alt="CommonJS vs. &lt;script&gt; import"></p>
+<p><strong>In conclusion</strong>, CJS modules are reusable code made available for dependent files. CommonJS is an easy-to-understand way to implement dependency management, separation of concerns, and effective testing of a single part of your application.</p>
+<blockquote>
+<p>总之, CJS 模块是可重用的代码, 可用于相关文件. CommonJS 是一种易于理解的方法, 用于实现依赖关系管理, 关注点分离以及对应用程序的单个部分的有效测试.</p>
+</blockquote>
+<hr>
+<p>CommonJS (or CJS) modules arose from nodeJS. In node there is no HTML document to structure the script loading and unless you want one giant file, you need a way to split the code up.<br>This lead to the creation of CJS modules. CJS defines two things, a global per-file <code>exports</code> object namespaced to the global <code>module</code> (<code>module.exports</code>) and a <code>require</code> function.<br>Functions and data are assigned to the <code>exports</code> object and those will be returned from the <code>require</code> function when importing it from another module. It looks like this:</p>
+<blockquote>
+<p>CommonJS(或 CJS)模块来自 nodeJS. 在 node 中, 没有 HTML 文档来构造脚本加载, 除非您需要一个巨型文件, 否则您需要一种将代码拆分的方法.<br>这导致创建 CJS 模块. CJS 定义了两件事: 命名为全局模块(module.exports)的全局每个文件导出对象和 <code>require</code> 函数.<br>函数和数据已分配给导出对象, 并且从另一个模块导入时, 这些函数和数据将从 <code>require</code> 函数返回. 看起来像这样:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//myModule.js</span>
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>foo <span class="token operator">=</span> foo<span class="token punctuation">;</span>
+
+<span class="token comment">//main.js</span>
+<span class="token keyword">const</span> myModule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'myModule'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This simplifies things quite a bit. The problem was this was specifically designed for node and does not work in the browser.<br>This is partly because it expects the environment to have an <code>export</code> object and a <code>require</code> function.<br>But even had browsers added that, the biggest problem though is that <code>require</code> is synchronous.<br>Synchronous XHR is a big no-no (and no longer allowed) because it literally freezes the UI.<br>This is why nearly all modern web APIs are async.<br>In order for this to work you need to bundle the entire code tree into one payload and it cannot be used to dynamically fetch things.<br>However the ubiquity of node meant this became the most common format to export code and bundlers made it easy to support by providing wrappers and doing some code re-writing.<br>Also, note that there is a lot of interesting behavior with the way node resolves these.<br>They are string identifiers but they can refer to standard library packages, paths, or things installed from npm in <code>node_modules</code>.<br>The files might have an extension, they might not, they might refer to an <code>index.js</code> in a directory or be redirected to some other script with a <code>package.json</code> <code>main</code> key.<br>None of these work very well for browsers which have no knowledge of directory structures and do not use file extensions as a way to determine type. What this boils down to is a lot of magic in the build tool to make this work properly.</p>
+<blockquote>
+<p>这大大简化了事情. 问题是这是专门为 node 设计的, 无法在浏览器中使用.<br>部分原因是因为它希望环境具有导出对象和 require 函数.<br>但是即使有浏览器添加了, 最大的问题虽然是要求是同步的.<br>同步 XHR 是一个很大的禁忌(并且不再允许), 因为它实际上冻结了 UI.<br>这就是为什么几乎所有现代 Web API 都是异步的.<br>为了使它起作用, 您需要将整个代码树捆绑到一个有效载荷中, 并且不能用于动态获取事物.<br>但是, node 无处不在意味着这成为导出代码的最常见格式, 而捆绑程序通过提供包装器和进行一些代码重写, 使其易于支持.<br>另外, 请注意, node 解决这些问题的方式有很多有趣的行为.<br>它们是字符串标识符, 但它们可以引用标准库软件包, 路径或从 node_modules 中的 npm 安装的东西.<br>这些文件可能具有扩展名, 它们可能没有扩展名, 它们可能引用目录中的 index.js 或使用 package.json 主键重定向到其他脚本.<br>对于不了解目录结构并且不使用文件扩展名来确定类型的浏览器, 这些方法都无法很好地发挥作用. 这归结为构建工具中的许多魔力, 以使其正常工作.</p>
+</blockquote>
+<h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><blockquote>
+<p>AMD 也是一种 JavaScript 模块化规范,与 CommonJS 最大的不同在于它采用异步的方式去加载依赖的模块. AMD 规范主要是为了解决针对浏览器环境的模块化问题,最具代表性的实现是 requirejs.</p>
+</blockquote>
+<p>AMD or (Asynchronous Module Definition) had life for a short while as a way to make bundles more front-end friendly however it is not widely used anymore.<br>They do not require a bundler and dependencies can be resolved by dynamically fetching them.<br>Pretty much the de-facto way to use these was through <a target="_blank" rel="noopener" href="https://requirejs.org/">requireJS</a>.<br>Unlike CJS, dependencies are declared first and the module code is executed inside a function closure. It looks like this:</p>
+<blockquote>
+<p>AMD 或(异步模块定义)作为使捆绑软件更前端友好的一种方式, 使用寿命很短, 但是现在不再广泛使用.<br>它们不需要捆绑程序, 并且可以通过动态获取它们来解决依赖关系.<br>实际上, 使用这些的实际方法是通过 requireJS.<br>与 CJS 不同, 先声明依赖项, 然后在函数闭包内部执行模块代码. 看起来像这样:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"myModule"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">myModule</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The AMD loader knows how to take these registrations and order them correctly.<br>The first parameter of <code>define</code> is usually the module name but it can be anonymous and the bundlers can find a way to give it a name, such as using the file name.</p>
+<blockquote>
+<p>AMD 加载程序知道如何进行这些注册并正确对它们排序.<br>define 的第一个参数通常是模块名称, 但是可以是匿名的, 并且捆绑程序可以找到一种为其命名的方法, 例如使用文件名.</p>
+</blockquote>
+<p>AMD also provides a way to wrap CJS:</p>
+<blockquote>
+<p>AMD 还提供了包装 CJS 的方法:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"require"</span><span class="token punctuation">,</span> <span class="token string">"myModule"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">require</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> myModule <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  myModule<span class="token punctuation">.</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Hello World!</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Note how the inner part of the “main” module looks like CJS. This creates a nice compatibility layer. It’s fairly limited though.<br>CJS imports are dynamic, meaning they can appear at any arbitrary place in code and this means that it’s hard to statically analyze, and since non-node environments do not allow importing of files and network resources to be synchronous, these simply don’t work.<br>In fact, to overcome this, bundlers typically need to inline the code where the dynamic <code>require</code> statement is.</p>
+<blockquote>
+<p>注意 “main” 模块的内部看起来像 CJS. 这将创建一个不错的兼容性层. 虽然相当有限.<br>CJS 导入是动态的, 这意味着它们可以出现在代码中的任意位置, 这意味着很难进行静态分析, 并且由于非 node 环境不允许同步导入文件和网络资源, 因此这些根本不起作用.<br>实际上, 要克服这一点, 捆绑程序通常需要在动态 require 语句所在的位置插入代码.</p>
+</blockquote>
+<h2 id="UMD"><a href="#UMD" class="headerlink" title="UMD"></a>UMD</h2><p>UMD seeks to unify AMD and CJS so that the module can be used in either system and this probably the most common way to export to a browser.<br>As mentioned above, AMD is able to wrap CJS and so with a little extra boilerplate we can make the module work in either environment.</p>
+<blockquote>
+<p>UMD 试图统一 AMD 和 CJS, 以便该模块可以在任何一个系统中使用, 这可能是导出到浏览器的最常见方法.<br>如上所述, AMD 能够包装 CJS, 因此, 只需增加一点样板, 我们就可以使模块在任何一种环境下都能工作.</p>
+</blockquote>
+<p>Let’s say I were to take the following code and run it through rollup with UMD format:</p>
+<blockquote>
+<p>假设我要采用以下代码并以 UMD 格式通过 rollup 运行它:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//my-module.js</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//main.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./my-module.js'</span><span class="token punctuation">;</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token string">'MAIN'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The export on main is mostly to demonstrate(演示) exports. Rollup gives us this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">global<span class="token punctuation">,</span> factory</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">typeof</span> exports <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> module <span class="token operator">!==</span> <span class="token string">'undefined'</span>
+    <span class="token operator">?</span> <span class="token function">factory</span><span class="token punctuation">(</span>exports<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token keyword">typeof</span> define <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> define<span class="token punctuation">.</span>amd
+    <span class="token operator">?</span> <span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'exports'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> factory<span class="token punctuation">)</span>
+    <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>global <span class="token operator">=</span>
+        <span class="token keyword">typeof</span> globalThis <span class="token operator">!==</span> <span class="token string">'undefined'</span> <span class="token operator">?</span> globalThis <span class="token operator">:</span> global <span class="token operator">||</span> self<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">factory</span><span class="token punctuation">(</span><span class="token punctuation">(</span>global<span class="token punctuation">.</span>main <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">exports</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token string">'MAIN'</span><span class="token punctuation">;</span>
+
+  exports<span class="token punctuation">.</span>main <span class="token operator">=</span> main<span class="token punctuation">;</span>
+
+  Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> <span class="token string">'__esModule'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> value<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Let’s break it down. The meat of the module code is at the bottom and is a function that is passed into the IIFE.<br>We can see that rollup did a little optimization to unwrap the module code and inline foo.<br>The module code is passed in as <code>factory</code>. It then does 3 checks to decide how to deal with it.</p>
+<blockquote>
+<p>让我们分解一下. 模块代码的内容在底部, 并且是传递给 IIFE 的函数.<br>我们可以看到 rollup 进行了一些优化, 以解包模块代码和内联 foo.<br>模块代码作为工厂传递. 然后, 它会进行 3 次检查以决定如何处理.</p>
+</blockquote>
+<p>If <code>exports</code> exists and <code>module</code> is defined we’re in an environment that supports CJS.<br>We then pass the <code>exports</code> to the factory so that it’s can assign itself like a normal CJS module.</p>
+<blockquote>
+<p>如果 <code>exports</code> 存在并且已定义模块, 则说明我们处于支持 CJS 的环境中.<br>然后, 我们将 <code>exports</code> 传递给工厂, 以便可以像正常的 CJS 模块一样进行分配.</p>
+</blockquote>
+<p>If <code>define</code> exists and <code>define.amd</code> exists then we’re in an environment that support AMD.<br>We can then define the module. Note that the factory depends on <code>exports</code> so it creates a dependency on it but it needs to be defined elsewhere.</p>
+<blockquote>
+<p>如果 <code>define</code> 存在并且 <code>define.amd</code> 存在, 那么我们将处于支持 AMD 的环境中.<br>然后, 我们可以定义模块. 请注意, 工厂依赖于 <code>exports</code> , 因此它创建了依赖关系, 但需要在其他位置定义.</p>
+</blockquote>
+<p>Lastly, we’re in an environment that supports neither so it’ll try to expose the exports on <code>globalThis</code>.<br>Except older environments don’t support <code>globalThis</code> so it also checks <code>self</code> (worker global scope) and <code>this</code> that gets passed in under <code>global</code>.<br>It then uses a code golf trick <code>factory(global.main = &#123;&#125;)</code> to both assign <code>main</code> to window and pass it in at the same time.<br>Since <code>global.main</code> is referenced by <code>exports</code> it will be attached to global scope.<br>In the browser this means we can access the main module at <code>window.main</code>.</p>
+<blockquote>
+<p>最后, 我们处于一个都不支持的环境中, 因此它将尝试在 globalThis 上公开导出.<br>除非较旧的环境不支持 globalThis, 所以它还会检查 self(工作人员全局范围), 并将其传递给 global.<br>然后, 它使用代码高尔夫技巧工厂(global.main = {})来将 main 分配给 window 并同时将其传递.<br>由于 global.main 被导出引用, 因此它将附加到全局范围.<br>在浏览器中, 这意味着我们可以在 window.main 处访问主模块.</p>
+</blockquote>
+<p>The last little thing is it assigns a property to <code>exports</code> <code>__esModule = true</code>.<br>This is a little book-keeping for other libraries so they know where it came from.<br>If the code was written in CJS you wouldn’t get this.<br>If it was part CJS and part ESM you’d get some interesting results where <code>myModule</code> is”imported”:</p>
+<blockquote>
+<p>最后一点是, 它为导出分配了一个属性 <code>exports</code> <code>__esModule = true</code> .<br>对于其他图书馆来说, 这只是一点记账, 所以他们知道它的来历.<br>如果代码是用 CJS 编写的, 那么您将一无所获.<br>如果它是 CJS 和 ESM 的一部分, 则将在 “导入” myModule 的情况下得到一些有趣的结果:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> myModule <span class="token operator">=</span> <span class="token comment">/*#__PURE__*/</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  __proto__<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  foo<span class="token operator">:</span> foo<span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">getAugmentedNamespace</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token punctuation">.</span>__esModule<span class="token punctuation">)</span> <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'__esModule'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> value<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">k</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> d <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>
+      a<span class="token punctuation">,</span>
+      k<span class="token punctuation">,</span>
+      d<span class="token punctuation">.</span>get
+        <span class="token operator">?</span> d
+        <span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            enumerable<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">return</span> n<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">var</span> foo$<span class="token number">1</span> <span class="token operator">=</span> <span class="token comment">/*@__PURE__*/</span> <span class="token function">getAugmentedNamespace</span><span class="token punctuation">(</span>myModule<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>What this does is first freeze the object since ESM namespaces can’t be modified like CJS export objects.<br>Then, if the module is ESM it passes it along and if it’s CJS then it creates a new object, iterates through all the keys in the module and assigns a getter either using the one that existed on the module or the simple property access.<br>This effectively makes it read-only to maintain ESM behavior.</p>
+<blockquote>
+<p>首先要做的是冻结对象, 因为不能像 CJS 导出对象那样修改 ESM 名称空间.<br>然后, 如果模块是 ESM, 则将其传递给它, 如果它是 CJS, 则它将创建一个新对象, 遍历模块中的所有键, 并使用模块上存在的键或简单属性访问来分配 getter.<br>这有效地使其成为只读以维护 ESM 行为.</p>
+</blockquote>
+<p>There are lots of slight variations, simplifications and modernizations to UMD but the basic principal is that we use AMD to wrap CJS and then figure out what to inject based on the environment. <a target="_blank" rel="noopener" href="https://github.com/umdjs/umd/tree/master/templates">UMD has some good documentation that shows different forms and simplifications as templates</a>.</p>
+<blockquote>
+<p>UMD 有很多细微的变化, 简化和现代化, 但基本原理是我们使用 AMD 封装 CJS, 然后根据环境确定要注入的内容.<br>UMD 有一些很好的文档, 它们以模板的形式展示了不同的形式和简化形式.</p>
+</blockquote>
+<h2 id="ESM"><a href="#ESM" class="headerlink" title="ESM"></a>ESM</h2><p>ESM or ECMAScript Modules was the official module format chosen for Javascript.<br>It has a long a storied history taking many years of debate and had a very slow integration into browsers and eventually node.<br>At this point you can use it everywhere though. The primary reason it took so long was that so much code had already been written in CJS and it simply wasn’t compatible.<br>CJS couldn’t be used because of it’s synchronous expectations and ESM fixes that by expecting imports to load asynchronously.<br>Another issue was that of static analyzability.<br>As mentioned above, CJS imports are very dynamic but this makes it hard if not impossible to tell what code is actually used.<br>Even when using a bundler ESM can improve the situation because all imports and exports must be static, meaning they can be analyzed at build time and code that is not referenced can simply be removed leaving you with a smaller bundle.</p>
+<blockquote>
+<p>ESM 或 ECMAScript 模块是为 Javascript 选择的官方模块格式.<br>它有着悠久的历史, 经过多年的辩论, 并且与浏览器的集成非常缓慢, 并最终集成到了节点中.<br>此时, 您可以在任何地方使用它. 花费这么长时间的主要原因是, 已经用 CJS 编写了太多代码, 并且根本不兼容.<br>由于 CJS 具有同步期望, 因此无法使用, 而 ESM 通过期望 imports 异步加载来解决了该问题.<br>另一个问题是静态可分析性.<br>如上所述, CJS 的导入是非常动态的, 但是即使不是不可能, 也很难说出实际使用的代码.<br>即使使用捆绑程序, ESM 也可以改善情况, 因为所有导入和导出都必须是静态的, 这意味着可以在构建时对其进行分析, 并且可以轻松删除未引用的代码, 从而为您保留较小的捆绑包.</p>
+</blockquote>
+<p>Perhaps a downside of ESM is it comes with a lot of features, many of which were designed for compatibility with CJS but just never actually worked out.</p>
+<blockquote>
+<p>ESM 的缺点也许在于它具有许多功能, 其中许多功能是为了与 CJS 兼容而设计的, 但从未真正实现过.</p>
+</blockquote>
+<p>One such feature is default exports. In CJS we can define things like</p>
+<blockquote>
+<p>这样的功能之一就是默认导出. 在 CJS 中, 我们可以定义类似</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>and import them like</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>To be compatible in ESM you can do<br>为了兼容, 在 ESM 您可以</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"FOO"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>and import like</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'./foo.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>This didn’t turn out as expected as there’s quite a few places where this breaks down.<br>My advice is to avoid using these, especially when working in a mixed-module context, use named exports instead.</p>
+<blockquote>
+<p>结果出乎意料, 因为有很多地方会发生这种情况.<br>我的建议是避免使用它们, 尤其是在混合模块环境中使用时, 请使用命名的 exports.</p>
+</blockquote>
+<p>Another is the <code>*</code> (star) import. In CJS we can do</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token operator">:</span> <span class="token string">'FOO'</span><span class="token punctuation">,</span> bar<span class="token operator">:</span> <span class="token string">'BAR'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>and then import like</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> mod <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mod'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>So in ESM it was decided you can take a module like this</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> bar <span class="token operator">=</span> <span class="token string">'BAR'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>and import like this</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> mod <span class="token keyword">from</span> <span class="token string">'./mod.js'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Again, it’s not quite the same especially as ESM namespaces are immutable. It has it’s uses when you want to namespace imported functions.</p>
+<blockquote>
+<p>同样, 它不是完全一样的, 尤其是 ESM 名称空间是不可变的. 当您要为导入函数命名空间时, 可以使用它.</p>
+</blockquote>
+<p>By the way, we could have also defined the last module like:</p>
+<blockquote>
+<p>顺便说一下, 我们也可以定义最后一个模块, 例如:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//mod.js</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> bar <span class="token operator">=</span> <span class="token string">'BAR'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This is an export list. Sometimes it’s helpful to draw attention to the things you are exporting in one place. You can rename exports:</p>
+<blockquote>
+<p>这是一个导出列表. 有时, 将注意力集中到您要导出的内容上很有帮助. 您可以重命名导出:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>You can rename imports too:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>You can also re-export parts of of modules:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span>
+<span class="token comment">//with a rename</span>
+<span class="token keyword">export</span> <span class="token punctuation">&#123;</span> bar <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span>
+<span class="token comment">//or all of the module</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Sometime modules just do stuff but don’t need to give you back anything such as when declaring a custom element in it’s own file. You can import it like this:</p>
+<blockquote>
+<p>有时, 模块只是做事, 而无需在您自己的文件中声明自定义元素时给您任何返回. 您可以这样导入:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'./my-element.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>There’s also a replacement for dynamic requires. If you need to load code dynamically you can use <code>import(&quot;./foo.js&quot;)</code> which is natively asynchronous.<br>You can treat this sort of like an async function that will return the module namespace, same as if you did <code>import *</code>. Technically it’s actually a keyword and not a function though so you can’t do things like <code>import.call</code> or hold references to it. This <code>import</code> also has a “property” called <code>meta</code> that you can access that gives you the url <code>import.meta.url</code>. This can be handy to rebuild some of node’s built-in module functionality like <code>__dirname</code>.</p>
+<blockquote>
+<p>也可以替代动态需求. 如果需要动态加载代码, 则可以使用本机异步的 <code>import(&quot;./foo.js&quot;)</code>.<br>您可以像对待异步函数一样对待此类, 该函数将返回模块名称空间, 就像您 <code>import *</code> 一样.<br>从技术上讲, 它实际上是一个关键字, 而不是一个函数, 因此您无法执行 <code>import.call</code> 或保留对其的引用之类的操作.<br>此导入还具有一个名为 <code>meta</code> 的 “属性”, 您可以访问该属性, 通过 <code>import.meta.url</code> 从而获得 url.<br>这对于重建节点的某些内置模块功能(如 <code>__dirname</code> )非常方便.</p>
+</blockquote>
+<p>Also worth noting is that ESM is always strict mode and you always need to provide the file extension for browser compatibility.</p>
+<blockquote>
+<p>另外值得注意的是, ESM 始终是严格模式, 您始终需要提供文件扩展名以实现浏览器兼容性.</p>
+</blockquote>
+<p>Anyway, you should be doing as much as you can in ESM as it is the standard moving forward and provides some nice benefits even if the syntax can be a bit much. My advice: just stick to named exports and you’ll be fine.</p>
+<blockquote>
+<p>无论如何, 您应该在 ESM 中做很多事情, 因为这是向前发展的标准, 即使语法有点多, 它也提供了一些不错的好处. 我的建议: 坚持按出口命名, 一切都会好起来的.</p>
+</blockquote>
+<h2 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h2><p>Many flows now use Typescript (TS). TS does not have any module format of it’s own but it does interact with modules and provides it’s own syntax.<br>For the most part everything in TS is ESM, however you can import things that don’t normally exist in JS.</p>
+<blockquote>
+<p>现在, 许多流程都使用 Typescript(TS). TS 本身没有任何模块格式, 但是可以与模块进行交互并提供自己的语法.<br>TS 中的大部分内容都是 ESM, 但是您可以导入 JS 中通常不存在的内容.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//ifoo.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IFoo</span> <span class="token punctuation">&#123;</span>
+  foo<span class="token operator">:</span> string<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//main.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> IFoo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./ifoo'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> myFoo<span class="token operator">:</span> IFoo <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  foo<span class="token operator">:</span> <span class="token string">'Hello!'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myFoo<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You need a TS compiler to strip this stuff out because even if we erased the typing for myFoo to make this module 100% compatible with JS syntax the import will break. Maybe the module needed to perform a side-effect so we can’t erase it, or maybe we only have the single-file context and can’t know if it’s a type or not. In fact, because of this sort of confusion TS also lets you use <code>import type &#123;foo&#125; from&quot;./ifoo&quot;</code> to be more explicit and these are guaranteed to be erased.</p>
+<blockquote>
+<p>您需要一个 TS 编译器来删除这些内容, 因为即使我们删除了 myFoo 的类型以使该模块与 JS 语法 100％兼容, 导入也会中断. 也许该模块需要执行副作用, 所以我们无法删除它, 或者我们只有单个文件上下文, 并且不知道它是否是类型. 实际上, 由于这种混淆, TS 还使您可以使用来自 <code>import type &#123;foo&#125; from &quot;./ifoo&quot;</code> 更加明确, 并确保将其删除.</p>
+</blockquote>
+<p>TS also deal with CJS. Above I mentioned that default exports and CJS default exports aren’t the same. TS has ways to deal with that. If you were writing CJS with TS and wanted to make a CJS default you’d do so like this:</p>
+<blockquote>
+<p>TS 还处理 CJS. 上面我提到默认导出和 CJS 默认导出是不同的. TS 有解决此问题的方法. 如果您使用 TS 编写 CJS 并希望将 CJS 设置为默认值, 则可以这样做:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.ts</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">"Foo"</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token operator">=</span> foo<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>That export isn’t an object, this is specific TS syntax for assigning to <code>module.exports</code> so that it can understand these are exports and not just assignments to a global called <code>module.exports</code>. Likewise, <code>require</code> is a global function but there’s nothing to say the user hasn’t created their own global <code>require</code> function apart from CJS, TS needs to know that what you are trying to do is import a CJS module. You do so like this:</p>
+<blockquote>
+<p>该导出不是对象, 这是分配给 <code>module.exports</code> 的特定 TS 语法, 以便它可以理解这些是导出, 而不仅仅是分配给名为 <code>module.exports</code> 的全局对象. 同样,<code>require</code> 是一个全局函数, 但是除了 CJS 之外, 没有说用户没有创建自己的全局 <code>require</code> 函数, TS 需要知道您要执行的操作是导入 CJS 模块. 您这样做如下:</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./foo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Since imports statements ordinarily can’t have functions TS can use this is tell that, actually, we want a CJS import.</p>
+<p>TS can also let us type modules. While this is typically done via type annotations in the source itself, you can augment modules in a <code>d.ts</code> file or inline where you use them.</p>
+<p>If I have:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.js</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello'</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Let’s say that i was supposed to be a number. You can write a <code>d.ts</code> file:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.d.ts</span>
+declare module <span class="token string">"foo.js"</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">i<span class="token operator">:</span> number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>And if you use foo.js and try to use a string for <code>i</code> the type checker will stop you.</p>
+<h2 id="SystemJS"><a href="#SystemJS" class="headerlink" title="SystemJS"></a>SystemJS</h2><p>This is more of a footnote as SystemJS was never very popular but you might rarely see this. SystemJS was largely to allow devs to write ESM for browsers that did not support it. I’m not sure if there was even an expectation to be written or if like UMD it’s more of an output specification.</p>
+<blockquote>
+<p>这更像是一个脚注, 因为 SystemJS 从未非常流行, 但是您可能很少看到这一点. SystemJS 在很大程度上是允许开发人员为不支持它的浏览器编写 ESM. 我不确定是否有编写期望, 或者是否像 UMD 一样是输出规范.</p>
+</blockquote>
+<p>System requires the system module loader similar to how AMD needs the require module loader. The output looks like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">System<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">exports<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+  <span class="token comment">//let dep</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//setters: [_d => &#123; dep = _d; &#125;],</span>
+    <span class="token function-variable function">execute</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+
+      <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">var</span> main <span class="token operator">=</span> <span class="token function">exports</span><span class="token punctuation">(</span><span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'MAIN'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Much like with UMD rollup did some optimization to inline the modules but we can still talk about it. System modules are registered similar to AMD <code>define</code>. They take a name, list of dependencies and a function. The function doesn’t return stuff directly but rather has an object with <code>setters</code> and <code>execute</code>. We don’t see <code>setters</code> in this example so I’ve tried to show it in comments but if we did they would be an array of setter functions for when a dependency updates in the same order as the dependencies were defined. The <code>execute</code> function is where the module code executes from and this can be async. <code>exports</code> is a function that can take either a name/value pair or an object and set them which in turn calls the setters of code that depends on this module. <code>context</code> contains functions like <code>import</code> that allows you to do dynamic imports. This allows it have all the features of ESM and run in the browser.</p>
+<p>Hopefully this gives you the tools to understand what’s going on especially if you wind up looking at complicated mixed module projects. Bundlers do a lot to hide this but understanding it can help you solve some tricky errors when things don’t work as expected. And remember to use ESM whenever you can!</p>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/anatomy-of-js-module-systems-and-building-libraries-fadcd8dbd0e/">basic js modules</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.risingstack.com/node-js-at-scale-module-system-commonjs-require/">CJS in nodejs</a></li>
+<li><a target="_blank" rel="noopener" href="https://jsmodules.io/cjs.html">CJs-ESM comparison</a></li>
+<li><a target="_blank" rel="noopener" href="http://tagneto.blogspot.com/2011/04/on-inventing-js-module-formats-and.html">On inventing JS module formats and script loaders</a></li>
+<li><a target="_blank" rel="noopener" href="https://requirejs.org/docs/whyamd.html">Why use AMD</a></li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=es6-module">es6 modules browser compatibility</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/">Reduce JS payloads with tree-shaking</a></li>
+<li><a target="_blank" rel="noopener" href="https://exploringjs.com/es6/ch_modules.html#static-module-structure">JS modules - static structure</a></li>
+<li><a target="_blank" rel="noopener" href="https://jakearchibald.com/2017/es-modules-in-browsers/">ESM in browsers</a></li>
+<li><a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/">ES Modules deep dive - cartoon</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.to/bennypowers/you-should-be-using-esm-kn3">Reasons to use ESM</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules">JavaScript modules</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components">Web Components</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.javascript.info/modules-intro">模块 (Module) 简介</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Using">Using JavaScript code modules</a></li>
+</ul>
+<hr>
+<h2 id="import-和-require-的区别"><a href="#import-和-require-的区别" class="headerlink" title="import 和 require 的区别"></a>import 和 require 的区别</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// index.js</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'running index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> sum <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./sum.js'</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// sum.js</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'running sum.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> a <span class="token operator">+</span> b<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>What’s the output?</p>
+<details><summary>Answer</summary>
+<p>
+
+<p><code>import</code> 命令是编译阶段执行的, 在代码运行之前. 因此这意味着被导入的模块会先运行, 而导入模块的文件会后执行.</p>
+<p>依次打印 <code>running sum.js</code>, <code>running index.js</code>, <code>3</code>.</p>
+<p>这是 CommonJS 中 <code>require()</code> 和 <code>import</code> 之间的区别. 使用 <code>require()</code> , 您可以在运行代码时根据需要加载依赖项. 如果我们使用 <code>require</code> 而不是 <code>import</code> , <code>running index.js</code> , <code>running sum.js</code> , <code>3</code> 会被依次打印.</p>
+</p>
+</details>
+
+<hr>
+<p>随着前端的不断发展, 前端已经不仅仅是一个简单依据需求完成网页开发的过程, 如何<strong>提高网页开发效率</strong>,<strong>提高代码复用率</strong>,<strong>降低块与块之间的耦合性</strong>是我们需要思考的问题, 而前端的组件化、模块化让我们能解决这样的问题.</p>
+<p>组件化更多关注的 UI 部分, 页面的每个部件, 比如头部, 内容区, 弹出框甚至确认按钮都可以成为一个组件, 每个组件有独立的 HTML、CSS、JavaScript 代码. 可以根据需要把它放在页面的任意部位, 也可以和其他组件一起形成新的组件. 一个页面是各个组件的结合, 可以根据需要进行组装.</p>
+<p>而模块化侧重的功能的封装, 主要是针对 Javascript 代码, 隔离、组织复制的 javascript 代码, 将它封装成一个个具有特定功能的的模块. 模块可以通过传递参数的不同修改这个功能的的相关配置, 每个模块都是一个单独的作用域, 根据需要调用. 一个模块的实现可以依赖其它模块.</p>
+<blockquote>
+<p>模块注重的是职责分离, 而组件强调的是复用.</p>
+</blockquote>
+<p>一个模块是实现一个特定功能的一组方法. 在最开始的时候, JavaScript 只实现一些简单的功能, 所以并没有模块的概念, 但随着程序越来越复杂, 代码的模块化开发变得越来越重要.</p>
+<p>由于函数具有独立作用域的特点, 最原始的写法是使用函数来作为模块, 几个函数作为一个模块, 但是这种方式容易造成全局变量的污染, 并且模块间没有联系.</p>
+<p>后面提出了对象写法, 通过将函数作为一个对象的方法来实现, 这样解决了直接使用函数作为模块的一些缺点, 但是这种办法会暴露所有的所有的模块成员, 外部代码可以修改内部属性的值.</p>
+<p>现在最常用的是立即执行函数的写法, 通过利用闭包来实现模块私有作用域的建立, 同时不会对全局作用域造成污染.</p>
+<p>但缺陷是闭包引用了祖先函数的作用域,所以滥用闭包会有内存问题:让函数的变量都保存在内存中,内存消耗变大,使用不当会造成内存泄漏.</p>
+<h2 id="JavaScript-的几种模块规范"><a href="#JavaScript-的几种模块规范" class="headerlink" title="JavaScript 的几种模块规范"></a>JavaScript 的几种模块规范</h2><p>JavaScript 中现在比较成熟的有四种模块加载方案.</p>
+<ul>
+<li><p>第一种是 CommonJS 方案, 它通过 <code>require</code> 来引入模块, 通过 <code>module.exports</code> 定义模块的输出接口. 这种模块加载方案是<strong>服务器端的解决方案</strong>, 它是以<strong>同步的方式来引入模块</strong>的, 因为在服务端文件都存储在本地磁盘, 所以读取非常快, 所以以同步的方式加载没有问题. 但如果是在浏览器端, 由于模块的加载是使用网络请求, 因此使用异步加载的方式更加合适.</p>
+</li>
+<li><p>第二种是 AMD 方案, 这种方案采用<strong>异步加载的方式来加载模块</strong>, 模块的加载不影响后面语句的执行, 所有依赖这个模块的语句都定义在一个回调函数里, 等到加载完成后再执行回调函数.<strong>require.js 实现了 AMD 规范</strong>.</p>
+</li>
+<li><p>第三种是 CMD 方案, 这种方案和 AMD 方案都是为了解决异步模块加载的问题, sea.js 实现了 CMD 规范. 它和 require.js 的区别在于模块定义时对依赖的处理不同和对依赖模块的执行时机的处理不同.</p>
+</li>
+<li><p>第四种方案是 ES6 提出的方案, 使用 <code>import</code> 和 <code>export</code> 的形式来导入导出模块. 这种方案和上面三种方案都不同.</p>
+</li>
+</ul>
+<h2 id="AMD-和-CMD-规范的区别？"><a href="#AMD-和-CMD-规范的区别？" class="headerlink" title="AMD 和 CMD 规范的区别？"></a>AMD 和 CMD 规范的区别？</h2><p>它们之间的主要区别有两个方面.</p>
+<ul>
+<li>模块定义时对依赖的处理不同. AMD 推崇依赖前置, 在定义模块的时候就要声明其依赖的模块. 而 CMD 推崇就近依赖, 可在用到某个模块的时候再去 require.</li>
+<li>对依赖模块的执行时机处理不同. 首先 AMD 和 CMD 对于模块的加载方式都是异步加载, 不过它们的区别在于模块的执行时机, AMD 在依赖模块加载完成后就直接执行依赖模块, 依赖模块的执行顺序和我们书写的顺序不一定一致. 而 CMD 在依赖模块加载完成后并不执行, 只是下载而已, 等到所有的依赖模块都加载好后, 进入回调函数逻辑, 遇到 require 语句的时候才执行对应的模块, 这样模块的执行顺序就和我们书写的顺序保持一致了.</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// CMD</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  a<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 此处略去 100 行</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 依赖可以就近书写</span>
+  b<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// AMD 默认推荐</span>
+<span class="token function">define</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'./a'</span><span class="token punctuation">,</span> <span class="token string">'./b'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 依赖必须一开始就写好</span>
+  a<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// 此处略去 100 行</span>
+  b<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="ES6-模块与-CommonJS-模块的差异"><a href="#ES6-模块与-CommonJS-模块的差异" class="headerlink" title="ES6 模块与 CommonJS 模块的差异"></a>ES6 模块与 CommonJS 模块的差异</h2><ol>
+<li>CommonJS 模块输出的是一个值的拷贝, ES6 模块输出的是值的引用.</li>
+</ol>
+<p>CommonJS 模块输出的是值的拷贝, 也就是说, 一旦输出一个值, 模块内部的变化就影响不到这个值.<br>ES6 模块的运行机制与 CommonJS 不一样. JS 引擎对脚本静态分析的时候, 遇到模块加载命令 <code>import</code>, 就会生成一个只读引用. 等到脚本真正执行时, 再根据这个只读引用, 到被加载的那个模块里面去取值. 因此, ES6 模块是动态引用, 并且不会缓存值, 模块里面的变量绑定其所在的模块.</p>
+<ol start="2">
+<li>CommonJS 模块是运行时加载, ES6 模块是编译时输出接口.</li>
+</ol>
+<p>运行时加载: CommonJS 模块就是对象; 即在输入时是先加载整个模块, 生成一个对象, 然后再从这个对象上面读取方法, 这种加载称为 “运行时加载”.</p>
+<p>编译时加载: ES6 模块不是对象, 而是通过 <code>export</code> 命令显式指定输出的代码, <code>import</code> 时采用静态命令的形式. 即在 <code>import</code> 时可以指定加载某个输出值, 而不是加载整个模块, 这种加载称为 “编译时加载”.</p>
+<p>CommonJS 加载的是一个对象(即 <code>module.exports</code> 属性), 该对象只有在脚本运行完才会生成. 而 ES6 模块不是对象, 它的对外接口只是一种静态定义, 在代码静态解析阶段就会生成.</p>
+<!-- - 騎乗位 跳舞 性感的 痴女 中出
+  - FCH-046 【配信専用】ムチプリ肉厚極上尻コキ！！ 3 画面から飛び出さんとアナタの視界に迫り来る… デッカイたわわな桃尻…！！ https://www.javbus.com/FCH-046DCX-111 セクシー極上尻が縦揺れしまくるトゥワークダンス騎乗位で友達の姉に精液が尽きる程しこたまイカされまくった BEST 7 時間 https://www.javbus.com/DCX-111
+  - DOCP-189 [DOCP-189] セクシー極上尻が縦揺れしまくるトゥワークダンス騎乗位で友達の姉に精液が尽きる程しこたまイカされまくった VOL.3 https://www.javbus.com/DOCP-189 電臀舞… 是隨著音樂激情擺動臀部的性感舞蹈！看著朋友姊姊大跳電臀舞讓人想入非非！而這樣子誘惑我的朋友姊姊如同野獸般貪求肉棒….
+  - DOCP-157 [DOCP-157] セクシー極上尻が縦揺れしまくるトゥワークダンス騎乗位で友達の姉に精液が尽きる程しこたまイカされまくった VOL.2 https://www.javbus.com/DOCP-157 電臀舞… 是隨著音樂激情擺動臀部的性感舞蹈！看著朋友姊姊大跳電臀舞讓人想入非非！而這樣子誘惑我的朋友姊姊如同野獸般貪求肉棒….
+  - DOCP-133 [DOCP-133] セクシー極上尻が縦揺れしまくるトゥワークダンス騎乗位で友達の姉に精液が尽きる程しこたまイカされまくった https://www.javbus.com/DOCP-133 電臀舞… 是隨著音樂激情擺動臀部的性感舞蹈. 看著朋友姊姊大跳電臀舞讓人想入非非！而這樣子誘惑我的朋友姊姊如同野獸般貪求肉棒….
+- 逆 3P
+  - MIAA-228 [MIAA-228]「ねぇ、今日はわたしの部屋に来てくれない？」デカ尻な隣人 2 人に杭打ち騎乗位される毎日. 3 倉多まお 葵百合香 https://www.javbus.com/MIAA-228 欲求不滿的兩位人妻交互！同時！毎日！搞起痴女玩法！大考失敗的我, 為了專心念書借了公寓房間, 然而左右鄰居大姊穿著緊身褲, 每天都在誘惑著我, 而且還有著巨乳苗條身材…
+  - MIAA-161 [MIAA-161]「ねぇ、今日はわたしの部屋に来てくれない？」デカ尻な隣人 2 人に杭打ち騎乗位される毎日. 2 篠田ゆう 波多野結衣 https://www.javbus.com/MIAA-161 欲求不滿的兩位人妻交互！同時！毎日！搞起痴女玩法！大考失敗的我, 為了專心念書借了公寓房間, 然而左右鄰居大姊穿著緊身褲, 每天都在誘惑著我, 而且還有著巨乳苗條身材…
+  - MIAA-084 [MIAA-084]「ねぇ、今日はわたしの部屋に来てくれない？」デカ尻な隣人 2 人に杭打ち騎乗位される毎日. 君島みお 蓮実クレア https://www.javbus.com/MIAA-084 欲求不滿的兩位人妻交互！同時！毎日！搞起痴女玩法！大考失敗的我, 為了專心念書借了公寓房間, 然而左右鄰居大姊穿著緊身褲, 每天都在誘惑著我, 而且還有著巨乳苗條身材…
+- -
+- 系列: 教え子と生中出し温泉旅行
+
+  - MDTM-319 [MDTM-319] 教え子と生中出し温泉旅行 なおちゃん 神宮寺ナオ https://www.javbus.com/MDTM-319 隠れ巨乳、E カップ 86cm のなおちゃんが嫌がりながらも悶絶するのがたまらんです！露天風呂では知らぬおっさんがいる中、ローターをあてられる声ガマンプレイでうっかり濡れ、スク水のままでがっつりハメられます！先生のプレイはとまらず、体操着でのバイブ責めやセーラー服でのスロートなどやられたい放題！ぐったりして寝込みを襲われてバックで悶絶します！お見逃しなく！
+
+- 系列: 教え子と子作り新婚生活
+
+  - IENF-048 [IENF-048] 永瀬ゆい 教え子と子作り新婚生活 https://www.javbus.com/IENF-048 你終於娶到一位理想的新娘啦、下班一回家學生妹永瀨唯就在門口等著給你幹、看到那甜蜜笑臉疲勞都飛走啦、吃完晚餐補充完能量後馬上專心幹砲造人！從早到晚瘋狂猛幹狂肏真是超讚啊！
+  - IENE-910 高杉麻里 教え子と子作り新婚生活 https://www.javbus.com/IENE-910
+  - IENE-891 星奈あい 教え子と子作り新婚生活 https://www.javbus.com/IENE-891
+
+- [系列: ○○ と子作り新婚生活](https://www.javbus.com/search/%E5%AD%90%E4%BD%9C%E3%82%8A%E6%96%B0%E5%A9%9A%E7%94%9F%E6%B4%BB&type=&parent=ce)
+
+  - WANZ-337 和沙樹做小孩的新婚生活 二宮沙樹
+  - WANZ-337 [WANZ-337] さきと子作り新婚生活 二宮沙樹 https://www.javbus.com/WANZ-337 「親愛的… 我想要孩子」你可愛的妻子沙樹用那令人陶醉的微笑抱住了你. 但其實在床上她渴求的是激烈到翻白眼的瘋狂抽插和內射、每當內射時還會用那淫亂的嘴巴和你道謝呢、真是個究極的可愛好妻子啊.
+  - WANZ-282 [WANZ-282] うるみと子作り新婚生活 成海うるみ https://www.javbus.com/WANZ-282 想要小孩的小麗. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-257 [WANZ-257] あずさと子作り新婚生活 茜あずさ https://www.javbus.com/WANZ-257 想要小孩的梓紗. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-246 [WANZ-246] りくと子作り新婚生活 湊莉久 https://www.javbus.com/WANZ-246 想要小孩的一花. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-234 [WANZ-234] ゆうと子作り新婚生活 麻倉憂 https://www.javbus.com/WANZ-234 想要小孩的小憂. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-221 [WANZ-221] いちかと子作り新婚生活 神波多一花 https://www.javbus.com/WANZ-221 想要小孩的一花. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-210 [WANZ-210] ひなと子作り新婚生活 秋吉ひな https://www.javbus.com/WANZ-210 想要小孩的小雛. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-199 [WANZ-199] くれあと子作り新婚生活 蓮実クレア https://www.javbus.com/WANZ-199 想要小孩的克蕾雅. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-182 [WANZ-182] まおと子作り新婚生活 浜崎真緒 https://www.javbus.com/WANZ-182 想要小孩的真緒. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-173 [WANZ-173] ゆいと子作り新婚生活 波多野結衣 https://www.javbus.com/WANZ-173 想要小孩的結衣. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-163 [WANZ-163] あゆと子作り新婚生活 桜井あゆ https://www.javbus.com/WANZ-163 想要小孩的小步. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-149 [WANZ-149] あやかと子作り新婚生活 友田彩也香 https://www.javbus.com/WANZ-149 想要小孩的彩也香. 不只是很可愛的老婆, 在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-125 [WANZ-125] るりと子作り新婚生活 成宮ルリ https://www.javbus.com/WANZ-125 「あなた… 子どもが欲しいの」あなたの奥さん、ルリちゃんは、ただかわいいだけのお嫁さんではありません. とにかくあなたの事が大好きで、少し恥ずかしがりながら膣内射精を要求、必死に真剣顔で妊娠しようとこぼれた精子まで押し込もうとする少し変態的なお嫁さんなのです.
+  - 「あなた… 子どもが欲しいの」あなたの奥さん、ひなさんは、ただ綺麗なだけのお嫁さんではありません. とにかくあなたの事が大好きで、涙目になりながら膣内射精を要求、うるうるしながら妊娠しようとこぼれた精子まで押し込もうとするかなり変態的なお嫁さんなのです.
+
+  - WANZ-108 [WANZ-108] わかばと子作り新婚生活 尾上若葉 https://www.javbus.com/WANZ-108 這次的上原亞衣, 還不只是可愛而已…. 滿面笑容的看著你, 讓你盡情在她的陰道內射精, 有點變態的人妻保證讓你難分難捨！！
+  - WANZ-096 [WANZ-096] あいと子作り新婚生活 上原亜衣 https://www.javbus.com/WANZ-096 這次的上原亞衣, 還不只是可愛而已…. 滿面笑容的看著你, 讓你盡情在她的陰道內射精, 有點變態的人妻保證讓你難分難捨！！
+  - WANZ-088 [WANZ-088] ひとみと子作り新婚生活 https://www.javbus.com/WANZ-088 想要小孩的小瞳. 雖然很可愛, 但是又不是自己的老婆, 不過在這種情況之下, 在陰道外射精似乎是不被容許的…. 一心只想要生小孩, 有點變態的人妻呢.
+  - WANZ-057 つぼみと子作り新婚生活 https://www.javbus.com/WANZ-057 -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-10-11T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/20-javascript-shorthand-techniques-that-will-save-your-time/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="20 JavaScript Shorthand Techniques that will save your time">
+                        
+                        <span class="card-title">20 JavaScript Shorthand Techniques that will save your time</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/the-amazing-power-of-javascript-proxies/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="The Amazing Power of JavaScript Proxies">
+                        
+                        <span class="card-title">The Amazing Power of JavaScript Proxies</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Proxy/">
+                        <span class="chip bg-color">Proxy</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

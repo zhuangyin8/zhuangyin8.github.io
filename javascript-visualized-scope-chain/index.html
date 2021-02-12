@@ -1,0 +1,1151 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="3️ ⚡️⛓JavaScript Visualized: Scope (Chain), 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>3️ ⚡️⛓JavaScript Visualized: Scope (Chain) | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">3️ ⚡️⛓JavaScript Visualized: Scope (Chain)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Visualized/">
+                                <span class="chip bg-color">Visualized</span>
+                            </a>
+                        
+                            <a href="/tags/Scope-Chain/">
+                                <span class="chip bg-color">Scope Chain</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-11-20
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/javascript-visualized-scope-chain-13pd">3️ ⚡️⛓JavaScript Visualized: Scope (Chain)</a></p>
+</blockquote>
+<p><img src="/images/i4jymvdb2vqc4m2wg5jm.gif" alt="Cover image for ⚡️⛓JavaScript Visualized: Scope (Chain)"></p>
+<p>Time for the scope chain 🕺🏼 In this post I assume you know the basics of execution contexts: I’ll soon write a post on that too though 😃</p>
+<blockquote>
+<p>作用域 🕺🏼 在本文中,我假设您了解执行上下文的基础: 尽管如此,我也将很快就此发表一篇文章 😃</p>
+</blockquote>
+<hr>
+<p>Let’s take a look at the following code:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Lydia'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> city <span class="token operator">=</span> <span class="token string">'San Francisco'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">getPersonInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Sarah'</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>age<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> and lives in </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>city<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getPersonInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We’re invoking the <code>getPersonInfo</code> function, which returns a string containing the values of the <code>name</code>, <code>age</code> and <code>city</code> variables:<br><code>Sarah is 22 and lives in San Francisco</code>. But, the <code>getPersonInfo</code> function doesn’t contain a variable named <code>city</code> 🤨? How did it know the value of <code>city</code>?</p>
+<blockquote>
+<p>我们调用 <code>getPersonInfo</code> 函数,该函数返回一个包含 <code>name</code> , <code>age</code> 和 <code>city</code> 变量的值: <code>Sarah is 22 and lives in San Francisco</code> .但是,该 <code>getPersonInfo</code> 函数不包含名为 <code>city</code> 🤨 的变量.它怎么知道 <code>city</code> 的值？</p>
+</blockquote>
+<p>First, memory space is set up for the different contexts. We have the default <strong>global context</strong> (<code>window</code> in a browser, <code>global</code> in Node), and a <strong>local context</strong> for the <code>getPersonInfo</code> function which has been invoked. Each context also has a <strong>scope chain</strong>.</p>
+<blockquote>
+<p>首先,为不同的上下文设置存储空间.我们有默认的 <strong>全局上下文</strong> (在浏览器中是 <code>window</code> ,在 node 是 <code>global</code> ),以及<strong>局部上下文</strong>为 <code>getPersonInfo</code> 已调用的功能.每个上下文也都有一个 <strong>作用域链</strong>.</p>
+</blockquote>
+<p>For the <code>getPersonInfo</code> function, the scope chain looks something like this (don’t worry, it doesn’t have to make sense just yet):</p>
+<blockquote>
+<p>对于 <code>getPersonInfo</code> 函数,作用域链看起来像这样(不用担心,它现在还没有必要):</p>
+</blockquote>
+<p><img src="/images/89b9buizhevs0jf6djyn.png" alt="Alt Text"></p>
+<p>The scope chain is basically a “chain of references” to objects that contain references to values (and other scopes) that are referencable in that execution context. (⛓: “Hey, these are all the values you can reference from within this context”.) The scope chain gets created when the execution context is created, meaning it’s created at runtime!</p>
+<blockquote>
+<p>作用域链基本上是对对象的”引用链”,这些对象包含对在该执行上下文中可引用的值(和其他作用域)的引用.(⛓: “嘿,这些都是您可以在此上下文中引用的所有值”.)作用域链是在创建执行上下文时创建的,这意味着它是在运行时创建的！</p>
+</blockquote>
+<p>However, I won’t talk about the <em>activation object</em> or the execution contexts in general in this post, let’s just focus on scope! In the following examples, the key/value pairs in the execution contexts represent the references that the scope chain has to the variables.</p>
+<blockquote>
+<p>但是,在本文中,我一般不会讨论激活对象或执行上下文,我们只关注作用域！在以下示例中,执行上下文中的键/值对表示作用域链对变量的引用.</p>
+</blockquote>
+<p><img src="/images/iala2et7bg9bgdj4c2lg.png" alt="Alt Text"></p>
+<p>The scope chain of the global execution context has a reference to 3 variables: <code>name</code> with the value <code>Lydia</code>, <code>age</code> with the value <code>21</code>, and <code>city</code> with the value <code>San Francisco</code>. In the local context, we have a reference to 2 variables: <code>name</code> with the value <code>Sarah</code>, and <code>age</code> with the value <code>22</code>.</p>
+<blockquote>
+<p>全局执行上下文的作用域链引用了 3 个变量: <code>name</code> 带有值 <code>Lydia</code> ,<code>age</code> 带有值 <code>21</code> ,<code>city</code> 带有值 <code>San Francisco</code>.在本地上下文中,我们引用了 2 个变量: <code>name</code> 带有值 <code>Sarah</code> 和 <code>age</code> 使用值 <code>22</code>.</p>
+</blockquote>
+<p>When we try to access the variables in the <code>getPersonInfo</code> function, the engine first checks the local scope chain.</p>
+<blockquote>
+<p>当我们尝试访问该 <code>getPersonInfo</code> 函数中的变量时,引擎首先检查本地作用域链.</p>
+</blockquote>
+<p><img src="/images/xn17f0t54acz8tiq7122.gif" alt="Alt Text"></p>
+<p>The local scope chain has a reference to <code>name</code> and <code>age</code>! <code>name</code> has the value of <code>Sarah</code> and <code>age</code> has the value of <code>22</code>. But now, what happens when it tries to access <code>city</code>?</p>
+<blockquote>
+<p>本地作用域链引用了 <code>name</code> 和 <code>age</code> ！<code>name</code> 的值为 <code>Sarah</code> , <code>age</code> 的值为 <code>22</code> .但是现在,当它尝试访问 <code>city</code> 时会发生什么？</p>
+</blockquote>
+<p>In order to find the value for <code>city</code> the engine “goes down the scope chain”. This basically just means that the engine doesn’t give up that easily: it works hard for you to see if it can find a value for the variable <code>city</code> in the outer scope that the local scope has a reference to, the <strong>global object</strong> in this case.</p>
+<blockquote>
+<p>为了找到 <code>city</code> 的值, 引擎”必须深入作用域链中”.这基本上只是意味着引擎不会轻易放弃: 它会努力使您查看是否可以 <code>city</code> 在局部作用域引用的外部作用域(在这种情况下为<strong>全局对象</strong>)中找到变量的值.</p>
+</blockquote>
+<p><img src="/images/z9iclg23rmbpts7meoq6.gif" alt="Alt Text"></p>
+<p>In the global context, we declared the variable <code>city</code> with the value of <code>San Francisco</code>, thus has a reference to the variable <code>city</code>. Now that we have a value for the variable, the function <code>getPersonInfo</code> can return the string <code>Sarah is 22 and lives in San Francisco</code> 🎉</p>
+<blockquote>
+<p>在全局上下文中,我们 <code>city</code> 使用的值声明了变量 <code>San Francisco</code>,从而引用了该变量 <code>city</code>.现在我们有了变量的值,该函数 <code>getPersonInfo</code> 可以返回字符串 <code>Sarah is 22 and lives in San Francisco</code>🎉</p>
+</blockquote>
+<hr>
+<p>We can go <em>down</em> the scope chain, but we can’t go <em>up</em> the scope chain. (Okay this may be confusing because some people say <em>up</em> instead of <em>down</em>, so I’ll just rephrase: You can go to <strong>outer</strong> scopes, but not to more inner… (innerer..?) scopes. I like to visualize this as a sort of waterfall:</p>
+<blockquote>
+<p>您可以使用外部作用域,但不能进入更内部…(内部…)作用域.我想形象地看到这一点.作为一种瀑布:</p>
+</blockquote>
+<p><img src="/images/doq46yc6nuiam51evy44.png" alt="Alt Text"></p>
+<p>Or even deeper:</p>
+<p><img src="/images/rece2zj4pb4w1fn56q5k.png" alt="Alt Text"></p>
+<hr>
+<p>Let’s take this code as an example.</p>
+<p><img src="/images/0z6342b72f3n6v6ufafk.png" alt="Alt Text"></p>
+<p>It’s almost the same, however there’s one big difference: we <em>only</em> declared <code>city</code> in the <code>getPersonInfo</code> function now, and <em>not</em> in the global scope. We didn’t invoke the <code>getPersonInfo</code> function, so no local context is created either. Yet, we try to access the values of <code>name</code>, <code>age</code> and <code>city</code> in the global context.</p>
+<blockquote>
+<p>几乎一样,但是有一个很大的不同: 我们现在 在 <code>getPersonInfo</code> 函数中仅声明 <code>city</code>,而没有在全局作用域中声明.我们没有调用该 <code>getPersonInfo</code> 函数,因此也没有创建本地上下文.然而,我们试图在全局作用域内访问 <code>name</code> , <code>age</code> 并 <code>city</code> 的值.</p>
+</blockquote>
+<p><img src="/images/f3wvlo4c3gqf3mve1g0n.gif" alt="Alt Text"></p>
+<p>It throws a <code>ReferenceError</code>! It couldn’t find a reference to a variable called <code>city</code> in the global scope, and there were no outer scopes to look for, and it <strong>cannot</strong> go <em>up</em> the scope chain.</p>
+<blockquote>
+<p>它抛出 <code>ReferenceError</code> ！它在全局作用域内,找不到一个叫做 <code>city</code> 变量的引用,并没有到外部作用域寻找,它不能上朔作用域链.</p>
+</blockquote>
+<p>This way, you can use scope as a way to “protect” your variables and re-use variable names.</p>
+<blockquote>
+<p>这样,您可以将作用域用作”保护”变量并重新使用变量名的方法.</p>
+</blockquote>
+<hr>
+<p>Besides global and local scopes, there is also a <strong>block scope</strong>. Variables declared with the <code>let</code> or <code>const</code> keyword are scoped to the nearest curly brackets (<code>&#123;``&#125;</code>).</p>
+<blockquote>
+<p>除了全局和局部作用域之外,还有一个块作用域.用 <code>let</code> 或 <code>const</code> 关键字声明的变量的作用域为最接近的大括号(<code>&#123;&#125;</code>).</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">checkAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">21</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">'You cannot drink!'</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">'You can drink!'</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You can visualize the scopes as:</p>
+<blockquote>
+<p>您可以将作用域可视化为:</p>
+</blockquote>
+<p><img src="/images/75n1vpm7z4d8924cnvje.png" alt="Alt Text"></p>
+<p>We have a global scope, a function scope, and two block scopes. We were able to declare the variable <code>message</code> twice, since the variables were scoped to the curly brackets.</p>
+<blockquote>
+<p>我们有一个全局作用域,一个函数作用域和两个块作用域. <code>message</code> 由于变量的作用域用大括号括起来,因此我们能够两次声明该变量.</p>
+</blockquote>
+<hr>
+<p>To quickly recap:</p>
+<ul>
+<li>You can see “scope chain” as a chain of references to values that we can access in the current context.</li>
+<li>Scopes also make it possible to re-use variable names that were defined further down the scope chain, since it can only go <em>down</em> the scope chain, not <em>up</em>.</li>
+</ul>
+<blockquote>
+<ul>
+<li>您可以将”作用域链”视为对我们可以在当前上下文中访问的值的引用链.</li>
+<li>作用域还可以重用在作用域链下游定义的变量名称,因为它只能在作用域链中向下移动,而不能向上.</li>
+</ul>
+</blockquote>
+<p>That was it for scope (chains)! There’s tons more to say about this so I may add extra info when I have some free time. Feel free to ask questions if you’re struggling with anything, I love to help! 💕</p>
+<blockquote>
+<p>作用域(链)就是这样！关于这一点还有更多的话要说,所以当我有空闲时间时,我可能会添加更多信息.如果您遇到任何困难,请随时提出问题,我很乐意提供帮助！💕</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-11-20T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/javascript-visualized-hoisting/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2️ 🔥🕺🏼 JavaScript Visualized: Hoisting">
+                        
+                        <span class="card-title">2️ 🔥🕺🏼 JavaScript Visualized: Hoisting</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                    <a href="/tags/Hoisting/">
+                        <span class="chip bg-color">Hoisting</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/14-tricks-to-copy-an-array-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="14 Tricks to Copy an Array in JavaScript">
+                        
+                        <span class="card-title">14 Tricks to Copy an Array in JavaScript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Array/">
+                        <span class="chip bg-color">Array</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

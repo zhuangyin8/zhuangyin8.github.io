@@ -1,0 +1,1348 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="The Amazing Power of JavaScript Proxies, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>The Amazing Power of JavaScript Proxies | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">The Amazing Power of JavaScript Proxies</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Proxy/">
+                                <span class="chip bg-color">Proxy</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-10-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://levelup.gitconnected.com/the-amazing-power-of-javascript-proxies-aa27c6d06bcb">The Amazing Power of JavaScript Proxies</a></p>
+</blockquote>
+<p><img src="https://miro.medium.com/1*NWihm7jnH3kqUyEBOSpwiw.jpeg" alt="Image for post"></p>
+<p>Today we’re going to learn about ECMAScript 6 <strong>Proxies</strong>. We are going to cover the following topics in this article:</p>
+<ul>
+<li>What are Proxies</li>
+<li>Proxies in Action</li>
+<li>Who Uses Proxies</li>
+<li>Use Cases and Examples</li>
+<li>Resources</li>
+</ul>
+<p>Let’s begin :)</p>
+<h2 id="What-are-Proxies"><a href="#What-are-Proxies" class="headerlink" title="What are Proxies"></a>What are Proxies</h2><p>As stated at <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN</a> Website:</p>
+<blockquote>
+<p>The <code>Proxy</code> object enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object.</p>
+</blockquote>
+<blockquote>
+<p>Proxy 对象可以让你为另一个对象创建一个代理,它可以拦截和重新定义该对象的基本操作.</p>
+</blockquote>
+<p>It’s a bit funny they are explaining what is <strong>Proxy</strong> by saying it creates a <strong>Proxy</strong>. Of course, they are not wrong but we can simplify this statement to make it more friendly by saying:</p>
+<blockquote>
+<p>在解释什么是 Proxy 的时候,说它可以创建一个 Proxy,这有点搞笑.当然,他们并没有说错,但是我们可以简化这个说法,让它更加友好.</p>
+</blockquote>
+<blockquote>
+<p>The <em><code>Proxy</code></em> object enables you to wrap the target object and by doing that we can intercept and redefine fundamental operations for that object.</p>
+</blockquote>
+<blockquote>
+<p>Proxy 对象使你能够包装目标对象 通过这样可以拦截和重新定义该对象的基本操作.</p>
+</blockquote>
+<p>Basically, it means that we are going to take an object, wrap it with a <strong>Proxy</strong> which will allow us to create a “hidden” gate, and control all access to the desired object.</p>
+<blockquote>
+<p>基本上,它的意思是说,我们要把一个对象,用 Proxy 包裹起来,这将允许我们创建一个 “隐藏 “的门,并控制所有对所需对象的访问.</p>
+</blockquote>
+<p>A small side note, <strong>Proxy</strong> is also a software design pattern and you should definitely read about it(<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proxy_pattern">Wikipedia Link</a>).</p>
+<blockquote>
+<p>一个小插曲,Proxy 也是一种软件设计模式,你一定要读一读(维基百科链接).</p>
+</blockquote>
+<h2 id="A-Proxy-is-created-with-two-parameters"><a href="#A-Proxy-is-created-with-two-parameters" class="headerlink" title="A Proxy is created with two parameters:"></a>A <code>Proxy</code> is created with two parameters:</h2><ul>
+<li><code>target</code>: the original object which you want to wrap (proxy)</li>
+<li><code>handler</code>: an object that defines which operations will be intercepted and how to redefine intercepted operations which can also call “traps”.</li>
+</ul>
+<blockquote>
+<ul>
+<li>target: 你想包裹的原始对象(proxy)</li>
+<li>handler:定义哪些操作将被拦截,以及如何重新定义被拦截的操作的对象,也可以以称为 “捕捉”.</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  message1<span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
+  message2<span class="token operator">:</span> <span class="token string">'everyone'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> handler1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> proxy1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> handler1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>proxy1<span class="token punctuation">.</span>message1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hello</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>proxy1<span class="token punctuation">.</span>message2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// everyone</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Proxies are supported in most of the browsers but there few old ones that don’t support it(IE of course), you can check the full list <a target="_blank" rel="noopener" href="https://caniuse.com/?search=proxy">here</a>. There is a <a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/proxy-polyfill">polyfill</a> for Proxies by google but it doesn’t support all of the Proxy features.</p>
+<blockquote>
+<p>大多数浏览器都支持代理功能,但也有一些老的浏览器不支持(当然是 IE),你可以在这里查看完整的列表.google 有一个代理的 polyfill,但它不支持所有的代理功能.</p>
+</blockquote>
+<p>Now that we know what are <strong>Proxies</strong> we want to check out what we can do with it.</p>
+<blockquote>
+<p>现在知道了什么是 Proxies,想看看能用它做什么.</p>
+</blockquote>
+<h2 id="Proxies-In-Action"><a href="#Proxies-In-Action" class="headerlink" title="Proxies In Action"></a>Proxies In Action</h2><p>Let’s imagine we are A Bank or A Worried Girlfriend. We want to know every time the bank account balance was accessed and be notified on. We are going to use the most simple <strong>handler</strong> operation/trap: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/get"><strong>get</strong></a></p>
+<blockquote>
+<p>让我们想象一下,我们是一家银行或一个忧心忡忡的女朋友.我们想知道每次银行账户余额被访问和被通知的时间.我们将使用最简单的处理程序操作/捕捉: get</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> receiver</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>prop <span class="token operator">===</span> <span class="token string">'balance'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Current Balance Of: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>target<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> Is: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>target<span class="token punctuation">.</span>balance<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> target<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// => return Reflect.get(...arguments);</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> wrappedBankAcount <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>bankAccount<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>wrappedBankAcount<span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// access to the balance</span>
+<span class="token comment">// OUTPUT:</span>
+<span class="token comment">// Current Balance Of: Georgy Glezer Is: 2020</span>
+<span class="token comment">// 2020</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In the above example, we have a bank account object which contains my name and a balance of 2020.</p>
+<blockquote>
+<p>在上面的例子中,我们有一个银行账户对象,里面有我的名字和 2020 的余额.</p>
+</blockquote>
+<p>The handler object this time is implementing <strong>get</strong> operation/trap, which receives a function with 3 parameters and the return value of the <strong>get</strong>:</p>
+<blockquote>
+<p>这次的处理者对象是实现 get 操作/捕捉,它接收一个有 3 个参数的函数和 get 的返回值.</p>
+</blockquote>
+<ul>
+<li><strong>target</strong>: The object that is being accessed (the object we wrapped).</li>
+<li><strong>prop</strong>: The property that is being accessed in our example — here it is “balance”.</li>
+<li><strong>receiver</strong>: Either the proxy or an object that inherits from the proxy.</li>
+</ul>
+<blockquote>
+<ul>
+<li>target: 被访问的对象(我们封装的对象).</li>
+<li>prop:被访问的对象(我们封装的对象)的属性,这里是 “balance”.</li>
+<li>receiver:接收者.可以是代理,也可以是继承自代理的对象.</li>
+</ul>
+</blockquote>
+<p>We define a condition that says that if the property that is being accessed is the “<em>balance”</em>, we will notify(log) the balance and the current user name and we return the property <em>“balance”</em>.</p>
+<blockquote>
+<p>我们定义了一个条件,如果被访问的属性是 “余额”,我们将通知(log)余额和当前用户名,并返回 “余额 “属性.</p>
+</blockquote>
+<p>As you can see in the output, as soon as the “balance” property was accessed we notified (log) about the access easily by using a <strong>Proxy</strong> and setting up a <strong>get</strong> operation/trap.</p>
+<blockquote>
+<p>从输出中可以看到,一旦 “balance “属性被访问,我们就通过使用 Proxy 和设置 get 操作/捕捉,很容易地通知(log)了这次访问.</p>
+</blockquote>
+<p>Let’s continue with our Bank idea, and demand that each time someone withdraws money from the bank account, we want to be notified about. And another constraint is that the bank doesn’t allow a negative balance. To achieve this we are going to use the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy/set"><strong>set</strong></a> handler/trap this time.</p>
+<blockquote>
+<p>继续我们银行的想法,要求每次有人从银行账户中取钱,我们都要得到通知.而另一个约束条件是,银行不允许出现负余额.为了达到这个目的,我们这次要使用设置处理程序/捕捉.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Current Balance: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>obj<span class="token punctuation">.</span>balance<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">, New Balance: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>value<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">We don't allow Negative Balance!</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> wrappedBankAcount <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>bankAccount<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+wrappedBankAcount<span class="token punctuation">.</span>balance <span class="token operator">-=</span> <span class="token number">2000</span><span class="token punctuation">;</span> <span class="token comment">// access to the balance</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>wrappedBankAcount<span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+wrappedBankAcount<span class="token punctuation">.</span>balance <span class="token operator">-=</span> <span class="token number">50</span><span class="token punctuation">;</span> <span class="token comment">// access to the balance</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>wrappedBankAcount<span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// OUTPUT:</span>
+<span class="token comment">// Current Balance: 2020, New Balance: 20</span>
+<span class="token comment">// 20</span>
+<span class="token comment">// Current Balance: 20, New Balance: -30</span>
+<span class="token comment">// We don't allow Negative Balance!</span>
+<span class="token comment">// 20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>In the above example, we notify about the current balance and the new balance after the withdraw, and we also notify if the new balance is going to be negative and abort the withdrawal action.</p>
+<blockquote>
+<p>在上面的例子中,我们通知当前的余额和取款后的新余额,如果新的余额是负数,我们也会通知并中止取款操作.</p>
+</blockquote>
+<p>We are using the <strong>set</strong> operator/trap which is a function that returns a boolean value(true/false) if the update operation has succeeded or not. It receives the following parameters:</p>
+<blockquote>
+<p>我们使用的是 set 操作/捕捉,它是一个返回布尔值(true/false)的函数,用来判断更新操作是否成功.它接收以下参数.</p>
+</blockquote>
+<ul>
+<li><strong>target</strong>: The object that is being accessed(The object we wrapped).</li>
+<li><strong>prop</strong>: The property that is being accessed in our example, it is “balance”</li>
+<li><strong>value</strong>: The new value that should be updated with.</li>
+<li><strong>receiver</strong>: The object to which the assignment was originally directed. This is usually the proxy itself. But a <code>set()</code> handler can also be called indirectly, via the prototype chain or various other ways.</li>
+</ul>
+<blockquote>
+<ul>
+<li>target: 被访问的对象(我们封装的对象).</li>
+<li>prop:被访问的对象(我们封装的对象)的属性.在我们的例子中,被访问的属性是 “balance”.</li>
+<li>value:.应该更新的新值.</li>
+<li>receiver:接收器.赋值最初指向的对象.这通常是代理本身.但是 set()处理程序也可以间接调用,通过原型链或其他各种方式.</li>
+</ul>
+</blockquote>
+<p>You can see that it is really similar to the <strong>get</strong>, but only 1 extra parameter of the new value is received.</p>
+<blockquote>
+<p>你可以看到,它和 get 真的很相似,但只是多接收了 1 个新值的参数.</p>
+</blockquote>
+<p>Those 2 operators/traps are the most common ones, if you are interested in finding all of the existing operators/traps, you can check it out <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy">here</a>.</p>
+<blockquote>
+<p>这 2 个操作符/捕捉是最常见的,如果你有兴趣找到所有现有的操作符/捕捉,你可以在这里查看.</p>
+</blockquote>
+<h2 id="Who-Uses-Proxies"><a href="#Who-Uses-Proxies" class="headerlink" title="Who Uses Proxies"></a>Who Uses Proxies</h2><p>Many popular libraries use this technique, for example:</p>
+<blockquote>
+<p>许多流行的库都使用了这种技术,例如.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/mobxjs/mobx">MobX</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue">Vue</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/immerjs/immer">Immer</a></li>
+</ul>
+<p>And much more… Most of them utilize the amazing power that Proxies gives us and provide us awesome libraries.</p>
+<blockquote>
+<p>还有更多……他们中的大多数人都利用了 Proxies 给我们带来的惊人力量,并为我们提供了很棒的库.</p>
+</blockquote>
+<h2 id="Use-Cases-And-Examples"><a href="#Use-Cases-And-Examples" class="headerlink" title="Use Cases And Examples"></a>Use Cases And Examples</h2><p>We already have seen that we can use the Proxies for:</p>
+<blockquote>
+<p>我们已经看到,我们可以使用代理服务器来进行.</p>
+</blockquote>
+<ul>
+<li>Logging(Notifying the bank)</li>
+<li>Validations(Blocking negative balance update)</li>
+</ul>
+<blockquote>
+<ul>
+<li>登录(通知银行)</li>
+<li>验证(阻止负值更新)</li>
+</ul>
+</blockquote>
+<h3 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h3><p>We are going to use again the <strong>get</strong> operator/trap and we will A property “dollars” to our object. On each access to “dollars” property, We are going to calculate how much our balance worth in dollars. Because calculating can be a heavy operation we would like to Cache it as much as we can.</p>
+<blockquote>
+<p>我们将再次使用 get 操作/捕捉,并将 “dollars” 属性添加到我们的对象中.在每次访问 “dollars” 属性时,我们将计算我们的余额价值多少美元.因为计算可能是一个沉重的操作,我们希望尽可能多的 Cache 它.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  balance<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
+  <span class="token keyword">get</span> <span class="token function">dollars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Calculating Dollars'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>balance <span class="token operator">*</span> <span class="token number">3.43008459</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> cache <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  currentBalance<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  currentValue<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> prop</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>prop <span class="token operator">===</span> <span class="token string">'dollars'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> value <span class="token operator">=</span>
+        cache<span class="token punctuation">.</span>currentBalance <span class="token operator">!==</span> obj<span class="token punctuation">.</span>balance <span class="token operator">?</span> obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">:</span> cache<span class="token punctuation">.</span>currentValue<span class="token punctuation">;</span>
+      cache<span class="token punctuation">.</span>currentValue <span class="token operator">=</span> value<span class="token punctuation">;</span>
+      cache<span class="token punctuation">.</span>currentBalance <span class="token operator">=</span> obj<span class="token punctuation">.</span>balance<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> wrappedBankAcount <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>bankAccount<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>wrappedBankAcount<span class="token punctuation">.</span>dollars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// OUTPUT:</span>
+<span class="token comment">// Calculating Dollars</span>
+<span class="token comment">// 34.3008459</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>As you can see in the example, we have a cache object that holds the current bank balance and the balance worth in dollars. Each time someone accesses the “<em>dollars”</em> property we will calculate for the first time, and then we will cache it.</p>
+<blockquote>
+<p>正如你在例子中所看到的,我们有一个缓存对象,它保存着当前的银行余额和以美元为单位的余额价值.每次有人访问 “dollar “属性时,我们都会先进行计算,然后将其缓存起来.</p>
+</blockquote>
+<h3 id="Dom-Manipulation"><a href="#Dom-Manipulation" class="headerlink" title="Dom Manipulation"></a>Dom Manipulation</h3><p>We want to update the text on-screen each time there is a change to our balance. We are going to use a <strong>set</strong> operator/trap and on each change of the value, we will update the DOM element on the screen.</p>
+<blockquote>
+<p>我们想在每次余额发生变化时更新屏幕上的文字.我们将使用一个 set 操作符/捕捉,每次改变数值时,我们将更新屏幕上的 DOM 元素.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
+  <span class="token keyword">get</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> Balance Is: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>balance<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">objectWithDom</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">object<span class="token punctuation">,</span> domId</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> handler <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+      document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>domId<span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> obj<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// create a dom element with id: bank-account</span>
+<span class="token keyword">const</span> wrappedBankAccount <span class="token operator">=</span> <span class="token function">objectWithDom</span><span class="token punctuation">(</span>bankAccount<span class="token punctuation">,</span> <span class="token string">'bank-account'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+wrappedBankAccount<span class="token punctuation">.</span>balance <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
+wrappedBankAccount<span class="token punctuation">.</span>balance <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="js,result" data-user="zhuangyin" data-slug-hash="XWjdmMJ" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div id="bank-account">&lt;/div></pre>
+  <pre data-lang="js">const bankAccount = {
+  balance: 2020,
+  name: 'Georgy Glezer',
+  get text() {
+    return `${this.name} Balance Is: ${this.balance}`;
+  },
+};
+const objectWithDom = (object, domId) => {
+  const handler = {
+    set: function (obj, prop, value) {
+      obj[prop] = value;
+      document.getElementById(domId).innerHTML = obj.text;
+      return true;
+    },
+  };
+  return new Proxy(object, handler);
+};
+// create a dom element with id: bank-account
+const wrappedBankAccount = objectWithDom(bankAccount, 'bank-account');
+wrappedBankAccount.balance = 26;
+wrappedBankAccount.balance = 100000;
+</pre></div>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>Here we created a helper function so we can store the DOM element ID and added a simple line to the set operator/trap to update the DOM element. Pretty simple, right? And let’s see the result :)</p>
+<blockquote>
+<p>在这里,我们创建了一个辅助函数,这样我们就可以存储 DOM 元素的 ID,并在 set 操作/捕捉 中添加了简单的行来更新 DOM 元素.很简单,对吧？让我们看看结果:)</p>
+</blockquote>
+<p><img src="https://miro.medium.com/1*glW88gLi-QoGgoPm-vZrZA.gif" alt="Image for post"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>To sum up, we learned about ECMAScript 6 Proxies, how we can use them, and to what purposes. In my opinion, Proxies are an amazing tool and you can use it for a wide variety of options, you just need to think about what suits you the most :)</p>
+<blockquote>
+<p>综上所述,我们了解了 ECMAScript 6 Proxies,我们如何使用它们,以及用于什么目的.在我看来,代理是一个神奇的工具,你可以用它来做各种各样的选择,你只需要考虑什么是最适合你的:) .</p>
+</blockquote>
+<p>If you liked the article, Feel free to follow and give a clap 👏</p>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">MDN Proxy</a><!-- - ["Proxies are awesome" Brendan Eich presentation at JSConf](https://www.youtube.com/watch?v=sClk6aB_CPk) --></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Proxy_pattern">Proxy Design Pattern</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-10-03T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/an-overview-of-javascript-modules/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="An Overview of Javascript Module Types">
+                        
+                        <span class="card-title">An Overview of Javascript Module Types</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                        <span class="chip bg-color">模块化</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+                        <span class="chip bg-color">工程化</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/">
+                        <span class="chip bg-color">组件化</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%A7%84%E8%8C%83%E5%8C%96/">
+                        <span class="chip bg-color">规范化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/vue-custom-input/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="定制 Vue 输入框组件的思路">
+                        
+                        <span class="card-title">定制 Vue 输入框组件的思路</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Interview/">
+                        <span class="chip bg-color">Interview</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

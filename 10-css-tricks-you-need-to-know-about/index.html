@@ -1,0 +1,3553 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="10 CSS Tricks You Need to Know About, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>10 CSS Tricks You Need to Know About | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">10 CSS Tricks You Need to Know About</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Tips/">
+                                <span class="chip bg-color">Tips</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://beforesemicolon.medium.com/10-css-tricks-you-need-to-know-about-382d6a34248a">10 CSS Tricks You Need to Know About</a></p>
+</blockquote>
+<p><img src="https://miro.medium.com/max/2560/1*wWyiw9bRi5ENRIpBdyOA1g@2x.jpeg" alt="Image for post"></p>
+<p>I started to share <a href="/25-javascript-code-solutions-utility-tricks-you-need-to-know-about-3023f7ed993e">25 Javascript tricks and solutions you need to know about</a> which were well received so I decided to share some CSS tricks as well. I really believe that a lot of people adopt a library or framework because they want a solution but are not aware of how simple these solutions can be. I am constantly sharing tricks so follow my <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCrU33aw1k9BqTIq2yKXrmBw">YouTube channel</a> for video tutorials.</p>
+<h2 id="1-—-Truncate-with-Ellipsis-single-line"><a href="#1-—-Truncate-with-Ellipsis-single-line" class="headerlink" title="1 — Truncate with Ellipsis (single line)"></a>1 — Truncate with Ellipsis (single line)</h2><blockquote>
+<p>单行文本省略</p>
+</blockquote>
+<p>If you want to maintain a single line of text but want to show 3 dots(ellipsis) at the end in case the text ends up being too big, you need this trick. This is one of the examples which illustrate a bad CSS API design due to the fact you need all these combinations of properties for this to work.</p>
+<p>The element must be a <em>block</em> or <em>inline-block</em>, the <em>text-overflow</em> does not work without the <em>overflow</em> being <em>hidden</em> and the element must have a defined width or a max-width set. The <em>white-space</em> value of <em>nowrap</em> (reads No Wrap not Now Rap) simply forces the text not to break into a new line</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* use max-width so the ellipsis
+  only shows when reached that size */</span>
+
+  <span class="token property">max-width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+  <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-—-Truncate-with-an-ellipsis-multiple-lines"><a href="#2-—-Truncate-with-an-ellipsis-multiple-lines" class="headerlink" title="2 — Truncate with an ellipsis (multiple lines)"></a>2 — Truncate with an ellipsis (multiple lines)</h2><blockquote>
+<p>多行文本省略</p>
+</blockquote>
+<p>If you want ellipsis on multiple lines there is an entire, weird CSS solution to this. You can check this <a target="_blank" rel="noopener" href="https://css-tricks.com/line-clampin/">article on CSS-Tricks</a> for more alternative options and details.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* old display option */</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
+  <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span> <span class="token comment">/* max number of lines to show */</span>
+  <span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span> <span class="token comment">/* needed for it to work */</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-—-Center-vertically"><a href="#3-—-Center-vertically" class="headerlink" title="3 — Center vertically"></a>3 — Center vertically</h2><blockquote>
+<p>垂直居中</p>
+</blockquote>
+<p>The options to center vertically are vast depending on your situation really. Let’s look at a few of my favorites which do not include some other weird or, in my opinion, unmaintainable hacks.</p>
+<p><em>Vertically center anything inside a display flex container:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.flex-vertically-center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a></p>
+</blockquote>
+<p><em>Vertical alignment an inline, inline-block, or table-cell box:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* only for block tags */</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/almanac/properties/v/vertical-align/">vertical-align</a></p>
+</blockquote>
+<p><em>Vertically center absolute element inside a relative container:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.element</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* change to fixed to center relative to the view */</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-—-Center-horizontally"><a href="#4-—-Center-horizontally" class="headerlink" title="4 — Center horizontally"></a>4 — Center horizontally</h2><blockquote>
+<p>水平居中</p>
+</blockquote>
+<p>Similar to vertically align you will need to align things horizontally as well. These are my favorite minus the weird stuff.</p>
+<p><em>Center block items:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.block-element</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+  <span class="token comment">/* use display only if element is not block already */</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>Center text and inline or inline-block elements:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><em>Horizontally center absolute element inside a relative container:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.element</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* change to fixed to center relative to the view */</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateX</span><span class="token punctuation">(</span>-50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>Horizontally center anything inside a display flex container:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.flex-vertically-center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a></p>
+</blockquote>
+<h2 id="5-—-Style-next-or-previous-siblings"><a href="#5-—-Style-next-or-previous-siblings" class="headerlink" title="5 — Style next or previous siblings"></a>5 — Style next or previous siblings</h2><blockquote>
+<p>修改同级元素样式</p>
+</blockquote>
+<p>I don’t know about you. but I came across many situations in which I needed to style the elements after and before a certain element. The after is pretty simple and the before will blow your mind.</p>
+<p><em>Let pretend you have a <strong>container with 10 buttons</strong> and the <strong>5th</strong> has a class of “current”. To style <strong>all the buttons after “current”</strong> you do:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.current ~ button</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* the style you want */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="html,result" data-user="zhuangyin" data-slug-hash="BaLMmZp" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div>
+    &lt;button>0&lt;/button>
+    &lt;button>1&lt;/button>
+    &lt;button>2&lt;/button>
+    &lt;button>3&lt;/button>
+    &lt;button class="current">4&lt;/button>
+    &lt;button>5&lt;/button>
+    &lt;button>6&lt;/button>
+    &lt;button>7&lt;/button>
+    &lt;button>8&lt;/button>
+    &lt;button>9&lt;/button>
+&lt;/div></pre>
+  <pre data-lang="css">.current ~ button {
+     background: red;
+}
+</pre></div>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p><em>To style <strong>just the item after</strong> (the 6th button):</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.current + button</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* the style you want */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="html,result" data-user="zhuangyin" data-slug-hash="BaLMmZp" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div>
+    &lt;button>0&lt;/button>
+    &lt;button>1&lt;/button>
+    &lt;button>2&lt;/button>
+    &lt;button>3&lt;/button>
+    &lt;button class="current">4&lt;/button>
+    &lt;button>5&lt;/button>
+    &lt;button>6&lt;/button>
+    &lt;button>7&lt;/button>
+    &lt;button>8&lt;/button>
+    &lt;button>9&lt;/button>
+&lt;/div></pre>
+  <pre data-lang="css">.current + button {
+     background: red;
+}
+</pre></div>
+
+<p>CSS does not have a “_previous_” selector but we can take advantage of its cascading nature to use the order to do this. Since we already know how to target all the elements after, we can style all the buttons we want the buttons before “current” to have then we overwrite this style to look normal. The below code will make only <strong>the buttons before “current” have a red background</strong>.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">button</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.current,
+.current ~ button</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="html,result" data-user="zhuangyin" data-slug-hash="BaLMmZp" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div>
+    &lt;button>0&lt;/button>
+    &lt;button>1&lt;/button>
+    &lt;button>2&lt;/button>
+    &lt;button>3&lt;/button>
+    &lt;button class="current">4&lt;/button>
+    &lt;button>5&lt;/button>
+    &lt;button>6&lt;/button>
+    &lt;button>7&lt;/button>
+    &lt;button>8&lt;/button>
+    &lt;button>9&lt;/button>
+&lt;/div></pre>
+  <pre data-lang="css">button {
+    background: red;
+}
+.current,
+.current ~ button {
+    background: initial;
+}
+</pre></div>
+
+<h2 id="6-—-Style-elements-in-a-specific-range"><a href="#6-—-Style-elements-in-a-specific-range" class="headerlink" title="6 — Style elements in a specific range"></a>6 — Style elements in a specific range</h2><blockquote>
+<p>修改同级范围内元素样式</p>
+</blockquote>
+<p>You can target a certain range of elements to style as well. For example, you have 10 boxes and want <strong>the second to the fifth box</strong> to have a red background and all the others to have a green background, then you do:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box:nth-of-type(n + 2):nth-of-type(-n + 5)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="html,result" data-user="zhuangyin" data-slug-hash="BaLMmZp" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div>
+    &lt;button>0&lt;/button>
+    &lt;button>1&lt;/button>
+    &lt;button>2&lt;/button>
+    &lt;button>3&lt;/button>
+    &lt;button class="current">4&lt;/button>
+    &lt;button>5&lt;/button>
+    &lt;button>6&lt;/button>
+    &lt;button>7&lt;/button>
+    &lt;button>8&lt;/button>
+    &lt;button>9&lt;/button>
+&lt;/div></pre>
+  <pre data-lang="css">button:nth-of-type(n + 2):nth-of-type(-n + 5) {
+  background: red;
+}
+</pre></div>
+
+<p>The above works with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type"><em>nth-of-type</em></a> and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child"><em>nth-child</em></a> pseudo-class.</p>
+<h2 id="7-—-box-sizing"><a href="#7-—-box-sizing" class="headerlink" title="7 — box-sizing"></a>7 — box-sizing</h2><blockquote>
+<p>元素的总宽度和总高度</p>
+</blockquote>
+<p>One thing that used to drive me crazy was that I set an element to be for example 200px and then in the browser, it would be something else because of padding or border, then I found out about <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">box-sizing</a>.</p>
+<p><em>The following will create a box that is <strong>240 by 240</strong>(adds padding to width and height):</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><em>The following will create a box that is <strong>200 by 200</strong>(includes padding and border into the size I set):</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">box-sizing</a></p>
+</blockquote>
+<p>This is why on all my <a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLpWvGP6yhJUhDOU6LeJxEksCLxWxZo5y0">CSS tutorial videos</a> You hear me mention setting the following:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">Targets all elements and pseudo-elements*,
+*::after,
+*::before</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="8-—-aspect-ratio"><a href="#8-—-aspect-ratio" class="headerlink" title="8 — aspect ratio"></a>8 — aspect ratio</h2><blockquote>
+<p>长宽比</p>
+</blockquote>
+<p>If you want for a box to have a certain width to height ratio you can go about it several ways and only one of them is obvious. If you want to make a box a certain ratio you can set the top padding using a (height * width) / 100% formula using the calc function. To set a limit on the width you put inside a container where you set the width.</p>
+<p><em>Create a 16 by 9 rectangle of 200px wide:</em></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>9 / 16<span class="token punctuation">)</span> * 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>You can also use the after pseudo-element to create the ratio size</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.box::after</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token punctuation">(</span>9 / 16<span class="token punctuation">)</span> * 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #eee<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The issue with that is that everything inside must be shifted up or absolutely positioned to the box. Fortunately, CSS gave us the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio">aspect-ratio property</a> we can use, and unfortunately, it has very poor support as of 2020.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.box</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">aspect-ratio</span><span class="token punctuation">:</span> 16 / 9<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="9-—-text-around-an-image"><a href="#9-—-text-around-an-image" class="headerlink" title="9 — text around an image"></a>9 — text around an image</h2><blockquote>
+<p>文本围绕图片</p>
+</blockquote>
+<p>Text wrapping around the image is super cool and probably one of the most underrated CSS features ever and it is super easy to do. We use the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float property</a> to float the image inside a text then we use the powerful <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside">shape-outside property</a> with the image URL. The float property already does a lot but the shape-outside will escape pixels in your image.</p>
+<p><img src="https://miro.medium.com/max/2608/1*b1hr_4MaG8jhcsnA58YlUw.png" alt="Image for post"></p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+  <span class="token property">shape-outside</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>some-url-to-your-image<span class="token punctuation">)</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/shape-outside">shape-outside</a></p>
+</blockquote>
+<h2 id="10-—-is-matches-any-and-where"><a href="#10-—-is-matches-any-and-where" class="headerlink" title="10 — is, matches, any and :where"></a>10 — is, matches, any and :where</h2><blockquote>
+<p>将选择器列表作为参数,并选择该列表中任意一个选择器可以选择的元素.</p>
+</blockquote>
+<p>CSS has the <em>:matches</em> pseudo-class function which was recently renamed to <em>:is</em> and in some old browsers it is named <em>:any ** (with prefix)</em> but they all work exactly the same. What this allows you to do is simplify your CSS selectors, for example, you can change this:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">section h1,
+article h1,
+aside h1,
+nav h1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>into this:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">:is(section, article, aside, nav) h1</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>The <em>:where</em> works similarly but the specificity is always zero where the <em>:is</em> specificity is of the overall selector. You can read more on the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:is">MDN page</a>.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>CSS is fun and powerful and it is constantly growing and improving. I have collected a lot of tricks over the years and by doing things yourself you are constantly learning and enjoying the experience of discovery.</p>
+<p>I will continue to share more tricks in the article and <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCrU33aw1k9BqTIq2yKXrmBw">video</a> format so let’s stay in touch so I can continue to share my experience with you.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP">HTTP</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">超文本传输协议</a></p>
+</blockquote>
+<!-- > https://eeekou.blogspot.com/2019/01/mide-586-110sex.html
+>
+> [MIDE-586 1 日 10 回射精しても止まらないオーガズム SEX スペシャル 水卜さくら](https://www.busfan.net/MIDE-586)
+
+## 【GIF】福利 GIF 动态图
+
+IPZ-127
+[![](https://tva1.sinaimg.com/mw690/9032138fjw1f4gu2kkuh1g20fk08qhdw.gif)](https://tva1.sinaimg.com/mw690/9032138fjw1f4gu2kkuh1g20fk08qhdw.gif)
+
+ZEX-051
+[![](https://tva1.sinaimg.com/mw690/e43c3084jw1f4g12yvctpg206y041wue.gif)](https://tva1.sinaimg.com/mw690/e43c3084jw1f4g12yvctpg206y041wue.gif)
+
+SNIS-275
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwgw1f4f3czvww8g30f008fx6p.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwgw1f4f3czvww8g30f008fx6p.gif)
+
+黒宮れい – 夏少女 Part4 \[IMBD-203\]
+[![](https://tva1.sinaimg.com/mw690/c1a3c815gw1f4ewlmthkfg209q05hqv5.gif)](https://tva1.sinaimg.com/mw690/c1a3c815gw1f4ewlmthkfg209q05hqv5.gif)
+
+《山田君与 7 位魔女》
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g81qw6ueg30ak05eqeb.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g81qw6ueg30ak05eqeb.gif)
+
+《first class》
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g82jsfiig309q05hnpd.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g82jsfiig309q05hnpd.gif)
+
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g820rqeig30dw06e7p4.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g820rqeig30dw06e7p4.gif)
+
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g80ye61yg30b807e4qr.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4g80ye61yg30b807e4qr.gif)
+
+[![](https://tva1.sinaimg.com/mw1024/7834b099gw1etpo4aaqulg20dc0dc4qq.gif)](https://tva1.sinaimg.com/mw1024/7834b099gw1etpo4aaqulg20dc0dc4qq.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gz1tjng8g308d0asx6p.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gz1tjng8g308d0asx6p.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxrzmb33g307f0b4qv7.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxrzmb33g307f0b4qv7.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxr8iuz6g30e607zkjo.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxr8iuz6g30e607zkjo.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxkoiq0sg30b408pb2a.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gxkoiq0sg30b408pb2a.gif)
+
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4goimzqrrg30b4066qv9.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4goimzqrrg30b4066qv9.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4goiugvl5g30b4067qkl.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4goiugvl5g30b4067qkl.gif)
+[![](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gojvacb8g308w06o4qv.gif)](https://tva1.sinaimg.com/mw690/006fl9Dwjw1f4gojvacb8g308w06o4qv.gif)
+
+[![](https://tva1.sinaimg.com/mw600/005tlmIkjw1f4fzzcoi1lj30g40c3q4k.jpg)](https://tva1.sinaimg.com/mw600/005tlmIkjw1f4fzzcoi1lj30g40c3q4k.jpg)
+
+主观视角,用第一人称视角拍摄硬盘使得整部电影更具有代入感,使得与演对手戏的演员的互动更加增强.
+
+比如:
+\[生配信中に来場リスナー 80,000 人の前で凌辱・調教・生中出し 沖田みりな\]
+JYS-005 / 2016-06-25
+\[完全撮りおろし！主観フェラ抜き体験 8 時間！させてくれる 38 人の美少女たち\]
+APAE-053 / 2016-06-25
+\[イチャ LOVE デート 世界で 1 番大切な大槻ひびき\]
+CESD-228 / 2016-06-25
+\[ずっと大好きだった幼なじみを地元の DQN 先輩で寝取られた話 ゆいかまな\]
+KAWD-725 / 2016-06-24
+\[大胆パンチラ番外編 スカートの中に潜り込みたい！ 超接近型挑発 P3\]
+ARM-524 / 2016-06-20
+\[卑猥語マダム XV 鮎原いつき\]
+ARM-523 / 2016-06-20
+\[僕のことを大好き過ぎる僕だけのありなと朝から晩まで毎日イチャイチャ同棲性活 橋本ありな\]
+SNIS-679 / 2016-06-18
+\[美月レイア 180 分本指名 極上風俗 4 本番＋ピンサロ\]
+IPZ-775 / 2016-06-18
+\[ご近所の顔見知り専門営業 デリバリー風俗ギャル奥さん 吹石れな\]
+BLK-281 / 2016-06-18
+\[妻からの寝取られ実況ビデオレター 水野朝陽\]
+MIAD-917 / 2016-06-11
+\[ボクを好き過ぎるボクだけの長谷川るい\]
+ABP-488 / 2016-06-10
+\[JK 直下型＆M 字パンチラ挑発 6\]
+PARM-106 / 2016-06-08
+\[センズリ用 美少女がエロポーズでま ○ ことを惜しみ無く広げ見せつけ挑発してくる DVD Part7\]
+ARM-519 / 2016-06-08
+\[AJOI 究極の完全主観オナニーサポート DVD7 Aromatic Jerk Off Instruction\]
+ARM-518 / 2016-06-08
+\[嫁の璃子と僕のラブラブ子作り生活 羽田璃子\]
+VAGU-155 / 2016-06-05
+\[子作りを一日中せがむ奥さんと何度も中出し 里美ゆりあ\]
+NKKD-011 / 2016-06-04
+\[御奉仕メイド Room 星空キラリ\]
+WWW-043 / 2016-06-03
+\[Club*Venus 波多野結衣\]
+LID-028 / 2016-06-03
+\[微乳 A とっても感じる小っちゃいおっぱい あおいれな\]
+LID-030 / 2016-06-03
+\[バーチャルベロキス 2\]
+EVIZ-038 / 2016-05-30
+\[ねぇ、H しよっ 並木優の甘～い甘～いハニートラップ 8 時間\]
+MIAD-913 / 2016-05-29
+\[美少女の無防備な恍惚顔が快感を増幅させる！！おねだり上目づかいフェラチオ BEST！！\]
+WANZ-502 / 2016-05-29
+\[癒らし. WANZ FACTORY Ver. AIKA\]
+WANZ-494 / 2016-05-29
+\[裸族がホームステイでやってきた！から子作り\]
+
+## 【火爆车牌】300 部精品动图附车牌系列六【30P】
+
+PGD-808
+
+![](https://www.touimg.com/u/20181027/09534667.gif)
+
+PPPD-120
+
+![](https://www.touimg.com/u/20181027/09535680.gif)
+
+PPPD-286
+
+![](https://www.touimg.com/u/20181027/0955516.gif)
+
+PRED-011
+
+![](https://www.touimg.com/u/20181027/09570727.gif)
+
+RBD-341
+
+![](https://www.touimg.com/u/20181027/09573828.gif)
+
+RBD-582
+
+![](https://www.touimg.com/u/20181027/0958075.gif)
+
+RCT-461
+
+![](https://www.touimg.com/u/20181027/09584529.gif)
+
+RCT-502
+
+![](https://www.touimg.com/u/20181027/09592835.gif)
+
+RDT-163
+
+![](https://www.touimg.com/u/20181027/09594849.gif)
+
+RDT-216
+
+![](https://www.touimg.com/u/20181027/10003216.gif)
+
+SAMA-129
+
+![](https://www.touimg.com/u/20181027/10015228.gif)
+
+SAMA-542
+
+![](https://www.touimg.com/u/20181027/10024714.gif)
+
+SCPX-096
+
+![](https://www.touimg.com/u/20181027/10034040.gif)
+
+SDMU-466
+
+![](https://www.touimg.com/u/20181027/10034822.gif)
+
+SDMU-790
+
+![](https://www.touimg.com/u/20181027/10044338.gif)
+
+SGA-010
+
+![](https://www.touimg.com/u/20181027/10062884.gif)
+
+SHKD-583
+
+![](https://www.touimg.com/u/20181027/10084428.gif)
+
+SHKD-603
+
+![](https://www.touimg.com/u/20181027/10095058.gif)
+
+SHKD-634
+
+![](https://www.touimg.com/u/20181027/10110128.gif)
+
+SHKD-647
+
+![](https://www.touimg.com/u/20181027/10114169.gif)
+
+SHKD-777
+
+![](https://www.touimg.com/u/20181027/10125645.gif)
+
+SHKD-796
+
+![](https://www.touimg.com/u/20181027/10133052.gif)
+
+SILK-014
+
+![](https://www.touimg.com/u/20181027/1014289.gif)
+
+SNIS-151
+
+![](https://www.touimg.com/u/20181027/10151162.gif)
+
+SNIS-275
+
+![](https://www.touimg.com/u/20181027/10160731.gif)
+
+SNIS-496
+
+![](https://www.touimg.com/u/20181027/1016431.gif)
+
+SNIS-589
+
+![](https://www.touimg.com/u/20181027/10192894.gif)
+
+SNIS-604
+
+![](https://www.touimg.com/u/20181027/10211413.gif)
+
+SNIS-656
+
+![](https://www.touimg.com/u/20181027/10214525.gif)
+
+SNIS-830
+
+![](https://www.touimg.com/u/20181027/10234850.gif)
+
+## 新手上路 第四波动态图 有车牌 [34P]
+
+EBOD-294
+![](http://ww4.sinaimg.cn/large/0060lm7Tgw1eyo3ep5wq9g30a005me47.gif)
+
+DMDG-014
+![](http://ww3.sinaimg.cn/large/0060lm7Tgw1ezj0yhjvgog309x05k4qq.gif)
+
+CLUB-417
+![](https://66.media.tumblr.com/15c4b99ecae004770d1267c041d986ef/tumblr_pgxi8152GO1xu0igzo2_r1_250.gif)
+
+SSNI-290
+![](https://66.media.tumblr.com/21094e42cc042b254286b29c1895a8f4/tumblr_pgwby57iwf1xu0igzo6_500.gif)
+
+![](https://66.media.tumblr.com/777bd8e677a2990f8568e9a5a5edc2cd/tumblr_pgwby57iwf1xu0igzo5_500.gif)
+
+![](https://66.media.tumblr.com/e3b60a8782181344bf5093104c22ad84/tumblr_pgwby57iwf1xu0igzo1_500.gif)
+
+EDRG-009
+![](https://66.media.tumblr.com/18480692a608e9ff37e2ed342ba40aef/tumblr_pgwbk0Om5r1xu0igzo2_r1_250.gif)
+
+IPX-219
+![](https://66.media.tumblr.com/70b1c45d3cd78831cf2c71bfd6f0a1bf/tumblr_pgwbfxn9dH1xu0igzo3_500.gif)
+
+![](https://66.media.tumblr.com/72d1bed49fab97e1eac8f0878e56a776/tumblr_pgwbfxn9dH1xu0igzo1_250.gif)
+
+EYAN-001
+![](https://66.media.tumblr.com/a1dc192498903281f81823d78a751a6c/tumblr_pgmx6kLXpV1xu0igzo3_250.gif)
+
+![](https://66.media.tumblr.com/bc5208fb42b455490e51f0e312a78555/tumblr_pgmx6kLXpV1xu0igzo6_400.gif)
+
+MIGD-765
+![](https://66.media.tumblr.com/248d56a51072448c5d95629dc25e1a7c/tumblr_pgmwuiXPB71xu0igzo3_500.gif)
+
+![](https://66.media.tumblr.com/b117d146e4663a93f0300a51e9c600df/tumblr_pgmwuiXPB71xu0igzo2_250.gif)
+
+![](https://66.media.tumblr.com/398660be4caf64a253365464ed068256/tumblr_pgmwuiXPB71xu0igzo7_250.gif)
+
+![](https://66.media.tumblr.com/f571e9375ae4b6bc801eaa0b70094c28/tumblr_pgmwuiXPB71xu0igzo4_250.gif)
+
+![](https://66.media.tumblr.com/0fe77c22d9f59e1b5be5ad7049b6b4e9/tumblr_pgmwuiXPB71xu0igzo5_250.gif)
+
+![](https://66.media.tumblr.com/0ee551dccfdfdde3a445f74a62696456/tumblr_pgmwuiXPB71xu0igzo6_250.gif)
+
+![](https://66.media.tumblr.com/3d56f8b55171caae0ec55c0defb1acd0/tumblr_pgmwuiXPB71xu0igzo1_250.gif)
+
+![](https://66.media.tumblr.com/fc02f350140291318bd0a102791ab6b3/tumblr_pgmwuiXPB71xu0igzo9_250.gif)
+
+HEYZO-0807
+![](https://66.media.tumblr.com/50de5c2f8fed9ca2e40d7d0ab8f34fb9/tumblr_pgy5oiidsF1u6mv69_540.gif)
+
+HEYZO-0763
+![](https://66.media.tumblr.com/e75e2de18434cce3170bd8f42b57a0ee/tumblr_pgybglTKhd1u6mv69_540.gif)
+
+HOMA-032
+![](https://66.media.tumblr.com/387417c2ab91727ae54f122b040343c7/tumblr_pgp6uibGf51ucht95o5_400.gif)
+
+![](https://66.media.tumblr.com/a0f74a6d62ec672153dc96757d084363/tumblr_pgp6uibGf51ucht95o7_500.gif)
+
+\[WowGirls\] Nikia - Doing The Nasty 17
+![](https://66.media.tumblr.com/d6c592bb2231ea8434f5e9439fa450be/tumblr_papgnk9iB81xu0igzo1_500.gif)
+
+![](https://66.media.tumblr.com/b2e5f7bacb6296391757e94d5e292f6f/tumblr_papgnk9iB81xu0igzo5_400.gif)
+
+![](https://66.media.tumblr.com/888eb94e656fe339d2e474a554b363f3/tumblr_papgnk9iB81xu0igzo8_400.gif)
+
+![](https://66.media.tumblr.com/22c1c9f481fd21be0ce66f2bd3222361/tumblr_papgnk9iB81xu0igzo6_500.gif)
+
+![](https://66.media.tumblr.com/0a8d393ab3410275e81dfc4188348564/tumblr_papgnk9iB81xu0igzo2_500.gif)
+
+IPX-216
+![](https://66.media.tumblr.com/b1e986897dbc63b0337ee28e36256741/tumblr_pgvl8bdJBU1xc322to1_400.gif)
+
+Caribbean 100518-766
+![](https://66.media.tumblr.com/51ed95ec553120230792df330bbdd872/tumblr_pgsh72L8tE1ucht95o6_r1_500.gif)
+
+IPX-216
+![](https://66.media.tumblr.com/f21021a07846370747638db46e8acf0e/tumblr_pgvl74ZGoY1xc322to1_400.gif)
+
+![](https://66.media.tumblr.com/9885a8f2c8ed5079029cdf9f32e85244/tumblr_pgvl8r9dAn1xc322to1_400.gif)
+
+![](https://66.media.tumblr.com/96c4103f5b0d908eb830858efebf5af8/tumblr_pgvl8qB4931xc322to1_400.gif)
+
+![](https://66.media.tumblr.com/9a34b7af20169a6dde4c3f5fcad470cf/tumblr_pgvl8hnzHi1xc322to1_400.gif)
+
+ MEYD-147
+
+## 大文件 GIF 分享,直接下载第一季
+
+### 1
+
+![](https://www.69img.com/u/20171230/1143485.gif)
+
+![](https://www.69img.com/u/20171230/11435034.gif)
+
+![](https://www.69img.com/u/20171230/11435250.gif)
+
+![](https://www.69img.com/u/20171230/11435460.gif)
+
+![](https://www.69img.com/u/20171230/11435652.gif)
+
+![](https://www.69img.com/u/20171230/11435879.gif)
+
+![](https://www.69img.com/u/20171230/11440144.gif)
+
+![](https://www.69img.com/u/20171230/11440374.gif)
+
+![](https://www.69img.com/u/20171230/1144053.gif)
+
+![](https://www.69img.com/u/20171230/11440688.gif)
+
+![](https://www.69img.com/u/20171230/11440969.gif)
+
+### 2
+
+![](https://www.69img.com/u/20171230/11441082.gif)
+
+![](https://www.69img.com/u/20171230/11441266.gif)
+
+### 3
+
+![](https://www.69img.com/u/20171230/1144193.gif)
+
+![](https://www.69img.com/u/20171230/11442033.gif)
+
+![](https://www.69img.com/u/20171230/11442293.gif)
+
+
+![](https://www.69img.com/u/20171230/11442448.gif)
+
+![](https://www.69img.com/u/20171230/11442673.gif)
+
+![](https://www.69img.com/u/20171230/11442826.gif)
+
+![](https://www.69img.com/u/20171230/11441457.gif)
+
+![](https://www.69img.com/u/20171230/11441630.gif)
+
+### 4
+
+![](https://www.69img.com/u/20171230/1144305.gif)
+
+![](https://www.69img.com/u/20171230/11443347.gif)
+
+![](https://www.69img.com/u/20171230/11443514.gif)
+
+![](https://www.69img.com/u/20171230/11443699.gif)
+
+![](https://www.69img.com/u/20171230/1144399.gif)
+
+![](https://www.69img.com/u/20171230/11444031.gif)
+
+![](https://www.69img.com/u/20171230/11444244.gif)
+
+![](https://www.69img.com/u/20171230/11444414.gif)
+
+### 5
+
+![](https://www.69img.com/u/20171230/11444654.gif)
+
+![](https://www.69img.com/u/20171230/11444817.gif)
+
+![](https://www.69img.com/u/20171230/11445015.gif)
+
+### 6
+
+![](https://www.69img.com/u/20171230/11445291.gif)
+
+![](https://www.69img.com/u/20171230/11445462.gif)
+
+![](https://www.69img.com/u/20171230/11445773.gif)
+
+![](https://www.69img.com/u/20171230/11445871.gif)
+
+![](https://www.69img.com/u/20171230/11450065.gif)
+
+![](https://www.69img.com/u/20171230/11450267.gif)
+
+![](https://www.69img.com/u/20171230/11450495.gif)
+
+### 7
+
+![](https://www.69img.com/u/20171230/11450771.gif)
+
+![](https://www.69img.com/u/20171230/11450915.gif)
+
+![](https://www.69img.com/u/20171230/11451250.gif)
+
+![](https://www.69img.com/u/20171230/1145145.gif)
+
+![](https://www.69img.com/u/20171230/11451626.gif)
+
+### 8
+
+![](https://www.69img.com/u/20171230/11451792.gif)
+
+![](https://www.69img.com/u/20171230/11451962.gif)
+
+![](https://www.69img.com/u/20171230/11452168.gif)
+
+![](https://www.69img.com/u/20171230/1145238.gif)
+
+![](https://www.69img.com/u/20171230/11452580.gif)
+
+![](https://www.69img.com/u/20171230/11452711.gif)
+
+![](https://www.69img.com/u/20171230/11452987.gif)
+
+### 9
+
+![](https://www.69img.com/u/20171230/11453111.gif)
+
+![](https://www.69img.com/u/20171230/11453416.gif)
+
+![](https://www.69img.com/u/20171230/11453521.gif)
+
+![](https://www.69img.com/u/20171230/11453748.gif)
+
+![](https://www.69img.com/u/20171230/11453929.gif)
+
+![](https://www.69img.com/u/20171230/11454116.gif)
+
+![](https://www.69img.com/u/20171230/11454396.gif)
+
+![](https://www.69img.com/u/20171230/1145458.gif)
+
+![](https://www.69img.com/u/20171230/11454811.gif)
+
+![](https://www.69img.com/u/20171230/11454943.gif)
+
+### 10
+
+![](https://www.69img.com/u/20171230/11455167.gif)
+
+![](https://www.69img.com/u/20171230/11455316.gif)
+
+![](https://www.69img.com/u/20171230/11455557.gif)
+
+![](https://www.69img.com/u/20171230/11455743.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第四季
+
+### 1
+
+[![](http://www.69img.com/u/20180104/11200532.gif)](http://www.69img.com/i/?i=u/20180104/11200532.gif)
+[![](http://www.69img.com/u/20180104/11200762.gif)](http://www.69img.com/i/?i=u/20180104/11200762.gif)
+[![](http://www.69img.com/u/20180104/11201135.gif)](http://www.69img.com/i/?i=u/20180104/11201135.gif)
+[![](http://www.69img.com/u/20180104/11201484.gif)](http://www.69img.com/i/?i=u/20180104/11201484.gif)
+
+### 2
+
+[![](http://www.69img.com/u/20180104/11202587.gif)](http://www.69img.com/i/?i=u/20180104/11202587.gif)
+[![](http://www.69img.com/u/20180104/11202919.gif)](http://www.69img.com/i/?i=u/20180104/11202919.gif)
+
+[![](http://www.69img.com/u/20180104/11201692.gif)](http://www.69img.com/i/?i=u/20180104/11201692.gif)
+[![](http://www.69img.com/u/20180104/11201858.gif)](http://www.69img.com/i/?i=u/20180104/11201858.gif)
+[![](http://www.69img.com/u/20180104/11202070.gif)](http://www.69img.com/i/?i=u/20180104/11202070.gif)
+[![](http://www.69img.com/u/20180104/11202373.gif)](http://www.69img.com/i/?i=u/20180104/11202373.gif)
+
+### 3
+
+[![](http://www.69img.com/u/20180104/11204662.gif)](http://www.69img.com/i/?i=u/20180104/11204662.gif)
+[![](http://www.69img.com/u/20180104/11204846.gif)](http://www.69img.com/i/?i=u/20180104/11204846.gif)
+[![](http://www.69img.com/u/20180104/1120516.gif)](http://www.69img.com/i/?i=u/20180104/1120516.gif)
+
+[![](http://www.69img.com/u/20180104/11205667.gif)](http://www.69img.com/i/?i=u/20180104/11205667.gif)
+[![](http://www.69img.com/u/20180104/1120591.gif)](http://www.69img.com/i/?i=u/20180104/1120591.gif)
+[![](http://www.69img.com/u/20180104/11204334.gif)](http://www.69img.com/i/?i=u/20180104/11204334.gif)
+[![](http://www.69img.com/u/20180104/11205342.gif)](http://www.69img.com/i/?i=u/20180104/11205342.gif)
+
+### 4
+
+[![](http://www.69img.com/u/20180104/11210514.gif)](http://www.69img.com/i/?i=u/20180104/11210514.gif)
+[![](http://www.69img.com/u/20180104/11210922.gif)](http://www.69img.com/i/?i=u/20180104/11210922.gif)
+[![](http://www.69img.com/u/20180104/11211328.gif)](http://www.69img.com/i/?i=u/20180104/11211328.gif)
+[![](http://www.69img.com/u/20180104/11211776.gif)](http://www.69img.com/i/?i=u/20180104/11211776.gif)
+
+### 5
+
+[![](http://www.69img.com/u/20180104/11212281.gif)](http://www.69img.com/i/?i=u/20180104/11212281.gif)
+[![](http://www.69img.com/u/20180104/11212945.gif)](http://www.69img.com/i/?i=u/20180104/11212945.gif)[![](http://www.69img.com/u/20180104/11213647.gif)](http://www.69img.com/i/?i=u/20180104/11213647.gif)
+
+### 6
+
+[![](http://www.69img.com/u/20180104/11213864.gif)](http://www.69img.com/i/?i=u/20180104/11213864.gif)
+[![](http://www.69img.com/u/20180104/11214051.gif)](http://www.69img.com/i/?i=u/20180104/11214051.gif)
+[![](http://www.69img.com/u/20180104/11214272.gif)](http://www.69img.com/i/?i=u/20180104/11214272.gif)
+[![](http://www.69img.com/u/20180104/11214547.gif)](http://www.69img.com/i/?i=u/20180104/11214547.gif)
+[![](http://www.69img.com/u/20180104/11214826.gif)](http://www.69img.com/i/?i=u/20180104/11214826.gif)
+[![](http://www.69img.com/u/20180104/1121529.gif)](http://www.69img.com/i/?i=u/20180104/1121529.gif)
+[![](http://www.69img.com/u/20180104/11215650.gif)](http://www.69img.com/i/?i=u/20180104/11215650.gif)[![](http://www.69img.com/u/20180104/11215977.gif)](http://www.69img.com/i/?i=u/20180104/11215977.gif)
+[![](http://www.69img.com/u/20180104/11220461.gif)](http://www.69img.com/i/?i=u/20180104/11220461.gif)
+
+### 7
+
+[![](http://www.69img.com/u/20180104/11220633.gif)](http://www.69img.com/i/?i=u/20180104/11220633.gif)
+[![](http://www.69img.com/u/20180104/11221032.gif)](http://www.69img.com/i/?i=u/20180104/11221032.gif)
+
+### 8
+
+[![](http://www.69img.com/u/20180104/11221341.gif)](http://www.69img.com/i/?i=u/20180104/11221341.gif)
+[![](http://www.69img.com/u/20180104/11221564.gif)](http://www.69img.com/i/?i=u/20180104/11221564.gif)
+[![](http://www.69img.com/u/20180104/11222057.gif)](http://www.69img.com/i/?i=u/20180104/11222057.gif)
+[![](http://www.69img.com/u/20180104/11225923.gif)](http://www.69img.com/i/?i=u/20180104/11225923.gif)
+[![](http://www.69img.com/u/20180104/11233839.gif)](http://www.69img.com/i/?i=u/20180104/11233839.gif)
+[![](http://www.69img.com/u/20180104/11234232.gif)](http://www.69img.com/i/?i=u/20180104/11234232.gif)
+
+### 9
+
+[![](http://www.69img.com/u/20180104/11234626.gif)](http://www.69img.com/i/?i=u/20180104/11234626.gif)
+[![](http://www.69img.com/u/20180104/1123502.gif)](http://www.69img.com/i/?i=u/20180104/1123502.gif)
+[![](http://www.69img.com/u/20180104/11235369.gif)](http://www.69img.com/i/?i=u/20180104/11235369.gif)
+[![](http://www.69img.com/u/20180104/11235699.gif)](http://www.69img.com/i/?i=u/20180104/11235699.gif)
+[![](http://www.69img.com/u/20180104/11235924.gif)](http://www.69img.com/i/?i=u/20180104/11235924.gif)
+[![](http://www.69img.com/u/20180104/1124029.gif)](http://www.69img.com/i/?i=u/20180104/1124029.gif)
+[![](http://www.69img.com/u/20180104/11240444.gif)](http://www.69img.com/i/?i=u/20180104/11240444.gif)
+[![](http://www.69img.com/u/20180104/11240865.gif)](http://www.69img.com/i/?i=u/20180104/11240865.gif)
+
+### 10
+
+[![](http://www.69img.com/u/20180104/11241089.gif)](http://www.69img.com/i/?i=u/20180104/11241089.gif)
+[![](http://www.69img.com/u/20180104/11241495.gif)](http://www.69img.com/i/?i=u/20180104/11241495.gif)
+[![](http://www.69img.com/u/20180104/11241746.gif)](http://www.69img.com/i/?i=u/20180104/11241746.gif)
+[![](http://www.69img.com/u/20180104/11242052.gif)](http://www.69img.com/i/?i=u/20180104/11242052.gif)
+[![](http://www.69img.com/u/20180104/11242396.gif)](http://www.69img.com/i/?i=u/20180104/11242396.gif)
+[![](http://www.69img.com/u/20180104/11242794.gif)](http://www.69img.com/i/?i=u/20180104/11242794.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第五季
+
+### 1
+
+[![](http://www.69img.com/u/20180111/16004590.gif)](http://www.69img.com/i/?i=u/20180111/16004590.gif)
+[![](http://www.69img.com/u/20180111/16004874.gif)](http://www.69img.com/i/?i=u/20180111/16004874.gif)
+[![](http://www.69img.com/u/20180111/16005064.gif)](http://www.69img.com/i/?i=u/20180111/16005064.gif)
+[![](http://www.69img.com/u/20180111/16005280.gif)](http://www.69img.com/i/?i=u/20180111/16005280.gif)
+[![](http://www.69img.com/u/20180111/16005499.gif)](http://www.69img.com/i/?i=u/20180111/16005499.gif)
+[![](http://www.69img.com/u/20180111/16005674.gif)](http://www.69img.com/i/?i=u/20180111/16005674.gif)
+[![](http://www.69img.com/u/20180111/16005911.gif)](http://www.69img.com/i/?i=u/20180111/16005911.gif)
+[![](http://www.69img.com/u/20180111/16010164.gif)](http://www.69img.com/i/?i=u/20180111/16010164.gif)
+[![](http://www.69img.com/u/20180111/16010395.gif)](http://www.69img.com/i/?i=u/20180111/16010395.gif)
+
+### 2
+
+[![](http://www.69img.com/u/20180111/16010568.gif)](http://www.69img.com/i/?i=u/20180111/16010568.gif)
+[![](http://www.69img.com/u/20180111/16010714.gif)](http://www.69img.com/i/?i=u/20180111/16010714.gif)
+[![](http://www.69img.com/u/20180111/16010996.gif)](http://www.69img.com/i/?i=u/20180111/16010996.gif)
+[![](http://www.69img.com/u/20180111/16011123.gif)](http://www.69img.com/i/?i=u/20180111/16011123.gif)
+[![](http://www.69img.com/u/20180111/16011333.gif)](http://www.69img.com/i/?i=u/20180111/16011333.gif)
+[![](http://www.69img.com/u/20180111/16011561.gif)](http://www.69img.com/i/?i=u/20180111/16011561.gif)
+
+### 3
+
+[![](http://www.69img.com/u/20180111/16011729.gif)](http://www.69img.com/i/?i=u/20180111/16011729.gif)
+[![](http://www.69img.com/u/20180111/16011967.gif)](http://www.69img.com/i/?i=u/20180111/16011967.gif)
+[![](http://www.69img.com/u/20180111/16012171.gif)](http://www.69img.com/i/?i=u/20180111/16012171.gif)
+[![](http://www.69img.com/u/20180111/1601234.gif)](http://www.69img.com/i/?i=u/20180111/1601234.gif)
+
+### 4
+
+[![](http://www.69img.com/u/20180111/16012540.gif)](http://www.69img.com/i/?i=u/20180111/16012540.gif)
+[![](http://www.69img.com/u/20180111/16012756.gif)](http://www.69img.com/i/?i=u/20180111/16012756.gif)
+[![](http://www.69img.com/u/20180111/16012967.gif)](http://www.69img.com/i/?i=u/20180111/16012967.gif)
+[![](http://www.69img.com/u/20180111/16013116.gif)](http://www.69img.com/i/?i=u/20180111/16013116.gif)
+[![](http://www.69img.com/u/20180111/1601333.gif)](http://www.69img.com/i/?i=u/20180111/1601333.gif)
+
+### 5
+
+[![](http://www.69img.com/u/20180111/16013526.gif)](http://www.69img.com/i/?i=u/20180111/16013526.gif)
+[![](http://www.69img.com/u/20180111/16013727.gif)](http://www.69img.com/i/?i=u/20180111/16013727.gif)
+[![](http://www.69img.com/u/20180111/16013983.gif)](http://www.69img.com/i/?i=u/20180111/16013983.gif)
+[![](http://www.69img.com/u/20180111/16014170.gif)](http://www.69img.com/i/?i=u/20180111/16014170.gif)
+[![](http://www.69img.com/u/20180111/16014412.gif)](http://www.69img.com/i/?i=u/20180111/16014412.gif)
+[![](http://www.69img.com/u/20180111/16014692.gif)](http://www.69img.com/i/?i=u/20180111/16014692.gif)
+
+### 6
+
+[![](http://www.69img.com/u/20180111/16014956.gif)](http://www.69img.com/i/?i=u/20180111/16014956.gif)
+[![](http://www.69img.com/u/20180111/16015122.gif)](http://www.69img.com/i/?i=u/20180111/16015122.gif)
+[![](http://www.69img.com/u/20180111/16015428.gif)](http://www.69img.com/i/?i=u/20180111/16015428.gif)
+[![](http://www.69img.com/u/20180111/16015782.gif)](http://www.69img.com/i/?i=u/20180111/16015782.gif)
+[![](http://www.69img.com/u/20180111/16020031.gif)](http://www.69img.com/i/?i=u/20180111/16020031.gif)
+[![](http://www.69img.com/u/20180111/16020275.gif)](http://www.69img.com/i/?i=u/20180111/16020275.gif)
+[![](http://www.69img.com/u/20180111/16020478.gif)](http://www.69img.com/i/?i=u/20180111/16020478.gif)
+
+### 7
+
+[![](http://www.69img.com/u/20180111/16020816.gif)](http://www.69img.com/i/?i=u/20180111/16020816.gif)
+[![](http://www.69img.com/u/20180111/16021048.gif)](http://www.69img.com/i/?i=u/20180111/16021048.gif)
+[![](http://www.69img.com/u/20180111/16021226.gif)](http://www.69img.com/i/?i=u/20180111/16021226.gif)
+[![](http://www.69img.com/u/20180111/16021442.gif)](http://www.69img.com/i/?i=u/20180111/16021442.gif)
+[![](http://www.69img.com/u/20180111/16021695.gif)](http://www.69img.com/i/?i=u/20180111/16021695.gif)
+[![](http://www.69img.com/u/20180111/16021856.gif)](http://www.69img.com/i/?i=u/20180111/16021856.gif)[![](http://www.69img.com/u/20180111/16020683.gif)](http://www.69img.com/i/?i=u/20180111/16020683.gif)
+
+### 8
+
+[![](http://www.69img.com/u/20180111/16022017.gif)](http://www.69img.com/i/?i=u/20180111/16022017.gif)
+[![](http://www.69img.com/u/20180111/16022240.gif)](http://www.69img.com/i/?i=u/20180111/16022240.gif)
+[![](http://www.69img.com/u/20180111/16022475.gif)](http://www.69img.com/i/?i=u/20180111/16022475.gif)
+[![](http://www.69img.com/u/20180111/16022625.gif)](http://www.69img.com/i/?i=u/20180111/16022625.gif)
+[![](http://www.69img.com/u/20180111/16022850.gif)](http://www.69img.com/i/?i=u/20180111/16022850.gif)
+[![](http://www.69img.com/u/20180111/16022891.gif)](http://www.69img.com/i/?i=u/20180111/16022891.gif)
+[![](http://www.69img.com/u/20180111/16022931.gif)](http://www.69img.com/i/?i=u/20180111/16022931.gif)
+
+### 9
+
+[![](http://www.69img.com/u/20180111/16022911.gif)](http://www.69img.com/i/?i=u/20180111/16022911.gif)
+[![](http://www.69img.com/u/20180111/16023041.gif)](http://www.69img.com/i/?i=u/20180111/16023041.gif)
+[![](http://www.69img.com/u/20180111/16023129.gif)](http://www.69img.com/i/?i=u/20180111/16023129.gif)
+[![](http://www.69img.com/u/20180111/16023110.gif)](http://www.69img.com/i/?i=u/20180111/16023110.gif)
+[![](http://www.69img.com/u/20180111/16023595.gif)](http://www.69img.com/i/?i=u/20180111/16023595.gif)
+[![](http://www.69img.com/u/20180111/16024076.gif)](http://www.69img.com/i/?i=u/20180111/16024076.gif)
+[![](http://www.69img.com/u/20180111/16024395.gif)](http://www.69img.com/i/?i=u/20180111/16024395.gif)
+[![](http://www.69img.com/u/20180111/16024715.gif)](http://www.69img.com/i/?i=u/20180111/16024715.gif)
+[![](http://www.69img.com/u/20180111/16025041.gif)](http://www.69img.com/i/?i=u/20180111/16025041.gif)
+[![](http://www.69img.com/u/20180111/16025457.gif)](http://www.69img.com/i/?i=u/20180111/16025457.gif)
+[![](http://www.69img.com/u/20180111/16025711.gif)](http://www.69img.com/i/?i=u/20180111/16025711.gif)
+
+### 10
+
+[![](http://www.69img.com/u/20180111/16025953.gif)](http://www.69img.com/i/?i=u/20180111/16025953.gif)
+[![](http://www.69img.com/u/20180111/16030224.gif)](http://www.69img.com/i/?i=u/20180111/16030224.gif)
+[![](http://www.69img.com/u/20180111/16030539.gif)](http://www.69img.com/i/?i=u/20180111/16030539.gif)
+[![](http://www.69img.com/u/20180111/16030777.gif)](http://www.69img.com/i/?i=u/20180111/16030777.gif)
+[![](http://www.69img.com/u/20180111/16031097.gif)](http://www.69img.com/i/?i=u/20180111/16031097.gif)
+[![](http://www.69img.com/u/20180111/16031369.gif)](http://www.69img.com/i/?i=u/20180111/16031369.gif)
+[![](http://www.69img.com/u/20180111/16031571.gif)](http://www.69img.com/i/?i=u/20180111/16031571.gif)
+[![](http://www.69img.com/u/20180111/16031724.gif)](http://www.69img.com/i/?i=u/20180111/16031724.gif)
+[![](http://www.69img.com/u/20180111/16032076.gif)](http://www.69img.com/i/?i=u/20180111/16032076.gif)
+[![](http://www.69img.com/u/20180111/16032443.gif)](http://www.69img.com/i/?i=u/20180111/16032443.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第六季
+
+### 1
+
+[![](https://www.69img.com/u/20180112/11544934.gif)](https://www.69img.com/i/?i=u/20180112/11544934.gif)
+[![](https://www.69img.com/u/20180112/11545834.gif)](https://www.69img.com/i/?i=u/20180112/11545834.gif)
+[![](https://www.69img.com/u/20180112/11550012.gif)](https://www.69img.com/i/?i=u/20180112/11550012.gif)
+[![](https://www.69img.com/u/20180112/1155021.gif)](https://www.69img.com/i/?i=u/20180112/1155021.gif)
+[![](https://www.69img.com/u/20180112/11545248.gif)](https://www.69img.com/i/?i=u/20180112/11545248.gif)
+[![](https://www.69img.com/u/20180112/11545411.gif)](https://www.69img.com/i/?i=u/20180112/11545411.gif)[![](https://www.69img.com/u/20180112/11544622.gif)](https://www.69img.com/i/?i=u/20180112/11544622.gif)
+[![](https://www.69img.com/u/20180112/11545695.gif)](https://www.69img.com/i/?i=u/20180112/11545695.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180112/11551048.gif)](https://www.69img.com/i/?i=u/20180112/11551048.gif)
+[![](https://www.69img.com/u/20180112/11551213.gif)](https://www.69img.com/i/?i=u/20180112/11551213.gif)
+[![](https://www.69img.com/u/20180112/11551449.gif)](https://www.69img.com/i/?i=u/20180112/11551449.gif)
+[![](https://www.69img.com/u/20180112/11550422.gif)](https://www.69img.com/i/?i=u/20180112/11550422.gif)
+[![](https://www.69img.com/u/20180112/11550629.gif)](https://www.69img.com/i/?i=u/20180112/11550629.gif)
+[![](https://www.69img.com/u/20180112/11550827.gif)](https://www.69img.com/i/?i=u/20180112/11550827.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180112/11551639.gif)](https://www.69img.com/i/?i=u/20180112/11551639.gif)
+[![](https://www.69img.com/u/20180112/11551852.gif)](https://www.69img.com/i/?i=u/20180112/11551852.gif)
+[![](https://www.69img.com/u/20180112/11552476.gif)](https://www.69img.com/i/?i=u/20180112/11552476.gif)
+[![](https://www.69img.com/u/20180112/11552649.gif)](https://www.69img.com/i/?i=u/20180112/11552649.gif)
+[![](https://www.69img.com/u/20180112/11552079.gif)](https://www.69img.com/i/?i=u/20180112/11552079.gif)
+[![](https://www.69img.com/u/20180112/11552233.gif)](https://www.69img.com/i/?i=u/20180112/11552233.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180112/11553066.gif)](https://www.69img.com/i/?i=u/20180112/11553066.gif)
+[![](https://www.69img.com/u/20180112/11553219.gif)](https://www.69img.com/i/?i=u/20180112/11553219.gif)
+[![](https://www.69img.com/u/20180112/11553420.gif)](https://www.69img.com/i/?i=u/20180112/11553420.gif)
+[![](https://www.69img.com/u/20180112/11553677.gif)](https://www.69img.com/i/?i=u/20180112/11553677.gif)[![](https://www.69img.com/u/20180112/11552874.gif)](https://www.69img.com/i/?i=u/20180112/11552874.gif)
+[![](https://www.69img.com/u/20180112/11553876.gif)](https://www.69img.com/i/?i=u/20180112/11553876.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180112/11554041.gif)](https://www.69img.com/i/?i=u/20180112/11554041.gif)
+[![](https://www.69img.com/u/20180112/11554268.gif)](https://www.69img.com/i/?i=u/20180112/11554268.gif)
+[![](https://www.69img.com/u/20180112/11554464.gif)](https://www.69img.com/i/?i=u/20180112/11554464.gif)
+[![](https://www.69img.com/u/20180112/11554629.gif)](https://www.69img.com/i/?i=u/20180112/11554629.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180112/11554894.gif)](https://www.69img.com/i/?i=u/20180112/11554894.gif)
+[![](https://www.69img.com/u/20180112/11554988.gif)](https://www.69img.com/i/?i=u/20180112/11554988.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180112/11555147.gif)](https://www.69img.com/i/?i=u/20180112/11555147.gif)
+[![](https://www.69img.com/u/20180112/11555260.gif)](https://www.69img.com/i/?i=u/20180112/11555260.gif)[![](https://www.69img.com/u/20180112/11555048.gif)](https://www.69img.com/i/?i=u/20180112/11555048.gif)
+[![](https://www.69img.com/u/20180112/11555251.gif)](https://www.69img.com/i/?i=u/20180112/11555251.gif)
+[![](https://www.69img.com/u/20180112/11555318.gif)](https://www.69img.com/i/?i=u/20180112/11555318.gif)
+[![](https://www.69img.com/u/20180112/11555387.gif)](https://www.69img.com/i/?i=u/20180112/11555387.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180112/11560070.gif)](https://www.69img.com/i/?i=u/20180112/11560070.gif)
+[![](https://www.69img.com/u/20180112/11555599.gif)](https://www.69img.com/i/?i=u/20180112/11555599.gif)
+[![](https://www.69img.com/u/20180112/11555556.gif)](https://www.69img.com/i/?i=u/20180112/11555556.gif)
+[![](https://www.69img.com/u/20180112/11555689.gif)](https://www.69img.com/i/?i=u/20180112/11555689.gif)
+[![](https://www.69img.com/u/20180112/11555723.gif)](https://www.69img.com/i/?i=u/20180112/11555723.gif)
+[![](https://www.69img.com/u/20180112/11555757.gif)](https://www.69img.com/i/?i=u/20180112/11555757.gif)
+[![](https://www.69img.com/u/20180112/11555812.gif)](https://www.69img.com/i/?i=u/20180112/11555812.gif)
+[![](https://www.69img.com/u/20180112/1155594.gif)](https://www.69img.com/i/?i=u/20180112/1155594.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180112/11560228.gif)](https://www.69img.com/i/?i=u/20180112/11560228.gif)
+[![](https://www.69img.com/u/20180112/11560369.gif)](https://www.69img.com/i/?i=u/20180112/11560369.gif)
+[![](https://www.69img.com/u/20180112/11560417.gif)](https://www.69img.com/i/?i=u/20180112/11560417.gif)
+[![](https://www.69img.com/u/20180112/11560570.gif)](https://www.69img.com/i/?i=u/20180112/11560570.gif)
+[![](https://www.69img.com/u/20180112/11560622.gif)](https://www.69img.com/i/?i=u/20180112/11560622.gif)[![](https://www.69img.com/u/20180112/1156005.gif)](https://www.69img.com/i/?i=u/20180112/1156005.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180112/11560715.gif)](https://www.69img.com/i/?i=u/20180112/11560715.gif)
+[![](https://www.69img.com/u/20180112/11560778.gif)](https://www.69img.com/i/?i=u/20180112/11560778.gif)
+[![](https://www.69img.com/u/20180112/11560884.gif)](https://www.69img.com/i/?i=u/20180112/11560884.gif)
+[![](https://www.69img.com/u/20180112/11561164.gif)](https://www.69img.com/i/?i=u/20180112/11561164.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第七季
+
+### 1
+
+[![](https://www.69img.com/u/20180126/16431325.gif)](https://www.69img.com/i/?i=u/20180126/16431325.gif)
+[![](https://www.69img.com/u/20180126/16432066.gif)](https://www.69img.com/i/?i=u/20180126/16432066.gif)
+[![](https://www.69img.com/u/20180126/16432772.gif)](https://www.69img.com/i/?i=u/20180126/16432772.gif)
+[![](https://www.69img.com/u/20180126/16433292.gif)](https://www.69img.com/i/?i=u/20180126/16433292.gif)
+[![](https://www.69img.com/u/20180126/16434336.gif)](https://www.69img.com/i/?i=u/20180126/16434336.gif)
+[![](https://www.69img.com/u/20180126/16435829.gif)](https://www.69img.com/i/?i=u/20180126/16435829.gif)
+[![](https://www.69img.com/u/20180126/16440838.gif)](https://www.69img.com/i/?i=u/20180126/16440838.gif)
+[![](https://www.69img.com/u/20180126/16441756.gif)](https://www.69img.com/i/?i=u/20180126/16441756.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180126/16443389.gif)](https://www.69img.com/i/?i=u/20180126/16443389.gif)
+[![](https://www.69img.com/u/20180126/16444635.gif)](https://www.69img.com/i/?i=u/20180126/16444635.gif)
+[![](https://www.69img.com/u/20180126/1644554.gif)](https://www.69img.com/i/?i=u/20180126/1644554.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180126/16450455.gif)](https://www.69img.com/i/?i=u/20180126/16450455.gif)
+[![](https://www.69img.com/u/20180126/16451630.gif)](https://www.69img.com/i/?i=u/20180126/16451630.gif)
+[![](https://www.69img.com/u/20180126/16452446.gif)](https://www.69img.com/i/?i=u/20180126/16452446.gif)
+[![](https://www.69img.com/u/20180126/16453362.gif)](https://www.69img.com/i/?i=u/20180126/16453362.gif)
+[![](https://www.69img.com/u/20180126/16454124.gif)](https://www.69img.com/i/?i=u/20180126/16454124.gif)
+[![](https://www.69img.com/u/20180126/16455318.gif)](https://www.69img.com/i/?i=u/20180126/16455318.gif)
+[![](https://www.69img.com/u/20180126/16460055.gif)](https://www.69img.com/i/?i=u/20180126/16460055.gif)
+[![](https://www.69img.com/u/20180126/16460665.gif)](https://www.69img.com/i/?i=u/20180126/16460665.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180126/16461986.gif)](https://www.69img.com/i/?i=u/20180126/16461986.gif)
+[![](https://www.69img.com/u/20180126/16463129.gif)](https://www.69img.com/i/?i=u/20180126/16463129.gif)
+[![](https://www.69img.com/u/20180126/16463989.gif)](https://www.69img.com/i/?i=u/20180126/16463989.gif)
+[![](https://www.69img.com/u/20180126/16464515.gif)](https://www.69img.com/i/?i=u/20180126/16464515.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180126/16465856.gif)](https://www.69img.com/i/?i=u/20180126/16465856.gif)
+[![](https://www.69img.com/u/20180126/1647032.gif)](https://www.69img.com/i/?i=u/20180126/1647032.gif)
+[![](https://www.69img.com/u/20180126/1647088.gif)](https://www.69img.com/i/?i=u/20180126/1647088.gif)
+[![](https://www.69img.com/u/20180126/1647164.gif)](https://www.69img.com/i/?i=u/20180126/1647164.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180126/16473014.gif)](https://www.69img.com/i/?i=u/20180126/16473014.gif)
+[![](https://www.69img.com/u/20180126/16474059.gif)](https://www.69img.com/i/?i=u/20180126/16474059.gif)
+[![](https://www.69img.com/u/20180126/1647523.gif)](https://www.69img.com/i/?i=u/20180126/1647523.gif)
+[![](https://www.69img.com/u/20180126/16480572.gif)](https://www.69img.com/i/?i=u/20180126/16480572.gif)
+[![](https://www.69img.com/u/20180126/16481749.gif)](https://www.69img.com/i/?i=u/20180126/16481749.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180126/16482515.gif)](https://www.69img.com/i/?i=u/20180126/16482515.gif)
+[![](https://www.69img.com/u/20180126/1648389.gif)](https://www.69img.com/i/?i=u/20180126/1648389.gif)
+[![](https://www.69img.com/u/20180126/16484911.gif)](https://www.69img.com/i/?i=u/20180126/16484911.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180126/16490879.gif)](https://www.69img.com/i/?i=u/20180126/16490879.gif)
+[![](https://www.69img.com/u/20180126/16491968.gif)](https://www.69img.com/i/?i=u/20180126/16491968.gif)
+[![](https://www.69img.com/u/20180126/16493067.gif)](https://www.69img.com/i/?i=u/20180126/16493067.gif)
+[![](https://www.69img.com/u/20180126/16493913.gif)](https://www.69img.com/i/?i=u/20180126/16493913.gif)
+[![](https://www.69img.com/u/20180126/16495123.gif)](https://www.69img.com/i/?i=u/20180126/16495123.gif)
+[![](https://www.69img.com/u/20180126/16495869.gif)](https://www.69img.com/i/?i=u/20180126/16495869.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180126/16503181.gif)](https://www.69img.com/i/?i=u/20180126/16503181.gif)
+[![](https://www.69img.com/u/20180126/16505038.gif)](https://www.69img.com/i/?i=u/20180126/16505038.gif)
+[![](https://www.69img.com/u/20180126/16510512.gif)](https://www.69img.com/i/?i=u/20180126/16510512.gif)
+[![](https://www.69img.com/u/20180126/16511867.gif)](https://www.69img.com/i/?i=u/20180126/16511867.gif)[![](https://www.69img.com/u/20180126/16501698.gif)](https://www.69img.com/i/?i=u/20180126/16501698.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180126/16513056.gif)](https://www.69img.com/i/?i=u/20180126/16513056.gif)
+[![](https://www.69img.com/u/20180126/16514062.gif)](https://www.69img.com/i/?i=u/20180126/16514062.gif)
+[![](https://www.69img.com/u/20180126/16514884.gif)](https://www.69img.com/i/?i=u/20180126/16514884.gif)
+[![](https://www.69img.com/u/20180126/16515852.gif)](https://www.69img.com/i/?i=u/20180126/16515852.gif)[![](https://www.69img.com/u/20180126/16512310.gif)](https://www.69img.com/i/?i=u/20180126/16512310.gif)
+[![](https://www.69img.com/u/20180126/16521432.gif)](https://www.69img.com/i/?i=u/20180126/16521432.gif)
+[![](https://www.69img.com/u/20180126/16522925.gif)](https://www.69img.com/i/?i=u/20180126/16522925.gif)
+
+> [原文链接](https://www.hjd2048.com/2048/read.php?tid-9160-page-1.html)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第八季
+
+### 1
+
+[![](https://www.69img.com/u/20180130/1800599.gif)](https://www.69img.com/i/?i=u/20180130/1800599.gif)
+[![](https://www.69img.com/u/20180130/18010177.gif)](https://www.69img.com/i/?i=u/20180130/18010177.gif)
+[![](https://www.69img.com/u/20180130/1801048.gif)](https://www.69img.com/i/?i=u/20180130/1801048.gif)
+[![](https://www.69img.com/u/20180130/18010694.gif)](https://www.69img.com/i/?i=u/20180130/18010694.gif)
+[![](https://www.69img.com/u/20180130/18010836.gif)](https://www.69img.com/i/?i=u/20180130/18010836.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180130/18011027.gif)](https://www.69img.com/i/?i=u/20180130/18011027.gif)
+[![](https://www.69img.com/u/20180130/18011284.gif)](https://www.69img.com/i/?i=u/20180130/18011284.gif)
+[![](https://www.69img.com/u/20180130/18011439.gif)](https://www.69img.com/i/?i=u/20180130/18011439.gif)
+[![](https://www.69img.com/u/20180130/18011726.gif)](https://www.69img.com/i/?i=u/20180130/18011726.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180130/18011947.gif)](https://www.69img.com/i/?i=u/20180130/18011947.gif)
+[![](https://www.69img.com/u/20180130/18012151.gif)](https://www.69img.com/i/?i=u/20180130/18012151.gif)
+[![](https://www.69img.com/u/20180130/18012354.gif)](https://www.69img.com/i/?i=u/20180130/18012354.gif)
+[![](https://www.69img.com/u/20180130/18012512.gif)](https://www.69img.com/i/?i=u/20180130/18012512.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180130/18012770.gif)](https://www.69img.com/i/?i=u/20180130/18012770.gif)
+
+[![](https://www.69img.com/u/20180130/18013538.gif)](https://www.69img.com/i/?i=u/20180130/18013538.gif)
+[![](https://www.69img.com/u/20180130/18013648.gif)](https://www.69img.com/i/?i=u/20180130/18013648.gif)[![](https://www.69img.com/u/20180130/18013189.gif)](https://www.69img.com/i/?i=u/20180130/18013189.gif)[![](https://www.69img.com/u/20180130/18012927.gif)](https://www.69img.com/i/?i=u/20180130/18012927.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180130/1801376.gif)](https://www.69img.com/i/?i=u/20180130/1801376.gif)
+[![](https://www.69img.com/u/20180130/18013946.gif)](https://www.69img.com/i/?i=u/20180130/18013946.gif)
+[![](https://www.69img.com/u/20180130/18014360.gif)](https://www.69img.com/i/?i=u/20180130/18014360.gif)
+[![](https://www.69img.com/u/20180130/18014541.gif)](https://www.69img.com/i/?i=u/20180130/18014541.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180130/18014794.gif)](https://www.69img.com/i/?i=u/20180130/18014794.gif)
+[![](https://www.69img.com/u/20180130/18014983.gif)](https://www.69img.com/i/?i=u/20180130/18014983.gif)
+[![](https://www.69img.com/u/20180130/18015146.gif)](https://www.69img.com/i/?i=u/20180130/18015146.gif)
+[![](https://www.69img.com/u/20180130/18015114.gif)](https://www.69img.com/i/?i=u/20180130/18015114.gif)
+[![](https://www.69img.com/u/20180130/18015266.gif)](https://www.69img.com/i/?i=u/20180130/18015266.gif)
+[![](https://www.69img.com/u/20180130/1801539.gif)](https://www.69img.com/i/?i=u/20180130/1801539.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180130/18020319.gif)](https://www.69img.com/i/?i=u/20180130/18020319.gif)
+[![](https://www.69img.com/u/20180130/18020567.gif)](https://www.69img.com/i/?i=u/20180130/18020567.gif)
+[![](https://www.69img.com/u/20180130/18015563.gif)](https://www.69img.com/i/?i=u/20180130/18015563.gif)
+[![](https://www.69img.com/u/20180130/18015769.gif)](https://www.69img.com/i/?i=u/20180130/18015769.gif)[![](https://www.69img.com/u/20180130/18021119.gif)](https://www.69img.com/i/?i=u/20180130/18021119.gif)
+[![](https://www.69img.com/u/20180130/18015948.gif)](https://www.69img.com/i/?i=u/20180130/18015948.gif)
+[![](https://www.69img.com/u/20180130/18020172.gif)](https://www.69img.com/i/?i=u/20180130/18020172.gif)
+[![](https://www.69img.com/u/20180130/1802073.gif)](https://www.69img.com/i/?i=u/20180130/1802073.gif)
+[![](https://www.69img.com/u/20180130/18020974.gif)](https://www.69img.com/i/?i=u/20180130/18020974.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180130/18021385.gif)](https://www.69img.com/i/?i=u/20180130/18021385.gif)
+
+[![](https://www.69img.com/u/20180130/18021731.gif)](https://www.69img.com/i/?i=u/20180130/18021731.gif)
+[![](https://www.69img.com/u/20180130/18021990.gif)](https://www.69img.com/i/?i=u/20180130/18021990.gif)
+[![](https://www.69img.com/u/20180130/18022120.gif)](https://www.69img.com/i/?i=u/20180130/18022120.gif)
+[![](https://www.69img.com/u/20180130/18022356.gif)](https://www.69img.com/i/?i=u/20180130/18022356.gif)[![](https://www.69img.com/u/20180130/18021569.gif)](https://www.69img.com/i/?i=u/20180130/18021569.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180130/18022571.gif)](https://www.69img.com/i/?i=u/20180130/18022571.gif)
+[![](https://www.69img.com/u/20180130/18022761.gif)](https://www.69img.com/i/?i=u/20180130/18022761.gif)
+[![](https://www.69img.com/u/20180130/18022954.gif)](https://www.69img.com/i/?i=u/20180130/18022954.gif)
+[![](https://www.69img.com/u/20180130/18023264.gif)](https://www.69img.com/i/?i=u/20180130/18023264.gif)
+[![](https://www.69img.com/u/20180130/18023479.gif)](https://www.69img.com/i/?i=u/20180130/18023479.gif)
+[![](https://www.69img.com/u/20180130/18023615.gif)](https://www.69img.com/i/?i=u/20180130/18023615.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180130/18024056.gif)](https://www.69img.com/i/?i=u/20180130/18024056.gif)
+[![](https://www.69img.com/u/20180130/18024244.gif)](https://www.69img.com/i/?i=u/20180130/18024244.gif)
+[![](https://www.69img.com/u/20180130/18024465.gif)](https://www.69img.com/i/?i=u/20180130/18024465.gif)
+[![](https://www.69img.com/u/20180130/18024683.gif)](https://www.69img.com/i/?i=u/20180130/18024683.gif)[![](https://www.69img.com/u/20180130/18023820.gif)](https://www.69img.com/i/?i=u/20180130/18023820.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第九季
+
+### 1
+
+[![](https://www.69img.com/u/20180214/19485712.gif)](https://www.69img.com/i/?i=u/20180214/19485712.gif)
+[![](https://www.69img.com/u/20180214/19490034.gif)](https://www.69img.com/i/?i=u/20180214/19490034.gif)[![](https://www.69img.com/u/20180214/19490212.gif)](https://www.69img.com/i/?i=u/20180214/19490212.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180214/19490465.gif)](https://www.69img.com/i/?i=u/20180214/19490465.gif)
+[![](https://www.69img.com/u/20180214/19490651.gif)](https://www.69img.com/i/?i=u/20180214/19490651.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180214/19490853.gif)](https://www.69img.com/i/?i=u/20180214/19490853.gif)
+[![](https://www.69img.com/u/20180214/19491078.gif)](https://www.69img.com/i/?i=u/20180214/19491078.gif)
+[![](https://www.69img.com/u/20180214/19491287.gif)](https://www.69img.com/i/?i=u/20180214/19491287.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180214/19491484.gif)](https://www.69img.com/i/?i=u/20180214/19491484.gif)
+[![](https://www.69img.com/u/20180214/19491656.gif)](https://www.69img.com/i/?i=u/20180214/19491656.gif)
+[![](https://www.69img.com/u/20180214/1949186.gif)](https://www.69img.com/i/?i=u/20180214/1949186.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180214/19492071.gif)](https://www.69img.com/i/?i=u/20180214/19492071.gif)
+[![](https://www.69img.com/u/20180214/19492552.gif)](https://www.69img.com/i/?i=u/20180214/19492552.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180214/19492810.gif)](https://www.69img.com/i/?i=u/20180214/19492810.gif)
+[![](https://www.69img.com/u/20180214/19493041.gif)](https://www.69img.com/i/?i=u/20180214/19493041.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180214/19493336.gif)](https://www.69img.com/i/?i=u/20180214/19493336.gif)
+[![](https://www.69img.com/u/20180214/19493413.gif)](https://www.69img.com/i/?i=u/20180214/19493413.gif)
+[![](https://www.69img.com/u/20180214/19493611.gif)](https://www.69img.com/i/?i=u/20180214/19493611.gif)
+[![](https://www.69img.com/u/20180214/19493977.gif)](https://www.69img.com/i/?i=u/20180214/19493977.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180214/19494296.gif)](https://www.69img.com/i/?i=u/20180214/19494296.gif)
+[![](https://www.69img.com/u/20180214/19494451.gif)](https://www.69img.com/i/?i=u/20180214/19494451.gif)
+[![](https://www.69img.com/u/20180214/1949472.gif)](https://www.69img.com/i/?i=u/20180214/1949472.gif)
+[![](https://www.69img.com/u/20180214/1949505.gif)](https://www.69img.com/i/?i=u/20180214/1949505.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180214/19495274.gif)](https://www.69img.com/i/?i=u/20180214/19495274.gif)
+[![](https://www.69img.com/u/20180214/19495535.gif)](https://www.69img.com/i/?i=u/20180214/19495535.gif)
+[![](https://www.69img.com/u/20180214/19495837.gif)](https://www.69img.com/i/?i=u/20180214/19495837.gif)
+[![](https://www.69img.com/u/20180214/1950012.gif)](https://www.69img.com/i/?i=u/20180214/1950012.gif)
+[![](https://www.69img.com/u/20180214/19500316.gif)](https://www.69img.com/i/?i=u/20180214/19500316.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180214/19500694.gif)](https://www.69img.com/i/?i=u/20180214/19500694.gif)
+[![](https://www.69img.com/u/20180214/19500950.gif)](https://www.69img.com/i/?i=u/20180214/19500950.gif)
+[![](https://www.69img.com/u/20180214/19501186.gif)](https://www.69img.com/i/?i=u/20180214/19501186.gif)
+[![](https://www.69img.com/u/20180214/19501373.gif)](https://www.69img.com/i/?i=u/20180214/19501373.gif)
+[![](https://www.69img.com/u/20180214/19501690.gif)](https://www.69img.com/i/?i=u/20180214/19501690.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第十季 [10 组 2.19 更新]
+
+### 1
+
+[![](https://www.69img.com/u/20180219/09304281.gif)](https://www.69img.com/i/?i=u/20180219/09304281.gif)
+[![](https://www.69img.com/u/20180219/09304524.gif)](https://www.69img.com/i/?i=u/20180219/09304524.gif)
+[![](https://www.69img.com/u/20180219/09304798.gif)](https://www.69img.com/i/?i=u/20180219/09304798.gif)
+[![](https://www.69img.com/u/20180219/09305069.gif)](https://www.69img.com/i/?i=u/20180219/09305069.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180219/09305248.gif)](https://www.69img.com/i/?i=u/20180219/09305248.gif)
+[![](https://www.69img.com/u/20180219/09305556.gif)](https://www.69img.com/i/?i=u/20180219/09305556.gif)
+[![](https://www.69img.com/u/20180219/09305785.gif)](https://www.69img.com/i/?i=u/20180219/09305785.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180219/09310075.gif)](https://www.69img.com/i/?i=u/20180219/09310075.gif)
+[![](https://www.69img.com/u/20180219/09310389.gif)](https://www.69img.com/i/?i=u/20180219/09310389.gif)
+[![](https://www.69img.com/u/20180219/09310686.gif)](https://www.69img.com/i/?i=u/20180219/09310686.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180219/09311070.gif)](https://www.69img.com/i/?i=u/20180219/09311070.gif)
+[![](https://www.69img.com/u/20180219/09311196.gif)](https://www.69img.com/i/?i=u/20180219/09311196.gif)
+[![](https://www.69img.com/u/20180219/09311287.gif)](https://www.69img.com/i/?i=u/20180219/09311287.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180219/09311442.gif)](https://www.69img.com/i/?i=u/20180219/09311442.gif)
+[![](https://www.69img.com/u/20180219/09311526.gif)](https://www.69img.com/i/?i=u/20180219/09311526.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180219/09312013.gif)](https://www.69img.com/i/?i=u/20180219/09312013.gif)
+[![](https://www.69img.com/u/20180219/09312250.gif)](https://www.69img.com/i/?i=u/20180219/09312250.gif)
+[![](https://www.69img.com/u/20180219/09312538.gif)](https://www.69img.com/i/?i=u/20180219/09312538.gif)
+[![](https://www.69img.com/u/20180219/09312764.gif)](https://www.69img.com/i/?i=u/20180219/09312764.gif)[![](https://www.69img.com/u/20180219/0931188.gif)](https://www.69img.com/i/?i=u/20180219/0931188.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180219/09313049.gif)](https://www.69img.com/i/?i=u/20180219/09313049.gif)
+[![](https://www.69img.com/u/20180219/0931323.gif)](https://www.69img.com/i/?i=u/20180219/0931323.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180219/09313994.gif)](https://www.69img.com/i/?i=u/20180219/09313994.gif)
+[![](https://www.69img.com/u/20180219/09314219.gif)](https://www.69img.com/i/?i=u/20180219/09314219.gif)
+[![](https://www.69img.com/u/20180219/09313533.gif)](https://www.69img.com/i/?i=u/20180219/09313533.gif)
+[![](https://www.69img.com/u/20180219/09313720.gif)](https://www.69img.com/i/?i=u/20180219/09313720.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180219/09314457.gif)](https://www.69img.com/i/?i=u/20180219/09314457.gif)
+[![](https://www.69img.com/u/20180219/09314645.gif)](https://www.69img.com/i/?i=u/20180219/09314645.gif)
+[![](https://www.69img.com/u/20180219/09314831.gif)](https://www.69img.com/i/?i=u/20180219/09314831.gif)
+[![](https://www.69img.com/u/20180219/09315020.gif)](https://www.69img.com/i/?i=u/20180219/09315020.gif)
+[![](https://www.69img.com/u/20180219/09315149.gif)](https://www.69img.com/i/?i=u/20180219/09315149.gif)
+[![](https://www.69img.com/u/20180219/09315453.gif)](https://www.69img.com/i/?i=u/20180219/09315453.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180219/09315890.gif)](https://www.69img.com/i/?i=u/20180219/09315890.gif)
+[![](https://www.69img.com/u/20180219/09315977.gif)](https://www.69img.com/i/?i=u/20180219/09315977.gif)
+[![](https://www.69img.com/u/20180219/09320198.gif)](https://www.69img.com/i/?i=u/20180219/09320198.gif)
+[![](https://www.69img.com/u/20180219/09320360.gif)](https://www.69img.com/i/?i=u/20180219/09320360.gif)
+[![](https://www.69img.com/u/20180219/09315547.gif)](https://www.69img.com/i/?i=u/20180219/09315547.gif)
+
+## 大文件 GIF 分享,直接下载第十一季
+
+### 1
+
+[![](http://www.69img.com/u/20180301/19194731.gif)](http://www.69img.com/i/?i=u/20180301/19194731.gif)
+[![](http://www.69img.com/u/20180301/19195174.gif)](http://www.69img.com/i/?i=u/20180301/19195174.gif)
+[![](http://www.69img.com/u/20180301/1919575.gif)](http://www.69img.com/i/?i=u/20180301/1919575.gif)
+[![](http://www.69img.com/u/20180301/19201272.gif)](http://www.69img.com/i/?i=u/20180301/19201272.gif)
+[![](http://www.69img.com/u/20180301/19202636.gif)](http://www.69img.com/i/?i=u/20180301/19202636.gif)
+[![](http://www.69img.com/u/20180301/19204281.gif)](http://www.69img.com/i/?i=u/20180301/19204281.gif)
+[![](http://www.69img.com/u/20180301/19205391.gif)](http://www.69img.com/i/?i=u/20180301/19205391.gif)
+[![](http://www.69img.com/u/20180301/19210460.gif)](http://www.69img.com/i/?i=u/20180301/19210460.gif)
+[![](http://www.69img.com/u/20180301/19211344.gif)](http://www.69img.com/i/?i=u/20180301/19211344.gif)[![](http://www.69img.com/u/20180301/19212627.gif)](http://www.69img.com/i/?i=u/20180301/19212627.gif)
+
+### 2
+
+[![](http://www.69img.com/u/20180301/19221545.gif)](http://www.69img.com/i/?i=u/20180301/19221545.gif)[![](http://www.69img.com/u/20180301/19214088.gif)](http://www.69img.com/i/?i=u/20180301/19214088.gif)
+[![](http://www.69img.com/u/20180301/19222987.gif)](http://www.69img.com/i/?i=u/20180301/19222987.gif)
+[![](http://www.69img.com/u/20180301/19223596.gif)](http://www.69img.com/i/?i=u/20180301/19223596.gif)
+
+[![](http://www.69img.com/u/20180301/19215289.gif)](http://www.69img.com/i/?i=u/20180301/19215289.gif)
+[![](http://www.69img.com/u/20180301/19215558.gif)](http://www.69img.com/i/?i=u/20180301/19215558.gif)
+[![](http://www.69img.com/u/20180301/19220183.gif)](http://www.69img.com/i/?i=u/20180301/19220183.gif)
+
+### 3
+
+[![](http://www.69img.com/u/20180301/19224391.gif)](http://www.69img.com/i/?i=u/20180301/19224391.gif)
+[![](http://www.69img.com/u/20180301/1922494.gif)](http://www.69img.com/i/?i=u/20180301/1922494.gif)
+[![](http://www.69img.com/u/20180301/19225697.gif)](http://www.69img.com/i/?i=u/20180301/19225697.gif)
+[![](http://www.69img.com/u/20180301/19225845.gif)](http://www.69img.com/i/?i=u/20180301/19225845.gif)
+
+### 4
+
+[![](http://www.69img.com/u/20180301/19230263.gif)](http://www.69img.com/i/?i=u/20180301/19230263.gif)
+[![](http://www.69img.com/u/20180301/19231379.gif)](http://www.69img.com/i/?i=u/20180301/19231379.gif)
+[![](http://www.69img.com/u/20180301/19233033.gif)](http://www.69img.com/i/?i=u/20180301/19233033.gif)
+
+### 5
+
+[![](http://www.69img.com/u/20180301/19234166.gif)](http://www.69img.com/i/?i=u/20180301/19234166.gif)
+[![](http://www.69img.com/u/20180301/19234990.gif)](http://www.69img.com/i/?i=u/20180301/19234990.gif)
+[![](http://www.69img.com/u/20180301/19235934.gif)](http://www.69img.com/i/?i=u/20180301/19235934.gif)
+[![](http://www.69img.com/u/20180301/19240646.gif)](http://www.69img.com/i/?i=u/20180301/19240646.gif)
+[![](http://www.69img.com/u/20180301/19241466.gif)](http://www.69img.com/i/?i=u/20180301/19241466.gif)
+[![](http://www.69img.com/u/20180301/19242457.gif)](http://www.69img.com/i/?i=u/20180301/19242457.gif)
+
+### 6
+
+[![](http://www.69img.com/u/20180301/19243467.gif)](http://www.69img.com/i/?i=u/20180301/19243467.gif)
+[![](http://www.69img.com/u/20180301/1924445.gif)](http://www.69img.com/i/?i=u/20180301/1924445.gif)
+[![](http://www.69img.com/u/20180301/19245555.gif)](http://www.69img.com/i/?i=u/20180301/19245555.gif)
+
+### 7
+
+[![](http://www.69img.com/u/20180301/19250257.gif)](http://www.69img.com/i/?i=u/20180301/19250257.gif)
+[![](http://www.69img.com/u/20180301/19250966.gif)](http://www.69img.com/i/?i=u/20180301/19250966.gif)
+
+[![](http://www.69img.com/u/20180301/19253833.gif)](http://www.69img.com/i/?i=u/20180301/19253833.gif)
+[![](http://www.69img.com/u/20180301/19251375.gif)](http://www.69img.com/i/?i=u/20180301/19251375.gif)
+[![](http://www.69img.com/u/20180301/1925181.gif)](http://www.69img.com/i/?i=u/20180301/1925181.gif)
+[![](http://www.69img.com/u/20180301/19252632.gif)](http://www.69img.com/i/?i=u/20180301/19252632.gif)
+
+### 8
+
+[![](http://www.69img.com/u/20180301/20200781.gif)](http://www.69img.com/i/?i=u/20180301/20200781.gif)
+
+[![](http://www.69img.com/u/20180301/20195660.gif)](http://www.69img.com/i/?i=u/20180301/20195660.gif)
+[![](http://www.69img.com/u/20180301/20200062.gif)](http://www.69img.com/i/?i=u/20180301/20200062.gif)
+[![](http://www.69img.com/u/20180301/20200333.gif)](http://www.69img.com/i/?i=u/20180301/20200333.gif)
+[![](http://www.69img.com/u/20180301/20200670.gif)](http://www.69img.com/i/?i=u/20180301/20200670.gif)
+
+### 9
+
+[![](http://www.69img.com/u/20180301/20201273.gif)](http://www.69img.com/i/?i=u/20180301/20201273.gif)
+[![](http://www.69img.com/u/20180301/20201659.gif)](http://www.69img.com/i/?i=u/20180301/20201659.gif)
+[![](http://www.69img.com/u/20180301/20201962.gif)](http://www.69img.com/i/?i=u/20180301/20201962.gif)
+[![](http://www.69img.com/u/20180301/20202411.gif)](http://www.69img.com/i/?i=u/20180301/20202411.gif)
+
+### 10
+
+[![](http://www.69img.com/u/20180301/19300090.gif)](http://www.69img.com/i/?i=u/20180301/19300090.gif)
+[![](http://www.69img.com/u/20180301/19300920.gif)](http://www.69img.com/i/?i=u/20180301/19300920.gif)
+[![](http://www.69img.com/u/20180301/19301742.gif)](http://www.69img.com/i/?i=u/20180301/19301742.gif)
+[![](http://www.69img.com/u/20180301/19302550.gif)](http://www.69img.com/i/?i=u/20180301/19302550.gif)
+[![](http://www.69img.com/u/20180301/1930293.gif)](http://www.69img.com/i/?i=u/20180301/1930293.gif)
+[![](http://www.69img.com/u/20180301/19303628.gif)](http://www.69img.com/i/?i=u/20180301/19303628.gif)
+[![](http://www.69img.com/u/20180301/19304860.gif)](http://www.69img.com/i/?i=u/20180301/19304860.gif)
+[![](http://www.69img.com/u/20180301/19310173.gif)](http://www.69img.com/i/?i=u/20180301/19310173.gif)
+[![](http://www.69img.com/u/20180301/1931088.gif)](http://www.69img.com/i/?i=u/20180301/1931088.gif)
+
+## [大文件 GIF 分享]大文件 GIF 分享,直接下载第十二季 [10 组 3.30 更新]
+
+### 1
+
+[![](https://www.69img.com/u/20180330/22152695.gif)](https://www.69img.com/i/?i=u/20180330/22152695.gif)
+[![](https://www.69img.com/u/20180330/22152953.gif)](https://www.69img.com/i/?i=u/20180330/22152953.gif)
+[![](https://www.69img.com/u/20180330/22153181.gif)](https://www.69img.com/i/?i=u/20180330/22153181.gif)
+[![](https://www.69img.com/u/20180330/22153461.gif)](https://www.69img.com/i/?i=u/20180330/22153461.gif)
+[![](https://www.69img.com/u/20180330/22153650.gif)](https://www.69img.com/i/?i=u/20180330/22153650.gif)
+
+### 2
+
+[![](https://www.69img.com/u/20180330/22203240.gif)](https://www.69img.com/i/?i=u/20180330/22203240.gif)
+[![](https://www.69img.com/u/20180330/22203496.gif)](https://www.69img.com/i/?i=u/20180330/22203496.gif)
+[![](https://www.69img.com/u/20180330/22202521.gif)](https://www.69img.com/i/?i=u/20180330/22202521.gif)
+[![](https://www.69img.com/u/20180330/22202792.gif)](https://www.69img.com/i/?i=u/20180330/22202792.gif)
+[![](https://www.69img.com/u/20180330/22203080.gif)](https://www.69img.com/i/?i=u/20180330/22203080.gif)
+[![](https://www.69img.com/u/20180330/22202288.gif)](https://www.69img.com/i/?i=u/20180330/22202288.gif)
+
+### 3
+
+[![](https://www.69img.com/u/20180330/22203834.gif)](https://www.69img.com/i/?i=u/20180330/22203834.gif)
+[![](https://www.69img.com/u/20180330/22204020.gif)](https://www.69img.com/i/?i=u/20180330/22204020.gif)
+[![](https://www.69img.com/u/20180330/22204479.gif)](https://www.69img.com/i/?i=u/20180330/22204479.gif)
+[![](https://www.69img.com/u/20180330/22204650.gif)](https://www.69img.com/i/?i=u/20180330/22204650.gif)
+[![](https://www.69img.com/u/20180330/22204896.gif)](https://www.69img.com/i/?i=u/20180330/22204896.gif)
+[![](https://www.69img.com/u/20180330/22205020.gif)](https://www.69img.com/i/?i=u/20180330/22205020.gif)
+[![](https://www.69img.com/u/20180330/22203639.gif)](https://www.69img.com/i/?i=u/20180330/22203639.gif)
+
+### 4
+
+[![](https://www.69img.com/u/20180330/22205422.gif)](https://www.69img.com/i/?i=u/20180330/22205422.gif)
+[![](https://www.69img.com/u/20180330/22205540.gif)](https://www.69img.com/i/?i=u/20180330/22205540.gif)
+[![](https://www.69img.com/u/20180330/22205637.gif)](https://www.69img.com/i/?i=u/20180330/22205637.gif)
+[![](https://www.69img.com/u/20180330/22205637.gif)](https://www.69img.com/i/?i=u/20180330/22205637.gif)
+[![](https://www.69img.com/u/20180330/22210073.gif)](https://www.69img.com/i/?i=u/20180330/22210073.gif)
+[![](https://www.69img.com/u/20180330/2220521.gif)](https://www.69img.com/i/?i=u/20180330/2220521.gif)
+
+### 5
+
+[![](https://www.69img.com/u/20180330/22253066.gif)](https://www.69img.com/i/?i=u/20180330/22253066.gif)[![](https://www.69img.com/u/20180330/22253740.gif)](https://www.69img.com/i/?i=u/20180330/22253740.gif)
+[![](https://www.69img.com/u/20180330/22253363.gif)](https://www.69img.com/i/?i=u/20180330/22253363.gif)
+[![](https://www.69img.com/u/20180330/22253526.gif)](https://www.69img.com/i/?i=u/20180330/22253526.gif)
+[![](https://www.69img.com/u/20180330/22252650.gif)](https://www.69img.com/i/?i=u/20180330/22252650.gif)
+
+### 6
+
+[![](https://www.69img.com/u/20180330/22254678.gif)](https://www.69img.com/i/?i=u/20180330/22254678.gif)
+[![](https://www.69img.com/u/20180330/22254824.gif)](https://www.69img.com/i/?i=u/20180330/22254824.gif)
+[![](https://www.69img.com/u/20180330/22255093.gif)](https://www.69img.com/i/?i=u/20180330/22255093.gif)
+[![](https://www.69img.com/u/20180330/22254073.gif)](https://www.69img.com/i/?i=u/20180330/22254073.gif)
+[![](https://www.69img.com/u/20180330/22254247.gif)](https://www.69img.com/i/?i=u/20180330/22254247.gif)
+[![](https://www.69img.com/u/20180330/22254416.gif)](https://www.69img.com/i/?i=u/20180330/22254416.gif)
+[![](https://www.69img.com/u/20180330/22255299.gif)](https://www.69img.com/i/?i=u/20180330/22255299.gif)
+
+### 7
+
+[![](https://www.69img.com/u/20180330/22255455.gif)](https://www.69img.com/i/?i=u/20180330/22255455.gif)
+[![](https://www.69img.com/u/20180330/22255710.gif)](https://www.69img.com/i/?i=u/20180330/22255710.gif)
+[![](https://www.69img.com/u/20180330/22255930.gif)](https://www.69img.com/i/?i=u/20180330/22255930.gif)
+[![](https://www.69img.com/u/20180330/22260158.gif)](https://www.69img.com/i/?i=u/20180330/22260158.gif)
+[![](https://www.69img.com/u/20180330/22260338.gif)](https://www.69img.com/i/?i=u/20180330/22260338.gif)
+[![](https://www.69img.com/u/20180330/22260516.gif)](https://www.69img.com/i/?i=u/20180330/22260516.gif)
+
+### 8
+
+[![](https://www.69img.com/u/20180330/22313386.gif)](https://www.69img.com/i/?i=u/20180330/22313386.gif)
+[![](https://www.69img.com/u/20180330/22313667.gif)](https://www.69img.com/i/?i=u/20180330/22313667.gif)
+[![](https://www.69img.com/u/20180330/22313895.gif)](https://www.69img.com/i/?i=u/20180330/22313895.gif)
+[![](https://www.69img.com/u/20180330/22314028.gif)](https://www.69img.com/i/?i=u/20180330/22314028.gif)
+[![](https://www.69img.com/u/20180330/22314318.gif)](https://www.69img.com/i/?i=u/20180330/22314318.gif)
+
+### 9
+
+[![](https://www.69img.com/u/20180330/22344683.gif)](https://www.69img.com/i/?i=u/20180330/22344683.gif)
+[![](https://www.69img.com/u/20180330/22344839.gif)](https://www.69img.com/i/?i=u/20180330/22344839.gif)
+[![](https://www.69img.com/u/20180330/22345064.gif)](https://www.69img.com/i/?i=u/20180330/22345064.gif)
+[![](https://www.69img.com/u/20180330/22345232.gif)](https://www.69img.com/i/?i=u/20180330/22345232.gif)
+[![](https://www.69img.com/u/20180330/22344458.gif)](https://www.69img.com/i/?i=u/20180330/22344458.gif)
+
+### 10
+
+[![](https://www.69img.com/u/20180330/22345489.gif)](https://www.69img.com/i/?i=u/20180330/22345489.gif)
+[![](https://www.69img.com/u/20180330/22345878.gif)](https://www.69img.com/i/?i=u/20180330/22345878.gif)
+[![](https://www.69img.com/u/20180330/22350096.gif)](https://www.69img.com/i/?i=u/20180330/22350096.gif)
+[![](https://www.69img.com/u/20180330/22350279.gif)](https://www.69img.com/i/?i=u/20180330/22350279.gif)
+
+## [大象分享 53 期]元旦快乐,这一次内容你们会喜欢吗？极品番号系列四(超多 GIF、番号、福利)持续更新
+
+> https://www.t66y.com/htm_data/1712/7/2881303.html
+
+首先先提前祝大家元旦快乐,明天过后 2017 这一页纸就要翻篇儿了,回想过去的一年你或许有挽不回的遗憾、没实现的愿望、忘不了的爱,当然也有努力奋斗的充实、收获成果的喜悦、让你嘴角上扬的小确幸,岁月是一场有去无回的旅行好的坏的都是风景！！感谢一纳,感谢痞子天堂,感谢聚缘,一路走来的贵人们！
+
+![](https://www.sxotu.com/u/20171230/14055170.jpg)
+
+> 附上
+> [系列一:[大象分享]精心整理极品动图番号(更新福利 110P)](https://www.t66y.com/htm_data/7/1711/2795958.html) > [系列二:[大象分享]精心整理极品番号二(内兼 VR 资源)](https://www.t66y.com/htm_data/7/1711/2800677.html) > [系列三:[大象分享]圣诞节快到了,是时候来一波极品番号了！系列三(福利 50P)](https://www.t66y.com/htm_data/7/1712/2857196.html)
+
+这味道真好闻
+
+![](https://wx4.sinaimg.cn/mw690/94cd863cgy1fmwn33iyoeg20fk08qu0x.gif)
+
+gif 出处来一波:
+这也射得太猛了吧,先不说射程需要强大的肾动力
+要不然妹子也不会被射得不知所措了！
+
+![](https://www.sxotu.com/u/20171230/13434962.gif)
+
+已经不是孩子的我和妈妈一起睡勃起了
+
+![](https://www.sxotu.com/u/20171230/13445223.gif)
+
+这样的玩法第一次见,不过大街上这种姿势想想挺刺激的
+
+![](https://www.sxotu.com/u/20171230/13445122.gif)
+
+丝袜妻子的怪癖 美大腿高潮水喷得好厉害 诱惑太过瘾了！
+
+![](https://www.sxotu.com/u/20171230/13462582.gif)
+
+血腥性感全有 只能说是部另类 AV 猛片 值得一看啊
+
+![](https://www.sxotu.com/u/20171230/13511670.gif)
+
+一男 D 丝在电影院里坐在一漂亮妹子旁边,伸出一只手朝妹子的胸部抓去,妹子只是四处张望了一下没敢做声,真是便宜了 D 丝男.
+电影院里抓到一妹子的胸揉的好爽
+
+![](https://www.sxotu.com/u/20171230/13512528.gif)
+
+JBS-016 铃村爱里 GIF 剧情图解-给力的黑丝女秘书番号
+铃村爱里番号很多都非常经典,是一位非常不错的女优,身材脸蛋都挺好,是一种娇羞的美,惹人爱怜,值得推荐
+
+![](https://www.sxotu.com/u/20171230/13530778.gif)
+
+![](https://www.sxotu.com/u/20171230/13531681.gif)
+
+水嫩诱人妹子被绑密室凌辱轮奸！,只问你动心不动心
+
+![](https://www.sxotu.com/u/20171230/13553693.gif)
+
+超诱惑的美腿车模 被多人玩弄 受不了这般美色！要不怎么说丝袜爱好者和美腿爱好者是一家呢
+
+![](https://www.sxotu.com/u/20171230/1356113.gif)
+
+神波多一花的作品   身材高挑 配上黑丝高跟 你懂的   力荐！
+
+![](https://www.sxotu.com/u/20171230/13561217.gif)
+
+这部 ABP-161 让我又发现了这么以为极品女优,芽森滴,92 年的妹子,2014 年出道,还是非常嫩的,而且芽森滴的作品番号都非常经典,比如这部 ABP-161,我个人比较钟爱这类体型的女优,你呢
+
+![](https://www.sxotu.com/u/20171230/13574165.gif)
+
+![](https://www.sxotu.com/u/20171230/13574386.gif)
+
+我相信很多人都看过这张 gif 出处 CHNS-003 而且是经典 gif 动态图出处合集,说实话,人长得不咋地,但是胸真的很大,而且是惊人的 J 罩杯,
+这部片子是写真,我觉得拍写真第最高的选择,有点遮盖还有点遐想,否则脱光了,说实话,说为看几部就回腻的、
+
+![](https://www.sxotu.com/u/20171230/13584128.gif)
+
+不眠之夜 5 女 1 男 简直人生赢家
+
+![](https://www.sxotu.com/u/20171230/1400058.gif)
+
+天下无奇不有啊
+
+![](https://www.sxotu.com/u/20171230/14020897.gif)
+
+两妹子诱人白嫩大屁股 一次舔两粉穴 真心爽死啊
+
+![](https://www.sxotu.com/u/20171230/14020731.gif)
+
+有人要的旋转寿司
+
+![](https://www.sxotu.com/u/20171230/14005319.gif)
+
+这个好像很棒的样子
+
+![](https://www.sxotu.com/u/20171230/14035730.gif)
+
+SW-278 舞咲みくに 浜崎真緒
+
+![](https://www.sxotu.com/u/20171230/14035584.gif)
+
+超美双乳诱惑
+
+![](https://www.sxotu.com/u/20171230/14045945.gif)
+
+垃圾袋太多啦
+
+![](https://www.sxotu.com/u/20171230/14203315.gif)
+
+在来一波动态图(虽然没解说,但你们肯定懂,嘿嘿)
+
+![](https://www.sxotu.com/u/20171230/14145135.gif)
+
+![](https://www.sxotu.com/u/20171230/14145424.gif)
+
+![](https://www.sxotu.com/u/20171230/1414567.gif)
+
+![](https://www.sxotu.com/u/20171230/14145765.gif)
+
+![](https://www.sxotu.com/u/20171230/14150030.gif)
+
+![](https://www.sxotu.com/u/20171230/14150131.gif)
+
+![](https://www.sxotu.com/u/20171230/1415036.gif)
+
+![](https://www.sxotu.com/u/20171230/14150642.gif)
+
+![](https://www.sxotu.com/u/20171230/14150870.gif)
+
+![](https://www.sxotu.com/u/20171230/1415095.gif)
+
+![](https://www.sxotu.com/u/20171230/14151153.gif)
+
+![](https://www.sxotu.com/u/20171230/14151340.gif)
+
+![](https://www.sxotu.com/u/20171230/14151566.gif)
+
+![](https://www.sxotu.com/u/20171230/14151741.gif)
+
+![](https://www.sxotu.com/u/20171230/14152030.gif)
+
+![](https://www.sxotu.com/u/20171230/14152289.gif)
+
+![](https://www.sxotu.com/u/20171230/14152469.gif)
+
+![](https://www.sxotu.com/u/20171230/14152619.gif)
+
+![](https://www.sxotu.com/u/20171230/14152948.gif)
+
+![](https://www.sxotu.com/u/20171230/14153024.gif)
+
+![](https://www.sxotu.com/u/20171230/14153348.gif)
+
+![](https://www.sxotu.com/u/20171230/14153469.gif)
+
+![](https://www.sxotu.com/u/20171230/1415368.gif)
+
+![](https://www.sxotu.com/u/20171230/14153865.gif)
+
+![](https://www.sxotu.com/u/20171230/14154077.gif)
+
+![](https://www.sxotu.com/u/20171230/14154278.gif)
+
+![](https://www.sxotu.com/u/20171230/14154539.gif)
+
+![](https://www.sxotu.com/u/20171230/14154771.gif)
+
+![](https://www.sxotu.com/u/20171230/14154931.gif)
+
+![](https://www.sxotu.com/u/20171230/14155082.gif)
+
+![](https://www.sxotu.com/u/20171230/14155136.gif)
+
+![](https://www.sxotu.com/u/20171230/14155288.gif)
+
+![](https://www.sxotu.com/u/20171230/14155440.gif)
+
+![](https://www.sxotu.com/u/20171230/14155637.gif)
+
+![](https://www.sxotu.com/u/20171230/14160095.gif)
+
+![](https://www.sxotu.com/u/20171230/14160236.gif)
+
+![](https://www.sxotu.com/u/20171230/14160442.gif)
+
+![](https://www.sxotu.com/u/20171230/14160769.gif)
+
+![](https://www.sxotu.com/u/20171230/1416098.gif)
+
+![](https://www.sxotu.com/u/20171230/14161215.gif)
+
+![](https://www.sxotu.com/u/20171230/14161445.gif)
+
+![](https://www.sxotu.com/u/20171230/14161713.gif)
+
+【259LUXU-884】成田ひなこ 26 歳 ダンス講師
+
+![](https://www.sxotu.com/u/20171230/13011145.jpg)
+
+这部作品出自 26 岁的成田ひなこ是舞蹈讲师所以才会有如此出众的身材,这样的身材在 259LUXU 系列中算是标配,因此也没有什么好稀奇的,但要放在最近的这个系列作品中来对比的话,也能算得上是数一数二的好作品了.
+
+![](https://www.sxotu.com/u/20171230/13011244.jpg)
+
+作品名:ラグジュ TV 879
+影片时长:72 分钟
+影片大小:4.22G
+出演者:成田ひなこ 26 歳 ダンス講師
+番号:259LUXU-884
+
+【300MIUM-095】 极品素人看板娘系列番号
+![](https://www.sxotu.com/u/20171230/1303193.jpg) 
+今天给大家更的还有这一部极品素人看板娘系列番号 300MIUM-095,新出的看板娘番号作品,自从看了该系列的 086 作品,就对看板娘系列作品情有独钟,番组总是能找到非常漂亮的看板娘来拍摄,300MIUM-095 也是一样,女主可以算是女神级别的存在了.
+
+![](https://www.sxotu.com/u/20171230/13031585.jpg)
+
+![](https://www.sxotu.com/u/20171230/13031763.jpg)
+
+![](https://www.sxotu.com/u/20171230/1303218.jpg)
+
+作品名:100%完全ガチ！噂の素人激カワ看板娘にアポなし取材 ⇒ 交渉！ target.26
+影片时长:67 分钟
+影片大小:2.47G
+出演者:るり 23 歳 スポーツバー店員
+番号:300MIUM-095
+
+【200GANA-1594】みお 20 歳 コンビニのバイト
+
+200GANA-1594 是一位小清新面孔,这可能也是这部作品为数不多的亮点之一了吧,身材方面没什么好说的,是这种偏瘦型,营养没跟上发育不太好的样子,如果有喜欢这种类型的女主的话,就自己动手搞下吧.
+
+![](https://www.sxotu.com/u/20171230/13064813.jpg)
+
+作品名:マジ軟派、初撮. 975
+影片时长:59 分钟
+影片大小:3.45G
+出演者:みお 20 歳 コンビニのバイト
+番号:200GANA-1594
+
+【SIRO-3161】素人 19 歳大学生
+
+在大象看来这部素人 19 歳大学生作品番号 SIRO-3161,还是挺对得起 SIRO 系列作品的,基本符合年轻素人应用的颜值和身材,相比之前发布的 SIRO-2327 来说已经有了质的飞跃,如果这部 SIRO-3161 让小编打分的,能拿 85 分这样吧.
+
+![](https://www.sxotu.com/u/20171230/13081836.jpg)
+
+![](https://www.sxotu.com/u/20171230/13081925.jpg)
+
+作品名:【初撮り】ネットで応募 → 体験撮影 385
+影片时长:57 分钟
+影片大小:1.88G
+出演者:はるか 19 歳 学生
+番号:SIRO-3161
+
+【SIRO-3295】のぞみ 21 歳 専門学生
+
+这部 SIRO-3295 作品女主是一个叫做のぞみ 21 岁学生,一个让人看了就不知不觉兴奋起来的女生,洁白透亮的肌肤,轻触一下都要扭动的害羞反应也是很可爱,现在没有男朋友,这可以算是这周极品之列中的一员了,目前能与这部作品相提并论的估计也只有 SIRO-3316 了.
+
+![](https://www.sxotu.com/u/20171230/13093595.jpg)
+
+![](https://www.sxotu.com/u/20171230/13093543.jpg)
+
+作品名:【初撮り】ネットで応募 → 体験撮影 520
+影片时长:67 分钟
+影片大小:3.75G
+出演者:のぞみ 21 歳 専門学生
+番号:SIRO-3295
+
+【300MIUM-163】在主题公园遇见的 22 岁小姐姐
+
+标题在主题公园遇见的 22 岁小姐姐是自己翻译了,不知道对不对哈哈哈,懂得人就笑笑我这翻译就行了作品番号 300MIUM-163,颜值还算是可以的类型,女主喝懵逼了,各种酒癫一顿乱发,结果还是被制服了.
+
+![](https://www.sxotu.com/u/20171230/13115337.jpg)
+
+![](https://www.sxotu.com/u/20171230/13115387.jpg)
+
+作品名:朝までハシゴ酒 08 in 新宿西口周辺:神回！神回です！！！
+影片时长:100 分钟
+影片大小:3.51G
+出演者:みひなちゃん 22 歳 テーマパークのお姉さん
+番号:300MIUM-163
+
+【300MIUM-156】白咲ゆうり 21 歳 大学生
+
+这部 300MIUM-156 是在意大利风情的小餐馆拍摄的,看板娘作品出自一个 21 岁的兼职大学生白咲ゆうり,在营业时间里好像很忙,但即便如何她的行为举止看起来都是那么优雅,生活中她是喜欢那种不怎么生气的男士,这点倒是和大部分人相同.
+
+![](https://www.sxotu.com/u/20171230/13133814.jpg)
+
+![](https://www.sxotu.com/u/20171230/13133841.jpg)
+
+作品名:100%完全ガチ！噂の素人激カワ看板娘にアポなし取材 ⇒ 交渉！ target.39
+影片时长:61 分钟
+影片大小:2.14G
+出演者:白咲ゆうり 21 歳 大学生
+番号:300MIUM-156
+
+【S-cute 543】S-cute 543 Yuki
+
+不知道大家有没有具体了解过 S-cute,这里给大家介绍下:S-cute 543 是女主 Yuki 的专有编号,这个#2 表示的是 Yuki 的第二部作品的意思,以后大家看到这样标题就大概明白是什么意思了,这部作品看起来也就一般,属于那种小清新风格.
+
+![](https://www.sxotu.com/u/20171230/13155569.jpg)
+
+![](https://www.sxotu.com/u/20171230/13155721.jpg)
+
+作品名:Yuki ソファーでもベッドでもきセックス
+影片时长:30 分钟
+影片大小:0.8G
+出演者:Yuki
+番号:S-cute 543 yuki
+
+KIRAY-An1 KIRA 系列番号封面
+
+这个 KIRAY-An1 在 KIRA 系列番号封面还真找不到这一部作品,还真不知道原分享者是从什么地方搬运过来的,真是好奇,这部作品要大象来说的话,也就一般的效果,多少有些人会喜欢,也不做太多介绍了,看上眼的就自己收藏吧.
+
+![](https://www.sxotu.com/u/20171230/13180943.jpg)
+
+作品名:KIRAY 系列 An #1
+影片时长:20+分钟
+影片大小:1.0G
+出演者:An
+番号:KIRAY-An #1
+
+300MIUM-105 れん作品,19 岁女子大生
+
+这部作品是 300MIUM 系列 300MIUM-105,大象看了一下,发现这女主是 259LUXU-864 的女主,速度真是快啊,一会是 25 岁的模特,一会又成 19 岁的大学生了.大象之前就说了,不太喜欢偏瘦的,要有点肉肉才好,所以发现是她后就没怎么看了,看过 259LUXU-864 的,喜欢这妹纸的,可以看看！
+
+![](https://www.sxotu.com/u/20171230/1325257.jpg)
+
+出演: れん 19 歳 女子大生
+品番: 300MIUM-105
+配信開始日: 2017-08-12
+
+300MIUM-054 一条みおさん作品,马杀鸡技师
+
+这部作品是 300MIUM 系列 300MIUM-054,其实标题还蛮长的,什么放松医生护士之类的,不就是马杀鸡吗,这样比较接地气一点对吧,看她折纤腰以微步,呈皓腕于轻纱.眸含春水清波流盼,头上倭堕髻斜插碧玉龙凤钗.香娇玉嫩秀靥艳比花娇,指如削葱根口如含朱丹,一颦一笑动人心魂.
+
+![](https://www.sxotu.com/u/20171230/13262414.jpg)
+
+![](https://www.sxotu.com/u/20171230/13262572.jpg)
+
+出演: 一条みおさん 21 歳 リラクゼーション施術師
+収録時間: 63min
+品番: 300MIUM-054
+配信開始日: 2017-04-16
+
+白川耀子 番号:259LUXU-895
+
+![](https://www.sxotu.com/u/20171230/1327555.jpg)
+
+虽然这是第三次,但是会有一些对你来说是新的人,所以让我来介绍一下自己.白川耀子是非常大人的,即使麻烦也用笑脸笑容结合的可爱的地方.看来和她丈夫的近来有所改善,我可以一点一点地打开我的欲望.她是一个很好的私人,但为什么她想再次出现在 AV？我可以看到她不竭的欲望.白川耀子说,演员每一次精彩的技巧都会变成旋律.我总是记得那个美好的经历,而不会错过我的头,这是湿漉漉的.即使再次感到高兴,我也无法忍受站立.我无法离开这个漩涡了.
+
+![](https://www.sxotu.com/u/20171230/13275572.jpg)
+
+![](https://www.sxotu.com/u/20171230/1327562.jpg)
+
+制片国家/语言:日本/日语
+录制时长: 73 分
+配信日期:2017-12-27
+影片番号:259LUXU-895
+
+园田美樱 番号:ABP-679
+
+威望独家女演员"园田美樱"回到"绝对漂亮的女孩,我会借你！运送到一个业余男子的家,等待一个美丽的女孩,捕捉所有的男人与一个完全不可或缺的性感身体全国！在福冈,我很紧张,殴打你的房子！用大量的热保管返回服务口！在新泻面对！在紧张感最大的 MAX,一个爱房子的漂亮女孩克服了长时间的运动,用爱玩超越了一个业余男性！身穿极性色情身体的业余男子,穿越全国 4 个城市 2 晚 3 天！！
+
+![](https://www.sxotu.com/u/20171230/13312678.jpg)
+
+![](https://www.sxotu.com/u/20171230/13312611.jpg)
+
+![](https://www.sxotu.com/u/20171230/13312773.jpg)
+
+铃村爱里 8 時間 番号:PPT-054
+
+8 小时最佳追踪珍贵独家女演员"铃村爱里"的轨迹,给世人一个轻松的笑容！从"只有我臀部屁股女儿"到"水 A 爱郎的圆木小丸子",直到豪华华丽 6 个标题+未公开的录像仔细记录！第六个永久保存版本包含一切绝对漂亮的女孩迷人的每个人都在一个永远不会改变永远改变,并在他们的全身接受快乐的可爱的表达,观看！！
+
+![](https://www.sxotu.com/u/20171230/13342241.jpg)
+
+![](https://www.sxotu.com/u/20171230/13342341.jpg)
+
+![](https://www.sxotu.com/u/20171230/13342430.jpg)
+
+21 岁 芸者 番号:261ARA-251
+
+站在会场的瑞娜女士隐藏了可以与法庭睡着的山雀.G 罩杯大摇曳每次走时,眼睛没有通常捆绑起来,似乎是一个艺妓,没有国家在紧张或者是你熟悉的人,漠然"到麻石周丽淇！" "我喜欢做！"改造抽动的气味,我们必须弥散着 G 罩杯的胸部有什么每间房甚至灵敏度检查是郁闷关于决绝说一个故事在玩耍的时候,我用电来刺激,我感觉到我的身体弹跳得像现在一样弹跳.它看起来像一个非常敏感的身体！丰满和剃毛的猫厚壁 G 杯山雀.眼睛从我看到专业与鼓励人的兴奋程度的身体的那一刻钉了！那么,你会吸引我们什么样的性？
+
+![](https://www.sxotu.com/u/20171230/13352776.jpg)
+
+![](https://www.sxotu.com/u/20171230/1335293.jpg)
+
+![](https://www.sxotu.com/u/20171230/13353099.jpg)
+
+![](https://www.sxotu.com/u/20171230/13353149.jpg)
+
+制片国家/语言:日本/日语
+录制时长: 64 分
+配信日期:2017-12-27
+
+柳田紗英 番号:259LUXU-905
+
+以文化和礼仪为基础的"待客"面对面的待遇,给予我们的客户一个真诚的待遇.在背后,在营销和公共关系等管理方面,广泛支持餐厅的女性将军占领.这次出现在电视剧中(36 岁)是一家在东京有一家店的饭店的住宿经理.在职业模式上,她经常穿和服的情况很多,她今天也拍了一张照片,出现了一件小花衬衫和紧身裙.一个成年女性的性吸引力将在这一部分中显现出来.在他当游泳教练之前,他 27 岁那年结婚,当时是一名学生.这似乎是今年的第九年,但实际上大约四年前它一直没有性生活.借此机会,甚至同时与男性客户与我们结识关系,车辙已取得进展超过一个月,事情的过程中,并没有获得有关过去的激动.据说,女士们随着年龄的增长而增加了性,美女因性而异."作为自己的女性魅力,在这里我想再次确认......"通过一个丈夫,SAE,谁一直在做搜索新的刺激的之间的物理关系的矫饰.现在游泳训练的特殊比例现在还活着.此外,由于受挫,身体的敏感度似乎高于平常.从现在开始,她将体验到具有熟练的性经验的演员的爱情瞬间.一旦发生火灾,它不会再停下来.
+
+![](https://www.sxotu.com/u/20171230/13375391.jpg)
+
+![](https://www.sxotu.com/u/20171230/13375533.jpg)
+
+![](https://www.sxotu.com/u/20171230/1337591.jpg)
+
+成田ひなこ 番号:259LUXU-884
+
+即使在舞蹈讲师,我对 AV 感兴趣.对于演员的身体美,我担心我的职业.我爱美丽的肉体美.当然,我也对职业性感兴趣.我想要有激情和激情的爱,这是我从未感受过的.当我突然冲上厕所时,我很惊讶.当我突然亲吻的时候,我无意中释放出了我的甜美气息.在穿内衣之前,我感到非常热,有这么一个被篡改,我吻了它.在这样的地方,我一直舔到每一个角落,当我感到舒服的时候,我感到惊讶的大小.事实上,当我被放在后面时,它是开放和愉快的.这是第一次在比打开双腿的地方站在一个女人顶部的经历.这也是我第一次在赌注上站起来.我以为我想再次做,因为兴奋不止,直到最后.
+
+![](https://www.sxotu.com/u/20171230/13392813.jpg)
+
+![](https://www.sxotu.com/u/20171230/13392914.jpg)
+
+![](https://www.sxotu.com/u/20171230/13392974.jpg)
+
+![](https://www.sxotu.com/u/20171230/13393026.jpg)
+
+![](https://www.sxotu.com/u/20171230/13393026.jpg)
+
+20 歳 学生 番号:200GANA-1602
+
+这个缺乏介绍,各位请自行搜索
+
+![](https://www.sxotu.com/u/20171230/13410057.jpg)
+
+![](https://www.sxotu.com/u/20171230/1341013.jpg)
+
+藤井有彩 特典映像 番号:ABP-585
+
+![](https://www.sxotu.com/u/20171230/13543143.jpg)
+
+![](https://www.sxotu.com/u/20171230/13543347.jpg)
+
+![](https://www.sxotu.com/u/20171230/13543546.jpg)
+
+录制时长: 175 分
+配信日期:2017-04-06
+影片番号:ABP-585
+
+中村日咲 番号:313EXFE-043
+
+这里是兔女郎的 Pinsaro 商店,提名率 1 号的超级服务！这个卓越的风格的正忙于直接比赛的客户！享受几乎未切割和足够的,在你的嘴和一个全身拍摄一切腥！
+
+![](https://www.sxotu.com/u/20171230/14211039.jpg)
+
+![](https://www.sxotu.com/u/20171230/14211247.jpg)
+
+![](https://www.sxotu.com/u/20171230/14211470.jpg)
+
+21 歳 大学生 番号:200GANA-1571
+
+叮当面纱单面纱...它变得伤心.在这样的情况下,只限于南帕,不是吗？我知道对！！所以今天也是今天的南帕电视！只是我我有一个完美的孩子在这个时候,汉能,已在迷你裙圣诞老人被吸引了网吧！所以,只要是角色扮演字节咖啡馆,那么它了,角色扮演万岁！我的服装看起来像！！这是很好的角色扮演我,因为他们是那么迅速看起来可能看这是角色扮演孩子穿的衣服,不能被通常所见的胸部！！在这个山谷里,你刚刚告诉我插入你的手指？这应该是它,因为它看起来像雏 G 罩杯是是一个晚上.
+
+![](https://www.sxotu.com/u/20171230/14215348.jpg)
+
+![](https://www.sxotu.com/u/20171230/14215323.jpg)
+
+![](https://www.sxotu.com/u/20171230/14215337.jpg)
+
+吉沢明歩 番号:071MXSPS-550
+
+我们将全面总结 25 个流行的场景,这些场面是从经常走过 AV 界最前线的最受欢迎的女演员吉泽明步选出的！虽然流口水,而喷出一个成语,而诱惑与庸俗的姿势......各种情况阿基炫耀！！包括未记录的场面作为奖金镜头！
+
+![](https://www.sxotu.com/u/20171230/14223132.jpg)
+
+美丽宁静的静香 番号:300MAAN-085
+
+验证朋友可以尽可能便宜的钱！2 人在同一个烤肉店,现在就是这样对肉菲斯的工作下北泽乘以声音,镇雄圣(28)和静香(24).即使我们是职场的高年级学生,我们也可以把男朋友的烦恼从平时的情况告诉儿子,或者说两个好朋友可以光着脚！？彻底的验证！虽然我没有困难地清除了第一阶段的爱情连接,但毕竟抵抗也.... 但是我想要一个奖品！一边微笑一边闭上你的眼睛和深深的吻！此外,从吹或积极姬港口停下来去想,F 罩杯的乳房静静地陈已经无情地擦嘴巴里塞满镇雄圣更长！最后挑战自己的骨头！直立的智宝宝被刺激的胸部感觉到,而且胸部轻轻地擦,不愉快的腰部动作不能停止！...我没有插入它！？耻骨苍白巨大的白色猫朋友的脸颊！忘记对方是朋友忘记保持本能！！在此之后,如果友谊倒塌,我不能在这里承担责任！
+
+![](https://www.sxotu.com/u/20171230/14234775.jpg)
+
+![](https://www.sxotu.com/u/20171230/14234775.jpg)
+
+![](https://www.sxotu.com/u/20171230/1423478.jpg)
+
+木田夢乃 番号:259LUXU-900
+
+![](https://www.sxotu.com/u/20171230/12364415.jpg)
+
+主演:木田夢乃  
+录制时长: 72 分
+配信日期:2017-12-29
+影片番号:259LUXU-900
+
+![](https://www.sxotu.com/u/20171230/12364370.jpg)
+
+![](https://www.sxotu.com/u/20171230/12364399.jpg)
+
+![](https://www.sxotu.com/u/20171230/12364494.jpg)
+
+全国裏風俗紀行 番号:326URF-001
+
+![](https://www.sxotu.com/u/20171230/13004139.jpg)
+
+主演:素人  
+录制时长: 73 分
+配信日期:2017-12-29
+影片番号:326URF-001
+
+![](https://www.sxotu.com/u/20171230/13003811.jpg)
+
+![](https://www.sxotu.com/u/20171230/13004088.jpg)
+
+![](https://www.sxotu.com/u/20171230/13004162.jpg)
+
+晚上再来更新吧！
+
+福利:
+
+![](https://www.sxotu.com/u/20171230/14312835.jpg)
+
+![](https://www.sxotu.com/u/20171230/14312935.jpg)
+
+![](https://www.sxotu.com/u/20171230/14312957.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313096.jpg)
+
+![](https://www.sxotu.com/u/20171230/1431307.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313129.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313177.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313131.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313250.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313397.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313519.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313717.jpg)
+
+![](https://www.sxotu.com/u/20171230/14313924.jpg)
+
+![](https://www.sxotu.com/u/20171230/14314149.jpg)
+
+![](https://www.sxotu.com/u/20171230/14314345.jpg)
+
+![](https://www.sxotu.com/u/20171230/14314597.jpg)
+
+![](https://www.sxotu.com/u/20171230/14314763.jpg)
+
+![](https://www.sxotu.com/u/20171230/1431495.jpg)
+
+![](https://www.sxotu.com/u/20171230/14315186.jpg)
+
+![](https://www.sxotu.com/u/20171230/14315335.jpg)
+
+![](https://www.sxotu.com/u/20171230/14315589.jpg)
+
+![](https://www.sxotu.com/u/20171230/14315793.jpg)
+
+![](https://www.sxotu.com/u/20171230/14315982.jpg)
+
+![](https://www.sxotu.com/u/20171230/14320135.jpg)
+
+![](https://www.sxotu.com/u/20171230/14320381.jpg)
+
+![](https://www.sxotu.com/u/20171230/14320541.jpg)
+
+![](https://www.sxotu.com/u/20171230/14320716.jpg)
+
+![](https://www.sxotu.com/u/20171230/14320990.jpg)
+
+![](https://www.sxotu.com/u/20171230/14321132.jpg)
+
+![](https://www.sxotu.com/u/20171230/14321369.jpg)
+
+![](https://www.sxotu.com/u/20171230/14321525.jpg)
+
+![](https://www.sxotu.com/u/20171230/14321798.jpg)
+
+![](https://www.sxotu.com/u/20171230/14322011.jpg)
+
+![](https://www.sxotu.com/u/20171230/14322222.jpg)
+
+![](https://www.sxotu.com/u/20171230/14322433.jpg)
+
+![](https://www.sxotu.com/u/20171230/14322614.jpg)
+
+![](https://www.sxotu.com/u/20171230/14322853.jpg)
+
+![](https://www.sxotu.com/u/20171230/14323048.jpg)
+
+![](https://www.sxotu.com/u/20171230/1432325.jpg)
+
+![](https://www.sxotu.com/u/20171230/14323458.jpg)
+
+![](https://www.sxotu.com/u/20171230/14323669.jpg)
+
+![](https://www.sxotu.com/u/20171230/14323881.jpg)
+
+![](https://www.sxotu.com/u/20171230/14324017.jpg)
+
+![](https://www.sxotu.com/u/20171230/14324295.jpg)
+
+![](https://www.sxotu.com/u/20171230/14324465.jpg)
+
+![](https://www.sxotu.com/u/20171230/1432465.jpg)
+
+![](https://www.sxotu.com/u/20171230/14324813.jpg)
+
+![](https://www.sxotu.com/u/20171230/14325090.jpg)
+
+![](https://www.sxotu.com/u/20171230/14325221.jpg)
+
+![](https://www.sxotu.com/u/20171230/14325410.jpg)
+
+![](https://www.sxotu.com/u/20171230/14325652.jpg)
+
+![](https://www.sxotu.com/u/20171230/14325837.jpg)
+
+![](https://www.sxotu.com/u/20171230/14330060.jpg)
+
+![](https://www.sxotu.com/u/20171230/14330217.jpg)
+
+![](https://www.sxotu.com/u/20171230/14330441.jpg)
+
+![](https://www.sxotu.com/u/20171230/1433065.jpg)
+
+![](https://www.sxotu.com/u/20171230/1433093.jpg)
+
+![](https://www.sxotu.com/u/20171230/14331160.jpg)
+
+![](https://www.sxotu.com/u/20171230/14331361.jpg)
+
+![](https://www.sxotu.com/u/20171230/14331530.jpg)
+
+![](https://www.sxotu.com/u/20171230/14331758.jpg)
+
+![](https://www.sxotu.com/u/20171230/14331992.jpg)
+
+![](https://www.sxotu.com/u/20171230/14332132.jpg)
+
+![](https://www.sxotu.com/u/20171230/14332327.jpg)
+
+![](https://www.sxotu.com/u/20171230/14332526.jpg)
+
+![](https://www.sxotu.com/u/20171230/14332768.jpg)
+
+![](https://www.sxotu.com/u/20171230/1433295.jpg)
+
+![](https://www.sxotu.com/u/20171230/1433311.jpg)
+
+![](https://www.sxotu.com/u/20171230/1433334.jpg)
+
+![](https://www.sxotu.com/u/20171230/14333580.jpg)
+
+![](https://www.sxotu.com/u/20171230/14333728.jpg)
+
+![](https://www.sxotu.com/u/20171230/14333943.jpg)
+
+可关注 ID 名,仅方便交流或投稿！大家开心就好！
+
+![](https://www.sxotu.com/u/20180421/09075296.jpg)
+
+[ 此貼被手握大象在 2018-04-21 09:15 重新編輯 ]
+
+> https://t66y.com/read.php?tid=3077885&toread=2
+
+## [大象分享 77 期]我真的不是故意的！极品系列九[268P]
+
+对不起各位,我又来开车了,这次主要以欣赏为主！这次我觉得开车给你们看,你们就别上车了,毕竟不想带坏你们,不想让你们每天都生活在痛苦中！
+
+### 害羞的巨乳娘…
+
+![](http://www.sxotu.com/u/20180323/1520032.gif)
+
+![](http://www.sxotu.com/u/20180323/15200627.gif)
+
+![](http://www.sxotu.com/u/20180323/15200953.gif)
+
+![](http://www.sxotu.com/u/20180323/15201250.gif)
+
+![](http://www.sxotu.com/u/20180323/15201522.gif)
+
+![](http://www.sxotu.com/u/20180323/15201645.gif)
+
+![](http://www.sxotu.com/u/20180323/15201879.gif)
+
+![](http://www.sxotu.com/u/20180323/1520198.gif)
+
+### 二次元的波推服务
+
+![](http://www.sxotu.com/u/20180323/1515307.gif)
+
+![](http://www.sxotu.com/u/20180323/15153215.gif)
+
+![](http://www.sxotu.com/u/20180323/15153388.gif)
+
+![](http://www.sxotu.com/u/20180323/15153413.gif)
+
+![](http://www.sxotu.com/u/20180323/15153658.gif)
+
+![](http://www.sxotu.com/u/20180323/15153735.gif)
+
+![](http://www.sxotu.com/u/20180323/15154035.gif)
+
+![](http://www.sxotu.com/u/20180323/15154133.gif)
+
+### 可爱的制服妹妹
+
+![](http://www.sxotu.com/u/20180323/15164249.gif)
+
+![](http://www.sxotu.com/u/20180323/15164425.gif)
+
+![](http://www.sxotu.com/u/20180323/15164681.gif)
+
+![](http://www.sxotu.com/u/20180323/15164720.gif)
+
+![](http://www.sxotu.com/u/20180323/15164879.gif)
+
+![](http://www.sxotu.com/u/20180323/15164945.gif)
+
+### 黑色蕾丝丝袜可以说是非常性感了
+
+![](http://www.sxotu.com/u/20180323/15225586.gif)
+
+![](http://www.sxotu.com/u/20180323/15233793.gif)
+
+![](http://www.sxotu.com/u/20180323/1523395.gif)
+
+![](http://www.sxotu.com/u/20180323/15234243.gif)
+
+![](http://www.sxotu.com/u/20180323/1523453.gif)
+
+![](http://www.sxotu.com/u/20180323/15234863.gif)
+
+### 和酒店服务员的情不自禁…
+
+![](http://www.sxotu.com/u/20180323/15244847.gif)
+
+![](http://www.sxotu.com/u/20180323/15245172.gif)
+
+![](http://www.sxotu.com/u/20180323/15245357.gif)
+
+![](http://www.sxotu.com/u/20180323/15245593.gif)
+
+![](http://www.sxotu.com/u/20180323/15245620.gif)
+
+![](http://www.sxotu.com/u/20180323/15245754.gif)
+
+![](http://www.sxotu.com/u/20180323/15245837.gif)
+
+![](http://www.sxotu.com/u/20180323/15250128.gif)
+
+### 午后的时光,和丰乳肥臀的女友一起度过
+
+[121709_735 「突撃！隣のマンご飯！ パート８」パート８」Arisa](https://www.javbus.com/121709_735)
+
+![121709_735 「突撃！隣のマンご飯！ パート８」Arisa](https://www.picnew.org/images/2020/05/18/15261891.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15261891.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262023.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262190.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262236.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262313.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262452.gif)
+
+![1pondo-121709_735](http://www.sxotu.com/u/20180323/15262557.gif)
+
+###
+
+![?](https://i.pinimg.com/originals/b2/c4/ef/b2c4ef471db31e0b6572566545abf259.gif)
+
+### 做了按摩,没想到还有额外服务～
+
+![](http://www.sxotu.com/u/20180323/15280672.gif)
+
+![](http://www.sxotu.com/u/20180323/15280777.gif)
+
+![](http://www.sxotu.com/u/20180323/15280887.gif)
+
+![](http://www.sxotu.com/u/20180323/15280970.gif)
+
+![](http://www.sxotu.com/u/20180323/1528102.gif)
+
+![](http://www.sxotu.com/u/20180323/15281116.gif)
+
+![](http://www.sxotu.com/u/20180323/15281361.gif)
+
+![](http://www.sxotu.com/u/20180323/1528142.gif)
+
+### 小骚货欲拒还迎的眼神很是诱人
+
+![](http://www.sxotu.com/u/20180323/15335944.gif)
+
+![](http://www.sxotu.com/u/20180323/15340199.gif)
+
+![](http://www.sxotu.com/u/20180323/15340310.gif)
+
+![](http://www.sxotu.com/u/20180323/15340446.gif)
+
+![](http://www.sxotu.com/u/20180323/15340662.gif)
+
+![](http://www.sxotu.com/u/20180323/15340993.gif)
+
+![](http://www.sxotu.com/u/20180323/15341242.gif)
+
+![](http://www.sxotu.com/u/20180323/15341547.gif)
+
+### 你这么俏皮可爱,不如做我女朋友吧
+
+![](http://www.sxotu.com/u/20180323/1626446.gif)
+
+![](http://www.sxotu.com/u/20180323/16265565.gif)
+
+![](http://www.sxotu.com/u/20180323/16270314.gif)
+
+![](http://www.sxotu.com/u/20180323/16271061.gif)
+
+![](http://www.sxotu.com/u/20180323/16271749.gif)
+
+![](http://www.sxotu.com/u/20180323/16272018.gif)
+
+![](http://www.sxotu.com/u/20180323/16273246.gif)
+
+![](http://www.sxotu.com/u/20180323/16273924.gif)
+
+![](http://www.sxotu.com/u/20180323/16274364.gif)
+
+![](http://www.sxotu.com/u/20180323/16274535.gif)
+
+### 爱他你就含住他
+
+![](http://www.sxotu.com/u/20180323/16285696.gif)
+
+![](http://www.sxotu.com/u/20180323/16285879.gif)
+
+![](http://www.sxotu.com/u/20180323/16285956.gif)
+
+![](http://www.sxotu.com/u/20180323/16290141.gif)
+
+![](http://www.sxotu.com/u/20180323/16290375.gif)
+
+![](http://www.sxotu.com/u/20180323/16362595.gif)
+
+![](http://www.sxotu.com/u/20180323/16362621.gif)
+
+![](http://www.sxotu.com/u/20180323/16362736.gif)
+
+### 女友的大长腿丝袜服务
+
+![](http://www.sxotu.com/u/20180323/16300064.gif)
+
+![](http://www.sxotu.com/u/20180323/16300141.gif)
+
+![](http://www.sxotu.com/u/20180323/16300376.gif)
+
+![](http://www.sxotu.com/u/20180323/16300494.gif)
+
+![](http://www.sxotu.com/u/20180323/16300556.gif)
+
+![](http://www.sxotu.com/u/20180323/16300690.gif)
+
+### 后入清纯可爱的黑长直
+
+![](http://www.sxotu.com/u/20180323/16311755.gif)
+
+![](http://www.sxotu.com/u/20180323/16311935.gif)
+
+![](http://www.sxotu.com/u/20180323/16312030.gif)
+
+![](http://www.sxotu.com/u/20180323/16312151.gif)
+
+![](http://www.sxotu.com/u/20180323/16312298.gif)
+
+![](http://www.sxotu.com/u/20180323/16312375.gif)
+
+![](http://www.sxotu.com/u/20180323/16312495.gif)
+
+![](http://www.sxotu.com/u/20180323/16312599.gif)
+
+### 你们要的唯美！
+
+![](http://www.sxotu.com/u/20180323/16331227.gif)
+
+![](http://www.sxotu.com/u/20180323/16331449.gif)
+
+![](http://www.sxotu.com/u/20180323/16331761.gif)
+
+![](http://www.sxotu.com/u/20180323/16331955.gif)
+
+### 一只磨人的小妖精
+
+![](http://www.sxotu.com/u/20180323/16373879.gif)
+
+![](http://www.sxotu.com/u/20180323/16374133.gif)
+
+![](http://www.sxotu.com/u/20180323/16374470.gif)
+
+![](http://www.sxotu.com/u/20180323/16374735.gif)
+
+![](http://www.sxotu.com/u/20180323/16375058.gif)
+
+![](http://www.sxotu.com/u/20180323/16375397.gif)
+
+![](http://www.sxotu.com/u/20180323/16375621.gif)
+
+### 真白皙
+
+![](http://www.sxotu.com/u/20180323/1639399.gif)
+
+![](http://www.sxotu.com/u/20180323/16394147.gif)
+
+![](http://www.sxotu.com/u/20180323/16394246.gif)
+
+![](http://www.sxotu.com/u/20180323/16394394.gif)
+
+### 制服诱惑
+
+红色格子超短裙加上黑色网袜,超好看的搭配！把裙子撩到屁股上再做更是诱惑！
+
+![](http://www.sxotu.com/u/20180323/16404760.gif)
+
+![](http://www.sxotu.com/u/20180323/16405070.gif)
+
+![](http://www.sxotu.com/u/20180323/16405279.gif)
+
+![](http://www.sxotu.com/u/20180323/16405365.gif)
+
+![](http://www.sxotu.com/u/20180323/16405477.gif)
+
+![](http://www.sxotu.com/u/20180323/16405517.gif)
+
+![](http://www.sxotu.com/u/20180323/16405642.gif)
+
+### 我是不是,你最疼爱的小猫咪？
+
+![](http://www.sxotu.com/u/20180323/16443029.gif)
+
+![](http://www.sxotu.com/u/20180323/1644325.gif)
+
+![](http://www.sxotu.com/u/20180323/1644339.gif)
+
+![](http://www.sxotu.com/u/20180323/16443576.gif)
+
+### 拉姆＆蕾姆
+
+![](http://www.sxotu.com/u/20180323/16453678.gif)
+
+![](http://www.sxotu.com/u/20180323/16453829.gif)
+
+![](http://www.sxotu.com/u/20180323/16453979.gif)
+
+![](http://www.sxotu.com/u/20180323/16454230.gif)
+
+![](http://www.sxotu.com/u/20180323/16454337.gif)
+
+![](http://www.sxotu.com/u/20180323/16454486.gif)
+
+![](http://www.sxotu.com/u/20180323/16454577.gif)
+
+![](http://www.sxotu.com/u/20180323/16454686.gif)
+
+![](http://www.sxotu.com/u/20180323/16462242.gif)
+
+![](http://www.sxotu.com/u/20180323/16462381.gif)
+
+![](http://www.sxotu.com/u/20180323/16462462.gif)
+
+![](http://www.sxotu.com/u/20180323/16462637.gif)
+
+![](http://www.sxotu.com/u/20180323/16462645.gif)
+
+![](http://www.sxotu.com/u/20180323/16462841.gif)
+
+![](http://www.sxotu.com/u/20180323/16462855.gif)
+
+![](http://www.sxotu.com/u/20180323/16462970.gif)
+
+### 可爱的 cosplay 小姐姐
+
+![](http://www.sxotu.com/u/20180323/16475449.gif)
+
+![](http://www.sxotu.com/u/20180323/16480333.gif)
+
+![](http://www.sxotu.com/u/20180323/16480986.gif)
+
+![](http://www.sxotu.com/u/20180323/16481477.gif)
+
+![](http://www.sxotu.com/u/20180323/16481835.gif)
+
+### 冷门女优也可以很妩媚
+
+多年前偶然看到了一个小视频.视频里面的她十分惊艳.诱惑迷离的眼神,加上一对丰满的木瓜奶,整体身材也很棒.当时觉得这真是最美的女优了,直到现在再看也觉得超赞！不过这么漂亮却是个冷门女优,有点可惜！
+
+![](http://www.sxotu.com/u/20180323/16493145.gif)
+
+![](http://www.sxotu.com/u/20180323/16493436.gif)
+
+![](http://www.sxotu.com/u/20180323/16493797.gif)
+
+![](http://www.sxotu.com/u/20180323/16493830.gif)
+
+### 热狗和奶油更配哦
+
+![](http://www.sxotu.com/u/20180323/16503753.gif)
+
+![](http://www.sxotu.com/u/20180323/16503945.gif)
+
+![](http://www.sxotu.com/u/20180323/16504022.gif)
+
+![](http://www.sxotu.com/u/20180323/16504090.gif)
+
+![](http://www.sxotu.com/u/20180323/16504243.gif)
+
+![](http://www.sxotu.com/u/20180323/16504340.gif)
+
+![](http://www.sxotu.com/u/20180323/16504555.gif)
+
+### 腰上的透明裙摆,性感又好看
+
+![](http://www.sxotu.com/u/20180323/16515122.gif)
+
+![](http://www.sxotu.com/u/20180323/16515378.gif)
+
+![](http://www.sxotu.com/u/20180323/16515641.gif)
+
+![](http://www.sxotu.com/u/20180323/16515945.gif)
+
+![](http://www.sxotu.com/u/20180323/16520246.gif)
+
+![](http://www.sxotu.com/u/20180323/16520565.gif)
+
+![](http://www.sxotu.com/u/20180323/16520886.gif)
+
+![](http://www.sxotu.com/u/20180323/16520919.gif)
+
+### 请不要害怕,我只想帮你洗个澡 🌝
+
+![](http://www.sxotu.com/u/20180323/16525870.gif)
+
+![](http://www.sxotu.com/u/20180323/16525919.gif)
+
+![](http://www.sxotu.com/u/20180323/16530046.gif)
+
+![](http://www.sxotu.com/u/20180323/16530160.gif)
+
+![](http://www.sxotu.com/u/20180323/16530357.gif)
+
+![](http://www.sxotu.com/u/20180323/16530475.gif)
+
+[大象分享 10 期]精心整理极品动图番号(更新福利 110P)htm_data/7/1711/2795958.html
+[大象分享 12 期]精心整理极品番号二(内兼 VR 资源)htm_data/7/1711/2800677.html
+[大象分享 47 期]圣诞节快到了,是时候来一波极品番号了！系列三(福利 50P)htm_data/7/1712/2857196.html
+[大象分享 53 期]元旦快乐,这一次内容你们会喜欢吗？极品番号系列四(超多 GIF、番号、福利)持续更新 htm_data/7/1712/2881303.html
+[大象分享 58 期]人一生的运气真的是有限的吗？极品番号系列五(福利 60P)htm_data/7/1801/2890835.html
+[大象分享 72 期]2018 年大象极品番号系列六[持续更新中 168P]htm_data/7/1803/3034756.html
+[大象分享 75 期]这个算高颜值动图吗？极品系列七[148P]htm_data/7/1803/3057369.html
+[大象分享 76 期]这次不翻车！极品系列八[178P]htm_data/7/1803/3069865.html -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-05-19T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/10-css-tricks-you-need-to-know-about-part-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10 CSS Tricks You Need to Know About (Part 2)">
+                        
+                        <span class="card-title">10 CSS Tricks You Need to Know About (Part 2)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/%E7%88%B6%E6%AF%8D%E7%9A%86%E7%A5%B8%E5%AE%B3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="父母皆祸害？">
+                        
+                        <span class="card-title">父母皆祸害？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E8%82%B2/">
+                        <span class="chip bg-color">教育</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

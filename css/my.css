@@ -1,0 +1,55 @@
+/* Here is your custom css styles. */
+
+/*小屏幕下(手机类)的样式*/
+@media only screen and (min-width: 0) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/*中等屏幕下(平板类)的样式*/
+@media only screen and (min-width: 900px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/*大屏幕下(桌面类)的样式*/
+@media only screen and (min-width: 1300px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+html {
+  font-family: 'Google Sans';
+}
+nav i,
+nav i.material-icons {
+  display: block;
+  font-size: 1rem;
+}
+
+.row .col.s10 {
+  width: 100%;
+  /* margin-left: auto;
+	left: auto;
+	right: auto; */
+}
+
+.row .col.offset-s1 {
+  margin-left: 0;
+}
+
+/* 
+#articleContent > p:first-letter {
+  display: block;
+  float: left;
+  margin: 0 3px;
+  color: #f00;
+  font-size: 2rem;
+} */
+
+#articleContent blockquote p {
+	text-indent: 0;
+}

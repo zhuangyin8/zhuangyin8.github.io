@@ -1,0 +1,1400 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="一文搞定 Webpack 面试, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>一文搞定 Webpack 面试 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">一文搞定 Webpack 面试</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Webpack/">
+                                <span class="chip bg-color">Webpack</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <!-- > [一文搞定 Webpack 面试](https://www.1024.cool/webpack/understand-webpack-in-one-article.html) -->
+
+<p><a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/51536312/91625474-4e0f7680-e9da-11ea-97d4-177da8fcbbdc.png"><img src="https://user-images.githubusercontent.com/51536312/91625474-4e0f7680-e9da-11ea-97d4-177da8fcbbdc.png" alt="Do you really understand Webpack? "></a></p>
+<blockquote>
+<p>Do you really understand Webpack? If we know the answers to the following questions, it means that we have mastered Webpack. Welcome to give your answers.</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/martinageradams/1024.Cool/issues/1">Chinese</a> <a target="_blank" rel="noopener" href="https://www.1024.cool/webpack/understand-webpack-in-one-article.html">一文搞定 Webpack 面试</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/martinageradams/blog/issues/12">English</a></li>
+</ul>
+<h2 id="Webpack-in-action"><a href="#Webpack-in-action" class="headerlink" title="Webpack in action"></a>Webpack in action</h2><ul>
+<li>What other tools are similar to Webpack</li>
+<li>Talk about why you chose to use or give up webpack</li>
+<li>The difference between Loader and Plugin</li>
+<li>What are the common Loaders? What problems can they solve?</li>
+<li>What are the common Plugins? What problems can they solve?</li>
+<li>How to use Webpack to optimize front-end performance</li>
+<li>How to improve the speed of Webpack’s build?</li>
+<li>How to monitor and analyze the bundle volume?</li>
+<li>How to configure a single page application? How to configure a multi-page application?</li>
+<li>How to implement on-demand loading in Vue and React projects?</li>
+<li>What are the benefits of monorepo projects, and how are they packaged?</li>
+<li>What is Source Map? How to use the production environment?</li>
+<li>What is long cache?</li>
+<li>How to optimize long cache in Webpack?</li>
+<li>What is the difference between hash chunkhash contenthash in Webpack?</li>
+</ul>
+<h2 id="Webpack-principle"><a href="#Webpack-principle" class="headerlink" title="Webpack principle"></a>Webpack principle</h2><ul>
+<li>What is the construction process of Webpack?</li>
+<li>Have you ever written Loader? Describe the idea of ​​writing Loader?</li>
+<li>Have you ever written Plugin? Describe the idea of ​​writing Plugin?</li>
+<li>What is the order of inline pre post normal loader execution?</li>
+<li>What is the principle of Webpack packaging? Talk about babel and abstract syntax tree</li>
+<li>What is the principle of dev-server? Describe its specific process</li>
+<li>Please talk about the working principle of DIlPlugin and DllReferencePlugin</li>
+<li>How is the hot update of Webpack done? Explain its principle?</li>
+<li>Have you learned about Tree shaking? Talk about its realization principle</li>
+</ul>
+<h2 id="Webpack-5"><a href="#Webpack-5" class="headerlink" title="Webpack 5"></a>Webpack 5</h2><ul>
+<li>What are the new features in Webpack 5</li>
+<li>The significance of Module Federation in Webpack 5 to the micro front end</li>
+</ul>
+<h2 id="Webpack-实战"><a href="#Webpack-实战" class="headerlink" title="Webpack 实战"></a>Webpack 实战</h2><ul>
+<li>与 <code>Webpack</code> 类似的工具还有哪些</li>
+<li>谈谈你为什么选择使用或放弃 <code>webpack</code></li>
+<li><code>Loader</code> 和 <code>Plugin</code> 的不同</li>
+<li>有哪些常见的 <code>Loader</code> ？他们能解决什么问题？</li>
+<li>有哪些常见的 <code>Plugin</code> ？他们能解决什么问题？</li>
+<li>如何利用 <code>Webpack</code> 来优化前端性能</li>
+<li>如何提高 <code>Webpack</code> 的构建速度?</li>
+<li>如何对 <code>bundle</code> 体积进行监控和分析？</li>
+<li>怎么配置单页应用？怎么配置多页应用？</li>
+<li>如何在 <code>Vue</code> 和 <code>React</code> 项目中实现按需加载？</li>
+<li><code>monorepo</code> 这种项目有什么好处,具体是如何打包的？</li>
+<li><code>Source Map</code> 是什么？生产环境怎么用？</li>
+<li>什么是长缓存？</li>
+<li>在 <code>Webpack</code> 中如何做到长缓存优化？</li>
+<li><code>Webpack</code> 中 <code>hash</code> <code>chunkhash</code> <code>contenthash</code> 有什么区别？</li>
+</ul>
+<h2 id="Webpack-原理"><a href="#Webpack-原理" class="headerlink" title="Webpack 原理"></a>Webpack 原理</h2><ul>
+<li><code>Webpack</code> 的构建 流程是什么？</li>
+<li>是否写过 <code>Loader</code> ?描述一下编写 <code>Loader</code> 的思路？</li>
+<li>是否写过 <code>Plugin</code> ?描述一下编写 <code>Plugin</code> 的思路？</li>
+<li><code>inline</code> <code>pre</code> <code>post</code> <code>normal</code> <code>loader</code> 执行先后顺序是？</li>
+<li><code>Webpack</code> 打包的原理是什么？聊一聊 <code>babel</code> 和抽象语法树</li>
+<li><code>dev-server</code> 的原理是什么？描述一下它的具体流程</li>
+<li>请说一下 <code>DIlPlugin</code> 和 <code>DllReferencePlugin</code> 的工作原理.</li>
+<li><code>Webpack</code> 的热更新是如何做到的？说明其原理？</li>
+<li><code>Tree shaking</code> 了解过么？它的实现原理说一下</li>
+</ul>
+<h2 id="Webpack-5-1"><a href="#Webpack-5-1" class="headerlink" title="Webpack 5"></a>Webpack 5</h2><ul>
+<li><code>Webpack 5</code> 中有哪些新特性</li>
+<li><code>Webpack 5</code> 中的 <code>Module Federation</code> 对微前端的意义</li>
+</ul>
+<!-- ### 《足控福利》--第五期(无码)
+
+_本帖最後由 1113539772 於 2020-9-28 11:33 編輯_
+
+有人喜欢这种露脚丫的姿势吗？
+我来分享一下自己的收藏~个人比较喜欢裸足,所以大部分都是有脚的镜头,反正就是好看就完事了
+足控福利预警！！！！
+
+这一期由于图片较多可能加载 GIF 需要较长时间,请耐心等待~~
+
+[010115_001 「大橋未久〜初裏完全版〜」](https://www.javbus.com/010115_001)
+![](https://i.imgur.com/5DdBZdl.gif)
+[020117-364 中出し上等！情熱セックス](https://www.javbus.com/020117-364)
+![](https://i.imgur.com/uLm8kRF.gif)
+![](https://i.imgur.com/MkCCrac.gif)
+[n1127 絶対服従 - 神崎玲香](https://www.javbus.com/n1127)
+![](https://i.imgur.com/qp7j1z4.gif)
+[HEYZO-1479 逢沢はるか](https://www.javbus.com/HEYZO-1479)
+![](https://i.imgur.com/YUC8UwY.gif)
+[021916-100 視界侵入！たちまち挿入！](https://www.javbus.com/021916-100)
+![](https://i.imgur.com/rDlI77I.gif)
+[HEYZO-0566 安城アンナ 超美形！](https://www.javbus.com/HEYZO-0566)
+![](https://i.imgur.com/xGKc6mS.gif)
+[091813-434 湯煙中出し温泉旅行](https://www.javbus.com/091813-434)
+![](https://i.imgur.com/aqfoYP1.gif)
+![](https://i.imgur.com/UcFekcd.gif)
+![](https://i.imgur.com/lrKoQV8.gif)
+[080114_854 「小さなカラダと敏感 G カップ」](https://www.javbus.com/080114_854)
+![](https://i.imgur.com/M7LZ8jD.gif)
+[SMBD-140 S Model 140 純白美肌](https://www.javbus.com/SMBD-140)
+![](https://i.imgur.com/4dyBXUc.gif)
+![](https://i.imgur.com/CPocEym.gif)
+![](https://i.imgur.com/bo0QNHY.gif)
+[081017-004 サマーヌード 〜夏だ！](https://www.javbus.com/081017-004)
+![](https://i.imgur.com/IIY6kkl.gif)
+![](https://i.imgur.com/rv4Xvy7.gif)
+[HEYZO-1337 みほの【みほの】](https://www.javbus.com/HEYZO-1337)
+![](https://i.imgur.com/LJh5R3n.gif)
+![](https://i.imgur.com/wYcufFi.gif)
+[HEYZO-0986 宮下華奈【みやしたかな】](https://www.javbus.com/HEYZO-0986)
+![](https://i.imgur.com/iYBc1ZL.gif)
+![](https://i.imgur.com/h3fQuL7.gif)
+[MKBD-S112 KIRARI 112 汁だく美少女](https://www.javbus.com/MKBD-S112)
+![](https://i.imgur.com/o1vvUoi.gif)
+![](https://i.imgur.com/ud9uKY6.gif)
+[071815-923 胸ポチウェイトレス](https://www.javbus.com/071815-923)
+![](https://i.imgur.com/sJoKMlt.gif)
+![](https://i.imgur.com/m6wEXmm.gif)
+[051215-875 本気すぎてせつない](https://www.javbus.com/051215-875)
+![](https://i.imgur.com/QN5tZtq.gif)
+![](https://i.imgur.com/c55S79D.gif)
+[MKBD-S99 KIRARI 99 佐伯ゆきな](https://www.javbus.com/MKBD-S99)
+![](https://i.imgur.com/QxDz6Pv.gif)
+[LAFBD-41 ラフォーレ ガール](https://www.javbus.com/LAFBD-41)
+![](https://i.imgur.com/pMvuOMl.gif)
+![](https://i.imgur.com/SXE1722.gif)
+![](https://i.imgur.com/5hwPUuV.gif)
+[122714-768 無修正](https://www.javbus.com/122714-768)
+![](https://i.imgur.com/1er6Icl.gif)
+![](https://i.imgur.com/zIQYjFU.gif)
+[SMBD-119 S Model 119](https://www.javbus.com/SMBD-119)
+![](https://i.imgur.com/6nPV5N6.gif)
+![](https://i.imgur.com/U76KMzl.gif)
+![](https://i.imgur.com/NV4vwni.gif)
+[121314-757 無修正](https://www.javbus.com/121314-757)
+![](https://i.imgur.com/mzcUfIZ.gif)
+[HEYZO-0917 広瀬奈々美【ひろせななみ】](https://www.javbus.com/HEYZO-0917)
+![](https://i.imgur.com/6jNJSZK.gif)
+![](https://i.imgur.com/CtXLcCC.gif)
+[SMBD-121 S Model 121](https://www.javbus.com/SMBD-121)
+![](https://i.imgur.com/Vz2Ey4E.gif)
+![](https://i.imgur.com/UKPu15M.gif)
+[HEYZO-2222 美痴女](https://www.javbus.com/HEYZO-2222)
+![](https://i.imgur.com/8mevIY0.gif)
+![](https://i.imgur.com/8sbrrb6.gif)
+[061016_314 コスプレイヤーをお貸しします](https://www.javbus.com/061016_314)
+![](https://i.imgur.com/ewS2oR7.gif)
+![](https://i.imgur.com/OGWYC5M.gif)
+[061114_001 「熱い精液を…膣壁にぶつけて」](https://www.javbus.com/061114_001)
+![](https://i.imgur.com/2qKKZml.gif)
+![](https://i.imgur.com/SaUECWu.gif)
+[SMBD-72 S Model 72 ～ The Best of 秋元まゆ花～](https://www.javbus.com/SMBD-72)
+![](https://i.imgur.com/kDhJvRq.gif)
+![](https://i.imgur.com/ujP74NQ.gif)
+[101012_446 「100cm 爆乳のムチムチボディ」](https://www.javbus.com/101012_446)
+![](https://i.imgur.com/NJiKGow.gif)
+[050316-151 早抜き 松本メイ BEST](https://www.javbus.com/050316-151)
+![](https://i.imgur.com/yGmI3KD.gif)
+![](https://i.imgur.com/GI0tKEi.gif)
+[081913-411 AV 女優と飲み…そして泊まり SEX by HAMAR 3 　前編](https://www.javbus.com/081913-411)
+![](https://i.imgur.com/Bgje5k2.gif)
+![](https://i.imgur.com/nBIodST.gif)
+[052715-886 美人妻、お貸しします](https://www.javbus.com/052715-886)
+![](https://i.imgur.com/4VCMuzB.gif)
+[011813-241 イキたくてもイケない関西のいい女](https://www.javbus.com/011813-241)
+![](https://i.imgur.com/1gAcGKp.gif)
+[n1063 肉欲秘書凌辱奉仕残業](https://www.javbus.com/n1063)
+![](https://i.imgur.com/48WGRpP.gif)
+[HEYZO-0946 青山茉利奈](https://www.javbus.com/HEYZO-0946)
+![](https://i.imgur.com/OdwieY5.gif)
+[HEYZO-0603 瀧澤まい 美痴女～](https://www.javbus.com/HEYZO-0603)
+![](https://i.imgur.com/3vLoabl.gif)
+![](https://i.imgur.com/iPUAqUO.gif)
+[070916-204 妻が汚されているところを見たい](https://www.javbus.com/070916-204)
+![](https://i.imgur.com/yxdzDT4.gif)
+[081216-228 妖艶な浴衣でしっとり快感！](https://www.javbus.com/081216-228)
+![](https://i.imgur.com/DIxxgan.gif)
+[鈴村あいり　患者編高画質版(無修正)](magnet:?xt=urn:btih:75A5C0D54759053C08935C187B4EBDAE475073F9)
+![](https://i.imgur.com/q4SsczD.gif)
+[BEB-016(無修正)](magnet:?xt=urn:btih:14FFF6871B2A356C7DCF60A3228BAFDA1CE35E49)
+![](https://i.imgur.com/XAeSYOw.gif)
+[ABP-408(無修正)](magnet:?xt=urn:btih:6F762FC3265B259D0F10E34EE6FD7ED0B1BB976A)
+![](https://i.imgur.com/CdQCnCA.gif)
+[FC2PPV-1040139(無修正)](magnet:?xt=urn:btih:54CEE040646A284BDE61A7F1C9EE3D9DC505D64C)
+![](https://i.imgur.com/yfEZzTZ.gif)
+
+### 《足控福利》--第四期
+
+番号:[GVG-713](https://www.javbus.com/GVG-713)
+![](https://i.imgur.com/YHoiQyt.jpg)
+![](https://i.imgur.com/7ILIyNI.gif)
+![](https://i.imgur.com/vviVPyd.gif)
+![](https://i.imgur.com/4ZP2amR.gif)
+
+番号:[ABP-788](https://www.javbus.com/ABP-788)
+![](https://i.imgur.com/MFzpU4x.jpg)
+![](https://i.imgur.com/6Tpxk0t.gif)
+![](https://i.imgur.com/r2T5toC.gif)
+![](https://i.imgur.com/vCzP9qk.gif)
+
+番号:[ATID-327](https://www.javbus.com/ATID-327)
+![](https://i.imgur.com/LzrmUU0.jpg)
+![](https://i.imgur.com/4JbTq45.gif)
+![](https://i.imgur.com/hcS9eSE.gif)
+![](https://i.imgur.com/PJhYCH9.gif)
+
+番号:[IPX-358](https://www.javbus.com/IPX-358)
+![](https://i.imgur.com/zKQjC9h.jpg)
+![](https://i.imgur.com/jVzDhsH.gif)
+![](https://i.imgur.com/q4elqVR.gif)
+![](https://i.imgur.com/9onKFut.gif)
+
+番号:[IPZ-375](https://www.javbus.com/IPZ-375)
+![](https://i.imgur.com/4cpjD7A.jpg)
+![](https://i.imgur.com/yIyFXsN.gif)
+![](https://i.imgur.com/wkbNDf1.gif)
+![](https://i.imgur.com/lEY5IJQ.gif)
+
+番号:[IPX-143](https://www.javbus.com/IPX-143)
+![](https://i.imgur.com/ZfSKFWr.jpg)
+![](https://i.imgur.com/HaWxI66.gif)
+![](https://i.imgur.com/z6bxm7f.gif)
+![](https://i.imgur.com/bn0Z49n.gif)
+![](https://i.imgur.com/McfhaKL.gif)
+
+番号:[RBD-916](https://www.javbus.com/RBD-916)
+![](https://i.imgur.com/OtrmM1Y.jpg)
+![](https://i.imgur.com/4uaQary.gif)
+![](https://i.imgur.com/ig2ggnN.gif)
+![](https://i.imgur.com/Ddhq96O.gif)
+
+番号:[MEYD-479](https://www.javbus.com/MEYD-479)
+![](https://i.imgur.com/aq98xHc.jpg)
+![](https://i.imgur.com/UfX4yhA.gif)
+![](https://i.imgur.com/QunGs9T.gif)
+![](https://i.imgur.com/uroXBow.gif)
+
+番号:[IPZ-729](https://www.javbus.com/IPZ-729)
+![](https://i.imgur.com/jIVxMIY.jpg)
+![](https://i.imgur.com/RPppKrA.gif)
+![](https://i.imgur.com/KbOVlmB.gif)
+![](https://i.imgur.com/TzVDvV5.gif)
+
+番号:[CWPBD-110](https://www.javbus.com/CWPBD-110)
+![](https://i.imgur.com/ZnSKlpD.jpg)
+![](https://i.imgur.com/rTFl0gK.gif)
+![](https://i.imgur.com/gXFJHaH.gif)
+
+### 《足控福利》--第三期
+
+番号:[DASD-587](https://www.javbus.com/DASD-587)
+![](https://i.imgur.com/5X0rYUh.gif)
+![](https://i.imgur.com/MxwTk67.gif)
+![](https://i.imgur.com/PHQYHfY.gif)
+
+番号:[SSNI-661](https://www.javbus.com/SSNI-661)
+![](https://i.imgur.com/w6i76ME.gif)
+![](https://i.imgur.com/pOnErjh.gif)
+![](https://i.imgur.com/GfbtaOd.gif)
+
+番号:[RBD-772](https://www.javbus.com/RBD-772)
+![](https://i.imgur.com/vrvbe7N.gif)
+![](https://i.imgur.com/TCO09YR.gif)
+![](https://i.imgur.com/yrc4DlD.gif)
+
+番号:[IPX-416](https://www.javbus.com/IPX-416)
+![](https://i.imgur.com/RHDFdoQ.gif)
+![](https://i.imgur.com/qXE6AA2.gif)
+![](https://i.imgur.com/hY0clV7.gif)
+
+番号:[MACB-013](https://www.javbus.com/MACB-013)
+![](https://i.imgur.com/NLMBVnJ.gif)
+![](https://i.imgur.com/0EoELxp.gif)
+![](https://i.imgur.com/gkxlQsy.gif)
+
+番号:[IPX-398](https://www.javbus.com/IPX-398)
+![](https://i.imgur.com/f6dqvLC.gif)
+![](https://i.imgur.com/OyJvIMl.gif)
+
+番号:[011317-350](https://www.javbus.com/011317-350)
+![](https://i.imgur.com/Y7t7WnF.gif)
+![](https://i.imgur.com/Qg32IzS.gif)
+![](https://i.imgur.com/r1LHUvS.gif)
+
+番号:[DASD-392](https://www.javbus.com/DASD-392)
+![](https://i.imgur.com/IBbrmhm.gif)
+![](https://i.imgur.com/2Ad6eWA.gif)
+![](https://i.imgur.com/8Wytgqj.gif)
+
+番号:[DASD-574](https://www.javbus.com/DASD-574)
+![](https://i.imgur.com/hTbWUcg.gif)
+![](https://i.imgur.com/Yxp2eeg.gif)
+![](https://i.imgur.com/P4EYl82.gif)
+
+### 《足控福利》--第二期
+
+番号:JUY-677
+![](https://i.imgur.com/edIJqLl.jpg)
+![](https://i.imgur.com/r2qEUoL.jpg)
+![](https://i.imgur.com/4P7qtjC.gif)
+
+番号:SMD-145
+![](https://i.imgur.com/vgPRHs0.jpg)
+![](https://i.imgur.com/Zkw65fV.jpg)
+![](https://i.imgur.com/EeiRQRY.jpg)
+![](https://i.imgur.com/2zNsJVP.gif)
+
+番号:GVG-729
+![](https://i.imgur.com/AUZbSfA.jpg)
+![](https://i.imgur.com/TJk8r5d.jpg)
+![](https://i.imgur.com/v86ttfT.gif)
+
+番号:SSNI-209
+![](https://i.imgur.com/1MWQn09.jpg)
+![](https://i.imgur.com/pDPqn8t.jpg)
+![](https://i.imgur.com/nHWr4hq.jpg)
+![](https://i.imgur.com/KuJWLun.gif)
+
+番号:CJOD-067
+![](https://i.imgur.com/D64MqPM.jpg)
+![](https://i.imgur.com/AFWvvt9.jpg)
+![](https://i.imgur.com/66wQkX2.gif)
+
+番号:legsjapan-999 和 legsjapan-984
+![](https://i.imgur.com/DzhPP9t.jpg)
+![](https://i.imgur.com/hUTVWnF.jpg)
+![](https://i.imgur.com/F9oiK4g.gif)
+![](https://i.imgur.com/eykx3j2.gif)
+
+番号:JUY-390
+![](https://i.imgur.com/OCTwit7.jpg)
+![](https://i.imgur.com/yxYBmXD.jpg)
+
+![](https://i.imgur.com/W931y69.gif)
+![](https://i.imgur.com/xKmPxyf.gif)
+
+番号:EBOD-493
+![](https://i.imgur.com/Svpy12w.jpg)
+![](https://i.imgur.com/t2c8Egw.jpg)
+![](https://i.imgur.com/ZGDt6ZW.jpg)
+
+![](https://i.imgur.com/rJNyVgt.gif)
+
+番号:PGD-522
+![](https://i.imgur.com/FfOt3Au.jpg)
+![](https://i.imgur.com/jYGaK7X.jpg)
+
+![](https://i.imgur.com/3Rufabc.gif)
+![](https://i.imgur.com/JL8ubD0.gif)
+
+### 《足控福利》--第一期
+
+番号:DASD-409
+![](https://i.imgur.com/7cQ2Y4t.png)
+
+![](https://i.imgur.com/2zBgUT7.gif)
+
+番号:MIAA-086
+![](https://i.imgur.com/iTUS5Wo.png)
+
+![](https://i.imgur.com/PhIjKGM.gif)
+
+番号:IPX-271
+![](https://i.imgur.com/4IA730M.png)
+![](https://i.imgur.com/vJKns1e.jpg)
+
+![](https://i.imgur.com/RLTIPPV.gif)
+![](https://i.imgur.com/sld0d2L.gif)
+
+番号:IPX-312
+![](https://i.imgur.com/nkPQqyE.png)
+
+![](https://i.imgur.com/kFQxvsg.gif)
+
+番号:abp-744
+![](https://i.imgur.com/MGUezCb.png)
+
+![](https://i.imgur.com/GWewIRl.gif)
+![](https://i.imgur.com/XQUm8Kk.gif)
+
+番号:1pondo_083016_372_B
+![](https://i.imgur.com/3nCjZZZ.jpg)
+
+![](https://i.imgur.com/SOjRXWx.gif) -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-08-29T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/javascript-promises-for-dummies/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript Promises for Dummies">
+                        
+                        <span class="card-title">JavaScript Promises for Dummies</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Promises/">
+                        <span class="chip bg-color">Promises</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/anti996/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="为什么还有人相信 996 真的是 &#34;福报&#34;？">
+                        
+                        <span class="card-title">为什么还有人相信 996 真的是 &#34;福报&#34;？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                    政治
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/anti996/">
+                        <span class="chip bg-color">anti996</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端路由, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端路由 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端路由</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%B7%AF%E7%94%B1/">
+                                <span class="chip bg-color">路由</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-01-08
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>路由的概念来源于服务端, 在服务端中路由描述的是 URL 与处理函数之间的映射关系. 在前后端不分离的时候, 由后端来控制路由, 服务器接收客户端的请求, 解析对应的 URL 路径, 并返回对应的页面 / 资源. 简单的说 路由就是根据不同的 URL 地址来展示不同的内容或页面.</p>
+<blockquote>
+<p>路由就是指随着浏览器地址栏的变化, 展示给用户的页面也不相同.</p>
+</blockquote>
+<h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><h3 id="前端路由的由来"><a href="#前端路由的由来" class="headerlink" title="前端路由的由来"></a>前端路由的由来</h3><p>最开始的网页是多页面的, 用户的每次更新操作都需要重新刷新页面, 非常的影响交互体验. 直到 Ajax(异步加载方案) 的出现, 虽然 Ajax 解决了用户交互时体验的痛点, 但是多页面之间的跳转一样会有不好的体验, 所以便有了 SPA(single-page application) 使用的诞生. SPA 的出现大大提高了 WEB 应用的交互体验. 在与用户的交互过程中, 不再需要重新刷新页面, 获取数据也是通过 Ajax 异步获取, 页面显示变的更加流畅. 但由于 SPA 中用户的交互是通过 JavaScript 改变 HTML 内容来实现的, 页面本身的 URL 并没有变化, 这导致了两个问题:</p>
+<blockquote>
+<p>SPA 应用便是基于前端路由实现的</p>
+</blockquote>
+<ul>
+<li>SPA 无法记住用户的操作记录, 无论是刷新、前进还是后退, 都无法展示用户真实的期望内容.</li>
+<li>SPA 中虽然由于业务的不同会有多种页面展示形式, 但只有一个 URL, 对 SEO 不友好, 不方便搜索引擎进行收录.</li>
+</ul>
+<p>前端路由就是为了解决上述问题而出现的.</p>
+<h3 id="什么是前端路由？"><a href="#什么是前端路由？" class="headerlink" title="什么是前端路由？"></a>什么是前端路由？</h3><p>简单的说, 就是在保证只有一个 HTML 页面, 且与用户交互时不刷新和跳转页面的同时, 为 SPA 中的每个视图展示形式匹配一个特殊的 URL. 在刷新、前进、后退和 SEO 时均通过这个特殊的 URL 来实现. 为实现这一目标, 我们需要做到以下两点:</p>
+<ul>
+<li>改变 URL 且不让浏览器向服务器发送请求.</li>
+<li>可以监听到 URL 的变化</li>
+</ul>
+<blockquote>
+<p>前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做, 之前是通过服务端根据 URL 的不同返回不同的页面实现的.</p>
+</blockquote>
+<blockquote>
+<p>在 Web 前端单页应用 SPA(Single Page Application) 中, 路由描述的是 URL 与 UI 之间的映射关系, 这种映射是单向的, 即 URL 变化引起 UI 更新 (无需刷新页面).</p>
+</blockquote>
+<h3 id="什么时候使用前端路由？"><a href="#什么时候使用前端路由？" class="headerlink" title="什么时候使用前端路由？"></a>什么时候使用前端路由？</h3><p>在单页面应用, 大部分页面结构不变, 只改变部分内容的使用.</p>
+<h3 id="前端路由有什么优点和缺点？"><a href="#前端路由有什么优点和缺点？" class="headerlink" title="前端路由有什么优点和缺点？"></a>前端路由有什么优点和缺点？</h3><ul>
+<li>优点: 用户体验好, 不需要每次都从服务器全部获取, 快速展现给用户</li>
+<li>缺点: 不利于 SEO; 使用浏览器的前进, 后退键的时候会重新发送请求, 没有合理地利用缓存; 单页面无法记住之前滚动的位置, 无法在前进和后退的时候记住滚动的位置.</li>
+</ul>
+<h2 id="如何实现前端路由？"><a href="#如何实现前端路由？" class="headerlink" title="如何实现前端路由？"></a>如何实现前端路由？</h2><p>要实现前端路由, 需要解决两个核心:</p>
+<ul>
+<li><p>如何改变 URL 却不引起页面刷新？</p>
+</li>
+<li><p>如何检测 URL 变化了？</p>
+</li>
+</ul>
+<p>下面分别使用 hash 和 history 两种实现方式回答上面的两个核心问题.</p>
+<h3 id="1-Hash-模式"><a href="#1-Hash-模式" class="headerlink" title="1.Hash 模式"></a>1.Hash 模式</h3><blockquote>
+<p>hash 是 URL 中 hash (#) 及后面的那部分, 常用作锚点在页面内进行导航, 改变 URL 中的 hash 部分不会引起页面刷新. 比如说 “<a target="_blank" rel="noopener" href="http://www.test.com/#searvh&quot;">www.test.com/#searvh&quot;</a> , 其中 “#searvh” 就是我们期望的 hash 值.</p>
+</blockquote>
+<p>由于 hash 值的变化不会导致浏览器向服务器发送请求, 而且 hash 的改变会触发 <code>hashchange</code> 事件, 浏览器的前进后退也能对其进行控制, 所以在 HTML5 的 history 模式出现之前, 基本都是使用 hash 模式来实现前端路由.</p>
+<p>hash 路由模式的实现主要是基于下面几个特性:</p>
+<ul>
+<li>URL 中 hash 值只是客户端的一种状态, 也就是说当向服务器端发出请求时, hash 部分不会被发送;</li>
+<li>hash 值的改变, 都会在浏览器的访问历史中增加一个记录. 因此我们能通过浏览器的回退、前进按钮控制 hash 的切换;</li>
+<li>通过 <code>a</code> 标签, 并设置 <code>href</code> 属性, 当用户点击这个标签后, URL  的 hash 值会发生改变; 或者使用  JavaScript 来对  <code>loaction.hash</code>  进行赋值, 改变 URL 的 hash 值;</li>
+<li>使用 hashchange 事件来监听 URL 的变化 (hash 值的变化) , 从而对页面进行跳转 (渲染).</li>
+</ul>
+<blockquote>
+<p>改变 URL 的方式只有这几种: 通过浏览器前进后退改变 URL、通过 <code>&lt;a&gt;</code> 标签改变 URL、通过 <code>window.location</code> 改变 URL, 这几种情况改变 URL 都会触发 <code>hashchange</code> 事件<br>`</p>
+</blockquote>
+<!-- <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="css,result" data-user="orangexc" data-slug-hash="LRrxvP" data-prefill='{"title":"front end router","tags":[],"scripts":[],"stylesheets":["https://www.bootcss.com/p/buttons/css/buttons.css"]}'>
+  <pre data-lang="html">&lt;ul>
+  &lt;li>&lt;a href="#/" class="button button-glow button-border button-rounded button-primary">turn white&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#/orange" class="button button-glow button-rounded button-highlight">turn orange&lt;/a>&lt;/li>
+  &lt;li>&lt;a href="#/purple" class="button button-glow button-rounded button-royal">turn purple&lt;/a>&lt;/li>
+&lt;/ul></pre>
+  <pre data-lang="css">li {
+  display: inline-block;
+  margin: 0 30px 30px 0;
+}
+ </pre>
+  <pre data-lang="js">function Router() {
+  this.routes = {};
+  this.currentUrl = "";
+}
+Router.prototype.route = function (path, callback) {
+  this.routes[path] = callback || function () {};
+};
+Router.prototype.refresh = function () {
+  this.currentUrl = location.hash.slice(1) || "/";
+  this.routes[this.currentUrl]();
+};
+Router.prototype.init = function () {
+  window.addEventListener("load", this.refresh.bind(this), false);
+  window.addEventListener("hashchange", this.refresh.bind(this), false);
+};
+window.Router = new Router();
+window.Router.init();
+var content = document.querySelector("body");
+// change Page anything
+function changeBgColor(color) {
+  content.style.backgroundColor = color;
+}
+Router.route("/", function () {
+  changeBgColor("white");
+});
+Router.route("/orange", function () {
+  changeBgColor("orange");
+});
+Router.route("/purple", function () {
+  changeBgColor("purple");
+});
+</pre></div>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script> -->
+
+<p>完整代码：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Hash 模式<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#/page1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>page1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#/page2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>page2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+      <span class="token comment">&lt;!-- 渲染对应组件的地方 --></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>route-view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token comment">// 第一次加载的时候,不会执行 hashchange 监听事件,默认执行一次</span>
+      <span class="token comment">// DOMContentLoaded 为浏览器 DOM 加载完成时触发</span>
+      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> Load<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'hashchange'</span><span class="token punctuation">,</span> HashChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 展示页面组件的节点</span>
+      <span class="token keyword">var</span> routeView <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        routeView <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'route-view'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">HashChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">function</span> <span class="token function">HashChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 每次触发 hashchange 事件,通过 location.hash 拿到当前浏览器地址的 hash 值</span>
+        <span class="token comment">// 根据不同的路径展示不同的内容</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>location<span class="token punctuation">.</span>hash<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">case</span> <span class="token string">'#/page1'</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page1'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'#/page2'</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page2'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+          <span class="token keyword">default</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page1'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>浏览器展示效果如下：</p>
+<p><img src="../images/c63.image"></p>
+<h3 id="2-History-模式"><a href="#2-History-模式" class="headerlink" title="2.History 模式"></a>2.History 模式</h3><p>HTML5 的 <code>History</code> API 为浏览器的全局 <code>history</code> 对象增加的扩展方法.</p>
+<p><code>history</code> 其实就是浏览器会话历史记录的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/History">接口</a></p>
+<p><code>window</code> 对象提供了 <code>onpopstate</code> 事件来监听历史栈的改变, 一旦历史栈信息发生改变, 便会触发该事件.</p>
+<blockquote>
+<p>history 提供类似 <code>hashchange</code> 事件的 <code>popstate</code> 事件, 但 <code>popstate</code> 事件有些不同: 通过浏览器前进后退改变 URL 时会触发 <code>popstate</code> 事件, 通过 <code>pushState</code>/<code>replaceState</code> 或 <code>&lt;a&gt;</code> 标签改变 URL 不会触发 <code>popstate</code> 事件. 好在我们可以拦截 <code>pushState</code>/<code>replaceState</code> 的调用和 <code>&lt;a&gt;</code> 标签的点击事件来检测 URL 变化, 所以监听 URL 变化可以实现, 只是没有 <code>hashchange</code> 那么方便.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ 需要特别注意的是, 调用 <code>history.pushState()</code> 或 <code>history.replaceState()</code> 这两个方法改变 URL 的 path 部分不会引起页面刷新 不会触发 <code>popstate</code> 事件. 只有在做出浏览器动作 (手动触发页面跳转 (渲染)) 时, 才会触发该事件.</p>
+</blockquote>
+<p><code>history</code> 提供了两个操作历史栈的 API: <code>history.pushState()</code> 和 <code>history.replaceState()</code>.<br>相同之处是两个 API 都会操作浏览器的历史记录, 而不会引起页面的刷新. 不同之处在于,<code>history.pushState()</code> 会保留现有历史记录的同时将 URL 加入到历史记录中, 而 <code>history.replaceState()</code> 则会将历史记录中的当前页面历史替换为 URL.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token punctuation">,</span>title<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">,</span>url<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 向历史记录中追加一条记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">history<span class="token punctuation">.</span><span class="token function">replaceState</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span><span class="token punctuation">,</span>title<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">,</span>url<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 替换当前页在历史记录中的信息.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>data: 一个 JavaScript 对象, 与用 pushState() 方法创建的新历史记录条目关联. 无论何时用户导航到新创建的状态, popstate 事件都会被触发, 并且事件对象的 state 属性都包含历史记录条目的状态对象的拷贝.</p>
+</blockquote>
+<blockquote>
+<p>title: FireFox 浏览器目前会忽略该参数, 虽然以后可能会用上. 考虑到未来可能会对该方法进行修改, 传一个空字符串会比较安全. 或者, 你也可以传入一个简短的标题, 标明将要进入的状态.</p>
+</blockquote>
+<blockquote>
+<p>url: 新的历史记录条目的地址. 浏览器不会在调用 pushState() 方法后加载该地址, 但之后, 可能会试图加载, 例如用户重启浏览器. 新的 URL 不一定是绝对路径; 如果是相对路径, 它将以当前 URL 为基准; 传入的 URL 与当前 URL 应该是同源的, 否则, pushState() 会抛出异常. 该参数是可选的; 不指定的话则为文档当前 URL.</p>
+</blockquote>
+<p><code>a</code>  标签的点击事件也是不会被 <code>popstate</code>  监听.我们需要想个办法解决这个问题,才能实现 history  模式.</p>
+<p>解决思路： 我们可以通过遍历页面上的所有 <code>a</code> 标签,阻止 <code>a</code>  标签的默认事件的同时,加上点击事件的回调函数,在回调函数内获取 <code>a</code> 标签的 <code>href</code> 属性值,再通过 <code>pushState</code> 去改变浏览器的 <code>location.pathname</code> 属性值.然后手动执行 <code>popstate</code> 事件的回调函数,去匹配相应的路由.逻辑上可能有些饶,</p>
+<p>完整代码：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>History 模式<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/page1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>page1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/page2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>page2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>route-view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> Load<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'popstate'</span><span class="token punctuation">,</span> PopChange<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> routeView <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">Load</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        routeView <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'route-view'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 默认执行一次 popstate 的回调函数,匹配一次页面组件</span>
+        <span class="token function">PopChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 获取所有带 href 属性的 a 标签节点</span>
+        <span class="token keyword">var</span> aList <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'a[href]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 遍历 a 标签节点数组,阻止默认事件,添加点击事件回调函数</span>
+        aList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">aNode</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+          aNode<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 阻止 a 标签的默认事件</span>
+            <span class="token keyword">var</span> href <span class="token operator">=</span> aNode<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//  手动修改浏览器的地址栏</span>
+            history<span class="token punctuation">.</span><span class="token function">pushState</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> href<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 通过 history.pushState 手动修改地址栏,</span>
+            <span class="token comment">// popstate 是监听不到地址栏的变化,所以此处需要手动执行回调函数 PopChange</span>
+            <span class="token function">PopChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">function</span> <span class="token function">PopChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'location'</span><span class="token punctuation">,</span> location<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">switch</span> <span class="token punctuation">(</span>location<span class="token punctuation">.</span>pathname<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">case</span> <span class="token string">'/page1'</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page1'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+          <span class="token keyword">case</span> <span class="token string">'/page2'</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page2'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+          <span class="token keyword">default</span><span class="token operator">:</span>
+            routeView<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">'page1'</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>浏览器展示效果如下：</p>
+<blockquote>
+<p>这不能在浏览器直接打开静态文件,需要通过 WEB 服务,启动端口去浏览网址.</p>
+</blockquote>
+<h3 id="两种模式优劣对比"><a href="#两种模式优劣对比" class="headerlink" title="两种模式优劣对比"></a>两种模式优劣对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Hash</th>
+<th>History</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>观赏性</td>
+<td>丑</td>
+<td>美</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td>&gt;ie8</td>
+<td>&gt;ie10</td>
+</tr>
+<tr>
+<td>实用性</td>
+<td>直接使用</td>
+<td>同源</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>同一 document</td>
+<td>同源</td>
+</tr>
+</tbody></table>
+<h2 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue Router"></a>Vue Router</h2><p>Vue Router 是 Vue.js 框架的路由插件, 支持以上 2 中方式的路由设置.</p>
+<p>Vue Router 基本的路由配置如下:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'pages/index'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Error <span class="token keyword">from</span> <span class="token string">'pages/error'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  mode<span class="token operator">:</span> <span class="token string">'history'</span><span class="token punctuation">,</span> <span class="token comment">// 设置路由方式</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'index'</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> Index<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'*'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'404'</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> Error<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- 在组件中使用 router 视图组件  --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Vue Router 有 3 种路由模式:<code>hash</code>、<code>history</code>、<code>abstract</code></p>
+<p>3 种路由模式的说明如下:</p>
+<ul>
+<li>hash : 使用 URL hash 值来作路由. 支持所有浏览器, 包括不支持 HTML5 History Api 的浏览器;</li>
+<li>history : 依赖 HTML5 History API 和服务器配置. 具体可以查看 HTML5 History 模式;</li>
+<li>abstract : 支持所有 JavaScript 运行环境, 如 Node.js 服务器端. 如果发现没有浏览器的 API, 路由会自动强制进入这个模式.</li>
+</ul>
+<p>可以通过 Vue Router 实例来配置路由规则列表, 指定路径 path 与组件 component 的对应关系. 可以通过 mode 这一参数控制路由的实现模式, 默认值是 hash, 基于 hash 的实现方式, 如果显示设置为 history, 则会设为基于 history API 的实现方式, 如果浏览器不支持, 可以设置 fallback 来控制是否需要回滚为’hash’模式. 另外, 如果是非浏览器端运行, 会将 mode 强制设为’abstract’模式.</p>
+<hr>
+<p>vue-router 默认 hash 模式 —— 使用 URL 的 hash 来模拟一个完整的 URL, 于是当 URL 改变时, 页面不会重新加载.</p>
+<p>当你使用 history 模式时, URL 就像正常的 url, 例如 <code>http://yoursite.com/user/id</code>, 也好看！</p>
+<p>不过这种模式要玩好, 还需要后台配置支持. 因为我们的应用是个单页客户端应用, 如果后台没有正确的配置, 当用户在浏览器直接访问 <code>http://oursite.com/user/id </code> 就会返回 404, 这就不好看了.</p>
+<p>所以呢, 你要在服务端增加一个覆盖所有情况的候选资源: 如果 URL 匹配不到任何静态资源, 则应该返回同一个 index.html 页面, 这个页面就是你 app 依赖的页面.</p>
+<hr>
+<p>Vue Router 支持路由嵌套、动态路由的配置、重定向及别名等, 可参看 <a target="_blank" rel="noopener" href="https://router.vuejs.org/zh-cn/">官方文档</a>.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-01-08T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/simplify-your-javascript-use-map-reduce-and-filter/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Simplify your JavaScript – Use .map(), .reduce(), and .filter()">
+                        
+                        <span class="card-title">Simplify your JavaScript – Use .map(), .reduce(), and .filter()</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-01-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/%E5%9B%BE%E8%A7%A3%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="图解经典排序">
+                        
+                        <span class="card-title">图解经典排序</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-10-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Programming/" class="post-category">
+                                    Programming
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">排序</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

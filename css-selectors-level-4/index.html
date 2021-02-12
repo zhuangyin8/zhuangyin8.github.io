@@ -1,0 +1,1666 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS selectors level 4, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CSS selectors level 4 | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSS selectors level 4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/selectors/">
+                                <span class="chip bg-color">selectors</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-02-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.logrocket.com/css-selectors-level-4-b5da36bcd54c/">CSS selectors level 4</a></p>
+</blockquote>
+<script async src="https://cpwebassets.sfo2.cdn.digitaloceanspaces.com/assets/embed/ei.js"></script>
+
+<p>Selectors are a core part of CSS. They allow you to do things like select all the elements of a certain type:</p>
+<blockquote>
+<p>选择器是 CSS 的核心部分.它们允许您执行某些操作,例如选择某种类型的所有元素:</p>
+</blockquote>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* some styles to apply to all div elements */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Or you can select an element that is the last child of its parent:</p>
+<blockquote>
+<p>或者,您可以选择一个元素作为其父元素的最后一个子元素:</p>
+</blockquote>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">ul li:last-child</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* some styles to apply to only the last child of a list */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Of course, they also allow you to do more complex things, like select all of the children of a list except its last child.</p>
+<blockquote>
+<p>当然,它们还允许您执行更复杂的操作,例如选择列表中除最后一个孩子以外的所有孩子.</p>
+</blockquote>
+<p>In fact, there’s more than one way to do that, some more complex than others.</p>
+<blockquote>
+<p>实际上,这样做的方法不止一种,有些比其他方法复杂.</p>
+</blockquote>
+<p>For example, compare this:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">ul li</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* Styles to apply to all children */</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">ul li:last-child</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* Styles to reset the previous styles because they don’t apply to the last child */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>To this:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">ul li:nth-last-child(n + 2)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* Styles to apply to all children except the last one */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>ul li</code> is an example of a level 1 selector.</p>
+<p><code>last-child</code> and <code>nth-last-child</code> are examples of level 3 selectors.</p>
+<p>You can think of levels as <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors#Specifications">versions</a> of the CSS selector specification, where each level adds more powerful selectors.</p>
+<p>In this article, I’ll give you an overview of the last generation of selectors, level 4, according to the <a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/">Editor’s Draft specification</a> as of January 2019, in the following categories:</p>
+<ul>
+<li>Logical combinations</li>
+<li>Attribute selectors</li>
+<li>Linguistic pseudo-classes</li>
+<li>Location pseudo-classes</li>
+<li>User action pseudo-classes</li>
+<li>Input pseudo-classes</li>
+<li>Tree-structural pseudo-classes</li>
+<li>Grid-structural selectors</li>
+</ul>
+<p>At the time of this writing, the specification for level 4 selectors is in draft status. It may change until it reaches the official recommendation status, and you’ll find that many selectors are either not supported by some browsers or they need to be prefixed (with <code>:-moz-</code> or <code>:-webkit-</code>).</p>
+<p>For each selector, I’ll give a link to its <a target="_blank" rel="noopener" href="https://caniuse.com/#home">can I use</a> page so you can see what browsers support it (if it’s available), a brief description, an example, and a link to a Codepen so you can try it (even if it doesn’t work right now, since it may change in the future).</p>
+<p>With that in mind, let’s start with the selectors of the logical combinations category.</p>
+<h2 id="Logical-combinations"><a href="#Logical-combinations" class="headerlink" title="Logical combinations"></a>Logical combinations</h2><p>This category includes selectors that work by combining other selectors.</p>
+<h3 id="not-selector1-selector2-…"><a href="#not-selector1-selector2-…" class="headerlink" title=":not(selector1, selector2, …)"></a>:not(selector1, selector2, …)</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-not-sel-list">Browser support</a></p>
+<p>It selects elements that don’t match any of the selectors of the list that it takes as an argument. For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:not(.beginning, .middle)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all <code>p</code> elements that don’t have the classes <code>beginning</code> and <code>middle</code>, a red color.</p>
+<p>The level 3 version of this selector only allows one selector instead of a list of two or more. For example, the above style can be written as:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:not(.beginning):not(.middle)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="xMGxvY" data-prefill='{"title":":not pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p class="beginning">
+ beginning
+&lt;/p>
+&lt;p class="middle">
+ middle
+&lt;/p>
+&lt;p class="end">
+ end
+&lt;/p></pre>
+  <pre data-lang="css">/* Level 4 version, not supported in most browsers */
+p:not(.beginning, .middle){
+  color: red;
+}
+/* Level 3 version */
+p:not(.beginning):not(.middle) {
+  color: red;
+}</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not">:not()</a></p>
+</blockquote>
+<h3 id="is-selector1-selector2-…"><a href="#is-selector1-selector2-…" class="headerlink" title=":is(selector1, selector2, …)"></a>:is(selector1, selector2, …)</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-matches-pseudo">Browser support</a></p>
+<p>It selects elements that match any of the selectors of the list that takes as an argument. For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:is(.beginning, .middle)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all <code>p</code> elements that have the classes <code>beginning</code> and <code>middle</code>, a blue color.</p>
+<p>One of the most significant changes since the last working draft version is that <a target="_blank" rel="noopener" href="https://github.com/w3c/csswg-drafts/issues/3258">the :matches() selector was renamed to :is() and deprecated it Safari</a> (which was the <a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-matches-pseudo">only browser with full support for this selector</a>), so it makes a better pairing with <code>:not()</code>, its opposite.</p>
+<p><code>:matches()</code> can be implemented as an alias for <code>:is()</code> if needed for backwards-compatibility. However, <code>:matches()</code> was formerly called <code>:any()</code>, so most browsers support this pseudo-class with a prefix:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:-webkit-any(.beginning, .middle)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">p:-moz-any(.beginning, .middle)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="daYRLJ" data-prefill='{"title":":is pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p class="beginning">
+  beginning
+&lt;/p>
+&lt;p class="middle">
+  middle
+&lt;/p>
+&lt;p class="end">
+  end
+&lt;/p></pre>
+  <pre data-lang="css">/* New Level 4 version */
+p:is(.beginning, .middle) {
+  color: blue;
+}
+/* Old Level 4 version, only supported by Safari */
+p:matches(.beginning, .middle) {
+  color: blue;
+}
+/* Old Level 4 version, for Webkit browsers */
+p:-webkit-any(.beginning, .middle) {
+  color: blue;
+}
+/* Old Level 4 version, for Firefox browsers */
+p:-moz-any(.beginning, .middle) {
+  color: blue;
+}
+</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:is">:is()</a></p>
+</blockquote>
+<h3 id="where-selector1-selector2-…"><a href="#where-selector1-selector2-…" class="headerlink" title=":where(selector1, selector2, …)"></a>:where(selector1, selector2, …)</h3><p>At the time of this writing, this selector is not supported by any browser yet.</p>
+<p>It has the same syntax and functionality as <code>:is()</code>, but neither the selector nor any of its arguments contribute to the specificity of the selector, which is always zero.</p>
+<p>Specificity is the weight applied to a CSS rule. If two selectors apply to the same element, the one with higher specificity wins. If multiple rules have equal specificity, the last rule found in the CSS document is applied to the element.</p>
+<p>This selector can be used to implement filters and override the style declarations associated with an element.</p>
+<p>The specification gives the following example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a:not(:hover)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">nav a</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* Has no effect */</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/* With the new :where Level 4 selector */</span>
+<span class="token selector">a:where(:not(:hover))</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">nav a</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* Should work */</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> underline<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="daYzZg" data-prefill='{"title":":where pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;nav>
+  &lt;a href="#beginning">
+   beginning
+  &lt;/a>
+  &lt;a href="#middle">
+   middle
+  &lt;/a>
+  &lt;a href="#end">
+   end
+  &lt;/a>
+&lt;/nav></pre>
+  <pre data-lang="css">a:not(:hover) {
+  text-decoration: none;
+}
+nav a {
+  /* Has no effect */
+  text-decoration: underline;
+}
+/* With the new :where Level 4 selector */
+a:where(:not(:hover)) {
+  text-decoration: none;
+}
+nav a {
+  /* Should work */
+  text-decoration: underline;
+}</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where">:where()</a></p>
+<p><a target="_blank" rel="noopener" href="https://caniuse.com/?search=where">:where()</a></p>
+</blockquote>
+<h3 id="has-relativeSelector1-relativeSelector2-…"><a href="#has-relativeSelector1-relativeSelector2-…" class="headerlink" title=":has(relativeSelector1, relativeSelector2, …)"></a>:has(relativeSelector1, relativeSelector2, …)</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-has">Browser support</a> (at the time of this writing, this selector is not supported by any browser yet.)</p>
+<p>This selector takes a <a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#relative-selector">relative selector</a> list as an argument. It selects an element if any of the relative selectors (when evaluated as elements in scope) match the element.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:has(strong, em)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all <code>p</code> elements that contain either <code>&lt;strong&gt;</code> or <code>&lt;em&gt;</code>tags, a red color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="QYjmYX" data-prefill='{"title":":has pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p>
+  &lt;strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/strong>
+&lt;/p>
+&lt;p>
+&lt;em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/em>
+&lt;/p>
+&lt;p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+&lt;/p></pre>
+  <pre data-lang="css">p:has(strong, em) {
+  color: red;
+}</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has">:has()</a></p>
+</blockquote>
+<h2 id="Attribute-selectors"><a href="#Attribute-selectors" class="headerlink" title="Attribute selectors"></a>Attribute selectors</h2><p>This category includes selectors that work with an element’s attributes.</p>
+<h3 id="foo-”bar”-i"><a href="#foo-”bar”-i" class="headerlink" title="[foo=”bar” i]"></a>[foo=”bar” i]</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-case-insensitive">Browser support</a></p>
+<p>It selects an element whose <code>foo</code> attribute value is exactly equal to <code>bar</code>, regardless of its case.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p[class='text' i]</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all <code>p</code> elements whose <code>class</code> attribute has the values <code>Text</code>, <code>TEXT</code>, or <code>text</code>, among other combinations, a green color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="pGjVEg" data-prefill='{"title":"Case-insensitive selector","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p class="Text">One&lt;/p>
+&lt;p class="TEXT">Two&lt;/p>
+&lt;p class="text">Three&lt;/p>
+&lt;p class="text1">Four&lt;/p></pre>
+  <pre data-lang="css">p[class="text" i] {
+  color: green;
+}</pre></div>
+
+<h3 id="foo-”bar”-s"><a href="#foo-”bar”-s" class="headerlink" title="[foo=”bar” s]"></a>[foo=”bar” s]</h3><p>At the time of this writing, this selector is not supported by any browser yet.</p>
+<p>It selects an element whose <code>foo</code> attribute value is exactly and case-sensitively equal to <code>bar</code>.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p[class='text' s]</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all <code>p</code> elements whose <code>class</code> attribute has the value <code>text</code> (not <code>Text</code>, for example), a green color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="pGjVEg" data-prefill='{"title":"Case-insensitive selector","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p class="Text">One&lt;/p>
+&lt;p class="TEXT">Two&lt;/p>
+&lt;p class="text">Three&lt;/p>
+&lt;p class="text1">Four&lt;/p></pre>
+  <pre data-lang="css">p[class="text" s] {
+  color: green;
+}</pre></div>
+
+<h2 id="Linguistic-pseudo-classes"><a href="#Linguistic-pseudo-classes" class="headerlink" title="Linguistic pseudo-classes"></a>Linguistic pseudo-classes</h2><p>This category includes selectors that work with language-related settings.</p>
+<h3 id="dir-ltr"><a href="#dir-ltr" class="headerlink" title=":dir(ltr)"></a>:dir(ltr)</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#search=dir">Browser support</a></p>
+<p>It selects elements with left-to-right directionality, where the document language specifies how directionality is determined. On the other hand, <code>:dir(rtl)</code> represents an element that has right-to-left directionality. Other values are not invalid but do not match anything.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:dir(ltr)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will set the background color of all <code>p</code> elements with left-to-right directionality to red.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="GzpdwV" data-prefill='{"title":":dir(ltr) pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p dir="ltr">Left to right&lt;/p>
+&lt;p dir="rtl">Right to left&lt;/p></pre>
+  <pre data-lang="css">p:dir(ltr) {
+  background-color: red;
+}
+p:dir(rtl) {
+  background-color: blue;
+}</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:dir">:dir()</a></p>
+</blockquote>
+<h3 id="lang-zh-“-hant”"><a href="#lang-zh-“-hant”" class="headerlink" title=":lang(zh, “*-hant”)"></a>:lang(zh, “*-hant”)</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#search=%3Alang">Browser support</a> (at the time of this writing, the level 4 version for this selector is not supported by any browser yet)</p>
+<p>It selects an element tagged as being either in Chinese (or any other language, just replace <code>zh</code> with any other language code) or written with traditional Chinese characters (or in any other character system, just replace <code>*-hant</code> with any other character code).</p>
+<p>Actually, this selector can be used since CSS 2, however, wildcard language matching and comma-separated lists are new in level 4 selectors.</p>
+<p>It accepts a comma-separated list of one or more <a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#language-range">language ranges</a> as its argument. If the language range contains asterisks, they must be either correctly escaped (<code>:lang(es-\*)</code>) or quoted as a string (<code>:lang(&quot;es-*)</code>).</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p:lang('*-CH')</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will set the background color of all <code>p</code> elements with one of the languages spoken in Switzerland (<code>CH</code> represents Switzerland) to red.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="YByjzp" data-prefill='{"title":":lang pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;p lang="de-CH">German as used in Switzerland&lt;/p>
+&lt;p lang="fr-CH">French as used in Switzerland&lt;/p></pre>
+  <pre data-lang="css">p:lang("*-CH") {
+  background-color: red;
+}</pre></div>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:lang">:lang()</a></p>
+</blockquote>
+<h2 id="Location-pseudo-classes"><a href="#Location-pseudo-classes" class="headerlink" title="Location pseudo-classes"></a>Location pseudo-classes</h2><p>This category includes selectors related to hyperlinks.</p>
+<h3 id="any-link"><a href="#any-link" class="headerlink" title=":any-link"></a>:any-link</h3><p>No <a target="_blank" rel="noopener" href="https://caniuse.com/#home">can I use</a> page, but this selector is supported by most of the major browsers.</p>
+<p>It selects all elements that have an <code>href</code> attribute (like <code>&lt;a&gt;</code> or <code>&lt;link&gt;</code>). In other words, all of the elements that match the <code>:link</code> or <code>:visited</code> pseudo-classes.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a:any-link</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give all of the <code>a</code> elements with an <code>href</code> attribute, a red color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="vbNaeJ" data-prefill='{"title":":any-link pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;a href="#">Link with href&lt;/a>
+&lt;a>Link without href&lt;/a></pre>
+  <pre data-lang="css">a:any-link {
+  color: red;
+}</pre></div>
+
+<h3 id="local-link"><a href="#local-link" class="headerlink" title=":local-link"></a>:local-link</h3><p>At the time of this writing, this selector is not supported by any browser yet.</p>
+<p>It selects elements that target the current URL. If the link’s target includes a fragment URL, then the fragment URL of the current URL must also match; if it does not, then the fragment URL portion of the current URL is not taken into account in the comparison.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a:local-link</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will prevent all of the <code>a</code> elements with an <code>href</code> attribute that targets the current page from being underlined (maybe they are part of a navigation menu).</p>
+<p class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="GzpBwG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":local-link pseudo-class">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera/pen/GzpBwG">
+  :local-link pseudo-class</a> by Esteban Herrera (<a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera">@eh3rrera</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h2 id="User-action-pseudo-classes"><a href="#User-action-pseudo-classes" class="headerlink" title="User action pseudo-classes"></a>User action pseudo-classes</h2><p>This category includes selectors for elements the user is acting on.</p>
+<h3 id="focus-within"><a href="#focus-within" class="headerlink" title=":focus-within"></a>:focus-within</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-focus-within">Browser support</a></p>
+<p>It selects elements that either match the <code>:focus</code> pseudo-class (when the element has the focus) or have children that match <code>:focus</code>.</p>
+<p>For example, assuming the following form:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Enter your name<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will add a border around the input box when it receives focus.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">form:focus-within</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 2px solid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="BMoGWx" data-prefill='{"title":":focus-within pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;form>
+  &lt;input type="text" id="name" placeholder="Enter your name" />
+&lt;/form></pre>
+  <pre data-lang="css">form:focus-within {
+  border: 2px solid;
+}</pre></div>
+
+<h2 id="focus-visible"><a href="#focus-visible" class="headerlink" title=":focus-visible"></a>:focus-visible</h2><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-focus-visible">Browser support</a></p>
+<p>It selects an element if it’s currently focused (it matches the <code>:focus</code> pseudo-class) and the browser determines that the focus should be made evident on the element, usually, with a focus ring.</p>
+<p>The difference with <code>:focus</code> is subtle.</p>
+<p>If <code>:focus-visible</code> matches, <code>:focus</code> will also match, but the opposite is not always true, it depends on the browser (if it has focus ring drawing enabled) and how the element was focused (via a mouse click versus keyboard tabbing).</p>
+<p>Firefox implements this selector as the <code>:-moz-focusring</code> pseudo-class.</p>
+<p>For example, in some cases, the following style:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* Standard Level 4 selector */</span>
+<span class="token selector">:focus-visible</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightgray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/* Level 4 selector for Firefox*/</span>
+<span class="token selector">:-moz-focusring</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightgray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will be only applied if the element receives the focus via keyboard tabbing.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="KJdbMp" data-prefill='{"title":":focus-visible pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input /></pre>
+  <pre data-lang="css">/* Standard Level 4 selector */
+:focus-visible {
+  background-color: lightgray;
+}
+/* Level 4 selector for Firefox*/
+:-moz-focusring  {
+  background-color: lightgray;
+}
+</pre></div>
+
+<h2 id="Input-pseudo-classes"><a href="#Input-pseudo-classes" class="headerlink" title="Input pseudo-classes"></a>Input pseudo-classes</h2><p>This category includes selectors that apply to elements that take user input.</p>
+<h3 id="read-write-and-read-only"><a href="#read-write-and-read-only" class="headerlink" title=":read-write and :read-only"></a>:read-write and :read-only</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-read-only-write">Browser support</a></p>
+<p><code>:read-write</code> selects elements whose value is mutable (like an <code>&lt;input&gt;</code> element that does not have the <code>readonly</code> attribute).</p>
+<p><code>:read-only</code> selects elements whose value is immutable (like an <code>&lt;input&gt;</code> element that has the <code>readonly</code> attribute).</p>
+<p>However, these selectors don’t just select <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> elements, they select any element that can be edited by the user, such as a <code>&lt;p&gt;</code> element with the <code>contenteditable</code> attribute set to <code>true</code>.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">:read-write</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightyellow<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">:read-only</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightgray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">/* For Firefox */</span>
+<span class="token selector">:-moz-read-write</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightyellow<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">:-moz-read-only</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightgray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will set the background color of all mutable elements to <code>lightyellow</code> and <code>lightgray</code> for all immutable elements in a page.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="JxGXWw" data-prefill='{"title":":read-write and :read-only pseudo-classes","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="text" value="disabled" disabled />
+&lt;br/>
+&lt;input type="text" value="disabledAndReadonly" disabled readonly />
+&lt;br/>
+&lt;input type="text" value="readonly" readonly />
+&lt;br/>
+&lt;input type="text" value="modify me" />
+&lt;br/>
+&lt;p contenteditable="true">Content editable paragraph&lt;/p></pre>
+  <pre data-lang="css">/* Standard Level 4 selectors */
+:read-write {
+  background-color: lightyellow;
+}
+:read-only {
+background-color: lightgray;
+}
+/* Level 4 selectors for Firefox */
+:-moz-read-write {
+background-color: lightyellow;
+}
+:-moz-read-only {
+background-color: lightgray;
+}
+
+<p></pre></div></p>
+<h3 id="placeholder-shown"><a href="#placeholder-shown" class="headerlink" title=":placeholder-shown"></a>:placeholder-shown</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-placeholder-shown">Browser support</a></p>
+<p>It selects an input element that is currently showing placeholder text.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:placeholder-shown</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give the placeholder text of an <code>&lt;input&gt;</code> element (only the placeholder text) a red color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="jdWrbp" data-prefill='{"title":":placeholder-shown pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="text"  placeholder="Enter something" /></pre>
+  <pre data-lang="css">input:placeholder-shown {
+  color: red;
+}</pre></div>
+
+<h3 id="default"><a href="#default" class="headerlink" title=":default"></a>:default</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-default-pseudo">Browser support</a></p>
+<p>It selects the element that is the default option in a group of related elements. Usually applies to buttons and select lists/menus.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:default</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 0 2px 2px green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">input:default + label</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will give to the default <code>&lt;input&gt;</code> element a green shadow and color to its label.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="wNMWjx" data-prefill='{"title":":default pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="radio" id="one" name="group">
+&lt;label for="one">One&lt;/label>
+&lt;input type="radio" id="two" name="group" checked>
+&lt;label for="two">Two&lt;/label></pre>
+  <pre data-lang="css">input:default {
+  box-shadow: 0 0 2px 2px green;
+}
+input:default + label {
+  color: green;
+}</pre></div>
+
+<h3 id="indeterminate"><a href="#indeterminate" class="headerlink" title=":indeterminate"></a>:indeterminate</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-indeterminate-pseudo">Browser support</a></p>
+<p>It selects elements whose value is in an indeterminate state. For example, radio and checkbox groups that contain no checked elements, or progress bars whose percent completion is unknown.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input[type='radio']:indeterminate + label</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give the labels of the radio elements in a group, a red color if there are no elements in the group that are checked.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="yZeaBL" data-prefill='{"title":":indeterminate pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="radio" id="one" name="group">
+&lt;label for="one">One&lt;/label>
+&lt;input type="radio" id="two" name="group">
+&lt;label for="two">Two&lt;/label></pre>
+  <pre data-lang="css">input[type="radio"]:indeterminate + label {
+  color: red;
+}</pre>
+  <pre data-lang="js">
+
+<p></pre></div></p>
+<h3 id="valid-and-invalid"><a href="#valid-and-invalid" class="headerlink" title=":valid and :invalid"></a>:valid and :invalid</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=form-validation">Browser support</a></p>
+<p>They select elements whose contents or value is, respectively, valid or invalid according to their validity semantics. If the semantics are not defined (or cannot be defined), the element is neither <code>:valid</code> nor <code>:invalid</code>.</p>
+<p>For example, for an input element of type <code>email</code>:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:invalid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">input:valid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will give the text of the element a different color depending if the element contains a valid or an invalid email.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="xMZEjp" data-prefill='{"title":":valid and :invalid pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="email"></pre>
+  <pre data-lang="css">input:invalid {
+  color: red;
+}
+input:valid {
+  color: green;
+}</pre>
+  <pre data-lang="js">
+
+<p></pre></div></p>
+<h3 id="in-range-and-out-of-range"><a href="#in-range-and-out-of-range" class="headerlink" title=":in-range and :out-of-range"></a>:in-range and :out-of-range</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range">:in-range</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:out-of-range">:out-of-range</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-in-out-of-range">Browser support</a></p>
+<p>These selectors apply only to elements that have range limitations, for example, if it can have a defined minimum or maximum. If there are no such constraints, the element is neither <code>:in-range</code> nor <code>:out-of-range</code>.</p>
+<p>For example, for an input element with a minimum value of 1 and a maximum value of 5:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:out-of-range</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">input:in-range</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will give the element a red color for any values greater than 5, and a green color for values between 1 and 5.</p>
+<p>In some cases, these selectors will have the same effect as <code>:valid</code> and <code>:invalid</code>.</p>
+<div class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="eh3rrera" data-slug-hash="RvroLN" data-prefill='{"title":":in-range and :out-of-range pseudo-class","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;input type="number" min="1" max="5" value="8"></pre>
+  <pre data-lang="css">input:out-of-range {
+  color: red;
+}
+input:in-range {
+  color: green;
+}</pre>
+  <pre data-lang="js">
+
+<p></pre></div></p>
+<h3 id="required-and-optional"><a href="#required-and-optional" class="headerlink" title=":required and :optional"></a>:required and :optional</h3><p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=form-validation">Browser support for :required</a></p>
+<p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-optional-pseudo">Browser support for :optiona</a>l</p>
+<p>These selectors apply to form elements that are, respectively, required or optional before the form can be submitted. Elements that are not form elements are neither required nor optional.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">input:optional</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">input:required</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will give the element required elements a red color and optional elements a gray color.</p>
+<p class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="QYyGRQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":required and :optional pseudo-class">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera/pen/QYyGRQ">
+  :required and :optional pseudo-class</a> by Esteban Herrera (<a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera">@eh3rrera</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h2 id="Tree-structural-pseudo-classes"><a href="#Tree-structural-pseudo-classes" class="headerlink" title="Tree-structural pseudo-classes"></a>Tree-structural pseudo-classes</h2><p>This category includes selectors that allow selection based on information that lies in the document tree but cannot be represented by other selectors, like the position of an element relative to its parent.</p>
+<h3 id="nth-child-n-of-selector-and-nth-last-child-n-of-selector"><a href="#nth-child-n-of-selector-and-nth-last-child-n-of-selector" class="headerlink" title=":nth-child(n [of selector]?) and :nth-last-child(n [of selector]?)"></a>:nth-child(n [of selector]?) and :nth-last-child(n [of selector]?)</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">:nth-child</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-last-child">:nth-last-child</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://caniuse.com/#feat=css-nth-child-of">Browser support</a> (at the time of this writing, the Level 4 version for this selector is not supported by any browser yet).</p>
+<p>The <code>:nth-child</code> selector matches every element that is the nth child of its parent. <code>:nth-last-child</code> does the same but counting from the last child. You can play with <a target="_blank" rel="noopener" href="https://css-tricks.com/examples/nth-child-tester/">this :nth tester</a> to understand the difference and learn more about the <a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-syntax-3/#anb-microsyntax">An+B notation syntax</a>.</p>
+<p>At the beginning of this article, I showed you an example of <code>:nth.last-child</code> and I said it was a Level 3 selector. However, for Level 4, this selector accepts an optional <code>of</code> selector clause which filters the children to only those which match that selector.</p>
+<p>In addition to being more powerful, sometimes, there can be differences due to the way the selector is declared. For example:</p>
+<p>li.item:nth-child(-n+2)</p>
+<p>Selects the first two <code>&lt;li&gt;</code> elements but only if they have the class <code>item</code>.</p>
+<p>It’s not the same as:</p>
+<p>:nth-child(-n+2 of li.item)</p>
+<p>That selects the first two <code>&lt;li&gt;</code> elements that have the class <code>item</code> even if they are not the first two children on the list.</p>
+<p>Try it (in a browser that supports this selector, like Safari):</p>
+<p class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="NoxgEE" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":nth-child 1/2">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera/pen/NoxgEE">
+  :nth-child 1/2</a> by Esteban Herrera (<a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera">@eh3rrera</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<p class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="pGgwpG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":nth-child 2/2">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera/pen/pGgwpG">
+  :nth-child 2/2</a> by Esteban Herrera (<a target="_blank" rel="noopener" href="https://codepen.io/eh3rrera">@eh3rrera</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h2 id="Grid-structural-selectors"><a href="#Grid-structural-selectors" class="headerlink" title="Grid-structural selectors"></a>Grid-structural selectors</h2><p>This category includes selectors that work with columns of a table.</p>
+<h3 id="F-E"><a href="#F-E" class="headerlink" title="F | | E"></a>F | | E</h3><p>At the time of this writing, this selector is not supported by any browser yet.</p>
+<p>The column combinator selector (<code>||</code>) selects an element of type <code>E</code> that represents a cell in a table and belongs to a column represented by an element of type <code>F</code>.</p>
+<p>For example, assuming the following table:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Description</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Computer</td>
+<td>$999</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tablet</td>
+<td>$499</td>
+</tr>
+</tbody></table>
+<p>The following style:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">col.selected||td</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightyellow<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Will give cells (<code>&lt;td&gt;</code> elements) that belong to the <code>selected</code> column (<em>Price</em>) a light yellow background color.</p>
+<div class="codepen" data-height="265" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="xMZLQY" data-prefill='{"title":"Column combinator selector","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;table>
+  &lt;colgroup>
+    &lt;col span="2">
+    &lt;col class="selected">
+  &lt;/colgroup>
+  &lt;tr>
+    &lt;th>ID&lt;/th>
+    &lt;th>Description&lt;/th>
+    &lt;th>Price&lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>1&lt;/td>
+    &lt;td>Computer&lt;/td>
+    &lt;td>$999&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>2&lt;/td>
+    &lt;td>Tablet&lt;/td>
+    &lt;td>$499&lt;/td>
+  &lt;/tr>
+&lt;/table></pre>
+  <pre data-lang="css">col.selected || td {
+  background-color: lightyellow;
+}</pre></div>
+
+<h3 id="nth-col-An-B-and-nth-last-col-An-B"><a href="#nth-col-An-B-and-nth-last-col-An-B" class="headerlink" title=":nth-col(An+B) and :nth-last-col(An+B)"></a>:nth-col(An+B) and :nth-last-col(An+B)</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-col">:nth-col</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-last-col">:nth-last-col</a></p>
+</blockquote>
+<p>At the time of this writing, this selector is not supported by any browser yet.</p>
+<p>You can think of these selectors as the column version of <code>:nth-child</code> and <code>:nth-last-child</code>.</p>
+<p><code>:nth-col(An+B)</code> selects an element in a grid or a table that represents a cell of a column that has <code>An+B-1</code> columns <em>before</em> it, for any positive integer or zero value of <code>n</code>.</p>
+<p><code>:nth-last-col(An+B)</code> selects an element in a grid or a table that represents a cell of a column that has <code>An+B-1</code> columns <em>after</em> it, for any positive integer or zero value of <code>n</code>.</p>
+<p>For example:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">col.nth-col(1)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightyellow<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">col.nth-last-col(1)</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> lightgreen<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Will give the first column of a table a light yellow background color, while the last column will have a light green background color.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="eh3rrera" data-slug-hash="RvrLwm" data-prefill='{"title":":nth-col() and :nth-last-col() pseudo-classes","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;table>
+  &lt;tr>
+    &lt;th>ID&lt;/th>
+    &lt;th>Description&lt;/th>
+    &lt;th>Price&lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>1&lt;/td>
+    &lt;td>Computer&lt;/td>
+    &lt;td>$999&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>2&lt;/td>
+    &lt;td>Tablet&lt;/td>
+    &lt;td>$499&lt;/td>
+  &lt;/tr>
+&lt;/table></pre>
+  <pre data-lang="css">col.nth-col(1) {
+  background-color: lightyellow;
+}
+
+<p>col.nth-last-col(1) {<br>background-color: lightgreen;<br>}</pre></div></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Level 4 selectors allow you to declare complex selection rules in an easy way.</p>
+<p>We have covered most of the selectors defined in the <a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/">Editor’s Draft specification</a> of January 2019, however, I have left out some selectors that are at risk of disappearing or changing soon, or there’s not much information about them (in addition to not being supported by any browser):</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#target-within-pseudo">:target-within</a></li>
+<li><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#the-scope-pseudo">:scope</a> (don’t confuse it with <a target="_blank" rel="noopener" href="https://caniuse.com/#feat=style-scoped">scoped styles</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#time-pseudos">Time-dimensional pseudo-classes</a> (you can know more about them <a target="_blank" rel="noopener" href="http://css4.rocks/time-dimensional-pseudo-classes.php">here</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#blank">:blank</a></li>
+<li><a target="_blank" rel="noopener" href="https://drafts.csswg.org/selectors-4/#user-pseudos">:user-invalid</a></li>
+</ul>
+<p>But definitely keep an eye on these and the rest of the Level 4 selector.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-02-11T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/for-vs-for-each-vs-for-in-vs-for-of-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="For vs forEach() vs for/in vs for/of in JavaScript">
+                        
+                        <span class="card-title">For vs forEach() vs for/in vs for/of in JavaScript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-02-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/front-end-performance-checklist-2019/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Front-End Performance Checklist 2019">
+                        
+                        <span class="card-title">Front-End Performance Checklist 2019</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-01-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Performance/">
+                        <span class="chip bg-color">Performance</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

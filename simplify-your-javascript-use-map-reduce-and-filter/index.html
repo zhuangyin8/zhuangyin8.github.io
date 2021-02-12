@@ -1,0 +1,1401 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Simplify your JavaScript – Use .map(), .reduce(), and .filter(), 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Simplify your JavaScript – Use .map(), .reduce(), and .filter() | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Simplify your JavaScript – Use .map(), .reduce(), and .filter()</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-01-29
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <!-- **前 言**
+
+------刚从一个动图网站搬过来的、、为了方便朋友们欣赏、我先逛了逛论坛里别家的 gif 动图、去掉了别家大神发过的、重复的、可能不是很仔细、见谅！其中有无码、国产、有码、丝袜、基本上都是我不知道番号的;
+------考虑到朋友们有的不会贴图、有的怕麻烦、在这我集中罗列了一下(用了我一个小时多的时间)、算是个让大家相互交流的帖子;欢迎各路高手围观漏身手留番号！
+
+1.  ![](https://p.pstatp.com/origin/fe730000ae5a69472b55)
+2.  ![](https://p.pstatp.com/origin/ff680000d3b64c7c8ee5)
+3.  ![](https://p.pstatp.com/origin/fe5600017102cb40e01e)
+4.  ![](https://p.pstatp.com/origin/fe7d0001eaf30d6c8543)
+5.  ![](https://p1.pstatp.com/large/pgc-image/f5de6a1342db43c1946d49d842c21b6d)
+6.  ![](https://ae01.alicdn.com/kf/U2ad3045b30c047928eafbbe1e90a58bcB.gif)
+7.  ![](//s1.wailian.download/2020/05/08/Ii2LUO.gif)
+8.  ![](https://p.pstatp.com/origin/fe3f00010298f8fa7daa)
+    9.无码
+    ![](//s1.wailian.download/2020/05/27/qEfxNZ.gif)
+    10.无码
+    ![](https://www.z4a.net/images/2020/06/05/9E6Vi0.gif)
+9.  ![](https://www.z4a.net/images/2020/06/04/16.gif)
+    12.国产无码
+    ![](https://p.pstatp.com/origin/fe980000908c3acbf6e1)
+10. ![](https://p.pstatp.com/origin/fe8a00014953057599a2)
+11. ![](https://p.pstatp.com/origin/ff090000bfe4d733e5e4)
+12. ![](https://p.pstatp.com/origin/fe4700012754e32f4837)
+13. ![](https://p.pstatp.com/origin/ffb300015cbe82db979c)
+14. ![](https://p.pstatp.com/origin/fe220001077affe56bdf)
+15. ![](//s1.wailian.download/2020/06/07/cifbMQ.gif)
+16. ![](https://p.pstatp.com/origin/ff48000154e08e9572e4)
+    20.番号 dasd-409 (剧情片)(小白萝莉)值得一看
+    ![](https://p.pstatp.com/origin/ff380000a340a9628025)
+17. ![](//s1.wailian.download/2020/06/09/MSyFuC.gif)
+18. ![](https://p.pstatp.com/origin/fff40000b5ca7c58182a)
+19. ![](//p3.pstatp.com/large/pgc-image/8398111ad50b4828a903149b9085d41a)
+20. ![](https://p.pstatp.com/origin/fe5900012c9214637c1c)
+    25.番号我忘记了 只记得是奥田关的
+    ![](//s1.wailian.download/2020/06/05/xN7fJV.gif)
+21. ![](//s1.wailian.download/2020/06/05/hLuDJd.gif)
+22. ![](https://p.pstatp.com/origin/ff38000067db056d295f)
+23. ![](https://p.pstatp.com/origin/fff900006bc99036d5da)
+24. ![](https://p.pstatp.com/origin/ff6d000090de4c0dfe0e)
+25. ![](//s1.wailian.download/2020/05/29/20cpoX.gif)
+26. ![](https://p.pstatp.com/origin/fe9c0000a2380c658904)
+27. ![](https://p.pstatp.com/origin/dc0f0004f6e3332428bc)
+28. ![](https://p.pstatp.com/origin/ffa400007f21665953ee)
+29. ![](https://p.pstatp.com/origin/ff33000088cf52988c7b)
+30. ![](https://p.pstatp.com/origin/ff070001ca2b9e07c1d3)
+31. ![](https://www.picnew.org/images/2020/05/13/dGRkTq.gif)
+32. ![](https://www.z4a.net/images/2020/05/13/qvjKHe.gif)
+33. ![](https://www.z4a.net/images/2020/05/11/WMGSQ4.gif)
+34. ![](https://p.pstatp.com/origin/ff9b00010cc291af8ed9)
+35. ![](https://p.pstatp.com/origin/fea9000110734a3efef3)
+36. ![](https://p.pstatp.com/origin/dc0f000461384ad78c54)
+37. ![](https://p.pstatp.com/origin/ff070001de90a0719a2b)
+38. ![](https://p.pstatp.com/origin/ffbd0001649357e65bd9)
+39. ![](https://p.pstatp.com/origin/fe230000ea1d07659235)
+40. ![](https://p.pstatp.com/origin/fe610000e08073b805d5)
+41. ![](https://p.pstatp.com/origin/ff870000b4cf55f17383)
+42. ![](https://p.pstatp.com/origin/fe37000142cb685d9f3f)
+43. ![](//s1.wailian.download/2020/05/06/DxcZY5.gif)
+44. ![](https://p.pstatp.com/origin/fe97000170b927d8c37b)
+45. ![](https://p.pstatp.com/origin/fea90000c778f374ea1c)
+46. ![](https://p.pstatp.com/origin/ff77000155ed98783af2)
+47. ![](https://p.pstatp.com/origin/fe3200018c0fb0f56aaf)
+48. ![](https://p.pstatp.com/origin/ffcf00007cbb227edaf2)
+49. ![](https://p.pstatp.com/origin/fe280000b90956b49c52)
+50. ![](https://p.pstatp.com/origin/ff1500015b67c5bfcf32)
+51. ![](https://p.pstatp.com/origin/fe860001306ed91f858a)
+52. ![](https://p.pstatp.com/origin/ff4f00010cf651cf68a5)
+53. ![](https://p.pstatp.com/origin/1371d0000793cc6321647)
+54. ![](//s1.wailian.download/2020/05/11/KiOpJC.gif)
+55. ![](https://p.pstatp.com/origin/ff180001764135ab2770)
+56. ![](https://p.pstatp.com/origin/fe860001306ed91f858a)
+57. ![](//s1.wailian.download/2020/05/11/nhJRtl.gif)
+58. ![](https://p.pstatp.com/origin/fe900000d0f7cb436a3d)
+59. ![](https://p.pstatp.com/origin/ffc90000a42a53f2fcb0)
+60. ![](https://p.pstatp.com/origin/fec70001875dd55ac3da)
+61. ![](https://p.pstatp.com/origin/ffd6000151e30b613324)
+62. ![](https://p.pstatp.com/origin/ffb60000554c9d8606a6)
+63. ![](https://p.pstatp.com/origin/fffa00002e86c23c3490)
+    69.国产的双胞胎
+    ![](https://p.pstatp.com/origin/137310000245adf0e880c)
+64. ![](//s1.wailian.download/2020/05/04/9jaxL0.gif)
+65. ![](https://p.pstatp.com/origin/ff1e0000fb59528e950e)
+66. ![](https://p.pstatp.com/origin/fe450002184b32dc2f42)
+67. ![](https://p.pstatp.com/origin/dc0f0004b65ea0cc650b)
+68. ![](https://p.pstatp.com/origin/ff9f00009437fa1945d6)
+69. ![](https://p.pstatp.com/origin/fea600010c2941c942f9)
+70. ![](https://p.pstatp.com/origin/fe5600020f10255de827)
+71. ![](//s1.wailian.download/2020/04/23/Xfs47l.gif)
+72. ![](https://www.z4a.net/images/2020/04/17/nKHBqJ.gif)
+73. ![](//s1.wailian.download/2020/05/01/sSIxoP.gif)
+74. ![](https://www.picnew.org/images/2020/05/02/01142708_0.gif)
+75. ![](https://www.picnew.org/images/2020/04/26/b9ueMx4b80a.gif)
+76. ![](https://p.pstatp.com/origin/ff2f0002eb837de6d06a)
+77. ![](https://p.pstatp.com/origin/ffbf0000d6bbbd200c37)
+78. ![](https://p.pstatp.com/origin/ffa1000108e75c844978)
+79. ![](https://p.pstatp.com/origin/fe3900017d009eb3a492)
+    86.无码
+    ![](https://p.pstatp.com/origin/fef20000f13573ebe4a4)
+80. ![](https://p.pstatp.com/origin/10003000082d014daa78e)
+    88.露脸校花夏总女神给土豪当母狗 磁力链接
+    magnet:?xt=urn:btih:EA35B15A0359088C3796AA3F70C2624853623D97
+    ![](https://p.pstatp.com/origin/ff9e0000bce5280f0181)
+81. ![](https://p.pstatp.com/origin/ffa10000ac9c10eadfed)
+82. ![](https://p.pstatp.com/origin/ffe20000ee0865280477)
+83. ![](https://p.pstatp.com/origin/fed60000c9b91a0bc4e4)
+84. ![](https://p.pstatp.com/origin/dc110004df770a0dfd0c)
+85. ![](https://p.pstatp.com/origin/ffe60000aa10e8be72a3)
+86. ![](https://www.z4a.net/images/2020/04/24/FRSi2t.gif)
+87. ![](https://p.pstatp.com/origin/fee00002ac22f56780e6)
+88. ![](https://www.picnew.org/images/2020/04/20/9UygDz.gif)
+89. ![](https://www.z4a.net/images/2020/04/19/COVHK1.gif)
+90. ![](https://p.pstatp.com/origin/ff890000bbf7f6c4a975)
+91. ![](https://p.pstatp.com/origin/13730000015e97c9286b2)
+92. ![](https://p.pstatp.com/origin/ff7c000093e6e2dbe9c8)
+93. ![](https://p.pstatp.com/origin/1000500006fa2eafc5533)
+94. ![](https://p.pstatp.com/origin/ff870000ce5c77de6e12)
+95. ![](https://p.pstatp.com/origin/fefe00012632000ee48e)
+96. ![](https://p.pstatp.com/origin/ff06000141f42e50ff9f)
+97. ![](https://p.pstatp.com/origin/ff230000d0147f13041e)
+98. ![](https://p.pstatp.com/origin/fe37000149c937acf6cd)
+99. ![](https://p.pstatp.com/origin/ff430001ab948954305a)
+100.  ![](https://p.pstatp.com/origin/fe6a0000800c127f8f83)
+101.  ![](https://p.pstatp.com/origin/ff470001952d0f4024dc)
+102.  ![](https://p.pstatp.com/origin/feda0000ba63049a256f)
+103.  ![](https://p.pstatp.com/origin/ff4200008cab4d9b82f0)
+104.  ![](https://p.pstatp.com/origin/ff920001494b5b5ae20a)
+105.  ![](https://p.pstatp.com/origin/fea8000230d26e4c9059)
+106.  ![](https://www.z4a.net/images/2018/11/11/PPPD-663.gif)
+107.  ![](https://p.pstatp.com/origin/fe890000ca69a9e24807)
+108.  ![](https://p.pstatp.com/origin/ff8300009ed116f26d46)
+109.  ![](https://p.pstatp.com/origin/fed2000191d7c6195975)
+110.  ![](https://p.pstatp.com/origin/fee30000c35fcf223426)
+111.  ![](https://p.pstatp.com/origin/fe310001142c027221b0)
+112.  ![](https://p.pstatp.com/origin/ffa30000d800e7303db1)
+113.  ![](https://p.pstatp.com/origin/ffc30001465f4b90ec8b)
+114.  ![](https://p.pstatp.com/origin/ff6e0000bcb8323601e6)
+115.  ![](https://p.pstatp.com/origin/fff00000382387b6cdb7)
+116.  ![](https://p.pstatp.com/origin/ffbf0000b306e76bc262)
+117.  ![](https://p.pstatp.com/origin/ff990000a0b925c3977b)
+118.  ![](https://p.pstatp.com/origin/ff160000f2dd51c1c844)
+119.  ![](https://p.pstatp.com/origin/fe42000141c5e1b68b00)
+120.  ![](https://p.pstatp.com/origin/fe7d000201ebb7129cc8)
+121.  ![](https://p.pstatp.com/origin/ff0c000136f4db4c8f43)
+122.  ![](https://p.pstatp.com/origin/fea700004f4696174bee)
+123.  ![](https://p.pstatp.com/origin/fe690000cc4d97fb316d)
+124.  ![](https://p.pstatp.com/origin/fef1000094bb1051882e)
+125.  ![](https://p.pstatp.com/origin/ff3c00008a0d295be4d0)
+126.  ![](https://p.pstatp.com/origin/ff3c00008978b20f9bca)
+127.  ![](https://www.assdrty.com/images/2020/03/16/1godCA.md.jpg)
+128.  ![](https://p.pstatp.com/origin/ffd600013819a57935c3) -->
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/poka-techblog/simplify-your-javascript-use-map-reduce-and-filter-bd02c593cc2d">Simplify your JavaScript – Use .map(), .reduce(), and .filter() | by Etienne Talbot | poka-techblog | Medium</a></p>
+</blockquote>
+<p><img src="/images/1_mG4yPf0dVoBk0R6csThChQ.png"></p>
+<p>If you’re starting in JavaScript, maybe you haven’t heard of <code>.map()</code>, <code>.reduce()</code>, and <code>.filter()</code>. For me, it took a while as I had to support Internet Explorer 8 until a couple years ago. But if you don’t need to be compatible with this very old browser, you have to become familiar with those methods.</p>
+<blockquote>
+<p><em>Take note that this article most likely applies to whatever other programming language you might be using, as these are concepts that exist in many other languages.</em></p>
+</blockquote>
+<blockquote>
+<p>请注意,本文很可能适用于您可能使用的任何其他编程语言,因为这些是许多其他语言中存在的概念.</p>
+</blockquote>
+<h2 id="map"><a href="#map" class="headerlink" title=".map()"></a>.map()</h2><p>Let me explain how it works with a simple example. Say you have received an array containing multiple objects – each one representing a person. The thing you really need in the end, though, is an array containing only the id of each person.</p>
+<blockquote>
+<p>让我用一个简单的例子来说明它是如何工作的.假设您收到了一个包含多个对象的数组 —— 每个对象代表一个人.最后,您真正需要的是一个仅包含每个人的 id 的数组.</p>
+</blockquote>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// What you have</span>
+<span class="token keyword">var</span> officers <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'Captain Piett'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'General Veers'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token number">56</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'Admiral Ozzel'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> id<span class="token operator">:</span> <span class="token number">88</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'Commander Jerjerrod'</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// What you need</span>
+<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">56</span><span class="token punctuation">,</span> <span class="token number">88</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>There are multiple ways to achieve this. You might want to do it by creating an empty array, then using <code>.forEach()</code>, <code>.for(...of)</code>, or a simple <code>.for()</code> to meet your goal.</p>
+<p>Let’s compare!</p>
+<p>Using <code>.forEach()</code>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> officersIds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+officers<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">officer</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  officersIds<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>officer<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Notice how you have to create an empty array beforehand? Let’s see what it looks like when using <code>.map()</code>:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> officersIds <span class="token operator">=</span> officers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">officer</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> officer<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>We can even be more concise with arrow functions (requires ES6 support, Babel or TypeScript)</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> officersIds <span class="token operator">=</span> officers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">officer</span><span class="token punctuation">)</span> <span class="token operator">=></span> officer<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>So how does <code>.map()</code> work? Basically is takes 2 arguments, a callback and an optional context (will be considered as <code>this</code> in the callback) which I did not use in the previous example. The callback runs for <strong>each value in the array</strong> and <strong>returns each new value</strong> in the resulting array.</p>
+<p>Keep in mind that the resulting array will always be the same length as the original array.</p>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title=".reduce()"></a>.reduce()</h2><p>Just like <code>.map()</code>, <code>.reduce()</code> also runs a callback for each element of an array. What’s different here is that reduce passes the result of this callback (the accumulator) from one array element to the other.</p>
+<p>The accumulator can be pretty much anything (integer, string, object, etc.) and must be instantiated or passed when calling <code>.reduce()</code>.</p>
+<p>Time for an example! Say you have an array with these pilots and their respective years of experience:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> pilots <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Poe Dameron'</span><span class="token punctuation">,</span>
+    years<span class="token operator">:</span> <span class="token number">14</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">"Temmin 'Snap' Wexley"</span><span class="token punctuation">,</span>
+    years<span class="token operator">:</span> <span class="token number">30</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">41</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Tallissan Lintra'</span><span class="token punctuation">,</span>
+    years<span class="token operator">:</span> <span class="token number">16</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">99</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Ello Asty'</span><span class="token punctuation">,</span>
+    years<span class="token operator">:</span> <span class="token number">22</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>We need to know the total years of experience of all of them. With <code>.reduce()</code>, it’s pretty straightforward:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> totalYears <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">accumulator<span class="token punctuation">,</span> pilot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> accumulator <span class="token operator">+</span> pilot<span class="token punctuation">.</span>years<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Notice that I’ve set the starting value as 0. I could have also used an existing variable if necessary. After running the callback for each element of the array, reduce will return the final value of our accumulator (in our case: <code>82</code>).</p>
+<p>Let’s see how this can be shortened with ES6’s arrow functions:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> totalYears <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> pilot</span><span class="token punctuation">)</span> <span class="token operator">=></span> acc <span class="token operator">+</span> pilot<span class="token punctuation">.</span>years<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Now let’s say I want to find which pilot is the most experienced one. For that, I can use reduce as well:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> mostExpPilot <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">oldest<span class="token punctuation">,</span> pilot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>oldest<span class="token punctuation">.</span>years <span class="token operator">||</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">></span> pilot<span class="token punctuation">.</span>years <span class="token operator">?</span> oldest <span class="token operator">:</span> pilot<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mostExpPilot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; id: 2, name: "Temmin 'Snap' Wexley", years: 30 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>I named my accumulator <code>oldest</code>. My callback compares the accumulator to each pilot. If a pilot has less years of experience than <code>oldest</code>, then that pilot becomes the new <code>oldest</code> so that’s the one I return.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> leastExpPilot <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">youngest<span class="token punctuation">,</span> pilot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> youngest<span class="token punctuation">.</span>years <span class="token operator">&amp;&amp;</span> <span class="token number">0</span> <span class="token operator">&lt;</span> pilot<span class="token punctuation">.</span>years <span class="token operator">?</span> youngest <span class="token operator">:</span> pilot<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>leastExpPilot<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; id: 10, name: "Poe Dameron", years: 14 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>I named my accumulator <code>youngest</code>. My callback compares the accumulator to each pilot. If a pilot has more years of experience than <code>youngest</code>, then that pilot becomes the new <code>youngest</code> so that’s the one I return.</p>
+<p>As you can see, using <code>.reduce()</code> is an easy way to generate a single value or object from an array.</p>
+<h2 id="filter"><a href="#filter" class="headerlink" title=".filter()"></a>.filter()</h2><p>What if you have an array, but only want some of the elements in it? That’s where <code>.filter()</code> comes in!</p>
+<p>Here’s our data:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> pilots <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Wedge Antilles'</span><span class="token punctuation">,</span>
+    faction<span class="token operator">:</span> <span class="token string">'Rebels'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Ciena Ree'</span><span class="token punctuation">,</span>
+    faction<span class="token operator">:</span> <span class="token string">'Empire'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Iden Versio'</span><span class="token punctuation">,</span>
+    faction<span class="token operator">:</span> <span class="token string">'Empire'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">66</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Thane Kyrell'</span><span class="token punctuation">,</span>
+    faction<span class="token operator">:</span> <span class="token string">'Rebels'</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Say we want two arrays now: one for rebel pilots, the other one for imperials. With <code>.filter()</code> it couldn’t be easier!</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> rebels <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">pilot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> pilot<span class="token punctuation">.</span>faction <span class="token operator">===</span> <span class="token string">'Rebels'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> empire <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">pilot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> pilot<span class="token punctuation">.</span>faction <span class="token operator">===</span> <span class="token string">'Empire'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>That’s it! And it’s even shorter with arrow functions:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> rebels <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">pilot</span><span class="token punctuation">)</span> <span class="token operator">=></span> pilot<span class="token punctuation">.</span>faction <span class="token operator">===</span> <span class="token string">'Rebels'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> empire <span class="token operator">=</span> pilots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">pilot</span><span class="token punctuation">)</span> <span class="token operator">=></span> pilot<span class="token punctuation">.</span>faction <span class="token operator">===</span> <span class="token string">'Empire'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Basically, if the callback function <strong>returns true</strong>, the current element <strong>will be in the resulting array</strong>. If it returns false, it won’t be.</p>
+<h2 id="Combining-map-reduce-and-filter"><a href="#Combining-map-reduce-and-filter" class="headerlink" title="Combining .map(), .reduce(), and .filter()"></a>Combining .map(), .reduce(), and .filter()</h2><p>Since all three are called on arrays and since <code>.map()</code> and <code>.filter()</code> both return arrays, we can easily chain our calls.</p>
+<p>Let’s check out another example. Here’s our data:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> personnel <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Luke Skywalker'</span><span class="token punctuation">,</span>
+    pilotingScore<span class="token operator">:</span> <span class="token number">98</span><span class="token punctuation">,</span>
+    shootingScore<span class="token operator">:</span> <span class="token number">56</span><span class="token punctuation">,</span>
+    isForceUser<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">82</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Sabine Wren'</span><span class="token punctuation">,</span>
+    pilotingScore<span class="token operator">:</span> <span class="token number">73</span><span class="token punctuation">,</span>
+    shootingScore<span class="token operator">:</span> <span class="token number">99</span><span class="token punctuation">,</span>
+    isForceUser<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Zeb Orellios'</span><span class="token punctuation">,</span>
+    pilotingScore<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    shootingScore<span class="token operator">:</span> <span class="token number">59</span><span class="token punctuation">,</span>
+    isForceUser<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Ezra Bridger'</span><span class="token punctuation">,</span>
+    pilotingScore<span class="token operator">:</span> <span class="token number">43</span><span class="token punctuation">,</span>
+    shootingScore<span class="token operator">:</span> <span class="token number">67</span><span class="token punctuation">,</span>
+    isForceUser<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    id<span class="token operator">:</span> <span class="token number">11</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Caleb Dume'</span><span class="token punctuation">,</span>
+    pilotingScore<span class="token operator">:</span> <span class="token number">71</span><span class="token punctuation">,</span>
+    shootingScore<span class="token operator">:</span> <span class="token number">85</span><span class="token punctuation">,</span>
+    isForceUser<span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Our objective: get the total score of force users only. Let’s do it step by step!</p>
+<p>First, we need to filter out the personnel who can’t use the force:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> jediPersonnel <span class="token operator">=</span> personnel<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> person<span class="token punctuation">.</span>isForceUser<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Result: [&#123;...&#125;, &#123;...&#125;, &#123;...&#125;] (Luke, Ezra and Caleb)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>With that we have 3 elements left in our resulting array. We now need to create an array containing the total score of each Jedi.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> jediScores <span class="token operator">=</span> jediPersonnel<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">jedi</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> jedi<span class="token punctuation">.</span>pilotingScore <span class="token operator">+</span> jedi<span class="token punctuation">.</span>shootingScore<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Result: [154, 110, 156]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>And let’s use reduce to get the total:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> totalJediScore <span class="token operator">=</span> jediScores<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> score</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> acc <span class="token operator">+</span> score<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Result: 420</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>And now here’s the fun part… we can chain all of this to get what we want in a single line:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> totalJediScore <span class="token operator">=</span> personnel
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> person<span class="token punctuation">.</span>isForceUser<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">jedi</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> jedi<span class="token punctuation">.</span>pilotingScore <span class="token operator">+</span> jedi<span class="token punctuation">.</span>shootingScore<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> score</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> acc <span class="token operator">+</span> score<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>And look how pretty it is with arrow functions:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> totalJediScore <span class="token operator">=</span> personnel
+  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">person</span><span class="token punctuation">)</span> <span class="token operator">=></span> person<span class="token punctuation">.</span>isForceUser<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">jedi</span><span class="token punctuation">)</span> <span class="token operator">=></span> jedi<span class="token punctuation">.</span>pilotingScore <span class="token operator">+</span> jedi<span class="token punctuation">.</span>shootingScore<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> score</span><span class="token punctuation">)</span> <span class="token operator">=></span> acc <span class="token operator">+</span> score<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Boom! 💥</p>
+<p><em>Note: In my previous example,</em> <code>.map()</code> <em>and</em> <code>.filter()</code> <em>weren’t even necessary. We could easily achieve the same result with only</em> <code>.reduce()</code><em>. I left them in there for the sake of this example. Can you guess how we could only keep</em> <code>.reduce()</code> <em>and get the same result with one line of code?</em> <a target="_blank" rel="noopener" href="https://codepen.io/etiennetalbot/pen/EozzeZ?editors=0011">See the solution on CodePen</a></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> totalJediScore <span class="token operator">=</span> personnel<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>
+  <span class="token punctuation">(</span><span class="token parameter">acc<span class="token punctuation">,</span> person</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    person<span class="token punctuation">.</span>isForceUser
+      <span class="token operator">?</span> acc <span class="token operator">+</span> person<span class="token punctuation">.</span>pilotingScore <span class="token operator">+</span> person<span class="token punctuation">.</span>shootingScore
+      <span class="token operator">:</span> acc<span class="token punctuation">,</span>
+  <span class="token number">0</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>totalJediScore<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Why-not-use-forEach"><a href="#Why-not-use-forEach" class="headerlink" title="Why not use .forEach()?"></a>Why not use .forEach()?</h2><p>I used to use <code>for</code> loops everywhere instead of <code>.map()</code>, <code>.reduce()</code>, and <code>.filter()</code>. But a couple of years ago I started working a lot more with data that came from an API. That’s where I began to see the advantages of leaving <code>.forEach</code> behind.</p>
+<h3 id="Formatting"><a href="#Formatting" class="headerlink" title="Formatting"></a>Formatting</h3><p>Say you need to display a list of people, with their name and job title.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span> <span class="token string">'Jan Dodonna'</span><span class="token punctuation">,</span>
+    title<span class="token operator">:</span> <span class="token string">'General'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    name<span class="token operator">:</span> <span class="token string">'Gial Ackbar'</span><span class="token punctuation">,</span>
+    title<span class="token operator">:</span> <span class="token string">'Admiral'</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The API gives you the above data, but you only need the title and the last name of each person… You need to format the data. However, your app also needs to have a single view for each person, so you must write a data formatting function that both works in a list view and in a single view.</p>
+<p>That means you can’t have the <code>.forEach</code> loop inside of your formatting function, or else you would have to wrap your single element in an array before you pass it to the function just to make it work, like so:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">formatElement</span><span class="token punctuation">(</span><span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Yeah... that's not right at all</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>So your loop has to wrap the call of the function, like this:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> formatted <span class="token operator">=</span> <span class="token function">formatElement</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// But what then....</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>But <code>.forEach()</code> doesn’t return anything. It can’t. That means you have to push the results inside a predetermined array.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+data<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> formatted <span class="token operator">=</span> <span class="token function">formatElement</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>formatted<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>As a result, you have 2 functions: your <code>formatElement()</code> function and your function that pushes the results in your array.</p>
+<p>Why have 2 functions when you can have just one?</p>
+<p>var results = data.map(formatElement);</p>
+<h3 id="Testing-is-easier"><a href="#Testing-is-easier" class="headerlink" title="Testing is easier"></a>Testing is easier</h3><p>If you write unit tests for your code, you’ll find it simpler to test the functions you call with <code>.map()</code>, <code>.reduce()</code>, or <code>.filter()</code>.</p>
+<p>All you have to do is provide inbound data for the function and expect a result to come out. Basically “what comes out if <strong>this</strong> is passed?”. Less manipulation, less <code>beforeEach()</code>s and <code>afterEach()</code>s. It’s straightforward, simple testing.</p>
+<h2 id="Try-it"><a href="#Try-it" class="headerlink" title="Try it!"></a>Try it!</h2><p>Try to replace some of your <code>for</code> loops with <code>.map()</code>, <code>.reduce()</code>, <code>.filter()</code> where it seems to fit. I guarantee your code will be way less clunky and much easier to read.</p>
+<p>If you liked that article and want to learn more array methods, check out my article on <a target="_blank" rel="noopener" href="https://medium.com//poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd">how to use</a> <a target="_blank" rel="noopener" href="https://medium.com//poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd"><code>.some()</code></a> <a target="_blank" rel="noopener" href="https://medium.com//poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd">and</a> <a target="_blank" rel="noopener" href="https://medium.com//poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd"><code>.find()</code></a> <a target="_blank" rel="noopener" href="https://medium.com//poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd">in JavaScript</a>.</p>
+<p>Keep coding!</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-01-29T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/writing-javascript-with-map-reduce/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Handle JavaScript data structures with map/reduce">
+                        
+                        <span class="card-title">Handle JavaScript data structures with map/reduce</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-01-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="前端路由">
+                        
+                        <span class="card-title">前端路由</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-01-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B7%AF%E7%94%B1/">
+                        <span class="chip bg-color">路由</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,3867 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue 项目里戳中你痛点的问题及解决办法（更新）, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue 项目里戳中你痛点的问题及解决办法（更新） | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue 项目里戳中你痛点的问题及解决办法（更新）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Interview/">
+                                <span class="chip bg-color">Interview</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-07-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903632815521799">Vue 项目里戳中你痛点的问题及解决办法（更新）</a></p>
+</blockquote>
+<p>最近要求使用 vue 进行前后端分离开发微信公众号,不断摸索踩坑之后,总结出如下几点 vue 项目开发中常见的问题及解决办法.如果你是 vue 大佬,请忽略小弟的愚见^V^</p>
+<ul>
+<li>列表进入详情页的传参问题.</li>
+<li>本地开发环境请求服务器接口跨域的问题</li>
+<li>axios 封装和 api 接口的统一管理</li>
+<li>UI 库的按需加载</li>
+<li>如何优雅的只在当前页面中覆盖 ui 库中组件的样式</li>
+<li>定时器问题</li>
+<li>rem 文件的导入问题</li>
+<li>Vue-Awesome-Swiper 基本能解决你所有的轮播需求</li>
+<li>打包后生成很大的.map 文件的问题</li>
+<li>fastClick 的 300ms 延迟解决方案</li>
+<li>组件中写选项的顺序</li>
+<li>路由懒加载（也叫延迟加载）</li>
+<li>开启 gzip 压缩代码</li>
+<li>详情页返回列表页缓存数据和浏览位置、其他页面进入列表页刷洗数据的实践</li>
+<li>css 的 scoped 私有作用域和深度选择器</li>
+<li>hiper 打开速度测试</li>
+<li>vue 数据的两种获取方式+骨架屏</li>
+<li>自定义组件（父子组件）的双向数据绑定</li>
+<li>路由的拆分管理</li>
+<li>mixins 混入简化常见操作</li>
+<li>打包之后文件、图片、背景图资源不存在或者路径错误的问题</li>
+<li>vue 插件的开发、发布到 github、设置展示地址、发布 npm 包</li>
+</ul>
+<hr>
+<h2 id="列表进入详情页的传参问题"><a href="#列表进入详情页的传参问题" class="headerlink" title="列表进入详情页的传参问题."></a>列表进入详情页的传参问题.</h2><p>例如商品列表页面前往商品详情页面,需要传一个商品 id;</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&#123;path: 'detail', query: &#123;id: 1&#125;&#125;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>前往detail页面<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>c 页面的路径为<code>http://localhost:8080/#/detail?id=1</code>,可以看到传了一个参数 id=1,并且就算刷新页面 id 也还会存在.此时在 c 页面可以通过 id 来获取对应的详情数据,获取 id 的方式是<code>this.$route.query.id</code></p>
+<p>vue 传参方式有：query、params+动态路由传参.</p>
+<p>说下两者的区别：</p>
+<p>1.query 通过 path 切换路由,params 通过 name 切换路由</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- // query通过path切换路由 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&#123;path: 'Detail', query: &#123; id: 1 &#125;&#125;<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>前往Detail页面<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span>
+<span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- // params通过name切换路由 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&#123;name: 'Detail', params: &#123; id: 1 &#125;&#125;<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>前往Detail页面<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span>
+<span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2.query 通过<code>this.$route.query</code>来接收参数,params 通过 this.$route.params 来接收参数.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// query通过this.$route.query接收参数</span>
+<span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// params通过this.$route.params来接收参数</span>
+<span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>3.query 传参的 url 展现方式：/detail?id=1&amp;user=123&amp;identity=1&amp;更多参数</p>
+<p>params ＋动态路由的 url 方式：/detail/123</p>
+<p>4.params 动态路由传参,一定要在路由中定义参数,然后在路由跳转的时候必须要加上参数,否则就是空白页面：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'/detail/:id'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Detail'</span><span class="token punctuation">,</span>
+    component<span class="token operator">:</span> Detail
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意,params 传参时,如果没有在路由中定义参数,也是可以传过去的,同时也能接收到,但是一旦刷新页面,这个参数就不存在了.这对于需要依赖参数进行某些操作的行为是行不通的,因为你总不可能要求用户不能刷新页面吧. 例如：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 定义的路由中,只定义一个id参数</span>
+<span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'detail/:id'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'Detail'</span><span class="token punctuation">,</span>
+    components<span class="token operator">:</span> Detail
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- // template中的路由传参,
+// 传了一个id参数和一个token参数
+// id是在路由中已经定义的参数,而token没有定义 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span> <span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&#123;name: 'Detail', params: &#123; id: 1, token: '123456' &#125;&#125;<span class="token punctuation">"</span></span>
+  <span class="token punctuation">></span></span>前往Detail页面<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span>
+<span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在详情页接收</span>
+<span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 以下都可以正常获取到</span>
+    <span class="token comment">// 但是页面刷新后,id依然可以获取,而token此时就不存在了</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> token <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>token<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="本地开发环境请求服务器接口跨域的问题"><a href="#本地开发环境请求服务器接口跨域的问题" class="headerlink" title="本地开发环境请求服务器接口跨域的问题"></a>本地开发环境请求服务器接口跨域的问题</h2><!-- ![](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="965" height="51"></svg>) -->
+
+<p>上面的这个报错大家都不会陌生,报错是说没有访问权限（跨域问题）.本地开发项目请求服务器接口的时候,因为客户端的同源策略,导致了跨域的问题.</p>
+<p>下面先演示一个没有配置允许本地跨域的的情况：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e483b2e9e124?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e4bdd3f14fe0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e4d03e31bc15?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>可以看到,此时我们点击获取数据,浏览器提示我们跨域了.所以我们访问不到数据.</p>
+<p>那么接下来我们演示设置允许跨域后的数据获取情况：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e53a26f6a946?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><strong>注意：配置好后一定要关闭原来的 server,重新<code>npm run dev</code>启动项目.不然无效.</strong></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e53da5e7d37a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e53f181d2722?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>我们在 1 出设置了允许本地跨域,在 2 处,要注意我们访问接口时,写的是<code>/api</code>,此处的<code>/api</code>指代的就是我们要请求的接口域名.如果我们不想每次接口都带上<code>/api</code>,可以更改 axios 的默认配置<code>axios.defaults.baseURL = &#39;/api&#39;;</code>这样,我们请求接口就可以直接<code>this.$axios.get(&#39;app.php?m=App&amp;c=Index&amp;a=index&#39;)</code>,很简单有木有.此时如果你在 network 中查看 xhr 请求,你会发现显示的是 localhost:8080/api 的请求地址.这样没什么大惊小怪的,代理而已：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e59bebcbb788?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>好了,最后附上 proxyTable 的代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">proxyTable<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 用‘/api’开头,代理所有请求到目标服务器</span>
+  <span class="token string">'/api'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    target<span class="token operator">:</span> <span class="token string">'http://jsonplaceholder.typicode.com'</span><span class="token punctuation">,</span> <span class="token comment">// 接口域名</span>
+    changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否启用跨域</span>
+    pathRewrite<span class="token operator">:</span> <span class="token punctuation">&#123;</span> <span class="token comment">//</span>
+      <span class="token string">'^/api'</span><span class="token operator">:</span> <span class="token string">''</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意：配置好后一定要关闭原来的 server,重新<code>npm run dev</code>启动项目.不然无效.</strong></p>
+<h2 id="axios-封装和-api-接口的统一管理"><a href="#axios-封装和-api-接口的统一管理" class="headerlink" title="axios 封装和 api 接口的统一管理"></a>axios 封装和 api 接口的统一管理</h2><p>axios 的封装,主要是用来帮我们进行请求的拦截和响应的拦截.</p>
+<p>在请求的拦截中我们可以携带 userToken,post 请求头、qs 对 post 提交数据的序列化等.</p>
+<p>在响应的拦截中,我们可以进行根据状态码来进行错误的统一处理等等.</p>
+<p>axios 接口的统一管理,是做项目时必须的流程.这样可以方便我们管理我们的接口,在接口更新时我们不必再返回到我们的业务代码中去修改接口.</p>
+<p>由于这里内容稍微多一些,放在另一篇文章,<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903652881072141">这里送上链接</a>.</p>
+<h2 id="UI-库的按需加载"><a href="#UI-库的按需加载" class="headerlink" title="UI 库的按需加载:"></a>UI 库的按需加载:</h2><p>为什么要使用按需加载的方式而不是一次性全部引入,原因就不多说了.这里以 vant 的按需加载为例,演示 vue 中 ui 库怎样进行按需加载：</p>
+<ul>
+<li>安装： <code>cnpm i vant -S</code></li>
+<li>安装 babel-plugin-import 插件使其按需加载：  <code>cnpm i babel-plugin-import -D</code></li>
+<li>在 .babelrc 文件中中添加插件配置 ：</li>
+</ul>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">libraryDirectory <span class="token punctuation">&#123;</span>
+  <span class="token property">"plugins"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// 这里是原来的代码部分</span>
+    <span class="token comment">// …………</span>
+    <span class="token comment">// 这里是要我们配置的代码</span>
+    <span class="token punctuation">[</span><span class="token string">"import"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#123;</span>
+        <span class="token property">"libraryName"</span><span class="token operator">:</span> <span class="token string">"vant"</span><span class="token punctuation">,</span>
+        <span class="token property">"libraryDirectory"</span><span class="token operator">:</span> <span class="token string">"es"</span><span class="token punctuation">,</span>
+        <span class="token property">"style"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>在 main.js 中按需加载你需要的插件：</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 按需引入 vant 组件</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> DatetimePicker<span class="token punctuation">,</span> Button<span class="token punctuation">,</span> List <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vant'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>使用组件：</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用 vant 组件</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>DatetimePicker<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li>最后在在页面中使用：</li>
+</ul>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>van-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>van-button</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>ps：出来 vant 库外,像 antiUi、elementUi 等,很多 ui 库都支持按需加载,可以去看文档,上面都会有提到.基本都是通过安装 babel-plugin-import 插件来支持按需加载的,使用方式与 vant 的如出一辙,可以去用一下.</p>
+<h2 id="如何优雅的只在当前页面中覆盖-ui-库中组件的样式"><a href="#如何优雅的只在当前页面中覆盖-ui-库中组件的样式" class="headerlink" title="如何优雅的只在当前页面中覆盖 ui 库中组件的样式"></a>如何优雅的只在当前页面中覆盖 ui 库中组件的样式</h2><p>首先我们 vue 文件的样式都是写在<style lang="less" scoped></style>标签中的,加 scoped 是为了使得样式只在当前页面有效.那么问题来了,看图：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646eb217ea4d881?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>我们正常写的所有样式,都会被加上[data-v-23d425f8]这个属性（如 1 所示）,但是第三方组件内部的标签并没有编译为附带[data-v-23d425f8]这个属性.所以,我们想修改组件的样式,就没辙了.怎么办呢,有些小伙伴给第三方组件写个 class,然后在一个公共的 css 文件中或者在当前页面再写一个没有 socped 属性的 style 标签,然后直接在里面修改第三方组件的样式.这样不失为一个方法,但是存在全局污染和命名冲突的问题.约定特定的命名方式,可以避免命名冲突.但是还是不够优雅.</p>
+<p>作为一名优（<strong>强</strong>）秀（<strong>迫</strong>）的（<strong>症</strong>）前（<strong>患</strong>）端（<strong>者</strong>）,怎么能允许这种情况出现呢？好了,下面说下优雅的解决方式：</p>
+<p>通过深度选择器解决.例如修改上图中组件里的<code>van-ellipsis</code>类的样式,可以这样做：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.van-tabs /deep/ .van-ellipsis</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>编译后的结果就是：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646ec125eb1d457?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>这样就不会给 van-ellipsis 也添加[data-v-23d425f8]属性了.至此你可以愉快的修改第三方组件的样式了.</p>
+<p>当然了这里的深度选择器<code>/deep/</code>是因为我用的<code>less</code>语言,如果你没有使用<code>less/sass</code>等,可以用<code>&gt;&gt;&gt;</code>符号.</p>
+<p>更多的关于深度选择器的内容,在文章后面有介绍.</p>
+<h2 id="定时器问题"><a href="#定时器问题" class="headerlink" title="定时器问题:"></a>定时器问题:</h2><p>我在 a 页面写一个定时,让他每秒钟打印一个 1,然后跳转到 b 页面,此时可以看到,定时器依然在执行.这样是非常消耗性能的.如下图所示：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/6/8/163dd3e4f06d86a3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/6/8/163dd407f30494d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p><strong>解决方法 1：</strong></p>
+<p>首先我在 data 函数里面进行定义定时器名称：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    timer<span class="token operator">:</span> <span class="token keyword">null</span>  <span class="token comment">// 定时器名称</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后这样使用定时器：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span>
+  <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 某些操作</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后在 beforeDestroy()生命周期内清除定时器：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方案 1 有两点不好的地方,引用尤大的话来说就是：</p>
+<ul>
+<li>它需要在这个组件实例中保存这个 <code>timer</code>,如果可以的话最好只有生命周期钩子可以访问到它.这并不算严重的问题,但是它可以被视为杂物.</li>
+<li>我们的建立代码独立于我们的清理代码,这使得我们比较难于程序化的清理我们建立的所有东西.</li>
+</ul>
+<p><strong>解决方案 2：</strong></p>
+<p>该方法是通过$once 这个事件侦听器器在定义完定时器之后的位置来清除定时器.以下是完整代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 某些定时器操作</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 通过$once来监听定时器,在beforeDestroy钩子可以被清除.</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$once</span><span class="token punctuation">(</span><span class="token string">'hook:beforeDestroy'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">clearInterval</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方案 2 要感谢@<a target="_blank" rel="noopener" href="https://juejin.im/user/3702810891522920">zzx18023</a>在评论区提供出的解决方案.类似于其他需要在当前页面使用,离开需要销毁的组件（例如一些第三方库的 picker 组件等等）,都可以使用此方式来解决离开后以后在背后运行的问题.</p>
+<p>综合来说,我们更推荐使用**方案 2,使得代码可读性更强,一目了然.**如果不清楚<code>$once、$on、$off</code>的使用,这里送上官网的地址教程,<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">在程序化的事件侦听器那里</a>.</p>
+<h2 id="rem-文件的导入问题："><a href="#rem-文件的导入问题：" class="headerlink" title="rem 文件的导入问题："></a>rem 文件的导入问题：</h2><p>我们在做手机端时,适配是必须要处理的一个问题.例如,我们处理适配的方案就是通过写一个 rem.js,原理很简单,就是根据网页尺寸计算 html 的 font-size 大小,基本上小伙伴们都知道,这里直接附上代码,不多做介绍.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> e <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">,</span>
+    a <span class="token operator">=</span> <span class="token string">'orientationchange'</span> <span class="token keyword">in</span> window <span class="token operator">?</span> <span class="token string">'orientationchange'</span> <span class="token operator">:</span> <span class="token string">'resize'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">b</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">var</span> f <span class="token operator">=</span> e<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
+      e<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> f <span class="token operator">>=</span> <span class="token number">750</span> <span class="token operator">?</span> <span class="token string">'100px'</span> <span class="token operator">:</span> <span class="token number">100</span> <span class="token operator">*</span> <span class="token punctuation">(</span>f <span class="token operator">/</span> <span class="token number">750</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  c<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里说下怎么引入的问题,很简单.在 main.js 中,直接<code>import &#39;./config/rem&#39;</code>导入即可.import 的路径根据你的文件路径去填写.</p>
+<h2 id="Vue-Awesome-Swiper-基本能解决你所有的轮播需求"><a href="#Vue-Awesome-Swiper-基本能解决你所有的轮播需求" class="headerlink" title="Vue-Awesome-Swiper 基本能解决你所有的轮播需求"></a>Vue-Awesome-Swiper 基本能解决你所有的轮播需求</h2><p>在我们使用的很多 ui 库（vant、antiUi、elementUi 等）中,都有轮播组件,对于普通的轮播效果足够了.但是,某些时候,我们的轮播效果可能比较炫,这时候 ui 库中的轮播可能就有些力不从心了.当然,如果技术和时间上都还可以的话,可以自己造个比较炫的轮子.</p>
+<p>这里我说一下 vue-awesome-swiper 这个轮播组件,真的非常强大,基本可以满足我们的轮播需求.swiper 相信很多人都用过,很好用,也很方便我们二次开发,定制我们需要的轮播效果.vue-awesome-swiper 组件实质上基于<code>swiper</code>的,或者说就是能在 vue 中跑的 swiper.下面说下怎么使用：</p>
+<ul>
+<li>安装 <code>cnpm install vue-awesome-swiper --save</code></li>
+<li>在组件中使用的方法,全局使用意义不大：</li>
+</ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 引入组件</span>
+<span class="token keyword">import</span> <span class="token string">'swiper/dist/css/swiper.css'</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> swiper<span class="token punctuation">,</span> swiperSlide <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-awesome-swiper'</span>
+
+<span class="token comment">// 在components中注册组件</span>
+components<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    swiper<span class="token punctuation">,</span>
+    swiperSlide
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// template中使用轮播</span>
+<span class="token comment">// ref是当前轮播</span>
+<span class="token comment">// callback是回调</span>
+<span class="token comment">// 更多参数用法,请参考文档</span>
+<span class="token operator">&lt;</span>swiper <span class="token operator">:</span>options<span class="token operator">=</span><span class="token string">"swiperOption"</span> ref<span class="token operator">=</span><span class="token string">"mySwiper"</span> @someSwiperEvent<span class="token operator">=</span><span class="token string">"callback"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> slides <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">1</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span>
+    <span class="token operator">&lt;</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">2</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span>
+    <span class="token operator">&lt;</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"item"</span><span class="token operator">></span><span class="token number">3</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">-</span>slide<span class="token operator">></span>
+
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> Optional controls <span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"swiper-pagination"</span>  slot<span class="token operator">=</span><span class="token string">"pagination"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"swiper-button-prev"</span> slot<span class="token operator">=</span><span class="token string">"button-prev"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"swiper-button-next"</span> slot<span class="token operator">=</span><span class="token string">"button-next"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"swiper-scrollbar"</span>   slot<span class="token operator">=</span><span class="token string">"scrollbar"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 参数要写在data中</span>
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// swiper轮播的参数</span>
+    swiperOption<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 滚动条</span>
+      scrollbar<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        el<span class="token operator">:</span> <span class="token string">'.swiper-scrollbar'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token comment">// 上一张,下一张</span>
+      navigation<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        nextEl<span class="token operator">:</span> <span class="token string">'.swiper-button-next'</span><span class="token punctuation">,</span>
+        prevEl<span class="token operator">:</span> <span class="token string">'.swiper-button-prev'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token comment">// 其他参数…………</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>swiper 需要配置哪些功能需求,自己根据文档进行增加或者删减.附上文档：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue-awesome-swiper">npm 文档</a>,<a target="_blank" rel="noopener" href="http://www.swiper.com.cn/api/index.html">swiper3.0/4.0 文档</a>,更多用法,请参考文档说明.</p>
+<h2 id="打包后生成很大的-map-文件的问题"><a href="#打包后生成很大的-map-文件的问题" class="headerlink" title="打包后生成很大的.map 文件的问题"></a>打包后生成很大的.map 文件的问题</h2><p>项目打包后,代码都是经过压缩加密的,如果运行时报错,输出的错误信息无法准确得知是哪里的代码报错.  而生成的.map 后缀的文件,就可以像未加密的代码一样,准确的输出是哪一行哪一列有错可以通过设置来不生成该类文件.但是我们在生成环境是不需要.map 文件的,所以可以在打包时不生成这些文件：</p>
+<p>在 config/index.js 文件中,设置<code>productionSourceMap: false</code>,就可以不生成.map 文件</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/6/8/163de300c977f7cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<h2 id="fastClick-的-300ms-延迟解决方案"><a href="#fastClick-的-300ms-延迟解决方案" class="headerlink" title="fastClick 的 300ms 延迟解决方案"></a>fastClick 的 300ms 延迟解决方案</h2><p>开发移动端项目,点击事件会有 300ms 延迟的问题.至于为什么会有这个问题,请自行百度即可.这里只说下常见的解决思路,不管 vue 项目还是 jq 项目,都可以使用<code>fastClick</code>解决.</p>
+<p>安装 <code>fastClick</code>:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cnpm <span class="token function">install</span> fastclick -S<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在 main.js 中引入<code>fastClick</code>和初始化:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> FastClick <span class="token keyword">from</span> <span class="token string">'fastclick'</span><span class="token punctuation">;</span> <span class="token comment">// 引入插件</span>
+FastClick<span class="token punctuation">.</span><span class="token function">attach</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用 fastclick</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="组件中写选项的顺序"><a href="#组件中写选项的顺序" class="headerlink" title="组件中写选项的顺序"></a>组件中写选项的顺序</h2><p>为什么选项要有统一的书写顺序呢？很简单,就是要将选择和认知成本最小化.</p>
+<ol>
+<li><p><strong>副作用</strong> (触发组件外的影响)</p>
+<ul>
+<li><code>el</code></li>
+</ul>
+</li>
+<li><p><strong>全局感知</strong> (要求组件以外的知识)</p>
+<ul>
+<li><code>name</code></li>
+<li><code>parent</code></li>
+</ul>
+</li>
+<li><p><strong>组件类型</strong> (更改组件的类型)</p>
+<ul>
+<li><code>functional</code></li>
+</ul>
+</li>
+<li><p><strong>模板修改器</strong> (改变模板的编译方式)</p>
+<ul>
+<li><code>delimiters</code></li>
+<li><code>comments</code></li>
+</ul>
+</li>
+<li><p><strong>模板依赖</strong> (模板内使用的资源)</p>
+<ul>
+<li><code>components</code></li>
+<li><code>directives</code></li>
+<li><code>filters</code></li>
+</ul>
+</li>
+<li><p><strong>组合</strong> (向选项里合并属性)</p>
+<ul>
+<li><code>extends</code></li>
+<li><code>mixins</code></li>
+</ul>
+</li>
+<li><p><strong>接口</strong> (组件的接口)</p>
+<ul>
+<li><code>inheritAttrs</code></li>
+<li><code>model</code></li>
+<li><code>props</code>/<code>propsData</code></li>
+</ul>
+</li>
+<li><p><strong>本地状态</strong> (本地的响应式属性)</p>
+<ul>
+<li><code>data</code></li>
+<li><code>computed</code></li>
+</ul>
+</li>
+<li><p><strong>事件</strong> (通过响应式事件触发的回调)</p>
+<ul>
+<li><code>watch</code></li>
+<li>生命周期钩子 (按照它们被调用的顺序)<ul>
+<li><code>beforeCreate</code></li>
+<li><code>created</code></li>
+<li><code>beforeMount</code></li>
+<li><code>mounted</code></li>
+<li><code>beforeUpdate</code></li>
+<li><code>updated</code></li>
+<li><code>activated</code></li>
+<li><code>deactivated</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>destroyed</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>非响应式的属性</strong> (不依赖响应系统的实例属性)</p>
+<ul>
+<li><code>methods</code></li>
+</ul>
+</li>
+<li><p><strong>渲染</strong> (组件输出的声明式描述)</p>
+<ul>
+<li><code>template</code>/<code>render</code></li>
+<li><code>renderError</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="查看打包后各文件的体积-帮你快速定位大文件"><a href="#查看打包后各文件的体积-帮你快速定位大文件" class="headerlink" title="查看打包后各文件的体积,帮你快速定位大文件"></a>查看打包后各文件的体积,帮你快速定位大文件</h2><p>如果你是 vue-cli 初始化的项目,会默认安装<code>webpack-bundle-analyzer</code>插件,该插件可以帮助我们查看项目的体积结构对比和项目中用到的所有依赖.也可以直观看到各个模块体积在整个项目中的占比.很霸道有木有~</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/6/12/163f310014cc9b59"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run build --report // 直接运行,然后在浏览器打开http://127.0.0.1:8888/即可查看<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>记得运行的时候先把之前</strong><code>**npm run dev**</code><strong>开启的本地关掉</strong></p>
+<h2 id="路由懒加载（也叫延迟加载）"><a href="#路由懒加载（也叫延迟加载）" class="headerlink" title="路由懒加载（也叫延迟加载）"></a>路由懒加载（也叫延迟加载）</h2><p>路由懒加载可以帮我们在进入首屏时不用加载过度的资源,从而减少首屏加载速度.</p>
+<p>路由文件中,</p>
+<p>非懒加载写法：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'@/page/index/index'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'Index'</span><span class="token punctuation">,</span>
+      component<span class="token operator">:</span> Index<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>路由懒加载写法：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'Index'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'@/view/index/index'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> resolve<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="开启-gzip-压缩代码"><a href="#开启-gzip-压缩代码" class="headerlink" title="开启 gzip 压缩代码"></a>开启 gzip 压缩代码</h2><p>spa 这种单页应用,首屏由于一次性加载所有资源,所有首屏加载速度很慢.解决这个问题非常有效的手段之一就是前后端开启 gizp（其他还有缓存、路由懒加载等等）.gizp 其实就是帮我们减少文件体积,能压缩到 30%左右,即 100k 的文件 gizp 后大约只有 30k.</p>
+<p>vue-cli 初始化的项目中,是默认有此配置的,只需要开启即可.但是需要先安装插件：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 2.0的版本设置不一样,本文写作时为v1版本.v2需配合vue-cli3cnpm i compression-webpack-plugin@1.1.11<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后在 config/index.js 中开启即可:</p>
+<pre class="line-numbers language-none"><code class="language-none">build: &#123;
+  &#x2F;&#x2F; 其他代码
+  &#x2F;&#x2F; …………
+  productionGzip: true, &#x2F;&#x2F; false不开启gizp,true开启
+  &#x2F;&#x2F; 其他代码
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>现在打包的时候,除了会生成之前的文件,还是生成.gz 结束的 gzip 过后的文件.具体实现就是如果客户端支持 gzip,那么后台后返回 gzip 后的文件,如果不支持就返回正常没有 gzip 的文件.</p>
+<p>*<strong>*注意</strong>：这里前端进行的打包时的 gzip,但是还需要后台服务器的配置.配置是比较简单的,配置几行代码就可以了,一般这个操作可以叫运维小哥哥小姐姐去搞一下,没有运维的让后台去帮忙配置.</p>
+<h2 id="详情页返回列表页缓存数据和浏览位置、其他页面进入列表页刷新数据的实践"><a href="#详情页返回列表页缓存数据和浏览位置、其他页面进入列表页刷新数据的实践" class="headerlink" title="详情页返回列表页缓存数据和浏览位置、其他页面进入列表页刷新数据的实践"></a>详情页返回列表页缓存数据和浏览位置、其他页面进入列表页刷新数据的实践</h2><p>这样一个场景：有三个页面,首页/或者搜索页,商品分类页面,商品详情页.我们希望从首页进入分类页面时,分类页面要刷新数据,从分类进入详情页再返回到分类页面时,我们不希望刷新,我们希望此时的分类页面能够缓存已加载的数据和自动保存用户上次浏览的位置.之前在百度搜索的基本都是 keep-alive 处理的,但是总有那么一些不完善,所以自己在总结了之后进行了如下的实践.</p>
+<p>解决这种场景需求我们可以通过 vue 提供的 keepAlive 属性.这里直接送上另一篇<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903624099758094">处理这个问题的传送门</a>吧</p>
+<h2 id="CSS-的-coped-私有作用域和深度选择器"><a href="#CSS-的-coped-私有作用域和深度选择器" class="headerlink" title="CSS 的 coped 私有作用域和深度选择器"></a>CSS 的 coped 私有作用域和深度选择器</h2><p>大家都知道当 <code>&lt;style&gt;</code> 标签有 <code>scoped</code> 属性时,它的 CSS 只作用于当前组件中的元素.那么他是怎么实现的呢,大家看一下编译前后的代码就明白了：</p>
+<p>编译前：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.example</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>编译后：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.example[data-v-f3f3eg9]</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>看完你肯定就会明白了,其实是在你写的组件的样式,添加了一个属性而已,这样就实现了所谓的私有作用域.但是也会有弊端,考虑到浏览器渲染各种 CSS 选择器的方式,当 <code>p &#123; color: red &#125;</code> 设置了作用域时 (即与特性选择器组合使用时) 会慢很多倍.如果你使用 class 或者 id 取而代之,比如 <code>.example &#123; color: red &#125;</code>,性能影响就会消除.所以,在你的样式里,进来避免直接使用标签,取而代之的你可以给标签起个 class 名.</p>
+<p>如果你希望 <code>scoped</code> 样式中的一个选择器能够作用得“更深”,例如影响子组件,你可以使用 <code>&gt;&gt;&gt;</code> 操作符:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.parent >>> .child</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/* ... */</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上述代码将会编译成：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent[data-v-f3f3eg9] .child</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>而对于 less 或者 sass 等预编译,是不支持<code>&gt;&gt;&gt;</code>操作符的,可以使用<code>/deep/</code>来替换<code>&gt;&gt;&gt;</code>操作符,例如：.parent /deep/ .child { /_ … _/ }</p>
+<hr>
+<p>后面会继续更新：</p>
+<ul>
+<li>axios 封装和 api 接口的统一管理（已更新,在上面的链接）</li>
+<li>hiper 打开速度测试</li>
+<li>vue 数据的两种获取方式+骨架屏</li>
+<li>自定义组件（父子组件）的双向数据绑定</li>
+<li>路由的拆分管理</li>
+<li>mixins 混入简化常见操作</li>
+<li>打包之后文件、图片、背景图资源不存在或者路径错误的问题</li>
+<li>vue 插件的开发、发布到 github、设置展示地址、发布 npm 包</li>
+</ul>
+<hr>
+<h2 id="Hiper：一款令人愉悦的性能分析工具"><a href="#Hiper：一款令人愉悦的性能分析工具" class="headerlink" title="Hiper：一款令人愉悦的性能分析工具"></a>Hiper：一款令人愉悦的性能分析工具</h2><p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653c6f5c7382367?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>如上图,是 hiper 工具的测试结果,从中我们可以看到 DNS 查询耗时、TCP 连接耗时、第一个 Byte 到达浏览器的用时、页面下载耗时、DOM Ready 之后又继续下载资源的耗时、白屏时间、DOM Ready 耗时、页面加载总耗时.</p>
+<p><strong>在我们的编辑器终端中全局安装：</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cnpm <span class="token function">install</span> hiper -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>使用：终端输入命令：hiper 测试的网址</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 当我们省略协议头时,默认会在url前添加`https://`</span>
+
+<span class="token comment"># 最简单的用法</span>
+hiper baidu.com
+
+<span class="token comment"># 如何url中含有任何参数,请使用双引号括起来</span>
+hiper <span class="token string">"baidu.com?a=1&amp;b=2"</span>
+
+<span class="token comment">#  加载指定页面100次</span>
+hiper -n <span class="token number">100</span> <span class="token string">"baidu.com?a=1&amp;b=2"</span>
+
+<span class="token comment">#  禁用缓存加载指定页面100次</span>
+hiper -n <span class="token number">100</span> <span class="token string">"baidu.com?a=1&amp;b=2"</span> --no-cache
+
+<span class="token comment">#  禁JavaScript加载指定页面100次</span>
+hiper -n <span class="token number">100</span> <span class="token string">"baidu.com?a=1&amp;b=2"</span> --no-javascript
+
+<span class="token comment">#  使用GUI形式加载指定页面100次</span>
+hiper -n <span class="token number">100</span> <span class="token string">"baidu.com?a=1&amp;b=2"</span> -H <span class="token boolean">false</span>
+
+<span class="token comment">#  使用指定useragent加载网页100次</span>
+hiper -n <span class="token number">100</span> <span class="token string">"baidu.com?a=1&amp;b=2"</span> -u <span class="token string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这段用法示例,我直接拷贝的文档说明,具体的可以看下文档,<a target="_blank" rel="noopener" href="https://github.com/pod4g/hiper/blob/master/README.zh-CN.md">这里送上链接</a>.当我们项目打开速度慢时,这个工具可以帮助我们快速定位出到底在哪一步影响的页面加载的速度.</p>
+<p>平时我们查看性能的方式,是在 performance 和 network 中看数据,记录下几个关键的性能指标,然后刷新几次再看这些性能指标.有时候我们发现,由于样本太少,受当前「网络」、「CPU」、「内存」的繁忙程度的影响很重,有时优化后的项目反而比优化前更慢.</p>
+<p>如果有一个工具,一次性地请求 N 次网页,然后把各个性能指标取出来求平均值,我们就能非常准确地知道这个优化是「正优化」还是「负优化」.</p>
+<p>hiper 就是解决这个痛点的.</p>
+<h2 id="vue-获取数据的两种方式的实践-简单骨架屏实现"><a href="#vue-获取数据的两种方式的实践-简单骨架屏实现" class="headerlink" title="vue 获取数据的两种方式的实践+简单骨架屏实现"></a>vue 获取数据的两种方式的实践+简单骨架屏实现</h2><p>在 vue 中获取数据有两种方式,引入尤大大的话就是：</p>
+<ul>
+<li><strong>导航完成之后获取</strong>：先完成导航,然后在接下来的组件生命周期钩子中获取数据.在数据获取期间显示“加载中”之类的指示.</li>
+<li><strong>导航完成之前获取</strong>：导航完成前,在路由进入的守卫中获取数据,在数据获取成功后执行导航.</li>
+</ul>
+<p>从技术角度讲,两种方式都不错 —— 就看你想要的用户体验是哪种.那么我们来实践一下这两种获取数据的方式,以及用户体验优化的一点思考.</p>
+<p>**一、首先是第一种：导航完成之后获取,**这种方式是我们大部分都在使用的,（因为可能一开始我们只知道这种方式^V^）.使用这种方式时,我们会马上导航和渲染组件,然后在组件的 <code>created</code> 钩子中获取数据.这让我们有机会在数据获取期间展示一个 loading 状态,还可以在不同视图间展示不同的 loading 状态.获取数据大家都会,这里说下用户体验的一些东西：</p>
+<ul>
+<li>在数据获取到之前,页面组件已经加载,但是数据没有拿到并渲染,所以在此过程中,我们不能加载页面内展示数据的那块组件,而是要有一个 loading 的加载中的组件或者骨架屏.</li>
+<li>当页面数据获取失败,可以理解为请求超时的时候,我们要展示的是断网的组件.</li>
+<li>如果是列表页,还要考虑到空数据的情况,即为空提示的组件.</li>
+</ul>
+<p>那么,我们的页面是要有这基本的三个部分的,放代码：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!--加载中或者骨架屏--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!--请求失败,即断网的提示组件--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>error<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!--页面内容--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>requestFinished<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token comment">&lt;!--页面内容--></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!isEmpty<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!--例如有个列表,当然肯定还会有其他内容--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+      <span class="token comment">&lt;!--为空提示组件--></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-else</span><span class="token punctuation">></span></span>空空如也<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种获取数据的情况下,我们进来默认的是展示 loading 或者骨架屏的内容,然后如果获取数据失败（即请求超时或者断网）,则加载 error 的那个组件,隐藏其他组件.如果数据请求成功,则加载内容的组件,隐藏其他组件.如果是列表页,可能在内容组件中还会有列表和为空提示两块内容,所以这时候也还要根据获取的数据来判断是加载内容还是加载为空提示.</p>
+<p><strong>二、第二种方式：导航完成之前获取</strong></p>
+<p>这种方式是在页面的 beforeRouteEnter 钩子中请求数据,只有在数据获取成功之后才会跳转导航页面.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">beforeRouteEnter</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  api<span class="token punctuation">.</span>article<span class="token punctuation">.</span><span class="token function">articleDetail</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token parameter">vm</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      vm<span class="token punctuation">.</span>info <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+      vm<span class="token punctuation">.</span>loadFinish <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>1. 大家都知道钩子中<code>beforeRouteEnter</code>钩子中 this 还不能使用,所以要想进行赋值操作或者调用方法,我们只能通过在 next()方法的回调函数中处理,这个回调函数的第一个参数就代表了 this,他会在组件初始化成功后进行操作.</p>
+<p>2. 我想,很多时候我们的 api 或者 axios 方法都是挂载到 vue 的原型上的,由于这里使用不了 this,所以只能在页面组件内引入 api 或者我们的 axios.</p>
+<p>3. 赋值操作也可以写在 method 方法中,但是调用这个赋值方法还是<code>vm.yourFunction()</code>的方式.</p>
+<p>4. 为空提示、断网处理等都和第一种方式一样,但是,由于是先获取到数据之后再跳转加载组件的,所以我们不需要在预期的页面内展示骨架屏或者 loading 组件.可以,我们需要在当前页面进入之前,即在上一个页面的时候有一个加载的提示,比如页面顶部的进度条.这样用户体验就比较友好了,而不至于因为请求的 s 速度慢一些导致半天没反应而用户又不知道的结果.全局的页面顶部进度条,可以在 main.js 中通过 router.beforeEach(to, from, next) {}来设置,当页面路由变化时,显示页面顶部的进度条,进入新路由后隐藏掉进度条.</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653cfc386e0cf1c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>关于怎么添加进度条,因为在另一篇文章已经写了,<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903625370648589">这里直接送上链接吧</a>,就不再重复浪费地方了.操作也比较简单,可自行查阅.</p>
+<p>其实说到了这里,那么<strong>骨架屏</strong>的事情也就顺带已经解决了,一般页面骨架屏也就是一张页面骨架的图片,但是要注意这张图片要尽可能的小.</p>
+<h2 id="自定义组件（父子组件）的双向数据绑定"><a href="#自定义组件（父子组件）的双向数据绑定" class="headerlink" title="自定义组件（父子组件）的双向数据绑定"></a>自定义组件（父子组件）的双向数据绑定</h2><p>说到父子组件的通信,大家一定都不陌生了：父组件通过 props 向子组件传值,子组件通过 emit 触发父组件自定义事件.但是这里要说的是父子组件使用 v-model 实现的通信.相信大家在使用别人的组件库的时候,经常是通过 v-model 来控制一个组件显示隐藏的效果等,例如弹窗.下面就一步一步解开 v-model 的神秘面纱.抓<del>稳</del>喽<del>,老司机弯道要踩油门了</del></p>
+<p>提到 v-model 首先想到的就是我们对于表单用户数据的双向数据绑定,操作起来很简洁很粗暴,例如：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+data () &#123; return &#123; msg: '' &#125; &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>其实 v-model 是个语法糖,上面这一段代码和下面这一段代码是一样的效果：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>msg = $event.target.value<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+data () &#123; return &#123; msg: '' &#125; &#125;,<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>由此可以看出,<code>v-model=&quot;msg&quot;</code>实则是 <code>:value=&quot;msg&quot; @input=&quot;msg = $event.target.value&quot;</code>的语法糖.这里其实就是监听了表单的<code>input</code>事件,然后修改<code>:value</code>对应的值.除了在输入表单上面可以使用 v-model 外,在组件上也是可以使用的,<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model">这点官网有提到</a>,但是介绍的不是很详细,导致刚接触的小伙伴会有一种云里雾里不知所云的感觉.既然了解了 v-model 语法糖本质的用法,那么我们就可以这样实现父子组件的双向数据绑定：</p>
+<p><strong>以上原理实现方法,写法 1：</strong></p>
+<p>父组件用法：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>empty</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>empty</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>子组件写法：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">// 点击该按钮触发父子组件的数据同步
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确定<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 接收父组件传递的value值</span>
+<span class="token comment">// 注意,这种实现方法,这里只能使用value属性名</span>
+props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  value<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">confirm</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 双向数据绑定父组件:value对应的值</span>
+    <span class="token comment">// 通过$emit触发父组件input事件,第二个参数为传递给父组件的值,这里传递了一个false值</span>
+    <span class="token comment">// 可以理解为最上面展示的@input="msg = $event.target.value"这个事件</span>
+    <span class="token comment">// 即触发父组件的input事件,并将传递的值‘false’赋值给msg</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'input'</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种方式实现了父子组件见 v-model 双向数据绑定的操作,例如你可以试一下实现一个全局弹窗组件的操作,通过 v-model 控制弹窗的显示隐藏,因为你要在页面内进行某些操作将他显示出来,控制其隐藏的代码是写在组件里面的,当组件隐藏了对应的也要父组件对应的值改变.</p>
+<p><strong>以上这种方式实现的父子组件的 v-model 通信,虽可行,但限制了我们必须 popos 接收的属性名为 value 和 emit 触发的必须为 input,这样就容易有冲突,特别是在表单里面.所以,为了更优雅的使用 v-model 通信而解决冲突的问题,我们可以通过在子组件中使用</strong><code>**model**</code><strong>选项,下面演示写法 2：</strong></p>
+<p>父组件写法：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>empty</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>empty</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>子组件写法：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确定<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// model选项用来避免冲突</span>
+<span class="token comment">// prop属性用来指定props属性中的哪个值用来接收父组件v-model传递的值</span>
+<span class="token comment">// 例如这里用props中的show来接收父组件传递的v-model值</span>
+<span class="token comment">// event：为了方便理解,可以简单理解为父组件@input的别名,从而避免冲突</span>
+<span class="token comment">// event的值对应了你emit时要提交的事件名,你可以叫aa,也可以叫bb,但是要命名要有意义哦！！！</span>
+model<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    prop<span class="token operator">:</span> <span class="token string">'show'</span><span class="token punctuation">,</span>
+    event<span class="token operator">:</span> <span class="token string">'changed'</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 由于model选项中的prop属性指定了,所以show接收的是父组件v-model传递的值</span>
+    show<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">confirm</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 双向数据绑定父组件传递的值</span>
+        <span class="token comment">// 第一个参数,对应model选项的event的值,你可以叫aa,bbb,ccc,起名随你</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'changed'</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这种实现父子组件见 v-model 绑定值的方法,在我们开发中其实是很常用的,特别是你要封装公共组件的时候.</p>
+<p><strong>最后,实现双向数据绑定的方式其实还有</strong><code>**.sync**</code><strong>,这个属性一开始是有的,后来由于被认为或破坏单向数据流被删除了,但最后证明他还是有存在意义的,所以在 2.3 版本又加回来了.</strong></p>
+<p>例如：父组件：</p>
+<pre class="line-numbers language-hmtl" data-language="hmtl"><code class="language-hmtl">&lt;empty :oneprop.sync&#x3D;&quot;msg&quot;&gt;&lt;&#x2F;empty&gt;
+
+data () &#123;
+    return &#123;
+        msg: &#39;&#39;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>子组件：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>changeMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>改变msg值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    oneprop<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'hello world'</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">changeMsg</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 双向数据流</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'update:msg'</span><span class="token punctuation">,</span> <span class="token string">'helow world'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这样,便可以在子组件更新父组件的数据.由于<code>v-model</code>只使用一次,所以当需要双向绑定的值有多个的时候,<code>.sync</code>还是有一定的使用场景的..sync 是下面这种写法的语法糖,旨在简化我们的操作：</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>empty</span> <span class="token attr-name">:msg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">@update:</span>msg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>message = $event<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>empty</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>掌握了组件的 v-model 写法,在封装一些公共组件的时候就又轻松一些了吧.</p>
+<p>这里再提一下：</p>
+<ul>
+<li><code>vm.$emit(event ,[...args])</code>这个 api,其主要作用就是用来触发当前实例上的事件.附加参数都会传给监听器回调.子组件也属于当前实例.第一个参数：要触发的事件名称.后续的参数可选：即作为参数传递给要触发的事件.<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#vm-emit">文档</a></li>
+<li>监听当前实例上的自定义事件,事件可以有$emit 触发,也能<strong>通过 hook 监听到钩子函数,</strong></li>
+</ul>
+<p>vm.$on(event, callback)：一直监听；<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#vm-on">文档</a></p>
+<p>vm.$once(event, callback)：监听一次；<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#vm-once">文档</a></p>
+<p>vm.$off([event, callback])：移除监听；<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/#vm-off">文档</a></p>
+<p>监听$emit 触发的自定义事件,上面已经有过用法了,监听钩子函数,在上面的定时器那块也有演示到.监听钩子函数的场景使用的不多,但是还是要知道的.</p>
+<ul>
+<li>vm.$attrs：可以获取到父组件传递的除 class 和 style 外的所有自定义属性.</li>
+<li>vm.$listeners：可以获取到父组件传递的所有自定义事件</li>
+</ul>
+<p>例如：父组件:</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>empty</span>
+  <span class="token attr-name">:msg</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span>
+  <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>articleTitle<span class="token punctuation">"</span></span>
+  <span class="token attr-name">@confirm</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>func1<span class="token punctuation">"</span></span>
+  <span class="token attr-name">@cancel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>func2<span class="token punctuation">"</span></span>
+<span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>empty</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>就可以在子组件中获取父组件传递的属性和事件,而不用在 props 中定义.子组件简单演示如下：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> msg <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$attrs<span class="token punctuation">.</span>msg<span class="token punctuation">;</span> <span class="token comment">// 获取父组件传递的msg</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$listeners<span class="token punctuation">.</span>confirm <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$listeners<span class="token punctuation">.</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//若组件传递事件confirm则执行</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这在我们写一些高级组件时候,会有用到的.</p>
+<h2 id="路由拆分管理"><a href="#路由拆分管理" class="headerlink" title="路由拆分管理"></a>路由拆分管理</h2><p>这里说的路由拆分指的是将路由的文件,按照模块拆分,这样方便路由的管理,更主要的是方便多人开发.具体要不要拆分,那就要视你的项目情况来定了,如果项目较小的话,也就一二十个路由,那么是拆分是非常没必要的.但倘若你开发一些功能点较多的商城项目,路由可以会有一百甚至几百个,那么此时将路由文件进行拆分是很有必要的.不然,你看着 index.js 文件中一大长串串串串串串的路由,也是很糟糕的.</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b1fab48fba445?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>首先我们在 router 文件夹中创建一个 index.js 作为路由的入口文件,然后新建一个 modules 文件夹,里面存放各个模块的路由文件.例如这里储存了一个 vote.js 投票模块的路由文件和一个公共模块的路由文件.下面直接上 index.js 吧,而后在简单介绍：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 公共页面的路由文件</span>
+<span class="token keyword">import</span> <span class="token constant">PUBLIC</span> <span class="token keyword">from</span> <span class="token string">'./modules/public'</span><span class="token punctuation">;</span>
+<span class="token comment">// 投票模块的路由文件</span>
+<span class="token keyword">import</span> <span class="token constant">VOTE</span> <span class="token keyword">from</span> <span class="token string">'./modules/vote'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Router<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 定义路由</span>
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  mode<span class="token operator">:</span> <span class="token string">'history'</span><span class="token punctuation">,</span>
+  routes<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token constant">PUBLIC</span><span class="token punctuation">,</span> <span class="token operator">...</span><span class="token constant">VOTE</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 路由变化时</span>
+router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>title <span class="token operator">!==</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    document<span class="token punctuation">.</span>title <span class="token operator">=</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 导出</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> router<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>首先引入 vue 和 router 最后导出,这就不多说了,基本的操作.</p>
+<p>这里把 router.beforeEach 的操作写了 router 的 index.js 文件中,有些人可能会写在 main.js 中,这也没有错,只不过,个人而言,既然是路由的操作,还是放在路由文件中管理更好些.这里就顺便演示了,如何在页面切换时,自动修改页面标题的操作.</p>
+<p>而后引入你根据路由模块划分的各个 js 文件,然后在实例化路由的时候,在 routes 数组中,将导入的各个文件通过结构赋值的方法取出来.最终的结果和正常的写法是一样的.</p>
+<p>然后看下我们导入的 vote.js 吧：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+ * 投票模块的router列表
+ */</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">[</span>
+  <span class="token comment">// 投票模块首页</span>
+  <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'/vote/index'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'VoteIndex'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'@/view/vote/index'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> resolve<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      title<span class="token operator">:</span> <span class="token string">'投票'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token comment">// 详情页</span>
+  <span class="token punctuation">&#123;</span>
+    path<span class="token operator">:</span> <span class="token string">'/vote/detail'</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'VoteDetail'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'@/view/vote/detail'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> resolve<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      title<span class="token operator">:</span> <span class="token string">'投票详情'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里就是将投票模块的路由放在一个数组中导出去.整个路由拆分的操作,不是 vue 的知识,就是一个 es6 导入导出和结构的语法.具体要不要拆分,还是因项目和环境而异吧.</p>
+<p>这里的路由用到了懒加载路由的方式,如果不清楚,文字上面有介绍到.</p>
+<p>还有这里的 meta 元字段中,定义了一个 title 信息,用来存储当前页面的页面标题,即 document.title.</p>
+<h2 id="mixins-混入简化常见操作"><a href="#mixins-混入简化常见操作" class="headerlink" title="mixins 混入简化常见操作"></a>mixins 混入简化常见操作</h2><p>我们在开发中经常会遇到金钱保留两位小数,时间戳转换等操作.每次我们会写成一个公共函数,然后在页面里面的 filters 进行过滤.这种方法每次,但是感觉每次需要用到,都要写一遍在 filters,也是比较烦呢！！！但是,我们猿类的极致追究就是懒呀,那这怎么能行~</p>
+<p>兄弟们,抄家伙！上 mixins！！！</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> u_fixed <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./tool'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> mixins <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  filters<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 保留两位小数</span>
+    <span class="token function">mixin_fixed2</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token function">u_fixed</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 数字转汉字,16000 => 1.60万</span>
+    <span class="token function">mixin_num2chinese</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> val <span class="token operator">></span> <span class="token number">9999</span> <span class="token operator">?</span> <span class="token function">u_fixed</span><span class="token punctuation">(</span>val <span class="token operator">/</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'万'</span> <span class="token operator">:</span> val<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> mixins<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>新建一个 mixins.js,把我们需要混入的内容都写在里面,例如这里混入了 filters,把常用的几个操作写在了里面,大家可以自行扩展.</p>
+<p>这样的话,在我们需要的页面 import 这个 js,然后声明一下混入就好,而后就可以像正常的方式去使用就好了.</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b357d3179206d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>例如,我现在可以直接在页面内使用我们的过滤操作<code>&#123;&#123;1000 | mixin_fixed2&#125;&#125;</code></p>
+<h2 id="打包之后文件、图片、背景图资源不存在或者路径错误的问题"><a href="#打包之后文件、图片、背景图资源不存在或者路径错误的问题" class="headerlink" title="打包之后文件、图片、背景图资源不存在或者路径错误的问题"></a>打包之后文件、图片、背景图资源不存在或者路径错误的问题</h2><p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b365ffc00827b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>先看下项目的 config 文件夹下的 index.js 文件,这个配置选项就好使我们打包后的资源公共路径,默认的值为<code>‘/’</code>,即根路径,所以打包后的资源路径为根目录下的 static.由此问题来了,如果你打包后的资源没有放在服务器的根目录,而是在根目录下的 mobile 等文件夹的话,那么打包后的路径和你代码中的路径就会有冲突了,导致资源找不到.</p>
+<p>所以,为了解决这个问题,你可以在打包的时候把上面这个路径由‘/’的根目录,改为<code>‘./’</code>的相对路径.</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b3affdd1725d7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>这样的的话,打包后的图片啊 js 等路径就是<code>‘./static/img/asc.jpg’</code>这样的相对路径,这就不管你放在哪里,都不会有错了.但是,凡是都有但是~这里一切正常,但是背景图的路径还是不对.因为此时的相对就变成了<code>static/css/</code>文件夹下的<code>static/img/xx.jpg</code>,但是实际上<code>static/css/</code>文件夹下没有<code>static/img/xx.jpg</code>,即<code>static/css/static/img/xx.jpg</code>是不存在的.此时相对于的当前的 css 文件的路径.所以为了解决这个问题,要把我们 css 中的背景图的加个公共路径<code>‘../../’</code>,即让他往上返回两级到和<code>index.html</code>文件同级的位置,那么此时的相对路径<code>static/img/xx.jpg</code>就能找到对应的资源了.那么怎么修改背景图的这个公共路径呢,因为背景图是通过 loader 解析的,所以自然在 loader 的配置中修改,打开 build 文件夹下的 utils 文件,找到 exports.cssLoaders 的函数,在函数中找到对应下面这些配置：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b3bd6ba562f0a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
+<p>找到这个位置,添加一上配置,就是上图红框内的代码,就可以把它的公共路径修改为往上返回两级.这样再打包看下,就 ok 了！</p>
+<p><strong>最后再郑重说一点,如果你的路由模式是 history 的,那么打包放在服务器,必须要后台服务器的配合,具体的可以看官方文档,这点很重要.不然你会发现白屏啊等各种莫名其妙的问题.牢记！！！</strong></p>
+<h2 id="vue-插件的开发、发布到-github、设置展示地址、发布-npm-包"><a href="#vue-插件的开发、发布到-github、设置展示地址、发布-npm-包" class="headerlink" title="vue 插件的开发、发布到 github、设置展示地址、发布 npm 包"></a>vue 插件的开发、发布到 github、设置展示地址、发布 npm 包</h2><p>对于平时我们常用的一些组件,我们可以把它封装成插件,然后发布到 github 上,最后再发布成 npm 包,这样以后便可以直接从 npm 安装插件到我们的项目中,省去了我们拷贝的过程了,还能给别人分享呢！</p>
+<p>由于插件的这一块内容比较多,我暂且放在另外一篇文章吧,<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903679162581005">这里呢就附上链接吧</a>.</p>
+<!-- ## ◆◆〓亚洲精品下载㊣每日系列合集〓◆◆[09.05]
+
+1.  [![](http://tu303.com/u/2020/08/16/6xrev0.gif)](http://tu303.com/u/2020/08/16/6xrev0.gif)
+
+[![](http://tu303.com/u/2020/08/16/6xs51h.gif)](http://tu303.com/u/2020/08/16/6xs51h.gif)
+
+[![](http://tu303.com/u/2020/08/16/6xt5pn.gif)](http://tu303.com/u/2020/08/16/6xt5pn.gif)
+
+[![](http://tu303.com/u/2020/08/16/6y2mny.gif)](http://tu303.com/u/2020/08/16/6y2mny.gif)
+
+下载地址:
+[点击进入下载文件 \- 01.zip](http://www.89file.com/file/QVNaNTQyOTY1.html)
+
+2.  [![](http://tu303.com/u/2020/08/16/6ydlg0.gif)](http://tu303.com/u/2020/08/16/6ydlg0.gif)
+
+[![](http://tu303.com/u/2020/08/16/6yeer8.gif)](http://tu303.com/u/2020/08/16/6yeer8.gif)
+
+[![](http://tu303.com/u/2020/08/16/6yetp5.gif)](http://tu303.com/u/2020/08/16/6yetp5.gif)
+
+[![](http://tu303.com/u/2020/08/16/6yoak0.gif)](http://tu303.com/u/2020/08/16/6yoak0.gif)
+
+下载地址:
+[点击进入下载文件 \- 02.zip](http://www.89file.com/file/QVNaNTQyOTk1.html)
+
+3.  [![](http://tu303.com/u/2020/08/16/6zh5ok.gif)](http://tu303.com/u/2020/08/16/6zh5ok.gif)
+
+[![](http://tu303.com/u/2020/08/16/6zhmim.gif)](http://tu303.com/u/2020/08/16/6zhmim.gif)
+
+[![](http://tu303.com/u/2020/08/16/6zieor.gif)](http://tu303.com/u/2020/08/16/6zieor.gif)
+
+[![](http://tu303.com/u/2020/08/16/6zjm28.gif)](http://tu303.com/u/2020/08/16/6zjm28.gif)
+
+下载地址:
+[点击进入下载文件 \- 03.zip](http://www.89file.com/file/QVNaNTQzMDE2.html)
+
+4.  [![](http://tu303.com/u/2020/08/16/7025at.gif)](http://tu303.com/u/2020/08/16/7025at.gif)
+
+[![](http://tu303.com/u/2020/08/16/7030x8.gif)](http://tu303.com/u/2020/08/16/7030x8.gif)
+
+[![](http://tu303.com/u/2020/08/16/7049ul.gif)](http://tu303.com/u/2020/08/16/7049ul.gif)
+
+[![](http://tu303.com/u/2020/08/16/704zax.gif)](http://tu303.com/u/2020/08/16/704zax.gif)
+
+下载地址:
+[点击进入下载文件 \- 04.zip](http://www.89file.com/file/QVNaNTQzMDI5.html)
+
+5.  [![](http://tu303.com/u/2020/08/16/715m5w.gif)](http://tu303.com/u/2020/08/16/715m5w.gif)
+
+[![](http://tu303.com/u/2020/08/16/716c1h.gif)](http://tu303.com/u/2020/08/16/716c1h.gif)
+
+[![](http://tu303.com/u/2020/08/16/717njq.gif)](http://tu303.com/u/2020/08/16/717njq.gif)
+
+[![](http://tu303.com/u/2020/08/16/7187ek.gif)](http://tu303.com/u/2020/08/16/7187ek.gif)
+
+下载地址:
+[点击进入下载文件 \- 05.zip](http://www.89file.com/file/QVNaNTQzMDU0.html)
+
+## ★★★AV 精选 GIF☆ 最新合集 ★★★[08.03]
+
+> 发表于: 2020-08-03 12:07
+
+[![](https://www.x6img.com/u/20200627/18234373.gif)](https://www.x6img.com/u/20200627/18234373.gif)
+[![](https://www.x6img.com/u/20200627/18235843.gif)](https://www.x6img.com/u/20200627/18235843.gif)
+[![](https://www.x6img.com/u/20200627/1824135.gif)](https://www.x6img.com/u/20200627/1824135.gif)
+[![](https://www.x6img.com/u/20200627/18242087.gif)](https://www.x6img.com/u/20200627/18242087.gif)
+[![](https://www.x6img.com/u/20200627/1824357.gif)](https://www.x6img.com/u/20200627/1824357.gif)
+
+下载地址:[点击进入下载文件 \- AVJX-811.zip](http://www.155file.com/file/QVNaNDM0NjEw.html)
+
+[![](https://www.x6img.com/u/20200627/18253561.gif)](https://www.x6img.com/u/20200627/18253561.gif)
+[![](https://www.x6img.com/u/20200627/18254994.gif)](https://www.x6img.com/u/20200627/18254994.gif)
+[![](https://www.x6img.com/u/20200627/18255318.gif)](https://www.x6img.com/u/20200627/18255318.gif)
+[![](https://www.x6img.com/u/20200627/18255840.gif)](https://www.x6img.com/u/20200627/18255840.gif)
+[![](https://www.x6img.com/u/20200627/18260918.gif)](https://www.x6img.com/u/20200627/18260918.gif)
+
+下载地址:[点击进入下载文件 \- AVJX-812.zip](http://www.155file.com/file/QVNaNDM0NjE2.html)
+
+[![](https://www.x6img.com/u/20200627/18285557.gif)](https://www.x6img.com/u/20200627/18285557.gif)
+[![](https://www.x6img.com/u/20200627/18291067.gif)](https://www.x6img.com/u/20200627/18291067.gif)
+[![](https://www.x6img.com/u/20200627/18292441.gif)](https://www.x6img.com/u/20200627/18292441.gif)
+[![](https://www.x6img.com/u/20200627/18293217.gif)](https://www.x6img.com/u/20200627/18293217.gif)
+
+下载地址:[点击进入下载文件 \- AVJX-813.zip](http://www.155file.com/file/QVNaNDM0NjIw.html)
+
+[![](https://www.x6img.com/u/20200627/18301651.gif)](https://www.x6img.com/u/20200627/18301651.gif)
+[![](https://www.x6img.com/u/20200627/18303029.gif)](https://www.x6img.com/u/20200627/18303029.gif)
+[![](https://www.x6img.com/u/20200627/18303917.gif)](https://www.x6img.com/u/20200627/18303917.gif)
+[![](https://www.x6img.com/u/20200627/18304993.gif)](https://www.x6img.com/u/20200627/18304993.gif)
+[![](https://www.x6img.com/u/20200627/1830579.gif)](https://www.x6img.com/u/20200627/1830579.gif)
+
+下载地址:[点击进入下载文件 \- AVJX-814.zip](http://www.155file.com/file/QVNaNDM0NjIz.html)
+
+[![](https://www.x6img.com/u/20200627/18315830.gif)](https://www.x6img.com/u/20200627/18315830.gif)
+[![](https://www.x6img.com/u/20200627/18321586.gif)](https://www.x6img.com/u/20200627/18321586.gif)
+[![](https://www.x6img.com/u/20200627/18322531.gif)](https://www.x6img.com/u/20200627/18322531.gif)
+[![](https://www.x6img.com/u/20200627/18323463.gif)](https://www.x6img.com/u/20200627/18323463.gif)
+
+下载地址:[点击进入下载文件 \- AVJX-815.zip](http://www.155file.com/file/QVNaNDM0NjI1.html)
+
+[点击跳转 ★★★AV 精选 GIF☆ 最新合集 ★★★\[08.02\]](http://q1.fnmdsbb.xyz/pw/html_data/90/2008/4894184.html)
+
+## ?
+
+> 【影片名称】:空姐装骚女友 KTV 和男友玩刺激 KTV 门前跪舔深喉口交 包房里直接无套插入 随着动感音乐抽插呻吟 高清 1080P 版
+> 【影片格式】:MP4
+> 【影片大小】:330MB
+> 【影片时间】:00:11:32
+> 【是否有码】:无码
+> 【影片截图】:
+
+![](https://www.yuoimg.com/u/20190808/15043428.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043467.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043579.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043546.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043668.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043645.jpg)
+
+![](https://www.yuoimg.com/u/20190808/15043617.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDAy.html](http://www.dfhkxy.com/file/QVNaODQ4MDAy.html)
+
+![](https://www.69img.club/u/20200402/14301590.gif)
+
+![](https://www.69img.club/u/20200402/14301657.gif)
+
+![](https://www.69img.club/u/20200402/14301711.gif)
+
+![](https://www.69img.club/u/20200402/14301766.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDA1.html](http://www.dfhkxy.com/file/QVNaODQ4MDA1.html)
+
+【影片名称】:网红美少女押尾貓初涉性爱禁区 首次做爱羞涩难当 黑丝女仆装翘白嫩美臀无套后入爆操 完美露脸 高清 720P 版
+【影片格式】:MP4
+【影片大小】:179MB
+【影片时间】:00:10:00
+【是否有码】:无码
+【影片截图】:
+![](https://www.yuoimg.com/u/20190417/20420592.jpg)链接 ![](https://www.yuoimg.com/u/20190417/20420527.jpg)
+
+![](https://www.yuoimg.com/u/20190417/20420674.jpg) ![](https://www.yuoimg.com/u/20190417/20420632.jpg)
+
+![](https://www.yuoimg.com/u/20190417/2042076.jpg) ![](https://www.yuoimg.com/u/20190417/20420760.jpg)
+
+![](https://www.yuoimg.com/u/20190417/20420818.jpg) ![](https://www.yuoimg.com/u/20190417/20420883.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDA4.html](http://www.dfhkxy.com/file/QVNaODQ4MDA4.html)
+
+![](https://www.69img.club/u/20200402/14451597.gif)链接
+
+![](https://www.69img.club/u/20200402/14451693.gif)
+
+![](https://www.69img.club/u/20200402/14451627.gif)
+
+![](https://www.69img.club/u/20200402/14451817.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDEw.html](http://www.dfhkxy.com/file/QVNaODQ4MDEw.html)
+
+![](https://www.69img.club/u/20200329/16154716.gif)
+
+![](https://www.69img.club/u/20200329/16154755.gif)
+
+![](https://www.69img.club/u/20200329/16155017.gif)
+
+![](https://www.69img.club/u/20200329/16155199.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDE0.html](http://www.dfhkxy.com/file/QVNaODQ4MDE0.html)
+
+【影片名称】:【精品推荐】大奶女王魅色夫人 SM 调教黑丝女奴 脚踏无毛嫩逼还往里面塞了不少小番茄
+【影片格式】:MP4
+【影片大小】:345MB
+【影片时间】:00:15:18
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/12422063.jpg)链接
+
+![](https://www.69img.club/u/20200520/12422214.jpg)
+
+![](https://www.69img.club/u/20200520/1242237.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDE2.html](http://www.dfhkxy.com/file/QVNaODQ4MDE2.html)
+
+【影片名称】:【网爆门事件】新加坡选美小姐,IG 网红 thejunemonth 性爱视频流出
+【影片格式】:MP4
+【影片大小】:811MB
+【影片时间】:00:11:26
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/1240394.jpg)链接
+
+![](https://www.69img.club/u/20200520/12404033.jpg)
+
+![](https://www.69img.club/u/20200520/12404228.gif) ![](https://www.69img.club/u/20200520/12404482.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDE3.html](http://www.dfhkxy.com/file/QVNaODQ4MDE3.html)
+
+【影片名称】:【推特】推特极品人气网红 观观的朱朱 露脸大尺度啪啪 3P 53V+293P
+【影片格式】:MP4
+【影片大小】:658MB
+【影片时间】:00:41:37
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/12481713.jpg)链接 ![](https://www.69img.club/u/20200520/12481877.jpg)
+
+![](https://www.69img.club/u/20200520/12481952.jpg) ![](https://www.69img.club/u/20200520/12482060.jpg)
+
+![](https://www.69img.club/u/20200520/12482041.jpg) ![](https://www.69img.club/u/20200520/1248216.jpg)
+
+![](https://www.69img.club/u/20200520/12482218.jpg) ![](https://www.69img.club/u/20200520/12482326.jpg)
+
+![](https://www.69img.club/u/20200520/12482983.gif) ![](https://www.69img.club/u/20200520/12482945.gif)
+
+![](https://www.69img.club/u/20200520/12482519.gif) ![](https://www.69img.club/u/20200520/12482729.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDE4.html](http://www.dfhkxy.com/file/QVNaODQ4MDE4.html)
+
+【影片名称】:【推特】 极品推特女神【JessicaFxxk】跟同事单位宿舍大尺度啪啪特写
+【影片格式】:MP4
+【影片大小】:573MB
+【影片时间】:00:03:40
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/12560598.jpg)链接
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDIw.html](http://www.dfhkxy.com/file/QVNaODQ4MDIw.html)
+
+![](https://www.69img.club/u/20191201/02455914.gif)链接 ![](https://www.69img.club/u/20191201/02460438.gif)
+
+![](https://www.69img.club/u/20191201/02460937.gif) ![](https://www.69img.club/u/20191201/02461341.gif)
+
+![](https://www.69img.club/u/20191201/02461414.gif) ![](https://www.69img.club/u/20191201/02461688.gif)
+
+![](https://www.69img.club/u/20191201/02461786.gif) ![](https://www.69img.club/u/20191201/02462052.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDIz.html](http://www.dfhkxy.com/file/QVNaODQ4MDIz.html)
+
+![](https://www.69img.club/u/20191127/02413536.gif)链接 ![](https://www.69img.club/u/20191127/02414016.gif)
+
+![](https://www.69img.club/u/20191127/02414464.gif) ![](https://www.69img.club/u/20191127/02414673.gif)
+
+![](https://www.69img.club/u/20191127/0241504.gif) ![](https://www.69img.club/u/20191127/0241538.gif)
+
+![](https://www.69img.club/u/20191127/02415463.gif) ![](https://www.69img.club/u/20191127/02415467.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDI5.html](http://www.dfhkxy.com/file/QVNaODQ4MDI5.html)
+
+![](https://www.69img.club/u/20191201/02290475.gif)链接 ![](https://www.69img.club/u/20191201/02290917.gif)
+
+![](https://www.69img.club/u/20191201/02291597.gif) ![](https://www.69img.club/u/20191201/02291679.gif)
+
+![](https://www.69img.club/u/20191201/02291724.gif) ![](https://www.69img.club/u/20191201/02291827.gif)
+
+![](https://www.69img.club/u/20191201/02292169.gif) ![](https://www.69img.club/u/20191201/02292220.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDMz.html](http://www.dfhkxy.com/file/QVNaODQ4MDMz.html)
+
+【影片名称】:【网爆门事件】某实验中学 眼镜校服女生 11V 合集
+【影片格式】:MP4
+【影片大小】:879MB
+【影片时间】:00:16:21
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13140640.jpg)链接
+
+![](https://www.69img.club/u/20200520/13140767.JPG)
+
+![](https://www.69img.club/u/20200520/13140981.JPG)
+
+![](https://www.69img.club/u/20200520/13141056.JPG)
+
+![](https://www.69img.club/u/20200520/13141179.jpg) ![](https://www.69img.club/u/20200520/13141266.jpg)
+
+![](https://www.69img.club/u/20200520/13141264.jpg) ![](https://www.69img.club/u/20200520/13141398.jpg)
+
+![](https://www.69img.club/u/20200520/13141389.jpg) ![](https://www.69img.club/u/20200520/13141495.jpg)
+
+![](https://www.69img.club/u/20200520/13141661.gif) ![](https://www.69img.club/u/20200520/13141871.gif) ![](https://www.69img.club/u/20200520/13141873.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDM5.html](http://www.dfhkxy.com/file/QVNaODQ4MDM5.html)
+
+【影片名称】:最新原创 AV 科幻剧情巨制〖我的机器人女友 3〗无套爆操极品黑丝爆乳 AI 女友 淫荡爆操屌丝订制 高清 720P 版
+【影片格式】:MP4
+【影片大小】:557MB
+【影片时间】:00:21:51
+【是否有码】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13333535.jpg)链接
+
+![](https://www.69img.club/u/20200520/13333649.jpg)
+
+![](https://www.69img.club/u/20200520/13333755.jpg)
+
+![](https://www.69img.club/u/20200520/13333733.jpg)
+
+![](https://www.69img.club/u/20200520/13333862.jpg)
+
+![](https://www.69img.club/u/20200520/13333928.jpg)
+
+![](https://www.69img.club/u/20200520/13334224.gif) ![](https://www.69img.club/u/20200520/13334472.gif)
+
+![](https://www.69img.club/u/20200520/13334664.gif) ![](https://www.69img.club/u/20200520/13334917.gif)
+
+![](https://www.69img.club/u/20200520/13335256.gif) ![](https://www.69img.club/u/20200520/13335679.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDQ0.html](http://www.dfhkxy.com/file/QVNaODQ4MDQ0.html)
+
+【影片名称】:【重磅推荐】推特 beautyfoot 足交足控合集
+【影片格式】:MP4
+【影片大小】:1.09G
+【影片时间】:01:22:13
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13155513.jpg)链接
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDUy.html](http://www.dfhkxy.com/file/QVNaODQ4MDUy.html)
+
+【影片名称】:【推特】 推特@海洋社长(纹身媳妇)极品身材 超高颜值.7V
+【影片格式】:MP4
+【影片大小】:820MB
+【影片时间】:00:05:46
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13001167.jpg)链接
+
+![](https://www.69img.club/u/20200520/13001261.jpg)
+
+![](https://www.69img.club/u/20200520/13001519.gif) ![](https://www.69img.club/u/20200520/13001661.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDU2.html](http://www.dfhkxy.com/file/QVNaODQ4MDU2.html)
+
+【影片名称】:P 站极品翘臀美少妇穿着各式情趣内衣和猛男炮友酒店开房激情啪啪被内射
+【影片格式】:MP4
+【影片大小】:365MB
+【影片时间】:00:24:07
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13273570.jpg)链接
+
+![](https://www.69img.club/u/20200520/13273646.jpg)
+
+![](https://www.69img.club/u/20200520/1327345.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDU3.html](http://www.dfhkxy.com/file/QVNaODQ4MDU3.html)
+
+【影片名称】:推特大神 DOM 窒息补充大合集(第六部)
+【影片格式】:MP4
+【影片大小】:1.20G
+【影片时间】:00:39:49
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13362070.jpg)链接
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDYz.html](http://www.dfhkxy.com/file/QVNaODQ4MDYz.html)
+
+【影片名称】:约操爆裂黑丝邻家骚妇偷情做爱 无套抽插无距离感 骑坐 J8 上来自己动 饥渴做爱不停抽插 高清 720P 原版无水印
+【影片格式】:MP4
+【影片大小】:389MB
+【影片时间】:00:14:33
+【是否有码】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13384964.jpg)链接
+
+![](https://www.69img.club/u/20200520/13385032.jpg)
+
+![](https://www.69img.club/u/20200520/13385194.jpg)
+
+![](https://www.69img.club/u/20200520/13385223.jpg)
+
+![](https://www.69img.club/u/20200520/13385262.jpg)
+
+![](https://www.69img.club/u/20200520/13385369.jpg)
+
+![](https://www.69img.club/u/20200520/13391573.gif) ![](https://www.69img.club/u/20200520/13393926.gif) ![](https://www.69img.club/u/20200520/13401369.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDY2.html](http://www.dfhkxy.com/file/QVNaODQ4MDY2.html)
+
+【影片名称】:【精选调教】尚木调教全集,拉珠,灌肠,跳蛋
+【影片格式】:MP4
+【影片大小】:1.42G
+【影片时间】:00:34:42
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200520/13235523.jpg)链接
+
+![](https://www.69img.club/u/20200520/13235773.jpg)
+
+![](https://www.69img.club/u/20200520/13235990.jpg)
+
+![](https://www.69img.club/u/20200520/13240132.jpg)
+
+![](https://www.69img.club/u/20200520/13240431.jpg)
+
+![](https://www.69img.club/u/20200520/1324059.jpg)
+
+![](https://www.69img.club/u/20200520/13240774.jpg)
+
+![](https://www.69img.club/u/20200520/1324085.jpg)
+
+![](https://www.69img.club/u/20200520/13241163.jpg)
+
+![](https://www.69img.club/u/20200520/13241630.jpg)
+
+![](https://www.69img.club/u/20200520/13243271.gif) ![](https://www.69img.club/u/20200520/13244647.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDc2.html](http://www.dfhkxy.com/file/QVNaODQ4MDc2.html)
+
+![](https://www.69img.club/u/20191127/0236526.gif) ![](https://www.69img.club/u/20191127/02365765.gif)
+
+![](https://www.69img.club/u/20191127/02370113.gif) ![](https://www.69img.club/u/20191127/02370342.gif)
+
+![](https://www.69img.club/u/20191127/02370646.gif) ![](https://www.69img.club/u/20191127/02370882.gif)
+
+![](https://www.69img.club/u/20191127/02370994.gif) ![](https://www.69img.club/u/20191127/02371134.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDgz.html](http://www.dfhkxy.com/file/QVNaODQ4MDgz.html)
+
+![](https://www.69img.club/u/20191127/02531878.gif) ![](https://www.69img.club/u/20191127/0253203.gif)
+
+![](https://www.69img.club/u/20191127/02532359.gif) ![](https://www.69img.club/u/20191127/0253251.gif)
+
+![](https://www.69img.club/u/20191127/02532664.gif) ![](https://www.69img.club/u/20191127/02532917.gif)
+
+![](https://www.69img.club/u/20191127/02533134.gif) ![](https://www.69img.club/u/20191127/02533265.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MDkx.html](http://www.dfhkxy.com/file/QVNaODQ4MDkx.html)
+
+【影片名称】:最新极品身材推特小姐姐『FlaSH 闪爷』大尺度私拍合集流出 激情啪啪 完美露出 原版私拍 90P 高清 720P 原版收藏
+【影片格式】:MP4
+【影片大小】:347MB
+【影片时间】:00:09:02
+【是否有码】:无码
+【影片截图】:
+![](https://www.69img.club/u/20191108/05124980.jpg)链接 ![](https://www.69img.club/u/20191108/05125042.jpg)
+
+![](https://www.69img.club/u/20191108/05125153.jpg) ![](https://www.69img.club/u/20191108/05125351.jpg)
+
+![](https://www.69img.club/u/20191108/0512531.jpg)
+
+![](https://www.69img.club/u/20191108/05125491.jpg)
+
+![](https://www.69img.club/u/20191108/05125659.jpg)
+
+![](https://www.69img.club/u/20191108/05125965.jpg)
+
+![](https://www.69img.club/u/20191108/05130066.jpg) ![](https://www.69img.club/u/20191108/05130893.gif)
+
+![](https://www.69img.club/u/20191108/05130226.gif) ![](https://www.69img.club/u/20191108/05130442.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MDk3.html](http://www.dfhkxy.com/file/QVNaODQ4MDk3.html)
+
+【影片名称】:91 四哥酒店豪华套房模仿大神冷先生穿着各式性感情趣内衣调教大三骚女友 1080P 高清版
+【影片格式】:MP4
+【影片大小】:900MB
+【影片时间】:00:42:43
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20191101/06045574.JPG)链接
+
+![](https://www.69img.club/u/20191101/06045968.JPG)
+
+![](https://www.69img.club/u/20191101/06050218.JPG)
+
+![](https://www.69img.club/u/20191101/06050396.JPG)
+
+![](https://www.69img.club/u/20191101/06050512.JPG)
+
+![](https://www.69img.club/u/20191101/06050649.JPG)
+
+![](https://www.69img.club/u/20191101/06050770.JPG)
+
+![](https://www.69img.club/u/20191101/06050722.JPG)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTA4.html](http://www.dfhkxy.com/file/QVNaODQ4MTA4.html)
+
+【影片名称】:最新 P 站上超性感美臀骚妇人称『骚蜜儿』性爱啪啪私拍合集流出 全程各式激情撞击美臀 高清 720P 原版收藏
+【影片格式】:MP4
+【影片大小】:782MB
+【影片时间】:00:28:22
+【是否有码】:无码
+【影片截图】:
+![](https://www.69img.club/u/20191103/0505139.jpg)链接 ![](https://www.69img.club/u/20191103/05051348.jpg) ![](https://www.69img.club/u/20191103/05051431.jpg)
+
+![](https://www.69img.club/u/20191103/05051728.jpg) ![](https://www.69img.club/u/20191103/05051886.jpg) ![](https://www.69img.club/u/20191103/05052032.jpg)
+
+![](https://www.69img.club/u/20191103/05052188.jpg) ![](https://www.69img.club/u/20191103/05052231.jpg) ![](https://www.69img.club/u/20191103/05052241.jpg)
+
+![](https://www.69img.club/u/20191103/05052576.gif) ![](https://www.69img.club/u/20191103/0505273.gif) ![](https://www.69img.club/u/20191103/05053045.gif) ![](https://www.69img.club/u/20191103/05053624.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTE5.html](http://www.dfhkxy.com/file/QVNaODQ4MTE5.html)
+
+![](https://www.69img.club/u/20191127/02572423.gif) ![](https://www.69img.club/u/20191127/02572813.gif)
+
+![](https://www.69img.club/u/20191127/02573223.gif) ![](https://www.69img.club/u/20191127/02573410.gif)
+
+![](https://www.69img.club/u/20191127/02573676.gif) ![](https://www.69img.club/u/20191127/02573721.gif)
+
+![](https://www.69img.club/u/20191127/02573715.gif) ![](https://www.69img.club/u/20191127/02573937.gif)
+
+下载地址:
+[http://www.dfhkxy.com/file/QVNaODQ4MTMy.html](http://www.dfhkxy.com/file/QVNaODQ4MTMy.html)
+
+【影片名称】:91KK 哥(富一代 CaoB 哥)最新精品大片第十四期-番号 S02E14:极品黑丝气质网红大蜜,五星级总统套房,大战黑丝气质女神,上位后入活真好淫语不断～ 1080P 高清完整版！
+【影片格式】:MP4
+【影片大小】:677MB
+【影片时间】:00:30:37
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200213/14431823.png)链接
+
+![](https://www.69img.club/u/20200213/14432191.gif) ![](https://www.69img.club/u/20200213/14432498.gif)
+
+![](https://www.69img.club/u/20200213/14432570.jpg)
+
+![](https://www.69img.club/u/20200213/14432546.jpg)
+
+![](https://www.69img.club/u/20200213/14432673.jpg)
+
+![](https://www.69img.club/u/20200213/14432758.jpg)
+
+![](https://www.69img.club/u/20200213/14432892.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTQy.html](http://www.dfhkxy.com/file/QVNaODQ4MTQy.html)
+
+【影片名称】:高颜值混血美女青春活力马尾辫圆点连衣裙沙发上激情后入肛交内射按着脑袋深喉有点牛逼啊 1080P 原版
+【影片格式】:MP4
+【影片大小】:575MB
+【影片时间】:00:19:27
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200213/1429261.JPG)链接
+
+![](https://www.69img.club/u/20200213/14292787.JPG)
+
+![](https://www.69img.club/u/20200213/14292777.JPG)
+
+![](https://www.69img.club/u/20200213/14292853.JPG)
+
+![](https://www.69img.club/u/20200213/1429289.JPG)
+
+![](https://www.69img.club/u/20200213/14292992.JPG)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTQ5.html](http://www.dfhkxy.com/file/QVNaODQ4MTQ5.html)
+
+【影片名称】:【重磅推荐】绝色美女与男友啪啪视频照片流出 1V+45P
+【影片格式】:MP4
+【影片大小】:724MB
+【影片时间】:00:07:25
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20191031/0630024.jpg)链接
+
+![](https://www.69img.club/u/20191031/06300738.jpg)
+
+![](https://www.69img.club/u/20191031/06300920.jpg) ![](https://www.69img.club/u/20191031/06301131.jpg)
+
+![](https://www.69img.club/u/20191031/06301195.jpg) ![](https://www.69img.club/u/20191031/06301560.jpg)
+
+![](https://www.69img.club/u/20191031/06301753.gif) ![](https://www.69img.club/u/20191031/06301979.gif)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTUz.html](http://www.dfhkxy.com/file/QVNaODQ4MTUz.html)
+
+【影片名称】:【年度巨献】专业剧情 AV 片"21 克" 下集 漂亮妹子大尺度性感出演 反映社会真实黑暗的一面
+【影片格式】:MP4
+【影片大小】:1.89G
+【影片时间】:01:40:45
+【影片说明】:无码
+【影片截图】:
+![](https://www.69img.club/u/20200213/1451411.jpg)链接
+
+![](https://www.69img.club/u/20200213/14514319.jpg)
+
+![](https://www.69img.club/u/20200213/14514462.jpg)
+
+![](https://www.69img.club/u/20200213/14514530.jpg)
+
+![](https://www.69img.club/u/20200213/14514672.jpg)
+
+![](https://www.69img.club/u/20200213/14514742.jpg)
+
+【下载地址】:
+[http://www.dfhkxy.com/file/QVNaODQ4MTY5.html](http://www.dfhkxy.com/file/QVNaODQ4MTY5.html)
+
+## 深夜修仙 法力无边 GIF 多图 爪机流...
+
+[1000 人斬り] 130125yuri_mi レズフェティシズム～ A○B コスプレイヤー　誰にも言えない二人の秘密～ (UNCENSORED)
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eom2vnma1wtkepxo5_1280.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eom2vnma1wtkepxo1_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eom2vnma1wtkepxo2_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eom2vnma1wtkepxo3_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eom2vnma1wtkepxo4_500.gif)
+
+---
+
+012717_472 朝ゴミ出しする近所の遊び好きノーブラ奥さん 江波りゅう
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ekzqr4Jq1wtkepxo5_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ekzqr4Jq1wtkepxo1_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ekzqr4Jq1wtkepxo2_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ekzqr4Jq1wtkepxo3_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ekzqr4Jq1wtkepxo4_540.gif)
+
+---
+
+060215-890 極上セレブ婦人 Vol.9 逢沢はるか
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo5_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo6_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo1_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo2_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo3_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1el743OPz1wtkepxo4_540.gif)
+
+---
+
+092415-980 欲情に包まれたセレブ若妻の生交尾
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qjy13kLm1wtkepxo1_400.gif)
+
+---
+
+CWP-130 キャットウォーク ポイズン 130 【ミスキャンパス娘】ジャポルノ中出しデビュー 帀尾舞
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo3_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo4_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo5_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo6_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1m1yfmB8Y1wtkepxo2_400.gif)
+
+---
+
+HEYZO-0661 みづなれい 美痴女～変態女医の淫語治療～
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo3_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p19fs2iPFe1wtkepxo4_400.gif)
+
+---
+
+HEYZO-0730 大高舞(桜瀬奈) 淫乱痴女のセックストレーニング！！～ハードコアコースでへろへろになっちゃった～
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo4_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo5_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo6_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo7_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo8_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo9_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1if3h1ovl1wtkepxo3_540.gif)
+
+---
+
+HEYZO-1199 希咲あや【きさきあや】 他人妻味～スレンダー美人妻の鬱屈~
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qk2dYwn01wtkepxo1_400.gif)
+
+骑兵稍等多一些,献给喜欢骑兵的朋友
+259LUXU-891 ラグジュ TV 853 美穂 23 歳 モデル 1
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkkrgwaO1wtkepxo5_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkkrgwaO1wtkepxo6_1280.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkkrgwaO1wtkepxo7_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkkrgwaO1wtkepxo8_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkkrgwaO1wtkepxo4_540.gif)
+
+---
+
+ABP-058 世界的美少女は、僕のペット. 水咲ローラ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo9_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo10_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo3_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbmbpdxg1wtkepxo4_400.gif)
+
+---
+
+ABP-150 美しいお嬢様の卑猥なる飼育 柚原綾
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1csceSS531wtkepxo3_400.gif)
+
+---
+
+ADN-104 犯される度に美しく 希島あいり
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qlu1kk3h1wtkepxo1_400.gif)
+
+---
+
+ADN-118 あなた、許して….騙された人妻 希崎ジェシカ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0oumrCrBd1wtkepxo2_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0oumrCrBd1wtkepxo1_500.gif)
+
+---
+
+ATFB-217 美人家庭教師のイケナイ授業 みづなれい
+![](http://s6tu.com/images/2017/12/28/tumblr_p0tvg6r3lF1wtkepxo1_400.gif)
+
+---
+
+BDD-038 黒人巨大マラ 黒人テラチ ○ ポオンザロード 椎名ゆな編
+![](http://s6tu.com/images/2017/12/28/tumblr_p0t0aecUrs1wtkepxo1_400.gif)
+
+---
+
+CJOD-083 タイトスカート美尻お姉さんの誘惑中出しエステサロン 舞島あかり
+![](http://s6tu.com/images/2017/12/28/tumblr_p0suk08gwo1wtkepxo1_500.gif)
+
+---
+
+CRS-014 絶対服従 性奴隷と化した家庭教師 ちか
+![](http://s6tu.com/images/2017/12/28/tumblr_p1d5ekRApl1wtkepxo1_400.gif)
+
+---
+
+CWM-224 接吻中毒 飯岡かなこ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0ql2wk7yB1wtkepxo2_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0ql2wk7yB1wtkepxo1_500.gif)
+
+---
+
+DVDES-635 淫猥キャットファイト 3 女子校生と美人女教師！美闘タイマンガチバトル！
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo3_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo4_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/dvdes-635.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo1_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsstLft11wtkepxo2_400.gif)
+
+---
+
+FSET-633 同僚と飲んでて家に行くとノーブラパジャマ姿の奥さんが…
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xsvkuErP1wtkepxo1_400.gif)
+
+---
+
+HND-385 挿入とフェラを繰り返す生しゃぶり中出し美少女 栄川乃亜
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qjegLYMi1wtkepxo1_400.gif)
+
+---
+
+INF-003-2 无限绝顶アクメ小仓ゆず
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkbhUnbS1wtkepxo1_500.gif)
+
+---
+
+IPZ-092 犯された美人過ぎる女教師 希志あいの
+![](http://s6tu.com/images/2017/12/28/tumblr_p1icudUdtv1wtkepxo4_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1icudUdtv1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1icudUdtv1wtkepxo1_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1icudUdtv1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1icudUdtv1wtkepxo3_400.gif)
+
+---
+
+IPZ-224 お股ヌレヌレエステティシャン 触れ合う肉厚に高まる性欲！すぐに濡れ滾る美人エステティシャンの淫乱な性癖！ かすみ果穂
+![](http://s6tu.com/images/2017/12/28/tumblr_p0db33KXU01wtkepxo1_400.gif)
+
+---
+
+JUC-635 極太オルガズム W 絶頂レズフィスト 管野しずか 深田梨菜
+![](http://s6tu.com/images/2017/12/28/tumblr_p1g5g54ire1wtkepxo1_400.gif)
+
+---
+
+KR-9212 できる社長秘書 危ない密室 松島かえで
+![](http://s6tu.com/images/2017/12/28/tumblr_p117ozEeNi1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p117ozEeNi1wtkepxo1_400.gif)
+
+---
+
+MDYD-682 ノーブラで誘惑する欲求不満な巨乳人妻 JULIA
+![](http://s6tu.com/images/2017/12/28/tumblr_p1g5j3X1nx1wtkepxo1_500.gif)
+
+---
+
+MIAD-826 超敏感！美尻オイルマッサージ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0supqoMgV1wtkepxo1_500.gif)
+
+---
+
+MMTK-001 無意識に男の視線を集めてしまう魔性のデカ尻 篠田ゆう
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo5_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo6_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo7_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo8_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo9_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo10_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo3_540.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eo1njO8Y1wtkepxo4_540.gif)
+
+---
+
+MTA-002 本物巨乳をウリにする素人娘 2 藍野夢
+![](http://s6tu.com/images/2017/12/28/tumblr_p1g5u65XoP1wtkepxo1_400.gif)
+
+---
+
+MXGS-709 昏睡キメセク ～媚薬 × 催眠 × 泥酔～ 水沢のの
+![](http://s6tu.com/images/2017/12/28/tumblr_p0sunerdoo1wtkepxo1_500.gif)
+
+---
+
+NHDTA-527 壁越しでも聞こえてくる隣の奥さんの喘ぎ声を注意すると恥ずかしそうに謝りに来たので押し倒したら拒みつつも全身ビクビクでイキまくった 3
+![](http://s6tu.com/images/2017/12/28/tumblr_p0xu40268U1wtkepxo1_500.gif)
+
+---
+
+OVG-023 SEX 中なのに他の事に夢中な彼女
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo4_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo9_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qkqtX0Ua1wtkepxo3_400.gif)
+
+---
+
+PPPD-229 全裸巨乳家政婦 知花メイサ
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo4_1280.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo5_540.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo6_1280.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo7_1280.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo1_540.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo2_540.jpg)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p1ex1mbIbN1wtkepxo3_540.jpg)
+
+---
+
+SNIS-012 犯された新人アナウンサー 凌辱の報道ステージ 瑠川リナ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo3_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo4_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo9_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wbqsgg0E1wtkepxo1_400.gif)
+
+---
+
+SNIS-839 プロ痴漢師に潮出なくなるまでイカされまくり足腰ガクガク震わせながらそれでも絶頂する明日花キララ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0sfuq5xaL1wtkepxo3_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0sfuq5xaL1wtkepxo1_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0sfuq5xaL1wtkepxo2_500.gif)
+
+---
+
+STAR-297 芸能人 羽田あい 中出し超高級ソープ嬢
+![](http://s6tu.com/images/2017/12/28/tumblr_p0tvblgmQ61wtkepxo1_400.gif)
+
+---
+
+STAR-409 AV debut 橘梨紗
+![](http://s6tu.com/images/2017/12/28/tumblr_p0su3wfnsf1wtkepxo1_400.gif)
+
+---
+
+STC-019 今宵、金髪女を凌辱したい… 嬲ノ篇
+![](http://s6tu.com/images/2017/12/28/tumblr_p0qlghZiIp1wtkepxo1_400.gif)
+
+---
+
+SW-393 夢の近親相姦！まだまだイケる母のデカ尻に辛抱たまらん！パパには内緒で僕の思春期チ ○ ポ誘ってくるんだもん
+![](http://s6tu.com/images/2017/12/28/tumblr_p0bfkaOhmX1wtkepxo1_500.gif)
+
+---
+
+TYOD-145 爆乳ゲリラ淫乱 SEX Hitomi
+![](http://s6tu.com/images/2017/12/28/tumblr_p1g5qkLT001wtkepxo1_400.gif)
+
+---
+
+VDD-083 女医 in… ［脅迫スイートルーム］ Doctor Meisa(28)知花メイサ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo5_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo6_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo7_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo8_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo9_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo10_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo2_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo3_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0wc71geyC1wtkepxo4_400.gif)
+
+---
+
+VEC-285 友人の母親 香椎りあ
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stunpHpa1wtkepxo5_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stunpHpa1wtkepxo1_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stunpHpa1wtkepxo2_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stunpHpa1wtkepxo3_500.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stunpHpa1wtkepxo4_500.gif)
+
+---
+
+WANZ-299 ハミ乳先生の誘惑レッスン 千乃あずみ
+![](http://s6tu.com/images/2017/12/28/tumblr_p1eltc3A8k1wtkepxo1_500.gif)
+
+---
+
+WANZ-333 食い込みパンチラは我慢できない かすみ果穂
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stngDQuE1wtkepxo3_r1_400.gif)
+
+![](http://s6tu.com/images/2017/12/28/tumblr_p0stngDQuE1wtkepxo1_500.gif)
+
+## [各种巨乳黑丝精品 GIF 求大手子 求番号求地址 - JAVLibrary](https://www.g46e.com/cn/publictopic.php?id=98417)
+
+感谢@oasis34 @jonyxie 两位大佬空着的等大佬找到后我在补进去 另外 GIF 会慢慢加多顺便自己收藏一波
+
+### 1 @ 日高千晶
+
+![091218-750 THE 未公開 〜ずっとフェラしてていい？〜 日高千晶](https://p.pstatp.com/origin/ff50000090766b1de2dd)
+
+![091218-750 THE 未公開 〜ずっとフェラしてていい？〜 日高千晶](https://www.z4a.net/images/2020/04/24/FRSi2t.gif)
+
+[091218-750 THE 未公開 〜ずっとフェラしてていい？〜 日高千晶](https://www.javbus.com/091218-750)
+
+小骚货！射在你嘴里是不是很舒服 很兴奋啊^O^
+
+### 2 @ 碧木凜 一本道 032417_504 モデルコレクション
+
+![](https://p.pstatp.com/origin/ff280000d25c9e0b15b1)
+
+### 3 @ EBOD-613(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fff7000116a98de66e8d)
+
+### 4 @ HTMS-119 ヘンリー塚本 男を腑抜けにするでっかい乳房(おっぱい) 吉川あいみ
+
+![](https://p.pstatp.com/origin/ffb20002b5439523ccb7)
+
+### 5 @ 长泽梓 Heyzo-0134
+
+![](https://p.pstatp.com/origin/fe8800018f2ac9e73da1)
+
+### 6 @ Tokyo Hot k1400 東京熱餌食牝西田結菜 Yuna Nishida(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fead0000e1c34142e4f3)
+
+### 7 @ EBOD-513 繼女有這非常圓潤的屁股意外被我插入了鈴木心春
+
+[EBOD-513 嫁の連れ子が家の中では T バック一枚でウロウロしてます…常に桃尻がプリプリ揺れてて 鈴木心春](https://www.javbus.com/EBOD-513)
+
+不知道再婚妻子她繼女是不把我當男人還是怎樣、她常常只穿一件內褲在家亂晃、本來不怎麼在乎的、但是她的肉體實在讓人想打一砲、性慾爆表的我終於忍不住推倒了她、用肉棒中出來好好教訓她！
+
+![EBOD-513 嫁の連れ子が家の中では T バック一枚でウロウロしてます…常に桃尻がプリプリ揺れてて 鈴木心春](https://p.pstatp.com/origin/dc110004df770a0dfd0c)
+![EBOD-513 嫁の連れ子が家の中では T バック一枚でウロウロしてます…常に桃尻がプリプリ揺れてて 鈴木心春](https://p.pstatp.com/origin/fe8e00004c41449bcdc9)
+![EBOD-513 嫁の連れ子が家の中では T バック一枚でウロウロしてます…常に桃尻がプリプリ揺れてて 鈴木心春](https://p.pstatp.com/origin/fede0000fae0ae8b57a8)
+![EBOD-513 嫁の連れ子が家の中では T バック一枚でウロウロしてます…常に桃尻がプリプリ揺れてて 鈴木心春](https://p.pstatp.com/origin/ff190001396949c2cdce)
+
+### 8 @ JUX-388
+
+[JUX-388 奪われた兄嫁～義弟が仕組んだ寝取られ性交～](https://www.javbus.com/JUX-388)
+
+[剧情诱惑,我朋友真心想要,在线等](https://sijishe.vip/58252.html)
+
+![JUX-388 奪われた兄嫁～義弟が仕組んだ寝取られ性交～](https://p.pstatp.com/origin/ffe60000aa10e8be72a3) 原来妹妹老公的吉巴可以插这么深
+
+### 8.1 FC2PPV-1040467
+
+![FC2PPV-1040467](https://p.pstatp.com/origin/ff6e000113a02021b848) 受不住了这种骚劲
+
+[FC2PPV-1040467 憧れデパガ美女は超敏感 SEX 中毒！顔良し、スタイル良し、性格良しに加えて超淫乱、そんな理想のお姉さんとのがっつきファック一部始終:美容部員・ひとみちゃん(25 歳)②](https://adult.contents.fc2.com/article/1040467/)
+
+[FC2PPV-1040467](<https://7mmtv.in/zh/uncensored_content/13857/[fc2-ppv%201040467]%E6%86%A7%E3%82%8C%E3%83%87%E3%83%91%E3%82%AC%E7%BE%8E%E5%A5%B3%E3%81%AF%E8%B6%85%E6%95%8F%E6%84%9FSEX%E4%B8%AD%E6%AF%92%EF%BC%81%E9%A1%94%E8%89%AF%E3%81%97%E3%80%81%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E8%89%AF%E3%81%97%E3%80%81%E6%80%A7%E6%A0%BC%E8%89%AF%E3%81%97%E3%81%AB%E5%8A%A0%E3%81%88%E3%81%A6%E8%B6%85%E6%B7%AB%E4%B9%B1%E3%80%81%E3%81%9D%E3%82%93%E3%81%AA%E7%90%86%E6%83%B3%E3%81%AE%E3%81%8A%E5%A7%89%E3%81%95%E3%82%93%E3%81%A8%E3%81%AE%E3%81%8C%E3%81%A3%E3%81%A4%E3%81%8D%E3%83%95%E3%82%A1%E3%83%83%E3%82%AF%E4%B8%80%E9%83%A8%E5%A7%8B%E7%B5%82%EF%BC%9A%E7%BE%8E%E5%AE%B9%E9%83%A8%E5%93%A1%E3%83%BB%E3%81%B2%E3%81%A8%E3%81%BF%E3%81%A1%E3%82%83%E3%82%93(25%E6%AD%B3)%E2%91%A1/index.html>)
+
+---
+
+[ESK-305 エスカレートするドしろーと娘 305 ゆいちゃん 20 さい](https://7mmtv.in/zh/censored_content/84609/[ESK-305]%E3%82%A8%E3%82%B9%E3%82%AB%E3%83%AC%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%83%89%E3%81%97%E3%82%8D%E3%83%BC%E3%81%A8%E5%A8%98%20305%20%E3%82%86%E3%81%84%E3%81%A1%E3%82%83%E3%82%9320%E3%81%95%E3%81%84/index.html)
+
+有著開朗笑容的 20 歲開朗美少女結衣來啦、和她約會享受甜蜜時光後、就帶回旅館開房間開幹啦、鮮嫩美奶多汁鮑魚超可口的、馬上瘋狂猛幹到爆射高潮爽翻天！
+
+---
+
+[ESK-314 エスカレートするドしろーと娘 314 れんちゃん 23 さい](https://7mmtv.in/zh/censored_content/103862/[ESK-314]%E3%82%A8%E3%82%B9%E3%82%AB%E3%83%AC%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%83%89%E3%81%97%E3%82%8D%E3%83%BC%E3%81%A8%E5%A8%98%20314%20%E3%82%8C%E3%82%93%E3%81%A1%E3%82%83%E3%82%9323%E3%81%95%E3%81%84/index.html)
+
+有著開朗笑容的 23 歲開朗美少女小麗來啦、和她約會享受甜蜜時光後、就帶回旅館開房間開幹啦、鮮嫩美奶多汁鮑魚超可口的、馬上瘋狂猛幹到爆射高潮爽翻天！
+
+---
+
+[ESK-300 エスカレートするドしろーと娘 300 あいらちゃん 20 さい](https://7mmtv.in/zh/censored_content/66722/[ESK-300]%E3%82%A8%E3%82%B9%E3%82%AB%E3%83%AC%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%83%89%E3%81%97%E3%82%8D%E3%83%BC%E3%81%A8%E5%A8%98%20300%20%E3%81%82%E3%81%84%E3%82%89%E3%81%A1%E3%82%83%E3%82%9320%E3%81%95%E3%81%84/index.html)
+
+有著開朗笑容的 20 歲開朗美少女愛羅來啦、和她約會享受甜蜜時光後、就帶回旅館開房間開幹啦、鮮嫩美奶多汁鮑魚超可口的、馬上瘋狂猛幹到爆射高潮爽翻天！
+
+### 9 @ 有码番号:REAL-002 素人‘限定’交尾 VOL.02
+
+[REAL-002 素人‘限定’交尾 vol.2](https://www.javbus.com/REAL-002_2008-11-08)
+
+无码番号:[av-taiken] h0064 みゆきちゃん 20 歲
+磁力链接:magnet:?xt=urn:btih:32c67e87d024849c0705cc5f206068be83854742
+![](https://p.pstatp.com/origin/ffad0000efaaa168545f)
+![](https://p.pstatp.com/origin/fee00002ac9af4ee2364)
+
+### 10 @ AP-548 南沙也香
+
+![](https://p.pstatp.com/origin/ff66000193fbf4025970)
+
+### 11 @ 篠田ゆう,应该是她,但没找到是哪一部,后面补充
+
+![](https://p.pstatp.com/origin/fea20000e63b77a87dee)
+
+### 12 @
+
+![](https://p.pstatp.com/origin/ff540000f5894ef391b6)
+
+### 13 @ FSET-367 长泽梓
+
+![](https://p.pstatp.com/origin/fe780000a268dde1d8e4)
+![](https://p.pstatp.com/origin/fff60000aa19b33e247c)
+
+### 14 @ MSFH-014(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fe990001539c2d547372)
+![](https://p.pstatp.com/origin/ff1d00017ac479d1da65)
+
+### 15 @ 一本道 111711_217 原小雪「挑発的なカラダで浓厚 3P」 SKYHD-020
+
+![](https://p.pstatp.com/origin/ffad0000e29ab1e868a9)
+
+### 16 @ SNIS-576 狙われた巨乳キャビンアテンダント 性欲解消肉便器に転落したキャリアウーマン 明日花キララ
+
+![](https://p.pstatp.com/origin/fef30000ebf598b39ddd)
+
+### 17 @ xxx-av-19959(来源自 oasis34)
+
+xxx-av-22243
+
+![](https://p.pstatp.com/origin/fe770000e912b2f98d27)
+![](https://p.pstatp.com/origin/ff77000139ef6088a303)
+
+### 18 @ 赤井美月 具体？(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/dc120005bfec4409a961)
+
+### 19 @ EBOD-431 E-BODY 専属デビュー 世界的現役ランジェリーモデル リリィ
+
+![](https://p.pstatp.com/origin/ff6f0000ea74acd59757)
+
+### 20 @ ABS-095 朱音ゆい、満足度満点ソープ
+
+![](https://s1.wailian.download/2020/04/23/Xfs47l.gif)
+
+### 21 @
+
+![](https://www.picnew.org/images/2020/05/02/01142708_0.gif)
+
+### 22 💯 MIDE-761 両親が不在の間、暇なド田舎に預けられた私は近所のオジさんを誘惑して勝手にまたがり腰を振り続けた… 水卜さくら
+
+![](https://p.pstatp.com/origin/ff2d0000a5a05293ac44)
+
+### 23 @ 最新 91 原创麻豆特别策划新作-爆乳小姨子上门求操 F 罩杯巨乳 快速抽插巨乳乱颤浪叫
+
+![](https://p.pstatp.com/origin/ff870000d2dabf3b404f)
+
+### 24 @ heydouga-4017-256-1
+
+磁力链接:magnet:?xt=urn:btih:52af8c7651b4485eeea423052d06e463f703b46e
+
+![](https://p.pstatp.com/origin/fe390001b507048e182f)
+
+### 25 @ HUNTA-510 「ダメダメ！その角度で動かしたらアブナイ！！挿っちゃうよ！」巨乳過ぎる義姉と素股していたらヌルヌルでズボ！結局生挿入＆生中出し！突然出来た義理の姉はカワイイだけではなくてとにかく巨乳です！！目のやり場に困ってしまうほど、家では嘘だろう？と思うくらい胸が… 三原ほのか
+
+![](https://p.pstatp.com/origin/ff310000dec496b57782)
+
+### 26 @ WHY STEP SISTERS ARE SUCH WHORES - LITTLEREISLIN(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fe2200012f25b6a5b8bd)
+
+### 27 @ WANZ-225 生徒に自宅を乗っ取られた若妻女教師 美人妻が奴隷ペットと化す 3 日間の凌辱劇 沖田杏梨
+
+![](https://p.pstatp.com/origin/ff320000ce5669850d3a)
+
+### 28 @ CAWD-003 美乳の彼女が巨漢センパイに圧迫固定で寝取られ中出しされた時の話です 伊藤舞雪(来源自 oasis34)
+
+[CAWD-003 美乳の彼女が巨漢センパイに圧迫固定で寝取られ中出しされた時の話です 伊藤舞雪](https://www.javbus.com/CAWD-003)
+
+舞雪與同大學的良雄交往半年開始同居,某天良雄知道了地方的不良前輩中田搬到附近,良雄以前就常被中田欺侮,而中田又對舞雪抱有好意…
+
+![](https://p.pstatp.com/origin/ffb70000ac93b4dd1597)
+
+### 29 @ GENT-125 田舎で発見！ド理想の天然アニメボディ娘(極クビレ＆神乳)【どこまでもマゾになる自分に驚きながら、中出し泣き失神！】ゆう 20 歳 千秋夕
+
+![](https://p.pstatp.com/origin/ff7200017031e0b0ab2a)
+
+### 30 @
+
+![](https://p.pstatp.com/origin/dc0e0005abbdd06326d4)
+
+### 31 @ IPX-367 出張先相部屋 NTR 絶倫の部下に一晩中何度もイカされた巨乳女上司 桜空もも(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fffa00002e86c23c3490)
+
+### 32 @ HUNTA-430 三原ほのか
+
+![](https://p.pstatp.com/origin/ff230000e1e9cc90aba7)
+
+### 33 @
+
+![](https://p.pstatp.com/origin/dc0f0004b65ea0cc650b)
+
+### 34 @
+
+![](https://p.pstatp.com/origin/ffd600019f427bd3a78c)
+
+### 35 @ SSPD-137 人妻が扉をひらく時 松下紗栄子
+
+![](https://s1.wailian.download/2020/05/04/9jaxL0.gif)
+
+### 36 @ DVDES-543 SEX のハードルが異常に低い世界 3
+
+![](https://p.pstatp.com/origin/ff8f0000c2fcc3f5cc08)
+
+### 37 @
+
+![](https://p.pstatp.com/origin/1000500006fa2eafc5533)
+
+### 38 @ MSFH-008 イッても腰振りが止まらない超貪欲美女のグイグイ騎乗位性交 広瀬りおな
+
+![](https://p.pstatp.com/origin/ff4d00010aa458f6ceab)
+
+### 39 @ YRH-036 働くオンナ猟り vol.08
+
+![](https://www.z4a.net/images/2020/04/19/COVHK1.gif)
+
+### 40 @ Carib-012318-589 無碼 中文字幕 視界侵入！たちまち挿入！ ～快楽に堕ちた白肌～ : 立花瑠莉
+
+![](https://p.pstatp.com/origin/dc0e00058cef3f9cc4f0)
+
+### 41 @
+
+![](https://p.pstatp.com/origin/fea8000230d26e4c9059)
+
+### 42 @
+
+![](https://www.z4a.net/images/2020/04/01/Pyr4FQ.gif)
+
+### 43 @ HUNTA-430 三原ほのか
+
+![](https://p.pstatp.com/origin/ff230000e1e9cc90aba7)
+
+### 44 @ HUNTA-430 三原ほのか
+
+![](https://p.pstatp.com/origin/ff230000e1e9cc90aba7)
+
+### 45 @ HUNTA-430 三原ほのか
+
+![](https://p.pstatp.com/origin/ff230000e1e9cc90aba7)
+
+### 46 @
+
+![](https://p.pstatp.com/origin/ff950000652f984af744)
+
+### 47 @
+
+![](https://p.pstatp.com/origin/1000900005151062ee8d0)
+
+### 48 @ HMGL-098 恥ずかしいカラダ ロケットおっぱい 立川理恵
+
+![](https://p.pstatp.com/origin/fe1e00009a1538e59da2)
+
+### 49 @ IPZ-803 これからはずっと一緒だね 好き過ぎて自分の女と錯覚している異常者に監禁された優等生 新道ありさ
+
+![](https://p.pstatp.com/origin/fe7e0000beafa454393e)
+
+### 50 @ RCT-352 スケベな姉弟がエッチなゲーム 一転知らずに近親相姦 弟なら姉の裸当ててみて！
+
+![](https://p.pstatp.com/origin/fe900000d0f7cb436a3d)
+
+### 51 @ 一之瀨亞美莉 1pondo-081811_158
+
+![](https://s1.wailian.download/2020/05/11/R9YLKx.gif)
+
+### 52 @
+
+![](https://p.pstatp.com/origin/fece00012dbb93b4163d)
+
+### 53 @
+
+![](https://p.pstatp.com/origin/fea400027bc169700760)
+
+### 54 @ DASD-241 ぶっかけ中出し輪姦 100 連発 市来美保
+
+![](https://s1.wailian.download/2020/05/11/nhJRtl.gif)
+
+### 55 @ TYOD-365 壊れちゃいそうな程エビ反る細腰 W52cm ガリボイン 双葉良香
+
+![](https://p.pstatp.com/origin/fe860001306ed91f858a)
+
+### 56 @ TYOD-365 壊れちゃいそうな程エビ反る細腰 W52cm ガリボイン 双葉良香
+
+![](https://p.pstatp.com/origin/ffbd0000e154fc4fd0d8)
+![](https://p.pstatp.com/origin/ffb40000611eb1bc73f6)
+
+### 57 @
+
+![](https://p.pstatp.com/origin/fe21000101d4c495f1e8)
+
+### 58 @ SDMU-162 成熟した姉の裸に触れた童貞弟はイケない事と知りつつもチ ○ ポを勃起させて「禁断の近親相姦」してしまうのか！？清純美乳女子大生に完全密着！！またがり！生ハメ！中出し！ ま、ま、まさかの近親セックス 3 連発！？ せいの彩葉
+
+![](https://p.pstatp.com/origin/fe610000e08073b805d5)
+
+### 59 @ GZAP-005(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/ff140001592713dafab5)
+
+### 60 @
+
+![](https://p.pstatp.com/origin/ffbd0001649357e65bd9)
+
+### 61 @
+
+![](https://p.pstatp.com/origin/dc0f000461384ad78c54)
+
+### 62 @ DOCP-215 「終電ないならウチくる？」残業で終電を逃がしてしまった俺は誘われるがまま家にお邪魔する事に.いつも会社で見るスーツ姿とは違うゆるい部屋着姿に興奮してしまい…
+
+![](https://p.pstatp.com/origin/fe3f00010298f8fa7daa)
+
+### 63 @
+
+![](https://kanjiantu.com/images/2020/05/17/uihOTD.gif)
+
+### 64 @ BF-057 爆乳 ◆ 家庭教師 我那覇レイ REI 柊りん
+
+![](https://s1.wailian.download/2020/05/08/Ii2LUO.gif)
+
+### 65 @ PPPD-322
+
+![](https://www.z4a.net/images/2020/05/13/qvjKHe.gif)
+
+### 66 @ GVG-034 みんな大好き 本田莉子が童貞さんの夢叶えます！Dream SEX！！AV 女優本田莉子が素人童貞宅で筆 お ろ し
+
+![](https://www.picnew.org/images/2020/05/13/dGRkTq.gif)
+
+### 67 @ EBOD-501 最高級ボディ女子校生真正中出しソープ 中年オヤジを癒してくれる超優良風俗店 美竹すず
+
+![](https://s1.wailian.download/2020/05/15/Etemr0.gif)
+
+### 68 @ HONB-150 HONB-150 『助けて パパ』埼玉出身今 ● ゆき(本名)(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/ff880000aa9a077a6403)
+
+### 69 @ fc2-809174(来源自 oasis34)
+
+![](https://s1.wailian.download/2020/05/31/3F9428.gif)
+
+### 70 @
+
+![](https://p.pstatp.com/origin/feaf0001a13cd1715dc0)
+
+### 71 @ 搜皮皮娘 具体不清楚(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/ff5300005b5ec81f8657)
+
+### 72 @
+
+![](https://p.pstatp.com/origin/fef30001dbe5f3d3e666)
+
+### 73 @ 里中結衣 061815-902-carib.
+
+![](https://s1.wailian.download/2020/05/27/qEfxNZ.gif)
+
+### 74 @ MDYD-716 鍵を落とす人妻 朝霧メイサ
+
+![](https://www.z4a.net/images/2020/05/26/ITXygK.gif)
+
+### 75 @ TBL-001 敏感美少女、発育中 朱音ゆい
+
+![](https://www.z4a.net/images/2020/06/02/HkJE1l.gif)
+
+### 76 @ SAIT-013 美少女機械人形 ●B× アナル＆マ ● コ 2 穴中出しファック ×10 連続大量ザーメンぶっかけ ほのか 三原ほのか
+
+![](https://www.z4a.net/images/2020/06/03/swagLH.gif)
+
+### 77 @
+
+![](https://p.pstatp.com/origin/ff090000bfe4d733e5e4)
+
+### 78 @ dasd-409(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/ff380000a340a9628025)
+
+### 79 @
+
+![](https://p.pstatp.com/origin/dc0d00071ead4c771ca3)
+
+### 80 @
+
+![](https://s1.wailian.download/2020/06/07/cifbMQ.gif)
+
+### 81 @ 一本道 121914_942「好色妻降臨 47」百合川沙羅
+
+![](https://www.z4a.net/images/2020/06/06/Vw7y4U.gif)
+
+### 82 @ ONEZ-004 or？ Act;02 亜衣
+
+![](https://www.z4a.net/images/2020/06/08/DlLwRY.gif)
+
+### 83 @
+
+![](https://p.pstatp.com/origin/ff48000154e08e9572e4)
+
+### 84 @ 刘玥 https://cn.pornhub.com/model/ziaxbite
+
+![](https://p.pstatp.com/origin/ffee000165501811fddf)
+
+### 85 @ HAR-077 レイプで中出しされる快感にハマりさらなる中出しチ ○ コを求める過剰性欲姉妹
+
+![](https://p1.pstatp.com/large/pgc-image/42cc75f89d024a859ce2b2dc7d864f92)
+
+### 86 @ CHN-096 新・絶対的美少女、お貸しします. 52
+
+[CHN-096 新・絶対的美少女、お貸しします. ACT.52 結菜えま](https://hpjav.tv/tw/114417/chn-096) 有著清秀臉孔和可愛長髮的正妹結菜繪麻、來到新・絕對正妹租給你幹系列啦、在 3 位素人男家中甜蜜親吻、像情侶般快樂幹到飽 ♪ 用各種體位幹到她爽歪歪！
+
+![](https://78.media.tumblr.com/90bd53dcac6fffb417ab4a90db36ce8a/tumblr_p4dvrwWJhI1whac62o1_400.gif)
+
+### 87 @ SNIS-537 美乳がポロリ 園田みおん
+
+![](https://p.pstatp.com/origin/ffd80000f6fbf6ca533a)
+
+### 88 @ Eva Elfie (aka Lady Jay -Tiny Teen)
+
+![](https://p.pstatp.com/origin/ff800001eb3cddd0ad90)
+
+### 89 @ EVA ELFIE
+
+![](https://p.pstatp.com/origin/fe3c0000e1bc45812681)
+
+### 90 @ 快！我要按 F 键进入跑车 我要死在车里！！！^\_^
+
+![](https://p.pstatp.com/origin/fea800024f3da0617d6f)
+![](https://p.pstatp.com/origin/fe2f0000f413778aa13a)
+![](https://p.pstatp.com/origin/fe210000fb31d157438e)
+![](https://p.pstatp.com/origin/fec00000abe77efde29e)
+![](https://p.pstatp.com/origin/fff30000452d48060d4f)
+![](https://p.pstatp.com/origin/ff7200017f087f2f146f)
+![](https://p.pstatp.com/origin/ffc60001622dadd17920)
+
+[快！我要按 F 键进入跑车 我要死在车里！！！^\_^](https://www.avoo.vip/uploads/questions/20200423/d9852c9fbd3f302137866238148ec12f.jpg)
+
+![](https://p.pstatp.com/origin/fffe000058dfd09388b0)
+
+### 91 @ SCOP-060 会社の同僚は美人で超巨乳！ 服がパッツンパッツンになってブラウスの隙間から覗いた胸を見てフル勃起！ダメもとで誘ってみたら意外とヤレた！
+
+![](https://p.pstatp.com/origin/fef20000f6f09c3f91a7)
+
+### 92 @ 可爱的小胖丁
+
+![](https://p.pstatp.com/origin/fe8800019cb3bff26e5f)
+
+### 93 @ 约操极品 F 爆乳知名网红『喵小兔』 极品女神骑乘顶操 淫荡浪叫 F 杯爆乳口交诱人 完美露脸
+
+![](https://s1.wailian.download/2020/05/19/c4a05a72b290a.jpg)
+
+### 94 @ 裸戏替身女明星沈樵流出第四部-七旬老农的女鬼诱惑(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fe530000b76489fccb02)
+
+### 95 @ 四 驱 兄 弟 最 新 作 品 G 杯 豪 臀 绝 色 妖 姬 妲 己(来源自 oasis34)
+
+![](https://www.z4a.net/images/2020/06/03/D1ftzrdefce20156f39c75.gif)
+
+### 96 @ BT-136(来源自 oasis34)
+
+![](https://p.pstatp.com/origin/fed400013485a02a989d)
+
+## 这几个人太诱惑了！求老司机开车！！
+
+![MIDE-378](http://s2.woimg.net/images/2019/12/04/ZVIxdHRSZFJIbDczY0p3Yk1ydlZIdjN3R0NXSElHRlhJbUcyWkg0RnBzRktUcHJlTGMxRXhnPT0.gif) MIDE-378
+
+![[無碼]最新一本道 080815_130 GLAMOROUS 酒井 初裏無修正](http://s2.woimg.net/images/2019/12/04/ff3d00007e40e021ee1d.gif) [無碼]最新一本道 080815_130 GLAMOROUS 酒井 初裏無修正
+
+![ABP-607](http://s2.woimg.net/images/2019/12/04/fea50000acd683109491.gif) ABP-607
+
+![ CHN-096](http://s2.woimg.net/images/2019/12/04/CHN-096_p39hxeGb3A1wtkepxo2_r1_400.gif) CHN-096
+
+![KV-151](http://s2.woimg.net/images/2019/12/04/632844ef68874abc9f0fc3283cdc342b.gif) KV-151
+
+### [052016_569 S Model 156 ガクガク野外露出 SEX 連続中出し 有賀ゆあ](https://www.javbus.com/052016_569)
+
+### [FSET-634 泥酔してる友達のお姉ちゃんに後ろから激しくパンパンしちゃった俺](https://www.javbus.com/FSET-634)
+
+我去朋友家玩時卻發現她姐喝得爛醉回到家、意識不清的她那對柔軟大奶看來真誘人、於是就忍不住從後激烈啪啪啪、隨著慾望肏到最後爆射爽翻天！
+
+### [ABP-327 みづき乃愛がご奉仕しちゃう超最新やみつきエステ](https://www.javbus.com/ABP-327)
+
+美月乃愛來到超最新讓你上癮美體沙龍來伺候您 ♪ 用好身材幫你洗澡真是淫亂！舔翻肉棒後直接用小穴幫你按摩男根！！性感制服裝讓你爽翻天！
+
+极品美女！穿着护士服做大保健 做完了还可以干炮后入她的小香臀^O^
+拥有极品长腿身材的无敌美少女化身为 SPA 技术为我服务,还有护士制服,车模制服诱惑^\_^
+
+### [AKA-043 真面目女子がエロ覚醒したら、えらいことになった. File.01 坂内里奈](https://www.javbus.com/AKA-043)
+
+### 动态美图-第 3132 期
+
+![259LUXU-0389fce8](https://img.img2048.xyz/images/2019/12/31/259LUXU-0389fce8.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-086-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-086-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-086-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-086-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-1328e8f1.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-1507c9b9.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-1562d66a.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-156-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-156-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-164.gif)
+
+### 动态美图-第 3133 期
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-164-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-164-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-164-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-164-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-178.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-178-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-178-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-185.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-185-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-193.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-193-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-193-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-193-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-193-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-201.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-220.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-220-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-271.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-271-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-304.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-304-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-304-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-304-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-314.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-314-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-314-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-314-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-314-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-315.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/259LUXU-316.gif)
+
+### 动态美图-第 3134 期
+
+![](https://img.img2048.xyz/images/2019/12/31/288-Ai-02.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/288-Ai-02-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/288-Ai-02-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/288-Ai-02-6.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/288-Ai-02-7.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/406_ayane_01.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/406_ayane_01-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/406_ayane_01-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/406_ayane_01-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/406_ayane_01-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/411_uta_01.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/411_uta_01-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/411_uta_01-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/411_uta_01-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/413_beni_01.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/413_beni_01-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/413_beni_01-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/413_beni_01-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/413_beni_01-5.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/415_mayu_01.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/415_mayu_01-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/415_mayu_01-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/415_mayu_01-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/435_moka_01.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/435_moka_01-2.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/435_moka_01-3.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/435_moka_01-4.gif)
+
+![](https://img.img2048.xyz/images/2019/12/31/435_moka_01-5.gif)
+
+## 心动剧情佳作赏析篇 ①《桥本有菜禁欲一个月后的疯狂性爱》
+
+<details><summary><b>答案</b></summary>
+<p>
+
+首先实名感谢 98 堂,我看 AV 的年龄满打满算差不多有 18 年了,从刚开始的武藤兰、来生光、纹舞兰,到中期的古都光、苍井空,再到业界巅峰时期的 RIO、傻妹那批,直到后来三上悠亚、高桥圣子、桥本有菜统治的时代,我都亲身撸过.直到最近一年,伟大的本堂竟然还能打开我自认为资深 luer 的新世界大门——那就是中文翻译版.
+　　简直发现了前所未有的宝藏,以前都以为那是差不多的剧情,大概猜猜就八九不离十了,什么女朋友的姐姐、NTR、搜查官之类的,撸过就算了.现在才了解,哪怕是同一个主题,也不是完全相同的剧情走向,有一些作品拍得细致一些,台词写得用心一点,细节表现花多点心思,呈现出来的效果完全不一样的.当然也有一些拍得比较随便的,如果遇到佳作用心去感受一些小细节,你得到的感动也会完全不一样,甚至回味无穷.
+
+然后抛个结论,给大家推荐三部我心中的剧情佳作,分别是
+①SSNI-647 桥本有菜禁欲一个月后的疯狂性爱
+②MIDE-584 つぼみ(蕾)重逢的青梅竹马禁忌的性爱
+③HNDS-067 醒来后我喜欢的前辈河南实里和喜欢我的前辈椎名空一起在玩弄
+
+第一部 SSNI-647 可能大部分堂友都看过,是桥本腿腿的大作,题材也是热门的禁欲一个月然后跟女友的朋友疯狂 XXOO 这个
+男主的女朋友跟桥本是好姐妹,年龄设定在大学临毕业的学生(女神穿着衣服酥胸半露也是非常好看的)
+![](https://www.assdrty.com/tupian/forum/202003/07/035043epwr0wyhy9ss09yr.jpg)
+
+这个社会太现实啦,毕业=分手,爱情真的能持久吗？更何况实习的公司有帅哥前辈
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035043j4vzprza449upqzg.jpg)
+
+某天,三个好朋友聚餐,男主跟桥本谈心事,为什么女朋友最近变冷淡了呢？(一大顶绿帽要扣上来还懵懵不知道)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035043vlxduh6svz6uq1m7.jpg)
+
+下个月女朋友公司要去出差,打算劈腿向前辈告白,于是背地里跟桥本商量(女二也挺好看的,不知道有没有独立拍片呢)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035043jen5hfd22m3deg32.jpg)
+
+原来桥本也有着自己的小心思,一直喜欢着男主,但他们三个是好朋友啊,不能让男主劈腿做坏人的
+于是她跟男主立下禁欲一个月之约……因为到时候女二号会先劈腿的(好厉害的心思,又是婊子又立了贞节牌坊)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035043w0bx0ke6kkk3yxtk.jpg)
+
+一个月之内既不能自慰,也不能做爱,这是他们俩个的约定
+桥本差点说完就自己破戒先了,哈哈
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035043e5xg252w5wovsvh8.jpg)
+
+女朋友终于决定了向前辈告白,而桥本也答应了保密(桥本其实也是个言而有信的人的)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035044heqhuu3hwigieubh.jpg)
+
+.+
+
+出差的日子一天天逼近,在倒数着,禁欲的约定也折磨着三个人,同时的.好几次都差点破戒了,但是要守住啊,大家都要坚守朋友的道义.
+(没射的都不算,哈哈)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035044jhhilliimzzyya5y.jpg)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035044t5p2cjsjg2csgqul.jpg)
+
+好不容易熬到了"约定之日",男主送走女友后匆匆赶赴"战场"
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035044xu3jl9el3ucflsu9.jpg)
+
+这时候 120 分钟的影片已经过去四分之一了,男主终于和桥本开始了连场大战
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045h29uttemztmozmmb.jpg)
+
+狠狠地来了一发(特别假)的发射之后,又接着来第二发,毕竟设定是禁欲了一个月嘛
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045qdv5z1lv5ddlc01l.jpg)
+
+侧面的打光下桥本的白皙皮肤和长腿特别出彩
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045ghr1j11pazabu6o1.jpg)
+
+煮个饭仔、再手机拍个口口这种正常操作略下不表,当晚男主送桥本回家后依依不舍继续大战也是情理之中.
+值得一提的是这个吹头发的操作,真的是太太太甜啦~桥本的笑容真的很恋爱
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045uoo5ce44xmw4ot1d.jpg)
+
+这套睡衣也太真实了吧,很亲民很有想象空间.
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045tngkobfmmadb353g.jpg)
+
+原来是分体式的,一下子从后面把裤子扒下来
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035045lbwa99qs9sg2qbaq.jpg)
+
+然后马上后入,睡衣什么的不用脱的
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035046qgszons3qconnnnf.jpg)
+
+暖暖的恋爱就是射完抱着一起睡觉,对嘛
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035046k449p4xzsaa6bb4q.jpg)
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035046r35yf1hx35iki5f3.jpg)
+
+第二天起来裸体对着窗帘那一幕美景,其实很多电影都会有一闪而过的画面,不同的是在日本片里可以完全满足你的幻想
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035046jsml6lyty6jljj6l.jpg)
+
+晨光下这幕美臀真是一绝
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035047ohb00zcpjixwpl07.jpg)
+
+当然要来一发呀
+
+![](https://www.assdrty.com/tupian/forum/202003/07/035047ob342bwr91wpc8nn.jpg)
+
+激情过后到了下午,"正牌"女友回来了,一身职业装已俨然不同了.
+这时候桥本也杀上门来,在友情和爱情还有道义的三岔口,三个人的关系究竟最终变成怎样呢
+这里我卖个关子,欲知结局如何,自己去堂里搜索 SSNI-647 吧！
+![](https://www.assdrty.com/tupian/forum/202003/07/035047ixz005mm7w5w303d.jpg)
+
+后来我看过好多部类似主题的,女友出差,女友的朋友送上门来.都没有这一部剧情合理,不只是欲望层面的背叛,有挣扎、有忍耐、有小心思,也有自私的欲望.会让人更容易代入其中,而且看完后会有一丝淡淡的惆怅,加之画面拍得很美,甚至不太色,最重要是堂里信达雅的翻译,实在是一部出色的佳作.
+
+## [JUL-306 卒業式の後に…大人になった君へ義母からの贈り物―. 水戸かな](https://www.javbus.com/JUL-306)
+
+<details><summary><b>答案</b></summary>
+<p>
+
+[![](https://pics.javbus.com/cover/7u7f_b.jpg '卒業式の後に…大人になった君へ義母からの贈り物―. 水戸かな')](https://pics.javbus.com/cover/7u7f_b.jpg)
+
+識別碼: [JUL-306](https://www.javbus.com/JUL-306)
+
+發行日期: 2020-09-05
+
+長度: 120 分鐘
+
+導演: [ひむろっく](https://www.javbus.com/director/jz)
+
+製作商: [マドンナ](https://www.javbus.com/studio/6n)
+
+發行商: [Madonna](https://www.javbus.com/label/7l)
+
+系列: [卒業式の後に…大人になった君へ義母からの贈り物―.](https://www.javbus.com/series/s6m)
+
+類別:
+
+[高畫質](https://www.javbus.com/genre/4o) [DMM 獨家](https://www.javbus.com/genre/g) [婆婆](https://www.javbus.com/genre/4l) [單體作品](https://www.javbus.com/genre/f) [中出](https://www.javbus.com/genre/4) [已婚婦女](https://www.javbus.com/genre/29) [成熟的女人](https://www.javbus.com/genre/13) [數位馬賽克](https://www.javbus.com/genre/31) [乳房](https://www.javbus.com/genre/3n)
+
+演員:
+
+- [![](https://pics.javbus.com/actress/rtx_a.jpg '水戸かな')](https://www.javbus.com/star/rtx)
+
+  [水戸かな](https://www.javbus.com/star/rtx '水戸かな')
+
+[水戸かな](https://www.javbus.com/star/rtx)
+
+#</p>
+
+</details>
+
+---
+
+## [JUL-275 焦らして…焦らして…焦らして…焦らして…、最も濡れた瞬間に挿入する愛液グチョグチョ不倫性交. 水戸かな](https://www.javbus.com/JUL-275)
+
+<details><summary><b>答案</b></summary>
+<p>
+
+[![](https://pics.javbus.com/cover/7qn2_b.jpg '焦らして…焦らして…焦らして…焦らして…、最も濡れた瞬間に挿入する愛液グチョグチョ不倫性交. 水戸かな')](https://pics.javbus.com/cover/7qn2_b.jpg)
+
+識別碼: [JUL-275](https://www.javbus.com/JUL-275)
+
+發行日期: 2020-07-04
+
+長度: 150 分鐘
+
+導演: [豆沢豆太郎](https://www.javbus.com/director/vm)
+
+製作商: [マドンナ](https://www.javbus.com/studio/6n)
+
+發行商: [Madonna](https://www.javbus.com/label/7l)
+
+類別:
+
+[高畫質](https://www.javbus.com/genre/4o) [苗條](https://www.javbus.com/genre/1f) [乳房](https://www.javbus.com/genre/3n) [已婚婦女](https://www.javbus.com/genre/29) [出軌](https://www.javbus.com/genre/4r) [成熟的女人](https://www.javbus.com/genre/13) [數位馬賽克](https://www.javbus.com/genre/31) [單體作品](https://www.javbus.com/genre/f) [DMM 獨家](https://www.javbus.com/genre/g)
+
+演員:
+
+- [![](https://pics.javbus.com/actress/rtx_a.jpg '水戸かな')](https://www.javbus.com/star/rtx)
+
+  [水戸かな](https://www.javbus.com/star/rtx '水戸かな')
+
+[水戸かな](https://www.javbus.com/star/rtx)
+
+## [IPX-034 売られた愛嬢 幸せな家庭を襲った DQN グループの鬼畜訪問 相沢みなみ](https://www.javbus.com/ipx-034)
+
+IPX-034 被賣掉的愛女 幸福的家庭被地頭蛇襲擊的鬼畜訪問 相澤南
+
+IPX-034 被养父母出卖侵犯的爱女相泽南
+
+中文簡介: 父母不在的時候男性朋友突然闖進她家裡把她捆綁起來淫蕩的笑著,然後侵犯她！！父母回家之後還當著父母的面不斷的侮辱她！！最後她的精神終於崩潰！淩辱輪姦！盡情觀賞.
+
+---
+
+小弟是论坛新人,之前有点时间连写了两篇小文想为堂里添点砖加点瓦,没看过的可以点击[这里](https://www.sehuatang.net/forum.php?mod=viewthread&tid=287975&extra=)和[这里](https://www.sehuatang.net/forum.php?mod=viewthread&tid=288546&extra=).
+本来还想写一下剧情系女优中的演技实力派户田真琴的大作 STAR-765,两天没动笔,没想到被堂里大神 Z 师傅捷足先登了,链接在[这里](https://www.sehuatang.net/forum.php?mod=viewthread&tid=291059&extra=page%3D1&page=1).
+顺便说一下 STAR-765 还有一部姐妹篇 STAR-808,同个导演,该导演好像只有这两部片,我怀疑真是一个电影导演来的.
+
+好吧,暂缓一下前两部的纯爱片推荐风格,介绍一部我看了硬不起来的无法社保大片.
+女演员是广受喜爱的大牌、剧情也紧张刺激,但太真实了,很容易让人想起一些不好的事情.
+
+她就是相泽南,IP 社的头牌,2018 年度成人赏最佳女优,已故社长为了大家的性福,亲自把自己的女朋友奉献给大家.
+在淫民中应该粉丝很多吧,这部番号是 IPX-034,片名《売られた愛嬢 幸せな家庭を襲った DQN グループの鬼畜訪問》
+
+堂友们可以点击[这里](https://www.sehuatang.net/forum.php?mod=viewthread&tid=86261&highlight=IPX-034)下载,一边下载一边先看我写的文.
+
+整部片都以列着时间线来进行,凡是这种有精确到分秒的提示的,都是想搞个大事情,大家要注意了.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234644es8s8p8ge707fpa8.jpg)
+
+一开始相泽 MM 很贴心地为她的后父系领带(但这部不是一部乱伦片)
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234645vaelbu3jlz48w88b.jpg)
+
+今天是亲生母亲和后父的结婚纪念日,他们要出去庆祝.小南还第一次叫了"爸爸",整片气氛仿佛一片和谐祥和.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234644mcal4laj35aamccw.jpg)
+
+小南甜美的笑容背后,早已埋伏下罪恶的种子,这也是我们熟悉的套路了.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234645a8on6hcphnhn6xnt.jpg)
+
+闲适地听着耳机,差不多睡着了.这帧的小南特别美吧,也造成下文一个强烈的反差
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234645zfdsx33z0dydd1ce.jpg)
+
+这时候入室犯来了,分别戴着猪头、猴头、熊猫头
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234646qnp4ntpxpfu2jz6j.jpg)
+
+猪头还反锁了大门,看到这里我差不多吓尿了好不好.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234646b6eomz1o5oqxinkp.jpg)
+
+小南是真的吓得瘫坐在地上,演技炸裂,为最佳女优赏正名.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234646u6stt6bbbgt6ibpg.jpg)
+
+动图欣赏一下这惊悚
+
+<!-- ![](https://www.assdrty.com/image/BMHxKe)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](https://www.assdrty.com/images/2020/03/10/HNDS-038C.gif)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](http://www.1datapro.com/wp-content/uploads/2020/03/2020031016280771.gif)
+
+绝望的三方包围
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](http://www.1datapro.com/wp-content/uploads/2020/03/2020031016304567.gif)
+
+<!-- ![](https://www.assdrty.com/image/BMHsPZ)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](https://www.assdrty.com/images/2020/03/10/HNDS-038C-1.gif)
+
+这时候猪头和猴头脱下面具,两个人开始轮了起来
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234646hf44hkpozsk1n4wn.jpg)
+
+口塞白布捆绑地轮
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234647i11mi11qodzxtoym.jpg)
+
+第一个射完后就在旁边沙发躺下也太真实了吧
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234647mg8fjzjgcrrj5jtz.jpg)
+
+第一轮之后,熊猫头把小南扶到房间,还关心地送上杯水,似乎是个良心未泯的人
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234647xs22sf04sh426hss.jpg)
+
+但好景不长,另外两个匪徒又闯进来开始了第二轮
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234648d9mj4yzy9t9595m6.jpg)
+
+时间到了下午,小南的母亲和后父回来了.毫无意外地也被绑了起来
+可怜楚楚的小南为了父母的安全,只好听匪徒的话自慰起来
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234648w3f5s5afa8888nnn.jpg)
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234648bvsbfgir5k5rozkf.jpg)
+
+自慰之后,还主动进房间去伺候两个匪徒,这已经是第三轮了,但是熊猫头始终没参与其中
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234648xhkkdekuf0zbeuv1.jpg)
+
+没办法,只好全力去配合,这个表面配合内心不甘的演技又到了一个新的境界
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234649b5i20qi00b8hz2hy.jpg)
+
+两个人筋疲力尽之后竟然被熊猫头一下打晕了.WTF 我靠,什么回事？竟然起内讧了.
+这里不得不感叹男人干过那事之后真不要一下子泄气了,这不单关乎雄风,也关于安危啊.
+再说一下,这个过程的时间点是晚上七八点.
+小南被熊猫头救下之后,按理说是第一时间跑去松绑她的父母.
+可是在松绑之前,小南一下做在她后父前面,亲了起来.
+再次 what the fuck？？？
+旁边她母亲一脸惊愕.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234649jx70itig8tz38z1l.jpg)
+
+时间倒叙回到下午五点半,当时另两个匪徒在吃饭,熊猫头看守小南
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](http://www.1datapro.com/wp-content/uploads/2020/03/2020031015261414.gif)
+
+<!-- ![](https://www.assdrty.com/image/BMHDeh)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](https://www.assdrty.com/images/2020/03/10/HNDS-038C-2.gif)
+
+小南看出三个匪徒并不是铁板一块,突破口在熊猫头这里
+于是她主动献身给他(也许是处男？)
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234649aeskdzdebbeyzd1u.jpg)
+
+熊猫头全程没脱头套,也是牛逼
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234649bax3h3t1xc3e9ra9.jpg)
+
+![](https://www.assdrty.com/image/BMH7eo)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](http://www.1datapro.com/wp-content/uploads/2020/03/2020031016301885.gif)
+
+![IPX-034 売られた愛嬢 幸せな家庭を襲ったDQNグループの鬼畜訪問 相沢みなみ](https://www.assdrty.com/images/2020/03/10/HNDS-038C-3.gif)
+
+一番翻云覆雨之后,尝到甜头的熊猫被小南征服了,甚至说出了一个整个事件背后的真相
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234649v8nk2qo1zo1kfkee.jpg)
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234644qnetmm1rkxtfzmta.jpg)
+
+其实整件事都是小南的母亲策划的,羡慕小南的年轻貌美,害怕老公被女儿抢走,于是自导自演了一场玷污女儿的大戏！！
+于是就有了 8 点多那一幕.
+
+![](https://www.assdrty.com/tupian/forum/202003/10/234650zr8bmbq1rqrb1q5m.jpg)
+
+这时候整个故事完结了,结构有巧思,结局有反转,是一部珍贵的剧情大作.
+但我看片的全程都软塌塌的,不只是因为结局女主母亲的恶毒心思.
+平时我们看片,小日本入室 XX 的片数不胜数,但是大多我们都一笑置之:怎么这么容易会这样,呵呵.
+但这部片的入室抢劫戏份拍得太真实了,让人太惊悚,不寒而栗.
+过程中让人想起山东消失的夫妻那件案子.
+环境类似,都是有上下层那种独栋房子,匪徒带着面具,入屋和接应非常有技巧,围堵着你想逃也逃不了,还有吃东西什么的情节,太真实了.
+感兴趣的可以去搜一下这个案件,电影烈日灼心是根据这件真实案件改编的.
+
+第一次看 AV 快进,不是为了看精彩的环节,而是透不过气想知道后面会怎么发展.
+为了写这篇文,我二刷仍然感受到那种压迫感.
+好的 AV,和好的电影一样,后劲很足啊.
+
+## [【導覽】【AV 片介紹】集氣質,可愛,又好吃於一身的姊姊幫你解決煩惱!](http://www.playno1.com/article-33786-1.html)
+
+片名: [漂亮大姊完全伴遊性愛 讓年輕素人性愛煩惱解放檔案 鈴村愛理](https://ii9mm.com/web/mvpage.php?spcode=ABW-022&1196929647)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a88/20518015/1235825929_x.jpg)
+
+AV 女優:鈴村愛里
+
+作品介紹:蚊香社專屬女優『鈴村愛理』,要來溫柔解決性愛煩惱！美貌・身材・性格全都完美的絶對美少女,要來到有煩惱的年輕素人家中溫柔領導,解決他們的眾多煩惱！
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a84/20518015/1235825925_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a97/20518015/1235824664_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a3d/20518015/1235826110_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a85/20518015/1235825926_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a98/20518015/1235824665_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a72/20518015/1235824371_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a74/20518015/1235824373_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a75/20518015/1235824374_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a47/20518015/1235825608_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a48/20518015/1235825609_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a49/20518015/1235825610_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8aec/20518015/1235825517_x.jpg)
+
+** [>>點這裡看"鈴村愛里"精選作品<<](https://ii9mm.com/web/list.php?type=1&keyword=%E9%88%B4%E6%9D%91%E3%81%82%E3%81%84%E3%82%8A&1987770632)**
+
+---
+
+片名: [淫蕩可愛方言狀況 vol.01 博多腔・關西腔・廣島腔 愛音麻里亞](https://ii9mm.com/web/mvpage.php?spcode=ABW-021&155967922)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a94/20518015/1235824661_x.jpg)
+
+AV 女優:愛音麻里亞
+
+作品介紹:蚊香社專屬女優『愛音麻里亞』,要來說著淫蕩可愛的方言誘惑您！全編都說著「方言」讓人大興奮！
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a80/20518015/1235825921_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a81/20518015/1235825922_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a35/20518015/1235826102_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a15/20518015/1235825814_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a6f/20518015/1235824368_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a37/20518015/1235826104_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ae5/20518015/1235825510_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a39/20518015/1235826106_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ad6/20518015/1235825239_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ae6/20518015/1235825511_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8adc/20518015/1235826013_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a3b/20518015/1235826108_x.jpg)
+
+** [>>點這裡看"愛音麻里亞"精選作品<<](https://ii9mm.com/web/list.php?type=1&keyword=%E6%84%9B%E9%9F%B3%E3%81%BE%E3%82%8A%E3%81%82&286543777)**
+
+---
+
+片名: [夢般快樂射精 誘惑男性美體沙龍 03 密着＆極上技巧挑逗到爽！ 野野浦暖](https://ii9mm.com/web/mvpage.php?spcode=ABW-020&1671868825)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ad9/20518015/1235826010_x.jpg)
+
+AV 女優:野野浦暖
+
+作品介紹:蚊香社專屬女優『野野浦暖』要來引導您夢般的快樂射精！來到傳言有眾多好女人的男性沙龍,選擇新手按摩套餐,出現的是美麗的按摩師,用著溫柔的聲音與純熟精油按摩手法讓人身心都放鬆…
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a99/20518015/1235824666_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ae5/20518015/1235826022_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8aed/20518015/1235825518_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a7b/20518015/1235824380_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a9b/20518015/1235824668_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a43/20518015/1235826116_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8ae6/20518015/1235826023_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8aee/20518015/1235825519_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a4c/20518015/1235825613_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a4e/20518015/1235825615_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a16/20518015/1235825815_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a4f/20518015/1235825616_x.jpg)
+
+![](https://c.share.photo.xuite.net/queen_888/1cc8a12/20518015/1235825811_x.jpg)
+
+** [>>點這裡看"野野浦暖"精選作品<<](https://ii9mm.com/web/list.php?type=1&keyword=%E9%87%8E%E3%80%85%E6%B5%A6%E6%9A%96&1792996719)** -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2018-07-03T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/%E6%88%91%E4%BB%AC%E5%BD%93%E4%B8%8B%E7%9A%84%E6%81%90%E6%83%A7%E4%B8%8E%E6%9C%9F%E5%BE%85/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="许章润:我们当下的恐惧与期待">
+                        
+                        <span class="card-title">许章润:我们当下的恐惧与期待</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-07-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                    政治
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/es2018-features/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="New ES2018 Features Every JavaScript Developer Should Know">
+                        
+                        <span class="card-title">New ES2018 Features Every JavaScript Developer Should Know</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES2018/">
+                        <span class="chip bg-color">ES2018</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

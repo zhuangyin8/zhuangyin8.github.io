@@ -1,0 +1,3479 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JavaScript Promises for Dummies, 庄引的博客">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JavaScript Promises for Dummies | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home" ></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags" ></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark" ></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle" ></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fa fa-comments" ></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">庄引的博客</div>
+        <div class="logo-desc">
+            我厌恶出门社交，喜欢在家做自己喜欢的事。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JavaScript Promises for Dummies</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Promises/">
+                                <span class="chip bg-color">Promises</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-09-15
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/javascript-promises-for-dummies">JavaScript Promises for Dummies | DigitalOcean</a></p>
+</blockquote>
+<!-- (https://scotch.io/tutorials/javascript-promises-for-dummies) -->
+
+<p><img src="/images/javascript-promises-for-dummies.jpg"></p>
+<p><strong>Javascript Promises</strong> are not difficult. However, lots of people find it a little bit hard to understand at the beginning. Therefore, I would like to write down the way I understand promises, in a dummy way.</p>
+<h2 id="Understanding-Promises"><a href="#Understanding-Promises" class="headerlink" title="Understanding Promises"></a>Understanding Promises</h2><p>A Promise in short:</p>
+<p>“Imagine you are a <strong>kid</strong>. Your mom <strong>promises</strong> you that she’ll get you a <strong>new phone</strong> next week.”</p>
+<p>You <em>don’t know</em> if you will get that phone until next week. Your mom can either <em>really buy</em> you a brand new phone, or <em>she doesn’t</em>, because she is not happy <code>:(</code>.</p>
+<p>That is a <strong>promise</strong>. A promise has 3 states. They are:</p>
+<ol>
+<li>Pending: You <em>don’t know</em> if you will get that phone</li>
+<li>Fulfilled: Mom is <em>happy</em>, she buys you a brand new phone</li>
+<li>Rejected: Mom is <em>unhappy</em>, she doesn’t buy you a phone</li>
+</ol>
+<h2 id="Creating-a-Promise"><a href="#Creating-a-Promise" class="headerlink" title="Creating a Promise"></a>Creating a Promise</h2><p>Let’s convert this to JavaScript.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5: Part 1</span>
+
+<span class="token keyword">var</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise</span>
+<span class="token keyword">var</span> willIGetNewPhone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMomHappy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      brand<span class="token operator">:</span> <span class="token string">'Huawei'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fulfilled</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> reason <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'mom is not happy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// reject</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The code is quite expressive in itself.</p>
+<p>Below is how a promise syntax look like normally:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// promise syntax look like this</span>
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.</p>
+</blockquote>
+<h2 id="Consuming-Promises"><a href="#Consuming-Promises" class="headerlink" title="Consuming Promises"></a>Consuming Promises</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5: Part 2</span>
+
+<span class="token keyword">var</span> willIGetNewPhone <span class="token operator">=</span> <span class="token operator">...</span> <span class="token comment">// continue from part 1</span>
+
+<span class="token comment">// call our promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// yay, you got a new phone</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: &#123; brand: 'Huawei', color: 'black' &#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// oops, mom don't buy it</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: 'mom is not happy'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Let’s run the example and see the result!</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* ES5, using Bluebird */</span>
+<span class="token keyword">var</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise</span>
+<span class="token keyword">var</span> willIGetNewPhone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMomHappy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      brand<span class="token operator">:</span> <span class="token string">'Huawei'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> reason <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'mom is not happy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// call our promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// yay, you got a new phone</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// ops, mom don't buy it</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/nifocu/1/edit?js,console">https://jsbin.com/nifocu/1/edit?js,console</a></p>
+<p><img src="/images/nB0ffh3NQHaHKJRuBNpH_promise-true-false.gif"></p>
+<h2 id="Chaining-Promises"><a href="#Chaining-Promises" class="headerlink" title="Chaining Promises"></a>Chaining Promises</h2><p>Promises are chainable.</p>
+<p>Let’s say, you, the kid, <strong>promises</strong> your friend that you will <strong>show them</strong> the new phone when your mom buy you one.</p>
+<p>That is another promise. Let’s write it!</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5</span>
+
+<span class="token comment">// 2nd promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">showOff</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> message <span class="token operator">=</span>
+      <span class="token string">'Hey friend, I have a new '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>brand <span class="token operator">+</span> <span class="token string">' phone'</span><span class="token punctuation">;</span>
+
+    <span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Notes: We can shorthen the above code by written as below:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// shorten it</span>
+
+<span class="token comment">// 2nd promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">showOff</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> message <span class="token operator">=</span>
+    <span class="token string">'Hey friend, I have a new '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>brand <span class="token operator">+</span> <span class="token string">' phone'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Let’s chain the promises. You, the kid can only start the <code>showOff</code> promise after the <code>willIGetNewPhone</code> promise.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// call our promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>showOff<span class="token punctuation">)</span> <span class="token comment">// chain it here</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: 'Hey friend, I have a new black Samsung phone.'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// oops, mom don't buy it</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: 'mom is not happy'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>That’s how easy to chain the promise.</p>
+<h2 id="Promises-are-Asynchronous"><a href="#Promises-are-Asynchronous" class="headerlink" title="Promises are Asynchronous"></a>Promises are Asynchronous</h2><p>Promises are asynchronous. Let’s log a message before and after we call the promise.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// call our promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'before asking Mom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// log before</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>showOff<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'after asking mom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// log after</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>What is the sequence of expected output? Probably you expect:</p>
+<pre class="line-numbers language-none"><code class="language-none">1. before asking Mom
+2. Hey friend, I have a new black Samsung phone.
+3. after asking mom<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>However, the actual output sequence is:</p>
+<pre class="line-numbers language-none"><code class="language-none">1. before asking Mom
+2. after asking mom
+3. Hey friend, I have a new black Samsung phone.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>Don’t believe me? Go try it yourself:</p>
+<p><a target="_blank" rel="noopener" href="https://jsbin.com/vepateq/edit?js,console">https://jsbin.com/vepateq/edit?js,console</a></p>
+<p><img src="/images/X8Q1iZGeSqAEjksPdbQQ_bZ3MNiH8g1.gif"></p>
+<h3 id="Why-Because-life-or-JS-waits-for-no-man"><a href="#Why-Because-life-or-JS-waits-for-no-man" class="headerlink" title="Why? Because life (or JS) waits for no man."></a>Why? Because life (or JS) waits for no man.</h3><p>You, the kid, wouldn’t stop playing while waiting for your mom promise (the new phone). Don’t you? That’s something we call <strong>asynchronous</strong>, the code will run without blocking or waiting for the result. Anything that need to wait for promise to proceed, you put that in <code>.then</code>.</p>
+<p>Here is the full example in ES5.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5: Full example</span>
+
+<span class="token keyword">var</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise</span>
+<span class="token keyword">var</span> willIGetNewPhone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMomHappy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      brand<span class="token operator">:</span> <span class="token string">'Huawei'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fulfilled</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> reason <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'mom is not happy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// reject</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2nd promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">showOff</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> message <span class="token operator">=</span>
+    <span class="token string">'Hey friend, I have a new '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>brand <span class="token operator">+</span> <span class="token string">' phone'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// call our promise</span>
+<span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>showOff<span class="token punctuation">)</span> <span class="token comment">// chain it here</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: 'Hey friend, I have a new black Samsung phone.'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// oops, mom don't buy it</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// output: 'mom is not happy'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Promises-in-ES5-ES6-2015-ES7-Next"><a href="#Promises-in-ES5-ES6-2015-ES7-Next" class="headerlink" title="Promises in ES5, ES6/2015, ES7/Next"></a>Promises in ES5, ES6/2015, ES7/Next</h2><h3 id="ES5-Majority-browsers"><a href="#ES5-Majority-browsers" class="headerlink" title="ES5 - Majority browsers"></a>ES5 - Majority browsers</h3><p>The demo code is workable in ES5 environments (all major browsers + NodeJs) if you include <a target="_blank" rel="noopener" href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> promise library. It’s because ES5 doesn’t support promises out of the box. Another famous promise library is <a target="_blank" rel="noopener" href="https://github.com/kriskowal/q">Q</a> by Kris Kowal.</p>
+<h3 id="ES6-ES2015-Modern-browsers-NodeJs-v6"><a href="#ES6-ES2015-Modern-browsers-NodeJs-v6" class="headerlink" title="ES6 / ES2015 - Modern browsers, NodeJs v6"></a>ES6 / ES2015 - Modern browsers, NodeJs v6</h3><p>The demo code works out of the box because ES6 supports promises natively. In addition, with ES6 functions, we can further simplify the code with <strong>fat arrow =&gt;</strong> and use <code>const</code> and <code>let</code>.</p>
+<p>Here is the full example in ES6 code:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES6: Full example</span>
+
+<span class="token keyword">const</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise</span>
+<span class="token keyword">const</span> willIGetNewPhone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// fat arrow</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMomHappy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      brand<span class="token operator">:</span> <span class="token string">'Huawei'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> reason <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'mom is not happy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2nd promise</span>
+<span class="token keyword">const</span> <span class="token function-variable function">showOff</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> message <span class="token operator">=</span>
+    <span class="token string">'Hey friend, I have a new '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>brand <span class="token operator">+</span> <span class="token string">' phone'</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// call our promise</span>
+<span class="token keyword">const</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  willIGetNewPhone
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>showOff<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">fulfilled</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fulfilled<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// fat arrow</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fat arrow</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Notes that all the <code>var</code> are replaced with <code>const</code>. All the <code>function(resolve, reject)</code> has been simplified to <code>(resolve, reject) =&gt;</code>. There are a few benefits come with these changes. Read more on:-</p>
+<h3 id="ES7-Async-Await-make-the-syntax-look-prettier"><a href="#ES7-Async-Await-make-the-syntax-look-prettier" class="headerlink" title="ES7 - Async Await make the syntax look prettier"></a>ES7 - Async Await make the syntax look prettier</h3><p>ES7 introduce <code>async</code> and <code>await</code> syntax. It makes the asynchronous syntax look prettier and easier to understand, without the <code>.then</code> and <code>.catch</code>.</p>
+<p>Rewrite our example with ES7 syntax.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES7: Full example</span>
+<span class="token keyword">const</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise</span>
+<span class="token keyword">const</span> willIGetNewPhone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMomHappy<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      brand<span class="token operator">:</span> <span class="token string">'Huawei'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> reason <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'mom is not happy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2nd promise</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">showOff</span><span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> message <span class="token operator">=</span>
+      <span class="token string">'Hey friend, I have a new '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> phone<span class="token punctuation">.</span>brand <span class="token operator">+</span> <span class="token string">' phone'</span><span class="token punctuation">;</span>
+
+    <span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// call our promise in ES7 async await style</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'before asking Mom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> phone <span class="token operator">=</span> <span class="token keyword">await</span> willIGetNewPhone<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">showOff</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'after asking mom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// async await it here too</span>
+<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">await</span> <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Why-Promises-and-When-to-Use-Them"><a href="#Why-Promises-and-When-to-Use-Them" class="headerlink" title="Why Promises and When to Use Them?"></a>Why Promises and When to Use Them?</h2><p>Why do we need promises? How’s the world look like before promise? Before answering these questions, let’s go back to the fundamental.</p>
+<h3 id="Normal-Function-vs-Async-Function"><a href="#Normal-Function-vs-Async-Function" class="headerlink" title="Normal Function vs Async Function"></a>Normal Function vs Async Function</h3><p>Let’s take a look at these two example, both example perform addition of two number, one add using normal function, the other add remotely.</p>
+<h3 id="Normal-Function-to-Add-Two-Numbers"><a href="#Normal-Function-to-Add-Two-Numbers" class="headerlink" title="Normal Function to Add Two Numbers"></a>Normal Function to Add Two Numbers</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers normally</span>
+
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get result = 3 immediately</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="Async-Function-to-Add-Two-numbers"><a href="#Async-Function-to-Add-Two-numbers" class="headerlink" title="Async Function to Add Two numbers"></a>Async Function to Add Two numbers</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely</span>
+
+<span class="token comment">// get the result by calling an API</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">getAddResultFromServer</span><span class="token punctuation">(</span><span class="token string">'http://www.example.com?num1=1&amp;num2=2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// you get result  = "undefined"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>If you add the numbers with normal function, you get the result immediately. However when you issue a remote call to get result, you need to wait, you can’t get the result immediately.</p>
+<p>Or put it this way, you don’t know if you will get the result because the server might be down, slow in response, etc. You don’t want your entire process to be blocked while waiting for the result.</p>
+<p>Calling APIs, downloading files, reading files are among some of the usual async operations that you’ll perform.</p>
+<h3 id="World-Before-Promises-Callback"><a href="#World-Before-Promises-Callback" class="headerlink" title="World Before Promises: Callback"></a>World Before Promises: Callback</h3><p>Must we use promise for asynchronous call? Nope. Prior to Promise, we use callback. Callback is just a function you call when you get the return result. Let’s modify the previous example to accept a callback.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely</span>
+<span class="token comment">// get the result by calling an API</span>
+<span class="token keyword">function</span> <span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// use the famous jQuery getJSON callback API</span>
+  <span class="token keyword">return</span> $<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>
+    <span class="token string">'http://www.example.com'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      num1<span class="token operator">:</span> num1<span class="token punctuation">,</span>
+      num2<span class="token operator">:</span> num2<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    callback<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// callback</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> success<span class="token punctuation">;</span> <span class="token comment">// you get result = 3 here</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>The syntax looks ok, why do we need promises then?</p>
+<h3 id="What-if-You-Want-to-Perform-Subsequent-Async-Action"><a href="#What-if-You-Want-to-Perform-Subsequent-Async-Action" class="headerlink" title="What if You Want to Perform Subsequent Async Action?"></a>What if You Want to Perform Subsequent Async Action?</h3><p>Let’s say, instead of just add the numbers one time, we want to add 3 times. In a normal function, we do this:-</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers normally</span>
+
+<span class="token keyword">let</span> resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+resultA <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get resultA = 3 immediately</span>
+resultB <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get resultB = 6 immediately</span>
+resultC <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>resultB<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get resultC = 10 immediately</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total'</span> <span class="token operator">+</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>How it looks like with callbacks?</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely</span>
+<span class="token comment">// get the result by calling an API</span>
+<span class="token keyword">let</span> resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// use the famous jQuery getJSON callback API</span>
+  <span class="token comment">// https://api.jquery.com/jQuery.getJSON/</span>
+  <span class="token keyword">return</span> $<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span>
+    <span class="token string">'http://www.example.com'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      num1<span class="token operator">:</span> num1<span class="token punctuation">,</span>
+      num2<span class="token operator">:</span> num2<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    callback<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// callback 1</span>
+  resultA <span class="token operator">=</span> success<span class="token punctuation">;</span> <span class="token comment">// you get result = 3 here</span>
+  <span class="token function">addAsync</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// callback 2</span>
+    resultB <span class="token operator">=</span> success<span class="token punctuation">;</span> <span class="token comment">// you get result = 6 here</span>
+    <span class="token function">addAsync</span><span class="token punctuation">(</span>resultB<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// callback 3</span>
+      resultC <span class="token operator">=</span> success<span class="token punctuation">;</span> <span class="token comment">// you get result = 10 here</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total'</span> <span class="token operator">+</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/barimo/edit?html,js,console">https://jsbin.com/barimo/edit?html,js,console</a></p>
+<p>The syntax is less user friendly. In a nicer term, It looks like a pyramid, but people usually refer this as “callback hell”, because the callback nested into another callback. Imagine you have 10 callbacks, your code will nested 10 times!</p>
+<h3 id="Escape-From-Callback-Hell"><a href="#Escape-From-Callback-Hell" class="headerlink" title="Escape From Callback Hell"></a>Escape From Callback Hell</h3><p>Promises come in to rescue. Let’s look at the promise version of the same example.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely using observable</span>
+
+<span class="token keyword">let</span> resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// use ES6 fetch API, which return a promise</span>
+  <span class="token comment">// What is .json()? https://developer.mozilla.org/en-US/docs/Web/API/Body/json</span>
+  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">http://www.example.com?num1=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>num1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;num2=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>num2<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    x<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    resultA <span class="token operator">=</span> success<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> resultA<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">addAsync</span><span class="token punctuation">(</span>success<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    resultB <span class="token operator">=</span> success<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> resultB<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">addAsync</span><span class="token punctuation">(</span>success<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    resultC <span class="token operator">=</span> success<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> resultC<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">success</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total: '</span> <span class="token operator">+</span> success<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/qafane/edit?js,console">https://jsbin.com/qafane/edit?js,console</a></p>
+<p>With promises, we flatten the callback with <code>.then</code>. In a way, it looks cleaner because of no callback nesting. Of course, with ES7 <code>async</code> syntax, we can even further enhance this example, but I leave that to you. <code>:)</code></p>
+<h2 id="New-Kid-On-the-Block-Observables"><a href="#New-Kid-On-the-Block-Observables" class="headerlink" title="New Kid On the Block: Observables"></a>New Kid On the Block: Observables</h2><p>Before you settle down with promises, there is something that has come about to make it even easier to deal with async data called <code>Observables</code>.</p>
+<blockquote>
+<p>Observables are lazy event streams which can emit zero or more events, and may or may not finish.<a target="_blank" rel="noopener" href="https://cycle.js.org/streams.html">source</a></p>
+</blockquote>
+<p>Some key differences between promises and observable are:</p>
+<p>Fear not, let look at the same demo written with Observables. In this example, I am using <a target="_blank" rel="noopener" href="http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html">RxJS</a> for the observables.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> Observable <span class="token operator">=</span> Rx<span class="token punctuation">.</span>Observable<span class="token punctuation">;</span>
+<span class="token keyword">let</span> resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// use ES6 fetch API, which return a promise</span>
+  <span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span>
+    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">http://www.example.com?num1=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>num1<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;num2=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>num2<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> x<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token function">fromPromise</span><span class="token punctuation">(</span>promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>resultA <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">addAsync</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>resultB <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">addAsync</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>resultC <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total: '</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/dosaviwalu/edit?js,console">https://jsbin.com/dosaviwalu/edit?js,console</a></p>
+<p>Notes:</p>
+<p>Observables can do more funky stuff easily. For example, <code>delay</code> add function by <code>3 seconds</code> with just one line of code or retry so you can retry a call a certain number of times.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ...</span>
+
+<span class="token function">addAsync</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span> <span class="token comment">// delay 3 seconds</span>
+  <span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>resultA <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//   ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Well, let’s talk about Observables in future post. (You may read one of my RxJs post <a target="_blank" rel="noopener" href="https://scotch.io/tutorials/rxjs-operators-for-dummies-forkjoin-zip-combinelatest-withlatestfrom">here</a> too!)</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Get yourself familiar with callbacks and promises. Understand them and use them. Don’t worry about Observables, just yet. All three can factor into your development depending on the situation.</p>
+<p>That’s it. Hopefully this article smoothen your path to tame the JavaScript promises. Happy coding!</p>
+<p>Like this article? <a target="_blank" rel="noopener" href="https://twitter.com/JecelynYeen">Follow @JecelynYeen on Twitter</a></p>
+<hr>
+<h2 id="Promise-多个异步函数都执行完-再执行其他"><a href="#Promise-多个异步函数都执行完-再执行其他" class="headerlink" title="Promise 多个异步函数都执行完,再执行其他"></a>Promise 多个异步函数都执行完,再执行其他</h2><p>今天遇到一个情况是,有多个接口需要都请求到数据才能继续向下执行,然后用 <code>Promise.all()</code> 方法.</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> <span class="token constant">P1</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'p1 data'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token constant">P2</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'p2 data'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token constant">P1</span><span class="token punctuation">,</span> <span class="token constant">P2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">results</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ["p1 data", ""p2 data""]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>但是如果有一个 Promise 里面出错了执行了 reject ,如下代码:</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> <span class="token constant">P1</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// resolve('')</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'p1 出错'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>那么 results 就拿不到数据了,这个时候的做法有两种</p>
+<ol>
+<li><p>可以给 <code>P1.catch((error) =&gt; &#123; ... &#125;)</code>,让 P1 的错误自己处理.</p>
+</li>
+<li><p>也可以在每一个 Promise 都不执行 reject().</p>
+</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all()</a> 接受一个 promise 对象的数组,待全部完成之后,统一执行 success;</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race">Promise.race()</a> 接受一个 promise 对象的数组,只要有一个完成,就执行 success.</p>
+</blockquote>
+<hr>
+<!-- ## 那些年收藏的爱情动作片,快上车,有车牌(第四期)【20P】
+
+<details><summary><b>答案</b></summary>
+<p>
+
+> 那些年收藏的爱情动作片-6 | 掌上生活 - 掌上看片
+
+[DVDES-543 SEX のハードルが異常に低い世界 3](https://www.javbus.com/DVDES-543)
+
+![](https://www.kanjiantu.com/images/2018/09/28/DVDES-543df2a24575a031100.gif)
+
+[DVDES-586 ムチムチホットパンツバス ハミ尻を強調するのは性交 OK の象徴！？ 人目を気にせず挑発してくるショートパンツ娘 ](https://www.javbus.com/DVDES-586)
+
+![](https://www.kanjiantu.com/images/2018/09/28/DVDES-586-Aa6f6ff6df0d4e761.gif)
+
+DVDES-644
+![](https://www.kanjiantu.com/images/2018/09/28/DVDES-6448a096496f7c60840.gif)
+
+DVDES-708
+![](https://www.kanjiantu.com/images/2018/09/28/DVDES-708-Ac84e64b3c6211348.gif)
+
+ebod-101
+![](https://www.kanjiantu.com/images/2018/09/28/ebod-101720a8811be1242fe.gif)
+
+EBOD-295
+![](https://www.kanjiantu.com/images/2018/09/28/EBOD-295-A64c079cfbae335f8.gif)
+
+EBOD-304
+![](https://www.kanjiantu.com/images/2018/09/28/EBOD-30442957bb78cc112e5.gif)
+
+ECG-Maggie
+![](https://www.kanjiantu.com/images/2018/09/28/ECG-Maggief8f5b8a20b83c1da.gif)
+
+ENFD-5093
+![](https://www.kanjiantu.com/images/2018/09/28/ENFD-50935cd06d1b90f2fd14.gif)
+
+ENFD-5427
+![](https://www.kanjiantu.com/images/2018/09/28/ENFD-5427-A9fe44f059092043e.gif)
+
+File-20~22
+![](https://www.kanjiantu.com/images/2018/09/28/File-2022-266bd9778a37b61e.gif)
+
+FSET-230
+![](https://www.kanjiantu.com/images/2018/09/28/FSET-230-Bf2bbe7d91bac480b.gif)
+
+FSET-339
+![](https://www.kanjiantu.com/images/2018/09/28/FSET-339-Aaaecffc4943acbf6.gif)
+
+FSET-459
+![](https://www.kanjiantu.com/images/2018/09/28/FSET-459-A7b8c0278cf616933.gif)
+
+FSLV-005
+![](https://www.kanjiantu.com/images/2018/09/28/FSLV-005-B8e7a7f351ee7330e.gif)
+
+GACHI-598
+![](https://www.kanjiantu.com/images/2018/09/28/GACHI-598ede5c3c795a8c6b4.gif)
+
+GACHIG-140
+![](https://www.kanjiantu.com/images/2018/09/28/GACHIG-140e15c250f32af14e2.gif)
+
+GAIA-033
+![](https://www.kanjiantu.com/images/2018/09/28/GAIA-0338c2c6a08ee6a2bf4.gif)
+
+GAR-280
+![](https://www.kanjiantu.com/images/2018/09/28/GAR-280-B63036d7bcafa240d.gif)
+
+INU-047
+![](https://www.kanjiantu.com/images/2018/09/28/INU-0470cfd4b724f440ec5.gif)
+
+</p>
+</details>
+
+---
+
+## 那些年收藏的爱情动作片,快上车,有车牌(第八期)[79P][复制链接]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+番号:EBOD-277   
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-277-A40a15a32cf895ba3.gif)
+
+番号:EBOD-295   
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-295a0df5de8cf0ec5ae.gif)
+
+番号:EBOD-298   
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-2986646ddb3b3a087d8.gif)
+
+番号:EBOD-300   
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-30062515f73104ceea3.gif)
+
+番号:EBOD-311   
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-311-Bd0df6346e0e7b989.gif)
+
+番号:EBOD-339
+![](https://www.kanjiantu.com/images/2018/10/12/EBOD-339-Cc912dfdea4b28549.gif)
+
+</p>
+</details>
+
+---
+
+## 那些年收藏的爱情动作片,快上车,有车牌(第九期)【23P】
+
+<details><summary><b>答案</b></summary>
+<p>
+
+![](https://upload.cc/i1/2018/09/23/GAJpj6.gif)
+Cytherea 潮吹女王全集
+2BFCFB369BDF8DBBA3BE4E7E430A8EDC6806B7CE
+
+![](https://upload.cc/i1/2018/09/23/10xLWa.gif)
+siro3090
+
+![](https://upload.cc/i1/2018/09/23/3DaqbZ.gif)
+BBD97CC5AC7A5FE6DA5E4EE7F5F121DCA396AFC2
+
+![](https://upload.cc/i1/2018/09/23/SNsmxZ.gif)
+JUX-987
+
+![](https://i.ooxx.ooo/2018/09/23/27dc12db8f09387ca23cef4813641118.gif)
+NHDTA-924
+
+![](https://upload.cc/i1/2018/09/23/Z9Byz2.gif)
+EBOD-481
+
+![](https://upload.cc/i1/2018/09/23/F8Azaq.gif)
+CJOD-039
+
+![](https://upload.cc/i1/2018/09/23/bNHs6p.gif)
+JBD-157
+
+![](https://upload.cc/i1/2018/09/23/TjA71V.gif)
+ADN-104 犯される度に美しく 希島あいり
+
+![](https://upload.cc/i1/2018/09/23/cqxhlV.gif)
+PRTD-010
+
+![](https://upload.cc/i1/2018/09/23/hCQ35A.gif)
+SMD-161
+
+![](https://upload.cc/i1/2018/09/23/DThRGj.gif)
+Abp758
+
+![](https://upload.cc/i1/2018/09/23/BE63D5.gif)
+ONEZ-112
+
+![](https://upload.cc/i1/2018/09/23/nIsBoR.gif)
+OFJE-116
+
+![](https://upload.cc/i1/2018/09/23/DRsoEW.gif)
+Heyzo 1478 ・丘咲エミリとヤる
+
+![](https://upload.cc/i1/2018/09/23/fMYSmk.gif)
+DASD-420
+
+![](https://upload.cc/i1/2018/09/23/sjgetB.gif)
+041515-853
+
+![](https://upload.cc/i1/2018/09/23/WXLH7e.gif)
+FAA-223
+
+![](https://upload.cc/i1/2018/09/23/z19pdm.gif)
+012911_300
+
+![](https://upload.cc/i1/2018/09/23/dvLQ7u.gif)
+022417-380
+
+![](https://upload.cc/i1/2018/09/23/YDBubz.gif)
+011214-521
+
+![](https://upload.cc/i1/2018/09/23/g034tN.gif)
+GVG-154
+
+![](https://upload.cc/i1/2018/09/23/O9zd3j.gif)
+A2B9CFAADD8955F6D7D826B47F9D9742687292A7
+
+</p>
+</details>
+
+---
+
+## 那些年收藏的爱情动作片,快上车,有车牌(第十期)【30P】
+
+<details><summary><b>答案</b></summary>
+<p>
+
+1.番号:SDDE-423   全裸航空空姐接待
+
+![](https://ww3.sinaimg.cn/large/006ncIrkgw1fb91xdd83kg308c04h7r4.jpg)
+
+2.番号:PGM-409
+
+![](https://ww3.sinaimg.cn/mw690/0069C6ILgw1f284q08qqxg309606bu11.jpg)
+
+3.番号:SIRO-2365
+
+![](https://ww2.sinaimg.cn/mw690/0069C6ILgw1f284qtctgfg308t05qe83.jpg)
+
+4.番号:SW-245
+
+![](https://ww1.sinaimg.cn/mw690/0069C6ILgw1f284rqus2hg309q05d1l0.jpg)
+
+5.番号:KRAY-005
+
+![](https://wx4.sinaimg.cn/mw690/006ijWF1gy1fcykeqysdeg30b40694qs.jpg)
+
+6.番号:230ORE-243
+
+![](https://ww3.sinaimg.cn/large/0060lm7Tly1fmzg70knr1g30dw07t7wi.jpg)
+
+7.番号:ABP-254
+
+![](https://ww3.sinaimg.cn/large/a83bb572jw1et8reiisx2g20dw07tx6p.jpg)
+
+9.番号:SIRO-3115
+
+![](https://ww2.sinaimg.cn/large/0060lm7Tly1fmmslhr0qug30dw07te82.jpg)
+
+10.番号:299EWDX-009
+
+![](https://ww1.sinaimg.cn/large/0060lm7Tly1fmi6pdel6yg30dw07te82.gif)
+
+11.番号:kawd-642   美体操课上的萌妹子
+
+![](https://ww1.sinaimg.cn/large/7a82bce9jw1f29ev2sy3rg20b40647wh.jpg)
+
+12.番号:ipz-538
+
+![](https://ww2.sinaimg.cn/large/7a82bce9gw1f299jzn2rmg20b40687wh.jpg)
+
+13.番号:希志爱野   IPZ-522
+
+![](https://ww1.sinaimg.cn/large/7a82bce9jw1f29fav700vg20b4068h5l.jpg)
+
+14.番号:star-441   吉川爱美
+
+![](https://ww3.sinaimg.cn/large/7a82bce9jw1f2bf29wv9vg20b4064e81.jpg)
+
+15.番号:IPZ-607   希志爱野
+
+![](https://ww3.sinaimg.cn/large/7a82bce9jw1f2bd44th4lg20b4068e81.jpg)
+
+16.番号:kawd-633   樱由罗
+
+![](https://ww3.sinaimg.cn/large/7a82bce9gw1f281r5l1vyg20b4068npd.jpg)
+
+17.番号:GNE-117
+
+![](https://ww2.sinaimg.cn/large/7a82bce9jw1f2805fnyp0g20b40687wh.jpg)
+
+18.番号:MIBD-958
+
+![](https://ww4.sinaimg.cn/large/7a82bce9jw1f2808d8dj1g20b406a1kx.jpg)
+
+19.番号:SW-394
+
+![](https://ww2.sinaimg.cn/large/7a82bce9jw1f281wcj54tg20b40684qp.jpg)
+
+20.番号:abp-449   彩美旬果
+
+![](https://ww2.sinaimg.cn/large/7a82bce9jw1f299r2er50g20b4068x5a.jpg)
+
+21.番号:DVDES635   朝桐光
+
+![](https://wx2.sinaimg.cn/mw690/00618xBNgy1ff977u4qkcg308w050hdu.gif)
+
+22.番号:NGOD-035
+
+![](https://wx4.sinaimg.cn/mw690/006HMPrOly1ffiv0o73xfg30ac099kjo.gif)
+
+23.番号:CEAD-190
+
+![](https://wx1.sinaimg.cn/mw690/006HMPrOly1ffig9dkqg0g309908ykjo.gif)
+
+24.番号:JUY-034
+
+![](https://wx3.sinaimg.cn/mw690/006HMPrOgy1ffetnymd3wg30bz07ex70.gif)
+
+25.番号:RBD-833
+
+![](https://wx3.sinaimg.cn/mw690/006HMPrOly1ffhpdwmzxqg30ad06h7wk.gif)
+
+26.番号:IPZ-922
+
+![](https://wx4.sinaimg.cn/mw690/006HMPrOgy1ffetmlsy5rg309o08bnpp.gif)
+
+27.番号:EBOD-431 莉莉依    喝点奶,搞得嘴上到处都是的
+
+![](https://wx2.sinaimg.cn/mw690/c5dbbd50ly1ff9py6rx5qg2096070u0y.gif)
+
+28.番号:PGD-349
+
+![](https://wx3.sinaimg.cn/mw690/0067WpGNly1ffabuhvkutg308w06e1l1.gif)
+
+29.番号:SW-331
+
+![](https://wx3.sinaimg.cn/mw690/c5dbbd50ly1ff9pzeci5jg209w05k7wk.gif)
+
+30.番号:PGD-575 小川阿佐美
+
+![](https://wx1.sinaimg.cn/mw690/c5dbbd50ly1ff9pyjsg1gg20a305ke81.gif)
+
+31.番号:URE-015 本田岬
+
+![](https://wx3.sinaimg.cn/mw690/c5dbbd50ly1ff9pygociwg20ak05xe82.gif)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 11-23] 那些年收藏的爱情动作片,快上车,有车牌(第十四期)[77P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+RHTS-034
+![](https://www.kanjiantu.com/images/2018/11/23/RHTS-034-A57e82497d2d5b224.gif)
+
+RTP-020
+![](https://www.kanjiantu.com/images/2018/11/23/RTP-020d0cff441d3f11361.gif)
+
+SAMA-662
+![](https://www.kanjiantu.com/images/2018/11/23/SAMA-66253cbc9ccc8309f26.gif)
+
+SBNS-059
+![](https://www.kanjiantu.com/images/2018/11/23/SBNS-05907555c08a33823ca.gif)
+
+S-Cute-Girls-349
+![](https://www.kanjiantu.com/images/2018/11/23/S-Cute-Girls-349-A17da2d5ea9cac058.gif)
+
+S-cute-275
+![](https://www.kanjiantu.com/images/2018/11/23/S-cute-275b6be30997c7d854a.gif)
+
+SDDE-359
+![](https://www.kanjiantu.com/images/2018/11/23/SDDE-359-Df8a0e11a177a5c4a.gif)
+
+sddm-031
+![](https://www.kanjiantu.com/images/2018/11/23/sddm-031606e8d78a71084de.gif)
+
+SDMS-805
+![](https://www.kanjiantu.com/images/2018/11/23/SDMS-8053dce7edbbaef513f.gif)
+
+SDMT-316
+![](https://www.kanjiantu.com/images/2018/11/23/SDMT-3162b34149f99cfcecd.gif)
+
+Sex.On.The.Streets
+![](https://www.kanjiantu.com/images/2018/11/23/Sex.On.The.Streets5dbab2b8b6fae2bf.gif)
+
+SHKD-412
+![](https://www.kanjiantu.com/images/2018/11/23/SHKD-412cffba862b0fb8fea.gif)
+
+SHKD-548
+![](https://www.kanjiantu.com/images/2018/11/23/SHKD-548db8c68cd7b8213b8.gif)
+
+SHKD-568
+![](https://www.kanjiantu.com/images/2018/11/23/SHKD-5683b75880b6bee57c5.gif)
+
+SHKD-575
+![](https://www.kanjiantu.com/images/2018/11/23/SHKD-575a057e5eade7bc925.gif)
+
+SHS-047
+![](https://www.kanjiantu.com/images/2018/11/23/SHS-047253e0d1af50f7ecd.gif)
+
+SMD-76
+![](https://www.kanjiantu.com/images/2018/11/23/SMD-76c77b4a92f08d4d23.gif)
+
+SNIS-031
+![](https://www.kanjiantu.com/images/2018/11/23/SNIS-0311a76b92328a2763b.gif)
+
+SNIS-071
+![](https://www.kanjiantu.com/images/2018/11/23/SNIS-071a9e282565515b0a7.gif)
+
+SNIS-238
+![](https://www.kanjiantu.com/images/2018/11/23/SNIS-238-D5c29cae3288d81cf.gif)
+
+SNIS-243
+![](https://www.kanjiantu.com/images/2018/11/23/SNIS-243-C6a2adb425ff9d887.gif)
+
+SOE-611
+![](https://www.kanjiantu.com/images/2018/11/23/SOE-611fb35ee83f098e6fc.gif)
+
+SOE-757
+![](https://www.kanjiantu.com/images/2018/11/23/SOE-757-Bbcd3757eddc99ec6.gif)
+
+SOE-922
+![](https://www.kanjiantu.com/images/2018/11/23/SOE-922-Cdf0af747540f47f9.gif)
+
+SQTE-021S-Cute-307
+![](https://www.kanjiantu.com/images/2018/11/23/SQTE-021S-Cute-307-B90eaa23f76bbfc2a.gif)
+
+STAR-362
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-362fbd0346b1c194815.gif)
+
+STAR-422
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-422ac4c520ee059124b.gif)
+
+STAR-444
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-444-Bfc31906a5557fcd2.gif)
+
+STAR-559
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-559388b32716a1aa643.gif)
+
+STAR-561
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-561-H736d48d10bb082bb.gif)
+
+STAR-3115
+![](https://www.kanjiantu.com/images/2018/11/23/STAR-3115-B8a244f63433049d9.gif)
+
+SUPD-111
+![](https://www.kanjiantu.com/images/2018/11/23/SUPD-111a4f69c4b614ce251.gif)
+
+SVDVD-295
+![](https://www.kanjiantu.com/images/2018/11/23/SVDVD-295-B3ad4e98bb50a9ada.gif)
+
+SW-210
+![](https://www.kanjiantu.com/images/2018/11/23/SW-2108d8dd09f8868606e.gif)
+
+SW-268
+![](https://www.kanjiantu.com/images/2018/11/23/SW-268-E552aecad79f1e453.gif)
+
+SW-279
+![](https://www.kanjiantu.com/images/2018/11/23/SW-279-Add1bce46439f8c4f.gif)
+
+T28-184
+![](https://www.kanjiantu.com/images/2018/11/23/T28-184-Bfeb48d28a1386129.gif)
+
+TWYO-004
+![](https://www.kanjiantu.com/images/2018/11/23/TWYO-004b74606840aa66c16.gif)
+
+URE-018
+![](https://www.kanjiantu.com/images/2018/11/23/URE-018-E756543eb8b3ca800.gif)
+
+VDD-076
+![](https://www.kanjiantu.com/images/2018/11/23/VDD-07630bd4a63d61f6304.gif)
+
+VEMA-072
+![](https://www.kanjiantu.com/images/2018/11/23/VEMA-0727416ea11caaa3f3d.gif)
+
+VOIC-004
+![](https://www.kanjiantu.com/images/2018/11/23/VOIC-004-B51a27e2ef27bbb30.gif)
+
+WANZ-117
+![](https://www.kanjiantu.com/images/2018/11/23/WANZ-117-B0bdeaf7ac07b4572.gif)
+
+WANZ-218
+![](https://www.kanjiantu.com/images/2018/11/23/WANZ-218-Cd5ba453c131a7744.gif)
+
+wdi-032
+![](https://www.kanjiantu.com/images/2018/11/23/wdi-0325782cb54e5bccfbb.gif)
+
+WowGirls-ShootYourLoad-Anjelica
+![](https://www.kanjiantu.com/images/2018/11/23/WowGirls-ShootYourLoad-Anjelica4accad80868c7be0.gif)
+
+XS-2331
+![](https://www.kanjiantu.com/images/2018/11/23/XS-2331f834dc0fdf607fa4.gif)
+
+xxx-av-20292
+![](https://www.kanjiantu.com/images/2018/11/23/xxx-av-2029229f95068b928f627.gif)
+
+YRZ-028
+![](https://www.kanjiantu.com/images/2018/11/23/YRZ-028-A01eec11985caabf4.gif)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 12-28] 那些年收藏的爱情动作片,快上车,有车牌(第十九期)[83P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+New.-.Sensations.-.Romance-A.-.Little-Part-of-Me
+![](https://www.kanjiantu.com/images/2018/12/28/New.-.Sensations.-.Romance-A.-.Little-Part-of-Me6a9338310499bf80.gif)
+
+061213-01
+![](https://www.kanjiantu.com/images/2018/12/28/061213-014960b327b93037e4.gif)
+
+ABP-101
+![](https://www.kanjiantu.com/images/2018/12/28/ABP-10191e786fb08ebb9d9.gif)
+
+ABP-192
+![](https://www.kanjiantu.com/images/2018/12/28/ABP-192-Cdcc7326cb4d60a19.gif)
+
+ABS-104
+![](https://www.kanjiantu.com/images/2018/12/28/ABS-104cea0d7ffef859aaf.gif)
+
+ADN-018
+![](https://www.kanjiantu.com/images/2018/12/28/ADN-01801808e343c2bdfae.gif)
+
+AP-120
+![](https://www.kanjiantu.com/images/2018/12/28/AP-120d879cff4783e1a17.gif)
+
+ATOM-093
+![](https://www.kanjiantu.com/images/2018/12/28/ATOM-093-A3602e5562db4d460.gif)
+
+AVOP-060
+![](https://www.kanjiantu.com/images/2018/12/28/AVOP-060-A7cd43030a59e4a16.gif)
+
+BBI-168
+![](https://www.kanjiantu.com/images/2018/12/28/BBI-168-A0746dd01c0857e97.gif)
+
+BF-342
+![](https://www.kanjiantu.com/images/2018/12/28/BF-342-D7d51943da3e9a120.gif)
+
+BOMB-1018
+![](https://www.kanjiantu.com/images/2018/12/28/BOMB-101857459f4ac3a2695a.gif)
+
+Cruelty-Party---Erotic-Fitness---Aubrey-Mia
+![](https://www.kanjiantu.com/images/2018/12/28/Cruelty-Party---Erotic-Fitness---Aubrey-Mia9fa3177a969b981d.gif)
+
+DIV-163
+![](https://www.kanjiantu.com/images/2018/12/28/DIV-163a0dc22bc138b6441.gif)
+
+DPHN-142
+![](https://www.kanjiantu.com/images/2018/12/28/DPHN-14218a2fec36aa68397.gif)
+
+DV-1682
+![](https://www.kanjiantu.com/images/2018/12/28/DV-1682ebc5d377cc4ddb38.gif)
+
+DVDES-769
+![](https://www.kanjiantu.com/images/2018/12/28/DVDES-769-C08810f69dc70301e.gif)
+
+EBOD-241
+![](https://www.kanjiantu.com/images/2018/12/28/EBOD-241-B4aad1f9cee8deb01.gif)
+
+EBOD-358
+![](https://www.kanjiantu.com/images/2018/12/28/EBOD-358-Bbd217256ec38c8bd.gif)
+
+FSET-230
+![](https://www.kanjiantu.com/images/2018/12/28/FSET-2309c8ee8e8ce0e1cd8.gif)
+
+GAR-372
+![](https://www.kanjiantu.com/images/2018/12/28/GAR-372-B1d22c98ffd90b739.gif)
+
+Hable-con-ella
+![](https://www.kanjiantu.com/images/2018/12/28/Hable-con-ella7b64d89923a1a959.gif)
+
+IENE-448
+![](https://www.kanjiantu.com/images/2018/12/28/IENE-448-Bf75620c1e7a2c32a.gif)
+
+IPTD-915
+![](https://www.kanjiantu.com/images/2018/12/28/IPTD-9151e0d7c690151d2c3.gif)
+
+IPZ-015
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-015-A1d5d43438ad9fd38.gif)
+
+IPZ-127
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-127-C1ae63c3a5f752e6b.gif)
+
+IPZ-184
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-184-Be1c0403b29d373fd.gif)
+
+IPZ-338
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-3385d6757b2983c9eaf.gif)
+
+IPZ-404
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-404-B9763b30fbc91304f.gif)
+
+IPZ-441
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-441-Gc427d4d517b81905.gif)
+
+IPZ-473
+![](https://www.kanjiantu.com/images/2018/12/28/IPZ-473-Bf7cabf51a8f9a554.gif)
+
+JUC-724
+![](https://www.kanjiantu.com/images/2018/12/28/JUC-724ca612eae3026567f.gif)
+
+JUX-143
+![](https://www.kanjiantu.com/images/2018/12/28/JUX-1436282e7198e8a090d.gif)
+
+JXD-09
+![](https://www.kanjiantu.com/images/2018/12/28/JXD-09f4f65608233ff40a.gif)
+
+KCPB-024
+![](https://www.kanjiantu.com/images/2018/12/28/KCPB-02472888d49f9f44771.gif)
+
+KK-054
+![](https://www.kanjiantu.com/images/2018/12/28/KK-054b016d0fd2842c2b2.gif)
+
+LCDV-40448
+![](https://www.kanjiantu.com/images/2018/12/28/LCDV-404482b54092932a6e33a.gif)
+
+MAGURO-001
+![](https://www.kanjiantu.com/images/2018/12/28/MAGURO-001c2eae7027187f59b.gif)
+
+MDYD-748
+![](https://www.kanjiantu.com/images/2018/12/28/MDYD-748-A8d33fb3b37f90d72.gif)
+
+MDYD-912
+![](https://www.kanjiantu.com/images/2018/12/28/MDYD-912350fcc88c7f71b42.gif)
+
+Miad-576
+![](https://www.kanjiantu.com/images/2018/12/28/Miad-57647fa5dd4327e17d8.gif)
+
+MIAD-698
+![](https://www.kanjiantu.com/images/2018/12/28/MIAD-698-A0d61a7910b61159a.gif)
+
+MIDD-776
+![](https://www.kanjiantu.com/images/2018/12/28/MIDD-776692c20eed677ac5b.gif)
+
+MIDD-882
+![](https://www.kanjiantu.com/images/2018/12/28/MIDD-8824abe3b53cba2ad63.gif)
+
+MIDD-994
+![](https://www.kanjiantu.com/images/2018/12/28/MIDD-994db87f0cd0155a035.gif)
+
+MIDE-109
+![](https://www.kanjiantu.com/images/2018/12/28/MIDE-109-Adb8db3739740ea03.gif)
+
+MIDE-130
+![](https://www.kanjiantu.com/images/2018/12/28/MIDE-130-Cbb0c46e1e0c1a070.gif)
+
+MIDE-154
+![](https://www.kanjiantu.com/images/2018/12/28/MIDE-154-A05b71ff86e26efd7.gif)
+
+MIGD-210
+![](https://www.kanjiantu.com/images/2018/12/28/MIGD-210e0e2c80079ccc47c.gif)
+
+MXGS-346
+![](https://www.kanjiantu.com/images/2018/12/28/MXGS-346a2be4fc6765a9149.gif)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 01-11] 那些年收藏的爱情动作片,快上车,有车牌(第二十一期)
+
+<details><summary><b>答案</b></summary>
+<p>
+
+020412-934
+![](https://www.kanjiantu.com/images/2019/01/11/020412-934-Ac48f2839910021d5.gif)
+
+032913-560
+![](https://www.kanjiantu.com/images/2019/01/11/032913-5609c362b6e6efec62e.gif)
+
+ABP-108
+![](https://www.kanjiantu.com/images/2019/01/11/ABP-10864235db7dd5f8aaa.gif)
+
+ABP-142
+![](https://www.kanjiantu.com/images/2019/01/11/ABP-14283efa6e22e6c3635.gif)
+
+ABP-205
+![](https://www.kanjiantu.com/images/2019/01/11/ABP-205-Accc51c1af1a5c0a8.gif)
+
+ABP-205
+![](https://www.kanjiantu.com/images/2019/01/11/ABP-205-B41309c479ea1b86f.gif)
+
+ABS-213
+![](https://www.kanjiantu.com/images/2019/01/11/ABS-213d187628f71aaa0f8.gif)
+
+ADN-008
+![](https://www.kanjiantu.com/images/2019/01/11/ADN-0086fe02a4baa7ee517.gif)
+
+Asians-Love-Anal---Digital-Sin
+![](https://www.kanjiantu.com/images/2019/01/11/Asians-Love-Anal---Digital-Sinade3375d08a5c4f2.gif)
+
+AT-099
+![](https://www.kanjiantu.com/images/2019/01/11/AT-099bd0deae7af4ab849.gif)
+
+AUKG-219
+![](https://www.kanjiantu.com/images/2019/01/11/AUKG-2190bf1a81381fe5b69.gif)
+
+aukg-246
+![](https://www.kanjiantu.com/images/2019/01/11/aukg-246e02a27128112a255.gif)
+
+BBI-168
+![](https://www.kanjiantu.com/images/2019/01/11/BBI-168-C9a489793ac81fed9.gif)
+
+BDD-20
+![](https://www.kanjiantu.com/images/2019/01/11/BDD-201db9af4013d08f37.gif)
+
+BLK-119
+![](https://www.kanjiantu.com/images/2019/01/11/BLK-119-Cdc6cad4e4f8eacb7.gif)
+
+BOBB-206
+![](https://www.kanjiantu.com/images/2019/01/11/BOBB-206-B07ff1fc4b3e6026f.gif)
+
+CWP-93
+![](https://www.kanjiantu.com/images/2019/01/11/CWP-9397662014ae7f8ccc.gif)
+
+DANDY-186
+![](https://www.kanjiantu.com/images/2019/01/11/DANDY-1868516dac873696c18.gif)
+
+DNDN-012
+![](https://www.kanjiantu.com/images/2019/01/11/DNDN-012fad82a2fd1abd421.gif)
+
+DOM-026
+![](https://www.kanjiantu.com/images/2019/01/11/DOM-0261e5087e784055d0a.gif)
+
+DV-1672
+![](https://www.kanjiantu.com/images/2019/01/11/DV-16727dcc5088fa535f79.gif)
+
+DVDES-544
+![](https://www.kanjiantu.com/images/2019/01/11/DVDES-544e6101e156221e0e3.gif)
+
+EBOD-224
+![](https://www.kanjiantu.com/images/2019/01/11/EBOD-22447247c2a19cf75a5.gif)
+
+EBOD-234
+![](https://www.kanjiantu.com/images/2019/01/11/EBOD-234b58210d6d557bbd8.gif)
+
+EBOD-358
+![](https://www.kanjiantu.com/images/2019/01/11/EBOD-358-A21f026637ea65c5b.gif)
+
+EBOD-399
+![](https://www.kanjiantu.com/images/2019/01/11/EBOD-399-B3ba3851fe8b261f3.gif)
+
+FSET-482
+![](https://www.kanjiantu.com/images/2019/01/11/FSET-482-Bb4019939d6ce0e6c.gif)
+
+FSET-484
+![](https://www.kanjiantu.com/images/2019/01/11/FSET-484-A40100e275f60ed0f.gif)
+
+HAVD-707
+![](https://www.kanjiantu.com/images/2019/01/11/HAVD-707-Bd30fb8ddf6677c07.gif)
+
+HAVD-707
+![](https://www.kanjiantu.com/images/2019/01/11/HAVD-707-A72aae5b9bdbb35fd.gif)
+
+IPSD-048
+![](https://www.kanjiantu.com/images/2019/01/11/IPSD-0487123d5c4fe5acf82.gif)
+
+IPTD-343
+![](https://www.kanjiantu.com/images/2019/01/11/IPTD-343d293a67b995c3411.gif)
+
+IPTD-986
+![](https://www.kanjiantu.com/images/2019/01/11/IPTD-986-Bf30b10cbd111218a.gif)
+
+IPZ-133
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-133-Adfded5e8313f338e.gif)
+
+IPZ-163
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-163-A564136d05fec8f4e.gif)
+
+IPZ-249
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-24990635efa22052c81.gif)
+
+IPZ-252
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-2529aa11fbd5ccac5ed.gif)
+
+IPZ-414
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-4147bc1d775c8677faf.gif)
+
+IPZ-415
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-41560b6dda1fffb319d.gif)
+
+IPZ--451
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ--451-438-344-d42f40f491f4bf9e.gif)
+
+IPZ-455
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-455b0385fd20eab3ae2.gif)
+
+IPZ-457
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-4577279f63a17b2a6a2.gif)
+
+IPZ-487
+![](https://www.kanjiantu.com/images/2019/01/11/IPZ-487-Ba97f1e2cbacc3d4f.gif)
+
+iudf-235
+![](https://www.kanjiantu.com/images/2019/01/11/iudf-235945b477539423d46.gif)
+
+JUFD-100
+![](https://www.kanjiantu.com/images/2019/01/11/JUFD-100-Bf3898b8e6a5d44a3.gif)
+
+JUFD-324
+![](https://www.kanjiantu.com/images/2019/01/11/JUFD-324-Be31a248deaf5676d.gif)
+
+JUX-391
+![](https://www.kanjiantu.com/images/2019/01/11/JUX-391-B8dba5ebe98c8b4be.gif)
+
+JUX-391
+![](https://www.kanjiantu.com/images/2019/01/11/JUX-391-C27b672122b730f66.gif)
+
+KAWD-567
+![](https://www.kanjiantu.com/images/2019/01/11/KAWD-567-B322a852a8042e36c.gif)
+
+KAWD-578
+![](https://www.kanjiantu.com/images/2019/01/11/KAWD-5780092fe90954001a4.gif)
+
+---
+
+![](https://www.kanjiantu.com/images/2019/01/11/WANIMAL-348bd713852c6a10d12.jpg)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 01-18] 那些年收藏的爱情动作片,快上车,有车牌(第二十二期)[80P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+为社区添砖加瓦,如有微博,请版主删帖,勿关小黑屋！
+
+PGD-730
+![](https://www.kanjiantu.com/images/2019/01/18/PGD-730-Bcd5ec78e4b66731f.gif)
+
+PGD-711
+![](https://www.kanjiantu.com/images/2019/01/18/PGD-711-Bbb1e38de5008b8b3.gif)
+
+PGD-677
+![](https://www.kanjiantu.com/images/2019/01/18/PGD-6770180cd97574a58f8.gif)
+
+PGD-574
+![](https://www.kanjiantu.com/images/2019/01/18/PGD-5748b0310ec1ee6b0f8.gif)
+
+PGD-444
+![](https://www.kanjiantu.com/images/2019/01/18/PGD-444701ab463592d1c38.gif)
+
+OKAX-004
+![](https://www.kanjiantu.com/images/2019/01/18/OKAX-004-B8d7ed3fbe07f5a3f.gif)
+
+Passion-HD---Red-Velvet---Dani-jensen-Lia-lor
+![](https://www.kanjiantu.com/images/2019/01/18/Passion-HD---Red-Velvet---Dani-jensen-Lia-lor46850ef850d3cd76.gif)
+
+ONED-293
+![](https://www.kanjiantu.com/images/2019/01/18/ONED-29304ddd320874a9a0f.gif)
+
+Nubile-Films-janice-griffith--what-you-wanted
+![](https://www.kanjiantu.com/images/2019/01/18/Nubile-Films-janice-griffith--what-you-wanted-B3d18b90273ff119b.gif)
+
+NHDT-964
+![](https://www.kanjiantu.com/images/2019/01/18/NHDT-9647f1347ef077f80ce.gif)
+
+Nicole-Peters
+![](https://www.kanjiantu.com/images/2019/01/18/Nicole-Peters960fb0a7bfd769db.gif)
+
+MXGS-662
+![](https://www.kanjiantu.com/images/2019/01/18/MXGS-662-A5c9c56f89b56c30c.gif)
+
+NFDM-214
+![](https://www.kanjiantu.com/images/2019/01/18/NFDM-2146436824769dedf01.gif)
+
+n0646
+![](https://www.kanjiantu.com/images/2019/01/18/n064609f666251285314a.gif)
+
+MXGS-486
+![](https://www.kanjiantu.com/images/2019/01/18/MXGS-486-A209a7bacb706360b.gif)
+
+MKBD-S09
+![](https://www.kanjiantu.com/images/2019/01/18/MKBD-S09e646750b9f31cad8.gif)
+
+MSWD-10023
+![](https://www.kanjiantu.com/images/2019/01/18/MSWD-10023-A196039ff489c03bb.gif)
+
+MIQD-007
+![](https://www.kanjiantu.com/images/2019/01/18/MIQD-00709b97398052b8e11.gif)
+
+MILD-711
+![](https://www.kanjiantu.com/images/2019/01/18/MILD-711f15b73b05a3ada05.gif)
+
+MIGD-210
+![](https://www.kanjiantu.com/images/2019/01/18/MIGD-210.fd57d4059e81e5cd.gif)
+
+MIDE-141
+![](https://www.kanjiantu.com/images/2019/01/18/MIDE-141-De543560a5031b6a8.gif)
+
+MIAD-698
+![](https://www.kanjiantu.com/images/2019/01/18/MIAD-698-D2ce7a548a164babe.gif)
+
+MIDE-120
+![](https://www.kanjiantu.com/images/2019/01/18/MIDE-1209bf51d76e1418e09.gif)
+
+MIDE-040
+![](https://www.kanjiantu.com/images/2019/01/18/MIDE-040-A8915c061378dfa0a.gif)
+
+MIDD-944
+![](https://www.kanjiantu.com/images/2019/01/18/MIDD-944-B3a3d3839e944ce33.gif)
+
+MIDD-751
+![](https://www.kanjiantu.com/images/2019/01/18/MIDD-751-B58c53484db7a622d.gif)
+
+MIAD-530
+![](https://www.kanjiantu.com/images/2019/01/18/MIAD-5306d6a82de6efaa511.gif)
+
+MDYD-877
+![](https://www.kanjiantu.com/images/2019/01/18/MDYD-8779b5bf927a9da610d.gif)
+
+MDS-689
+![](https://www.kanjiantu.com/images/2019/01/18/MDS-689ff94609ca1c4456c.gif)
+
+KIL-048
+![](https://www.kanjiantu.com/images/2019/01/18/KIL-048-Eba409329254de5cc.gif)
+
+LLR-008
+![](https://www.kanjiantu.com/images/2019/01/18/LLR-008-A957c7e6232e71630.gif)
+
+KUF-13043
+![](https://www.kanjiantu.com/images/2019/01/18/KUF-130438718c4075054b9ad.gif)
+
+kate-upton
+![](https://www.kanjiantu.com/images/2019/01/18/kate-uptonecdd734208bf925a.gif)
+
+IPZ-476
+![](https://www.kanjiantu.com/images/2019/01/18/IPZ-476-A4d28b5d166f1e1d3.gif)
+
+JUC-948
+![](https://www.kanjiantu.com/images/2019/01/18/JUC-948619f5c22ef94df58.gif)
+
+IPZ-441
+![](https://www.kanjiantu.com/images/2019/01/18/IPZ-441-Af99b4b38d72fd78f.gif)
+
+IPZ-120
+![](https://www.kanjiantu.com/images/2019/01/18/IPZ-12060483c1b950cfb2c.gif)
+
+IPZ-351
+![](https://www.kanjiantu.com/images/2019/01/18/IPZ-351feae9ec3e1eaa786.gif)
+
+DOPP-012
+![](https://www.kanjiantu.com/images/2019/01/18/DOPP-01249aac721b12ddd93.gif)
+
+IPTD-934
+![](https://www.kanjiantu.com/images/2019/01/18/IPTD-934-Acc680150ea0cf2ba.gif)
+
+HND-094
+![](https://www.kanjiantu.com/images/2019/01/18/HND-094-B6d149181979697ba.gif)
+
+FSET-337
+![](https://www.kanjiantu.com/images/2019/01/18/FSET-3373d81ce219d1c29e0.gif)
+
+EBOD-271
+![](https://www.kanjiantu.com/images/2019/01/18/EBOD-271-A240b2ce2fd051818.gif)
+
+DVDES-664
+![](https://www.kanjiantu.com/images/2019/01/18/DVDES-664-A16177b87c06cc7b4.gif)
+
+CNPD-040
+![](https://www.kanjiantu.com/images/2019/01/18/CNPD-0405128dd67446673b1.gif)
+
+BF-342
+![](https://www.kanjiantu.com/images/2019/01/18/BF-342-Ea2b46933220a422b.gif)
+
+ARM-349
+![](https://www.kanjiantu.com/images/2019/01/18/ARM-349-A57e2a8efd4807a41.gif)
+
+AVOP-063
+![](https://www.kanjiantu.com/images/2019/01/18/AVOP-0639983bf7c7dce5565.gif)
+
+ABP-161
+![](https://www.kanjiantu.com/images/2019/01/18/ABP-161-B3c627d5f80555c34.gif)
+
+ABS-147
+![](https://www.kanjiantu.com/images/2019/01/18/ABS-1477d2cbcc4a11bb790.gif)
+
+更多福利,可 VX 关注【枫林游】
+![](https://www.kanjiantu.com/images/2019/01/18/WANIMAL-80396c09c50ddb801e2.jpg)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 02-15] 那些年收藏的爱情动作片,快上车,有车牌(第二十五期)[80P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+为社区添砖加瓦,如有违规,请版主删帖,勿关小黑屋！
+
+062212 368
+![](https://www.luoimg.com/u/20190215/10263915.gif)
+
+ABS-082
+![](https://www.luoimg.com/u/20190215/10264810.gif)
+
+ATID-208
+![](https://www.luoimg.com/u/20190215/1026552.gif)
+
+AUKG-099
+![](https://www.luoimg.com/u/20190215/10270093.gif)
+
+BEB-076
+![](https://www.luoimg.com/u/20190215/1027085.gif)
+
+BLK-119
+![](https://www.luoimg.com/u/20190215/10271694.gif)
+
+Cuties 3-01 720p Riley Reid
+![](https://www.luoimg.com/u/20190215/10271978.gif)
+
+DV-1666
+![](https://www.luoimg.com/u/20190215/10272776.gif)
+
+EBOD-251
+![](https://www.luoimg.com/u/20190215/10273154.gif)
+
+IPTD-694
+![](https://www.luoimg.com/u/20190215/10273825.gif)
+
+IPZ-181
+![](https://www.luoimg.com/u/20190215/10274126.gif)
+
+IPZ-404
+![](https://www.luoimg.com/u/20190215/1027547.gif)
+
+IPZ-476
+![](https://www.luoimg.com/u/20190215/10281873.gif)
+
+JUX-273
+![](https://www.luoimg.com/u/20190215/10282561.gif)
+
+KIL-048
+![](https://www.luoimg.com/u/20190215/10283697.gif)
+
+KV-129
+![](https://www.luoimg.com/u/20190215/10283977.gif)
+
+MAS-075
+![](https://www.luoimg.com/u/20190215/10284491.gif)
+
+MDYD-934
+![](https://www.luoimg.com/u/20190215/10290399.gif)
+
+MIAD-686
+![](https://www.luoimg.com/u/20190215/10291514.gif)
+
+MIDD-751
+![](https://www.luoimg.com/u/20190215/10291817.gif)
+
+MIDD-987
+![](https://www.luoimg.com/u/20190215/10292464.gif)
+
+MIDE-118
+![](https://www.luoimg.com/u/20190215/10293851.gif)
+
+MIDE-154
+![](https://www.luoimg.com/u/20190215/1029463.gif)
+
+mild-052
+![](https://www.luoimg.com/u/20190215/10295447.gif)
+
+MIRD-081
+![](https://www.luoimg.com/u/20190215/10300099.gif)
+
+MOND-001
+![](https://www.luoimg.com/u/20190215/10300649.gif)
+
+MXGS-486
+![](https://www.luoimg.com/u/20190215/10301154.gif)
+
+MXGS-673
+![](https://www.luoimg.com/u/20190215/10302070.gif)
+
+NFDM-203
+![](https://www.luoimg.com/u/20190215/10302447.gif)
+
+NHDTA-431
+![](https://www.luoimg.com/u/20190215/1030294.gif)
+
+OKSN-076
+![](https://www.luoimg.com/u/20190215/10303246.gif)
+
+OPD-021
+![](https://www.luoimg.com/u/20190215/1030403.gif)
+
+PGD-455
+![](https://www.luoimg.com/u/20190215/10304448.gif)
+
+PGD-642
+![](https://www.luoimg.com/u/20190215/10304988.gif)
+
+PGD-710
+![](https://www.luoimg.com/u/20190215/10310362.gif)
+
+pgm_409ayu_720p
+![](https://www.luoimg.com/u/20190215/1031109.gif)
+
+PPPD-297
+![](https://www.luoimg.com/u/20190215/10311950.gif)
+
+PPPD-307
+![](https://www.luoimg.com/u/20190215/10312966.gif)
+
+RBD-341
+![](https://www.luoimg.com/u/20190215/10313555.gif)
+
+RBD-522
+![](https://www.luoimg.com/u/20190215/10313915.gif)
+
+RBD-603
+![](https://www.luoimg.com/u/20190215/10314798.gif)
+
+RBD-635
+![](https://www.luoimg.com/u/20190215/10315083.gif)
+
+RCT-365
+![](https://www.luoimg.com/u/20190215/10315575.gif)
+
+RCT-579
+![](https://www.luoimg.com/u/20190215/10321196.gif)
+
+RCT-631
+![](https://www.luoimg.com/u/20190215/10322019.gif)
+
+RDT-163
+![](https://www.luoimg.com/u/20190215/10322699.gif)
+
+RISK-007
+![](https://www.luoimg.com/u/20190215/10323179.gif)
+
+S23-01
+![](https://www.luoimg.com/u/20190215/10323629.gif)
+
+SAQ-18
+![](https://www.luoimg.com/u/20190215/10324571.gif)
+
+SCPX-003
+![](https://www.luoimg.com/u/20190215/10325839.gif)
+
+更多福利,可 VX 关注【枫林游】
+![](https://www.luoimg.com/u/20190215/10375448.jpg)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 02-22] 那些年收藏的爱情动作片,快上车,有车牌(第二十六期)[77P] ...
+
+<details><summary><b>答案</b></summary>
+<p>
+
+392-anna あんな
+![](https://www.touimg.com/u/20190222/13484136.gif)
+
+ABP-161
+![](https://www.touimg.com/u/20190222/13484714.gif)
+
+ADN-036
+![](https://www.touimg.com/u/20190222/13485666.gif)
+
+BF-342
+![](https://www.touimg.com/u/20190222/13490319.gif)
+
+dm_katerina_ap031513
+![](https://www.touimg.com/u/20190222/13490588.gif)
+
+DWD-080
+![](https://www.touimg.com/u/20190222/13491153.gif)
+
+GACHIP-137
+![](https://www.touimg.com/u/20190222/13491455.gif)
+
+IPTD-957
+![](https://www.touimg.com/u/20190222/13491731.gif)
+
+IPZ-229
+![](https://www.touimg.com/u/20190222/13492310.gif)
+
+IPZ-462
+![](https://www.touimg.com/u/20190222/13493247.gif)
+
+JUX-254
+![](https://www.touimg.com/u/20190222/13493538.gif)
+
+KIL-048
+![](https://www.touimg.com/u/20190222/13495435.gif)
+
+LPFD-247
+![](https://www.touimg.com/u/20190222/13500099.gif)
+
+MDYD-814
+![](https://www.touimg.com/u/20190222/13500458.gif)
+
+MIAD-680
+![](https://www.touimg.com/u/20190222/13503922.gif)
+
+MIDD-793
+![](https://www.touimg.com/u/20190222/13504452.gif)
+
+MIDE-040
+![](https://www.touimg.com/u/20190222/1350523.gif)
+
+MIDE-141
+![](https://www.touimg.com/u/20190222/13510616.gif)
+
+MIGD-600
+![](https://www.touimg.com/u/20190222/13513291.gif)
+
+MIRD-108
+![](https://www.touimg.com/u/20190222/13513868.gif)
+
+MTA-002
+![](https://www.touimg.com/u/20190222/13514211.gif)
+
+MXGS-643
+![](https://www.touimg.com/u/20190222/13515251.gif)
+
+new-2005
+![](https://www.touimg.com/u/20190222/1351531.gif)
+
+NHDTA-472
+![](https://www.touimg.com/u/20190222/13515794.gif)
+
+ODFW-006
+![](https://www.touimg.com/u/20190222/13520556.gif)
+
+ONED-985
+![](https://www.touimg.com/u/20190222/13520682.gif)
+
+PGD-403
+![](https://www.touimg.com/u/20190222/13521160.gif)
+
+PGD-642
+![](https://www.touimg.com/u/20190222/13521385.gif)
+
+PGD-717
+![](https://www.touimg.com/u/20190222/13521933.gif)
+
+PPPD-280
+![](https://www.touimg.com/u/20190222/1352284.gif)
+
+PPPD-307
+![](https://www.touimg.com/u/20190222/13523635.gif)
+
+RBD-446
+![](https://www.touimg.com/u/20190222/13524370.gif)
+
+RBD-581
+![](https://www.touimg.com/u/20190222/13525353.gif)
+
+RBD-616
+![](https://www.touimg.com/u/20190222/13530383.gif)
+
+RCT-341
+![](https://www.touimg.com/u/20190222/13531440.gif)
+
+RCT-579
+![](https://www.touimg.com/u/20190222/13532268.gif)
+
+RCT-648
+![](https://www.touimg.com/u/20190222/13533143.gif)
+
+Real Wife Stories - JENNI LEE
+![](https://www.touimg.com/u/20190222/13533661.gif)
+
+rws jasmine james ap112713
+![](https://www.touimg.com/u/20190222/13534186.gif)
+
+SBMX-054
+![](https://www.touimg.com/u/20190222/1353476.gif)
+
+S-Cute Girls 349
+![](https://www.touimg.com/u/20190222/1353513.gif)
+
+SDDE-359
+![](https://www.touimg.com/u/20190222/13535716.gif)
+
+SDMT-160
+![](https://www.touimg.com/u/20190222/13540014.gif)
+
+SERO-0245
+![](https://www.touimg.com/u/20190222/13540776.gif)
+
+SHKD-456
+![](https://www.touimg.com/u/20190222/13541177.gif)
+
+SHKD-552
+![](https://www.touimg.com/u/20190222/13541827.gif)
+
+SIB-018
+![](https://www.touimg.com/u/20190222/13542313.gif)
+
+SMD-77
+![](https://www.touimg.com/u/20190222/13543319.gif)
+
+SNIS-152
+![](https://www.touimg.com/u/20190222/13543922.gif)
+
+SNIS-178
+![](https://www.touimg.com/u/20190222/13545148.gif)
+
+---
+
+![](https://www.touimg.com/u/20190222/14052318.jpg)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 03-22] 那些年收藏的爱情动作片,快上车,有车牌(第二十九期)
+
+<details><summary><b>答案</b></summary>
+<p>
+
+为社区添砖加瓦,如有违规,请版主删帖,勿关小黑屋！
+
+130125yuri_mi
+![](https://www.kanjiantu.com/images/2019/03/22/130125yuri_mi-2cd7a15c12f322a90.gif)
+
+ATFB-182
+![](https://www.kanjiantu.com/images/2019/03/22/ATFB-182e4ba612a4eca66cf.gif)
+
+Cheerleader-Girl-Has-Fun-5
+![](https://www.kanjiantu.com/images/2019/03/22/Cheerleader-Girl-Has-Fun-568fa83109addce74.gif)
+
+DVDES-769
+![](https://www.kanjiantu.com/images/2019/03/22/DVDES-769-A132e739afe65dfca.gif)
+
+Gloria--Melanie-B---Unused-Pussies
+![](https://www.kanjiantu.com/images/2019/03/22/Gloria--Melanie-B---Unused-Pussies89f37b945e44449d.gif)
+
+IPZ-104
+![](https://www.kanjiantu.com/images/2019/03/22/IPZ-104a69c0c42a18a3901.gif)
+
+IPZ-441
+![](https://www.kanjiantu.com/images/2019/03/22/IPZ-441-F09e519c54fde141c.gif)
+
+KAWD-392
+![](https://www.kanjiantu.com/images/2019/03/22/KAWD-392-B4bb906b8f0ab348e.gif)
+
+LCDV-42086
+![](https://www.kanjiantu.com/images/2019/03/22/LCDV-420867ed854f17a66cc4f.gif)
+
+MDYD-839
+![](https://www.kanjiantu.com/images/2019/03/22/MDYD-83962b60188432cb7a4.gif)
+
+MIAD-699
+![](https://www.kanjiantu.com/images/2019/03/22/MIAD-699-Ae9607b3595e5551a.gif)
+
+MIDE-008
+![](https://www.kanjiantu.com/images/2019/03/22/MIDE-008bcc15353ea9898f8.gif)
+
+MIDE-154
+![](https://www.kanjiantu.com/images/2019/03/22/MIDE-154-B1fd3d770a16048ea.gif)
+
+MILD-932
+![](https://www.kanjiantu.com/images/2019/03/22/MILD-932-A5edf47a27b05df03.gif)
+
+MST-004
+![](https://www.kanjiantu.com/images/2019/03/22/MST-00466a5ee166fb46cc0.gif)
+
+MXGS-673
+![](https://www.kanjiantu.com/images/2019/03/22/MXGS-673-A107310b04fa34a74.gif)
+
+NHDT-518
+![](https://www.kanjiantu.com/images/2019/03/22/NHDT-518016e21654fbfcae4.gif)
+
+ODFW-006
+![](https://www.kanjiantu.com/images/2019/03/22/ODFW-006-B1a03b943b637e609.gif)
+
+PaiPans--Haruka-Sanada
+![](https://www.kanjiantu.com/images/2019/03/22/PaiPans--Haruka-Sanadab19ae3307d10b033.gif)
+
+PGD-585
+![](https://www.kanjiantu.com/images/2019/03/22/PGD-58515da2777a4762a82.gif)
+
+PGD-720
+![](https://www.kanjiantu.com/images/2019/03/22/PGD-720-Bad59c1bfb57f4f45.gif)
+
+PPPD-298
+![](https://www.kanjiantu.com/images/2019/03/22/PPPD-298-A226e026e95a5d2eb.gif)
+
+Queensnake.com--Desert-Heart
+![](https://www.kanjiantu.com/images/2019/03/22/Queensnake.com--Desert-Heart4fa69259d464e6f6.gif)
+
+RBD-582
+![](https://www.kanjiantu.com/images/2019/03/22/RBD-582-A7cb954a0efe4a8bb.gif)
+
+RCT-015
+![](https://www.kanjiantu.com/images/2019/03/22/RCT-0159c451fb0d61e4229.gif)
+
+RCT-579
+![](https://www.kanjiantu.com/images/2019/03/22/RCT-579-Dccc1732d8d64532a.gif)
+
+RDT-163
+![](https://www.kanjiantu.com/images/2019/03/22/RDT-163-Bed7ad8df6f5180e5.gif)
+
+RSD-014
+![](https://www.kanjiantu.com/images/2019/03/22/RSD-014c80396a5dffcac3a.gif)
+
+SBMX-054
+![](https://www.kanjiantu.com/images/2019/03/22/SBMX-054-B5a70e86e5859ad85.gif)
+
+SDDE-342
+![](https://www.kanjiantu.com/images/2019/03/22/SDDE-342ae790f0f649d3946.gif)
+
+SDMS-723
+![](https://www.kanjiantu.com/images/2019/03/22/SDMS-723-B4afd376b3ea22fbf.gif)
+
+SFBA-001
+![](https://www.kanjiantu.com/images/2019/03/22/SFBA-0018e1a2ef633116757.gif)
+
+SHKD-546
+![](https://www.kanjiantu.com/images/2019/03/22/SHKD-546-Adda8e23065a8adde.gif)
+
+SHS-030
+![](https://www.kanjiantu.com/images/2019/03/22/SHS-030bb8932de03281aa0.gif)
+
+SNIS-018
+![](https://www.kanjiantu.com/images/2019/03/22/SNIS-01800bac1ae5b26038f.gif)
+
+SNIS-173
+![](https://www.kanjiantu.com/images/2019/03/22/SNIS-173-Bdbe4b65703b8d69a.gif)
+
+snis-201
+![](https://www.kanjiantu.com/images/2019/03/22/snis-201-D05459e0cbd9d7162.gif)
+
+SNIS-233
+![](https://www.kanjiantu.com/images/2019/03/22/SNIS-2334376b4ccb2db9b3a.gif)
+
+SNIS-258
+![](https://www.kanjiantu.com/images/2019/03/22/SNIS-25878561745be116904.gif)
+
+soe-540
+![](https://www.kanjiantu.com/images/2019/03/22/soe-54063681188d11f5b6c.gif)
+
+SOE-922
+![](https://www.kanjiantu.com/images/2019/03/22/SOE-922-B06833185bb5dc746.gif)
+
+SORA-007
+![](https://www.kanjiantu.com/images/2019/03/22/SORA-0076d5a6fdab74bd86f.gif)
+
+SRS-023
+![](https://www.kanjiantu.com/images/2019/03/22/SRS-023-Bdb4e8f7036e0d384.gif)
+
+STAR-224
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-224cfd5e051aca7a2a3.gif)
+
+STAR-409
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-409-Cb1f3cc8626c58722.gif)
+
+STAR-475
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-47525b6088a3c01098d.gif)
+
+STAR-538
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-538870f5d47c85ff8df.gif)
+
+STAR-551
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-551-C085d59e24b55b480.gif)
+
+STAR-561
+![](https://www.kanjiantu.com/images/2019/03/22/STAR-561-G1015e632457a1627.gif)
+
+SUPD-114
+![](https://www.kanjiantu.com/images/2019/03/22/SUPD-1140805b773898634ab.gif)
+
+更多福利,可 VX 关注【枫林游】
+![](https://www.kanjiantu.com/images/2019/03/22/WANIMAL-120bf98c4a31802e481.jpg)
+
+</p>
+</details>
+
+---
+
+## 那些年收藏的爱情动作片,快上车,有车牌(第三十期)[79P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+![](https://www.kanjiantu.com/images/2019/03/29/1000-13010178616627dd3b56f1.gif)
+
+ABS-194
+![](https://www.kanjiantu.com/images/2019/03/29/ABS-194-B07083afd30a9436c.gif)
+
+BF-342
+![](https://www.kanjiantu.com/images/2019/03/29/BF-342-Ga156cde2188285d3.gif)
+
+DVDES-659
+![](https://www.kanjiantu.com/images/2019/03/29/DVDES-65958721a1a1e8c3c1b.gif)
+
+HERY-015
+![](https://www.kanjiantu.com/images/2019/03/29/HERY-0159f941c55e2b69e39.gif)
+
+IPZ-195
+![](https://www.kanjiantu.com/images/2019/03/29/IPZ-1952c1a050c995031d3.gif)
+
+Joymii---Celeste---Hallway
+![](https://www.kanjiantu.com/images/2019/03/29/Joymii---Celeste---Hallwayf306afc3ba45cd05.gif)
+
+KIL-048
+![](https://www.kanjiantu.com/images/2019/03/29/KIL-048-C0f64c4fb475a59ce.gif)
+
+MAS-043
+![](https://www.kanjiantu.com/images/2019/03/29/MAS-043-Bf7c9df09b04b7baf.gif)
+
+MIAD-549
+![](https://www.kanjiantu.com/images/2019/03/29/MIAD-549-A672788c166b3e780.gif)
+
+MIDD-961
+![](https://www.kanjiantu.com/images/2019/03/29/MIDD-9611fc2b5b1b83a2dbb.gif)
+
+MIDE-136
+![](https://www.kanjiantu.com/images/2019/03/29/MIDE-13671ad883e656a8e25.gif)
+
+MILD-889
+![](https://www.kanjiantu.com/images/2019/03/29/MILD-889a2de7a09edc603e6.gif)
+
+MSWD-10023
+![](https://www.kanjiantu.com/images/2019/03/29/MSWD-10023-Bf5e32ecffabee1e6.gif)
+
+NADE-783
+![](https://www.kanjiantu.com/images/2019/03/29/NADE-7838d989a691d176fd0.gif)
+
+NHDTA-558
+![](https://www.kanjiantu.com/images/2019/03/29/NHDTA-558-A67f0c5753b58cfad.gif)
+
+OKSN-147
+![](https://www.kanjiantu.com/images/2019/03/29/OKSN-14799b7d01bc5bfdbe4.gif)
+
+PGD-459
+![](https://www.kanjiantu.com/images/2019/03/29/PGD-4598f3423dd66ba2de4.gif)
+
+PGD-707
+![](https://www.kanjiantu.com/images/2019/03/29/PGD-70794a27c2adde655ca.gif)
+
+PPPD-282
+![](https://www.kanjiantu.com/images/2019/03/29/PPPD-2829692306376fc3a92.gif)
+
+Public-Disgrace---Lily-LaBeau
+![](https://www.kanjiantu.com/images/2019/03/29/Public-Disgrace---Lily-LaBeaua6bcf95087e0f426.gif)
+
+RBD-581
+![](https://www.kanjiantu.com/images/2019/03/29/RBD-581-Bf8d1680ee909c9bd.gif)
+
+RCT-191
+![](https://www.kanjiantu.com/images/2019/03/29/RCT-1915bb0e4c3717d03e6.gif)
+
+RCT-625
+![](https://www.kanjiantu.com/images/2019/03/29/RCT-625-A94dacf750acb849a.gif)
+
+RDT-163
+![](https://www.kanjiantu.com/images/2019/03/29/RDT-163-F2846e58f536bf457.gif)
+
+SAMA-542
+![](https://www.kanjiantu.com/images/2019/03/29/SAMA-542-A456a8d3f1343d092.gif)
+
+S-cute-302-Mika
+![](https://www.kanjiantu.com/images/2019/03/29/S-cute-302-Mika-1-2-6869362f4895ce57.gif)
+
+SDDM-723
+![](https://www.kanjiantu.com/images/2019/03/29/SDDM-723936e9a3c685a138e.gif)
+
+SDMU-025
+![](https://www.kanjiantu.com/images/2019/03/29/SDMU-0255e8b6d1e2ab914ed.gif)
+
+SHKD-519
+![](https://www.kanjiantu.com/images/2019/03/29/SHKD-519436b5e0eb3793754.gif)
+
+SHKD-573
+![](https://www.kanjiantu.com/images/2019/03/29/SHKD-57312bce512de347b4e.gif)
+
+SNIS-024
+![](https://www.kanjiantu.com/images/2019/03/29/SNIS-024e441daf04a500c14.gif)
+
+SNIS-176
+![](https://www.kanjiantu.com/images/2019/03/29/SNIS-176-C528194c790b3a8e4.gif)
+
+SNIS-207
+![](https://www.kanjiantu.com/images/2019/03/29/SNIS-207-B84fa32a2805e8f1c.gif)
+
+SNIS-238
+![](https://www.kanjiantu.com/images/2019/03/29/SNIS-238-B916904aa8eb2ade6.gif)
+
+SOE-290
+![](https://www.kanjiantu.com/images/2019/03/29/SOE-29006f355577c0c3f34.gif)
+
+SOE-768
+![](https://www.kanjiantu.com/images/2019/03/29/SOE-7684a023c73c29020f5.gif)
+
+SOE-982
+![](https://www.kanjiantu.com/images/2019/03/29/SOE-982-D9b7b56534d1f1a71.gif)
+
+SRS-022
+![](https://www.kanjiantu.com/images/2019/03/29/SRS-022daaed7c6361f0351.gif)
+
+STAK-017
+![](https://www.kanjiantu.com/images/2019/03/29/STAK-0175fea2b2bafb7a51b.gif)
+
+STAR-413
+![](https://www.kanjiantu.com/images/2019/03/29/STAR-413be6142b53eb569b5.gif)
+
+STAR-483
+![](https://www.kanjiantu.com/images/2019/03/29/STAR-483-B39e236ac99551f36.gif)
+
+STAR-542
+![](https://www.kanjiantu.com/images/2019/03/29/STAR-542-Af935979db4f93804.gif)
+
+STAR-561
+![](https://www.kanjiantu.com/images/2019/03/29/STAR-561-Af48cc0ef4bc56bb8.gif)
+
+straponcum-Episode-52
+![](https://www.kanjiantu.com/images/2019/03/29/straponcum-Episode-52-B1e7d5cc0617bb3f4.gif)
+
+SVDVD-264
+![](https://www.kanjiantu.com/images/2019/03/29/SVDVD-264e78b4b633c6a413a.gif)
+
+SW-140
+![](https://www.kanjiantu.com/images/2019/03/29/SW-140-Bd7f234adfa9d1774.gif)
+
+SW-195
+![](https://www.kanjiantu.com/images/2019/03/29/SW-195ba8729d07fce4cc7.gif)
+
+SW-245
+![](https://www.kanjiantu.com/images/2019/03/29/SW-2458ad2c4f339e8e4b5.gif)
+
+SW-268
+![](https://www.kanjiantu.com/images/2019/03/29/SW-268-B3c4cdc4137fada9f.gif)
+
+</p>
+</details>
+
+---
+
+## 那些年收藏的爱情动作片,快上车,有车牌(第三十四期)[91P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+编号:gyqt
+
+ABP-188
+![](https://www.kanjiantu.com/images/2019/08/09/ABP-188931f64bf6f6649c6.gif)
+
+CETD-184
+![](https://www.kanjiantu.com/images/2019/08/09/CETD-184fe76865b255650a1.gif)
+
+EZD-311
+![](https://www.kanjiantu.com/images/2019/08/09/EZD-311-Ba948850773277553.gif)
+
+ipz-212
+![](https://www.kanjiantu.com/images/2019/08/09/ipz-212b32d46a6556e47c0.gif)
+
+JUX-360
+![](https://www.kanjiantu.com/images/2019/08/09/JUX-360-A1426150d5fb93470.gif)
+
+MDYD-748
+![](https://www.kanjiantu.com/images/2019/08/09/MDYD-748-Bcb27d09343814c8c.gif)
+
+MIDD-751
+![](https://www.kanjiantu.com/images/2019/08/09/MIDD-751-A3adff6e772c915c3.gif)
+
+MIDE-145
+![](https://www.kanjiantu.com/images/2019/08/09/MIDE-145-Acb1b6df3e9d545c8.gif)
+
+MMR-066
+![](https://www.kanjiantu.com/images/2019/08/09/MMR-066-Bed7a67a1b96b05e2.gif)
+
+NDX-044
+![](https://www.kanjiantu.com/images/2019/08/09/NDX-044b33c59afc882c588.gif)
+
+OHO-057
+![](https://www.kanjiantu.com/images/2019/08/09/OHO-0573d6e2cebadab29a3.gif)
+
+PGD-568
+![](https://www.kanjiantu.com/images/2019/08/09/PGD-5686fc88142f605b49e.gif)
+
+PPPD-175
+![](https://www.kanjiantu.com/images/2019/08/09/PPPD-175-B345323922bc38f6d.gif)
+
+RBD-508
+![](https://www.kanjiantu.com/images/2019/08/09/RBD-508-Bea2cdaeba8c3495b.gif)
+
+RBD-635
+![](https://www.kanjiantu.com/images/2019/08/09/RBD-635-D082b81e7be757ef3.gif)
+
+RCT-625
+![](https://www.kanjiantu.com/images/2019/08/09/RCT-625-Dff81a80ac9cdf63d.gif)
+
+RTP-035
+![](https://www.kanjiantu.com/images/2019/08/09/RTP-0353bead22736f3d322.gif)
+
+SDDE-352
+![](https://www.kanjiantu.com/images/2019/08/09/SDDE-352-A6c84d587bdb537ab.gif)
+
+SERO-211
+![](https://www.kanjiantu.com/images/2019/08/09/SERO-211a97931c21902c12e.gif)
+
+SHKD-554
+![](https://www.kanjiantu.com/images/2019/08/09/SHKD-554bcfa6c26333b46fa.gif)
+
+SMT-010
+![](https://www.kanjiantu.com/images/2019/08/09/SMT-010e4789b5882ee1ffa.gif)
+
+SNIS-201
+![](https://www.kanjiantu.com/images/2019/08/09/SNIS-201-Bb495293a1d1823b6.gif)
+
+SNIS-238
+![](https://www.kanjiantu.com/images/2019/08/09/SNIS-238-Cd87e361f0733fbee.gif)
+
+SOE-640
+![](https://www.kanjiantu.com/images/2019/08/09/SOE-640-A48309cf87cfb8575.gif)
+
+SOE-992
+![](https://www.kanjiantu.com/images/2019/08/09/SOE-99220f319774c56064e.gif)
+
+SS-020
+![](https://www.kanjiantu.com/images/2019/08/09/SS-02076cba1241b1d185f.gif)
+
+STAR-437
+![](https://www.kanjiantu.com/images/2019/08/09/STAR-4377ac96bec5f9b585f.gif)
+
+STAR-534
+![](https://www.kanjiantu.com/images/2019/08/09/STAR-5343e622b48b145422b.gif)
+
+STAR-561
+![](https://www.kanjiantu.com/images/2019/08/09/STAR-561-C2f054d1c43792e33.gif)
+
+SVDVD-228
+![](https://www.kanjiantu.com/images/2019/08/09/SVDVD-228a72678eb383774a1.gif)
+
+SW-165
+![](https://www.kanjiantu.com/images/2019/08/09/SW-165-Ce7c65d97fa85de5b.gif)
+
+SW-220
+![](https://www.kanjiantu.com/images/2019/08/09/SW-220-Cd685cf2316f09112.gif)
+
+SW-269
+![](https://www.kanjiantu.com/images/2019/08/09/SW-269-A1549255280f04c44.gif)
+
+SW-283
+![](https://www.kanjiantu.com/images/2019/08/09/SW-283b141b01856532178.gif)
+
+TGGP-45
+![](https://www.kanjiantu.com/images/2019/08/09/TGGP-454c6bba1604b148b3.gif)
+
+TOS-114
+![](https://www.kanjiantu.com/images/2019/08/09/TOS-114026b7f3145e31695.gif)
+
+URE-015
+![](https://www.kanjiantu.com/images/2019/08/09/URE-015-B9908c0bceb375811.gif)
+
+VANDR-019
+![](https://www.kanjiantu.com/images/2019/08/09/VANDR-019b38e5791bcdbfe70.gif)
+
+VICD-105
+![](https://www.kanjiantu.com/images/2019/08/09/VICD-1059bc7128961666b1f.gif)
+
+WANZ-123
+![](https://www.kanjiantu.com/images/2019/08/09/WANZ-123351479c5fb7efa41.gif)
+
+WANZ-218
+![](https://www.kanjiantu.com/images/2019/08/09/WANZ-218-Ad5fe709353fc3bdd.gif)
+
+XAM-050
+![](https://www.kanjiantu.com/images/2019/08/09/XAM-050-A72aa1df896c4a7f3.gif)
+
+XV-1037
+![](https://www.kanjiantu.com/images/2019/08/09/XV-1037f30957a48feda5b2.gif)
+
+YMDD-010
+![](https://www.kanjiantu.com/images/2019/08/09/YMDD-01070bd5764175ea962.gif)
+
+YMDD-055
+![](https://www.kanjiantu.com/images/2019/08/09/YMDD-055-A7b824c68e98c1960.gif)
+
+YRH-057
+![](https://www.kanjiantu.com/images/2019/08/09/YRH-057-A9a5775f6b54d5044.gif)
+
+YSN-264
+![](https://www.kanjiantu.com/images/2019/08/09/YSN-264-B35a173f6b87a7dcc.gif)
+
+ZIZG-001
+![](https://www.kanjiantu.com/images/2019/08/09/ZIZG-001-A97169176490dbb1f.gif)
+
+ZONE-007
+![](https://www.kanjiantu.com/images/2019/08/09/ZONE-007d8c4201829f1cbb5.gif)
+
+ZUKO-042
+![](https://www.kanjiantu.com/images/2019/08/09/ZUKO-042-B6e6c4fa229c6a4e0.gif)
+
+</p>
+</details>
+
+---
+
+## [枫林屋 08-23] 那些年收藏的爱情动作片,快上车,有车牌(第三十六期)[88P]
+
+<details><summary><b>答案</b></summary>
+<p>
+
+为社区添砖加瓦,如有违规,请版主删帖,勿关小黑屋！
+编号:hbka
+
+ABP-159
+![](https://www.kanjiantu.com/images/2019/08/23/ABP-159-A3681bcdf56570a09.gif)
+
+DEMS-008
+![](https://www.kanjiantu.com/images/2019/08/23/DEMS-008700dbef1c9a95c6b.gif)
+
+inu-007
+![](https://www.kanjiantu.com/images/2019/08/23/inu-007067090578a3ce2e4.gif)
+
+IPZ-092
+![](https://www.kanjiantu.com/images/2019/08/23/IPZ-092-C78f6686c89d0b096.gif)
+
+JUC-836
+![](https://www.kanjiantu.com/images/2019/08/23/JUC-836-Bfacd2d92f5778eab.gif)
+
+MAS-043
+![](https://www.kanjiantu.com/images/2019/08/23/MAS-043-D60e47f3ed2e521a0.gif)
+
+MIDD-918
+![](https://www.kanjiantu.com/images/2019/08/23/MIDD-918975e95968e3922b1.gif)
+
+MILD-771
+![](https://www.kanjiantu.com/images/2019/08/23/MILD-771-A884c508bafbde4e4.gif)
+
+MXGS-563
+![](https://www.kanjiantu.com/images/2019/08/23/MXGS-563-B420c7bbcbcb04c8d.gif)
+
+NTRD-010
+![](https://www.kanjiantu.com/images/2019/08/23/NTRD-010-B9246834e5268e773.gif)
+
+PGD-574
+![](https://www.kanjiantu.com/images/2019/08/23/PGD-574-B41fd93b3a4b07188.gif)
+
+PPPD-302
+![](https://www.kanjiantu.com/images/2019/08/23/PPPD-3026fe797437714c690.gif)
+
+RBD-612
+![](https://www.kanjiantu.com/images/2019/08/23/RBD-612-B7a6570bf702b6d80.gif)
+
+RCT-625
+![](https://www.kanjiantu.com/images/2019/08/23/RCT-625-B15c1091bdb2bbd20.gif)
+
+SAMA-542
+![](https://www.kanjiantu.com/images/2019/08/23/SAMA-542-B7851f523a14b39e0.gif)
+
+SDDE-363
+![](https://www.kanjiantu.com/images/2019/08/23/SDDE-363-B7d2571b511b0c636.gif)
+
+SHKD-454
+![](https://www.kanjiantu.com/images/2019/08/23/SHKD-45412c7dfb3c31cf133.gif)
+
+Slut-Puppies-4---sc2--Amia-Miley
+![](https://www.kanjiantu.com/images/2019/08/23/Slut-Puppies-4---sc2--Amia-Mileya3c6e62fea656107.gif)
+
+SNIS-196
+![](https://www.kanjiantu.com/images/2019/08/23/SNIS-196-Ad63ba528a1226f13.gif)
+
+SNIS-213
+![](https://www.kanjiantu.com/images/2019/08/23/SNIS-213-F9ed62482a45a1fc3.gif)
+
+SNIS-244
+![](https://www.kanjiantu.com/images/2019/08/23/SNIS-244-A5abf7c252f0cc0c1.gif)
+
+SOE-508
+![](https://www.kanjiantu.com/images/2019/08/23/SOE-5081a2d5c744d23f612.gif)
+
+SOE-922
+![](https://www.kanjiantu.com/images/2019/08/23/SOE-922-D2cb0faf9d79d70a5.gif)
+
+SPRD-490
+![](https://www.kanjiantu.com/images/2019/08/23/SPRD-490109f7d0de6042cf6.gif)
+
+SRS-023
+![](https://www.kanjiantu.com/images/2019/08/23/SRS-023-Dfcf62dde82d03934.gif)
+
+STAR-379
+![](https://www.kanjiantu.com/images/2019/08/23/STAR-37991f08cbd45444958.gif)
+
+STAR-404
+![](https://www.kanjiantu.com/images/2019/08/23/STAR-4041e4dabb724b54c7d.gif)
+
+STAR-539
+![](https://www.kanjiantu.com/images/2019/08/23/STAR-5399dee91e13279718b.gif)
+
+STAR-540
+![](https://www.kanjiantu.com/images/2019/08/23/STAR-540a532cb5a69f03188.gif)
+
+Stoya---Nurses
+![](https://www.kanjiantu.com/images/2019/08/23/Stoya---Nurses10fd3fa6bc59f5e1.gif)
+
+straponcum-Episode-52
+![](https://www.kanjiantu.com/images/2019/08/23/straponcum-Episode-52-A5c8f9120f251c5e1.gif)
+
+SW-072
+![](https://www.kanjiantu.com/images/2019/08/23/SW-07273dfe15de3d033e6.gif)
+
+SW-158
+![](https://www.kanjiantu.com/images/2019/08/23/SW-158f2e8a441a07ea3ca.gif)
+
+SW-215
+![](https://www.kanjiantu.com/images/2019/08/23/SW-215405744d97c6e3a0d.gif)
+
+SW-251
+![](https://www.kanjiantu.com/images/2019/08/23/SW-2512d8639fa98992c5a.gif)
+
+SW-269
+![](https://www.kanjiantu.com/images/2019/08/23/SW-269-B398afb89b1f72a1d.gif)
+
+SW-279
+![](https://www.kanjiantu.com/images/2019/08/23/SW-279-Fe05ec20d7705459a.gif)
+
+TEK-036
+![](https://www.kanjiantu.com/images/2019/08/23/TEK-03634d9e20f02ec71d1.gif)
+
+TGAV-077
+![](https://www.kanjiantu.com/images/2019/08/23/TGAV-0779744be7989caa87e.gif)
+
+tokyo-hot-n0622
+![](https://www.kanjiantu.com/images/2019/08/23/tokyo-hot-n062263cfe1c2bea3eab7.gif)
+
+TRK-03
+![](https://www.kanjiantu.com/images/2019/08/23/TRK-03ce3d44f4567ba7e6.gif)
+
+TYM-001
+![](https://www.kanjiantu.com/images/2019/08/23/TYM-001f60002f8c2df8faf.gif)
+
+VAGU-080
+![](https://www.kanjiantu.com/images/2019/08/23/VAGU-080-Beb0be27a21de4d45.gif)
+
+VDD-083
+![](https://www.kanjiantu.com/images/2019/08/23/VDD-083760db8ebe380fc43.gif)
+
+VOSS-004
+![](https://www.kanjiantu.com/images/2019/08/23/VOSS-00495eefc6b16aa43d3.gif)
+
+VSPDS-465k
+![](https://www.kanjiantu.com/images/2019/08/23/VSPDS-465330b4419ff0e1a54.gif)
+
+WANZ-211
+![](https://www.kanjiantu.com/images/2019/08/23/WANZ-211ab386cf897562bbe.gif)
+
+WANZ-213
+![](https://www.kanjiantu.com/images/2019/08/23/WANZ-213e64dcfd29f21b6b1.gif)
+
+XS-2380
+![](https://www.kanjiantu.com/images/2019/08/23/XS-23802e7dde075c75f613.gif)
+
+YRZ-005
+![](https://www.kanjiantu.com/images/2019/08/23/YRZ-0052408bb6f9d2b88e4.gif)
+
+更多福利,可 VX 关注【枫林社】
+![](https://www.kanjiantu.com/images/2019/08/23/WANIMAL-1386ab643b1bf45d302.jpg)
+
+</p>
+</details>
+
+---
+
+## 【 如果你是 AV 男主角,你最想拍攝的場景是:(可多選)】
+
+<details><summary><b>答案</b></summary>
+<p>
+
+如填其他,請回帖說明自己最喜歡的場景或者想做的場景.
+選擇以上場景也可以跟帖描述你想到的具體細節.
+
+多選投票: ( 最多可選 10 項 )
+
+1. 用手指插女性陰部並使之噴水
+2. 街頭用錢誘惑路人並進車內性交
+3. 尾隨並進屋內強姦
+4. 在公共場合進行無聲性交(圖書館,櫃檯後,電影院)
+5. 在酒店,在賓館迷藥強姦
+6. 給女性下春藥後和她性交
+7. 給女優塞遙控跳蛋並上街遙控
+8. 強姦穿緊身衣的搜查官
+9. 捆綁女優並進行調教
+10. 擁有時間停止器並隨便玩弄女性
+11. 自己有透明的特異功能並隨便玩弄女性
+12. 在地鐵或公車上猥褻女性
+13. 隔著內褲對穿短裙的女性進行猥褻,弄出水來以後可以在內褲上看到液體的痕跡
+14. 老師來家中補習並誘惑自己發生性關係
+15. 尾隨喜歡的老師並在教室內強姦
+16. 在她們不知情的情況下猥褻自己的親戚(媽媽,阿姨,姐姐妹妹),開發她們的性慾並使之成為性奴
+17. 媽媽教授自己性知識並性交(可以是想像中的媽媽,不一定是自己的媽媽)
+18. 調教自己的妹妹
+19. 偷看妹妹(或姐姐)洗澡並啟蒙妹妹(或姐姐)的性知識
+20. 被一群女性調教
+21. 進屋綁架當著女性的家人強姦
+22. 女性給自己口交
+23. 和職場同事辦公室性
+24. 女優邊打電話邊和自己性交
+25. 淫亂派對
+26. 疼痛折磨女優性交
+27. 女優牧場
+28. 車震
+29. 和海濱比基尼美女性交
+30. 其他
+31. 像魔法催眠对方
+
+</p>
+</details>
+
+--- -->
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block; height: 80px;">
+                <div class="post_share" style="width: fit-content; display: inline-block; float: right;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-09-15T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/20-common-javascript-interview-questions/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="20 Common JavaScript Interview Questions">
+                        
+                        <span class="card-title">20 Common JavaScript Interview Questions</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Interview/">
+                        <span class="chip bg-color">Interview</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/understand-webpack-in-one-article/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="一文搞定 Webpack 面试">
+                        
+                        <span class="card-title">一文搞定 Webpack 面试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                    Front-End
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Webpack/">
+                        <span class="chip bg-color">Webpack</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">庄引</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -477,6 +477,7 @@
 <span class="token keyword">if</span> <span class="token punctuation">(</span>isVerified <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// do something...</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Good</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isEmailVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// implementation</span>
@@ -489,6 +490,7 @@
 <span class="token keyword">if</span> <span class="token punctuation">(</span>isVerified<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// do something...</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Now, when we have the above things clear, we can start.</p>
 <blockquote>
 <p>现在, 当我们清楚以上几点之后, 就可以开始了.</p>
@@ -505,6 +507,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Considering that we have only two models, it might look acceptable to do it like that, but what if we want to do a check against another model? Or a couple of them more? If we add more <code>or</code> statements the code will be harder to maintain and not that clean. In order to make it cleaner, we can rewrite the function to look like this:</p>
 <blockquote>
 <p>考虑到我们只有两个模型, 这样做看起来是可以接受的, 但是如果我们要检查另一个模型怎么办？还是其中几个？如果我们添加更多或语句, 则代码将更难维护且不够清晰. 为了使其更整洁, 我们可以将函数重写为如下形式:</p>
@@ -516,6 +519,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The code above looks nicer already. In order to make it even better, we can create a variable to hold the car models:</p>
 <blockquote>
 <p>上面的代码看起来已经更好了. 为了使它更好, 我们可以创建一个变量来保存汽车模型:</p>
@@ -529,6 +533,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">checkCarModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'model valid'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Now, if we want to do a check against more models, all we need to do is add a new array item. Also, if it was something important, we could declare the <code>models</code> variable somewhere out of the scope of the function and reuse it wherever we need it. That way we centralize it and make maintenance a breeze, considering that we only need to change that one place in our code.</p>
 <blockquote>
 <p>现在, 如果我们要检查更多的模型, 我们要做的就是添加一个新的数组项. 同样, 如果这很重要, 我们可以在函数范围之外的某个地方声明模型变量, 并在需要时重用它. 这样, 我们就可以集中精力并使维护变得轻而易举, 因为我们只需要在代码中更改一个位置即可.</p>
@@ -560,6 +565,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>If you prefer the imperative way of doing things, the code above might be fine. On the other hand, if you don’t care what’s going on under the hood, you can rewrite the function above and use <code>Array.every</code> or <code>Array.find</code> to achieve the same result.</p>
 <blockquote>
 <p>如果您喜欢命令式的处理方式, 则上面的代码可能会很好. 另一方面, 如果您不关心幕后情况, 则可以重写上面的函数, 并使用 <code>Array.every</code> 或 <code>Array.find</code> 来获得相同的结果.</p>
@@ -570,6 +576,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>By using <code>Array.find</code>, with a little tweak we can achieve the same result, and the performance should be the same because both functions execute callback for each element in the array and return <code>false</code> immediately if a <em>falsy</em> item is found.</p>
 <blockquote>
 <p>通过使用 <code>Array.find</code> 进行一些微调, 我们可以获得相同的结果, 并且性能应该是相同的, 因为两个函数都对数组中的每个元素执行回调, 并且如果发现虚假项, 则立即返回 <code>false</code>.</p>
@@ -580,6 +587,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkEveryModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="4-For-Matching-Partial-Criteria-use-Array-some"><a href="#4-For-Matching-Partial-Criteria-use-Array-some" class="headerlink" title="4. For Matching Partial Criteria use Array.some"></a>4. For Matching Partial Criteria use <code>Array.some</code></h3><blockquote>
 <p>对于匹配部分条件, 请使用 <code>Array.some</code></p>
 </blockquote>
@@ -602,6 +610,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkForAnyModel</span><span class="token punctuation">(</span><span class="token string">'renault'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="5-Return-Early-Instead-of-if-else-Branching"><a href="#5-Return-Early-Instead-of-if-else-Branching" class="headerlink" title="5. Return Early Instead of if...else Branching"></a>5. Return Early Instead of <code>if...else</code> Branching</h3><blockquote>
 <p>提前退出 / 提前返回, 而不是 <code>if...else</code> 分支</p>
 </blockquote>
@@ -644,6 +653,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car model'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car year'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Car model: ford; Manufacturing year: 1988;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>As you can see, the code above is pretty long even for this simple problem of ours. Imagine what would happen if we had more complex logic. A lot of <code>if...else</code> statements.</p>
 <blockquote>
 <p>如您所见, 即使对于我们这个简单的问题, 上面的代码也相当长. 想象一下, 如果我们拥有更复杂的逻辑, 将会发生什么. 很多 <code>if...else</code> 语句.</p>
@@ -671,6 +681,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car model'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'No car year'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">checkModel</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1988</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Car model: ford; Manufacturing year: 1988;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In the refactored version, we included destructuring and default parameters. The default parameter will ensure that we have a value to destruct if we pass <code>undefined</code>. Note that if we pass a <code>null</code> value the function will throw an error and this is the advantage of the previous approach, because in that case, when <code>null</code> is passed the output will be <code>&#39;No car&#39;</code>.</p>
 <blockquote>
 <p>在重构版本中, 我们包括了解构和默认参数. 默认参数将确保如果传递未定义的值, 则我们将有一个要破坏的值. 请注意, 如果我们传递一个 <code>null</code> 值, 该函数将抛出错误, 这是前一种方法的优点, 因为在这种情况下, 当传递 <code>null</code> 时, 输出将为 <code>&#39;No car&#39;</code>.</p>
@@ -706,6 +717,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Ford', 'Dodge']</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Fiat']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The code above can be refactored to exclude the <code>switch</code> statement totally.</p>
 <blockquote>
 <p>上面的代码可以重构为完全排除 <code>switch</code> 语句.</p>
@@ -722,6 +734,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//outputs ['Ford', 'Dodge']</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Fiat']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Alternatively, we could create a class for each state with a list of available cars and use it when needed, but that is a topic for another post. This post is about conditionals. A more appropriate change would be to use an object literal.</p>
 <blockquote>
 <p>或者, 我们可以为每个状态创建一个带有可用汽车列表的类, 并在需要时使用它, 但这是另一篇文章的主题. 这篇文章是关于条件的. 更合适的更改是使用对象字面量.</p>
@@ -739,6 +752,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs []</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Ford', 'Dodge']</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getCarsByState</span><span class="token punctuation">(</span><span class="token string">'france'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs ['Renault', 'Peugeot']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="7-Use-Optional-Chaining-and-Nullish-Coalescing"><a href="#7-Use-Optional-Chaining-and-Nullish-Coalescing" class="headerlink" title="7. Use Optional Chaining and Nullish Coalescing"></a>7. Use Optional Chaining and Nullish Coalescing</h3><blockquote>
 <p>使用可选的链接和空位合并</p>
 </blockquote>
@@ -789,6 +803,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Fiesta'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>street<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Some Street Name'</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>phoneNumber<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>So, if we wanted to print out if the car manufacturer is from the USA, the code would look something like this:</p>
 <blockquote>
 <p>因此, 如果我们想打印出这家汽车制造商来自美国, 那么代码将如下所示:</p>
@@ -805,6 +820,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">checkCarManufacturerState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// outputs 'Is from USA'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>I don’t need to tell you how messy this can become in case of a more complex object structure. Many libraries, like lodash, for example, have their own functions as workarounds, but we don’t want that, we want to be able to do it in vanilla js. Let’s see a new way of doing things.</p>
 <blockquote>
 <p>我不需要告诉您在对象结构更复杂的情况下这会变得多么混乱. 例如, 诸如 lodash 的许多库都有其自身的变通办法, 但我们不希望那样, 我们希望能够在 vanilla js 中实现. 让我们看看一种新的做事方式.</p>
@@ -820,6 +836,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Is from USA'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This look a lot prettier and shorter, and to me, very logical. If you’re wondering why should you use <code>??</code> instead of <code>||</code>, just think of what values can evaluate as <code>true</code> or <code>false</code>, and you will have a possible unintended output.</p>
 <blockquote>
 <p>这看起来更漂亮, 更短, 对我来说, 非常合乎逻辑. 如果您想知道为什么要使用 <code>??</code> 代替 <code>||</code>, 只需考虑可以将哪些值评估为 <code>true</code> 或 <code>false</code>, 您将可能得到意外的输出.</p>
@@ -829,6 +846,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>还有一件事情是非常整洁的. 可选链操作符接还支持 DOM API, 这非常酷, 这意味着您可以执行以下操作:</p>
 </blockquote>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> value <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input#user-name'</span><span class="token punctuation">)</span><span class="token operator">?.</span>value<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <blockquote>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Optional chaining (?.) - JavaScript | MDN</a></p>
@@ -855,9 +873,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 丰满 / 熟女 / 演技好 / 欲望不满
 
-[MEYD-134 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 めぐり](https://www.javbus.com/MEYD-134)
+[MEYD-134 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 めぐり](https://www.busfan.net/MEYD-134)
 
-经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.javbus.com/series/jpi) 系列
+经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.busfan.net/series/jpi) 系列
 
 ![](https://www.evernote.com/shard/s737/res/3dc389d0-0ecd-434e-8824-c7ebe1cf3e65)
 
@@ -865,11 +883,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 丰乳 / 熟女 / 演技好 / 邻家姐姐
 
-[SSNI-631 相部屋 NTR 絶倫部下と巨乳上司が朝から晩まで、不倫セックスに明け暮れた出張先の夜 奥田咲](https://www.javbus.com/SSNI-631)
+[SSNI-631 相部屋 NTR 絶倫部下と巨乳上司が朝から晩まで、不倫セックスに明け暮れた出張先の夜 奥田咲](https://www.busfan.net/SSNI-631)
 
 ![](https://www.evernote.com/shard/s737/res/84b35d59-01e1-4742-938d-23bc28cdbc0c)
 
-[SSNI-743 あの夏から 5 ヵ月経っても… ど田舎の冬はやっぱりヤルことがなくて 隣の巨乳奥さんの誘惑に乗っかりじっとり交尾三昧で毎日暖め合う. 奥田咲](https://www.javbus.com/SSNI-743)
+[SSNI-743 あの夏から 5 ヵ月経っても… ど田舎の冬はやっぱりヤルことがなくて 隣の巨乳奥さんの誘惑に乗っかりじっとり交尾三昧で毎日暖め合う. 奥田咲](https://www.busfan.net/SSNI-743)
 
 ![](https://www.evernote.com/shard/s737/res/2608e487-d61a-4bfc-90a7-aac2a4e37a69)
 
@@ -877,17 +895,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 美乳美腿美臀 / 人妻 / 演技好 / 气质美女
 
-[JUX-634 親父の女 本田岬](https://www.javbus.com/JUX-634)
+[JUX-634 親父の女 本田岬](https://www.busfan.net/JUX-634)
 
 ![](https://www.evernote.com/shard/s737/res/a350cdec-ce45-4306-ab2d-1f828071c36b)
 
-[PPPD-531 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 本田岬](https://www.javbus.com/PPPD-531)
+[PPPD-531 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 本田岬](https://www.busfan.net/PPPD-531)
 
 ![](https://www.evernote.com/shard/s737/res/607e37cd-9bf4-4beb-b8af-1c71fd167e8d)
 
-[MEYD-248 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 本田岬](https://www.javbus.com/MEYD-248)
+[MEYD-248 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 本田岬](https://www.busfan.net/MEYD-248)
 
-经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.javbus.com/series/jpi) 系列
+经典的 [欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫](https://www.busfan.net/series/jpi) 系列
 
 ![](https://www.evernote.com/shard/s737/res/c99d24da-e62e-4bf6-a348-289bb3fde337)
 
@@ -895,15 +913,15 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 美臀 / 肤白 / 易推倒 / 软妹
 
-[HBAD-458 桃尻未亡人 親族棒の虜になり人生最大の追撃昇天 大浦真奈美](https://www.javbus.com/HBAD-458)
+[HBAD-458 桃尻未亡人 親族棒の虜になり人生最大の追撃昇天 大浦真奈美](https://www.busfan.net/HBAD-458)
 
 ![](https://www.evernote.com/shard/s737/res/e9168212-90af-47d5-8bd5-c66aa9e4e927)
 
-[MIAA-168 アソコを舐められるだけなら浮気じゃないよね？ 大浦真奈美](https://www.javbus.com/MIAA-168)
+[MIAA-168 アソコを舐められるだけなら浮気じゃないよね？ 大浦真奈美](https://www.busfan.net/MIAA-168)
 
 ![](https://www.evernote.com/shard/s737/res/dd3af81b-2727-481c-a420-c37d01c9fecf)
 
-[ADN-229 妻を寝取られ鬱勃起 大浦真奈美](https://www.javbus.com/ADN-229)
+[ADN-229 妻を寝取られ鬱勃起 大浦真奈美](https://www.busfan.net/ADN-229)
 
 ![](https://www.evernote.com/shard/s737/res/02be62cd-aace-47fd-b94f-76f67af9d170)
 
@@ -911,27 +929,27 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 美腿 / 肤白 / 气质女神
 
-[MIDE-020 タイトスカート女教師 大橋未久](https://www.javbus.com/MIDE-020) 经典的 [タイトスカート女教師](https://www.javbus.com/series/4ht) 系列
+[MIDE-020 タイトスカート女教師 大橋未久](https://www.busfan.net/MIDE-020) 经典的 [タイトスカート女教師](https://www.busfan.net/series/4ht) 系列
 
 ![](https://www.evernote.com/shard/s737/res/749c55eb-009d-4f18-9792-c5b577308d47)
 
-[121914-760 無修正 カリビアンコム 慟哭の女教師 後編 〜だらしない生き物に堕ちた女〜](https://www.javbus.com/121914-760)
+[121914-760 無修正 カリビアンコム 慟哭の女教師 後編 〜だらしない生き物に堕ちた女〜](https://www.busfan.net/121914-760)
 
 ![](https://www.evernote.com/shard/s737/res/8bc3735e-ba70-4557-918d-9dd6f915e0a3)
 
-[HEYZO-0783 大橋未久 続々生中～色白美肌美人を徹底的に責める～](https://www.javbus.com/HEYZO-0783)
+[HEYZO-0783 大橋未久 続々生中～色白美肌美人を徹底的に責める～](https://www.busfan.net/HEYZO-0783)
 
 ![](https://www.evernote.com/shard/s737/res/f6a92c76-bbc8-4852-bd87-73b1d3c3af74)
 
-- [MIDD-953 超絶品ソープ嬢 大橋未久](https://www.javbus.com/MIDD-953)
-- [MIDE-040 主人と給仕 大橋未久](https://www.javbus.com/MIDE-040)
-- [MIDE-051 パンチラ誘惑お姉さん 大橋未久](https://www.javbus.com/MIDE-051)
+- [MIDD-953 超絶品ソープ嬢 大橋未久](https://www.busfan.net/MIDD-953)
+- [MIDE-040 主人と給仕 大橋未久](https://www.busfan.net/MIDE-040)
+- [MIDE-051 パンチラ誘惑お姉さん 大橋未久](https://www.busfan.net/MIDE-051)
 
-### [古川いおり](https://www.javbus.com/star/9mi)
+### [古川いおり](https://www.busfan.net/star/9mi)
 
 短暂的短发时期发现的女优, 短发嘛总之就是给人很飒爽的感觉, 片中跟男同学做爱的那段把古川的翘臀完美的展现出来, 圆润的肉感的翘臀微微的流汗, 伴随着撞击更显得精致完美, 翘而不肥, 有弹性却不松软, 搭配着修长弹性的美腿, 趴在上边干的欢.
 
-[STAR-700 古川いおり 滴る雨、汗、涙… びしょびしょになるほど発情し、夢中で快楽を求める濡れ透け女子校生](https://www.javbus.com/STAR-700)
+[STAR-700 古川いおり 滴る雨、汗、涙… びしょびしょになるほど発情し、夢中で快楽を求める濡れ透け女子校生](https://www.busfan.net/STAR-700)
 
 ![](https://www.evernote.com/shard/s737/res/0b681015-be4d-4f8b-b805-dacaba1828e3)
 
@@ -941,7 +959,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 肤白 / 翘臀 / 小巧惹人怜
 
-[BIST-007 Bi STYLE 美専属デビュー 美巨乳 × 肉体美 絶世の究極 BODY 酒井ももか](https://www.javbus.com/BIST-007)
+[BIST-007 Bi STYLE 美専属デビュー 美巨乳 × 肉体美 絶世の究極 BODY 酒井ももか](https://www.busfan.net/BIST-007)
 
 ![](https://www.evernote.com/shard/s737/res/7407908f-b5d2-46bb-8adc-d838d25ba6b9)
 
@@ -949,7 +967,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 这部是唯一珍藏的有码片, 把湿身诱惑和情趣内衣诱惑两个题材都完美的表现出来, 虽然胸是隆的, 但瑕不掩瑜, 酒井白皙的皮肤, 娇小的身材, 无辜的表情更是惹人怜爱.
 
-[080815_130 グラマラス 酒井ももか](https://www.javbus.com/080815_130)
+[080815_130 グラマラス 酒井ももか](https://www.busfan.net/080815_130)
 
 ![](https://www.evernote.com/shard/s737/res/e1bc7920-3a1e-4298-9359-fdf962a53ca1)
 
@@ -961,7 +979,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 身材好 / 演技好 / 邻家人妻
 
-[ADN-204 あなた、許して….- 隣の男に犯されて 6- 蓮実クレア](https://www.javbus.com/ADN-204)
+[ADN-204 あなた、許して….- 隣の男に犯されて 6- 蓮実クレア](https://www.busfan.net/ADN-204)
 
 ![](https://www.evernote.com/shard/s737/res/30492483-1a63-46dd-aec0-ec60b63dcdbb)
 
@@ -971,7 +989,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 ### 森ななこ
 
-[ADN-049 夫には言えない羞恥の性癖 森ななこ](https://www.javbus.com/ADN-049)
+[ADN-049 夫には言えない羞恥の性癖 森ななこ](https://www.busfan.net/ADN-049)
 
 ![](https://www.evernote.com/shard/s737/res/becf4f43-2c5f-4145-9bfd-319da9bc709c)
 
@@ -983,17 +1001,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 第一个看上去不错是我的菜下来品鉴
 
-森ななこ 当年的入坑之作 [MIDD-419 魅惑の巨乳女教師 森ななこ](https://www.javbus.com/MIDD-419)
+森ななこ 当年的入坑之作 [MIDD-419 魅惑の巨乳女教師 森ななこ](https://www.busfan.net/MIDD-419)
 
 森ななこ 我关注了好久, 到后面整体给人感觉不行了, 可能是年纪大了, 当年我因为她的那部女教师入坑的
 
 我好像记得第三部这个... 沙发上那段的长腿天下无敌...
 
-### [山岸逢花](https://www.javbus.com/star/rew)
+### [山岸逢花](https://www.busfan.net/star/rew)
 
 美腿美臀 / 皮肤白皙 / 欲望人妻
 
-[PRED-178 誰かの代わりでなくて.～憧れの恩師の息子と恋に落ちた女教師～ 山岸逢花](https://www.javbus.com/PRED-178)
+[PRED-178 誰かの代わりでなくて.～憧れの恩師の息子と恋に落ちた女教師～ 山岸逢花](https://www.busfan.net/PRED-178)
 
 ![](https://www.evernote.com/shard/s737/res/cd2f64ee-7c42-4d3a-9dfc-fc656fc1516c)
 
@@ -1001,7 +1019,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 本片属于剧情向, 山岸逢花饰演的老师暗恋自己曾经的老师也是男主的父亲, 从东京转校而来的男主一开始遭受同学排挤, 在山岸老师悉心关照下逐渐融入环境, 一次男主感冒山岸老师前往探望, 男主向老师陈述自己家庭不幸进而表达自己对老师的爱意, 在一番半推半就之下老师接受了男主的求爱, 两人交合在一起最终男主内射山岸老师, 之后更在教室内偷情干到内射连连非常, 浴室内给男主口爆, 之后男主的母亲希望男主回到东京, 最后分手炮中老师希望不耽误男主主动提出断绝这种不正常的关系, 在多次内射后男主依偎在老师的坏里. 本篇凸显了山岸白皙细嫩的皮肤, 粉色的私处隐约可见, 剧情精彩, 充斥着欲望的荷尔蒙, 不得不说山岸的演技非常优秀.
 
-[PRED-099 誘惑いじわる大好き！美尻スゴすぎ逢花先生 山岸逢花](https://www.javbus.com/PRED-099)
+[PRED-099 誘惑いじわる大好き！美尻スゴすぎ逢花先生 山岸逢花](https://www.busfan.net/PRED-099)
 
 ![](https://www.evernote.com/shard/s737/res/86c1374f-84af-4d8c-9264-03daaee31730)
 
@@ -1013,7 +1031,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 深田无疑是整容非常成功的一个了, 姣好的脸庞, 丰满的乳房, 身材娇小, 各种题材都有尝试, 涉猎广泛, 去年下半年在女优中异军突起, 之后疯狂发片, 后边出的片子没有就以前的精神气了, 毕竟消耗过多.
 
-[MIAA-037 僕を助けてくれる幼なじみがいじめっこに犯されているのを見て勃起した 深田えいみ](https://www.javbus.com/MIAA-037)
+[MIAA-037 僕を助けてくれる幼なじみがいじめっこに犯されているのを見て勃起した 深田えいみ](https://www.busfan.net/MIAA-037)
 
 ![](https://www.evernote.com/shard/s737/res/aa3991a2-8b0d-4d1b-a27c-a4fea3a473b5)
 
@@ -1021,7 +1039,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 优秀的凌辱篇, 众人围观的做爱场面非常劲爆.
 
-[KANE-010 拘束男をひたすらヌキまくる逆レ ● プ痴女 強制射精スペシャル 深田えいみ](https://www.javbus.com/KANE-010)
+[KANE-010 拘束男をひたすらヌキまくる逆レ ● プ痴女 強制射精スペシャル 深田えいみ](https://www.busfan.net/KANE-010)
 
 ![](https://www.evernote.com/shard/s737/res/c7dc6875-eccd-4648-8ae5-7d3e56c4ece9)
 
@@ -1035,7 +1053,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 娇小可爱 / 童颜巨乳 / 肌肤白皙
 
-[MIDE-775 地味な教え子のノーブラ、ポロリ、透け乳首 着衣巨乳の再会でゲス勃起 水卜さくら](https://www.javbus.com/MIDE-775)
+[MIDE-775 地味な教え子のノーブラ、ポロリ、透け乳首 着衣巨乳の再会でゲス勃起 水卜さくら](https://www.busfan.net/MIDE-775)
 
 ![](https://www.evernote.com/shard/s737/res/40a70a69-591c-4cdc-8c87-a5efc0ecf3c8)
 
@@ -1043,7 +1061,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 这部影片很好的展示了湿身诱惑, 毛衣诱惑, 水卜老师只要遇到好的导演好的题材片子都会不赖.
 
-[MIDE-736 高級ランジェリー試着モニターでやってきた内気なバイト女子大生をセクハラ公開羞恥レ × プ輪 ● 水卜さくら](https://www.javbus.com/MIDE-736)
+[MIDE-736 高級ランジェリー試着モニターでやってきた内気なバイト女子大生をセクハラ公開羞恥レ × プ輪 ● 水卜さくら](https://www.busfan.net/MIDE-736)
 
 ![](https://www.evernote.com/shard/s737/res/6ac9a612-ee22-49bf-a916-dbfe679357bc)
 
@@ -1051,7 +1069,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 水卜老师的片子很多都很经典, 这次挑几个出来分享, 这部影片的特色就是情趣内衣诱惑, 水卜的好身材真是穿哪一套都非常出彩.
 
-[MIDE-761 両親が不在の間、暇なド田舎に預けられた私は近所のオジさんを誘惑して勝手にまたがり腰を振り続けた… 水卜さくら](https://www.javbus.com/MIDE-761)
+[MIDE-761 両親が不在の間、暇なド田舎に預けられた私は近所のオジさんを誘惑して勝手にまたがり腰を振り続けた… 水卜さくら](https://www.busfan.net/MIDE-761)
 
 ![](https://www.evernote.com/shard/s737/res/f4ff0de2-61e1-4d3e-b838-6f2023a1dea0)
 
@@ -1061,7 +1079,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 ### 水野朝陽
 
-[PPPD-481 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 水野朝陽](https://www.javbus.com/PPPD-481)
+[PPPD-481 彼女のお姉さんは巨乳と中出し OK で僕を誘惑 水野朝陽](https://www.busfan.net/PPPD-481)
 
 ![](https://www.evernote.com/shard/s737/res/20eb8eba-b8e1-42ad-b830-482b1da148f6)
 
@@ -1069,7 +1087,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 水野老师是我喜欢很久的一个女优了, 身材没得说, 堪称完美的巨乳翘臀, 身材高挑 (162cm) 有肉感而且紧实匀称, 不像很多巨乳丰满女优身材松垮比例失调, 可以说浑身都是宝贝(有点张雨绮的那个意思). 气质属于端庄成熟的大女人, 演技也是属于上等, 总之如果能有这样的女人怕是会整天把玩爱不释手, 可惜的是很多片子光线和剧情没有把水野老师的美表现出来.
 
-[MIAD-928 絶倫オヤジと即ハメ立ちバック 水野朝陽](https://www.javbus.com/MIAD-928)
+[MIAD-928 絶倫オヤジと即ハメ立ちバック 水野朝陽](https://www.busfan.net/MIAD-928)
 
 ![](https://www.evernote.com/shard/s737/res/6bb4dcb5-b56d-4040-be1f-1f4e79f86f5c)
 
@@ -1077,7 +1095,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 ### 松下紗栄子
 
-[ADN-203 未熟な姦情 年下部下と人妻 OL 松下紗栄子](https://www.javbus.com/ADN-203)
+[ADN-203 未熟な姦情 年下部下と人妻 OL 松下紗栄子](https://www.busfan.net/ADN-203)
 
 ![](https://www.evernote.com/shard/s737/res/39eb70ba-5de3-4db8-82d7-8bef77d616a8)
 
@@ -1085,13 +1103,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 松下老师气质非常好, 演技更是一流, 一对巨乳总是引人注目, 高挑的身材也是非常紧致, 而且松下老师的片子很多都是剧情片, 虽然很多都是相似的套路, 但仍然很有观感和代入感, 最让我心动的就是松下老师有很多吞精的情节, 看着老师顺从的吞下口爆出来的精液真是让人顶到不行, 慢慢的征服感和幸福感, 让人非常的满足. 如果有一位愿意口爆并吞下你射出的精液的女孩子那一定是非常的享受了, 何况还是像松下老师这样的高挑气质美女.
 
-[ADN-216 かつて文学少女だった国語教師が、いつしか情事に溺れて…. 松下紗栄子](https://www.javbus.com/ADN-216)
+[ADN-216 かつて文学少女だった国語教師が、いつしか情事に溺れて…. 松下紗栄子](https://www.busfan.net/ADN-216)
 
 ![](https://www.evernote.com/shard/s737/res/827fdcdc-46ec-459c-aa25-df1cbf62b28c)
 
 ![](https://www.evernote.com/shard/s737/res/248dc2b5-c0f9-466f-91e5-62ee8b8ed934)
 
-[ADN-219 となり妻 背徳の昼下がり 松下紗栄子](https://www.javbus.com/ADN-219)
+[ADN-219 となり妻 背徳の昼下がり 松下紗栄子](https://www.busfan.net/ADN-219)
 
 ![](https://www.evernote.com/shard/s737/res/8245e1e1-50b6-4e28-ae34-7e3e71a84736)
 
@@ -1099,19 +1117,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 这两部也值得一看, 一起推荐了.
 
-### [篠田ゆう](https://www.javbus.com/star/2pv)
+### [篠田ゆう](https://www.busfan.net/star/2pv)
 
 美尻 / 美乳 / 软妹子
 
-[ADN-142 あなた、許して….- 再会は淫らな嘘に濡れて - 2 篠田ゆう](https://www.javbus.com/ADN-142)
+[ADN-142 あなた、許して….- 再会は淫らな嘘に濡れて - 2 篠田ゆう](https://www.busfan.net/ADN-142)
 
 ![](https://www.evernote.com/shard/s737/res/facf88dc-70af-45c0-a669-5524cae5f4d9)
 
 ![](https://www.evernote.com/shard/s737/res/ea62b60a-a26d-4db4-9ad2-e3e574b6badd)
 
-[篠田](https://www.javbus.com/star/2pv) 老师柔韧性非常好, 腰也很细, 把一副美尻完美的展示在人面前, 童颜美乳更是加分, 另外这部片子剧情也很不错, 唯一珍藏的有码片.
+[篠田](https://www.busfan.net/star/2pv) 老师柔韧性非常好, 腰也很细, 把一副美尻完美的展示在人面前, 童颜美乳更是加分, 另外这部片子剧情也很不错, 唯一珍藏的有码片.
 
-[021014-540 尻力](https://www.javbus.com/021014-540)
+[021014-540 尻力](https://www.busfan.net/021014-540)
 
 ![](https://www.evernote.com/shard/s737/res/ebe199cf-3efb-4f31-a3d8-95e99c005c5e)
 
@@ -1123,7 +1141,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 丰满熟女人妻 / 欲求不满 / 演技好
 
-[MEYD-402 地味そうに見えた隣家の文学系人妻がある日部屋を間違えオナニーをしている僕の部屋に入ってきた. 見た目とは裏腹に物凄い肉食でねっちょり僕を犯しまくる. 佐山愛](https://www.javbus.com/MEYD-402)
+[MEYD-402 地味そうに見えた隣家の文学系人妻がある日部屋を間違えオナニーをしている僕の部屋に入ってきた. 見た目とは裏腹に物凄い肉食でねっちょり僕を犯しまくる. 佐山愛](https://www.busfan.net/MEYD-402)
 
 ![](https://www.evernote.com/shard/s737/res/fa5ac6f8-be95-408a-b184-c246b410963c)
 
@@ -1131,7 +1149,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 佐山老师饰演戴着眼镜的隔壁人妻老师, 看到男主自赎口水都流出来了, 情不自禁诱惑男主, 佐山老师的眼神让人无法自拔, 表演也让人很有代入感, 佐山老师身材并不是非常好, 但是可贵的是把熟女的欲望完美的展示出来, 不是那种可望不可及的而是贴近日常生活的激情.
 
-[MEYD-485 未だに現役で母さんを抱きまくる僕の絶倫オヤジに嫁が欲情して危険日狙って中出し逆夜這い 佐山愛](https://www.javbus.com/MEYD-485)
+[MEYD-485 未だに現役で母さんを抱きまくる僕の絶倫オヤジに嫁が欲情して危険日狙って中出し逆夜這い 佐山愛](https://www.busfan.net/MEYD-485)
 
 ![](https://www.evernote.com/shard/s737/res/d4d99a5c-2f52-4d70-86ee-6bd345abe992)
 
@@ -1139,7 +1157,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 一部欲求不满的乱伦片, 佐山老师的公公每天都和婆婆干的很欢, 声音更是经常让男主感到羞愧和烦躁, 于是男主让佐山下去劝说, 没成想佐山看到了公婆的激情画面, 公公的厉害让婆婆都有点吃不消, 佐山忍不住隔着薄薄的壁窗自慰, 后边趁着婆婆外出主动到诱惑正在洗澡的公公, 从主动口交到在各种场所偷情, 后边更是怀上了公公的孩子, 剧情可谓非常优秀.
 
-[PPPD-637 雨宿りで露わになった女上司の濡れ透け巨乳に僕は理性を失った 佐山愛](https://www.javbus.com/PPPD-637)
+[PPPD-637 雨宿りで露わになった女上司の濡れ透け巨乳に僕は理性を失った 佐山愛](https://www.busfan.net/PPPD-637)
 
 ![](https://www.evernote.com/shard/s737/res/82121bd9-8dfd-4929-b3a3-02915eec9d95)
 
@@ -1153,7 +1171,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <!--
 ## 系列
 
-- [痴女系お姉](https://www.javbus.com/search/%E7%97%B4%E5%A5%B3%E7%B3%BB%E3%81%8A%E5%A7%89&type=&parent=ce)
+- [痴女系お姉](https://www.busfan.net/search/%E7%97%B4%E5%A5%B3%E7%B3%BB%E3%81%8A%E5%A7%89&type=&parent=ce)
 
   - ABP-890 職場痴女姊姊 vol.10 職場 春咲涼 的 5 種情景
     【中文簡介】︰PRESTIGE 專屬女優『春咲 涼』在職場瘋狂獵食男人！時而激烈時而嚴厲！刺激男人心靈的變化多端的誘惑滿足自己的慾望！在訓話過程中看到部下的美腿發情的變態上司, OL 用淫語和焦灼懲罰他！護士用手淫榨取住院時累積的精子！美容師用極致舌技和精油按摩緩解下半身僵硬！超 S 賓館櫃檯女郎用唾液幫助散發著惡臭的客人消毒！女教師親自幫助青春期學生解決煩惱！超美痴女姊姊的 5 種場景, 釋放男人們凝聚的慾望！
@@ -1162,38 +1180,38 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 ## 演員
 
-### [希島あいり](https://www.javbus.com/star/9pj)
+### [希島あいり](https://www.busfan.net/star/9pj)
 
-- [MEYD-536 ソープ嬢の愛人と NG なしでハメまくる非日常フルオプション中出し不倫 希島あいり](https://www.javbus.com/meyd-536)
+- [MEYD-536 ソープ嬢の愛人と NG なしでハメまくる非日常フルオプション中出し不倫 希島あいり](https://www.busfan.net/meyd-536)
   MEYD-536 和泡泡浴女郎情婦盡情瘋狂做愛的非日常全套服務內射偷情 希島愛理
   【中文簡介】︰「為你提供夫人做不到的服務！」高級泡泡浴店 No.1 女郎愛理, 露出小惡魔笑容立即口交. 不需要任何麻煩步驟的好女人, 擁有極致泡泡浴技巧的最棒情婦. 什麼都可以, 只要時間允許, 就可以持續直接內射. 讓人想做愛無數次的美貌. 與泡泡浴女郎情婦度過的夢幻時光.
-- [MEYD-401 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 希島あいり](https://www.javbus.com/meyd-401)
+- [MEYD-401 欲求不満な団地妻と孕ませオヤジの汗だく濃厚中出し不倫 希島あいり](https://www.busfan.net/meyd-401)
   MEYD-401 欲求不滿社區人妻和讓人受孕大叔的揮汗激烈中出外遇 希島愛理
   【中文簡介】︰先生是醫生, 住在社區的愛理某天目擊先生偷情現場. 在先生身邊是同社區的已婚婦女. 先生跟人妻雙不倫. 和對方的先生田中討論後, 不可置信的兩人就這樣目擊到偷情現場. 受到打擊的兩人, 因為寂寞拉近了距離. 人生的伴侶背叛的心, 互相取暖走向不倫的結局.
 
 ### めぐり (藤浦めぐ)
 
-- [MEYD-115 本番なしのマットヘルスに行って出てきたのは隣家の高慢な美人妻. 弱みを握った僕は本番も中出しも強要！店外でも言いなりの性奴隷にした めぐり](https://www.javbus.com/meyd-115)
+- [MEYD-115 本番なしのマットヘルスに行って出てきたのは隣家の高慢な美人妻. 弱みを握った僕は本番も中出しも強要！店外でも言いなりの性奴隷にした めぐり](https://www.busfan.net/meyd-115)
   MEYD-115 來到禁止性交易的泰國浴出現的竟是隔壁鄰居的高傲美女人妻, 握有她把柄的我強迫她性交！不管在店外也成為聽話的性奴隸 惠理
 
 ## 識別碼
 
-- [IPX-361 DEBUT 琴宮リオナ スケベの真骨頂！これが天然のセックスの天才だ！](https://www.javbus.com/ipx-361) 不用演技！真的是性愛的天才！熟知男人愉悅地帶的驚異淫技！讓人爽翻天的性愛表現！積極度 100 分！沉穩外表看不出來的超下流！千萬別錯過！
+- [IPX-361 DEBUT 琴宮リオナ スケベの真骨頂！これが天然のセックスの天才だ！](https://www.busfan.net/ipx-361) 不用演技！真的是性愛的天才！熟知男人愉悅地帶的驚異淫技！讓人爽翻天的性愛表現！積極度 100 分！沉穩外表看不出來的超下流！千萬別錯過！
 
-* [PRED-091 中出し OK！いじわる囁き淫語で犯してあげる 麻倉憂](https://www.javbus.com/pred-091)PRED-091 可以內射！用這種惡作劇一樣的下流話來侵犯你 麻倉憂【中文簡介】︰【PREMIUM 專屬版決定！】麻倉憂侵犯你的耳朵第一人稱視角的性愛體驗！用正常體位舔耳朵, 有一點施虐女感覺的女教師口交, 用嘴舔乳頭, 幫你打飛機, 淫蕩的聲音不斷的在腦海中回蕩！第一人稱視角的內射性愛！ PRED-091 耳机专用之麻仓优在耳边说着淫语让你中出
+* [PRED-091 中出し OK！いじわる囁き淫語で犯してあげる 麻倉憂](https://www.busfan.net/pred-091)PRED-091 可以內射！用這種惡作劇一樣的下流話來侵犯你 麻倉憂【中文簡介】︰【PREMIUM 專屬版決定！】麻倉憂侵犯你的耳朵第一人稱視角的性愛體驗！用正常體位舔耳朵, 有一點施虐女感覺的女教師口交, 用嘴舔乳頭, 幫你打飛機, 淫蕩的聲音不斷的在腦海中回蕩！第一人稱視角的內射性愛！ PRED-091 耳机专用之麻仓优在耳边说着淫语让你中出
 
-* [WANZ-657 エアコンが壊れたので出張ヨガインストラクターを呼んでみた僕.](https://www.javbus.com/WANZ-657)
+* [WANZ-657 エアコンが壊れたので出張ヨガインストラクターを呼んでみた僕.](https://www.busfan.net/WANZ-657)
 
-* [PPPD-392 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX めぐり](https://www.javbus.com/PPPD-392)
-* [PPPD-575 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX 本田岬](https://www.javbus.com/PPPD-575) PPPD-575 和每天不中出 10 發不會完的粘著大叔的濃厚性交 本田岬 這大叔性欲旺盛到一天不射個 10 發就無法滿足、持續用肉棒抽插本田岬的豐滿肉體！激烈肏穴射 10 發前都不會停、這就是性男和欲女的本能啊！
+* [PPPD-392 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX めぐり](https://www.busfan.net/PPPD-392)
+* [PPPD-575 毎日 10 発中出しするまで終わらない粘着オヤジと濃厚 SEX 本田岬](https://www.busfan.net/PPPD-575) PPPD-575 和每天不中出 10 發不會完的粘著大叔的濃厚性交 本田岬 這大叔性欲旺盛到一天不射個 10 發就無法滿足、持續用肉棒抽插本田岬的豐滿肉體！激烈肏穴射 10 發前都不會停、這就是性男和欲女的本能啊！
 
 - HAVD-837 新婚妻子水岛津实被父亲强行寝取堕落
 - JUFE-062 緊貼口爆唾液癡女 本田岬
   【中文簡介】︰知名度飆升中的偶像．本田岬有個不能對任何人說的淫亂秘密. 那就是她會用淫亂肉體貼上來, 伸出淫舌舔遍男人全身, 發出陣陣淫語從肉棒搾出滿滿的精液…. 看似可愛卻很淫亂的她, 今天也要給粉絲、工作人員獻上特別服務….
-- [VENU-953 脱掉內褲將外甥精子榨乾的叔母 理々香](https://www.javbus.com/VENU-953)
+- [VENU-953 脱掉內褲將外甥精子榨乾的叔母 理々香](https://www.busfan.net/VENU-953)
 - VENU-857 脱掉內褲將外甥精子榨乾的叔母 澤村麗子
   影片資訊 【商品番號】︰VENU-857﻿ 【影片主角】︰澤村レイコ (澤村麗子 高坂保奈美 高坂ますみ) 【中文簡介】︰老公單身出外工作, 為此找來外甥裕也和澤村麗子住在一起. 就這樣平安無事過了幾個月, 某天麗子看到了拿起內褲猛聞的裕也, 看著裕也的肉棒讓她動心起來….
-- [VENU-951 為了讓母親成為自己玩物強迫讓母親裝上貞操帶禁欲的兒子 紗々原ゆり](https://www.javbus.com/VENU-951)
+- [VENU-951 為了讓母親成為自己玩物強迫讓母親裝上貞操帶禁欲的兒子 紗々原ゆり](https://www.busfan.net/VENU-951)
 - VENU-920 為了讓母親成為自己玩物強迫讓母親裝上貞操帶禁欲的兒子 川上優
   【中文簡介】︰總是想著母親—優, 並且帶著男女愛的兒子, 把母親當作一個女人, 想要把她據為己有的扭曲慾望滿溢後開始失控. 「今天起就由我來管理母親的性慾」順從本能襲擊優的兒子, 強行給她戴上貞操帶, 打算支配她的身體. 雖然優為兒子的行動感到困惑, 並且拼命地抵抗, 然而身體還是漸漸地無法壓抑身體的難
 - VENU-778 被突然上門的老婆的姐姐不停榨精兩天一夜 鷹宮唯

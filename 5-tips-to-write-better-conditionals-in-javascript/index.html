@@ -449,6 +449,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>At first glance, the above example looks good. However, what if we get more red fruits, say <code>cherry</code> and <code>cranberries</code>? Are we going to extend the statement with more <code>||</code> ?</p>
 <p>We can rewrite the conditional above by using <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"><code>Array.includes</code></a></p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">fruit</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -459,6 +460,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'red'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>We extract the <code>red fruits</code> (conditions) to an array. By doing this, the code looks tidier.</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes"><code>Array.includes</code></a> 方法用来判断一个数组是否包含一个指定的值, 根据情况, 如果包含则返回 true, 否则返回 false.</p>
@@ -491,6 +493,7 @@
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// error: No fruits</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// print: red</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// print: red, big quantity</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Look at the code above, we have:</p>
 <ul>
 <li>1 if/else statement that filter out invalid condition</li>
@@ -514,6 +517,7 @@
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>By doing this, we have one less level of nested statement. This coding style is good especially when you have long if statement (imagine you need to scroll to the very bottom to know there is an else statement, not cool).</p>
 <p>We can further reduce the nesting if, by inverting the conditions &amp; return early. Look at condition 2 below to see how we do it:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* return early when invalid conditions found */</span>
@@ -530,6 +534,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'big quantity'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>By inverting the conditions of condition 2, our code is now free of a nested statement. This technique is useful when we have long logic to go and we want to stop further process when a condition is not fulfilled.</p>
 <p>However, that’s no <strong>hard rule</strong> for doing this. Ask yourself, is this version (without nesting) better / more readable than the previous one (condition 2 with nested)?</p>
 <p>For me, I would just leave it as the previous version (condition 2 with nested). It is because:</p>
@@ -556,6 +561,7 @@
 <span class="token comment">//test results</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// We have 1 banana!</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// We have 2 apple!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In fact, we can eliminate the variable <code>q</code> by assigning default function parameters.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">fruit<span class="token punctuation">,</span> quantity <span class="token operator">=</span> <span class="token number">1</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// if quantity not provided, default to one</span>
@@ -566,6 +572,7 @@
 <span class="token comment">//test results</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'banana'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// We have 1 banana!</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// We have 2 apple!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Much easier &amp; intuitive isn’t it? Please note that each parameter can has it own <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">default function parameter</a>. For example, we can assign default value to <code>fruit</code> too: <code>function test(fruit =&#39;unknown&#39;, quantity = 1)</code>.</p>
 <p>What if our <code>fruit</code> is an object? Can we assign default parameter?</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">fruit</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -581,6 +588,7 @@
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'red'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// apple</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Look at the example above, we want to print the fruit name if it’s available or we will print unknown. We can avoid the conditional <code>fruit &amp;&amp; fruit.name</code> checking with default function parameter &amp; destructing.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// destructing - get name property only</span>
 <span class="token comment">// assign default empty object &#123;&#125;</span>
@@ -592,6 +600,7 @@
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'red'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// apple</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Since we only need property <code>name</code> from fruit, we can destructure the parameter using <code>&#123;name&#125;</code>, then we can use <code>name</code> as variable in our code instead of <code>fruit.name</code>.</p>
 <p>We also assign empty object <code>&#123;&#125;</code> as default value. If we do not do so, you will get error when executing the line <code>test(undefined)</code>- <code>Cannot destructure property name of &#39;undefined&#39; or &#39;null&#39;.</code> because there is no <code>name</code> property in undefined.</p>
 <p>If you don’t mind using 3rd party libraries, there are a few ways to cut down null checking:</p>
@@ -611,6 +620,7 @@
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// unknown</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'red'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// apple</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore">you-dont-need/You-Dont-Need-Lodash-Underscore: List of JavaScript methods which you can use natively + ESLint Plugin</a></p>
 </blockquote>
@@ -633,6 +643,7 @@
 <span class="token comment">//test results</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// []</span>
 <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'yellow'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['banana', 'pineapple']</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The above code seems nothing wrong, but I find it quite verbose. The same result can be achieve with object literal with cleaner syntax:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// use object literal to find fruits in color</span>
 <span class="token keyword">const</span> fruitColor <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -644,6 +655,7 @@
 <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">color</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> fruitColor<span class="token punctuation">[</span>color<span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Alternatively, you may use <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a> to achieve the same result:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// use Map to find fruits in color</span>
 <span class="token keyword">const</span> fruitColor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -654,6 +666,7 @@
 <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">color</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> fruitColor<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Map is the object type available since ES2015, allow you to store key value pair.</p>
 <p><em>Should we ban the usage of switch statement?</em> Do not limit yourself to that. Personally, I use object literal whenever possible, but I wouldn’t set hard rule to block that, use whichever make sense for your scenario.</p>
 <p>Todd Motto has an article that dig deeper on switch statement vs object literal, you may read <a target="_blank" rel="noopener" href="https://toddmotto.com/deprecating-the-switch-statement-for-object-literals/">here</a>.</p>
@@ -671,6 +684,7 @@
   <span class="token comment">// use Array filter to find fruits in color</span>
   <span class="token keyword">return</span> fruits<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>f <span class="token operator">=</span> f<span class="token punctuation">.</span>color <span class="token operator">==</span> color<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>There’s always more than 1 way to achieve the same result. We have shown 4 with the same example. Coding is fun!</p>
 <h2 id="5-Use-Array-every-amp-Array-some-for-All-Partial"><a href="#5-Use-Array-every-amp-Array-some-for-All-Partial" class="headerlink" title="5. Use Array.every &amp; Array.some for All / Partial"></a>5. Use Array.every &amp; Array.some for All / Partial</h2><p>This last tip is more about utilizing new (but not so new) Javascript Array function to reduce the lines of code. Look at the code below, we want to check if all fruits are in red color:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span>
@@ -690,6 +704,7 @@
 
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>isAllRed<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The code is so long! We can reduce the number of lines with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every"><code>Array.every</code></a>:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'red'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -703,6 +718,7 @@
 
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>isAllRed<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Much cleaner now right? In a similar way, if we want to test if any of the fruit is red, we can use <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some"><code>Array.some</code></a> to achieve it in one line.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'red'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -716,9 +732,14 @@
 
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>isAnyRed<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Let’s produce more readable code together. I hope you learn something new in this article.</p>
 <p>That’s all. Happy coding!</p>
 <!-- Like this article? [Follow @JecelynYeen on Twitter](https://twitter.com/JecelynYeen) -->
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/antonioerdeljac/5-tips-for-writing-better-conditionals-in-javascript-25h6">5 Tips for writing better conditionals in JavaScript</a></p>
+</blockquote>
 
                 
             </div>

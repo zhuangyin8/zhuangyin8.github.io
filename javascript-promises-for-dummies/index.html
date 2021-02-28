@@ -447,9 +447,9 @@
 <p>You <em>don’t know</em> if you will get that phone until next week. Your mom can either <em>really buy</em> you a brand new phone, or <em>she doesn’t</em>, because she is not happy <code>:(</code>.</p>
 <p>That is a <strong>promise</strong>. A promise has 3 states. They are:</p>
 <ol>
-<li>Pending: You <em>don’t know</em> if you will get that phone</li>
-<li>Fulfilled: Mom is <em>happy</em>, she buys you a brand new phone</li>
-<li>Rejected: Mom is <em>unhappy</em>, she doesn’t buy you a phone</li>
+<li> Pending: You <em>don’t know</em> if you will get that phone</li>
+<li> Fulfilled: Mom is <em>happy</em>, she buys you a brand new phone</li>
+<li> Rejected: Mom is <em>unhappy</em>, she doesn’t buy you a phone</li>
 </ol>
 <h2 id="Creating-a-Promise"><a href="#Creating-a-Promise" class="headerlink" title="Creating a Promise"></a>Creating a Promise</h2><p>Let’s convert this to JavaScript.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5: Part 1</span>
@@ -469,10 +469,12 @@
     <span class="token function">reject</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// reject</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The code is quite expressive in itself.</p>
 <p>Below is how a promise syntax look like normally:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// promise syntax look like this</span>
 <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.</p>
 </blockquote>
@@ -496,6 +498,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Let’s run the example and see the result!</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* ES5, using Bluebird */</span>
 <span class="token keyword">var</span> isMomHappy <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -528,6 +531,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/nifocu/1/edit?js,console">https://jsbin.com/nifocu/1/edit?js,console</a></p>
 <p><img src="/images/nB0ffh3NQHaHKJRuBNpH_promise-true-false.gif"></p>
 <h2 id="Chaining-Promises"><a href="#Chaining-Promises" class="headerlink" title="Chaining Promises"></a>Chaining Promises</h2><p>Promises are chainable.</p>
@@ -544,6 +548,7 @@
     <span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Notes: We can shorthen the above code by written as below:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// shorten it</span>
 
@@ -554,6 +559,7 @@
 
   <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Let’s chain the promises. You, the kid can only start the <code>showOff</code> promise after the <code>willIGetNewPhone</code> promise.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// call our promise</span>
 <span class="token keyword">var</span> <span class="token function-variable function">askMom</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -569,6 +575,7 @@
       <span class="token comment">// output: 'mom is not happy'</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>That’s how easy to chain the promise.</p>
 <h2 id="Promises-are-Asynchronous"><a href="#Promises-are-Asynchronous" class="headerlink" title="Promises are Asynchronous"></a>Promises are Asynchronous</h2><p>Promises are asynchronous. Let’s log a message before and after we call the promise.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// call our promise</span>
@@ -584,14 +591,17 @@
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'after asking mom'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// log after</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>What is the sequence of expected output? Probably you expect:</p>
 <pre class="line-numbers language-none"><code class="language-none">1. before asking Mom
 2. Hey friend, I have a new black Samsung phone.
 3. after asking mom<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>However, the actual output sequence is:</p>
 <pre class="line-numbers language-none"><code class="language-none">1. before asking Mom
 2. after asking mom
 3. Hey friend, I have a new black Samsung phone.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Don’t believe me? Go try it yourself:</p>
 <p><a target="_blank" rel="noopener" href="https://jsbin.com/vepateq/edit?js,console">https://jsbin.com/vepateq/edit?js,console</a></p>
 <p><img src="/images/X8Q1iZGeSqAEjksPdbQQ_bZ3MNiH8g1.gif"></p>
@@ -639,6 +649,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Promises-in-ES5-ES6-2015-ES7-Next"><a href="#Promises-in-ES5-ES6-2015-ES7-Next" class="headerlink" title="Promises in ES5, ES6/2015, ES7/Next"></a>Promises in ES5, ES6/2015, ES7/Next</h2><h3 id="ES5-Majority-browsers"><a href="#ES5-Majority-browsers" class="headerlink" title="ES5 - Majority browsers"></a>ES5 - Majority browsers</h3><p>The demo code is workable in ES5 environments (all major browsers + NodeJs) if you include <a target="_blank" rel="noopener" href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> promise library. It’s because ES5 doesn’t support promises out of the box. Another famous promise library is <a target="_blank" rel="noopener" href="https://github.com/kriskowal/q">Q</a> by Kris Kowal.</p>
 <h3 id="ES6-ES2015-Modern-browsers-NodeJs-v6"><a href="#ES6-ES2015-Modern-browsers-NodeJs-v6" class="headerlink" title="ES6 / ES2015 - Modern browsers, NodeJs v6"></a>ES6 / ES2015 - Modern browsers, NodeJs v6</h3><p>The demo code works out of the box because ES6 supports promises natively. In addition, with ES6 functions, we can further simplify the code with <strong>fat arrow =&gt;</strong> and use <code>const</code> and <code>let</code>.</p>
 <p>Here is the full example in ES6 code:</p>
@@ -677,6 +688,7 @@
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Notes that all the <code>var</code> are replaced with <code>const</code>. All the <code>function(resolve, reject)</code> has been simplified to <code>(resolve, reject) =&gt;</code>. There are a few benefits come with these changes. Read more on:-</p>
 <h3 id="ES7-Async-Await-make-the-syntax-look-prettier"><a href="#ES7-Async-Await-make-the-syntax-look-prettier" class="headerlink" title="ES7 - Async Await make the syntax look prettier"></a>ES7 - Async Await make the syntax look prettier</h3><p>ES7 introduce <code>async</code> and <code>await</code> syntax. It makes the asynchronous syntax look prettier and easier to understand, without the <code>.then</code> and <code>.catch</code>.</p>
 <p>Rewrite our example with ES7 syntax.</p>
@@ -726,6 +738,7 @@
 <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">await</span> <span class="token function">askMom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Why-Promises-and-When-to-Use-Them"><a href="#Why-Promises-and-When-to-Use-Them" class="headerlink" title="Why Promises and When to Use Them?"></a>Why Promises and When to Use Them?</h2><p>Why do we need promises? How’s the world look like before promise? Before answering these questions, let’s go back to the fundamental.</p>
 <h3 id="Normal-Function-vs-Async-Function"><a href="#Normal-Function-vs-Async-Function" class="headerlink" title="Normal Function vs Async Function"></a>Normal Function vs Async Function</h3><p>Let’s take a look at these two example, both example perform addition of two number, one add using normal function, the other add remotely.</p>
 <h3 id="Normal-Function-to-Add-Two-Numbers"><a href="#Normal-Function-to-Add-Two-Numbers" class="headerlink" title="Normal Function to Add Two Numbers"></a>Normal Function to Add Two Numbers</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers normally</span>
@@ -735,11 +748,13 @@
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get result = 3 immediately</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="Async-Function-to-Add-Two-numbers"><a href="#Async-Function-to-Add-Two-numbers" class="headerlink" title="Async Function to Add Two numbers"></a>Async Function to Add Two numbers</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely</span>
 
 <span class="token comment">// get the result by calling an API</span>
 <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">getAddResultFromServer</span><span class="token punctuation">(</span><span class="token string">'http://www.example.com?num1=1&amp;num2=2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// you get result  = "undefined"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>If you add the numbers with normal function, you get the result immediately. However when you issue a remote call to get result, you need to wait, you can’t get the result immediately.</p>
 <p>Or put it this way, you don’t know if you will get the result because the server might be down, slow in response, etc. You don’t want your entire process to be blocked while waiting for the result.</p>
 <p>Calling APIs, downloading files, reading files are among some of the usual async operations that you’ll perform.</p>
@@ -761,6 +776,7 @@
   <span class="token comment">// callback</span>
   <span class="token keyword">const</span> result <span class="token operator">=</span> success<span class="token punctuation">;</span> <span class="token comment">// you get result = 3 here</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The syntax looks ok, why do we need promises then?</p>
 <h3 id="What-if-You-Want-to-Perform-Subsequent-Async-Action"><a href="#What-if-You-Want-to-Perform-Subsequent-Async-Action" class="headerlink" title="What if You Want to Perform Subsequent Async Action?"></a>What if You Want to Perform Subsequent Async Action?</h3><p>Let’s say, instead of just add the numbers one time, we want to add 3 times. In a normal function, we do this:-</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers normally</span>
@@ -774,6 +790,7 @@ resultB <span class="token operator">=</span> <span class="token function">add</
 resultC <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>resultB<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// you get resultC = 10 immediately</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total'</span> <span class="token operator">+</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>How it looks like with callbacks?</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// add two numbers remotely</span>
 <span class="token comment">// get the result by calling an API</span>
@@ -804,6 +821,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/barimo/edit?html,js,console">https://jsbin.com/barimo/edit?html,js,console</a></p>
 <p>The syntax is less user friendly. In a nicer term, It looks like a pyramid, but people usually refer this as “callback hell”, because the callback nested into another callback. Imagine you have 10 callbacks, your code will nested 10 times!</p>
 <h3 id="Escape-From-Callback-Hell"><a href="#Escape-From-Callback-Hell" class="headerlink" title="Escape From Callback Hell"></a>Escape From Callback Hell</h3><p>Promises come in to rescue. Let’s look at the promise version of the same example.</p>
@@ -838,6 +856,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total: '</span> <span class="token operator">+</span> success<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/qafane/edit?js,console">https://jsbin.com/qafane/edit?js,console</a></p>
 <p>With promises, we flatten the callback with <code>.then</code>. In a way, it looks cleaner because of no callback nesting. Of course, with ES7 <code>async</code> syntax, we can even further enhance this example, but I leave that to you. <code>:)</code></p>
 <h2 id="New-Kid-On-the-Block-Observables"><a href="#New-Kid-On-the-Block-Observables" class="headerlink" title="New Kid On the Block: Observables"></a>New Kid On the Block: Observables</h2><p>Before you settle down with promises, there is something that has come about to make it even easier to deal with async data called <code>Observables</code>.</p>
@@ -868,6 +887,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'total: '</span> <span class="token operator">+</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resultA<span class="token punctuation">,</span> resultB<span class="token punctuation">,</span> resultC<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Demo: <a target="_blank" rel="noopener" href="https://jsbin.com/dosaviwalu/edit?js,console">https://jsbin.com/dosaviwalu/edit?js,console</a></p>
 <p>Notes:</p>
 <p>Observables can do more funky stuff easily. For example, <code>delay</code> add function by <code>3 seconds</code> with just one line of code or retry so you can retry a call a certain number of times.</p>
@@ -877,6 +897,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">.</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span> <span class="token comment">// delay 3 seconds</span>
   <span class="token punctuation">.</span><span class="token function">do</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>resultA <span class="token operator">=</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//   ...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Well, let’s talk about Observables in future post. (You may read one of my RxJs post <a target="_blank" rel="noopener" href="https://scotch.io/tutorials/rxjs-operators-for-dummies-forkjoin-zip-combinelatest-withlatestfrom">here</a> too!)</p>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Get yourself familiar with callbacks and promises. Understand them and use them. Don’t worry about Observables, just yet. All three can factor into your development depending on the situation.</p>
 <p>That’s it. Hopefully this article smoothen your path to tame the JavaScript promises. Happy coding!</p>
@@ -898,6 +919,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token constant">P1</span><span class="token punctuation">,</span> <span class="token constant">P2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">results</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ["p1 data", ""p2 data""]</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>但是如果有一个 Promise 里面出错了执行了 reject ,如下代码:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> <span class="token constant">P1</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -905,6 +927,7 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
     <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">'p1 出错'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>那么 results 就拿不到数据了,这个时候的做法有两种</p>
 <ol>
 <li><p>可以给 <code>P1.catch((error) =&gt; &#123; ... &#125;)</code>,让 P1 的错误自己处理.</p>
@@ -924,11 +947,11 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
 
 > 那些年收藏的爱情动作片-6 | 掌上生活 - 掌上看片
 
-[DVDES-543 SEX のハードルが異常に低い世界 3](https://www.javbus.com/DVDES-543)
+[DVDES-543 SEX のハードルが異常に低い世界 3](https://www.busfan.net/DVDES-543)
 
 ![](https://www.kanjiantu.com/images/2018/09/28/DVDES-543df2a24575a031100.gif)
 
-[DVDES-586 ムチムチホットパンツバス ハミ尻を強調するのは性交 OK の象徴！？ 人目を気にせず挑発してくるショートパンツ娘 ](https://www.javbus.com/DVDES-586)
+[DVDES-586 ムチムチホットパンツバス ハミ尻を強調するのは性交 OK の象徴！？ 人目を気にせず挑発してくるショートパンツ娘 ](https://www.busfan.net/DVDES-586)
 
 ![](https://www.kanjiantu.com/images/2018/09/28/DVDES-586-Aa6f6ff6df0d4e761.gif)
 

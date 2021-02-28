@@ -454,8 +454,8 @@
 <p><strong>Tip</strong>: When building JS apps, use open source tools like <a target="_blank" rel="noopener" href="https://github.com/teambit/bit">Bit</a> to build faster. Bit turns components into shared Lego pieces your team can easily share, find, use and develop in all your projects to build much faster together. Give it a try.</p>
 <h2 id="What-is-Scope"><a href="#What-is-Scope" class="headerlink" title="What is Scope?"></a>What is Scope?</h2><p>Scope in JavaScript refers to the accessibility or visibility of variables. That is, which parts of a program have access to the variable or where the variable is visible.</p>
 <h3 id="Why-is-Scope-Important"><a href="#Why-is-Scope-Important" class="headerlink" title="Why is Scope Important?"></a>Why is Scope Important?</h3><ol>
-<li>The main benefit of scope is security. That is, the variables can be accessed from only a certain area of the program. Using scope, we can avoid unintended modifications to the variables from other parts of the program.</li>
-<li>The scope also reduces the namespace collisions. That is, we can use the same variable names in different scopes.</li>
+<li> The main benefit of scope is security. That is, the variables can be accessed from only a certain area of the program. Using scope, we can avoid unintended modifications to the variables from other parts of the program.</li>
+<li> The scope also reduces the namespace collisions. That is, we can use the same variable names in different scopes.</li>
 </ol>
 <h2 id="Types-of-Scope"><a href="#Types-of-Scope" class="headerlink" title="Types of Scope"></a>Types of Scope</h2><p>There are three types of scope in JavaScript — 1) <strong>Global Scope,</strong> 2) <strong>Function Scope,</strong> and, 3) <strong>Block Scope.</strong></p>
 <h3 id="1-Global-Scope"><a href="#1-Global-Scope" class="headerlink" title="1. Global Scope"></a>1. Global Scope</h3><p>Any variable that’s not inside any function or block (a pair of curly braces), is inside the global scope. The variables in global scope can be accessed from anywhere in the program. For example:</p>
@@ -466,6 +466,7 @@
 
 <span class="token comment">// Prints 'Hello World!'</span>
 <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="2-Local-Scope-or-Function-Scope"><a href="#2-Local-Scope-or-Function-Scope" class="headerlink" title="2. Local Scope or Function Scope"></a>2. Local Scope or Function Scope</h3><p>Variables declared inside a function is inside the local scope. They can only be accessed from within that function, that means they can’t be accessed from the outside code. For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
@@ -477,6 +478,7 @@
 
 <span class="token comment">// Uncaught ReferenceError: greeting is not defined</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="3-Block-Scope"><a href="#3-Block-Scope" class="headerlink" title="3. Block Scope"></a>3. Block Scope</h3><p>ES6 introduced <strong>let</strong> and <strong>const</strong> variables, unlike <strong>var</strong> variables, they can be scoped to the nearest pair of curly braces. That means, they can’t be accessed from outside that pair of curly braces. For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
@@ -489,6 +491,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token comment">// Uncaught ReferenceError: greeting is not defined</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>We can see that <code>var</code> variables can be used outside the block, that is, <code>var</code> variables are not block scoped.</p>
 <h2 id="Nested-Scope"><a href="#Nested-Scope" class="headerlink" title="Nested Scope"></a>Nested Scope</h2><p>Just like functions in JavaScript, a scope can be nested inside another scope. For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Peter'</span><span class="token punctuation">;</span>
@@ -500,6 +503,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Here we have 3 scopes nested within each other. First, the block scope (created due to the <code>let</code> variable) is nested inside the local or function scope which is in turn nested inside the global scope.</p>
 <h2 id="Lexical-Scope"><a href="#Lexical-Scope" class="headerlink" title="Lexical Scope"></a>Lexical Scope</h2><blockquote>
 <p>词法作用域</p>
@@ -516,6 +520,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token comment">// Prints 42</span>
 <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Here the <code>console.log(number)</code> will always print <code>42</code> no matter from where the function <code>printNumber()</code> is called. This is different from languages with the <strong>dynamic scope</strong> where the <code>console.log(number)</code> will print different value depending on from where the function <code>printNumber()</code> is called.</p>
 <p>If the above code was written in a language that supports dynamic scoping, the <code>console.log(number)</code> would have printed <code>54</code> instead.</p>
 <p>Using lexical scope we can determine the scope of the variable just by looking at the source code. Whereas in the case of dynamic scoping the scope can’t be determined until the code is executed.</p>
@@ -536,6 +541,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Prints 42</span>
 <span class="token punctuation">&#125;</span>
 <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>When the function <code>bar()</code> is executed, the JavaScript engine looks for the <code>baz</code> variable and finds it in the current scope. Next, it looks for <code>foo</code> variable in the current scope and it can’t find it there, so it looks for the variable in outer scope and finds it there (i.e global scope).</p>
 <p>After that, we assign <code>42</code> to the number variable, so the JavaScript engine looks for the <code>number</code> variable in the current scope and after that in the outer scope.</p>
 <p>If the script is not in strict mode, the engine will create a new variable named <code>number</code> and assign <code>42</code> to it or return an error (if not in strict mode).</p>
@@ -550,12 +556,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
   a<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
   obj<span class="token operator">:</span> <span class="token operator">&lt;</span>ref<span class="token punctuation">.</span> to the object<span class="token operator">></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>A new lexical environment is created for each lexical scope but only when the code in that scope is executed. The lexical environment also has a reference to its outer lexical environment ( i.e outer scope). For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">lexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   a<span class="token operator">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
   obj<span class="token operator">:</span> <span class="token operator">&lt;</span>ref<span class="token punctuation">.</span> to the object<span class="token operator">></span> 
   outer<span class="token operator">:</span> <span class="token operator">&lt;</span>outer lexical environemt<span class="token operator">></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="How-does-JavaScript-Engine-Perform-Variable-Lookups"><a href="#How-does-JavaScript-Engine-Perform-Variable-Lookups" class="headerlink" title="How does JavaScript Engine Perform Variable Lookups?"></a>How does JavaScript Engine Perform Variable Lookups?</h3><p>Now that we know what scope, scope chain and lexical environment are, let’s now understand how JavaScript engine uses the lexical environment to determine scope and scope chain.</p>
 <p>Let’s take a look at below code snippet to understand the above concepts.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">;</span>
@@ -568,6 +576,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">let</span> greeting <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>When the above script loads, a global lexical environment is created, which contains variables and functions defined inside the global scope. For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">globalLexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   greeting<span class="token operator">:</span> <span class="token string">'Hello'</span>
@@ -575,6 +584,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
   outer<span class="token operator">:</span> <span class="token operator">&lt;</span><span class="token keyword">null</span><span class="token operator">></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Here outer lexical environment is set to null because there is no outer scope after global scope.</p>
 <p>After that, a call to the <code>greet()</code> function is encountered. So a new lexical environment is created for the <code>greet()</code> function. For example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">functionLexicalEnvironment <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -582,6 +592,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
   outer<span class="token operator">:</span> <span class="token operator">&lt;</span>globalLexicalEnvironment<span class="token operator">></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Here outer lexical environment is set to <code>globalLexicalEnvironment</code> because its outer scope is the global scope.</p>
 <p>After that, the JavaScript engine executes the <code>console.log(`$&#123;greeting&#125; $&#123;name&#125;`)</code> statement.</p>
 <p>The JavaScript engine tries to find the <code>greeting</code> and <code>name</code> variables inside the function’s lexical environment. It finds the <code>name</code> variable inside the current lexical environment but it won’t be able to find the <code>greeting</code> variable inside the current lexical environment.</p>
@@ -592,6 +603,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   
   outer<span class="token operator">:</span> <span class="token operator">&lt;</span>globalLexicalEnvironment<span class="token operator">></span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Next, the <code>console.log(greeting)</code> statement is executed, the JavaScript engine finds the variable in the current lexical environment and uses that variable. So it does not look inside the outer lexical environment (global lexical environment) for the variable.</p>
 <p><strong>Note —</strong> A new lexical environment is created only for <code>let</code> and <code>const</code> declarations, not <code>var</code> declarations. <code>var</code> declarations are added to the current lexical environment (global or function lexical environment).</p>
 <p>So when a variable is used in a program, the JavaScript engine will try to find the variable in the current lexical environment and if it could not find the variable there, it looks inside the outer lexical environment to find the variable. So that’s how the JavaScript engine performs variable lookups.</p>
@@ -615,22 +627,22 @@ magnet:?xt=urn:btih:4d8a9225e01606f80e939d9297f51184102e8b24
 
 ---
 
-[020516_239](https://www.javbus.com/020516_239 '020516_239')
+[020516_239](https://www.busfan.net/020516_239 '020516_239')
 ![](https://www.skeimg.com/u/20200207/18480791.gif)
 
 ---
 
-[ABP-426](https://www.javbus.com/ABP-426 'ABP-426')
+[ABP-426](https://www.busfan.net/ABP-426 'ABP-426')
 ![](https://www.skeimg.com/u/20200207/18481344.gif)
 
 ---
 
-[ABP-601](https://www.javbus.com/ABP-601 'ABP-601')
+[ABP-601](https://www.busfan.net/ABP-601 'ABP-601')
 ![](https://www.skeimg.com/u/20200207/1848226.gif)
 
 ---
 
-[ADZ-294](https://www.javbus.com/ADZ-294 'ADZ-294')
+[ADZ-294](https://www.busfan.net/ADZ-294 'ADZ-294')
 ![](https://www.skeimg.com/u/20200207/18482726.gif)
 
 ---
@@ -640,47 +652,47 @@ Anal With My Ex Husband and Best Friend
 
 ---
 
-[AVOP-217](https://www.javbus.com/AVOP-217 'AVOP-217')
+[AVOP-217](https://www.busfan.net/AVOP-217 'AVOP-217')
 ![](https://www.skeimg.com/u/20200207/18484873.gif)
 
 ---
 
-[FSET-540](https://www.javbus.com/FSET-540 'FSET-540')
+[FSET-540](https://www.busfan.net/FSET-540 'FSET-540')
 ![](https://www.skeimg.com/u/20200207/18485857.gif)
 
 ---
 
-[GACHIP-334](https://www.javbus.com/GACHIP-334 'GACHIP-334')
+[GACHIP-334](https://www.busfan.net/GACHIP-334 'GACHIP-334')
 ![](https://www.skeimg.com/u/20200207/1849058.gif)
 
 ---
 
-[HND-169](https://www.javbus.com/HND-169 'HND-169')
+[HND-169](https://www.busfan.net/HND-169 'HND-169')
 ![](https://www.skeimg.com/u/20200207/18491788.gif)
 
 ---
 
-[IPZ-687](https://www.javbus.com/IPZ-687 'IPZ-687')
+[IPZ-687](https://www.busfan.net/IPZ-687 'IPZ-687')
 ![](https://www.skeimg.com/u/20200207/18492364.gif)
 
 ---
 
-[IPZ-742](https://www.javbus.com/IPZ-742 'IPZ-742')
+[IPZ-742](https://www.busfan.net/IPZ-742 'IPZ-742')
 ![](https://www.skeimg.com/u/20200207/18492998.gif)
 
 ---
 
-[MMND-143](https://www.javbus.com/MMND-143 'MMND-143')
+[MMND-143](https://www.busfan.net/MMND-143 'MMND-143')
 ![](https://www.skeimg.com/u/20200207/18494151.gif)
 
 ---
 
-[n0278](https://www.javbus.com/n0278 'n0278')
+[n0278](https://www.busfan.net/n0278 'n0278')
 ![](https://www.skeimg.com/u/20200207/1849462.gif)
 
 ---
 
-[NHDTA-527](https://www.javbus.com/NHDTA-527 'NHDTA-527')
+[NHDTA-527](https://www.busfan.net/NHDTA-527 'NHDTA-527')
 ![](https://www.skeimg.com/u/20200207/18495991.gif)
 
 ---
@@ -691,12 +703,12 @@ magnet:?xt=urn:btih:d80947e3d374fe7ad95e65b905a3b880ed046eb8
 
 ---
 
-[SNIS-948](https://www.javbus.com/SNIS-948 'SNIS-948')
+[SNIS-948](https://www.busfan.net/SNIS-948 'SNIS-948')
 ![](https://www.skeimg.com/u/20200207/18501282.gif)
 
 ---
 
-[WAT-008](https://www.javbus.com/WAT-008 'WAT-008')
+[WAT-008](https://www.busfan.net/WAT-008 'WAT-008')
 ![](https://www.skeimg.com/u/20200207/18502577.gif)
 
 ---

@@ -459,6 +459,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   obj<span class="token punctuation">,</span> <span class="token comment">// &#123;one: 1, two: 2&#125;;</span>
   obj2<span class="token punctuation">,</span> <span class="token comment">// &#123;one: 1, two: 2&#125;;</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>So far, both object seems to output the same thing. So no problem, right. But let’s see what happens if we edit our second object:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj2<span class="token punctuation">.</span>three <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 
@@ -467,6 +468,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123;one: 1, two: 2, three: 3&#125;; &lt;-- 😱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>WTH?! I changed <code>obj2</code> but why was <code>obj</code> also affected. That’s because Objects are reference types. So when you use <code>=</code>, it copied the pointer to the memory space it occupies. Reference types don’t hold values, they are a pointer to the value in memory.</p>
 <h2 id="Shallow-Clone-vs-Deep-Clone"><a href="#Shallow-Clone-vs-Deep-Clone" class="headerlink" title="Shallow Clone vs Deep Clone"></a>Shallow Clone vs Deep Clone</h2><p>Object cloning is something that we may often come across while coding. As we know, Objects and Arrays in JavaScript are reference type, if we normally copies an object or array then it will do a shallow copy, not a deep copy. If nested objects are present inside an object then deep copy is must.</p>
 <blockquote>
@@ -497,25 +499,28 @@ console<span class="token punctuation">.</span><span class="token function">log<
     memory<span class="token operator">:</span> <span class="token string">'128GB'</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Let’s clone our object using spread:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> shallowClone <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>obj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Changed our cloned object</span>
 shallowClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
 shallowClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>So we changed our cloned object. Let’s see the output.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123; brand: "Apple", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125; &lt;-- 😱</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>shallowClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>A shallow copy means the first level is copied, deeper levels are referenced.</p>
 <p>If nested objects are not present, then spread(…) operator can work fine for cloning objects.</p>
 <blockquote>
 <p>如果不存在嵌套对象,展开语法可以很好地用于克隆对象.</p>
 </blockquote>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a></p>
 </blockquote>
 <h3 id="Using-Object-assign"><a href="#Using-Object-assign" class="headerlink" title="Using Object.assign()"></a>Using Object.assign()</h3><p>Alternatively, <code>Object.assign</code> is in the official released and will also create a shallow copy of the object.</p>
 <p>Note the empty <code>&#123;&#125;</code> as the first argument, this will ensure you don’t mutate the original object 👍</p>
@@ -537,12 +542,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>shallowClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>If nested objects are not present, then <code>Object.assign()</code> can work fine for cloning objects.</p>
 <blockquote>
 <p>如果不存在嵌套对象,<code>Object.assign()</code>可以很好地用于克隆对象.</p>
 </blockquote>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign()</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign()</a></p>
 </blockquote>
 <p>Let’s see how we can achieve deep cloning for multi level objects also in JavaScript.</p>
 <h2 id="Deep-Cloning-of-multi-level-Objects"><a href="#Deep-Cloning-of-multi-level-Objects" class="headerlink" title="Deep Cloning of multi level Objects"></a>Deep Cloning of multi level Objects</h2><p>When we make a <em>deep copy</em> we create a completely new object which holds no references to the original.</p>
@@ -580,12 +586,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>deepClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>⚠️ 如果你的对象包含 <code>function</code>, <code>undefined</code> or <code>NaN</code> 值的话,<code>JSON.parse(JSON.stringify(obj))</code> 就不会有效.因为当你 JSON.stringify 对象的时候,包含<code>function</code>, <code>undefined</code> or <code>NaN</code>值的属性会从对象中移除. 因此,在这种情况下,请使用递归函数方法.</p>
 </blockquote>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.stringify() </a></p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.parse()</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.stringify() </a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.parse()</a></p>
 </blockquote>
 <h3 id="Using-recursive-function"><a href="#Using-recursive-function" class="headerlink" title="Using recursive function"></a>Using recursive function</h3><p>Our first implementation works recursively. We write a <code>deep</code> function, which checks the type of the argument sent to it and either calls an appropriate function for the argument being an array or an object or simply returns the value of the argument (if it is neither an array nor an object).</p>
 <blockquote>
@@ -626,6 +633,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>deepClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123;brand: 'Huawei', storage:&#123;ram: '8GB', memory: '512GB'&#125;&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The <code>makeDeepClone</code> function takes all of the keys of an object and iterates over them, recursively calling the <code>makeDeepClone</code> function for each value.</p>
 <blockquote>
 <p><code>makeDeepClone</code> 函数获取对象的所有键并对其进行迭代,为每个值递归调用 <code>makeDeepClone</code> 函数.</p>
@@ -688,6 +696,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">return</span> target<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vXbFsG59L1Ba0DMcZeU2Bg">如何写出一个惊艳面试官的深拷贝</a></p>
 </blockquote>

@@ -170,7 +170,7 @@ table tr:nth-child(2n), thead {
 }
 
 .markdown-body hr {
-    margin: 12px 0;
+    /* margin: 12px 0; */
     border: 0;
     border-top: 1px solid #ccc;
 }

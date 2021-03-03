@@ -415,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-21
+                    2013-04-08
                 </div>
                 
 
@@ -477,6 +477,7 @@
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token comment">/* or inline-flex */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Note that CSS columns have no effect on a flex container.</p>
 <h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><div style="width:400px;margin:auto;">
 
@@ -493,6 +494,7 @@
   <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span> <span class="token comment">/* 从上到下 */</span>
   <span class="token property">flex-direction</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span> <span class="token comment">/* 从下到上 */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>row</code> (default): left to right in <code>ltr</code>; right to left in <code>rtl</code>.</li>
 <li><code>row-reverse</code>: right to left in <code>ltr</code>; left to right in <code>rtl</code>.</li>
@@ -513,6 +515,7 @@
   <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span> <span class="token comment">/* flex 元素 被打断到多个行中 多行显示 */</span>
   <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap-reverse<span class="token punctuation">;</span> <span class="token comment">/* 和 wrap 的行为一样, 但是从下到上 */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>nowrap</code> (default): all flex items will be on one line.</li>
 <li><code>wrap</code>: flex items will wrap onto multiple lines, from top to bottom.</li>
@@ -523,23 +526,6 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow"><code>flex-flow</code></a> 属性是 <code>flex-direction</code> 和 <code>flex-wrap</code> 的简写</p>
 </blockquote>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
-  <span class="token comment">/* flex-flow: &lt;'flex-direction'> */</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> column-reverse<span class="token punctuation">;</span>
-
-  <span class="token comment">/* flex-flow: &lt;'flex-wrap'> */</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> wrap-reverse<span class="token punctuation">;</span>
-
-  <span class="token comment">/* flex-flow: &lt;'flex-direction'> and &lt;'flex-wrap'> */</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row nowrap<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> column wrap<span class="token punctuation">;</span>
-  <span class="token property">flex-flow</span><span class="token punctuation">:</span> column-reverse wrap-reverse<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><div style="width:400px;margin:auto;">
 
 <p><img src="/images/justify-content.svg" alt="flex items within a flex container demonstrating the different spacing options"></p>
@@ -559,6 +545,7 @@
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* 每对相邻项目之间的间距是相同的. 第一个项目之前和最后一个项目之后的空白空间等于每对相邻项目之间的空白空间的一半 */</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* 每对相邻项之间的间距, 主开始边缘和第一个项目以及主结束边缘和最后一个项目都完全相同 */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>flex-start</code> (default): items are packed toward the start of the flex-direction(从行首起始位置开始排列).</li>
 <li><code>flex-end</code>: items are packed toward the end of the flex-direction(从行尾位置开始排列).</li>
@@ -589,6 +576,7 @@
   <span class="token property">align-items</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> baseline<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>stretch</code> (default): stretch to fill the container (still respect min-width/max-width)</li>
 <li><code>flex-start</code> / <code>start</code> / <code>self-start</code>: items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the <code>flex-direction</code> rules or the <code>writing-mode</code> rules.</li>
@@ -619,6 +607,7 @@
   <span class="token property">align-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>flex-start</code> / <code>start</code>: items packed to the start of the container. The (more supported) <code>flex-start</code> honors the <code>flex-direction</code> while <code>start</code> honors the <code>writing-mode</code> direction.</li>
 <li><code>flex-end</code> / <code>end</code>: items packed to the end of the container. The (more support) <code>flex-end</code> honors the <code>flex-direction</code> while end honors the <code>writing-mode</code> direction.</li>
@@ -647,6 +636,7 @@
   <span class="token property">order</span><span class="token punctuation">:</span> 5<span class="token punctuation">;</span> <span class="token comment">/* default is 0 */</span>
   <span class="token property">order</span><span class="token punctuation">:</span> -5<span class="token punctuation">;</span> <span class="token comment">/* &lt;integer> values */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><div style="width:400px;margin:auto;">
 
 <p><img src="/images/flex-grow.svg" alt="two rows of items, the first has all equally-sized items with equal flex-grow numbers, the second with the center item at twice the width because its value is 2 instead of 1."></p>
@@ -660,6 +650,7 @@
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
   <span class="token property">flex-grow</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span> <span class="token comment">/* Negative values are invalid. Defaults to 0. */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Negative numbers are invalid.</p>
 <h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p>This defines the ability for a flex item to shrink if necessary.</p>
 <blockquote>
@@ -668,6 +659,7 @@
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item</span> <span class="token punctuation">&#123;</span>
   <span class="token property">flex-shrink</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span> <span class="token comment">/* Negative values are invalid. Defaults to 1. */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Negative numbers are invalid.</p>
 <h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p>This defines the default size of an element before the remaining space is distributed. It can be a length (e.g. 20%, 5rem, etc.) or a keyword. The <code>auto</code> keyword means “look at my width or height property” (which was temporarily done by the <code>main-size</code> keyword until deprecated). The <code>content</code> keyword means “size it based on the item’s content” – this keyword isn’t well supported yet, so it’s hard to test and harder to know what its brethren <code>max-content</code>, <code>min-content</code>, and <code>fit-content</code> do.</p>
 <blockquote>
@@ -688,6 +680,7 @@
   <span class="token comment">/* Automatically size based on the flex item’s content */</span>
   <span class="token property">flex-basis</span><span class="token punctuation">:</span> content<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>If set to <code>0</code>, the extra space around content isn’t factored in. If set to <code>auto</code>, the extra space is distributed based on its <code>flex-grow</code> value.<a href="/images/rel-vs-abs-flex.svg">See this graphic.</a></p>
 <blockquote>
 <p>如果设置为 <code>0</code>, 则不考虑内容周围的多余空间. 如果设置为 <code>auto</code>, 则多余的空间将根据其 <code>flex-grow</code> 值进行分配.</p>
@@ -719,6 +712,7 @@
   <span class="token comment">/* Three values: flex-grow | flex-shrink | flex-basis */</span>
   <span class="token property">flex</span><span class="token punctuation">:</span> 2 2 10%<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>It is recommended that you use this shorthand property</strong> rather than set the individual properties. The shorthand sets the other values intelligently.</p>
 <h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><div style="width:400px;margin:auto;">
 
@@ -748,6 +742,7 @@
   <span class="token comment">/* Baseline alignment */</span>
   <span class="token property">align-self</span><span class="token punctuation">:</span> baseline<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Note that <code>float</code>, <code>clear</code> and <code>vertical-align</code> have no effect on a flex item.</p>
 <h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox.</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
@@ -760,6 +755,7 @@
   <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span> <span class="token comment">/* Or whatever */</span>
   <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span> <span class="token comment">/* Magic! */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="wvGBVvP" data-prefill='{"title":"perfect centering","tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="flex-container">
     &lt;div class="flex-item">1&lt;/div>
@@ -800,6 +796,7 @@
   <span class="token comment">/* Then we define how is distributed the remaining space */</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Done. Everything else is just some styling concern. Below is a pen featuring this example. Be sure to go to CodePen and try resizing your windows to see what happens.</p>
 <hr>
 <p>使用 Flexbox 实现九宫格布局</p>
@@ -844,7 +841,7 @@
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">/* Medium screens */</span>
-<span class="token atrule"><span class="token rule">@media</span> all and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 800px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
+<span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 800px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
   <span class="token selector">.navigation</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">/* When on medium sized screens, we center it by evenly distributing empty space around items */</span>
     <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
@@ -852,12 +849,13 @@
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">/* Small screens */</span>
-<span class="token atrule"><span class="token rule">@media</span> all and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
+<span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 500px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
   <span class="token selector">.navigation</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">/* On small screens, we are no longer using row direction but column */</span>
     <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="css-tricks" data-slug-hash="YqaKYR" data-prefill='{"title":"Demo Flexbox 2","description":"","tags":[],"head":"\n","scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;ul class="navigation">
   &lt;li>&lt;a href="#">Home&lt;/a>&lt;/li>
@@ -926,7 +924,7 @@
      */</span>
 
 <span class="token comment">/* Medium screens */</span>
-<span class="token atrule"><span class="token rule">@media</span> all and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
+<span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 600px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/* We tell both sidebars to share a row */</span>
   <span class="token selector">.aside</span> <span class="token punctuation">&#123;</span>
     <span class="token property">flex</span><span class="token punctuation">:</span> 1 auto<span class="token punctuation">;</span>
@@ -934,7 +932,7 @@
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">/* Large screens */</span>
-<span class="token atrule"><span class="token rule">@media</span> all and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 800px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
+<span class="token atrule"><span class="token rule">@media</span> all <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 800px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/* We invert order of first sidebar and main
        * And tell the main element to take twice as much width as the other two sidebars
        */</span>
@@ -954,6 +952,7 @@
     <span class="token property">order</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="chriscoyier" data-slug-hash="vWEMWw" data-prefill='{"title":"Demo Flexbox 3","description":"","tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="wrapper">
   &lt;header class="header">Header&lt;/header>
@@ -1040,6 +1039,7 @@
   <span class="token keyword">@include</span> <span class="token function">flex</span><span class="token punctuation">(</span>1 200px<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">@include</span> <span class="token function">order</span><span class="token punctuation">(</span>2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Related-Properties"><a href="#Related-Properties" class="headerlink" title="Related Properties"></a>Related Properties</h2><ul>
 <li><a target="_blank" rel="noopener" href="//css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a></li>
 <li>Almanac entries on Grid properties, like <a target="_blank" rel="noopener" href="https://css-tricks.com/almanac/properties/g/grid-row-column/">grid-row / grid-column</a></li>
@@ -1109,7 +1109,7 @@
         repo: 'zhuangyin8.github.io',
         owner: 'zhuangyin8',
         admin: "zhuangyin8",
-        id: '2020-12-21T00-00-00',
+        id: '2013-04-08T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1139,13 +1139,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/15-commonly-asked-nodejs-interview-questions/">
+                <a href="/event/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="15 Commonly Asked NodeJS Interview Questions">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="JavaScript Event Flow">
                         
-                        <span class="card-title">15 Commonly Asked NodeJS Interview Questions</span>
+                        <span class="card-title">JavaScript Event Flow</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1156,14 +1156,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2015-09-07
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NodeJS/" class="post-category">
-                                    NodeJS
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -1173,8 +1173,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Interview/">
-                        <span class="chip bg-color">Interview</span>
+                    <a href="/tags/event-bubbling/">
+                        <span class="chip bg-color">event bubbling</span>
+                    </a>
+                    
+                    <a href="/tags/event-capturing/">
+                        <span class="chip bg-color">event capturing</span>
+                    </a>
+                    
+                    <a href="/tags/event-delegate/">
+                        <span class="chip bg-color">event delegate</span>
                     </a>
                     
                 </div>
@@ -1185,16 +1193,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/Introductory-Speech-of-the-European-Communist-Initiative/">
+                <a href="/a-guide-to-flexbox/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Introductory Speech of the European Communist Initiative">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="A Complete Guide to Flexbox">
                         
-                        <span class="card-title">Introductory Speech of the European Communist Initiative</span>
+                        <span class="card-title">A Complete Guide to Flexbox</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1205,25 +1213,30 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2013-04-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
-                                    政治
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%B1%E4%BA%A7%E5%85%9A/">
-                        <span class="chip bg-color">共产党</span>
+                    <a href="/tags/Flexbox/">
+                        <span class="chip bg-color">Flexbox</span>
+                    </a>
+                    
+                    <a href="/tags/Guide/">
+                        <span class="chip bg-color">Guide</span>
                     </a>
                     
                 </div>

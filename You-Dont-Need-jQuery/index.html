@@ -459,6 +459,7 @@
 
 <span class="token comment">// Native</span>
 document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'selector'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.1">1.1</a> <a name='1.1'></a> Query by class</li>
 </ul>
@@ -470,6 +471,7 @@ document<span class="token punctuation">.</span><span class="token function">que
 
 <span class="token comment">// or</span>
 document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.2">1.2</a> <a name='1.2'></a> Query by id</li>
 </ul>
@@ -484,6 +486,7 @@ document<span class="token punctuation">.</span><span class="token function">get
 
 <span class="token comment">// or</span>
 window<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.3">1.3</a> <a name='1.3'></a> Query by attribute</li>
 </ul>
@@ -492,6 +495,7 @@ window<span class="token punctuation">[</span><span class="token string">'id'</s
 
 <span class="token comment">// Native</span>
 document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'a[target=_blank]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.4">1.4</a> <a name='1.4'></a> Query in descendants</li>
 </ul>
@@ -500,6 +504,7 @@ $el<span class="token punctuation">.</span><span class="token function">find</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#1.5">1.5</a> <a name='1.5'></a> Sibling/Previous/Next Elements</p>
 <ul>
@@ -519,6 +524,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
   el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span>children<span class="token punctuation">,</span>
   <span class="token punctuation">(</span><span class="token parameter">child</span><span class="token punctuation">)</span> <span class="token operator">=></span> child <span class="token operator">!==</span> el<span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Previous sibling</li>
 </ul>
@@ -527,6 +533,7 @@ $el<span class="token punctuation">.</span><span class="token function">prev</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>previousElementSibling<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Next sibling</li>
 </ul>
@@ -535,6 +542,7 @@ $el<span class="token punctuation">.</span><span class="token function">next</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>nextElementSibling<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>All previous siblings</li>
 </ul>
@@ -550,6 +558,7 @@ $el<span class="token punctuation">.</span><span class="token function">prevAll<
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> sibs<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>All next siblings</li>
 </ul>
@@ -572,6 +581,7 @@ $el<span class="token punctuation">.</span><span class="token function">nextAll<
   <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>nextElem <span class="token operator">=</span> nextElem<span class="token punctuation">.</span>nextSibling<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> sibs<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>An example of filter function:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">exampleFilter</span><span class="token punctuation">(</span><span class="token parameter">elem</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>elem<span class="token punctuation">.</span>nodeName<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -583,6 +593,7 @@ $el<span class="token punctuation">.</span><span class="token function">nextAll<
       <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.6">1.6</a> <a name='1.6'></a> Closest</li>
 </ul>
@@ -610,6 +621,7 @@ el<span class="token punctuation">.</span><span class="token function">closest</
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.7">1.7</a> <a name='1.7'></a> Parents Until</li>
 </ul>
@@ -640,6 +652,7 @@ $el<span class="token punctuation">.</span><span class="token function">parentsU
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> result<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#1.8">1.8</a> <a name='1.8'></a> Form</p>
 <ul>
@@ -652,6 +665,7 @@ $el<span class="token punctuation">.</span><span class="token function">parentsU
 
 <span class="token comment">// Native</span>
 document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#my-input'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Get index of e.currentTarget between <code>.radio</code></li>
 </ul>
@@ -665,6 +679,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
   document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.radio'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#1.9">1.9</a> <a name='1.9'></a> Iframe Contents</p>
 <p><code>$(&#39;iframe&#39;).contents()</code> returns <code>contentDocument</code> for this specific iframe jQuery</p>
@@ -678,6 +693,7 @@ $iframe<span class="token punctuation">.</span><span class="token function">cont
 
 <span class="token comment">// Native</span>
 iframe<span class="token punctuation">.</span>contentDocument<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Iframe Query</li>
 </ul>
@@ -686,6 +702,7 @@ $iframe<span class="token punctuation">.</span><span class="token function">cont
 
 <span class="token comment">// Native</span>
 iframe<span class="token punctuation">.</span>contentDocument<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.css'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.10">1.10</a> <a name='1.10'></a> Get body</li>
 </ul>
@@ -694,6 +711,7 @@ iframe<span class="token punctuation">.</span>contentDocument<span class="token 
 
 <span class="token comment">// Native</span>
 document<span class="token punctuation">.</span>body<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#1.11">1.11</a> <a name='1.11'></a> Attribute getter and setter</p>
 <ul>
@@ -706,6 +724,7 @@ $el<span class="token punctuation">.</span><span class="token function">attr</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Set an attribute</li>
 </ul>
@@ -714,6 +733,7 @@ $el<span class="token punctuation">.</span><span class="token function">attr</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Get a <code>data-</code> attribute</li>
 </ul>
@@ -725,6 +745,7 @@ el<span class="token punctuation">.</span><span class="token function">getAttrib
 
 <span class="token comment">// Native (use `dataset` if only need to support IE 11+)</span>
 el<span class="token punctuation">.</span>dataset<span class="token punctuation">[</span><span class="token string">'foo'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#1.12">1.12</a> <a name='1.12'></a> Selector containing string (case-sensitive)</li>
 </ul>
@@ -738,6 +759,7 @@ el<span class="token punctuation">.</span>dataset<span class="token punctuation"
     <span class="token keyword">return</span> <span class="token function">RegExp</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="CSS-amp-Style"><a href="#CSS-amp-Style" class="headerlink" title="CSS &amp; Style"></a>CSS &amp; Style</h2><ul>
 <li><p><a href="#2.1">2.1</a> <a name='2.1'></a> CSS</p>
 <ul>
@@ -754,6 +776,7 @@ $el<span class="token punctuation">.</span><span class="token function">css</spa
 
 <span class="token comment">// null means not to return pseudo styles</span>
 win<span class="token punctuation">.</span><span class="token function">getComputedStyle</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">.</span>color<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Set style</li>
 </ul>
@@ -762,12 +785,13 @@ $el<span class="token punctuation">.</span><span class="token function">css</spa
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>color <span class="token operator">=</span> <span class="token string">'#f01'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>Get/Set Styles</p>
-<p>Note that if you want to set multiple styles once, you could refer to <a target="_blank" rel="noopener" href="https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L194">setStyles</a> method in oui-dom-utils package.</p>
-</li>
-<li><p>Add class</p>
-</li>
+<li>Get/Set Styles</li>
+</ul>
+<p>  Note that if you want to set multiple styles once, you could refer to <a target="_blank" rel="noopener" href="https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L194">setStyles</a> method in oui-dom-utils package.</p>
+<ul>
+<li>Add class</li>
 </ul>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $el<span class="token punctuation">.</span><span class="token function">addClass</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -777,6 +801,7 @@ el<span class="token punctuation">.</span>classList<span class="token punctuatio
 
 <span class="token comment">// Add multiple classes (Not supported in IE 11)</span>
 el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'another'</span><span class="token punctuation">,</span> <span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Remove class</li>
 </ul>
@@ -788,6 +813,7 @@ el<span class="token punctuation">.</span>classList<span class="token punctuatio
 
 <span class="token comment">// Remove multiple classes (Not supported in IE 11)</span>
 el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'another'</span><span class="token punctuation">,</span> <span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>has class</li>
 </ul>
@@ -796,6 +822,7 @@ $el<span class="token punctuation">.</span><span class="token function">hasClass
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Toggle class</li>
 </ul>
@@ -804,6 +831,7 @@ $el<span class="token punctuation">.</span><span class="token function">toggleCl
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">toggle</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#2.2">2.2</a> <a name='2.2'></a> Width &amp; Height</p>
 <p>Width and Height are theoretically identical, take Height as example:</p>
@@ -820,6 +848,7 @@ window<span class="token punctuation">.</span>document<span class="token punctua
 
 <span class="token comment">// with scrollbar</span>
 window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Document height</li>
 </ul>
@@ -836,6 +865,7 @@ window<span class="token punctuation">.</span>innerHeight<span class="token punc
   html<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">,</span>
   html<span class="token punctuation">.</span>scrollHeight<span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Element height</li>
 </ul>
@@ -860,6 +890,7 @@ el<span class="token punctuation">.</span>clientHeight<span class="token punctua
 
 <span class="token comment">// accurate to decimal(when `border-box`, it's `height`; when `content-box`, it's `height + padding + border`)</span>
 el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#2.3">2.3</a> <a name='2.3'></a> Position &amp; Offset</p>
 <ul>
@@ -873,11 +904,11 @@ $el<span class="token punctuation">.</span><span class="token function">position
 
 <span class="token comment">// Native</span>
 <span class="token punctuation">&#123;</span>left<span class="token operator">:</span> el<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">,</span> top<span class="token operator">:</span> el<span class="token punctuation">.</span>offsetTop<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>Offset</p>
-<p>Get the current coordinates of the element relative to the document.</p>
-</li>
+<li>Offset</li>
 </ul>
+<p>  Get the current coordinates of the element relative to the document.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $el<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -890,6 +921,7 @@ $el<span class="token punctuation">.</span><span class="token function">offset</
     left<span class="token operator">:</span> box<span class="token punctuation">.</span>left <span class="token operator">+</span> window<span class="token punctuation">.</span>pageXOffset <span class="token operator">-</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientLeft<span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#2.4">2.4</a> <a name='2.4'></a> Scroll Top</p>
 <p>Get the current vertical position of the scroll bar for the element.</p>
@@ -901,6 +933,7 @@ $el<span class="token punctuation">.</span><span class="token function">offset</
 <span class="token comment">// Native</span>
 <span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement <span class="token operator">&amp;&amp;</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollTop<span class="token punctuation">)</span> <span class="token operator">||</span>
   document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollTop<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="DOM-Manipulation"><a href="#DOM-Manipulation" class="headerlink" title="DOM Manipulation"></a>DOM Manipulation</h2><ul>
 <li><a href="#3.1">3.1</a> <a name='3.1'></a> Remove</li>
 </ul>
@@ -910,6 +943,7 @@ $el<span class="token punctuation">.</span><span class="token function">remove</
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#3.2">3.2</a> <a name='3.2'></a> Text</p>
 <ul>
@@ -923,16 +957,17 @@ $el<span class="token punctuation">.</span><span class="token function">text</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>Set text</p>
-<p>Set the content of the element to the specified text.</p>
-</li>
+<li>Set text</li>
 </ul>
+<p>  Set the content of the element to the specified text.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $el<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>textContent <span class="token operator">=</span> string<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#3.3">3.3</a> <a name='3.3'></a> HTML</p>
 <ul>
@@ -945,6 +980,7 @@ $el<span class="token punctuation">.</span><span class="token function">html</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>innerHTML<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>Set HTML</li>
 </ul>
@@ -953,6 +989,7 @@ $el<span class="token punctuation">.</span><span class="token function">html</sp
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> htmlString<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.4">3.4</a> <a name='3.4'></a> Append</li>
 </ul>
@@ -967,6 +1004,7 @@ parent<span class="token punctuation">.</span><span class="token function">appen
 
 <span class="token comment">// Native (ES6-way): unified syntax</span>
 parent<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>newEl <span class="token operator">|</span> <span class="token string">'&lt;div id="container">Hello World&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.5">3.5</a> <a name='3.5'></a> Prepend</li>
 </ul>
@@ -982,6 +1020,7 @@ parent<span class="token punctuation">.</span><span class="token function">inser
 
 <span class="token comment">// Native (ES6-way): unified syntax</span>
 parent<span class="token punctuation">.</span><span class="token function">prepend</span><span class="token punctuation">(</span>newEl <span class="token operator">|</span> <span class="token string">'&lt;div id="container">Hello World&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.6">3.6</a> <a name='3.6'></a> insertBefore</li>
 </ul>
@@ -997,6 +1036,7 @@ el<span class="token punctuation">.</span><span class="token function">insertAdj
 <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>parentNode<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>newEl<span class="token punctuation">,</span> el<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.7">3.7</a> <a name='3.7'></a> insertAfter</li>
 </ul>
@@ -1012,6 +1052,7 @@ el<span class="token punctuation">.</span><span class="token function">insertAdj
 <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>parentNode<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>newEl<span class="token punctuation">,</span> el<span class="token punctuation">.</span>nextSibling<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.8">3.8</a> <a name='3.8'></a> is</li>
 </ul>
@@ -1021,6 +1062,7 @@ $el<span class="token punctuation">.</span><span class="token function">is</span
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.9">3.9</a> <a name='3.9'></a> clone</li>
 </ul>
@@ -1030,6 +1072,7 @@ $el<span class="token punctuation">.</span><span class="token function">clone</s
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.10">3.10</a> <a name='3.10'></a> empty</li>
 </ul>
@@ -1039,6 +1082,7 @@ $el<span class="token punctuation">.</span><span class="token function">empty</s
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.11">3.11</a> <a name='3.11'></a> wrap</li>
 </ul>
@@ -1053,6 +1097,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
   el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>wrapper<span class="token punctuation">,</span> el<span class="token punctuation">)</span><span class="token punctuation">;</span>
   wrapper<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.12">3.12</a> <a name='3.12'></a> unwrap</li>
 </ul>
@@ -1069,6 +1114,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
     elParentNode<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>elParentNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.13">3.13</a> <a name='3.13'></a> replaceWith</li>
 </ul>
@@ -1089,6 +1135,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
   outer<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'outer'</span><span class="token punctuation">;</span>
   el<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>outer<span class="token punctuation">,</span> el<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#3.14">3.14</a> <a name='3.14'></a> simple parse</li>
 </ul>
@@ -1115,6 +1162,7 @@ parse <span class="token operator">=</span> range<span class="token punctuation"
   &lt;li>c&lt;/li>
   &lt;li>d&lt;/li>
 &lt;/ol></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p><a target="_blank" rel="noopener" href="https://fetch.spec.whatwg.org/">Fetch API</a> is the new standard to replace XMLHttpRequest to do ajax. It works on Chrome and Firefox, you can use polyfills to make it work on legacy browsers.</p>
 <p>Try <a target="_blank" rel="noopener" href="http://github.com/github/fetch">github/fetch</a> on IE9+ or <a target="_blank" rel="noopener" href="https://github.com/camsong/fetch-ie8/">fetch-ie8</a> on IE8+, <a target="_blank" rel="noopener" href="https://github.com/camsong/fetch-jsonp">fetch-jsonp</a> to make JSONP requests.</p>
 <ul>
@@ -1130,6 +1178,7 @@ parse <span class="token operator">=</span> range<span class="token punctuation"
     document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>selector<span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> data<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>completeCallback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>For a complete replacement with namespace and delegation, refer to <a target="_blank" rel="noopener" href="https://github.com/oneuijs/oui-dom-events">https://github.com/oneuijs/oui-dom-events</a> 完整地替代命名空间和事件代理, 链接到 <a target="_blank" rel="noopener" href="https://github.com/oneuijs/oui-dom-events">https://github.com/oneuijs/oui-dom-events</a></p>
 <ul>
 <li><a href="#5.0">5.0</a> <a name='5.0'></a> Document ready by <code>DOMContentLoaded</code></li>
@@ -1145,6 +1194,7 @@ parse <span class="token operator">=</span> range<span class="token punctuation"
 <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
   document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'DOMContentLoaded'</span><span class="token punctuation">,</span> eventHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#5.1">5.1</a> <a name='5.1'></a> Bind an event with <code>on</code></li>
 </ul>
@@ -1153,6 +1203,7 @@ $el<span class="token punctuation">.</span><span class="token function">on</span
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> eventHandler<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#5.2">5.2</a> <a name='5.2'></a> Unbind an event with <code>off</code></li>
 </ul>
@@ -1161,6 +1212,7 @@ $el<span class="token punctuation">.</span><span class="token function">off</spa
 
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span>eventName<span class="token punctuation">,</span> eventHandler<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#5.3">5.3</a> <a name='5.3'></a> Trigger</li>
 </ul>
@@ -1176,6 +1228,7 @@ el<span class="token punctuation">.</span><span class="token function">removeEve
 <span class="token punctuation">&#125;</span>
 
 el<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Utilities"><a href="#Utilities" class="headerlink" title="Utilities"></a>Utilities</h2><p>Most of jQuery utilities are also found in the native API. Other advanced functions could be chosen from better utilities libraries, focusing on consistency and performance. <a target="_blank" rel="noopener" href="https://lodash.com/">Lodash</a> is a recommended replacement.</p>
 <ul>
 <li><p><a href="#6.1">6.1</a> <a name='6.1'></a> Basic utilities 基本工具</p>
@@ -1190,11 +1243,11 @@ $<span class="token punctuation">.</span><span class="token function">isArray</s
 
 <span class="token comment">// Native</span>
 Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>isWindow</p>
-<p>Determine whether the argument is a window.</p>
-</li>
+<li>isWindow</li>
 </ul>
+<p>  Determine whether the argument is a window.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">isWindow</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1202,11 +1255,11 @@ $<span class="token punctuation">.</span><span class="token function">isWindow</
 <span class="token keyword">function</span> <span class="token function">isWindow</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> obj <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> obj <span class="token operator">!==</span> <span class="token keyword">undefined</span> <span class="token operator">&amp;&amp;</span> obj <span class="token operator">===</span> obj<span class="token punctuation">.</span>window<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>inArray</p>
-<p>Search for a specified value within an array and return its index (or -1 if not found).</p>
-</li>
+<li>inArray</li>
 </ul>
+<p>  Search for a specified value within an array and return its index (or -1 if not found).</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">inArray</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> array<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1215,12 +1268,12 @@ array<span class="token punctuation">.</span><span class="token function">indexO
 
 <span class="token comment">// ES6-way</span>
 array<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>isNumeric</p>
-<p>Determine if the argument passed is numerical.</p>
-<p>Use <code>typeof</code> to decide the type or the <code>type</code> example for better accuracy.</p>
-</li>
+<li>isNumeric</li>
 </ul>
+<p>  Determine if the argument passed is numerical.</p>
+<p>  Use <code>typeof</code> to decide the type or the <code>type</code> example for better accuracy.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">isNumeric</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1228,11 +1281,11 @@ $<span class="token punctuation">.</span><span class="token function">isNumeric<
 <span class="token keyword">function</span> <span class="token function">isNumeric</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isFinite</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>isFunction</p>
-<p>Determine if the argument passed is a JavaScript function object.</p>
-</li>
+<li>isFunction</li>
 </ul>
+<p>  Determine if the argument passed is a JavaScript function object.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">isFunction</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1246,11 +1299,11 @@ $<span class="token punctuation">.</span><span class="token function">isFunction
     type <span class="token operator">===</span> <span class="token string">'[object Function]'</span> <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token string">'[object GeneratorFunction]'</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>isEmptyObject</p>
-<p>Check to see if an object is empty (contains no enumerable properties).</p>
-</li>
+<li>isEmptyObject</li>
 </ul>
+<p>  Check to see if an object is empty (contains no enumerable properties).</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">isEmptyObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1258,11 +1311,11 @@ $<span class="token punctuation">.</span><span class="token function">isEmptyObj
 <span class="token keyword">function</span> <span class="token function">isEmptyObject</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>isPlainObject</p>
-<p>Check to see if an object is a plain object (created using “{}” or “new Object”).</p>
-</li>
+<li>isPlainObject</li>
 </ul>
+<p>  Check to see if an object is a plain object (created using “{}” or “new Object”).</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">isPlainObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1288,77 +1341,77 @@ $<span class="token punctuation">.</span><span class="token function">isPlainObj
 
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>extend</p>
-<p>Merge the contents of two or more objects together into a new object, without modifying either argument.<br><code>object.assign</code> is part of ES6 API, and you could also use a <a target="_blank" rel="noopener" href="https://github.com/ljharb/object.assign">polyfill</a>.</p>
-</li>
+<li>extend</li>
 </ul>
+<p>  Merge the contents of two or more objects together into a new object, without modifying either argument.<br>  <code>object.assign</code> is part of ES6 API, and you could also use a <a target="_blank" rel="noopener" href="https://github.com/ljharb/object.assign">polyfill</a>.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> object1<span class="token punctuation">,</span> object2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> object1<span class="token punctuation">,</span> object2<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>trim</p>
-<p>Remove the white-space from the beginning and end of a string.</p>
-</li>
+<li>trim</li>
 </ul>
+<p>  Remove the white-space from the beginning and end of a string.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 string<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>map</p>
-<p>Translate all items in an array or object to new array of items.</p>
-</li>
+<li>map</li>
 </ul>
+<p>  Translate all items in an array or object to new array of items.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 array<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>each</p>
-<p>A generic iterator function, which can be used to seamlessly iterate over both objects and arrays.</p>
-</li>
+<li>each</li>
 </ul>
+<p>  A generic iterator function, which can be used to seamlessly iterate over both objects and arrays.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">index<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 array<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>grep</p>
-<p>Finds the elements of an array which satisfy a filter function.</p>
-</li>
+<li>grep</li>
 </ul>
+<p>  Finds the elements of an array which satisfy a filter function.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">grep</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 array<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>type</p>
-<p>Determine the internal JavaScript [Class] of an object.</p>
-</li>
+<li>type</li>
 </ul>
+<p>  Determine the internal JavaScript [Class] of an object.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 <span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> reTypeOf <span class="token operator">=</span> <span class="token regex">/(?:^\[object\s(.*?)\]$)/</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> reTypeOf <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(?:^\[object\s(.*?)\]$)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span>
     <span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>reTypeOf<span class="token punctuation">,</span> <span class="token string">'$1'</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>merge</p>
-<p>Merge the contents of two arrays together into the first array.</p>
-</li>
+<li>merge</li>
 </ul>
+<p>  Merge the contents of two arrays together into the first array.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery, doesn't remove duplicate items</span>
 $<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>array1<span class="token punctuation">,</span> array2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1374,26 +1427,27 @@ array1 <span class="token operator">=</span> <span class="token punctuation">[</
 <span class="token keyword">function</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>now</p>
-<p>Return a number representing the current time.</p>
-</li>
+<li>now</li>
 </ul>
+<p>  Return a number representing the current time.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>proxy</p>
-<p>Takes a function and returns a new one that will always have a particular context.</p>
-</li>
+<li>proxy</li>
 </ul>
+<p>  Takes a function and returns a new one that will always have a particular context.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
 $<span class="token punctuation">.</span><span class="token function">proxy</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> context<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Native</span>
 <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>  <a name="makeArray"></a>+ makeArray</p>
 <p>  Convert an array-like object into a true JavaScript array.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// jQuery</span>
@@ -1407,6 +1461,7 @@ Array<span class="token punctuation">.</span><span class="token function">from</
 
 <span class="token comment">// ES6-way: spread operator</span>
 <span class="token punctuation">[</span><span class="token operator">...</span>arrayLike<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#6.2">6.2</a> <a name='6.2'></a> Contains</li>
 </ul>
@@ -1416,6 +1471,7 @@ $<span class="token punctuation">.</span><span class="token function">contains</
 
 <span class="token comment">// Native</span>
 el <span class="token operator">!==</span> child <span class="token operator">&amp;&amp;</span> el<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#6.3">6.3</a> <a name='6.3'></a> Globaleval</p>
 <p>Execute some JavaScript code globally.</p>
@@ -1434,6 +1490,7 @@ $<span class="token punctuation">.</span><span class="token function">globaleval
 
 <span class="token comment">// Use eval, but context of eval is current, context of $.Globaleval is global.</span>
 <span class="token function">eval</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#6.4">6.4</a> <a name='6.4'></a> parse</p>
 <ul>
@@ -1458,6 +1515,7 @@ $<span class="token punctuation">.</span><span class="token function">parseHTML<
   context<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> string<span class="token punctuation">;</span>
   <span class="token keyword">return</span> context<span class="token punctuation">.</span>body<span class="token punctuation">.</span>children<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p><a href="#6.4">6.5</a> <a name='6.5'></a> exists</p>
 <ul>
@@ -1476,6 +1534,7 @@ $<span class="token punctuation">.</span><span class="token function">parseHTML<
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> element <span class="token operator">!=</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> element <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// exists</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Promises"><a href="#Promises" class="headerlink" title="Promises"></a>Promises</h2><p>A promise represents the eventual result of an asynchronous operation. jQuery has its own way to handle promises. Native JavaScript implements a thin and minimal API to handle promises according to the <a target="_blank" rel="noopener" href="http://promises-aplus.github.io/promises-spec/">Promises/A+</a> specification.</p>
 <ul>
 <li><a href="#7.1">7.1</a> <a name='7.1'></a> done, fail, always</li>
@@ -1486,6 +1545,7 @@ $promise<span class="token punctuation">.</span><span class="token function">don
 
 <span class="token comment">// Native</span>
 promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>doneCallback<span class="token punctuation">,</span> failCallback<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>alwaysCallback<span class="token punctuation">,</span> alwaysCallback<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#7.2">7.2</a> <a name='7.2'></a> when</li>
 </ul>
@@ -1496,6 +1556,7 @@ $<span class="token punctuation">.</span><span class="token function">when</span
 
 <span class="token comment">// Native</span>
 Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>$promise1<span class="token punctuation">,</span> $promise2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">[</span>promise1Result<span class="token punctuation">,</span> promise2Result<span class="token punctuation">]</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#7.3">7.3</a> <a name='7.3'></a> Deferred</li>
 </ul>
@@ -1554,6 +1615,7 @@ Promise<span class="token punctuation">.</span><span class="token function">all<
 
   <span class="token keyword">return</span> defer<span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><ul>
 <li><a href="#8.1">8.1</a> <a name='8.1'></a> Show &amp; Hide<blockquote>
 <p>显示或隐藏元素.</p>
@@ -1568,6 +1630,7 @@ $el<span class="token punctuation">.</span><span class="token function">hide</sp
 <span class="token comment">// More detail about show method, please refer to https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L363</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">''</span><span class="token operator">|</span><span class="token string">'inline'</span><span class="token operator">|</span><span class="token string">'inline-block'</span><span class="token operator">|</span><span class="token string">'inline-table'</span><span class="token operator">|</span><span class="token string">'block'</span><span class="token punctuation">;</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.2">8.2</a> <a name='8.2'></a> Toggle</li>
 </ul>
@@ -1583,6 +1646,7 @@ $el<span class="token punctuation">.</span><span class="token function">toggle</
 <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
   el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.3">8.3</a> <a name='8.3'></a> FadeIn &amp; FadeOut</li>
 </ul>
@@ -1623,8 +1687,9 @@ $el<span class="token punctuation">.</span><span class="token function">fadeOut<
     elem<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition">transition</a> 过渡可以为一个元素在不同状态之间切换的时候定义不同的过渡效果. 比如在不同的伪元素之间切换, 像是 :hover,:active 或者通过 JavaScript 实现的状态变化.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">transition</a> 过渡可以为一个元素在不同状态之间切换的时候定义不同的过渡效果. 比如在不同的伪元素之间切换, 像是 :hover,:active 或者通过 JavaScript 实现的状态变化.</p>
 </blockquote>
 <ul>
 <li><a href="#8.4">8.4</a> <a name='8.4'></a> FadeTo</li>
@@ -1635,6 +1700,7 @@ $el<span class="token punctuation">.</span><span class="token function">fadeTo</
 <span class="token comment">// Native</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transition <span class="token operator">=</span> <span class="token string">'opacity 3s'</span><span class="token punctuation">;</span> <span class="token comment">// assume 'slow' equals 3 seconds</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0.15'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.5">8.5</a> <a name='8.5'></a> FadeToggle</li>
 </ul>
@@ -1650,6 +1716,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
   el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.6">8.6</a> <a name='8.6'></a> SlideUp &amp; SlideDown</li>
 </ul>
@@ -1664,6 +1731,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'0px'</span><span class="token punctuation">;</span>
 <span class="token comment">// slideDown</span>
 el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> originHeight<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.7">8.7</a> <a name='8.7'></a> SlideToggle</li>
 </ul>
@@ -1680,6 +1748,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
   el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'0px'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><a href="#8.8">8.8</a> <a name='8.8'></a> Animate</li>
 </ul>
@@ -1692,6 +1761,7 @@ el<span class="token punctuation">.</span>style<span class="token punctuation">.
 Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   el<span class="token punctuation">.</span>style<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> params<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Alternatives"><a href="#Alternatives" class="headerlink" title="Alternatives"></a>Alternatives</h2><ul>
 <li><a target="_blank" rel="noopener" href="http://youmightnotneedjquery.com/">You Might Not Need jQuery</a> - Examples of how to do common event, element, Ajax etc with plain javascript.</li>
 <li><a target="_blank" rel="noopener" href="http://github.com/npm-dom">npm-dom</a> and <a target="_blank" rel="noopener" href="http://github.com/webmodules">webmodules</a> Organizations you can find individual DOM modules on NPM</li>

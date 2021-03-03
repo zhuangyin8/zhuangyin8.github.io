@@ -474,7 +474,7 @@
 <td>主机不同</td>
 </tr>
 </tbody></table>
-<h2 id="跨源网络访问"><a href="#跨源网络访问" class="headerlink" title="跨源网络访问"></a>跨源网络访问</h2><!-- 同源策略控制不同源之间的交互,例如在使用 [XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) ~~或 `<img>` 标签~~时则会受到同源策略的约束. -->
+<h2 id="跨源网络访问"><a href="#跨源网络访问" class="headerlink" title="跨源网络访问"></a>跨源网络访问</h2><!-- 同源策略控制不同源之间的交互,例如在使用 [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) ~~或 `<img>` 标签~~时则会受到同源策略的约束. -->
 
 <p><img src="/images/%E5%B8%B8%E8%A7%81%E8%B7%A8%E5%9F%9F%E5%9C%BA%E6%99%AF.png" alt="常见跨域场景"></p>
 <p>出于安全考虑, 直接发送跨域,会得到如下错误:</p>
@@ -505,14 +505,17 @@ ifr<span class="token punctuation">.</span><span class="token function-variable 
 
 ifr<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">'none'</span><span class="token punctuation">;</span>
 document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>ifr<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>上述代码所在的 URL 是 <code>http://a.com/foo</code>, 它对 <code>http://b.a.com/bar</code> 的 DOM 访问要求后者将 <code>document.domain</code> 往上设置一级:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// URL http://b.a.com/bar</span>
 document<span class="token punctuation">.</span>domain <span class="token operator">=</span> <span class="token string">'a.com'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p><code>document.domain</code> 只能从子域设置到主域, 往下设置以及往其他域名设置都是不允许的, 在 Chrome 中给出的错误是这样的:</p>
 <!-- Uncaught DOMException: Failed to set the 'domain' property on 'Document': 'baidu.com' is not a suffix of 'b.a.com' -->
 
 <pre class="line-numbers language-none"><code class="language-none">Uncaught DOMException: Blocked a frame with origin &quot;http:&#x2F;&#x2F;test.com&quot; from
 accessing a cross-origin frame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h2 id="有-src-的标签"><a href="#有-src-的标签" class="headerlink" title="有 src 的标签"></a>有 src 的标签</h2><ul>
 <li>原理: 所有具有 <code>src</code> 属性的 HTML 标签都是可以跨域的, 包括 <code>&lt;img&gt;</code>, <code>&lt;script&gt;</code></li>
 <li>限制: 需要创建一个 DOM 对象, 只能用于 GET 方法</li>
@@ -527,6 +530,7 @@ img<span class="token punctuation">.</span>src <span class="token operator">=</s
 
 <span class="token keyword">var</span> ifr <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;iframe>'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> src<span class="token operator">:</span> <span class="token string">'http://b.a.com/bar'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ifr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 发送 HTTP 请求</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><ul>
 <li>原理:<code>&lt;script&gt;</code> 是可以跨域的, 而且在跨域脚本中可以直接回调当前脚本的函数.</li>
 <li>限制: 需要创建一个 DOM 对象并且添加到 DOM 树, 只能用于 GET 方法</li>
@@ -539,6 +543,7 @@ img<span class="token punctuation">.</span>src <span class="token operator">=</s
   bar<span class="token operator">:</span> <span class="token string">'foo'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">callback</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>该例子只用于示例, 实际情况应当考虑名称隐藏等问题.</p>
 </blockquote>
@@ -549,10 +554,12 @@ img<span class="token punctuation">.</span>src <span class="token operator">=</s
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> script <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;script>'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> src<span class="token operator">:</span> <span class="token string">'http://b.a.com/bar'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>script<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>其实 jQuery 已经封装了 JSONP 的使用, 我们可以这样来:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">$<span class="token punctuation">.</span><span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token string">'http://b.a.com/bar?callback=callback'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 处理跨域请求得到的数据</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p><code>$.getJSON</code> 与 <code>$.get</code> 的区别是前者会把 <code>responseText</code> 转换为 JSON, 而且当 URL 具有 <code>callback</code> 参数时, jQuery 将会把它解释为一个 JSONP 请求, 创建一个 <code>&lt;script&gt;</code> 标签来完成该请求.</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="http://api.jquery.com/jquery.getjson/">jQuery.getJSON</a>: If the URL includes the string “callback=?” (or similar, as defined by the server-side API), the request is treated as JSONP instead. See the discussion of the jsonp data type in $.ajax() for more details.)</p>
@@ -582,6 +589,7 @@ navigation<span class="token punctuation">.</span><span class="token function-va
         <span class="token operator">||</span> navigation<span class="token punctuation">.</span><span class="token function">onData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>与 <code>document.navigator</code> 类似,<code>window.name</code> 也是当前窗口所有页面所共享的. 也可以用它来传递信息. 同样蛋疼的办法还有传递 Hash(有些人叫锚点), 这是因为每次浏览器打开一个 URL 时, URL 后面的 <code>#xxx</code> 部分会保留下来, 那么新的页面可以从这里获得上一个页面的数据.</p>
 <h2 id="跨域资源共享-CORS"><a href="#跨域资源共享-CORS" class="headerlink" title="跨域资源共享(CORS)"></a>跨域资源共享(CORS)</h2><ul>
 <li>原理: 服务器设置 <code>Access-Control-Allow-Origin</code> HTTP 响应头之后, 浏览器将会允许跨域请求</li>
@@ -590,12 +598,14 @@ navigation<span class="token punctuation">.</span><span class="token function-va
 <p>前面提到的跨域手段都是某种意义上的 Hack, HTML5 标准中提出的跨域资源共享(Cross Origin Resource Share,CORS)才是正道. 它支持其他的 HTTP 方法如 PUT, POST 等, 可以从本质上解决跨域问题.</p>
 <p>例如, 从 <code>http://a.com</code> 要访问 <code>http://b.com</code> 的数据, 通常情况下 Chrome 会因跨域请求而报错:</p>
 <pre class="line-numbers language-none"><code class="language-none">XMLHttpRequest cannot load http:&#x2F;&#x2F;b.com. No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource. Origin &#39;http:&#x2F;&#x2F;a.com&#39; is therefore not allowed access.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>错误原因是被请求资源没有设置 <code>Access-Control-Allow-Origin</code>, 所以我们在 <code>b.com</code> 的服务器中设置这个响应头字段即可:</p>
 <pre class="line-numbers language-none"><code class="language-none">Access-Control-Allow-Origin: *              # 允许所有域名访问, 或者
 Access-Control-Allow-Origin: http:&#x2F;&#x2F;a.com   # 只允许所有域名访问<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>为 <code>xhr</code> 设置 <code>withCredentials</code> 后 CORS 方法跨域还可 <a href="/2016/12/28/cors-with-cookie.html">携带 Cookie</a>, 但 PUT/POST 请求需要注意 <a href="/2016/12/30/cors-preflight.html">处理 preflight 请求</a>.</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">跨源资源共享（CORS）</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">跨源资源共享（CORS）</a></p>
 </blockquote>
 <h2 id="window-postMessage"><a href="#window-postMessage" class="headerlink" title="window.postMessage"></a>window.postMessage</h2><ul>
 <li>原理: HTML5 允许窗口之间发送消息</li>
@@ -610,6 +620,7 @@ win<span class="token punctuation">.</span><span class="token function">postMess
 window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>注意 IE8 及小于 IE8 的版本不支持 <code>addEventListener</code>, 需要使用 <code>attachEvent</code> 来监听事件. 参见:<a href="/2015/08/14/event-and-this.html">事件处理中的 this:attachEvent, addEventListener, onclick</a></p>
 </blockquote>

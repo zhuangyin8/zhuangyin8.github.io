@@ -43,29 +43,29 @@ body {
 
 h1 {
   margin: 38px 0 16px -5px;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  /* font-weight: bold; */
   line-height: 150%;
 }
 
 h2 {
   margin: 32px 0 16px -5px;
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  /* font-weight: bold; */
   line-height: 150%;
 }
 
 h3 {
   margin: 28px 0 16px -4px;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  /* font-weight: bold; */
   line-height: 150%;
 }
 
 h4 {
   margin: 22px 0 16px -4px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  /* font-weight: bold; */
   line-height: 150%;
 }
 
@@ -573,7 +573,7 @@ header .go-back i {
   z-index: 2;
 }
 
-.bg-cover .title {
+/* .bg-cover .title {
   font-size: 4rem;
   line-height: 1.2em;
   margin-bottom: 20px;
@@ -591,7 +591,7 @@ header .go-back i {
   margin: 0 auto;
   font-size: 2.2rem;
   font-weight: 400;
-}
+} */
 
 @-webkit-keyframes rainbow {
   0%,

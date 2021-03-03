@@ -3,22 +3,22 @@
 /*小屏幕下(手机类)的样式*/
 @media only screen and (min-width: 0) {
   html {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 900px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 1300px) {
   html {
-    font-size: 15px;
-  }
+    font-size: 16px;
+  }  
 }
 
 html {

@@ -18,7 +18,7 @@
 @media only screen and (min-width: 1300px) {
   html {
     font-size: 16px;
-  }  
+  }
 }
 
 html {
@@ -51,5 +51,29 @@ nav i.material-icons {
 } */
 
 #articleContent blockquote p {
-	text-indent: 0;
+  text-indent: 0;
+}
+
+h1 {
+  /* border-left: red 5px solid; */
+  /* margin: 18px 0 !important;
+  padding: 8px 0 5px 5px; */
+}
+h2 {
+  /* background: #2b6600; */
+  border-left: orange 5px solid;
+  margin: 18px 0 !important;
+  padding: 8px 0 5px 5px;
+}
+h3 {
+  /* background: #5b9600; */
+  border-left: yellow 5px solid;
+  margin: 18px 0 !important;
+  padding: 8px 0 5px 5px;
+}
+h4 {
+  /* background: #5b9600; */
+  border-left: blue 5px solid;
+  margin: 18px 0 !important;
+  padding: 8px 0 5px 5px;
 }

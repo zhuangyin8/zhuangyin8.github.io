@@ -43,14 +43,14 @@ body {
 
 h1 {
   margin: 38px 0 16px -5px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   /* font-weight: bold; */
   line-height: 150%;
 }
 
 h2 {
   margin: 32px 0 16px -5px;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   /* font-weight: bold; */
   line-height: 150%;
 }
@@ -64,7 +64,7 @@ h3 {
 
 h4 {
   margin: 22px 0 16px -4px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   /* font-weight: bold; */
   line-height: 150%;
 }

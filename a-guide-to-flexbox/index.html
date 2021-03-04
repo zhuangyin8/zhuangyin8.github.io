@@ -541,10 +541,11 @@
   <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* Pack items around the center */</span>
 
   <span class="token comment">/* Distributed alignment 分布式对齐 */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span> <span class="token comment">/* 每对相邻项目之间的间距是相同的. 第一项与主边缘齐平, 最后一项与主边缘齐平 */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* 每对相邻项目之间的间距是相同的. 第一个项目之前和最后一个项目之后的空白空间等于每对相邻项目之间的空白空间的一半 */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* 每对相邻项之间的间距, 主开始边缘和第一个项目以及主结束边缘和最后一个项目都完全相同 */</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly The first item is flush with the start, the last is flush with the end */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have a half-size space  on either end */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have equal space around them */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Stretch 'auto'-sized items to fit the container */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><code>flex-start</code> (default): items are packed toward the start of the flex-direction(从行首起始位置开始排列).</li>
@@ -554,9 +555,9 @@
 <li><code>left</code>: items are packed toward left edge of the container, unless that doesn’t make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
 <li><code>right</code>: items are packed toward right edge of the container, unless that doesn’t make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
 <li><code>center</code>: items are centered along the line(居中排列)</li>
-<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line.</li>
-<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.</li>
-<li><code>space-evenly</code>: items are distributed so that the spacing between any two items (and the space to the edges) is equal.</li>
+<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line(每对相邻项目之间的间距是相同的. 第一项与主边缘齐平, 最后一项与主边缘齐平).</li>
+<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies(每对相邻项目之间的间距是相同的. 第一个项目之前和最后一个项目之后的空白空间等于每对相邻项目之间的空白空间的一半).</li>
+<li><code>space-evenly</code>: items are distributed so that the spacing between any two items (and the space to the edges) is equal(每对相邻项之间的间距, 主开始边缘和第一个项目以及主结束边缘和最后一个项目都完全相同).</li>
 </ul>
 <p>Note that that browser support for these values is nuanced. For example, <code>space-between</code> never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">has detailed charts</a>. The safest values are <code>flex-start</code>, <code>flex-end</code>, and <code>center</code>.</p>
 <p>There are also two additional keywords you can pair with these values: <code>safe</code> and <code>unsafe</code>. Using <code>safe</code> ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”).</p>
@@ -1193,16 +1194,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/a-guide-to-flexbox/">
+                <a href="/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%983/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="A Complete Guide to Flexbox">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="特稿：教育产业化有悖和谐社会建设目标要求">
                         
-                        <span class="card-title">A Complete Guide to Flexbox</span>
+                        <span class="card-title">特稿：教育产业化有悖和谐社会建设目标要求</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1213,30 +1214,25 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2013-04-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2006-10-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS/" class="post-category">
-                                    CSS
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                    政治
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Flexbox/">
-                        <span class="chip bg-color">Flexbox</span>
-                    </a>
-                    
-                    <a href="/tags/Guide/">
-                        <span class="chip bg-color">Guide</span>
+                    <a href="/tags/%E6%95%99%E8%82%B2%E4%BA%A7%E4%B8%9A%E5%8C%96/">
+                        <span class="chip bg-color">教育产业化</span>
                     </a>
                     
                 </div>
@@ -1408,7 +1404,7 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="694322774"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'

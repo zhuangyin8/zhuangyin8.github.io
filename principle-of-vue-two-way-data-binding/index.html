@@ -390,6 +390,10 @@
                                 <span class="chip bg-color">Interview</span>
                             </a>
                         
+                            <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/">
+                                <span class="chip bg-color">响应式</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -438,16 +442,13 @@
                 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://xuezenghui.com/posts/principle-of-vue-two-way-data-binding">原文地址</a></p>
 </blockquote>
-<blockquote>
-<p>我猜测这篇文章的访问量在博客 Analytics 的页面访问量榜单里应该是列位不低的,因为——我标题党了 😳.</p>
-</blockquote>
-<p>双向数据绑定一直被认为是各 MVVM 框架的核心特性,在开发中也是无时不刻都在使用.而我一直是作为一个看客去了解别人博文中的 Vue 双向数据绑定,没有自己去深究并手动实现过（反省）.这篇文章,我将从<em>设计模式</em>、 _技术原理_、 <em>原生实现</em>等多个方面去解析 Vue 中的双向数据绑定,当然了,在 Vue3 发布之际,也应了解下 Vue3 下的双向数据绑定.</p>
+<p>双向数据绑定一直被认为是各 MVVM 框架的核心特性,在开发中也是无时不刻都在使用.而我一直是作为一个看客去了解别人博文中的 Vue 双向数据绑定,没有自己去深究并手动实现过（反省）.这篇文章从<strong>设计模式</strong>、 <strong>技术原理</strong>、 <strong>原生实现</strong>等多个方面去解析 Vue 中的双向数据绑定,当然了,在 Vue3 发布之际,也应了解下 Vue3 下的双向数据绑定.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在 MVVM 架构下,数据层 Model 和视图层 View 通过 View Model 层进行连接和交互,这个 ViewModel 即为连接视图和数据的桥梁,作数据和逻辑处理工作,指的正是<strong>双向数据绑定</strong>.</p>
 <p>双向数据绑定实现的效果就是在更新 JavaScript 中的数据（定义的变量）时同步修改视图（DOM 节点）,修改视图时也同步回数据层：</p>
-<p><img src="https://xuezenghui.com/images/two-way-data-binding:show.gif">◎ 双向数据绑定演示</p>
+<p><img src="https://xuezenghui.com/images/two-way-data-binding:show.gif" alt="◎ 双向数据绑定演示"></p>
 <p>以一个开发者的角度应该不难想到,视图到数据方向的改动需要监听 DOM 的变化再同步赋值给 JavaScript 的变量,比如给 <code>&lt;input&gt;</code> 添加 <code>change</code> 或 <code>input</code> 监听事件并在事件处理函数中给变量赋值,实际这也正是 <code>v-model</code> 指令做的很重要的一件事.</p>
 <p>另一个方向,关键词还是「监听」——监听 JavaScript 数据的变化,再去相应更新 DOM,此处的监听及处理就是 Vue 的双向数据绑定实现方式——<strong>发布订阅模式</strong> + <strong>数据劫持</strong>.</p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>发布订阅模式也称为观察者模式,是一种行为设计模式,设计意图也很明显了,允许定义一种<em>订阅</em>的机制,在对象发生一定的事件时通知观察着这个对象的其它对象.所以发布订阅模式一定存在以下三个模型对象：</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>发布订阅模式也称为观察者模式,是一种行为设计模式,设计意图也很明显了,允许定义一种<strong>订阅</strong>的机制,在对象发生一定的事件时通知观察着这个对象的其它对象.所以发布订阅模式一定存在以下三个模型对象：</p>
 <ul>
 <li><strong>目标对象</strong>：被观察的对象.</li>
 <li><strong>发布者</strong>：当目标对象发生变化时,向其他对象发出通知.</li>
@@ -483,7 +484,7 @@ obj<span class="token punctuation">.</span>age <span class="token operator">=</s
 obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Bob'</span><span class="token punctuation">;</span> <span class="token comment">// 修改属性</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>要着重看的是后者,具有存取描述符的属性的同样可以通过点语法来访问和重写属性的值,但是,是通过设置的 get 和 set 方法来实现的,这一点打印一下 <code>obj</code> 就可以验证：</p>
-<p><img src="https://xuezenghui.com/images/two-way-data-binding:obj.png">◎ 具有 get 和 set 实例方法的对象</p>
+<p><img src="https://xuezenghui.com/images/two-way-data-binding:obj.png" alt="◎ 具有 get 和 set 实例方法的对象"></p>
 <p>也就是说,无论是读取还是改动属性的值都会执行定义的方法,那…… 岂不是可以为所欲为了？比如在改动数据时作为发布者角色将改动通知给订阅者,数据劫持搞定？</p>
 <h3 id="DocumentFragment"><a href="#DocumentFragment" class="headerlink" title="DocumentFragment"></a>DocumentFragment</h3><p>频繁地操作 DOM 节点会引起页面的重排及重绘,这会极大地影响页面性能,Vue 中进行模板的解析就需要操作 DOM,使用到了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> 文档片段接口,它相当于一个 HTML 节点的<em>容器</em>,让我们可以在处理完子节点后都先存入该容器中,最后一次性将容器内<strong>所有的</strong>子节点都添加或插入到真实的 DOM 中,从而将操作 DOM 的次数减少为只有一次,很大地提升了页面性能.</p>
 <p>比如要给一个 ul 标签添加 10 个 li,你可能会这样做：</p>
@@ -512,7 +513,7 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="原生实现"><a href="#原生实现" class="headerlink" title="原生实现"></a>原生实现</h2><h3 id="极简实现"><a href="#极简实现" class="headerlink" title="极简实现"></a>极简实现</h3><p>先不考虑设计模式种种,单单使用表单监听 + 数据劫持来实现极简的双向数据绑定：</p>
-<p><img src="https://xuezenghui.com/images/two-way-data-binding:simple.gif">◎ 双向数据绑定极简实现</p>
+<p><img src="https://xuezenghui.com/images/two-way-data-binding:simple.gif" alt="◎ 双向数据绑定极简实现"></p>
 <h3 id="较完整实现"><a href="#较完整实现" class="headerlink" title="较完整实现"></a>较完整实现</h3><p>从上面的极简实现可以总结一下实现双向数据绑定要注意的点：</p>
 <ol>
 <li> 整个数据层应该是 <strong>Object 类型</strong>,才能对每个数据进行数据劫持（所以 Vue 组件中的 <code>data</code> 必须是个对象或函数）</li>
@@ -621,7 +622,7 @@ list<span class="token punctuation">.</span><span class="token function">appendC
   &#123;&#123; name &#125;&#125;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://xuezenghui.com/images/two-way-data-binding:result.gif">◎ 双向数据绑定较完整实现</p>
+<p><img src="https://xuezenghui.com/images/two-way-data-binding:result.gif" alt="◎ 双向数据绑定较完整实现"></p>
 <h2 id="Vue3-扩展"><a href="#Vue3-扩展" class="headerlink" title="Vue3 扩展"></a>Vue3 扩展</h2><p>Vue3 在数据劫持上选择了比 Object.defineProperty() 效率更高、性能更优的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a>.Proxy 对象的专属功能就是属性的查找、赋值、函数调用等,实例化时需要两个参数：</p>
 <ul>
 <li><strong>target</strong>：目标对象,可以是 Object、Array、Function 等类型.</li>
@@ -644,6 +645,9 @@ list<span class="token punctuation">.</span><span class="token function">appendC
 <li>见尤雨溪 Vue3.0 Updates 主题演讲 <a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1yhPGyhQrJcpJI2ZFvBme3pGKaGNiLi709c37svivv0o/edit#slide=id.g42acc26207_0_129">PPT</a>.</li>
 <li>Vue2 中的解决方法是重写数组的操作方法,详见 <a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/dev/src/core/observer/array.js">Github</a>,但通过下标修改数组的情况仍无法监测.</li>
 </ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/reactivity.html">深入响应式原理</a></p>
+</blockquote>
 
                 
             </div>

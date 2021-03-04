@@ -2,22 +2,22 @@
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
   .container {
-    width: 95%;
+    width: 100%;
   }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
   .container {
-    width: 90%;
+    width: 100%;
   }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
   .container {
-    width: 90%;
-    max-width: 1125px;
+    width: 100%;
+    /* max-width: 1125px; */
   }
 
   .head-container {
@@ -84,7 +84,7 @@ h4 {
 
 p {
   font-size: 1rem;
-  line-height: 2;
+  line-height: 2.2;
 }
 
 hr {
@@ -207,6 +207,7 @@ kbd {
 b,
 strong {
   font-weight: bold;
+  color: rgb(255, 79, 121);
 }
 
 dfn {
@@ -992,7 +993,7 @@ header .go-back i {
 }
 
 .archive-calendar {
-  margin-top: -60px;
+  /* margin-top: -60px; */
   max-width: 820px;
 }
 
@@ -1146,7 +1147,7 @@ article .article-tags .chip {
 
 /*文章详情样式*/
 #artDetail {
-  margin-top: -60px;
+  /* margin-top: -60px; */
 }
 
 /* 修改小屏幕下文章详情table样式. */
@@ -1158,7 +1159,7 @@ article .article-tags .chip {
 
 @media only screen and (min-width: 1418px) {
   #artDetail {
-    margin-top: -60px;
+    /* margin-top: -60px; */
     padding: 0 0.75rem;
   }
 }
@@ -1417,7 +1418,7 @@ thead {
 }
 
 .chip-container {
-  margin-top: -60px;
+  /* margin-top: -60px; */
 }
 
 .chip-container .tag-title {
@@ -1725,14 +1726,14 @@ thead {
 /* about page styles. */
 
 .about-container {
-  width: 90%;
-  max-width: 1225px;
-  margin-top: -60px;
+  /* width: 90%; */
+  /* max-width: 1225px;*/
+  /* margin-top: -60px;  */
 }
 
 @media only screen and (max-width: 601px) {
   .about-container {
-    width: 95%;
+    /* width: 95%; */
   }
 }
 

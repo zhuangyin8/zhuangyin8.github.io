@@ -456,7 +456,7 @@
 <p><img src="/images/00-basic-terminology.svg" alt="A diagram explaining flexbox terminology. The size across the main axis of flexbox is called the main size, the other direction is the cross size. Those sizes have a main start, main end, cross start, and cross end."></p>
 <!-- ![A diagram explaining flexbox terminology. The size across the main axis of flexbox is called the main size, the other direction is the cross size. Those sizes have a main start, main end, cross start, and cross end.](https://developer.mozilla.org/files/3739/flex_terms.png)   -->
 
-<p>Items will be laid out following either the <code>main axis</code> (from <code>main-start</code> to <code>main-end</code>) or the cross axis (from <code>cross-start</code> to <code>cross-end</code>).</p>
+<p>Items will be laid out following either the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis"><code>main axis</code></a> (from <code>main-start</code> to <code>main-end</code>) or the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Cross_Axis"><code>cross axis</code></a> (from <code>cross-start</code> to <code>cross-end</code>).</p>
 <ul>
 <li><strong>main axis</strong>(主轴) – The main axis of a flex container is the primary axis along which flex items are laid out. Beware, it is not necessarily horizontal; it depends on the <code>flex-direction</code> property (see below).</li>
 <li><strong>main-start | main-end</strong> – The flex items are placed within the container starting from main-start and going to main-end.</li>
@@ -536,28 +536,26 @@
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content"><code>justify-content</code></a> 属性定义了分配顺着弹性容器主轴的元素之间及其周围的空间.</p>
 </blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span> <span class="token comment">/* Pack flex items from the start */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span> <span class="token comment">/* Pack flex items from the end */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* Pack items around the center */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* 居中排列 */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span> <span class="token comment">/* 从行首起始位置开始排列 */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span> <span class="token comment">/* 从行尾位置开始排列 */</span>
 
-  <span class="token comment">/* Distributed alignment 分布式对齐 */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly The first item is flush with the start, the last is flush with the end */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have a half-size space  on either end */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have equal space around them */</span>
-  <span class="token property">justify-content</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Stretch 'auto'-sized items to fit the container */</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span> <span class="token comment">/* 均匀排列每个元素首个元素放置于起点，末尾元素放置于终点 */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* 均匀排列每个元素每个元素周围分配相同的空间 */</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* 均匀排列每个元素每个元素之间的间隔相等 */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><code>flex-start</code> (default): items are packed toward the start of the flex-direction(从行首起始位置开始排列).</li>
-<li><code>flex-end</code>: items are packed toward the end of the flex-direction(从行尾位置开始排列).</li>
+<li><code>flex-start</code> (default): items are packed toward the start of the flex-direction.</li>
+<li><code>flex-end</code>: items are packed toward the end of the flex-direction.</li>
 <li><code>start</code>: items are packed toward the start of the <code>writing-mode</code> direction.</li>
 <li><code>end</code>: items are packed toward the end of the <code>writing-mode</code> direction.</li>
 <li><code>left</code>: items are packed toward left edge of the container, unless that doesn’t make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
 <li><code>right</code>: items are packed toward right edge of the container, unless that doesn’t make sense with the <code>flex-direction</code>, then it behaves like <code>start</code>.</li>
 <li><code>center</code>: items are centered along the line(居中排列)</li>
-<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line(每对相邻项目之间的间距是相同的. 第一项与主边缘齐平, 最后一项与主边缘齐平).</li>
-<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies(每对相邻项目之间的间距是相同的. 第一个项目之前和最后一个项目之后的空白空间等于每对相邻项目之间的空白空间的一半).</li>
-<li><code>space-evenly</code>: items are distributed so that the spacing between any two items (and the space to the edges) is equal(每对相邻项之间的间距, 主开始边缘和第一个项目以及主结束边缘和最后一个项目都完全相同).</li>
+<li><code>space-between</code>: items are evenly distributed in the line; first item is on the start line, last item on the end line.</li>
+<li><code>space-around</code>: items are evenly distributed in the line with equal space around them. Note that visually the spaces aren’t equal, since all the items have equal space on both sides. The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies.</li>
+<li><code>space-evenly</code>: items are distributed so that the spacing between any two items (and the space to the edges) is equal.</li>
 </ul>
 <p>Note that that browser support for these values is nuanced. For example, <code>space-between</code> never got support from some versions of Edge, and start/end/left/right aren’t in Chrome yet. MDN <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">has detailed charts</a>. The safest values are <code>flex-start</code>, <code>flex-end</code>, and <code>center</code>.</p>
 <p>There are also two additional keywords you can pair with these values: <code>safe</code> and <code>unsafe</code>. Using <code>safe</code> ensures that however you do this type of positioning, you can’t push an element such that it renders off-screen (e.g. off the top) in such a way the content can’t be scrolled too (called “data loss”).</p>
@@ -604,9 +602,9 @@
   <span class="token property">align-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span> <span class="token comment">/* Pack flex items from the end */</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token comment">/* Pack items around the center */</span>
 
-  <span class="token property">align-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
-  <span class="token property">align-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
-  <span class="token property">align-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span>
+  <span class="token property">align-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly The first item is flush with the start, the last is flush with the end */</span>
+  <span class="token property">align-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have a half-size space on either end */</span>
+  <span class="token property">align-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span> <span class="token comment">/* Distribute items evenly Items have equal space around them */</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
@@ -746,6 +744,9 @@
 
 <p>Note that <code>float</code>, <code>clear</code> and <code>vertical-align</code> have no effect on a flex item.</p>
 <h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox.</p>
+<blockquote>
+<p>让我们从一个非常简单的示例开始，解决几乎一个日常问题：完美居中。如果使用 flexbox，再简单不过了。</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
   <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span> <span class="token comment">/* Or whatever */</span>
@@ -759,25 +760,25 @@
 
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="wvGBVvP" data-prefill='{"title":"perfect centering","tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="flex-container">
-    &lt;div class="flex-item">1&lt;/div>
-    &lt;div class="flex-item">2&lt;/div>
-    &lt;div class="flex-item">3&lt;/div>
-    &lt;div class="flex-item">4&lt;/div>
-    &lt;div class="flex-item">5&lt;/div>
-    &lt;div class="flex-item">6&lt;/div>
-  &lt;/div></pre>
-  <pre data-lang="css">
-  .flex-container {
-    display: flex;
-    height: 200px; /* Or whatever */
-    border: 1px solid red;
-  }
-  .flex-item {
-    width: 100px; /* Or whatever */
-    height: 100px; /* Or whatever */
-    margin: auto; /* Magic! */
-    border: 1px solid red;
-  }
+  &lt;div class="flex-item">1&lt;/div>
+  &lt;div class="flex-item">2&lt;/div>
+  &lt;div class="flex-item">3&lt;/div>
+  &lt;div class="flex-item">4&lt;/div>
+  &lt;div class="flex-item">5&lt;/div>
+  &lt;div class="flex-item">6&lt;/div>
+&lt;/div></pre>
+<pre data-lang="css">
+.flex-container {
+  display: flex;
+  height: 200px; /* Or whatever */
+  border: 1px solid red;
+}
+.flex-item {
+  width: 100px; /* Or whatever */
+  height: 100px; /* Or whatever */
+  margin: auto; /* Magic! */
+  border: 1px solid red;
+}
 </pre></div>
 
 <p>This relies on the fact a margin set to <code>auto</code> in a flex container absorb extra space. So setting a vertical margin of <code>auto</code> will make the item perfectly centered in both axes.</p>

@@ -390,6 +390,10 @@
                                 <span class="chip bg-color">ES2021</span>
                             </a>
                         
+                            <a href="/tags/ECMAScript/">
+                                <span class="chip bg-color">ECMAScript</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -411,7 +415,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-06
+                    2020-05-07
                 </div>
                 
 
@@ -436,12 +440,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">Features tagged “ES2021”</a></p>
+<p><a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">Features tagged “ES2021”</a> </p>
 </blockquote>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://v8.dev/features/string-replaceall">String.prototype.replaceAll</a> 11 November 2019</li>
-<li><a target="_blank" rel="noopener" href="https://v8.dev/features/promise-combinators">Promise combinators</a> 12 June 2019  </li>
-</ul>
+<ol>
+<li> <a target="_blank" rel="noopener" href="https://v8.dev/features/logical-assignment">Logical assignment</a> 07 May 2020 <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/ecmascript">ECMAScript</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">ES2021</a></li>
+<li> <a target="_blank" rel="noopener" href="https://v8.dev/features/string-replaceall"><code>String.prototype.replaceAll</code></a> 11 November 2019 <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/ecmascript">ECMAScript</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">ES2021</a></li>
+<li> <a target="_blank" rel="noopener" href="https://v8.dev/features/weak-references">Weak references and finalizers</a> 09 July 2019 <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/ecmascript">ECMAScript</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">ES2021</a></li>
+<li> <a target="_blank" rel="noopener" href="https://v8.dev/features/promise-combinators">Promise combinators</a> 12 June 2019 <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/ecmascript">ECMAScript</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2020">ES2020</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">ES2021</a></li>
+<li> <a target="_blank" rel="noopener" href="https://v8.dev/features/numeric-separators">Numeric separators</a> 28 May 2019 <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/ecmascript">ECMAScript</a> <a target="_blank" rel="noopener" href="https://v8.dev/features/tags/es2021">ES2021</a></li>
+</ol>
 <h2 id="Promise-combinators"><a href="#Promise-combinators" class="headerlink" title="Promise combinators"></a>Promise combinators</h2><p>Since the introduction of promises in ES2015, JavaScript has supported exactly two promise combinators: the static methods <code>Promise.all</code> and <code>Promise.race</code>.</p>
 <p>Two new proposals are currently making their way through the standardization process: <code>Promise.allSettled</code>, and <code>Promise.any</code>. With those additions, there’ll be a total of four promise combinators in JavaScript, each enabling different use cases.</p>
 <p>Here’s an overview of the four combinators:</p>
@@ -481,18 +488,21 @@
 
 <span class="token string">'🍏🍋🍊🍓'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'🍏'</span><span class="token punctuation">,</span> <span class="token string">'🥭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → '🥭🍋🍊🍓'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>A common use case is replacing all instances of a given substring. However, <code>String#replace</code> doesn’t directly address this use case. When <code>searchValue</code> is a string, only the first occurrence of the substring gets replaced:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'aabbcc'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'aa_bcc'</span>
 
 <span class="token string">'🍏🍏🍋🍋🍊🍊🍓🍓'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'🍏'</span><span class="token punctuation">,</span> <span class="token string">'🥭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → '🥭🍏🍋🍋🍊🍊🍓🍓'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>To work around this, developers often turn the search string into a regular expression with the global (<code>g</code>) flag. This way, <code>String#replace</code> does replace all matches:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'aabbcc'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/b/g</span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'aabbcc'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">b</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'_'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'aa__cc'</span>
 
-<span class="token string">'🍏🍏🍋🍋🍊🍊🍓🍓'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/🍏/g</span><span class="token punctuation">,</span> <span class="token string">'🥭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token string">'🍏🍏🍋🍋🍊🍊🍓🍓'</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">🍏</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'🥭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → '🥭🥭🍋🍋🍊🍊🍓🍓'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>As a developer, it’s annoying to have to do this string-to-regexp conversion if all you really want is a global substring replacement. More importantly, this conversion is error-prone, and a common source of bugs! Consider the following example:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> queryString <span class="token operator">=</span> <span class="token string">'q=query+string+parameters'</span><span class="token punctuation">;</span>
 
@@ -500,23 +510,25 @@ queryString<span class="token punctuation">.</span><span class="token function">
 <span class="token comment">// → 'q=query string+parameters' ❌</span>
 <span class="token comment">// Only the first occurrence gets replaced.</span>
 
-queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/+/</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → SyntaxError: invalid regular expression ❌</span>
 <span class="token comment">// As it turns out, `+` is a special character within regexp patterns.</span>
 
-queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\+/</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'q=query string+parameters' ❌</span>
 <span class="token comment">// Escaping special regexp characters makes the regexp valid, but</span>
 <span class="token comment">// this still only replaces the first occurrence of `+` in the string.</span>
 
-queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\+/g</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+queryString<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\+</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'q=query string parameters' ✅</span>
 <span class="token comment">// Escaping special regexp characters AND using the `g` flag makes it work.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Turning a string literal like <code>&#39;+&#39;</code> into a global regular expression is not just a matter of removing the <code>&#39;</code> quotes, wrapping it into <code>/</code> slashes, and appending the <code>g</code> flag — we must escape any characters that have a special meaning in regular expressions. This is easy to forget, and hard to get right, since JavaScript doesn’t offer a built-in mechanism to escape regular expression patterns.</p>
 <p>An alternate workaround is to combine <code>String#split</code> with <code>Array#join</code>:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> queryString <span class="token operator">=</span> <span class="token string">'q=query+string+parameters'</span><span class="token punctuation">;</span>
 queryString<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'q=query string parameters'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>This approach avoids any escaping but comes with the overhead of splitting the string into an array of parts only to glue it back together.</p>
 <p>Clearly, none of these workarounds are ideal. Wouldn’t it be nice if a basic operation such as global substring replacement would be straightforward in JavaScript?</p>
 <h3 id="String-prototype-replaceAll-1"><a href="#String-prototype-replaceAll-1" class="headerlink" title="String.prototype.replaceAll"></a>String.prototype.replaceAll</h3><p>The new <code>String#replaceAll</code> method solves these problems and provides a straightforward mechanism to perform global substring replacement:</p>
@@ -529,6 +541,7 @@ queryString<span class="token punctuation">.</span><span class="token function">
 <span class="token keyword">const</span> queryString <span class="token operator">=</span> <span class="token string">'q=query+string+parameters'</span><span class="token punctuation">;</span>
 queryString<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">'+'</span><span class="token punctuation">,</span> <span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'q=query string parameters'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>For consistency with the pre-existing APIs in the language, <code>String.prototype.replaceAll(searchValue, replacement)</code> behaves exactly like <code>String.prototype.replace(searchValue, replacement)</code>, with the following two exceptions:</p>
 <ul>
 <li>If <code>searchValue</code> is a string, then <code>String#replace</code> only replaces the first occurrence of the substring, while <code>String#replaceAll</code> replaces all occurrences.</li>
@@ -538,9 +551,11 @@ queryString<span class="token punctuation">.</span><span class="token function">
 <h3 id="A-note-on-special-replacement-patterns"><a href="#A-note-on-special-replacement-patterns" class="headerlink" title="A note on special replacement patterns"></a>A note on special replacement patterns</h3><p>Worth calling out: both <code>replace</code> and <code>replaceAll</code> support <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_string_as_a_parameter">special replacement patterns</a>. Although these are most useful in combination with regular expressions, some of them (<code>$$</code>, <code>$&amp;</code>, <code>$``, and </code>$’`) also take effect when performing simple string replacement, which can be surprising:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'xyz'</span><span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">,</span> <span class="token string">'$$'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'x$z' (not 'x$$z')</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>In case your replacement string contains one of these patterns, and you want to use them as-is, you can opt-out of the magical substitution behavior by using a replacer function that returns the string instead:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'xyz'</span><span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">'$$'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → 'x$$z'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -590,7 +605,7 @@ queryString<span class="token punctuation">.</span><span class="token function">
         repo: 'zhuangyin8.github.io',
         owner: 'zhuangyin8',
         admin: "zhuangyin8",
-        id: '2019-04-06T00-00-00',
+        id: '2020-05-07T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -620,13 +635,13 @@ queryString<span class="token punctuation">.</span><span class="token function">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/component-communication-in-vue-js/">
+                <a href="/10-css-tricks-you-need-to-know-about/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Component Communication in Vue.Js">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="10 CSS Tricks You Need to Know About">
                         
-                        <span class="card-title">Component Communication in Vue.Js</span>
+                        <span class="card-title">10 CSS Tricks You Need to Know About</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -637,14 +652,14 @@ queryString<span class="token punctuation">.</span><span class="token function">
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-04-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/CSS/" class="post-category">
+                                    CSS
                                 </a>
                             
                             
@@ -654,8 +669,8 @@ queryString<span class="token punctuation">.</span><span class="token function">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Component-Communication/">
-                        <span class="chip bg-color">Component Communication</span>
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
                     </a>
                     
                 </div>
@@ -669,13 +684,13 @@ queryString<span class="token punctuation">.</span><span class="token function">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/es2019-features/">
+                <a href="/%E7%88%B6%E6%AF%8D%E7%9A%86%E7%A5%B8%E5%AE%B3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="What&#39;s new in JavaScript - ES2019">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="父母皆祸害？">
                         
-                        <span class="card-title">What&#39;s new in JavaScript - ES2019</span>
+                        <span class="card-title">父母皆祸害？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -686,14 +701,14 @@ queryString<span class="token punctuation">.</span><span class="token function">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-04-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                    JavaScript
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
                                 </a>
                             
                             
@@ -703,8 +718,8 @@ queryString<span class="token punctuation">.</span><span class="token function">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ES2019/">
-                        <span class="chip bg-color">ES2019</span>
+                    <a href="/tags/%E6%95%99%E8%82%B2/">
+                        <span class="chip bg-color">教育</span>
                     </a>
                     
                 </div>

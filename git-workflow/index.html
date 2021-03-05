@@ -444,6 +444,7 @@
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone git@foo.com:bar.git
 <span class="token builtin class-name">cd</span> bar/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="从空的远程仓库建立"><a href="#从空的远程仓库建立" class="headerlink" title="从空的远程仓库建立"></a>从空的远程仓库建立</h3><ul>
 <li><p>场景：初始化一个远程仓库,例如建立一个 Github 仓库后.</p>
 </li>
@@ -460,6 +461,7 @@
 
 <span class="token function">git</span> push -u origin master
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了 Git 代码提交相关的操作步骤以及涉及到的 Git 命令.主要包括：</p>
 <p><code>git add</code> 命令将工作区内容添加到暂存区,<code>git commit</code> 命令将暂存区内容提交到本地仓库. 添加 <code>-m</code> 参数可直接用指定的 message 提交本次 commit. 否则 Vim 会打开默认的文本编辑器提示你输入 commit message. <code>git commit</code> 时你的 Git 没有为你打开 Vim？ Git 打开哪个编辑器取决于 <code>GIT_EDITOR</code> 和 <code>EDITOR</code> 等环境变量, 一般在 <code>~/.bashrc</code> 加入下面的设置即可：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -467,6 +469,7 @@
 
 <span class="token builtin class-name">export</span> <span class="token assign-left variable">GIT_EDITOR</span><span class="token operator">=</span><span class="token string">"vim"</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="添加到暂存区并提交"><a href="#添加到暂存区并提交" class="headerlink" title="添加到暂存区并提交"></a>添加到暂存区并提交</h3><ul>
 <li><p>场景 ：将新增或改动的文件添加到暂存区,并提交到 Git 仓库.</p>
 </li>
@@ -488,6 +491,7 @@
 <span class="token function">git</span> <span class="token function">add</span> node_modules/ --force
 <span class="token function">git</span> commit -m <span class="token string">'first commit'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><code>git add</code> 会忽略列在 <code>.gitignore</code> 中的文件 / 目录,通过 <code>--force</code> 参数可以强制添加.</li>
 <li>添加并提交是 Git 中最常见的代码提交方式. Git 提交总会完整地记录一次变更,即提交总会使 Git 仓库变大,不论是新增还是删除.真正从仓库中移除记录需要 <a href="/2016/03/22/purge-large-files-in-gitrepo.html">更改 Git 历史记录</a>.</li>
@@ -500,6 +504,7 @@
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -a
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <blockquote>
 <p>可通过 <code>git status</code> 来查看当前的改动情况,以及本地与远程的同步情况.</p>
 </blockquote>
@@ -517,6 +522,7 @@
 
 <span class="token function">git</span> reset
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="撤销上次-Commit"><a href="#撤销上次-Commit" class="headerlink" title="撤销上次 Commit"></a>撤销上次 Commit</h3><ul>
 <li><p>场景 ：发现上次 <code>commit</code> 信息有误,或不小心 <code>commit</code> 了不合适的文件, 希望能撤销 <code>commit</code> 而文件不受改动.</p>
 </li>
@@ -525,6 +531,7 @@
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --soft HEAD^
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <blockquote>
 <p><code>HEAD^</code> 回到表示重置到当前状态的前一个 <code>commit</code>.</p>
 </blockquote>
@@ -543,6 +550,7 @@
 <span class="token function">git</span> <span class="token function">add</span> forgotten_file <span class="token comment"># 添加漏掉的文件</span>
 <span class="token function">git</span> commit --amend <span class="token comment"># 补充 Commit 信息</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="撤销工作区所有改动"><a href="#撤销工作区所有改动" class="headerlink" title="撤销工作区所有改动"></a>撤销工作区所有改动</h3><ul>
 <li><p>场景 ：希望撤销所有工作区的改动,回到最后一次 commit 的状态.</p>
 </li>
@@ -560,11 +568,13 @@
 
 <span class="token function">git</span> checkout <span class="token builtin class-name">.</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="空提交"><a href="#空提交" class="headerlink" title="空提交"></a>空提交</h3><ul>
 <li>场景 ：只想产生一个 commit 而不想改动文件.比如需要 push 一个 commit 以触发重新部署的 Git Hook 时. 步骤 ：使用 <code>--allow-empty</code> 参数来提交.</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --allow-empty -m <span class="token string">'empty commit'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="将文件从仓库中移除"><a href="#将文件从仓库中移除" class="headerlink" title="将文件从仓库中移除"></a>将文件从仓库中移除</h3><ul>
 <li><p>场景 ：不小心把不应提交到仓库的文件（比如临时文件,大文件,配置文件等）提交了进去,现在希望将其删除.</p>
 </li>
@@ -580,6 +590,7 @@
 
 <span class="token function">git</span> <span class="token function">rm</span> --cached config.yml
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>如果希望从仓库历史中也删除（例如大文件）,那么需要使用 <code>git filter-branch</code> 系列命令. 请参考 <a href="/2016/03/22/purge-large-files-in-gitrepo.html">寻找并删除 Git 记录中的大文件</a> 一文.</p>
 <blockquote>
 <p><code>git rm</code> 和 bash <code>rm</code> 的参数类似,基本可通用.</p>
@@ -599,6 +610,7 @@
 
 <span class="token function">git</span> branch -a
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="分支增删"><a href="#分支增删" class="headerlink" title="分支增删"></a>分支增删</h3><ul>
 <li><p>场景 ：删除某个分支,分支只是 Commit 的指针,删除分支不会影响 Git 中的 Commit 树.</p>
 </li>
@@ -622,6 +634,7 @@
 
 <span class="token function">git</span> push --delete origin <span class="token builtin class-name">test</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h3><ul>
 <li><p>场景 ：分支名写错了,或者找到了更合适的分支名.可能也会需要更改服务器上的分支名.</p>
 </li>
@@ -640,6 +653,7 @@
 
 <span class="token function">git</span> push --set-upstream origin new_branch
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>如果要重命名的是当前分支,可以直接 <code>git branch -m new_branch</code>.</p>
 <h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><ul>
 <li><p>场景 ：需要将某个分支合并到 <code>master</code>,或任意两个分支间希望合并.</p>
@@ -654,6 +668,7 @@
 
 <span class="token function">git</span> merge feature-1 -m <span class="token string">'merge feature 1'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>注意 merge 前必须 commit 工作区的更改,否则 merge 后无法回到当前工作区的状态.</p>
 </blockquote>
@@ -668,6 +683,7 @@
 
 <span class="token function">git</span> log --graph --decorate
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><ul>
 <li><p>场景 ：你的 commit 修改了某个文件,希望 merge 另一个 commit.然而你们修改了同一文件的同一行.</p>
 </li>
@@ -691,6 +707,7 @@
 
 <span class="token function">git</span> commit -a <span class="token string">'merged feature 2'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="新建-Tag"><a href="#新建-Tag" class="headerlink" title="新建 Tag"></a>新建 Tag</h3><ul>
 <li><p>场景 ：新建某个 Tag.</p>
 </li>
@@ -701,6 +718,7 @@
 <span class="token function">git</span> tag -a v1.4 -m <span class="token string">'my version 1.4'</span>
 <span class="token comment"># Push 到远程</span>
 <span class="token function">git</span> push --tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="删除-Tag"><a href="#删除-Tag" class="headerlink" title="删除 Tag"></a>删除 Tag</h3><ul>
 <li><p>场景 ：有一个错误的 Tag.</p>
 </li>
@@ -710,6 +728,7 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -d old
 <span class="token function">git</span> push origin :refs/tags/old
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="重命名-Tag"><a href="#重命名-Tag" class="headerlink" title="重命名 Tag"></a>重命名 Tag</h3><ul>
 <li><p>场景 ：当然是 Tag 名字起错了.</p>
 </li>
@@ -720,6 +739,7 @@
 <span class="token function">git</span> tag -d old
 <span class="token function">git</span> push origin :refs/tags/old
 <span class="token function">git</span> push --tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="列出所有-Tag"><a href="#列出所有-Tag" class="headerlink" title="列出所有 Tag"></a>列出所有 Tag</h3><ul>
 <li>场景 ：需要列出所有 Tag.</li>
 <li></li>
@@ -738,6 +758,7 @@
 
 <span class="token function">git</span> tag -l <span class="token string">'v1.2.\*'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="列出-Tag-之间的-Commit-日志"><a href="#列出-Tag-之间的-Commit-日志" class="headerlink" title="列出 Tag 之间的 Commit 日志"></a>列出 Tag 之间的 Commit 日志</h3><ul>
 <li><p>场景 ：需要知道版本之间有哪些改动,以生成 Chnagelog 或 ReleaseNote.</p>
 </li>
@@ -745,6 +766,7 @@
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log v1.1<span class="token punctuation">..</span>v1.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="衍合"><a href="#衍合" class="headerlink" title="衍合"></a>衍合</h3><ul>
 <li><p>场景 ：开发者从主分支（<code>master</code>）checkout 一个分支（如 <code>feature-x</code>）进行开发, 当要合并入主分支时发现主分支已经改变. 仓库维护者合并 <code>feature-x</code> 到 <code>master</code> 时需要解决冲突并回归测试. 为了减少维护者的工作,开发者可以将 <code>feature-x</code> Rebase（衍合）到 <code>master</code>. 这样在 <code>master</code> 合并 <code>feature-x</code> 就是 Fast Forward 了.</p>
 </li>
@@ -757,6 +779,7 @@
 <span class="token function">git</span> rebase master
 <span class="token function">git</span> push origin feature-x
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="重置分支指针"><a href="#重置分支指针" class="headerlink" title="重置分支指针"></a>重置分支指针</h3><ul>
 <li><p>场景 ：当前的工作（可以包括若干 commit,也可以只是工作区）不想要了,或者希望将的当前工作弄到别的分支. 需要恢复当前分支到之前的某个状态.</p>
 </li>
@@ -778,6 +801,7 @@
 
 <span class="token function">git</span> reset --hard origin/master
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. Git 的一个分支相当于一个 commit 节点的命名指针.分支之间可互相 merge. 本文以实际的案例,总结了 Git 远程仓库的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="显示远程仓库"><a href="#显示远程仓库" class="headerlink" title="显示远程仓库"></a>显示远程仓库</h3><ul>
 <li><p>场景：需要查看远程仓库地址（比如想把它拷贝给别人）.</p>
@@ -798,6 +822,7 @@
 
 <span class="token function">git</span> remote show origin -n
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="管理远程仓库"><a href="#管理远程仓库" class="headerlink" title="管理远程仓库"></a>管理远程仓库</h3><ul>
 <li><p>场景：需要添加、更改或删除远程仓库时.例如远程仓库从 Github 迁移到 Coding.net 时需要更改远程仓库 URL（不需重新 clone）.</p>
 </li>
@@ -808,6 +833,7 @@
 <span class="token function">git</span> remote <span class="token function">add</span> bar bar.git
 <span class="token comment"># 更改远程仓库 URL</span>
 <span class="token function">git</span> remote set-url origin new.xxx.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>更多命令请查询 <code>git remote --help</code></p>
 <h3 id="同步远程仓库"><a href="#同步远程仓库" class="headerlink" title="同步远程仓库"></a>同步远程仓库</h3><ul>
 <li><p>场景：将远程仓库同步到本地,或将本地仓库同步到远程.</p>
@@ -828,6 +854,7 @@
 
 <span class="token function">git</span> fetch --all
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="多个远程仓库"><a href="#多个远程仓库" class="headerlink" title="多个远程仓库"></a>多个远程仓库</h3><ul>
 <li><p>场景：一个本地仓库需要与多个远程仓库同步,或需要 merge 其他远程仓库时. 例如 Github Pages 博客同时 Push 到 Github 和 Coding.net.</p>
 </li>
@@ -846,6 +873,7 @@
 
 <span class="token function">git</span> push coding master:coding-pages
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="checkout-一个远程分支"><a href="#checkout-一个远程分支" class="headerlink" title="checkout 一个远程分支"></a>checkout 一个远程分支</h3><ul>
 <li><p>场景：现有一个本地仓库不存在的远程分支,希望让当前工作区进入这个分支.</p>
 </li>
@@ -878,6 +906,7 @@
 <span class="token function">git</span> checkout feature-x
 <span class="token function">git</span> pull
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
 <li><p>场景：不小心把一个分支名 Push 上去了,需要在远程删除一个分支.</p>
 </li>
@@ -890,6 +919,7 @@
 
 <span class="token function">git</span> push origin --delete serverfix
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="删除远程-Tag"><a href="#删除远程-Tag" class="headerlink" title="删除远程 Tag"></a>删除远程 Tag</h3><ul>
 <li><p>场景：Tag 命名错误,或者需要统一命名风格.</p>
 </li>
@@ -899,6 +929,7 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -d some-tag
 <span class="token function">git</span> push origin :refs/tags/some-tags
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <h3 id="Push-到不同的分支"><a href="#Push-到不同的分支" class="headerlink" title="Push 到不同的分支"></a>Push 到不同的分支</h3><ul>
 <li><p>场景：同样的改动出现在本地和远程的不同分支,例如远程分支只用来部署时.</p>
 </li>
@@ -906,6 +937,7 @@
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin branch-with-changes:another-branch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="日志与回滚"><a href="#日志与回滚" class="headerlink" title="日志与回滚"></a>日志与回滚</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了日志相关的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="提交记录"><a href="#提交记录" class="headerlink" title="提交记录"></a>提交记录</h3><ul>
 <li><p>场景：希望查看仓库的中所有提交的信息,比如提交人、提交时间、代码增删、Commit ID 等.</p>
@@ -926,6 +958,7 @@
 
 <span class="token function">git</span> log -p app.js
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="Git-Blame"><a href="#Git-Blame" class="headerlink" title="Git Blame"></a>Git Blame</h3><ul>
 <li><p>场景：查看每一行代码的最后改动时间,以及提交人.例如,追溯 <code>app.js</code> 文件中某一行是被谁改坏的.</p>
 </li>
@@ -933,6 +966,7 @@
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> blame app.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>更多参数请查询 git blame –help</p>
 <h3 id="检出历史版本"><a href="#检出历史版本" class="headerlink" title="检出历史版本"></a>检出历史版本</h3><ul>
 <li><p>场景：希望将当前项目回到某个历史版本.例如：希望从某个历史版本建立分支时.</p>
@@ -949,6 +983,7 @@
 
 <span class="token function">git</span> checkout gh-pages
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>原则上讲 Git 历史是不允许更改的,这方面 Git 很像 日志结构的文件系统（Log-Structured File Systems）. 但也有办法可以更改日志,例如：寻找并删除 Git 记录中的大文件</p>
 
                 

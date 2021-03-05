@@ -465,6 +465,7 @@
 <span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token number">15000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> s2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token number">14000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <!-- ![](https://cdn.jsdelivr.net/gh/crownz-sec/Blog_Source@master/img/20200507152525.png)
 
 ![](https://user-gold-cdn.xitu.io/2020/3/15/170dd61fdbc87a2c?imageslim) -->
@@ -480,6 +481,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>play<span class="token punctuation">,</span> s2<span class="token punctuation">.</span>play<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> s2<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> s2<span class="token punctuation">.</span>__proto__<span class="token punctuation">.</span>__proto__<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>1.在通过原型来实现继承时,原型实际上会变成另一个类型的实例.于是,原先的实例属性也就顺理成章地变成了现在的原型属性,并且会被所有的实例共享.这样理解:<strong>在超类型构造函数中定义的引用类型值的实例属性,会在子类型原型上变成原型属性被所有子类型实例所共享</strong>.</p>
 <p>2.<strong>在创建子类型的实例时,不能向超类型的构造函数中传递参数</strong>.</p>
 <h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
@@ -509,9 +511,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">this</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">var</span> s1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token string">'Tom'</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">15000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>通过使用 <code>apply()</code> 或 <code>call()</code> 方法,我们实际上是在将要创建的 <code>Child</code> 实例的环境下调用了 <code>Parent</code> 构造函数.这样一来,就会在新 <code>Child</code> 对象上执行 <code>Parent()</code> 函数中定义的所有对象初始化代码.结果 <code>Child</code> 的每个实例就都会具有自己的 父类 属性的副本了</p>
 <p>这种方式只是实现部分的继承,如果父类的原型还有方法和属性,子类是拿不到这些方法和属性的.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Uncaught TypeError: s1.setAge is not a function</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p><strong>借用构造函数的优点</strong>是解决了原型链实现继承存在的两个问题</p>
 <p><strong>借用构造函数的缺点</strong>是方法都在构造函数中定义,因此函数复用就无法实现了.而且,在超类型的原型中定义的方法,对子类型而言也是不可见的,结果所有类型都只能使用构造函数模式</p>
 <h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ul>
@@ -548,6 +552,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Student</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Person</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>组合继承既具有原型链继承能够复用函数的特性,又有借用构造函数方式能够保证每个子类实例能够拥有自己的属性以及向超类传参的特性,但组合继承也并不是完美实现继承的方式,因为这种方式在创建子类时会调用两次超类的构造函数.</p>
 </blockquote>
@@ -573,6 +578,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token class-name">F</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> o<span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在 <code>object()</code> 函数内部,先创建一个临时性的构造函数,然后将传入的对象作为这个构造函数的原型,最后返回这个临时类型的一个新实例.实质上,<code>object()</code> 对传入其中的对象执行了一次浅复制</p>
 <p>ECMAScript5.1 通过新增 <code>Object.create()</code> 方法规范化了原型式继承,这个方法接收两个参数:一个用作新对象原型的对象和为新对象定义属性的对象. 在传入一个参数的情况下,此方法与 <code>object()</code> 方法作用一致. 在传入第二个参数的情况下,指定的任何属性都会覆盖原型对象上的同名属性.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -596,6 +602,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anotherPerson1<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "red,green,blue,purple"</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anotherPerson2<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "red,green,bule,purple";</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>只是想让一个对象与另一个对象类似的情况下,原型式继承是完全可以胜任的.但是缺点是<strong>引用类型的属性会被所有实例共享</strong>.</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">Object.create()</a>方法创建一个新对象,使用现有的对象来提供新创建的对象的 <code>__proto__</code>. (请打开浏览器控制台以查看运行结果.)</p>
@@ -609,6 +616,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> clone<span class="token punctuation">;</span> <span class="token comment">// 返回这个对象</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>在主要考虑对象而不是自定义类型和构造函数的情况下,寄生式继承也是一种有用的模式.此模式的缺点是做不到函数复用</p>
 <blockquote>
 <p>缺陷:使用寄生式继承来为对象添加函数,会由于不能做到函数复用造成效率降低,这一点与构造函数模式类似</p>
@@ -653,6 +661,7 @@ instance1<span class="token punctuation">.</span><span class="token function">sa
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>instance2<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  => "red,green,blue"</span>
 instance2<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  => Bob'</span>
 instance2<span class="token punctuation">.</span><span class="token function">sayAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//  => 34</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这个例子的高效率体现在它只调用一次 <code>Parent</code> 构造函数,并且因此避免了在 <code>Child.prototype</code> 上面创建不必要的多余的属性.与此同时,原型链还能保持不变;因此还能够正常使用 <code>instance</code> 操作符和 <code>isPrototype()</code> 方法</p>
 <blockquote>
 <p>call()方法的语法和作用与 apply() 方法类似,只有一个区别,就是 call() 方法接受的是一个参数列表,而 apply() 方法接受的是一个包含多个参数的数组.</p>
@@ -672,8 +681,10 @@ instance2<span class="token punctuation">.</span><span class="token function">sa
   parent<span class="token punctuation">.</span>constructor <span class="token operator">=</span> subClass<span class="token punctuation">;</span>
   subClass<span class="token punctuation">.</span>prototype <span class="token operator">=</span> parent<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><code>inherit()</code> 函数实现了寄生组合式继承的最简单形式,参数有两个:子类构造函数和父类构造函数.在函数内部进行了三步操作:第一步是创建超类原型的一个副本,第二步是为创建的副本添加 <code>constructor</code> 属性,从而弥补因重写原型而失去的默认的 <code>constructor</code> 属性,最后一步,将新创建的对象赋值给子类的原型.因此可以通过此函数去替换组合继承中为子类原型为赋值的语句了,即:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token class-name">Child</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>完整的继承示例:</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Parent</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
@@ -710,6 +721,7 @@ instance2<span class="token punctuation">.</span><span class="token function">sa
 <span class="token keyword">var</span> child <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token string">'lucy'</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// > "parent"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>寄生组合继承的高效率在于它只调用了一次超类构造函数,同时还能够保持原型链不变,能够正常使用 <code>instanceof</code> 和 <code>isPrototypeOf()</code><br>寄生组合继承被普遍认为是引用类型最理想的继承方式</p>
 <h4 id="增强型寄生组合继承"><a href="#增强型寄生组合继承" class="headerlink" title="增强型寄生组合继承"></a>增强型寄生组合继承</h4><p>寄生组合式继承能够很完美地实现继承,但也不是没有缺点.<code>inherit()</code> 方法中复制了父类的原型,赋给子类,假如子类原型上有自定的方法,也会被覆盖,因此可以通过 <code>Object.definePropert</code>y 的方式,将子类原型上定义的属性或方法添加到复制的原型对象上,如此,既可以保留子类的原型对象的完整性,又能够复制父类原型.</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Parent</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -744,6 +756,7 @@ instance2<span class="token punctuation">.</span><span class="token function">sa
   <span class="token punctuation">&#125;</span>
   child<span class="token punctuation">.</span>prototype <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="几种方式的比较"><a href="#几种方式的比较" class="headerlink" title="几种方式的比较:"></a>几种方式的比较:</h3><table>
 <thead>
 <tr>
@@ -807,6 +820,7 @@ instance2<span class="token punctuation">.</span><span class="token function">sa
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Parent</span><span class="token punctuation">(</span><span class="token string">'AA'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Children</span><span class="token punctuation">(</span><span class="token string">'BB'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>转换为 ES5 代码</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Parent</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
@@ -821,6 +835,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span>
 
 <span class="token class-name">Children</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">继承与原型链</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">JavaScript 中的继承</a></p>

@@ -494,6 +494,7 @@
 eventEmitter<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'emitted'</span><span class="token punctuation">,</span> eventListener<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 eventEmitter<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'emitted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-What-is-Node’s-Event-Loop"><a href="#4-What-is-Node’s-Event-Loop" class="headerlink" title="4. What is Node’s Event Loop?"></a>4. What is Node’s Event Loop?</h2><p>Since Node.js is single-threaded, it has to be non-blocking to prevent the thread from spending too long on a task that takes a long time to complete. The event loop is responsible for achieving this non-blocking behavior. Its job is to schedule the pending tasks using the application thread.</p>
 <p>We know that Node uses callbacks to handle the response returned by an asynchronous function when its task is complete. Similar to the event that created the task, the completion of the task also emits an event. Node.js adds the events that require handling to an event queue.</p>
 <p>The event loop iterates over events in the event queue and schedules when to execute their associated callback functions.</p>
@@ -525,6 +526,7 @@ readableStream<span class="token punctuation">.</span><span class="token functio
 readableStream<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="6-What-Is-the-Difference-Between-Readfile-and-Createreadstream-Functions"><a href="#6-What-Is-the-Difference-Between-Readfile-and-Createreadstream-Functions" class="headerlink" title="6. What Is the Difference Between Readfile and Createreadstream Functions?"></a>6. What Is the Difference Between Readfile and Createreadstream Functions?</h2><p>The <code>readFile</code> function reads the entire content of the file asynchronously and stores it in the memory before passing it to the user.</p>
 <blockquote>
 <p>readFile 函数异步读取文件的全部内容,并存储在内存中,然后再传递给用户.</p>
@@ -542,6 +544,7 @@ readableStream<span class="token punctuation">.</span><span class="token functio
 fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="7-How-Do-You-Handle-Uncaught-Exceptions-in-node-js"><a href="#7-How-Do-You-Handle-Uncaught-Exceptions-in-node-js" class="headerlink" title="7. How Do You Handle Uncaught Exceptions in node.js?"></a>7. How Do You Handle Uncaught Exceptions in node.js?</h2><p>We can catch the uncaught exceptions thrown in the application in its process level. To do this we attach a listener to the <code>process</code> global object:</p>
 <blockquote>
 <p>我们可以在进程级别捕获应用程序中未捕获的异常.为此将侦听器附加到 <code>process</code> 全局对象：</p>
@@ -549,6 +552,7 @@ fs<span class="token punctuation">.</span><span class="token function">readFile<
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'uncaughtException'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'exception caught: '</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="8-Can-Node-Take-Full-Advantage-of-a-Multi-Processor-System"><a href="#8-Can-Node-Take-Full-Advantage-of-a-Multi-Processor-System" class="headerlink" title="8. Can Node Take Full Advantage of a Multi-Processor System?"></a>8. Can Node Take Full Advantage of a Multi-Processor System?</h2><p>Node applications are always single-threaded. So, naturally, the application uses only a single processor, even when running on multi-processor systems.</p>
 <blockquote>
 <p>（默认的）Node.js 应用程序总是单线程的,即使在多核处理器上运行,应用程序也能只使用一个处理器.</p>
@@ -629,10 +633,12 @@ process<span class="token punctuation">.</span><span class="token function">next
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'third'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The output is printed in the following order.</p>
 <pre class="line-numbers language-none"><code class="language-none">third
 second
 first<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="13-What-are-stubs"><a href="#13-What-are-stubs" class="headerlink" title="13. What are stubs?"></a>13. What are stubs?</h2><p>Stubs are used when testing applications. They simulate the behavior of a given component or a module so that you can focus on the part of the code you want to test. By using stubs in place of components that irrelevant to the test, you don’t have to worry about external components impacting the result.</p>
 <p>For example, if the component you are testing has a file-reading operation before the part you expect to test, you can use a stub to simulate that behavior and return a mock content, without actually reading the file.</p>
 <p>In Node, we use libraries like Sinon for this purpose.</p>
@@ -661,6 +667,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'port'</span><span class="token punctuation">,</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> http <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="15-What-Are-Yarn-and-Npm-Why-Would-You-Want-To-Use-Yarn-Over-Npm"><a href="#15-What-Are-Yarn-and-Npm-Why-Would-You-Want-To-Use-Yarn-Over-Npm" class="headerlink" title="15. What Are Yarn and Npm? Why Would You Want To Use Yarn Over Npm?"></a>15. What Are Yarn and Npm? Why Would You Want To Use Yarn Over Npm?</h2><p><code>npm</code> is the default package manager distributed with Node.js. It has a large library of public and private packages stored in a database called emp registry that users can access via npm’s command-line client. With the help of npm, users can easily manage dependencies used in a project.</p>
 <p><code>yarn</code> is also a package manager that was released as an answer to some of npm’s shortcomings. However, yarn relies on the npm registry to provide users access to packages. Since yarn’s underlying structure is based on npm itself, your project structure and workflow doesn’t have to go through major changes if you are migrating to yarn from npm.</p>
 <p>Like I mentioned before, yarn provides better functionality over npm in some cases. Unlike npm, it caches every package you download, so you don’t have to redownload it whenever needed.</p>
@@ -812,9 +819,9 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="14年过去了，《大明王朝1566》依旧是中国最好的历史剧">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="14年过去了,《大明王朝1566》依旧是中国最好的历史剧">
                         
-                        <span class="card-title">14年过去了，《大明王朝1566》依旧是中国最好的历史剧</span>
+                        <span class="card-title">14年过去了,《大明王朝1566》依旧是中国最好的历史剧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

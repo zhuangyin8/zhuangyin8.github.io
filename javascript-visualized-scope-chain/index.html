@@ -449,7 +449,7 @@
 </blockquote>
 <hr>
 <p>Let’s take a look at the following code:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Lydia'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">'Lydia'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> city <span class="token operator">=</span> <span class="token string">'San Francisco'</span><span class="token punctuation">;</span>
 
@@ -461,6 +461,7 @@
 <span class="token punctuation">&#125;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">getPersonInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>We’re invoking the <code>getPersonInfo</code> function, which returns a string containing the values of the <code>name</code>, <code>age</code> and <code>city</code> variables:<br><code>Sarah is 22 and lives in San Francisco</code>. But, the <code>getPersonInfo</code> function doesn’t contain a variable named <code>city</code> 🤨? How did it know the value of <code>city</code>?</p>
 <blockquote>
 <p>我们调用 <code>getPersonInfo</code> 函数,该函数返回一个包含 <code>name</code> , <code>age</code> 和 <code>city</code> 变量的值: <code>Sarah is 22 and lives in San Francisco</code> .但是,该 <code>getPersonInfo</code> 函数不包含名为 <code>city</code> 🤨 的变量.它怎么知道 <code>city</code> 的值？</p>
@@ -534,7 +535,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>除了全局和局部作用域之外,还有一个块作用域.用 <code>let</code> 或 <code>const</code> 关键字声明的变量的作用域为最接近的大括号(<code>&#123;&#125;</code>).</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">21</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">checkAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>age <span class="token operator">&lt;</span> <span class="token number">21</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -545,6 +546,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">return</span> message<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>You can visualize the scopes as:</p>
 <blockquote>
 <p>您可以将作用域可视化为:</p>

@@ -390,6 +390,10 @@
                                 <span class="chip bg-color">Interview</span>
                             </a>
                         
+                            <a href="/tags/%E6%B9%96%E5%8D%97%E7%89%B9%E8%83%BD%E5%8D%9A%E4%B8%96/">
+                                <span class="chip bg-color">湖南特能博世</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -435,13 +439,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- ## 湖南特能博世 -->
-
-<h3 id="1、以下属于脱离文档流布局的样式-2-分"><a href="#1、以下属于脱离文档流布局的样式-2-分" class="headerlink" title="1、以下属于脱离文档流布局的样式 (___)(2 分)"></a>1、以下属于脱离文档流布局的样式 (___)(2 分)</h3><p>A、<code>float:left</code></p>
+                <h3 id="1、以下属于脱离文档流布局的样式-2-分"><a href="#1、以下属于脱离文档流布局的样式-2-分" class="headerlink" title="1、以下属于脱离文档流布局的样式 (___)(2 分)"></a>1、以下属于脱离文档流布局的样式 (___)(2 分)</h3><p>A、<code>float:left</code></p>
 <p>B、<code>position: relative</code></p>
 <p>C、<code>margin-left: -50%</code></p>
 <p>D、<code>transform: translate(50%)</code></p>
-<details><summary><b> 详解 </b></summary>
+<details><summary><b>详解</b></summary>
 <p>
 
 <blockquote>
@@ -482,7 +484,7 @@
 <p><code>let</code> 只有创建过程会提升, 初始化和赋值都不会提升, 所以会形成暂时性死区, 这也是为什么在定义前使用 <code>let</code> 会抛错.</p>
 <p><code>const</code> 的创建过程也会提升, 但是与 <code>let</code> 不同之处在于 <code>const</code> 只有创建和初始化两个过程, 没有赋值过程. 若不初始化则会直接抛错</p>
 <p>JavaScript 中的 函数声明 被提升到了函数定义. 你可以在函数声明之前使用该函数:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">hoisted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "foo"</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">hoisted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "foo"</span>
 
 <span class="token keyword">function</span> <span class="token function">hoisted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -498,7 +500,7 @@
 <span class="token comment">// "foo"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>函数表达式 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function">function expressions</a>不会被提升:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">notHoisted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// TypeError: notHoisted is not a function</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">notHoisted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// TypeError: notHoisted is not a function</span>
 
 <span class="token keyword">var</span> <span class="token function-variable function">notHoisted</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -554,7 +556,7 @@
 </details>
 
 <hr>
-<h3 id="6、下面函数-foo-和-foo2-会打印出什么值-5-分"><a href="#6、下面函数-foo-和-foo2-会打印出什么值-5-分" class="headerlink" title="6、下面函数 foo 和 foo2 会打印出什么值?(5 分)"></a>6、下面函数 foo 和 foo2 会打印出什么值?(5 分)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<h3 id="6、下面函数-foo-和-foo2-会打印出什么值-5-分"><a href="#6、下面函数-foo-和-foo2-会打印出什么值-5-分" class="headerlink" title="6、下面函数 foo 和 foo2 会打印出什么值?(5 分)"></a>6、下面函数 foo 和 foo2 会打印出什么值?(5 分)</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ?</span>
@@ -569,7 +571,7 @@
 <details><summary><b> 详解 </b></summary>
 <p>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 本级作用域没有 num, 向上寻找全局作用域 => 0</span>
@@ -588,7 +590,7 @@
 </details>
 
 <hr>
-<h3 id="7、请写出-result-打印出的值并说明原因-5-分"><a href="#7、请写出-result-打印出的值并说明原因-5-分" class="headerlink" title="7、请写出 result 打印出的值并说明原因 (5 分)"></a>7、请写出 result 打印出的值并说明原因 (5 分)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="7、请写出-result-打印出的值并说明原因-5-分"><a href="#7、请写出-result-打印出的值并说明原因-5-分" class="headerlink" title="7、请写出 result 打印出的值并说明原因 (5 分)"></a>7、请写出 result 打印出的值并说明原因 (5 分)</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   array<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -607,7 +609,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><code>var</code> 和 <code>let</code> 的不同之处在于后者是在编译时才初始化. 就像 <code>const</code> 一样,<code>let</code> 不会在全局声明时 (在最顶部的范围) 创建 window 对象的属性.</p>
 </blockquote>
 <hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   array<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -620,7 +622,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="8、-foo-getX-和-getX-分别返回什么-5-分"><a href="#8、-foo-getX-和-getX-分别返回什么-5-分" class="headerlink" title="8、 foo.getX() 和 getX() 分别返回什么?(5 分)"></a>8、 foo.getX() 和 getX() 分别返回什么?(5 分)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<h3 id="8、-foo-getX-和-getX-分别返回什么-5-分"><a href="#8、-foo-getX-和-getX-分别返回什么-5-分" class="headerlink" title="8、 foo.getX() 和 getX() 分别返回什么?(5 分)"></a>8、 foo.getX() 和 getX() 分别返回什么?(5 分)</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   x<span class="token operator">:</span> <span class="token number">90</span><span class="token punctuation">,</span>
   <span class="token function-variable function">getX</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -634,14 +636,14 @@ foo<span class="token punctuation">.</span><span class="token function">getX</sp
 <details><summary><b> 详解 </b></summary>
 <p>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">foo<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 90</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">foo<span class="token punctuation">.</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 90</span>
 <span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </p>
 </details>
 
 <hr>
-<h3 id="9、执行以下代码后-a-x-和-b-x-值分别是多少-5-分"><a href="#9、执行以下代码后-a-x-和-b-x-值分别是多少-5-分" class="headerlink" title="9、执行以下代码后 a.x 和 b.x 值分别是多少 (5 分)"></a>9、执行以下代码后 a.x 和 b.x 值分别是多少 (5 分)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span> n<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="9、执行以下代码后-a-x-和-b-x-值分别是多少-5-分"><a href="#9、执行以下代码后-a-x-和-b-x-值分别是多少-5-分" class="headerlink" title="9、执行以下代码后 a.x 和 b.x 值分别是多少 (5 分)"></a>9、执行以下代码后 a.x 和 b.x 值分别是多少 (5 分)</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span> n<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span>
 a<span class="token punctuation">.</span>x <span class="token operator">=</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span> n<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -651,7 +653,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b> 详解 </b></summary>
 <p>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 写出 a.x => undefined</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 写出 a.x => undefined</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 写出 b.x => &#123; n: 2 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </p>
@@ -761,7 +763,7 @@ html</span> <span class="token punctuation">&#123;</span>
 <p>
 
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a> 操作符返回一个字符串, 表示未经计算的操作数的类型.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 如果检测的数据类型是 null 或者 undefined 直接用返回当前值加空字符串</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> val <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">;</span>
@@ -806,7 +808,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">type</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//=>"function"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#Real-world_usage">Real-world usage</a></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> fullClass</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">type</span><span class="token punctuation">(</span><span class="token parameter">obj<span class="token punctuation">,</span> fullClass</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// get toPrototypeString() of obj (handles all types)</span>
   <span class="token comment">// Early JS environments return '[object Object]' for null, so it's best to directly check for it.</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>fullClass<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -842,7 +844,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b> 详解 </b></summary>
 <p>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * @param &#123;number[]&#125; nums
  * @return &#123;number[]&#125;
  */</span>
@@ -891,7 +893,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="15、给定一个排序数组-假设数组中无重复元素-和一个目标值-在数组中找到目标值-并返回其索引-如果目标值不存在于数组中-返回它将会被按顺序插入的位置-15-分"><a href="#15、给定一个排序数组-假设数组中无重复元素-和一个目标值-在数组中找到目标值-并返回其索引-如果目标值不存在于数组中-返回它将会被按顺序插入的位置-15-分" class="headerlink" title="15、给定一个排序数组 (假设数组中无重复元素) 和一个目标值, 在数组中找到目标值, 并返回其索引. 如果目标值不存在于数组中, 返回它将会被按顺序插入的位置(15 分)"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-insert-position/">15、给定一个排序数组 (假设数组中无重复元素) 和一个目标值, 在数组中找到目标值, 并返回其索引. 如果目标值不存在于数组中, 返回它将会被按顺序插入的位置(15 分)</a></h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 2</span>
+<h3 id="15、给定一个排序数组-假设数组中无重复元素-和一个目标值-在数组中找到目标值-并返回其索引-如果目标值不存在于数组中-返回它将会被按顺序插入的位置-15-分"><a href="#15、给定一个排序数组-假设数组中无重复元素-和一个目标值-在数组中找到目标值-并返回其索引-如果目标值不存在于数组中-返回它将会被按顺序插入的位置-15-分" class="headerlink" title="15、给定一个排序数组 (假设数组中无重复元素) 和一个目标值, 在数组中找到目标值, 并返回其索引. 如果目标值不存在于数组中, 返回它将会被按顺序插入的位置(15 分)"></a><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-insert-position/">15、给定一个排序数组 (假设数组中无重复元素) 和一个目标值, 在数组中找到目标值, 并返回其索引. 如果目标值不存在于数组中, 返回它将会被按顺序插入的位置(15 分)</a></h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 2</span>
 
 <span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -899,7 +901,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>
 
 <p>解决方案</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * @param &#123;number[]&#125; nums
  * @param &#123;number&#125; target
  * @return &#123;number&#125;
@@ -924,7 +926,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ul>
 <li>解决方案一</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * @param &#123;number[]&#125; nums
  * @param &#123;number&#125; target
  * @return &#123;number&#125;
@@ -955,7 +957,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ul>
 <li>解决方案二</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * @param &#123;number[]&#125; nums
  * @param &#123;number&#125; target
  * @return &#123;number&#125;
@@ -980,7 +982,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 2</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 2</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">searchInsert</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出 1</span>
 

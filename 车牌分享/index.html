@@ -440,37 +440,49 @@
 <li>直接设置 style 的属性 某些情况用这个设置 !important 值无效</li>
 </ol>
 <p>如果属性有’-‘号,就写成驼峰的形式(如 textAlign) 如果想保留 - 号,就中括号的形式</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'text-align'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'100px'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'text-align'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'100px'</span><span class="token punctuation">;</span>
 
 element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'100px'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <ol start="2">
 <li>直接设置属性(只能用于某些属性,相关样式会自动识别)</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'100px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <ol start="3">
 <li>设置 style 的属性</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">Element.setAttribute()</a></p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="4">
 <li>使用 setProperty 如果要设置!important,推荐用这种方法设置第三个参数</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'300px'</span><span class="token punctuation">,</span> <span class="token string">'important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'300px'</span><span class="token punctuation">,</span> <span class="token string">'important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ol start="5">
-<li>改变 class  </li>
+<li>改变 class</li>
 </ol>
 <p>因 JavaScript 获取不到 CSS 的伪元素,所以可以通过改变伪元素父级的 class 来动态更改伪元素的样式</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">Element.className</a></p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
 element<span class="token punctuation">.</span>className <span class="token operator">+=</span> <span class="token string">'blue fb'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <ol start="6">
 <li>设置 cssText</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">;</span>
 element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">+=</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <ol start="7">
 <li>创建引入新的 CSS 样式文件</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">addNewStyle</span><span class="token punctuation">(</span><span class="token parameter">newStyle</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">addNewStyle</span><span class="token punctuation">(</span><span class="token parameter">newStyle</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> styleElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'styles_js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -484,10 +496,14 @@ element<span class="token punctuation">.</span>style<span class="token punctuati
 <span class="token punctuation">&#125;</span>
 
 <span class="token function">addNewStyle</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px !important;&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ol start="8">
 <li>使用 addRule、insertRule</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在原有样式操作</span>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule">CSSStyleSheet.insertRule()</a></p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在原有样式操作</span>
 document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addRule</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">insertRule</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px&#125;'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -499,6 +515,7 @@ styleSheet<span class="token punctuation">.</span><span class="token function">a
 styleSheet<span class="token punctuation">.</span><span class="token function">insertRule</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px&#125;'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>styleEl<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <!-- ## 车牌分享【10P】 06-11
 
 [![](https://www.louimg.com/u/20200611/1832007.gif)](https://www.louimg.com/i/?i=u/20200611/1832007.gif)

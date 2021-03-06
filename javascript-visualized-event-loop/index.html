@@ -490,24 +490,25 @@
 <blockquote>
 <p>阅读一篇文章很有趣,但是通过反复地实际操作,您只会对此完全感到满意.如果运行以下命令,请尝试找出登录到控制台的内容:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'First'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">bar</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Second'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">baz</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Third'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Got it? Let’s quickly take a look at what’s happening when we’re running this code in a browser:</p>
 <blockquote>
 <p>得到它了？让我们快速看一下在浏览器中运行此代码时发生的情况:</p>
 </blockquote>
 <p><img src="/images/gif14.1.gif"></p>
 <ol>
-<li>We invoke <code>bar</code>. <code>bar</code> returns a <code>setTimeout</code> function.</li>
-<li>The callback we passed to <code>setTimeout</code> gets added to the Web API, the <code>setTimeout</code> function and <code>bar</code> get popped off the callstack.</li>
-<li>The timer runs, in the meantime <code>foo</code> gets invoked and logs <code>First</code>. <code>foo</code> returns (undefined),<code>baz</code> gets invoked, and the callback gets added to the queue.</li>
-<li><code>baz</code> logs <code>Third</code>. The event loop sees the callstack is empty after <code>baz</code> returned, after which the callback gets added to the call stack.</li>
-<li>The callback logs <code>Second</code>.</li>
+<li> We invoke <code>bar</code>. <code>bar</code> returns a <code>setTimeout</code> function.</li>
+<li> The callback we passed to <code>setTimeout</code> gets added to the Web API, the <code>setTimeout</code> function and <code>bar</code> get popped off the callstack.</li>
+<li> The timer runs, in the meantime <code>foo</code> gets invoked and logs <code>First</code>. <code>foo</code> returns (undefined),<code>baz</code> gets invoked, and the callback gets added to the queue.</li>
+<li> <code>baz</code> logs <code>Third</code>. The event loop sees the callstack is empty after <code>baz</code> returned, after which the callback gets added to the call stack.</li>
+<li> The callback logs <code>Second</code>.</li>
 </ol>
 <blockquote>
 <ol>

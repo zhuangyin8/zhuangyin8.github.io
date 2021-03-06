@@ -451,7 +451,7 @@
 <li>Using recursive function</li>
 </ul>
 <h2 id="Objects-are-Reference-Types"><a href="#Objects-are-Reference-Types" class="headerlink" title="Objects are Reference Types"></a>Objects are Reference Types</h2><p>Your first question might be, why can’t I use <code>=</code>. Let’s see what happens if we do that:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> one<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> one<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> obj2 <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 
@@ -461,7 +461,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>So far, both object seems to output the same thing. So no problem, right. But let’s see what happens if we edit our second object:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj2<span class="token punctuation">.</span>three <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj2<span class="token punctuation">.</span>three <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123;one: 1, two: 2, three: 3&#125;; &lt;-- ✅</span>
@@ -492,7 +492,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>Using spread will clone the object. Note this will be a shallow copy.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
   storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
@@ -501,14 +501,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Let’s clone our object using spread:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> shallowClone <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>obj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> shallowClone <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>obj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Changed our cloned object</span>
 shallowClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
 shallowClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>So we changed our cloned object. Let’s see the output.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// &#123; brand: "Apple", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125; &lt;-- 😱</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>shallowClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -524,7 +524,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <h3 id="Using-Object-assign"><a href="#Using-Object-assign" class="headerlink" title="Using Object.assign()"></a>Using Object.assign()</h3><p>Alternatively, <code>Object.assign</code> is in the official released and will also create a shallow copy of the object.</p>
 <p>Note the empty <code>&#123;&#125;</code> as the first argument, this will ensure you don’t mutate the original object 👍</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
   storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
@@ -568,7 +568,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>首先将原始对象转换为字符串,然后将其解析回 JSON 对象,瞧！您的新的深度克隆对象已准备就绪.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
   storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
@@ -602,7 +602,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>要深度克隆对象,您需要遍历每个属性,并检查当前属性是否包含对象.如果是,则通过传递当前属性值(即嵌套对象)对同一函数进行递归调用.看下面的例子.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
   storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
@@ -677,7 +677,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>JSON.parse(JSON.stringify(object)) 会忽略 undefined、symbol、函数;不能解决循环引用;不能处理正则、new Date()</li>
 <li>浅拷贝+递归 (只考虑了普通的 object 和 array 两种数据类型)</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> target <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> cloneTarget <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 

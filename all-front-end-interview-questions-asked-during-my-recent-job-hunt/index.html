@@ -490,6 +490,7 @@
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">flatten</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -497,7 +498,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">Array.prototype.flat()</a> 方法会按照一个可指定的深度递归遍历数组,并将所有元素与遍历到的子数组中的元素合并为一个新数组返回.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr1<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// expected output: [0, 1, 2, 3, 4]</span>
@@ -506,6 +507,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr2<span class="token punctuation">.</span><span class="token function">flat</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// expected output: [0, 1, 2, [3, 4]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <ol start="2">
 <li>Create a promise from scratch</li>
@@ -573,6 +575,7 @@ promise
   <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -672,6 +675,7 @@ promise
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> filteredMovies<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -727,6 +731,7 @@ promise
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -748,23 +753,25 @@ promise
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
 <hr>
 <ol start="6">
-<li>What does the below expressions evaluate to</li>
+<li> What does the below expressions evaluate to</li>
 </ol>
 <blockquote>
 <ol start="6">
 <li>以下表达式的计算结果是什么？</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token number">1</span> <span class="token operator">+</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1</span> <span class="token operator">+</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token boolean">true</span> <span class="token operator">+</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token string">'1'</span> <span class="token operator">+</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token string">'2'</span> <span class="token operator">></span> <span class="token string">'3'</span><span class="token punctuation">;</span>
 <span class="token string">'two'</span> <span class="token operator">></span> <span class="token string">'three'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -773,6 +780,7 @@ promise
 <span class="token number">1</span>true
 <span class="token boolean">false</span>
 <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -811,6 +819,7 @@ promise
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> init<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -836,6 +845,7 @@ promise
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">debounce</span><span class="token punctuation">(</span>apiCall<span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -868,6 +878,7 @@ promise
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -892,6 +903,7 @@ promise
 
 <span class="token comment">//with the inversion of control</span>
 <span class="token parameter">Endpoint</span><span class="token operator">=></span><span class="token parameter">Render</span><span class="token operator">=></span><span class="token parameter">setTimeout</span><span class="token operator">=></span><span class="token parameter">Endpoint</span><span class="token operator">=></span><span class="token parameter">Render</span><span class="token operator">=></span>SetTimeout<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -904,7 +916,7 @@ promise
 <li>将以下给出的、基于类的继承代码转换为 ES5 代码.</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Parent</span> <span class="token punctuation">&#123;</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -919,6 +931,7 @@ promise
     <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -935,6 +948,7 @@ promise
 <span class="token punctuation">&#125;</span>
 
 <span class="token class-name">Children</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -947,7 +961,7 @@ promise
 <li>以下代码的计算结果是什么？</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Q.1</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Q.1</span>
 <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> y <span class="token operator">=</span> x<span class="token punctuation">;</span>
 
@@ -1017,6 +1031,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">mutate</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj1<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//A.1</span>
@@ -1043,19 +1058,21 @@ logs <span class="token number">2</span> and <span class="token number">1</span>
 <span class="token comment">//A.8</span>
 <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </details>
 
 <hr>
 <ol>
-<li>Given an array of numbers implement the following</li>
+<li> Given an array of numbers implement the following</li>
 </ol>
 <blockquote>
 <ol start="13">
 <li>给定一个数字数组,请执行以下操作:</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> filteredArray <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token function">between</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [4,5]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -1064,6 +1081,7 @@ logs <span class="token number">2</span> and <span class="token number">1</span>
     <span class="token keyword">return</span> value <span class="token operator">></span> start <span class="token operator">&amp;&amp;</span> value <span class="token operator">&lt;</span> end<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1073,12 +1091,13 @@ logs <span class="token number">2</span> and <span class="token number">1</span>
 </ol>
 <blockquote>
 <ol>
-<li>考虑以下级数:</li>
+<li> 考虑以下级数:</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token constant">A</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">1</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">A</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token number">1</span>
 <span class="token constant">B</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token constant">A</span><span class="token operator">*</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span>
 <span class="token constant">C</span> <span class="token operator">:</span><span class="token operator">=</span> <span class="token constant">B</span><span class="token operator">*</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">3</span> and so on<span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Write a program that:</p>
 <p>outputs the number corresponding to a given letter</p>
 <p>given a string of letters like ‘GREP’, computes the sum of the numbers corresponding to all the letters in the string (i.e., G + R + E + P), as given by the above series and</p>
@@ -1137,6 +1156,7 @@ charArray<span class="token punctuation">.</span><span class="token function">fo
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>charTotalSequence<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1166,6 +1186,7 @@ charArray<span class="token punctuation">.</span><span class="token function">fo
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Pairs '</span><span class="token punctuation">,</span> pairs<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1175,7 +1196,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ol>
 <blockquote>
 <ol start="3">
-<li>在给定数组中找到局部最大值.所谓局部最大值,是指大于其左右相邻数的元素.这里我给出一个 O(n) 解,无需优化即可简单解决这个问题.</li>
+<li> 在给定数组中找到局部最大值.所谓局部最大值,是指大于其左右相邻数的元素.这里我给出一个 O(n) 解,无需优化即可简单解决这个问题.</li>
 </ol>
 </blockquote>
 <details><summary>Answer</summary>
@@ -1190,6 +1211,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
  <span class="token punctuation">&#125;</span>
  <span class="token keyword">if</span> x<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">==</span> i <span class="token keyword">return</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1220,7 +1242,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">//The above matrix is rotated 90 degree</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -1248,6 +1271,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">//   [8, 5, 2],</span>
 <span class="token comment">//   [9, 6, 3]</span>
 <span class="token comment">// ]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><a target="_blank" rel="noopener" href="https://github.com/BaffinLee/leetcode-javascript/blob/master/001-100/48.%20Rotate%20Image.md">48. Rotate Image</a></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * @param &#123;number[][]&#125; matrix
@@ -1279,6 +1303,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   matrix<span class="token punctuation">[</span>x1<span class="token punctuation">]</span><span class="token punctuation">[</span>y1<span class="token punctuation">]</span> <span class="token operator">=</span> matrix<span class="token punctuation">[</span>x2<span class="token punctuation">]</span><span class="token punctuation">[</span>y2<span class="token punctuation">]</span><span class="token punctuation">;</span>
   matrix<span class="token punctuation">[</span>x2<span class="token punctuation">]</span><span class="token punctuation">[</span>y2<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>Explain:</strong></p>
 <p>见注释</p>
 <p>顺时针 90°:先上下倒置,再对角倒置</p>
@@ -1346,6 +1371,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> found<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1400,6 +1426,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'aabbcc'</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">characterWithCountK</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1446,6 +1473,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">canBeRearranged</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1479,6 +1507,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1510,6 +1539,7 @@ arr <span class="token operator">=</span> <span class="token function">shuffle</
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">calculateSum</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1541,6 +1571,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">calculateSum</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1636,6 +1667,7 @@ A (CEO)
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">traverse</span><span class="token punctuation">(</span>employeesData<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1648,7 +1680,7 @@ A (CEO)
 <li>以螺旋形式输出给定的数组.</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> inputMatrix <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> inputMatrix <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token punctuation">[</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -1677,6 +1709,7 @@ A (CEO)
   <span class="token number">13</span><span class="token punctuation">,</span>
   <span class="token number">12</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -1743,6 +1776,7 @@ A (CEO)
 <span class="token punctuation">&#125;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">spiralParser</span><span class="token punctuation">(</span>inputMatrix2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1755,7 +1789,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>在给定字符串中找到最大的连续重复字符.</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'bbbaaaaccadd'</span><span class="token punctuation">;</span> <span class="token comment">//max repeating char is a with count 4</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'bbbaaaaccadd'</span><span class="token punctuation">;</span> <span class="token comment">//max repeating char is a with count 4</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -1770,6 +1805,7 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
   <span class="token keyword">else</span> <span class="token keyword">if</span> char not equals prevChar
     maxNow <span class="token operator">=</span> <span class="token number">1</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1782,8 +1818,9 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
 <li>给定一个长度可变的输入数组,将所有 2 分隔在数组末尾.</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> inputArr <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">54</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> inputArr <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">54</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">;</span>
 <span class="token comment">//ouput => [9,1,5,3,1,7,4,3,8,29,4,6,54,32,100,2,2,2,2,2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -1795,6 +1832,7 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
     slowRunner<span class="token operator">++</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -1807,8 +1845,9 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
 <li>反转一个链接列表.</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Input = 1 -> 2 -> 3 -> 4 -> 5 -> 6</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Input = 1 -> 2 -> 3 -> 4 -> 5 -> 6</span>
 <span class="token comment">//Output = 1 &lt;- 2 &lt;- 3 &lt;- 4 &lt;- 5 &lt;- 6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <details><summary>Answer</summary>
 <p>
 
@@ -1823,6 +1862,7 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
   prev <span class="token operator">=</span> current<span class="token punctuation">;</span>
   current <span class="token operator">=</span> next<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </p>
 </details>
 
@@ -2027,23 +2067,23 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
 </ol>
 <blockquote>
 <ol>
-<li><p>您如何设计前端应用程序的架构？</p>
+<li><p> 您如何设计前端应用程序的架构？</p>
 </li>
-<li><p>实现懒加载</p>
+<li><p> 实现懒加载</p>
 </li>
-<li><p>服务器端渲染是什么？</p>
+<li><p> 服务器端渲染是什么？</p>
 </li>
-<li><p>如何在生产环境中部署一款 React app.</p>
+<li><p> 如何在生产环境中部署一款 React app.</p>
 </li>
-<li><p>服务工作节点 /Web 工作节点是什么.</p>
+<li><p> 服务工作节点 /Web 工作节点是什么.</p>
 </li>
-<li><p>如何优化 Web 应用程序并提高其性能表现.</p>
+<li><p> 如何优化 Web 应用程序并提高其性能表现.</p>
 </li>
-<li><p>请尝试解释不同类型的客户端缓存策略.</p>
+<li><p> 请尝试解释不同类型的客户端缓存策略.</p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS 是什么</a>.</p>
+<li><p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS 是什么</a>.</p>
 </li>
-<li><p>React 中有哪些高阶组件.</p>
+<li><p> React 中有哪些高阶组件.</p>
 </li>
 <li><p>Redux 中的连接功能如何起效.</p>
 </li>

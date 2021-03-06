@@ -478,7 +478,7 @@
 <li><strong>set</strong>：属性的 setter 函数,用于设置属性的值</li>
 </ul>
 <p>看实例：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Zander'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Zander'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 obj<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token string">'18'</span><span class="token punctuation">;</span> <span class="token comment">// 添加属性</span>
 obj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Bob'</span><span class="token punctuation">;</span> <span class="token comment">// 修改属性</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -489,7 +489,7 @@ obj<span class="token punctuation">.</span>name <span class="token operator">=</
 <h3 id="DocumentFragment"><a href="#DocumentFragment" class="headerlink" title="DocumentFragment"></a>DocumentFragment</h3><p>频繁地操作 DOM 节点会引起页面的重排及重绘,这会极大地影响页面性能,Vue 中进行模板的解析就需要操作 DOM,使用到了 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment">DocumentFragment</a> 文档片段接口,它相当于一个 HTML 节点的<em>容器</em>,让我们可以在处理完子节点后都先存入该容器中,最后一次性将容器内<strong>所有的</strong>子节点都添加或插入到真实的 DOM 中,从而将操作 DOM 的次数减少为只有一次,很大地提升了页面性能.</p>
 <p>比如要给一个 ul 标签添加 10 个 li,你可能会这样做：</p>
 <p>这就需要操作 DOM 多达 10 次,而使用 DocumentFragment 只需要操作一次 DOM：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Zander'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Zander'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 添加具有数据描述符的属性,相当于 obj.age = 18</span>
 Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
@@ -531,7 +531,7 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 <p>具体实现步骤：</p>
 <p><strong>1. 维护一个订阅者 <em>们</em> 数组</strong></p>
 <p>因为使用同一个数据的 DOM 节点可能是多个,所以需要维护一个订阅者<em>们</em>数组,<code>update()</code> 是订阅者的原型方法.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">'Zander'</span><span class="token punctuation">,</span>
   <span class="token string">'Bob'</span><span class="token punctuation">,</span>
   <span class="token string">'Tom'</span><span class="token punctuation">,</span>
@@ -556,7 +556,7 @@ names<span class="token punctuation">.</span><span class="token function">forEac
 <p>注意 <code>data</code> 必须是对象才能进行数据劫持,递归处理保证所有数据均被管理.</p>
 </blockquote>
 <p><strong>3. 实现 Watcher 订阅者函数</strong></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> names <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">'Zander'</span><span class="token punctuation">,</span>
   <span class="token string">'Bob'</span><span class="token punctuation">,</span>
   <span class="token string">'Tom'</span><span class="token punctuation">,</span>

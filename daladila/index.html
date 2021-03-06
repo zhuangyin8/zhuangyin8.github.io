@@ -485,7 +485,7 @@
 <span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>2.query 通过<code>this.$route.query</code>来接收参数,params 通过 <code>this.$route.params</code> 来接收参数.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// query通过this.$route.query接收参数</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// query通过this.$route.query接收参数</span>
 <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -498,14 +498,14 @@
 <p>3.query 传参的 url 展现方式：/detail?id=1&amp;user=123&amp;identity=1&amp;更多参数</p>
 <p>params ＋动态路由的 url 方式：/detail/123</p>
 <p>4.params 动态路由传参,一定要在路由中定义参数,然后在路由跳转的时候必须要加上参数,否则就是空白页面：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
     path<span class="token operator">:</span> <span class="token string">'/detail/:id'</span><span class="token punctuation">,</span>
     name<span class="token operator">:</span> <span class="token string">'Detail'</span><span class="token punctuation">,</span>
     component<span class="token operator">:</span> Detail
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意,params 传参时,如果没有在路由中定义参数,也是可以传过去的,同时也能接收到,但是一旦刷新页面,这个参数就不存在了.这对于需要依赖参数进行某些操作的行为是行不通的,因为你总不可能要求用户不能刷新页面吧. 例如：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 定义的路由中,只定义一个id参数</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 定义的路由中,只定义一个id参数</span>
 <span class="token punctuation">&#123;</span>
     path<span class="token operator">:</span> <span class="token string">'detail/:id'</span><span class="token punctuation">,</span>
     name<span class="token operator">:</span> <span class="token string">'Detail'</span><span class="token punctuation">,</span>
@@ -519,7 +519,7 @@
   <span class="token punctuation">></span></span>前往Detail页面<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span>
 <span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在详情页接收</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在详情页接收</span>
 <span class="token function">created</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 以下都可以正常获取到</span>
     <span class="token comment">// 但是页面刷新后,id依然可以获取,而token此时就不存在了</span>
@@ -543,7 +543,7 @@
 <p>我们在 1 出设置了允许本地跨域,在 2 处,要注意我们访问接口时,写的是<code>/api</code>,此处的<code>/api</code>指代的就是我们要请求的接口域名.如果我们不想每次接口都带上<code>/api</code>,可以更改 axios 的默认配置<code>axios.defaults.baseURL = &#39;/api&#39;;</code>这样,我们请求接口就可以直接<code>this.$axios.get(&#39;app.php?m=App&amp;c=Index&amp;a=index&#39;)</code>,很简单有木有.此时如果你在 network 中查看 xhr 请求,你会发现显示的是 localhost:8080/api 的请求地址.这样没什么大惊小怪的,代理而已：</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/7/6/1646e59bebcbb788?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
 <p>好了,最后附上 proxyTable 的代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">proxyTable<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">proxyTable<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 用‘/api’开头,代理所有请求到目标服务器</span>
   <span class="token string">'/api'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     target<span class="token operator">:</span> <span class="token string">'http://jsonplaceholder.typicode.com'</span><span class="token punctuation">,</span> <span class="token comment">// 接口域名</span>
@@ -566,31 +566,31 @@
 <li>安装 babel-plugin-import 插件使其按需加载：  <code>cnpm i babel-plugin-import -D</code></li>
 <li>在 .babelrc 文件中中添加插件配置 ：</li>
 </ul>
-<pre class="line-numbers language-json" data-language="json"><code class="language-json">libraryDirectory <span class="token punctuation">&#123;</span>
-  <span class="token property">"plugins"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token comment">// 这里是原来的代码部分</span>
-    <span class="token comment">// …………</span>
-    <span class="token comment">// 这里是要我们配置的代码</span>
-    <span class="token punctuation">[</span><span class="token string">"import"</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span>
-        <span class="token property">"libraryName"</span><span class="token operator">:</span> <span class="token string">"vant"</span><span class="token punctuation">,</span>
-        <span class="token property">"libraryDirectory"</span><span class="token operator">:</span> <span class="token string">"es"</span><span class="token punctuation">,</span>
-        <span class="token property">"style"</span><span class="token operator">:</span> <span class="token boolean">true</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">]</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascripton" data-language="javascripton"><code class="language-javascripton">libraryDirectory &#123;
+  &quot;plugins&quot;: [
+    &#x2F;&#x2F; 这里是原来的代码部分
+    &#x2F;&#x2F; …………
+    &#x2F;&#x2F; 这里是要我们配置的代码
+    [&quot;import&quot;,
+      &#123;
+        &quot;libraryName&quot;: &quot;vant&quot;,
+        &quot;libraryDirectory&quot;: &quot;es&quot;,
+        &quot;style&quot;: true
+      &#125;
+    ]
+  ]
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>在 main.js 中按需加载你需要的插件：</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 按需引入 vant 组件</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 按需引入 vant 组件</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> DatetimePicker<span class="token punctuation">,</span> Button<span class="token punctuation">,</span> List <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vant'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li>使用组件：</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用 vant 组件</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 使用 vant 组件</span>
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>DatetimePicker<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>List<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
@@ -618,21 +618,21 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <p><img src="https://user-gold-cdn.xitu.io/2018/6/8/163dd407f30494d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
 <p><strong>解决方法 1：</strong></p>
 <p>首先我在 data 函数里面进行定义定时器名称：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     timer<span class="token operator">:</span> <span class="token keyword">null</span>  <span class="token comment">// 定时器名称</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后这样使用定时器：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span>
   <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 某些操作</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最后在 beforeDestroy()生命周期内清除定时器：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">beforeDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">clearInterval</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>timer<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -644,7 +644,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </ul>
 <p><strong>解决方案 2：</strong></p>
 <p>该方法是通过$once 这个事件侦听器器在定义完定时器之后的位置来清除定时器.以下是完整代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> timer <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 某些定时器操作</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 通过$once来监听定时器,在beforeDestroy钩子可以被清除.</span>
@@ -655,7 +655,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <p>方案 2 要感谢@<a target="_blank" rel="noopener" href="https://juejin.im/user/3702810891522920">zzx18023</a>在评论区提供出的解决方案.类似于其他需要在当前页面使用,离开需要销毁的组件（例如一些第三方库的 picker 组件等等）,都可以使用此方式来解决离开后以后在背后运行的问题.</p>
 <p>综合来说,我们更推荐使用**方案 2,使得代码可读性更强,一目了然.**如果不清楚<code>$once、$on、$off</code>的使用,这里送上官网的地址教程,<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">在程序化的事件侦听器那里</a>.</p>
 <h2 id="rem-文件的导入问题："><a href="#rem-文件的导入问题：" class="headerlink" title="rem 文件的导入问题："></a>rem 文件的导入问题：</h2><p>我们在做手机端时,适配是必须要处理的一个问题.例如,我们处理适配的方案就是通过写一个 rem.js,原理很简单,就是根据网页尺寸计算 html 的 font-size 大小,基本上小伙伴们都知道,这里直接附上代码,不多做介绍.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">c<span class="token punctuation">,</span> d</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> e <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement <span class="token operator">||</span> document<span class="token punctuation">.</span>body<span class="token punctuation">,</span>
     a <span class="token operator">=</span> <span class="token string">'orientationchange'</span> <span class="token keyword">in</span> window <span class="token operator">?</span> <span class="token string">'orientationchange'</span> <span class="token operator">:</span> <span class="token string">'resize'</span><span class="token punctuation">,</span>
     <span class="token function-variable function">b</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -673,7 +673,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <li>安装 <code>cnpm install vue-awesome-swiper --save</code></li>
 <li>在组件中使用的方法,全局使用意义不大：</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 引入组件</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 引入组件</span>
 <span class="token keyword">import</span> <span class="token string">'swiper/dist/css/swiper.css'</span>
 <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> swiper<span class="token punctuation">,</span> swiperSlide <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-awesome-swiper'</span>
 
@@ -700,7 +700,7 @@ components<span class="token operator">:</span> <span class="token punctuation">
     <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"swiper-scrollbar"</span>   slot<span class="token operator">=</span><span class="token string">"scrollbar"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 参数要写在data中</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 参数要写在data中</span>
 <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// swiper轮播的参数</span>
@@ -728,7 +728,7 @@ components<span class="token operator">:</span> <span class="token punctuation">
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cnpm <span class="token function">install</span> fastclick -S<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在 main.js 中引入<code>fastClick</code>和初始化:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> FastClick <span class="token keyword">from</span> <span class="token string">'fastclick'</span><span class="token punctuation">;</span> <span class="token comment">// 引入插件</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> FastClick <span class="token keyword">from</span> <span class="token string">'fastclick'</span><span class="token punctuation">;</span> <span class="token comment">// 引入插件</span>
 FastClick<span class="token punctuation">.</span><span class="token function">attach</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用 fastclick</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="组件中写选项的顺序"><a href="#组件中写选项的顺序" class="headerlink" title="组件中写选项的顺序"></a>组件中写选项的顺序</h2><p>为什么选项要有统一的书写顺序呢？很简单,就是要将选择和认知成本最小化.</p>
@@ -819,7 +819,7 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
 <h2 id="路由懒加载（也叫延迟加载）"><a href="#路由懒加载（也叫延迟加载）" class="headerlink" title="路由懒加载（也叫延迟加载）"></a>路由懒加载（也叫延迟加载）</h2><p>路由懒加载可以帮我们在进入首屏时不用加载过度的资源,从而减少首屏加载速度.</p>
 <p>路由文件中,</p>
 <p>非懒加载写法：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'@/page/index/index'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Index <span class="token keyword">from</span> <span class="token string">'@/page/index/index'</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   routes<span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">&#123;</span>
@@ -831,7 +831,7 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>路由懒加载写法：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   routes<span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">&#123;</span>
       path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
@@ -970,7 +970,7 @@ hiper -n <span class="token number">100</span> <span class="token string">"baidu
 <p>这种获取数据的情况下,我们进来默认的是展示 loading 或者骨架屏的内容,然后如果获取数据失败（即请求超时或者断网）,则加载 error 的那个组件,隐藏其他组件.如果数据请求成功,则加载内容的组件,隐藏其他组件.如果是列表页,可能在内容组件中还会有列表和为空提示两块内容,所以这时候也还要根据获取的数据来判断是加载内容还是加载为空提示.</p>
 <p><strong>二、第二种方式：导航完成之前获取</strong></p>
 <p>这种方式是在页面的 beforeRouteEnter 钩子中请求数据,只有在数据获取成功之后才会跳转导航页面.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">beforeRouteEnter</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">beforeRouteEnter</span> <span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   api<span class="token punctuation">.</span>article<span class="token punctuation">.</span><span class="token function">articleDetail</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token function">next</span><span class="token punctuation">(</span><span class="token parameter">vm</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
       vm<span class="token punctuation">.</span>info <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
@@ -1006,7 +1006,7 @@ data () &#123; return &#123; msg: '' &#125; &#125;,<span aria-hidden="true" clas
 <pre class="line-numbers language-html" data-language="html"><code class="language-html">// 点击该按钮触发父子组件的数据同步
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确定<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 接收父组件传递的value值</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 接收父组件传递的value值</span>
 <span class="token comment">// 注意,这种实现方法,这里只能使用value属性名</span>
 props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
   value<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
@@ -1032,7 +1032,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
 <p>子组件写法：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>confirm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>确定<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// model选项用来避免冲突</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// model选项用来避免冲突</span>
 <span class="token comment">// prop属性用来指定props属性中的哪个值用来接收父组件v-model传递的值</span>
 <span class="token comment">// 例如这里用props中的show来接收父组件传递的v-model值</span>
 <span class="token comment">// event：为了方便理解,可以简单理解为父组件@input的别名,从而避免冲突</span>
@@ -1070,7 +1070,7 @@ data () &#123;
 <p>子组件：</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>share-btn<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>changeMsg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>改变msg值<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     oneprop<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
         type<span class="token operator">:</span> String<span class="token punctuation">,</span>
         <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'hello world'</span>
@@ -1109,7 +1109,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
 <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>empty</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>就可以在子组件中获取父组件传递的属性和事件,而不用在 props 中定义.子组件简单演示如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> msg <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$attrs<span class="token punctuation">.</span>msg<span class="token punctuation">;</span> <span class="token comment">// 获取父组件传递的msg</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>$listeners<span class="token punctuation">.</span>confirm <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$listeners<span class="token punctuation">.</span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//若组件传递事件confirm则执行</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -1118,7 +1118,7 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
 <h2 id="路由拆分管理"><a href="#路由拆分管理" class="headerlink" title="路由拆分管理"></a>路由拆分管理</h2><p>这里说的路由拆分指的是将路由的文件,按照模块拆分,这样方便路由的管理,更主要的是方便多人开发.具体要不要拆分,那就要视你的项目情况来定了,如果项目较小的话,也就一二十个路由,那么是拆分是非常没必要的.但倘若你开发一些功能点较多的商城项目,路由可以会有一百甚至几百个,那么此时将路由文件进行拆分是很有必要的.不然,你看着 index.js 文件中一大长串串串串串串的路由,也是很糟糕的.</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/9/7/165b1fab48fba445?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"></p>
 <p>首先我们在 router 文件夹中创建一个 index.js 作为路由的入口文件,然后新建一个 modules 文件夹,里面存放各个模块的路由文件.例如这里储存了一个 vote.js 投票模块的路由文件和一个公共模块的路由文件.下面直接上 index.js 吧,而后在简单介绍：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'vue-router'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 公共页面的路由文件</span>
@@ -1149,7 +1149,7 @@ router<span class="token punctuation">.</span><span class="token function">befor
 <p>这里把 router.beforeEach 的操作写了 router 的 index.js 文件中,有些人可能会写在 main.js 中,这也没有错,只不过,个人而言,既然是路由的操作,还是放在路由文件中管理更好些.这里就顺便演示了,如何在页面切换时,自动修改页面标题的操作.</p>
 <p>而后引入你根据路由模块划分的各个 js 文件,然后在实例化路由的时候,在 routes 数组中,将导入的各个文件通过结构赋值的方法取出来.最终的结果和正常的写法是一样的.</p>
 <p>然后看下我们导入的 vote.js 吧：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/**
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
  * 投票模块的router列表
  */</span>
 
@@ -1179,7 +1179,7 @@ router<span class="token punctuation">.</span><span class="token function">befor
 <p>还有这里的 meta 元字段中,定义了一个 title 信息,用来存储当前页面的页面标题,即 document.title.</p>
 <h2 id="mixins-混入简化常见操作"><a href="#mixins-混入简化常见操作" class="headerlink" title="mixins 混入简化常见操作"></a>mixins 混入简化常见操作</h2><p>我们在开发中经常会遇到金钱保留两位小数,时间戳转换等操作.每次我们会写成一个公共函数,然后在页面里面的 filters 进行过滤.这种方法每次,但是感觉每次需要用到,都要写一遍在 filters,也是比较烦呢！！！但是,我们猿类的极致追究就是懒呀,那这怎么能行~</p>
 <p>兄弟们,抄家伙！上 mixins！！！</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> u_fixed <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./tool'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> u_fixed <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./tool'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> mixins <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   filters<span class="token operator">:</span> <span class="token punctuation">&#123;</span>

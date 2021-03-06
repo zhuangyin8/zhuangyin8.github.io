@@ -484,7 +484,7 @@
 <blockquote>
 <p>Node.js 中任何对象发出的事件都是 <code>EventEmitter</code> 类的实例,就像 <code>http</code> 模块.<br>所有 <code>EventEmitter</code> 类都可以使用 <code>eventEmitter.on()</code> 函数将事件侦听器附加到事件.然后一旦捕捉到这样的事件,就会同步地逐个调用它的侦听器.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> events <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'events'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> events <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'events'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> eventEmitter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">events<span class="token punctuation">.</span>EventEmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">eventListener</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -515,7 +515,7 @@ eventEmitter<span class="token punctuation">.</span><span class="token function"
 <blockquote>
 <p>每个流也是一个 EventEmitter.这意味着流对象可以在流上没有数据、流上有可用数据或流中的数据在程序刷新时发出事件.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> readableStream <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">createReadStream</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
 
@@ -539,7 +539,7 @@ readableStream<span class="token punctuation">.</span><span class="token functio
 <blockquote>
 <p>与 readFile 相比,createReadStream 使用更少的内存和更快的速度来优化文件读取操作.如果文件相当大,用户不必等待很长时间直到读取整个内容,因为读取时会先向用户发送小块内容.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -549,7 +549,7 @@ fs<span class="token punctuation">.</span><span class="token function">readFile<
 <blockquote>
 <p>我们可以在进程级别捕获应用程序中未捕获的异常.为此将侦听器附加到 <code>process</code> 全局对象：</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'uncaughtException'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'uncaughtException'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'exception caught: '</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -624,7 +624,7 @@ fs<span class="token punctuation">.</span><span class="token function">readFile<
 <p>因此,回调 <code>process.nextTick</code> 总是在 <code>setImmediate</code> 之前调用.</p>
 </blockquote>
 <p>If we consider the following code snippet:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">setImmediate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'first'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -650,7 +650,7 @@ first<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <blockquote>
 <p>通过在 Express 中分离应用程序和服务器,可以将 API 实现与网络相关配置分开.在不执行网络调用的情况下执行 API 测试,保证了更快的测试执行和更好的代码覆盖度量.<br>要实现这种分离,应该在单独的文件中声明 API 和 server,对应 <code>app.js</code> 和 <code>server.js</code>：</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//app.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//app.js</span>
 <span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -815,13 +815,13 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/1566/">
+                <a href="/%E5%8A%B3%E5%8A%A8%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="14年过去了,《大明王朝1566》依旧是中国最好的历史剧">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="互联网行业劳动者接连猝死“工作致死”困局待破解">
                         
-                        <span class="card-title">14年过去了,《大明王朝1566》依旧是中国最好的历史剧</span>
+                        <span class="card-title">互联网行业劳动者接连猝死“工作致死”困局待破解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -832,7 +832,7 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-15
                             </span>
                         <span class="publish-author">
                             
@@ -849,12 +849,8 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B5%B7%E7%91%9E/">
-                        <span class="chip bg-color">海瑞</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%98%89%E9%9D%96/">
-                        <span class="chip bg-color">嘉靖</span>
+                    <a href="/tags/%E5%8A%B3%E5%8A%A8%E6%B3%95/">
+                        <span class="chip bg-color">劳动法</span>
                     </a>
                     
                 </div>

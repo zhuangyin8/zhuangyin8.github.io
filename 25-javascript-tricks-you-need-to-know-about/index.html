@@ -458,7 +458,7 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/beforesemicolon/javascript-solutions/blob/main/type%20check">Javascript Type checker Code on Github</a></p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> isOfType <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> isOfType <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// create a plain object with no prototype</span>
   <span class="token keyword">const</span> type <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -501,7 +501,7 @@
 <p>有时你需要知道某些内容是否为空,并根据结果决定要使用的方法,例如检查长度、大小或是否包含任何子元素.下面这个工具打包了这些功能,你可以用它检查 String、Object、Array、Map 和 Set 的大小.</p>
 </blockquote>
 <p><img src="/images/1_6IpRGsphWNug0Kb3_ZZ3DA.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">||</span> x <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> x<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -523,7 +523,7 @@
 </blockquote>
 <p><img src="/images/1_5rnB_eRdfJ_fnEhvACKuZA.png"></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/beforesemicolon/javascript-solutions/blob/main/last%20item%20getter">Last Item Getter Code on Github</a></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">lastItem</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">lastItem</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> list<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -542,7 +542,7 @@
 <p>有时你需要生成随机数,但希望这些数字在一定范围内,那就可以用这个工具.</p>
 </blockquote>
 <p><img src="/images/1_-GwiytYdCykqOfRr2I-u_g.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token parameter">max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> min <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token parameter">max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> min <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>min <span class="token operator">>=</span> max<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> max<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -555,7 +555,7 @@
 <p>有时你只是需要一些 ID？除非你要的是更复杂的 ID 生成器（例如 UUID）,否则用不着为此安装什么新库,下面这个选项足够了.你可以从当前时间（以毫秒为单位）或特定的整数和增量开始生成,也可以从字母生成 ID.</p>
 </blockquote>
 <p><img src="/images/1_apRh2O2Nvqa-8JIzJjmcBA.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// create unique id starting from current time in milliseconds</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// create unique id starting from current time in milliseconds</span>
 <span class="token comment">// incrementing it by 1 everytime requested</span>
 <span class="token keyword">const</span> uniqueId <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -594,7 +594,7 @@
 <p>Python 里我很喜欢的一个功能是 range 函数,而在 JavaScript 里我经常需要自己写这个功能.下面是一个简单的实现,非常适合 for…of 循环以及需要特定范围内数字的情况.</p>
 </blockquote>
 <p><img src="/images/1_aoFa9BnaFNDKNB5QoiUddA.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token parameter">maxOrStart<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> step <span class="token operator">=</span> <span class="token keyword">null</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">range</span><span class="token punctuation">(</span><span class="token parameter">maxOrStart<span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> step <span class="token operator">=</span> <span class="token keyword">null</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>end<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> length<span class="token operator">:</span> maxOrStart <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">_<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=></span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -621,7 +621,7 @@
 <p>我在使用 NodeJs 将对象记录到控制台时经常使用这种方法.JSON.stringify 方法需要第三个参数,该参数必须有多个空格以缩进行.第二个参数可以为 null,但你可以用它来处理 function、Set、Map、Symbol 之类 JSON.stringify 方法无法处理或完全忽略的内容.</p>
 </blockquote>
 <p><img src="/images/1_2gYWlB5Rt8vH2V2aCRzH9g.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> stringify <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> stringify <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token function-variable function">replacer</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">key<span class="token punctuation">,</span> val</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> val <span class="token operator">===</span> <span class="token string">'symbol'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> val<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -650,7 +650,7 @@
 <p>如果你有一堆异步或普通函数都返回 promise,要求你一个接一个地执行,这个工具就会很有用.它会获取函数或 promise 列表,并使用数组 reduce 方法按顺序解析它们.</p>
 </blockquote>
 <p><img src="/images/1_YgGpHQsOL2xboQ_6tTdKMA.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> asyncSequentializer <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> asyncSequentializer <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token function-variable function">toPromise</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token keyword">instanceof</span> <span class="token class-name">Promise</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// if promise just return it</span>
@@ -688,7 +688,7 @@
 <p>如果你需要持续检查数据更新,但系统中没有 WebSocket,则可以使用这个工具来执行操作.它非常适合上传文件时,想要持续检查文件是否已完成处理的情况,或者使用第三方 API（例如 dropbox 或 uber）并且想要持续检查过程是否完成或骑手是否到达目的地的情况.</p>
 </blockquote>
 <p><img src="/images/1_j27qnZXgfrkq-OEvoXYUJA.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> validate<span class="token punctuation">,</span> interval <span class="token operator">=</span> <span class="token number">2500</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">poll</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> validate<span class="token punctuation">,</span> interval <span class="token operator">=</span> <span class="token number">2500</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token function-variable function">resolver</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
       <span class="token comment">// catch any error thrown by the "fn" function</span>
@@ -769,7 +769,7 @@
 <p>有时,你需要循环任何可迭代的内容（Set、Map、Object、Array、String 等）.这个非常简单的 forEach 函数工具就可以做到这一点.如果回调返回 true,它将退出循环.</p>
 </blockquote>
 <p><img src="/images/1_p8Pew5bGxMyEQL6Jbo_fLQ.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">list<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> entries <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> len <span class="token operator">=</span> entries<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
@@ -786,7 +786,7 @@
 <p>这是一种确保函数调用了完成工作所需内容的绝佳方法.你可以使用默认参数值的特性来调用函数,然后就会抛出一个错误.如果调用该函数时带上了它需要的值,则该值将替换该函数,并且什么也不会发生.使用 undefined 调用也有相同的效果.</p>
 </blockquote>
 <p><img src="/images/1_Xpzsc6sz3gL89BV92Pizvg.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">required</span><span class="token punctuation">(</span>argName <span class="token operator">=</span> <span class="token string">'param'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">required</span><span class="token punctuation">(</span>argName <span class="token operator">=</span> <span class="token string">'param'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>argName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">" is required</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -809,7 +809,7 @@
 <p>开发人员通常会安装一些类似 “lodash” 的库来执行这一操作,但使用纯 JavaScript 来实现确实也很容易.这是一个简单的递归函数：只要是一个对象,就使用函数的构造器将其重新初始化为一个克隆,然后对所有属性重复该过程.</p>
 </blockquote>
 <p><img src="/images/1_4JIgeWc1Lt_sc6nSTMuwmw.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">deepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">deepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> clone <span class="token operator">=</span> obj<span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> obj <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     clone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -827,7 +827,7 @@
 <p>如果你喜欢不变性,那么这个工具你一定要常备.</p>
 </blockquote>
 <p><img src="/images/1_E8KNhdCuc5LR35iT6r0eXw.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">deepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">deepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> clone <span class="token operator">=</span> obj<span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>obj <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> obj <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     clone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

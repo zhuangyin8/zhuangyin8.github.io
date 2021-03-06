@@ -449,13 +449,14 @@
 <li>声明变量</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> x<span class="token punctuation">;</span>
 <span class="token keyword">let</span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> x<span class="token punctuation">,</span>
   y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-Assigning-values-to-multiple-variables"><a href="#2-Assigning-values-to-multiple-variables" class="headerlink" title="2. Assigning values to multiple variables"></a>2. Assigning values to multiple variables</h2><blockquote>
 <ol start="2">
 <li>给多个变量赋值</li>
@@ -465,7 +466,7 @@
 <blockquote>
 <p>我们可以使用数组解构来在一行中给多个变量赋值.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span>
 a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
 b <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
@@ -473,6 +474,7 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="3-The-Ternary-operator"><a href="#3-The-Ternary-operator" class="headerlink" title="3. The Ternary operator"></a>3. The Ternary operator</h2><blockquote>
 <ol start="3">
 <li>三元运算符</li>
@@ -482,7 +484,7 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 <blockquote>
 <p>我们可以使用三元(条件)运算符在这里节省 5 行代码.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> marks <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> result<span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>marks <span class="token operator">>=</span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -493,6 +495,7 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> result <span class="token operator">=</span> marks <span class="token operator">>=</span> <span class="token number">30</span> <span class="token operator">?</span> <span class="token string">'Pass'</span> <span class="token operator">:</span> <span class="token string">'Fail'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="4-Assigning-default-value"><a href="#4-Assigning-default-value" class="headerlink" title="4. Assigning default value"></a>4. Assigning default value</h2><blockquote>
 <p>赋默认值</p>
 </blockquote>
@@ -500,7 +503,7 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 <blockquote>
 <p>我们可以使用 OR(||) 短路运算来给一个变量赋默认值,如果预期值不正确的情况下.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> imagePath<span class="token punctuation">;</span>
 <span class="token keyword">let</span> path <span class="token operator">=</span> <span class="token function">getImagePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>path <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> path <span class="token operator">!==</span> <span class="token keyword">undefined</span> <span class="token operator">&amp;&amp;</span> path <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -511,6 +514,7 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> imagePath <span class="token operator">=</span> <span class="token function">getImagePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">'default.jpg'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="5-AND-amp-amp-Short-circuit-evaluation"><a href="#5-AND-amp-amp-Short-circuit-evaluation" class="headerlink" title="5. AND(&amp;&amp;) Short circuit evaluation"></a>5. AND(&amp;&amp;) Short circuit evaluation</h2><blockquote>
 <ol start="5">
 <li>与 (&amp;&amp;) 短路运算</li>
@@ -520,28 +524,30 @@ c <span class="token operator">=</span> <span class="token number">12</span><spa
 <blockquote>
 <p>如果你只有当某个变量为 true 时调用一个函数,那么你可以使用与 (&amp;&amp;)短路形式书写.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>isLoggedin<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">goToHomepage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">//Shorthand</span>
 isLoggedin <span class="token operator">&amp;&amp;</span> <span class="token function">goToHomepage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The <code>AND(&amp;&amp;)</code> short circuit shorthand is more useful in <strong>React</strong> when you want to conditionally render a component. For example:</p>
 <blockquote>
 <p>当你在 React 中想要有条件地渲染某个组件时,这个与 (&amp;&amp;)短路写法比较有用.例如:</p>
 </blockquote>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>&#123; this.state.isLoading &amp;&amp; <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Loading</span> <span class="token punctuation">/></span></span> &#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="6-Swap-two-variables"><a href="#6-Swap-two-variables" class="headerlink" title="6. Swap two variables"></a>6. Swap two variables</h2><blockquote>
 <ol start="6">
-<li>交换两个变量</li>
+<li> 交换两个变量</li>
 </ol>
 </blockquote>
 <p>To swap two variables, we often use a third variable. We can swap two variables easily with array destructuring assignment.</p>
 <blockquote>
 <p>为了交换两个变量,我们通常使用第三个变量.我们可以使用数组解构赋值来交换两个变量.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token string">'Hello'</span><span class="token punctuation">,</span>
   y <span class="token operator">=</span> <span class="token number">55</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Longhand</span>
@@ -551,18 +557,20 @@ y <span class="token operator">=</span> temp<span class="token punctuation">;</s
 
 <span class="token comment">//Shorthand</span>
 <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>y<span class="token punctuation">,</span> x<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="7-Arrow-Function"><a href="#7-Arrow-Function" class="headerlink" title="7. Arrow Function"></a>7. Arrow Function</h2><blockquote>
 <ol start="7">
 <li>箭头函数</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token operator">=></span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>Reference</strong>: <a target="_blank" rel="noopener" href="https://jscurious.com/javascript-arrow-function/">JavaScript Arrow function</a></p>
 <h2 id="8-Template-Literals"><a href="#8-Template-Literals" class="headerlink" title="8. Template Literals"></a>8. Template Literals</h2><blockquote>
 <ol start="8">
@@ -573,11 +581,12 @@ y <span class="token operator">=</span> temp<span class="token punctuation">;</s
 <blockquote>
 <p>我们一般使用 <code>+</code> 运算符来连接字符串变量.使用 ES6 的模板字符串,我们可以用一种更简单的方法实现这一点.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'You got a missed call from '</span> <span class="token operator">+</span> number <span class="token operator">+</span> <span class="token string">' at '</span> <span class="token operator">+</span> time<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Shorthand</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">You got a missed call from </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>number<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> at </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>time<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="9-Multi-line-String"><a href="#9-Multi-line-String" class="headerlink" title="9. Multi-line String"></a>9. Multi-line String</h2><blockquote>
 <ol start="9">
 <li>多行字符串</li>
@@ -587,7 +596,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>对于多行字符串,我们一般使用 + 运算符以及一个新行转义字符(<code>\n</code>).我们可以使用 (`) 以一种更简单的方式实现.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
   <span class="token string">'JavaScript, often abbreviated as JS, is a\n'</span> <span class="token operator">+</span>
     <span class="token string">'programming language that conforms to the \n'</span> <span class="token operator">+</span>
@@ -600,6 +609,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 programming language that conforms to the
 ECMAScript specification. JavaScript is high-level,
 often just-in-time compiled, and multi-paradigm.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="10-Multiple-condition-checking"><a href="#10-Multiple-condition-checking" class="headerlink" title="10. Multiple condition checking"></a>10. Multiple condition checking</h2><blockquote>
 <ol start="10">
 <li>多条件检查</li>
@@ -609,7 +619,7 @@ often just-in-time compiled, and multi-paradigm.</span><span class="token templa
 <blockquote>
 <p>对于多个值匹配,我们可以将所有的值放到数组中,然后使用 indexOf()或 includes()方法.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">||</span> value <span class="token operator">===</span> <span class="token string">'one'</span> <span class="token operator">||</span> value <span class="token operator">===</span> <span class="token number">2</span> <span class="token operator">||</span> value <span class="token operator">===</span> <span class="token string">'two'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// Execute some code</span>
 <span class="token punctuation">&#125;</span>
@@ -623,6 +633,7 @@ often just-in-time compiled, and multi-paradigm.</span><span class="token templa
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'one'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'two'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// Execute some code</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="11-Object-Property-Assignment"><a href="#11-Object-Property-Assignment" class="headerlink" title="11. Object Property Assignment"></a>11. Object Property Assignment</h2><blockquote>
 <ol start="11">
 <li>对象属性复制</li>
@@ -632,12 +643,13 @@ often just-in-time compiled, and multi-paradigm.</span><span class="token templa
 <blockquote>
 <p>如果变量名和对象的属性名相同,那么我们只需要在对象语句中声明变量名,而不是同时声明键和值.JavaScript 会自动将键作为变量的名,将值作为变量的值.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> firstname <span class="token operator">=</span> <span class="token string">'Amitav'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> firstname <span class="token operator">=</span> <span class="token string">'Amitav'</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> lastname <span class="token operator">=</span> <span class="token string">'Mishra'</span><span class="token punctuation">;</span> <span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> firstname<span class="token operator">:</span> firstname<span class="token punctuation">,</span> lastname<span class="token operator">:</span> lastname <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> firstname<span class="token punctuation">,</span> lastname <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="12-String-into-a-Number"><a href="#12-String-into-a-Number" class="headerlink" title="12. String into a Number"></a>12. String into a Number</h2><blockquote>
 <ol start="12">
 <li>字符串转成数字</li>
@@ -647,13 +659,14 @@ often just-in-time compiled, and multi-paradigm.</span><span class="token templa
 <blockquote>
 <p>有一些内置的方法,例如 <code>parseInt</code> 和 <code>parseFloat</code> 可以用来将字符串转为数字.我们还可以简单地在字符串前提供一个一元运算符 (+) 来实现这一点.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> total <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">'453'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> average <span class="token operator">=</span> <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">'42.6'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> total <span class="token operator">=</span> <span class="token operator">+</span><span class="token string">'453'</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> average <span class="token operator">=</span> <span class="token operator">+</span><span class="token string">'42.6'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="13-Repeat-a-string-for-multiple-times"><a href="#13-Repeat-a-string-for-multiple-times" class="headerlink" title="13. Repeat a string for multiple times"></a>13. Repeat a string for multiple times</h2><blockquote>
 <ol start="13">
 <li>重复一个字符串多次</li>
@@ -663,7 +676,7 @@ often just-in-time compiled, and multi-paradigm.</span><span class="token templa
 <blockquote>
 <p>为了重复一个字符串 N 次,你可以使用 for 循环.但是使用 repeat()方法,我们可以一行代码就搞定.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   str <span class="token operator">+=</span> <span class="token string">'Hello '</span><span class="token punctuation">;</span>
@@ -672,10 +685,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token comment">// Shorthand</span>
 <span class="token string">'Hello '</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><strong>Tip</strong>: Want to apologize to someone by sending 100 times “sorry”? Try it with <code>repeat()</code> method. If you want to repeat each string in a new line, then add <code>\n</code> to the string.<br>提示: 想要给某人发 100 遍”sorry”来道歉吗？用 repeat() 方法试试吧.如果你想要每次在新的一行重复字符串,可以在字符串后面加一个 <code>\n</code> .</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token string">'sorry\n'</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token string">'sorry\n'</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h2 id="14-Exponent-Power"><a href="#14-Exponent-Power" class="headerlink" title="14. Exponent Power"></a>14. Exponent Power</h2><blockquote>
 <ol start="14">
 <li>指数幂</li>
@@ -685,10 +700,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我们可以使用 <code>Math.pow()</code> 方法来得到一个数字的幂.有一种更短的语法来实现,即双星号 (<code>**</code>).</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">const</span> power <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 64</span>
 <span class="token comment">// Shorthand</span>
 <span class="token keyword">const</span> power <span class="token operator">=</span> <span class="token number">4</span> <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">// 64</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="15-Double-NOT-bitwise-operator"><a href="#15-Double-NOT-bitwise-operator" class="headerlink" title="15. Double NOT bitwise operator (~~)"></a>15. Double NOT bitwise operator (~~)</h2><blockquote>
 <ol start="15">
 <li>双非位运算符 (~~)</li>
@@ -698,10 +714,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>双非位运算符是 <code>Math.floor()</code> 方法的缩写.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Longhand</span>
 <span class="token keyword">const</span> floor <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token number">6.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
 <span class="token comment">// Shorthand</span>
 <span class="token keyword">const</span> floor <span class="token operator">=</span> <span class="token operator">~</span><span class="token operator">~</span><span class="token number">6.8</span><span class="token punctuation">;</span> <span class="token comment">// 6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><strong>Improvement from comment by</strong> <a target="_blank" rel="noopener" href="https://medium.com/u/b6496fbb22a5?source=post_page-----f1671aab405f--------------------------------"><strong>Caleb</strong></a>: The double NOT bitwise operator approach only works for 32 bit integers i.e <code>(2**31)-1 = 2147483647</code>. So for any number higher than 2147483647, bitwise operator (~~) will give wrong results, so recommended to use <code>Math.floor()</code> in such case.</p>
 </blockquote>
@@ -721,10 +738,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>但是使用扩展符号,我们一行就可以实现.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Shorthand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Shorthand</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 15</span>
 Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="17-For-loop"><a href="#17-For-loop" class="headerlink" title="17. For loop"></a>17. For loop</h2><blockquote>
 <ol start="17">
 <li>For 循环</li>
@@ -734,7 +752,7 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <blockquote>
 <p>为了遍历一个数组,我们一般使用传统的 <code>for</code> 循环.我们可以使用 <code>for...of</code> 来遍历数组.为了获取每个值的索引,我们可以使用 <code>for...in</code> 循环.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//Longhand</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//Longhand</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -750,14 +768,16 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> index <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">index: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>index<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> and value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>arr<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>We can also loop through object properties using <code>for...in</code> loop.</p>
 <blockquote>
 <p>我们还可以使用 <code>for...in</code> 循环来遍历对象属性.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>Reference</strong>: <a target="_blank" rel="noopener" href="https://jscurious.com/different-ways-to-iterate-through-objects-and-arrays-in-javascript/">Different ways to iterate through objects and arrays in JavaScript</a></p>
 <blockquote>
 <p>参考:JavaScript 中遍历对象和数组的不同方法</p>
@@ -767,7 +787,7 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <li>合并数组</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Longhand</span>
 <span class="token keyword">let</span> arr2 <span class="token operator">=</span> arr1<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -776,6 +796,7 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <span class="token comment">//Shorthand</span>
 <span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arr1<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// [20, 30, 60, 80]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="19-Deep-cloning-of-multi-level-object"><a href="#19-Deep-cloning-of-multi-level-object" class="headerlink" title="19. Deep cloning of multi-level object"></a>19. Deep cloning of multi-level object</h2><blockquote>
 <ol start="19">
 <li>深拷贝多级对象</li>
@@ -793,7 +814,7 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <blockquote>
 <p>如果有一个单级对象,例如没有嵌套的对象,那么我们也可以使用扩展符来实现深拷贝.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>x<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token punctuation">&#123;</span>z<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>x<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token punctuation">&#123;</span>z<span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Longhand</span>
 <span class="token keyword">const</span> <span class="token function-variable function">makeDeepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -814,6 +835,7 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <span class="token comment">//Shorthand for single level object</span>
 <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>x<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> cloneObj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token operator">...</span>obj<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p><strong>Improvement from comment:</strong> The shorthand technique (<code>JSON.parse(JSON.stringify(obj))</code>) doesn’t work if your object property contains <code>function</code>, <code>undefined</code> or <code>NaN</code> as value. Because when you JSON.stringify the object, the property containing <code>function</code>,<code>undefined</code> or <code>NaN</code> as value gets removed from the object.</p>
 </blockquote>
@@ -832,13 +854,14 @@ Math<span class="token punctuation">.</span><span class="token function">min</sp
 <li>获取字符串中的字符</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'jscurious.com'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token string">'jscurious.com'</span><span class="token punctuation">;</span>
 
 <span class="token comment">//Longhand</span>
 str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// c</span>
 
 <span class="token comment">//Shorthand</span>
 str<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// c</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Some of these shorthand techniques may not seems relevant to use in project but it’s not bad to know some extra techniques. Happy coding!</p>
 <blockquote>
 <p>其中一些速记技术似乎与项目中使用无关,但知道一些额外的技术也不错.祝您编码愉快！</p>

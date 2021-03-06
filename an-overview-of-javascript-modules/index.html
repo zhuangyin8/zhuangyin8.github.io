@@ -458,7 +458,7 @@
 <blockquote>
 <p>最简单的模块是 IIFE, 代表立即调用函数表达式. 这是什么意思？好吧, 当您查看代码时, 我觉得它更有意义:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -473,7 +473,7 @@ globalThis<span class="token punctuation">.</span>myModule<span class="token pun
 <blockquote>
 <p>基本上, 我们将整个内容包装在一个函数中, 这样作用域就可以防止私有实现泄漏出去. 然后, 我们可以将事物附加到命名空间下的全局范围中, 以避免冲突. 我正在使用规范的和现代的 <code>globalThis</code>, 但是 <code>window</code> 可能更常见, 但是该名称不适用于 worker 或 node. IIFE 是指定义一个函数并使其内联执行. 在上面的代码中, 这是通过将其包装在括号中然后调用它来完成的, 但是您可能会以其他形式看到它, 例如:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">~</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">~</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   window<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -491,7 +491,7 @@ window<span class="token punctuation">.</span>myModule<span class="token punctua
 <blockquote>
 <p>此模式也可以具有伪导入:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ((myDep) => &#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ((myDep) => &#123;</span>
 <span class="token comment">//   function foo() &#123;</span>
 <span class="token comment">//     console.log(myDep.message);</span>
 <span class="token comment">//   &#125;</span>
@@ -515,7 +515,7 @@ globalThis<span class="token punctuation">.</span>myModule<span class="token pun
 <blockquote>
 <p>通过将事物传递到自我执行调用的参数列表中, 我们将它们公开给模块内部. 这并不能给我们带来很多好处, 但是我们可以做一些事情, 例如给它们起别名, 为它们提供默认值或本地克隆数据以保护其免受外部突变的影响.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ((myDep, otherDep) => &#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ((myDep, otherDep) => &#123;</span>
 <span class="token comment">//   function foo() &#123;</span>
 <span class="token comment">//     console.log(myDep.message + otherDep.message);</span>
 <span class="token comment">//   &#125;</span>
@@ -543,7 +543,7 @@ globalThis<span class="token punctuation">.</span>myModule<span class="token pun
 <blockquote>
 <p>虽然我没有看到很多东西, 因为 IIFE 技术早于 ES6, 但是使用括号创建块作用域并使用 <code>let</code> 或 <code>const</code> 也可以得到很多好处:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -554,7 +554,7 @@ globalThis<span class="token punctuation">.</span>myModule<span class="token pun
 <blockquote>
 <p>这确实进行了所有相同的封装, 但是没有明确的导入, 您只需从全局范围中获取它们即可. 这仅适用于块作用域变量声明:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//Don't do this</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//Don't do this</span>
 <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   globalThis<span class="token punctuation">.</span>myModule <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -589,7 +589,7 @@ globalThis<span class="token punctuation">.</span>myModule<span class="token pun
 <blockquote>
 <p>如何使用 CommonJS？ CommonJS 将每个模块包装在一个名为 “require” 的函数中, 并包含一个名为 “module.exports” 的对象, 该对象导出其他模块所需的可用性代码. 您要做的就是将您希望其他文件访问的所有内容添加到 “导出” 对象中, 并在相关文件中需要该模块. require 函数的语法是 “var VariableName = require(‘moduleId_or_pathToModule’);”.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// In circle.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// In circle.js</span>
 <span class="token keyword">const</span> <span class="token constant">PI</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span>
 exports<span class="token punctuation">.</span><span class="token function-variable function">area</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token constant">PI</span> <span class="token operator">*</span> r <span class="token operator">*</span> r<span class="token punctuation">;</span>
 exports<span class="token punctuation">.</span><span class="token function-variable function">circumference</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">r</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token constant">PI</span> <span class="token operator">*</span> r<span class="token punctuation">;</span>
@@ -612,7 +612,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>CommonJS(或 CJS)模块来自 nodeJS. 在 node 中, 没有 HTML 文档来构造脚本加载, 除非您需要一个巨型文件, 否则您需要一种将代码拆分的方法.<br>这导致创建 CJS 模块. CJS 定义了两件事: 命名为全局模块(module.exports)的全局每个文件导出对象和 <code>require</code> 函数.<br>函数和数据已分配给导出对象, 并且从另一个模块导入时, 这些函数和数据将从 <code>require</code> 函数返回. 看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//myModule.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//myModule.js</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -630,11 +630,20 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <h2 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h2><blockquote>
 <p>AMD 也是一种 JavaScript 模块化规范,与 CommonJS 最大的不同在于它采用异步的方式去加载依赖的模块. AMD 规范主要是为了解决针对浏览器环境的模块化问题,最具代表性的实现是 requirejs.</p>
 </blockquote>
+<blockquote>
+<p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。其中 RequireJS 是最佳实践者。</p>
+</blockquote>
+<blockquote>
+<p>CMD(Common Module Definition - 通用模块定义)规范主要是Sea.js推广中形成的，一个文件就是一个模块，可以像Node.js一般书写模块代码。主要在浏览器中运行，当然也可以在Node.js中运行。</p>
+</blockquote>
+<blockquote>
+<p>它与AMD很类似，不同点在于：AMD 推崇依赖前置、提前执行，CMD推崇依赖就近、延迟执行。</p>
+</blockquote>
 <p>AMD or (Asynchronous Module Definition) had life for a short while as a way to make bundles more front-end friendly however it is not widely used anymore.<br>They do not require a bundler and dependencies can be resolved by dynamically fetching them.<br>Pretty much the de-facto way to use these was through <a target="_blank" rel="noopener" href="https://requirejs.org/">requireJS</a>.<br>Unlike CJS, dependencies are declared first and the module code is executed inside a function closure. It looks like this:</p>
 <blockquote>
 <p>AMD 或(异步模块定义)作为使捆绑软件更前端友好的一种方式, 使用寿命很短, 但是现在不再广泛使用.<br>它们不需要捆绑程序, 并且可以通过动态获取它们来解决依赖关系.<br>实际上, 使用这些的实际方法是通过 requireJS.<br>与 CJS 不同, 先声明依赖项, 然后在函数闭包内部执行模块代码. 看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -651,7 +660,7 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <blockquote>
 <p>AMD 还提供了包装 CJS 的方法:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"myModule"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">foo</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -674,7 +683,7 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <blockquote>
 <p>假设我要采用以下代码并以 UMD 格式通过 rollup 运行它:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//my-module.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//my-module.js</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -685,7 +694,7 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <span class="token keyword">export</span> <span class="token keyword">const</span> main <span class="token operator">=</span> <span class="token string">'MAIN'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>The export on main is mostly to demonstrate(演示) exports. Rollup gives us this:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">global<span class="token punctuation">,</span> factory</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">global<span class="token punctuation">,</span> factory</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">typeof</span> exports <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> module <span class="token operator">!==</span> <span class="token string">'undefined'</span>
     <span class="token operator">?</span> <span class="token function">factory</span><span class="token punctuation">(</span>exports<span class="token punctuation">)</span>
     <span class="token operator">:</span> <span class="token keyword">typeof</span> define <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span> define<span class="token punctuation">.</span>amd
@@ -729,7 +738,7 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <blockquote>
 <p>最后一点是, 它为导出分配了一个属性 <code>exports</code> <code>__esModule = true</code> .<br>对于其他图书馆来说, 这只是一点记账, 所以他们知道它的来历.<br>如果代码是用 CJS 编写的, 那么您将一无所获.<br>如果它是 CJS 和 ESM 的一部分, 则将在 “导入” myModule 的情况下得到一些有趣的结果:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> myModule <span class="token operator">=</span> <span class="token comment">/*#__PURE__*/</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> myModule <span class="token operator">=</span> <span class="token comment">/*#__PURE__*/</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   __proto__<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
   foo<span class="token operator">:</span> foo<span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -775,35 +784,35 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <blockquote>
 <p>这样的功能之一就是默认导出. 在 CJS 中, 我们可以定义类似</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>and import them like</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>To be compatible in ESM you can do<br>为了兼容, 在 ESM 您可以</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"FOO"</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">=</span> <span class="token string">"FOO"</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>and import like</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'./foo.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'./foo.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>This didn’t turn out as expected as there’s quite a few places where this breaks down.<br>My advice is to avoid using these, especially when working in a mixed-module context, use named exports instead.</p>
 <blockquote>
 <p>结果出乎意料, 因为有很多地方会发生这种情况.<br>我的建议是避免使用它们, 尤其是在混合模块环境中使用时, 请使用命名的 exports.</p>
 </blockquote>
 <p>Another is the <code>*</code> (star) import. In CJS we can do</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token operator">:</span> <span class="token string">'FOO'</span><span class="token punctuation">,</span> bar<span class="token operator">:</span> <span class="token string">'BAR'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span> foo<span class="token operator">:</span> <span class="token string">'FOO'</span><span class="token punctuation">,</span> bar<span class="token operator">:</span> <span class="token string">'BAR'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>and then import like</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> mod <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mod'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> mod <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mod'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>So in ESM it was decided you can take a module like this</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> bar <span class="token operator">=</span> <span class="token string">'BAR'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>and import like this</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> mod <span class="token keyword">from</span> <span class="token string">'./mod.js'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> mod <span class="token keyword">from</span> <span class="token string">'./mod.js'</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mod<span class="token punctuation">.</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>Again, it’s not quite the same especially as ESM namespaces are immutable. It has it’s uses when you want to namespace imported functions.</p>
@@ -814,7 +823,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>顺便说一下, 我们也可以定义最后一个模块, 例如:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//mod.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//mod.js</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> bar <span class="token operator">=</span> <span class="token string">'BAR'</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo<span class="token punctuation">,</span> bar <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -823,14 +832,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>这是一个导出列表. 有时, 将注意力集中到您要导出的内容上很有帮助. 您可以重命名导出:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'FOO'</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>You can rename imports too:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> foo <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>You can also re-export parts of of modules:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token punctuation">&#123;</span> foo <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span>
 <span class="token comment">//with a rename</span>
 <span class="token keyword">export</span> <span class="token punctuation">&#123;</span> bar <span class="token keyword">as</span> baz <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mod.js'</span><span class="token punctuation">;</span>
 <span class="token comment">//or all of the module</span>
@@ -840,7 +849,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>有时, 模块只是做事, 而无需在您自己的文件中声明自定义元素时给您任何返回. 您可以这样导入:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'./my-element.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token string">'./my-element.js'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>There’s also a replacement for dynamic requires. If you need to load code dynamically you can use <code>import(&quot;./foo.js&quot;)</code> which is natively asynchronous.<br>You can treat this sort of like an async function that will return the module namespace, same as if you did <code>import *</code>. Technically it’s actually a keyword and not a function though so you can’t do things like <code>import.call</code> or hold references to it. This <code>import</code> also has a “property” called <code>meta</code> that you can access that gives you the url <code>import.meta.url</code>. This can be handy to rebuild some of node’s built-in module functionality like <code>__dirname</code>.</p>
 <blockquote>
@@ -858,7 +867,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>现在, 许多流程都使用 Typescript(TS). TS 本身没有任何模块格式, 但是可以与模块进行交互并提供自己的语法.<br>TS 中的大部分内容都是 ESM, 但是您可以导入 JS 中通常不存在的内容.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//ifoo.ts</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//ifoo.ts</span>
 <span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">IFoo</span> <span class="token punctuation">&#123;</span>
   foo<span class="token operator">:</span> string<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -877,7 +886,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>TS 还处理 CJS. 上面我提到默认导出和 CJS 默认导出是不同的. TS 有解决此问题的方法. 如果您使用 TS 编写 CJS 并希望将 CJS 设置为默认值, 则可以这样做:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.ts</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//foo.ts</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">"Foo"</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token operator">=</span> foo<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -885,19 +894,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>该导出不是对象, 这是分配给 <code>module.exports</code> 的特定 TS 语法, 以便它可以理解这些是导出, 而不仅仅是分配给名为 <code>module.exports</code> 的全局对象. 同样,<code>require</code> 是一个全局函数, 但是除了 CJS 之外, 没有说用户没有创建自己的全局 <code>require</code> 函数, TS 需要知道您要执行的操作是导入 CJS 模块. 您这样做如下:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./foo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> foo <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"./foo"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>Since imports statements ordinarily can’t have functions TS can use this is tell that, actually, we want a CJS import.</p>
 <p>TS can also let us type modules. While this is typically done via type annotations in the source itself, you can augment modules in a <code>d.ts</code> file or inline where you use them.</p>
 <p>If I have:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.js</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//foo.js</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">i</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello'</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Let’s say that i was supposed to be a number. You can write a <code>d.ts</code> file:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//foo.d.ts</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//foo.d.ts</span>
 declare module <span class="token string">"foo.js"</span> <span class="token punctuation">&#123;</span>
    <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">i<span class="token operator">:</span> number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -908,7 +917,7 @@ declare module <span class="token string">"foo.js"</span> <span class="token pun
 <p>这更像是一个脚注, 因为 SystemJS 从未非常流行, 但是您可能很少看到这一点. SystemJS 在很大程度上是允许开发人员为不支持它的浏览器编写 ESM. 我不确定是否有编写期望, 或者是否像 UMD 一样是输出规范.</p>
 </blockquote>
 <p>System requires the system module loader similar to how AMD needs the require module loader. The output looks like this:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">System<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">exports<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">System<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'main'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">exports<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token string">'use strict'</span><span class="token punctuation">;</span>
   <span class="token comment">//let dep</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
@@ -992,7 +1001,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>模块定义时对依赖的处理不同. AMD 推崇依赖前置, 在定义模块的时候就要声明其依赖的模块. 而 CMD 推崇就近依赖, 可在用到某个模块的时候再去 require.</li>
 <li>对依赖模块的执行时机处理不同. 首先 AMD 和 CMD 对于模块的加载方式都是异步加载, 不过它们的区别在于模块的执行时机, AMD 在依赖模块加载完成后就直接执行依赖模块, 依赖模块的执行顺序和我们书写的顺序不一定一致. 而 CMD 在依赖模块加载完成后并不执行, 只是下载而已, 等到所有的依赖模块都加载好后, 进入回调函数逻辑, 遇到 require 语句的时候才执行对应的模块, 这样模块的执行顺序就和我们书写的顺序保持一致了.</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// CMD</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// CMD</span>
 <span class="token function">define</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   a<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

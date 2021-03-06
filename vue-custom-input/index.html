@@ -455,7 +455,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>script 的内容：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
   name<span class="token operator">:</span> <span class="token string">'CustomInput'</span><span class="token punctuation">,</span>
   inheritAttrs<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -482,7 +482,7 @@
 <li>input 属性,由上层传下来的值,永远是 <code>discount</code> 形式</li>
 </ul>
 <p>根据 type 属性,在 getter/setter 中做数值转换.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
   name<span class="token operator">:</span> <span class="token string">'CustomInput'</span><span class="token punctuation">,</span>
   inheritAttrs<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
@@ -495,7 +495,7 @@
 
 <p>目前为止,我们的组件已经能实现功能,但是作为基础组件,还缺少了些东西.</p>
 <p>我们只把 <code>$attrs</code> 传给 el-input 组件,却没有把事件也传递过去,而且出于封装考虑,我们不应该把 input 事件绑定传递给 el-input .</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
   name<span class="token operator">:</span> <span class="token string">'CustomInput'</span><span class="token punctuation">,</span>
   inheritAttrs<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>

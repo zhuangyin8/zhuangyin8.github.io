@@ -453,17 +453,18 @@
 <blockquote>
 <p>在 JavaScript 中,我们至少有四种或五种循环方式.最基本的是 <code>while</code> 循环.但是首先,要进行一些设置.我们将创建一个示例函数和要使用的数组.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// oodlify :: String -> String</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// oodlify :: String -> String</span>
 <span class="token keyword">function</span> <span class="token function">oodlify</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[aeiou]/g</span><span class="token punctuation">,</span> <span class="token string">'oodle'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[aeiou]</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'oodle'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">const</span> input <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'John'</span><span class="token punctuation">,</span> <span class="token string">'Paul'</span><span class="token punctuation">,</span> <span class="token string">'George'</span><span class="token punctuation">,</span> <span class="token string">'Ringo'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>So, we have an array, and we’d like to <code>oodlify</code> each entry. With a while-loop, it looks something like this:</p>
 <blockquote>
 <p>因此,我们有一个数组,我们希望对每个条目进行 <code>oodlify</code> (扩容).在 <code>while</code> 循环中,它看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> len <span class="token operator">=</span> input<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> len<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -472,17 +473,19 @@
   output<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
   i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Note that to keep track of where we’re up to, we use a counter, <code>i</code>. We have to initialise this counter to zero, and increment it every time around the loop. We also have to keep comparing i to <code>len</code> so we know where to stop. This pattern is so common that JavaScript provides a simpler way of writing it: The for-loop. It looks something like this:</p>
 <blockquote>
 <p>请注意,为了跟踪我们要去哪里,我们使用计数器 <code>i</code>.我们必须将该计数器初始化为零,并在每次循环时将其递增.我们还必须不断将 <code>i</code> 与 <code>len</code> 进行比较,以便我们知道在哪里停下来.这种模式非常普遍,JavaScript 提供了一种更简单的编写方式:<code>for</code> 循环.看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> len <span class="token operator">=</span> input<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> len <span class="token operator">=</span> input<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> item <span class="token operator">=</span> input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
   output<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This is a helpful construct because it puts all that counter boilerplate together at the top. With the while-loop version it is very easy to forget to increment <code>i</code> and cause an infinite loop. A definite improvement. But, let’s step back a bit and look at what this code is trying to achieve. What we’re trying to do is to run <code>oodlify()</code> on each item in the array and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push" title="将一个或多个元素添加到数组的末尾">push</a> the result into a new array. We don’t really care about the counter.</p>
 <blockquote>
 <p>这是一个有用的构造,因为它会将所有计数器和模板放在顶部.使用 <code>while</code> 循环版本时,很容易忘记增加 <code>i</code> 并导致无限循环.绝对的改善.但是,让我们退后一步,看看这段代码试图实现的目标.我们正在尝试对数组中的每个项目运行 <code>oodlify()</code> 并将结果推入新数组中.我们真的不在乎计数器.</p>
@@ -491,11 +494,12 @@
 <blockquote>
 <p>这种对数组中的每个项目执行操作的模式非常普遍.因此,在 ES2015 中,我们现在有了一个新的循环结构,使我们无需考虑计数器:<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of"><code>for...of</code></a> 循环.每次循环时,它只会为您提供数组中的下一项.看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> input<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
   output<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This is much cleaner. Notice that the counter and the comparison are all gone. We don’t even have to pull the item out of the array. The <code>for...of</code> loop does all that heavy lifting for us. If we stopped here and used <code>for...of</code> loops everywhere instead of for-loops, we’d be doing well. We would have removed a decent amount of complexity. But… we can go further.</p>
 <blockquote>
 <p>这更简洁.请注意,计数器和比较都消失了.我们甚至不必将项目从数组中取出. <code>for...of</code> 循环为我们完成了所有繁重的工作.如果我们在这里停下来并在所有地方都使用 <code>for...of</code> 循环,而不是使用 <code>for</code> 循环,那我们会做的很好.我们将消除相当多的复杂性.但是…我们可以走得更远.</p>
@@ -505,7 +509,7 @@
 <blockquote>
 <p><code>for...of</code> 循环比 <code>for</code> 循环干净得多,但是那里仍然有很多设置代码.我们必须初始化数组 <code>output</code>,并在每次循环时都调用 <code>push()</code>.我们可以使代码更简洁,更具表现力,但要了解如何做,让我们稍微扩展一下问题. 如果我们要进行两个数组 <code>oodlify</code> 处理怎么办？</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> fellowship <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> fellowship <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token string">'frodo'</span><span class="token punctuation">,</span>
   <span class="token string">'sam'</span><span class="token punctuation">,</span>
   <span class="token string">'gandalf'</span><span class="token punctuation">,</span>
@@ -516,11 +520,12 @@
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> band <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'John'</span><span class="token punctuation">,</span> <span class="token string">'Paul'</span><span class="token punctuation">,</span> <span class="token string">'George'</span><span class="token punctuation">,</span> <span class="token string">'Ringo'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The obvious thing to do would be a loop for each:</p>
 <blockquote>
 <p>显而易见的事情是对每个数组进行循环:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> bandoodle <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> bandoodle <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> band<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
   bandoodle<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -531,11 +536,12 @@
   <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
   floodleship<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This works. And code that works is better than code that doesn’t. But, it’s repetitive—not very <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>. We can refactor it to reduce some of the repetition. So, we create a function:</p>
 <blockquote>
 <p>这可行.有效的代码比无效的代码要好.但是,它是重复的-不是很干.我们可以对其进行重构以减少某些重复.因此,我们创建一个函数:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> input<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -546,18 +552,20 @@
 
 <span class="token keyword">let</span> bandoodle <span class="token operator">=</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span>band<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> floodleship <span class="token operator">=</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span>fellowship<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This is starting to look much nicer, but what if we had another <em>function</em> we wanted to apply?</p>
 <blockquote>
 <p>这看起来更好了,但是如果我们有另一个想要应用的 <em>功能</em> 怎么办？</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">izzlify</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[aeiou]+/g</span><span class="token punctuation">,</span> <span class="token string">'izzle'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">izzlify</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[aeiou]+</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'izzle'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>Our <code>oodlifyArray()</code> function won’t help us now. But if we create an <code>izzlifyArray()</code> function we’re repeating ourselves again. Let’s do it anyway so we can see them side-by-side:</p>
 <blockquote>
 <p>我们的 <code>oodlifyArray()</code>函数现在对我们没有帮助.但是,如果我们创建 <code>izzlifyArray()</code>函数,我们将再次重复自己.不管怎样,我们可以并排看到它们:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">oodlifyArray</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> input<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">let</span> newItem <span class="token operator">=</span> <span class="token function">oodlify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -574,35 +582,39 @@
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> output<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Those two functions are scarily similar. What if we could abstract out the pattern here? What we want is: <em>Given an array and a function, map each item from the array into a new array. Do this by applying the function to each item.</em> We call this pattern <em>map.</em> A map function for arrays looks like this:</p>
 <blockquote>
 <p>这两个功能非常相似.如果我们可以在这里抽象出模式怎么办？我们想要的是:<em>给定一个数组和一个函数,将数组中的每个项目映射到一个新数组中.通过将功能应用于每个项目来执行此操作</em> .我们称这种模式为 <code>map</code>.数组的 <code>map</code> 函数如下所示:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> output <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> a<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     output<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> output<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Of course, that still doesn’t get rid of the loop entirely. If we want to do that we can write a recursive version:</p>
 <blockquote>
 <p>当然,这仍然不能完全摆脱循环.如果要这样做,我们可以编写一个递归版本:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>f<span class="token punctuation">,</span> a<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The recursive solution is quite elegant. Just two lines of code, and very little indentation. But generally, we don’t tend to use the recursive version because it has bad performance characteristics in older browsers. And in fact, we don’t have to write map ourselves at all (unless we want to). This <code>map</code> business is such a common pattern that JavaScript provides a built-in map method for us. Using this map method, our code now looks like this:</p>
 <blockquote>
 <p>递归解决方案非常优雅.只需两行代码,几乎没有缩进.但是通常,我们不倾向于使用递归版本,因为它在较旧的浏览器中具有不良的性能特征.实际上,我们根本不必自己编写 <code>map</code>(除非我们愿意).这种 <code>map</code> 业务非常常见,JavaScript 为我们提供了内置的 <code>map</code> 方法.使用此 <code>map</code> 方法,我们的代码现在如下所示:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> bandoodle <span class="token operator">=</span> band<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>oodlify<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> bandoodle <span class="token operator">=</span> band<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>oodlify<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> floodleship <span class="token operator">=</span> fellowship<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>oodlify<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> bandizzle <span class="token operator">=</span> band<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>izzlify<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> fellowshizzle <span class="token operator">=</span> fellowship<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>izzlify<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Note the lack of indenting. Note the lack of loops. Sure, there might be a loop going on <em>somewhere</em>, but that’s not our concern any more. This code is now both concise and expressive. It is also simple.</p>
 <blockquote>
 <p>请注意缺少缩进.请注意缺少循环.当然,某个地方可能会出现循环,但这不再是我们关注的问题.现在,这段代码既简洁又富有表现力.这也很简单.</p>
@@ -616,7 +628,7 @@
 <p>现在,<code>map</code> 非常方便,但是它并没有涵盖我们可能需要的每种循环.仅在您要创建长度与输入长度完全相同的数组时才有用.但是,如果我们想加一个数字数组怎么办？还是在列表中获取最短的字符串？有时我们想处理一个数组并将其减少为一个值.</p>
 </blockquote>
 <p>Let’s consider an example. Say we have an array of hero objects:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> heroes <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> heroes <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Hulk'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">90000</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Spider-Man'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">25000</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Hawk Eye'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">136</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -627,29 +639,32 @@
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Mystique'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">120</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Namora'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">75000</span> <span class="token punctuation">&#125;</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>We would like to find the strongest hero. With a <code>for...of</code> loop, it would look something like this:</p>
 <blockquote>
 <p>我们想获取最强的英雄.在 <code>for...of</code> 循环中,看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> strongest <span class="token operator">=</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> strongest <span class="token operator">=</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> hero <span class="token keyword">of</span> heroes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>hero<span class="token punctuation">.</span>strength <span class="token operator">></span> strongest<span class="token punctuation">.</span>strength<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     strongest <span class="token operator">=</span> hero<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>All things considered, this code isn’t too bad. We go around the loop, keeping track of the strongest hero so far in <code>strongest</code>. To see the pattern though, let’s imagine we also wanted to find the combined strength of all the heroes.</p>
 <blockquote>
 <p>综合考虑,该代码还不错.我们循环获取最强的英雄 <code>strongest</code> .为了了解模式,让我们想象一下,我们还想获取所有英雄的综合实力.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> combinedStrength <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> combinedStrength <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> hero <span class="token keyword">of</span> heroes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   combinedStrength <span class="token operator">+=</span> hero<span class="token punctuation">.</span>strength<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In both examples we have a working variable that we initialise before starting the loop. Then, each time around the loop we process a single item from the array and update the working variable. To make the loop pattern even clearer, we’ll factor out the inner part of the loops into functions. We’ll also rename the variables to further highlight similarities.</p>
 <blockquote>
 <p>在两个示例中,我们都有一个工作变量,我们在开始循环之前就对其进行了初始化.然后,每次循环时,我们都会处理数组中的单个项目并更新工作变量.为了使循环模式更加清晰,我们将循环的内部分解为函数.我们还将重命名变量以进一步突出相似之处.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">greaterStrength</span><span class="token punctuation">(</span><span class="token parameter">champion<span class="token punctuation">,</span> contender</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">greaterStrength</span><span class="token punctuation">(</span><span class="token parameter">champion<span class="token punctuation">,</span> contender</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> contender<span class="token punctuation">.</span>strength <span class="token operator">></span> champion<span class="token punctuation">.</span>strength <span class="token operator">?</span> contender <span class="token operator">:</span> champion<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -670,23 +685,26 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
   working <span class="token operator">=</span> <span class="token function">addStrength</span><span class="token punctuation">(</span>working<span class="token punctuation">,</span> hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">const</span> combinedStrength <span class="token operator">=</span> working<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Written this way, the two loops look very similar. The only thing that really changes between the two is the function called and the initial value. Both reduce the array down to a single value. So we’ll create a <code>reduce</code> function to encapsulate this pattern.</p>
 <blockquote>
 <p>这样写,两个循环看起来非常相似.两者之间唯一真正改变的是调用的函数和初始值.两者都将数组减小为单个值.因此,我们将创建一个 <code>reduce</code> 函数来封装此模式.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">reduce</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> initialVal<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">reduce</span><span class="token punctuation">(</span><span class="token parameter">f<span class="token punctuation">,</span> initialVal<span class="token punctuation">,</span> a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> working <span class="token operator">=</span> initialVal<span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> a<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     working <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span>working<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> working<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Now, as with <code>map</code>, the <code>reduce</code> pattern is so common that JavaScript provides it as a built-in method for arrays. So we don’t need to write our own if we don’t want to. Using the built-in method, our code becomes:</p>
 <blockquote>
 <p>现在,与 <code>map</code> 一样,<code>reduce</code> 模式是如此普遍,以至于 JavaScript 将其作为数组的内置方法提供.因此,如果我们不想的话,我们不需要自己编写.使用内置方法,我们的代码变为:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> strongestHero <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>greaterStrength<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> strongestHero <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>greaterStrength<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> combinedStrength <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span>addStrength<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>Now, if you’re paying close attention, you may have noticed that this code is not much shorter. Using the built-in array methods, we only save about one line. If we use our hand-written <code>reduce</code> function, then the code is longer. But, our aim is to reduce complexity, not write shorter code. So, have we reduced complexity? I would argue, yes. We have separated the code for looping from the code that processes individual items. The code is less intertwined. Less complex.</p>
 <blockquote>
 <p>现在,如果您一直在密切注意,您可能已经注意到这段代码并不短.使用内置的数组方法,我们只保存大约一行.如果我们使用手写的 <code>reduce</code> 函数,那么代码会更长.但是,我们的目标是降低复杂度,而不是编写较短的代码.那么,我们是否降低了复杂性？我会说,是的.我们已经将循环代码与处理单个项目的代码分开了.该代码较少交织在一起.不太复杂.</p>
@@ -699,7 +717,7 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <blockquote>
 <p>我们可以使用 <code>map</code> 对数组中的每个项目进行处理.而且我们用 <code>reduce</code> 将数组减少到单个值.但是,如果我们只想提取数组中的某些项目怎么办？为了进一步探索,我们将扩展英雄数据库以包括一些额外数据:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> heroes <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> heroes <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Hulk'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">90000</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'m'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Spider-Man'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">25000</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'m'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Hawk Eye'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">136</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'m'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -710,13 +728,14 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Mystique'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">120</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'f'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Namora'</span><span class="token punctuation">,</span> strength<span class="token operator">:</span> <span class="token number">75000</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'f'</span> <span class="token punctuation">&#125;</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Now, let’s say we have two problems. We want to:</p>
 <ol>
-<li>Find all the female heroes; and</li>
-<li>Find all the heroes with a strength greater than 500.</li>
+<li> Find all the female heroes; and</li>
+<li> Find all the heroes with a strength greater than 500.</li>
 </ol>
 <p>Using a plain-old <code>for...of</code> loop, we might write something like this:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> femaleHeroes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> femaleHeroes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> hero <span class="token keyword">of</span> heroes<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>hero<span class="token punctuation">.</span>sex <span class="token operator">===</span> <span class="token string">'f'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     femaleHeroes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -729,11 +748,12 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
     superhumans<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>All things considered, this code isn’t too bad. But we definitely have a repeated pattern. In fact, the only thing that really changes is our if-statement. So what if we factored just the if-statements into functions?</p>
 <blockquote>
 <p>综合考虑,该代码还不错.但是我们肯定有一个重复的模式.实际上,唯一真正改变的是我们的 <code>if</code> 语句.那么,如果我们仅将 <code>if</code> 语句纳入函数呢？</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">isFemaleHero</span><span class="token punctuation">(</span><span class="token parameter">hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isFemaleHero</span><span class="token punctuation">(</span><span class="token parameter">hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> hero<span class="token punctuation">.</span>sex <span class="token operator">===</span> <span class="token string">'f'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -754,6 +774,7 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
     superhumans<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>hero<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This type of function that only returns <code>true</code> or <code>false</code> is sometimes called a <em>predicate</em>. We use the predicate to decide whether or not to keep each item in <code>heroes</code>.</p>
 <blockquote>
 <p>这种仅返回 <code>true</code> 或 <code>false</code> 的函数有时称为谓词.我们使用谓词来决定是否将每个项目保留在英雄中.</p>
@@ -762,7 +783,7 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <blockquote>
 <p>我们在此处编写代码的方式使代码更长.但是,既然我们已经排除了谓词功能,那么重复变得更加清晰.我们可以将其提取为一个函数.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> working <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">predicate</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -774,12 +795,14 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 
 <span class="token keyword">const</span> femaleHeroes <span class="token operator">=</span> <span class="token function">filter</span><span class="token punctuation">(</span>isFemaleHero<span class="token punctuation">,</span> heroes<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> superhumans <span class="token operator">=</span> <span class="token function">filter</span><span class="token punctuation">(</span>isSuperhuman<span class="token punctuation">,</span> heroes<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>And, just like <code>map</code> and <code>reduce</code>, JavaScript provides this one for us as an Array method. So we don’t have to write our own version (unless we want to). Using array methods, our code becomes:</p>
 <blockquote>
 <p>而且,就像 <code>map</code> 和 <code>reduce</code> 一样,JavaScript 为我们提供了一种 Array 方法.因此,我们不必编写自己的版本(除非我们愿意).使用数组方法,我们的代码变为:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> femaleHeroes <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isFemaleHero<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> femaleHeroes <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isFemaleHero<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> superhumans <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isSuperhuman<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>Why is this any better than writing the <code>for...of</code> loop? Well, think about how we’d use this in practice. We have a problem of the form _Find all the heroes that… _. Once we notice we can solve this problem using <code>filter</code> then our job becomes easier. All we need to do is tell <code>filter</code> which items to keep. We do this by writing one very small function. We forget about arrays and working variables. Instead, we write a teeny, tiny predicate function. That’s it.</p>
 <blockquote>
 <p>为什么这比编写 <code>for...of</code> 循环更好？好吧,请考虑一下我们将如何在实践中使用它.我们的形式有问题查找所有……的英雄.一旦我们注意到我们可以使用 <code>filter</code> 过滤器解决此问题,那么我们的工作就会变得更加容易.我们需要做的就是告诉 <code>filter</code> 过滤器保留哪些项目.为此,我们编写了一个非常小的函数.我们忘记了数组和工作变量.相反,我们编写了一个很小的谓词函数.而已.</p>
@@ -792,16 +815,17 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <blockquote>
 <p>过滤非常方便.但是,如果我们只想找一位英雄怎么办？说我们要黑寡妇.我们可以使用 <code>filter</code> 过滤器获取她,如下所示:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">isBlackWidow</span><span class="token punctuation">(</span><span class="token parameter">hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">isBlackWidow</span><span class="token punctuation">(</span><span class="token parameter">hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> hero<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'Black Widow'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">const</span> blackWidow <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>isBlackWidow<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>The trouble with this is that it’s not very efficient. The <code>filter</code> method looks at every single item in the array. But we know that there’s only one Black Widow and we can stop looking after we’ve found her. But having this approach of using a predicate function is neat. So let’s write a <code>find</code> function that will return the first item that matches:</p>
 <blockquote>
 <p>这样做的问题是效率不是很高. <code>filter</code> 方法查看数组中的每个项目.但是我们知道只有一个黑寡妇,我们可以在获取她后停止寻找.但是拥有这种使用谓词函数的方法是很简单的.因此,让我们编写一个 <code>find</code> 函数,该函数将返回匹配的第一项:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">predicate</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> item<span class="token punctuation">;</span>
@@ -810,8 +834,10 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">const</span> blackWidow <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>isBlackWidow<span class="token punctuation">,</span> heroes<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>And again, JavaScript provides this one for us, so we don’t have to write it ourselves:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> blackWidow <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>isBlackWidow<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> blackWidow <span class="token operator">=</span> heroes<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>isBlackWidow<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>Once again, we end up expressing more information in less space. By using <code>find</code> our problem of finding a particular entry boils down to just one question: How do we know if we’ve found the thing we want? We don’t have to worry about the details of how the iteration is happening.</p>
 <blockquote>
 <p>再一次,我们最终在更少的空间中表达了更多的信息.通过使用 <code>find</code> 我们获取特定条目的问题可以归结为一个问题:我们如何知道是否获取了想要的东西？我们不必担心迭代如何进行的细节.</p>
@@ -821,9 +847,9 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <p>这些迭代函数很好地说明了为什么(精心选择的)抽象如此有用且优雅.假设我们对所有内容都使用内置数组方法.在每种情况下,我们都要做三件事:</p>
 </blockquote>
 <ol>
-<li>Eliminated the loop control structure, so the code is more concise and (arguably) easier to read;</li>
-<li>Described the pattern we’re using by using the appropriate method name. That is, <code>map</code>, <code>reduce</code>, <code>filter</code>, or <code>find</code>.</li>
-<li>Reduced the problem from processing the whole array to just specifying what we want to do with each item.</li>
+<li> Eliminated the loop control structure, so the code is more concise and (arguably) easier to read;</li>
+<li> Described the pattern we’re using by using the appropriate method name. That is, <code>map</code>, <code>reduce</code>, <code>filter</code>, or <code>find</code>.</li>
+<li> Reduced the problem from processing the whole array to just specifying what we want to do with each item.</li>
 </ol>
 <blockquote>
 <ol>
@@ -842,7 +868,7 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
 <blockquote>
 <p>一些人指出,在 <code>reduce</code> 和 <code>filter</code> 示例中,两次遍历英雄列表的效率很低.使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">ES2015 解构赋值</a>可以将这两个化简函数完美地结合在一起.这是我在数组上仅迭代一次的重构方法:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">processStrength</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> strongestHero<span class="token punctuation">,</span> combinedStrength <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">processStrength</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> strongestHero<span class="token punctuation">,</span> combinedStrength <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> hero</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
     strongestHero<span class="token operator">:</span> <span class="token function">greaterStrength</span><span class="token punctuation">(</span>strongestHero<span class="token punctuation">,</span> hero<span class="token punctuation">)</span><span class="token punctuation">,</span>
     combinedStrength<span class="token operator">:</span> <span class="token function">addStrength</span><span class="token punctuation">(</span>combinedStrength<span class="token punctuation">,</span> hero<span class="token punctuation">)</span>
@@ -853,7 +879,8 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
   strongestHero<span class="token operator">:</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   combinedStrength<span class="token operator">:</span> <span class="token number">0</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES2015 箭头函数</span>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ES2015 箭头函数</span>
 <span class="token keyword">const</span> <span class="token function-variable function">processStrength</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> strongestHero<span class="token punctuation">,</span> combinedStrength <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> hero</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
   strongestHero<span class="token operator">:</span> <span class="token function">greaterStrength</span><span class="token punctuation">(</span>strongestHero<span class="token punctuation">,</span> hero<span class="token punctuation">)</span><span class="token punctuation">,</span>
   combinedStrength<span class="token operator">:</span> <span class="token function">addStrength</span><span class="token punctuation">(</span>combinedStrength<span class="token punctuation">,</span> hero<span class="token punctuation">)</span>
@@ -864,13 +891,14 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
   strongestHero<span class="token operator">:</span> <span class="token punctuation">&#123;</span> strength<span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   combinedStrength<span class="token operator">:</span> <span class="token number">0</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>It’s a <em>little bit</em> more complicated than the version where we iterate twice, but it may make a big difference if the array is enormous. Either way, the <a target="_blank" rel="noopener" href="http://bigocheatsheet.com/">order</a> is still <em>O(n)</em>.</p>
 <blockquote>
 <p>它比我们进行两次迭代的版本要复杂一些,但是如果数组很大,可能会有很大的不同.无论哪种方式,复杂度仍然是 <em>O(n)</em> .</p>
 </blockquote>
 <hr>
 <ol>
-<li>Atencio, Luis. 2016, <a target="_blank" rel="noopener" href="https://www.manning.com/books/functional-programming-in-javascript"><em>Functional Programming in JavaScript.</em></a> Manning Publications. iBooks. <a href="#fnref:1" title="return to body"> ↩</a></li>
+<li> Atencio, Luis. 2016, <a target="_blank" rel="noopener" href="https://www.manning.com/books/functional-programming-in-javascript"><em>Functional Programming in JavaScript.</em></a> Manning Publications. iBooks. <a href="#fnref:1" title="return to body"> ↩</a></li>
 </ol>
 
                 
@@ -952,13 +980,13 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/a-detailed-introduction-to-webpack/">
+                <a href="/%E5%A9%9A%E5%90%8E%E5%92%8C%E8%B0%90%E7%94%9F%E6%B4%BB%E5%85%AC%E7%BA%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Webpack - A Detailed Introduction">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="婚后和谐生活公约">
                         
-                        <span class="card-title">Webpack - A Detailed Introduction</span>
+                        <span class="card-title">婚后和谐生活公约</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -969,14 +997,14 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-02-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-03-07
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Front-End/" class="post-category">
-                                    Front-End
+                            <a href="/categories/%E7%94%9F%E6%B4%BB/" class="post-category">
+                                    生活
                                 </a>
                             
                             
@@ -986,8 +1014,8 @@ working <span class="token operator">=</span> initialCombinedStrength<span class
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Webpack/">
-                        <span class="chip bg-color">Webpack</span>
+                    <a href="/tags/%E5%A9%9A%E5%A7%BB/">
+                        <span class="chip bg-color">婚姻</span>
                     </a>
                     
                 </div>

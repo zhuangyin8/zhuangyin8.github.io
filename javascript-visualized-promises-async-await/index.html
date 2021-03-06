@@ -471,12 +471,13 @@
 <p>Yeah… That explanation never made things clearer for me. In fact it only made me feel like a Promise was a weird, vague, unpredictable piece of magic. So let’s look at what promises <em>really</em> are.</p>
 <p>We can create a promise, using a <code>Promise</code> constructor that receives a callback. Okay cool, let’s try it out!</p>
 <p><img src="/images/79zi452hphe7ecylhozy.gif"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Promise &#123;&lt;pending>&#125;</span>
 <span class="token comment">// __proto__: Promise</span>
 <span class="token comment">// [[PromiseState]]: "pending"</span>
 <span class="token comment">// [[PromiseResult]]: undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Wait woah, what just got returned?</p>
 <p>A <code>Promise</code> is an object that contains a <strong>status</strong>, (<code>[[PromiseStatus]]</code>) and a <strong>value</strong> (<code>[[PromiseValue]]</code>). In the above example, you can see that the value of <code>[[PromiseStatus]]</code> is <code>&quot;pending&quot;</code>, and the value of the promise is <code>undefined</code>.</p>
 <p>Don’t worry - you’ll never have to interact with this object, you can’t even access the <code>[[PromiseStatus]]</code> and <code>[[PromiseValue]]</code> properties! However, the values of these properties are important when working with promises.</p>
@@ -505,7 +506,7 @@
 <p>Luckily, Promises can help us fix this! First, let’s rewrite the entire code block, so that each function returns a <code>Promise</code> instead.</p>
 <p>If the image is loaded and everything went fine, let’s <strong>resolve</strong> the promise with the loaded image! Else, if there was an error somewhere while loading the file, let’s <strong>reject</strong> the promise with the error that occurred.</p>
 <p><img src="/images/iebp0rzfnfqsrmmjplme.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getImage</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getImage</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">rs<span class="token punctuation">,</span> rej</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">readFile</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -515,6 +516,7 @@
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Let’s see what happens when we run this in the terminal!</p>
 <p><img src="/images/wsu5nn26dp4elcwh764m.gif"></p>
 <p>Cool! A promise got returned with the value of the parsed data, just like we expected.</p>
@@ -576,9 +578,9 @@
 <p>Ahh, we see <code>Promise</code> in the microtask list! 😃 When a <code>Promise</code> resolves and calls its <code>then()</code>, <code>catch()</code> or <code>finally()</code>, method, the callback within the method gets added to the <strong>microtask queue</strong>! This means that the callback within the <code>then()</code>, <code>catch()</code> or <code>finally()</code> method isn’t executed immediately, essentially adding some async behavior to our JavaScript code!</p>
 <p>So when <em>is</em> a <code>then()</code>, <code>catch()</code> or <code>finally()</code> callback executed? The event loop gives a different priority to the tasks:</p>
 <ol>
-<li>All functions in that are currently in the <strong>call stack</strong> get executed. When they returned a value, they get popped off the stack.</li>
-<li>When the call stack is empty, <em>all</em> queued up <strong>microtasks</strong> are popped onto the callstack one by one, and get executed! (Microtasks themselves can also return new microtasks, effectively creating an infinite microtask loop 😬)</li>
-<li>If both the call stack and microtask queue are empty, the event loop checks if there are tasks left on the (macro)task queue. The tasks get popped onto the callstack, executed, and popped off!</li>
+<li> All functions in that are currently in the <strong>call stack</strong> get executed. When they returned a value, they get popped off the stack.</li>
+<li> When the call stack is empty, <em>all</em> queued up <strong>microtasks</strong> are popped onto the callstack one by one, and get executed! (Microtasks themselves can also return new microtasks, effectively creating an infinite microtask loop 😬)</li>
+<li> If both the call stack and microtask queue are empty, the event loop checks if there are tasks left on the (macro)task queue. The tasks get popped onto the callstack, executed, and popped off!</li>
 </ol>
 <blockquote>
 <ul>
@@ -598,7 +600,7 @@
 <p>First, <code>Task1</code> returned a value and got popped off the call stack. Then, the engine checked for tasks queued in the microtask queue. Once all the tasks were put on the call stack and eventually popped off, the engine checked for tasks on the (macro)task queue, which got popped onto the call stack, and popped off when they returned a value.</p>
 <p>Okay okay enough pink boxes. Let’s use it with some real code!</p>
 <p><img src="/images/g61wwyi8wchk2hpzeq4u.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Start!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Start!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Timeout!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -612,6 +614,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">//> "End!"</span>
 <span class="token comment">//> "Promise!"</span>
 <span class="token comment">//> "Timeout!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In this code, we have the macro task <code>setTimeout</code>, and the microtask promise <code>then()</code> callback. Once the engine reaches the line of the <code>setTimeout</code> function. Let’s run this code step-by-step, and see what gets logged!</p>
 <hr>
 <blockquote>
@@ -638,16 +641,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>Previously, we saw that we can explicitly create promises using the <code>Promise</code> object, whether it was by typing <code>new Promise(() =&gt; &#123;&#125;)</code>, <code>Promise.resolve</code>, or <code>Promise.reject</code>.</p>
 <p>Instead of explicitly using the <code>Promise</code> object, we can now create asynchronous functions that <em>implicitly</em> return an object! This means that we no longer have to write any <code>Promise</code> object ourselves.</p>
 <p><img src="/images/72lqrcvy9lc8ehbpitd0.png"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span>
 
 <span class="token keyword">async</span> funcion <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token string">'Hello!'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Although the fact that <strong>async</strong> functions implicitly return promises is pretty great, the real power of <code>async</code> functions can be seen when using the <code>await</code> keyword! With the <code>await</code> keyword, we can <em>suspend(暂停)</em> the asynchronous function while we wait for the <code>await</code>ed value return a resolved promise. If we want to get the value of this resolved promise, like we previously did with the <code>then()</code> callback, we can assign variables to the <code>await</code>ed promise value!</p>
 <p>So, we can <em>suspend</em> an async function? Okay great but.. what does that even mean?</p>
 <p>Let’s see what happens when we run the following block of code:</p>
 <p><img src="/images/e5duygomitj9o455107a.gif"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">one</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'One!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">one</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'One!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'In Function!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -663,6 +667,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">//> "In Function!"</span>
 <span class="token comment">//> "After function!"</span>
 <span class="token comment">//> "One!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Hmm.. What’s happening here?</p>
 <hr>
 <p><img src="/images/d27d7xxiekczftjyic4b.gif"></p>

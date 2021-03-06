@@ -463,12 +463,12 @@
 <h2 id="String-Skill"><a href="#String-Skill" class="headerlink" title="String Skill"></a>String Skill</h2><h3 id="对比时间"><a href="#对比时间" class="headerlink" title="对比时间"></a>对比时间</h3><blockquote>
 <p>时间个位数形式需补 0</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> time1 <span class="token operator">=</span> <span class="token string">'2019-02-14 21:00:00'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> time1 <span class="token operator">=</span> <span class="token string">'2019-02-14 21:00:00'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> time2 <span class="token operator">=</span> <span class="token string">'2019-05-01 09:00:00'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> overtime <span class="token operator">=</span> time1 <span class="token operator">></span> time2<span class="token punctuation">;</span>
 <span class="token comment">// overtime => false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="格式化金钱"><a href="#格式化金钱" class="headerlink" title="格式化金钱"></a>格式化金钱</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ❌</span>
+<h3 id="格式化金钱"><a href="#格式化金钱" class="headerlink" title="格式化金钱"></a>格式化金钱</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ❌</span>
 <span class="token keyword">const</span> <span class="token function-variable function">ThousandNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=></span> num<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">B(?=(d&#123;3&#125;)+(?!d))</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> money <span class="token operator">=</span> <span class="token function">ThousandNum</span><span class="token punctuation">(</span><span class="token number">20190214</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// money => "20,190,214"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -476,7 +476,7 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString()</a> 方法返回这个数字在特定语言环境下的表示字符串.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 利用toLocaleString</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 利用toLocaleString</span>
 <span class="token punctuation">(</span><span class="token number">1234567896.1234</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token string">'en-US'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1,234,567,890</span>
 
 <span class="token punctuation">(</span><span class="token number">123456789</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token string">'zh-hans-CN-u-nu-hanidec'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> useGrouping<span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -489,12 +489,12 @@
 <span class="token comment">//"二〇一八/一/三一 下午八:五四:五一"</span>
 <span class="token comment">//"二〇二〇/八/二二 下午一〇:三一:〇八"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="生成随机-ID"><a href="#生成随机-ID" class="headerlink" title="生成随机 ID"></a>生成随机 ID</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//0-9 a-z</span>
+<h3 id="生成随机-ID"><a href="#生成随机-ID" class="headerlink" title="生成随机 ID"></a>生成随机 ID</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//0-9 a-z</span>
 <span class="token keyword">const</span> <span class="token function-variable function">RandomId</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">len</span><span class="token punctuation">)</span> <span class="token operator">=></span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token function">RandomId</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// id => "jg7zpgiqva" "eq6e7j7mr8"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="生成随机-HEX-色值"><a href="#生成随机-HEX-色值" class="headerlink" title="生成随机 HEX 色值"></a>生成随机 HEX 色值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">RandomColor</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+<h3 id="生成随机-HEX-色值"><a href="#生成随机-HEX-色值" class="headerlink" title="生成随机 HEX 色值"></a>生成随机 HEX 色值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RandomColor</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   <span class="token string">'#'</span> <span class="token operator">+</span>
   Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0xffffff</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span>
@@ -502,39 +502,39 @@
 <span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token function">RandomColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// color => "#f03665" "#155c80"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="生成星级评分"><a href="#生成星级评分" class="headerlink" title="生成星级评分"></a>生成星级评分</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">StartScore</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">rate</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">'★★★★★☆☆☆☆☆'</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">-</span> rate<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token operator">-</span> rate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="生成星级评分"><a href="#生成星级评分" class="headerlink" title="生成星级评分"></a>生成星级评分</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">StartScore</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">rate</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token string">'★★★★★☆☆☆☆☆'</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">-</span> rate<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token operator">-</span> rate<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token function">StartScore</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// start => "★★★"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="操作-URL-查询参数"><a href="#操作-URL-查询参数" class="headerlink" title="操作 URL 查询参数"></a>操作 URL 查询参数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>search<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">?</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// location.search = "?</span>
+<h3 id="操作-URL-查询参数"><a href="#操作-URL-查询参数" class="headerlink" title="操作 URL 查询参数"></a>操作 URL 查询参数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>search<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">?</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gi</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// location.search = "?</span>
 params<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span><span class="token string">'young'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 params<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "male"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Number-Skill"><a href="#Number-Skill" class="headerlink" title="Number Skill"></a>Number Skill</h2><h3 id="取整"><a href="#取整" class="headerlink" title="取整"></a>取整</h3><blockquote>
 <p>代替正数的<code>Math.floor()</code>,代替负数的<code>Math.ceil()</code></p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token operator">~</span><span class="token operator">~</span><span class="token number">1.69</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token operator">~</span><span class="token operator">~</span><span class="token number">1.69</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token number">1.69</span> <span class="token operator">|</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token number">1.69</span> <span class="token operator">>></span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment">// num1 num2 num3 => 1 1 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="补零"><a href="#补零" class="headerlink" title="补零"></a>补零</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">FillZero</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num<span class="token punctuation">,</span> len</span><span class="token punctuation">)</span> <span class="token operator">=></span> num<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span>len<span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="补零"><a href="#补零" class="headerlink" title="补零"></a>补零</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">FillZero</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num<span class="token punctuation">,</span> len</span><span class="token punctuation">)</span> <span class="token operator">=></span> num<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">padStart</span><span class="token punctuation">(</span>len<span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token function">FillZero</span><span class="token punctuation">(</span><span class="token number">169</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// num => "00169"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="转数值"><a href="#转数值" class="headerlink" title="转数值"></a>转数值</h3><blockquote>
 <p>只对<code>null、&quot;&quot;、false、数值字符串</code>有效</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token operator">+</span><span class="token string">''</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token operator">+</span><span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num4 <span class="token operator">=</span> <span class="token operator">+</span><span class="token string">'169'</span><span class="token punctuation">;</span>
 <span class="token comment">// num1 num2 num3 num4 => 0 0 0 169</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> timestamp <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'2019-02-14'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> timestamp <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token string">'2019-02-14'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// timestamp => 1550102400000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="精确小数"><a href="#精确小数" class="headerlink" title="精确小数"></a>精确小数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">RoundNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num<span class="token punctuation">,</span> decimal</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+<h3 id="精确小数"><a href="#精确小数" class="headerlink" title="精确小数"></a>精确小数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RoundNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num<span class="token punctuation">,</span> decimal</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>num <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">**</span> decimal<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">**</span> decimal<span class="token punctuation">;</span>
 <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token function">RoundNum</span><span class="token punctuation">(</span><span class="token number">1.69</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// num => 1.7</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -543,27 +543,27 @@ params<span class="token punctuation">.</span><span class="token function">get</
 <p>感觉和 toFixed 好像没什么区别哈,为什么不直接用 toFixed..😢</p>
 <p>toFixed()生成的是字符串而不是数字</p>
 </blockquote>
-<h3 id="判断奇偶"><a href="#判断奇偶" class="headerlink" title="判断奇偶"></a>判断奇偶</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">OddEven</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">(</span>num <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'odd'</span> <span class="token operator">:</span> <span class="token string">'even'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="判断奇偶"><a href="#判断奇偶" class="headerlink" title="判断奇偶"></a>判断奇偶</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">OddEven</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">(</span>num <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'odd'</span> <span class="token operator">:</span> <span class="token string">'even'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token function">OddEven</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// num => "even"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="取最小最大值"><a href="#取最小最大值" class="headerlink" title="取最小最大值"></a>取最小最大值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="取最小最大值"><a href="#取最小最大值" class="headerlink" title="取最小最大值"></a>取最小最大值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> min <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token operator">...</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// min max => 0 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="生成范围随机数"><a href="#生成范围随机数" class="headerlink" title="生成范围随机数"></a>生成范围随机数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">RandomNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">min<span class="token punctuation">,</span> max</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+<h3 id="生成范围随机数"><a href="#生成范围随机数" class="headerlink" title="生成范围随机数"></a>生成范围随机数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">RandomNum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">min<span class="token punctuation">,</span> max</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>max <span class="token operator">-</span> min <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> min<span class="token punctuation">;</span>
 <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token function">RandomNum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Boolean-Skill"><a href="#Boolean-Skill" class="headerlink" title="Boolean Skill"></a>Boolean Skill</h2><h3 id="短路运算符"><a href="#短路运算符" class="headerlink" title="短路运算符"></a>短路运算符</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> a <span class="token operator">=</span> d <span class="token operator">&amp;&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 满足条件赋值:取假运算,从左到右依次判断,遇到假值返回假值,后面不再执行,否则返回最后一个真值</span>
+<h2 id="Boolean-Skill"><a href="#Boolean-Skill" class="headerlink" title="Boolean Skill"></a>Boolean Skill</h2><h3 id="短路运算符"><a href="#短路运算符" class="headerlink" title="短路运算符"></a>短路运算符</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> d <span class="token operator">&amp;&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 满足条件赋值:取假运算,从左到右依次判断,遇到假值返回假值,后面不再执行,否则返回最后一个真值</span>
 <span class="token keyword">const</span> b <span class="token operator">=</span> d <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 默认赋值:取真运算,从左到右依次判断,遇到真值返回真值,后面不再执行,否则返回最后一个假值</span>
 <span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token operator">!</span>d<span class="token punctuation">;</span> <span class="token comment">// 取假赋值:单个表达式转换为true则返回false,否则返回true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="判断数据类型"><a href="#判断数据类型" class="headerlink" title="判断数据类型"></a>判断数据类型</h3><blockquote>
 <p>可判断类型:undefined、null、string、number、boolean、array、object、symbol、date、regexp、function、asyncfunction、arguments、set、map、weakset、weakmap</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token parameter">tgt<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token parameter">tgt<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> dataType <span class="token operator">=</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span>
     <span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>tgt<span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\[object (\w+)\]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span> <span class="token string">'$1'</span><span class="token punctuation">)</span>
@@ -576,7 +576,7 @@ params<span class="token punctuation">.</span><span class="token function">get</
 <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'array'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'array'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token parameter">tgt<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">DataType</span><span class="token punctuation">(</span><span class="token parameter">tgt<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> dataType <span class="token operator">=</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span>
     <span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>tgt<span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
@@ -586,31 +586,31 @@ params<span class="token punctuation">.</span><span class="token function">get</
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">DataType</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token string">'array'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "string"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="是否为空数组"><a href="#是否为空数组" class="headerlink" title="是否为空数组"></a>是否为空数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="是否为空数组"><a href="#是否为空数组" class="headerlink" title="是否为空数组"></a>是否为空数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> flag <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token comment">// flag => true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="是否为空对象"><a href="#是否为空对象" class="headerlink" title="是否为空对象"></a>是否为空对象</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="是否为空对象"><a href="#是否为空对象" class="headerlink" title="是否为空对象"></a>是否为空对象</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> flag <span class="token operator">=</span> <span class="token function">DataType</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token comment">// flag => true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="满足条件时执行"><a href="#满足条件时执行" class="headerlink" title="满足条件时执行"></a>满足条件时执行</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> flagA <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 条件A</span>
+<h3 id="满足条件时执行"><a href="#满足条件时执行" class="headerlink" title="满足条件时执行"></a>满足条件时执行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> flagA <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 条件A</span>
 <span class="token keyword">const</span> flagB <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 条件B</span>
 <span class="token punctuation">(</span>flagA <span class="token operator">||</span> flagB<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 满足A或B时执行</span>
 <span class="token punctuation">(</span>flagA <span class="token operator">||</span> <span class="token operator">!</span>flagB<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 满足A或不满足B时执行</span>
 flagA <span class="token operator">&amp;&amp;</span> flagB <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 同时满足A和B时执行</span>
 flagA <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>flagB <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 满足A且不满足B时执行</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="为非假值时执行"><a href="#为非假值时执行" class="headerlink" title="为非假值时执行"></a>为非假值时执行</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// undefined、null、""、0、false、NaN</span>
+<h3 id="为非假值时执行"><a href="#为非假值时执行" class="headerlink" title="为非假值时执行"></a>为非假值时执行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// undefined、null、""、0、false、NaN</span>
 <span class="token operator">!</span>flag <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="数组不为空时执行"><a href="#数组不为空时执行" class="headerlink" title="数组不为空时执行"></a>数组不为空时执行</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="数组不为空时执行"><a href="#数组不为空时执行" class="headerlink" title="数组不为空时执行"></a>数组不为空时执行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 arr<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="对象不为空时执行"><a href="#对象不为空时执行" class="headerlink" title="对象不为空时执行"></a>对象不为空时执行</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="对象不为空时执行"><a href="#对象不为空时执行" class="headerlink" title="对象不为空时执行"></a>对象不为空时执行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="函数退出代替条件分支退出"><a href="#函数退出代替条件分支退出" class="headerlink" title="函数退出代替条件分支退出"></a>函数退出代替条件分支退出</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="函数退出代替条件分支退出"><a href="#函数退出代替条件分支退出" class="headerlink" title="函数退出代替条件分支退出"></a>函数退出代替条件分支退出</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -619,7 +619,7 @@ Object<span class="token punctuation">.</span><span class="token function">keys<
   <span class="token keyword">return</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="switch-case-使用区间"><a href="#switch-case-使用区间" class="headerlink" title="switch/case 使用区间"></a>switch/case 使用区间</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
+<h3 id="switch-case-使用区间"><a href="#switch-case-使用区间" class="headerlink" title="switch/case 使用区间"></a>switch/case 使用区间</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
 <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">case</span> <span class="token function">isNaN</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token operator">:</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'not a number'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -635,23 +635,23 @@ Object<span class="token punctuation">.</span><span class="token function">keys<
     <span class="token keyword">break</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Array-Skill"><a href="#Array-Skill" class="headerlink" title="Array Skill"></a>Array Skill</h2><h3 id="克隆数组"><a href="#克隆数组" class="headerlink" title="克隆数组"></a>克隆数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> _arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h2 id="Array-Skill"><a href="#Array-Skill" class="headerlink" title="Array Skill"></a>Array Skill</h2><h3 id="克隆数组"><a href="#克隆数组" class="headerlink" title="克隆数组"></a>克隆数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> _arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>_arr<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arr1<span class="token punctuation">,</span> <span class="token operator">...</span>arr2<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, 2, 3, 4, 5];</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="去重数组"><a href="#去重数组" class="headerlink" title="去重数组"></a>去重数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="去重数组"><a href="#去重数组" class="headerlink" title="去重数组"></a>去重数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, null]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="混淆数组-数组乱序"><a href="#混淆数组-数组乱序" class="headerlink" title="混淆数组 数组乱序"></a><del>混淆数组</del> 数组乱序</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ❌</span>
+<h3 id="混淆数组-数组乱序"><a href="#混淆数组-数组乱序" class="headerlink" title="混淆数组 数组乱序"></a><del>混淆数组</del> 数组乱序</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ❌</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [3, 4, 0, 5, 1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 洗牌算法</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 洗牌算法</span>
 <span class="token keyword">function</span> <span class="token function">shuffle</span><span class="token punctuation">(</span><span class="token parameter">arr</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> i <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
   <span class="token keyword">while</span> <span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -670,7 +670,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>⚠️ 这道题检验了数组的 <code>sort()</code> 方法,因为是乱序,所以还需要用到 <code>Math.random()</code> 产生随机数,打乱排序规律,但要注意直接利用 sort 进行排序, 乱序结果概率不平均.</p>
 </blockquote>
 <h4 id="建议回复"><a href="#建议回复" class="headerlink" title="建议回复:"></a>建议回复:</h4><p>在写代码前,先把实现原理介绍一下,然后再开始写代码:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//创建一个数组</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//创建一个数组</span>
 <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=></span> index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -683,7 +683,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">Array.prototype.fill() - JavaScript | MDN</a></p>
 </blockquote>
 <p>Fisher–Yates 经典洗牌算法原理很简单,就是遍历数组元素,然后将当前元素与其后随机位置的元素进行交换,从代码中也可以看出,这样乱序的就会更加彻底.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES5 +  Fisher–Yates 经典洗牌算法实现</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ES5 +  Fisher–Yates 经典洗牌算法实现</span>
 <span class="token keyword">function</span> <span class="token function">shuffle</span><span class="token punctuation">(</span><span class="token parameter">array</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> arrayLength <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
     randomIndex<span class="token punctuation">,</span> <span class="token comment">//随机数</span>
@@ -699,7 +699,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ES6 +  Fisher–Yates 经典洗牌算法实现</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ES6 +  Fisher–Yates 经典洗牌算法实现</span>
 <span class="token keyword">function</span> <span class="token function">shuffle</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> a<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">//遍历数组元素</span>
@@ -712,7 +712,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>测试一下吧:</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> times <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> times <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> res <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> times<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -736,15 +736,15 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="清空数组"><a href="#清空数组" class="headerlink" title="清空数组"></a>清空数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 arr<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => []</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="截断数组"><a href="#截断数组" class="headerlink" title="截断数组"></a>截断数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="截断数组"><a href="#截断数组" class="headerlink" title="截断数组"></a>截断数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 arr<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="交换赋值"><a href="#交换赋值" class="headerlink" title="交换赋值"></a>交换赋值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<h3 id="交换赋值"><a href="#交换赋值" class="headerlink" title="交换赋值"></a>交换赋值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>b<span class="token punctuation">,</span> a<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// a b => 1 0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -752,10 +752,10 @@ arr<span class="token punctuation">.</span>length <span class="token operator">=
 <h3 id="过滤虚值"><a href="#过滤虚值" class="headerlink" title="过滤虚值"></a>过滤虚值</h3><blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">虚值</a></p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">NaN</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0n</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">NaN</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0n</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>Boolean<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="异步累计"><a href="#异步累计" class="headerlink" title="异步累计"></a>异步累计</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token parameter">deps</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="异步累计"><a href="#异步累计" class="headerlink" title="异步累计"></a>异步累计</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token parameter">deps</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> deps<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> v</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> dep <span class="token operator">=</span> <span class="token keyword">await</span> t<span class="token punctuation">;</span>
     <span class="token keyword">const</span> version <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Todo</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -765,20 +765,20 @@ arr<span class="token punctuation">.</span>length <span class="token operator">=
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 需在async包围下使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="数组首部插入成员"><a href="#数组首部插入成员" class="headerlink" title="数组首部插入成员"></a>数组首部插入成员</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
+<h3 id="数组首部插入成员"><a href="#数组首部插入成员" class="headerlink" title="数组首部插入成员"></a>数组首部插入成员</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
 arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">...</span>arr<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="数组尾部插入成员"><a href="#数组尾部插入成员" class="headerlink" title="数组尾部插入成员"></a>数组尾部插入成员</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
+<h3 id="数组尾部插入成员"><a href="#数组尾部插入成员" class="headerlink" title="数组尾部插入成员"></a>数组尾部插入成员</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
 arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 arr<span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arr<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="统计数组成员个数"><a href="#统计数组成员个数" class="headerlink" title="统计数组成员个数"></a>统计数组成员个数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 累加属性值相同的数组内对象的某一属性值</span>
+<h3 id="统计数组成员个数"><a href="#统计数组成员个数" class="headerlink" title="统计数组成员个数"></a>统计数组成员个数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 累加属性值相同的数组内对象的某一属性值</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> count <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">t<span class="token punctuation">,</span> v</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   t<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">?</span> <span class="token operator">++</span>t<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -786,29 +786,29 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// count => &#123; 0: 1, 1: 2, 2: 3 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构数组成员嵌套"><a href="#解构数组成员嵌套" class="headerlink" title="解构数组成员嵌套"></a>解构数组成员嵌套</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="解构数组成员嵌套"><a href="#解构数组成员嵌套" class="headerlink" title="解构数组成员嵌套"></a>解构数组成员嵌套</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token punctuation">[</span>c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> <span class="token punctuation">[</span>e<span class="token punctuation">,</span> f<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
 <span class="token comment">// a b c d e f => 0 1 2 3 4 5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构数组成员别名"><a href="#解构数组成员别名" class="headerlink" title="解构数组成员别名"></a>解构数组成员别名</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="解构数组成员别名"><a href="#解构数组成员别名" class="headerlink" title="解构数组成员别名"></a>解构数组成员别名</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> <span class="token number">0</span><span class="token operator">:</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span> b<span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> c <span class="token punctuation">&#125;</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
 <span class="token comment">// a b c => 0 1 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构数组成员默认值"><a href="#解构数组成员默认值" class="headerlink" title="解构数组成员默认值"></a>解构数组成员默认值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="解构数组成员默认值"><a href="#解构数组成员默认值" class="headerlink" title="解构数组成员默认值"></a>解构数组成员默认值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">;</span>
 <span class="token comment">// a b c d => 0 1 2 4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="获取随机数组成员"><a href="#获取随机数组成员" class="headerlink" title="获取随机数组成员"></a>获取随机数组成员</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="获取随机数组成员"><a href="#获取随机数组成员" class="headerlink" title="获取随机数组成员"></a>获取随机数组成员</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> randomItem <span class="token operator">=</span> arr<span class="token punctuation">[</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// randomItem => 1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="创建指定长度数组"><a href="#创建指定长度数组" class="headerlink" title="创建指定长度数组"></a>创建指定长度数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="创建指定长度数组"><a href="#创建指定长度数组" class="headerlink" title="创建指定长度数组"></a>创建指定长度数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 1, 2]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="创建指定长度且值相等的数组"><a href="#创建指定长度且值相等的数组" class="headerlink" title="创建指定长度且值相等的数组"></a>创建指定长度且值相等的数组</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="创建指定长度且值相等的数组"><a href="#创建指定长度且值相等的数组" class="headerlink" title="创建指定长度且值相等的数组"></a>创建指定长度且值相等的数组</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [0, 0, 0]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="reduce-代替-map-和-filter"><a href="#reduce-代替-map-和-filter" class="headerlink" title="reduce 代替 map 和 filter"></a>reduce 代替 map 和 filter</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> _arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<h3 id="reduce-代替-map-和-filter"><a href="#reduce-代替-map-和-filter" class="headerlink" title="reduce 代替 map 和 filter"></a>reduce 代替 map 和 filter</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> _arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">// map</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> _arr<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -835,12 +835,12 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// arr => [4]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Object-Skill"><a href="#Object-Skill" class="headerlink" title="Object Skill"></a>Object Skill</h2><h3 id="克隆对象"><a href="#克隆对象" class="headerlink" title="克隆对象"></a>克隆对象</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> _obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
+<h2 id="Object-Skill"><a href="#Object-Skill" class="headerlink" title="Object Skill"></a>Object Skill</h2><h3 id="克隆对象"><a href="#克隆对象" class="headerlink" title="克隆对象"></a>克隆对象</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> _obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 以下方法任选一种</span>
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>_obj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>_obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// obj => &#123; a: 0, b: 1, c: 2 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="合并对象"><a href="#合并对象" class="headerlink" title="合并对象"></a>合并对象</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> obj2 <span class="token operator">=</span> <span class="token punctuation">&#123;</span> c<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> d<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> e<span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>obj1<span class="token punctuation">,</span> <span class="token operator">...</span>obj2 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token comment">// obj => &#123; a: 0, b: 1, c: 3, d: 4, e: 5 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -848,7 +848,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h3><blockquote>
 <p>获取环境变量时必用此方法,用它一直爽,一直用它一直爽</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token string">'prod'</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token string">'prod'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> link <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   dev<span class="token operator">:</span> <span class="token string">'Development Address'</span><span class="token punctuation">,</span>
   test<span class="token operator">:</span> <span class="token string">'Testing Address'</span><span class="token punctuation">,</span>
@@ -856,7 +856,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">[</span>env<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment">// link => "Production Address"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="对象变量属性"><a href="#对象变量属性" class="headerlink" title="对象变量属性"></a>对象变量属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<h3 id="对象变量属性"><a href="#对象变量属性" class="headerlink" title="对象变量属性"></a>对象变量属性</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
   b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
@@ -864,29 +864,29 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token comment">// obj => &#123; a: 0, b: 1, d: 2 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="创建纯空对象"><a href="#创建纯空对象" class="headerlink" title="创建纯空对象"></a>创建纯空对象</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="创建纯空对象"><a href="#创建纯空对象" class="headerlink" title="创建纯空对象"></a>创建纯空对象</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token comment">// obj => &#123;&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="删除对象无用属性"><a href="#删除对象无用属性" class="headerlink" title="删除对象无用属性"></a>删除对象无用属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 只想拿b和c</span>
+<h3 id="删除对象无用属性"><a href="#删除对象无用属性" class="headerlink" title="删除对象无用属性"></a>删除对象无用属性</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">// 只想拿b和c</span>
 <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> a<span class="token punctuation">,</span> <span class="token operator">...</span>rest <span class="token punctuation">&#125;</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token comment">// rest => &#123; b: 1, c: 2 &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构对象属性嵌套"><a href="#解构对象属性嵌套" class="headerlink" title="解构对象属性嵌套"></a>解构对象属性嵌套</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token punctuation">&#123;</span> d<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> e<span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="解构对象属性嵌套"><a href="#解构对象属性嵌套" class="headerlink" title="解构对象属性嵌套"></a>解构对象属性嵌套</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token punctuation">&#123;</span> d<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> e<span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">&#123;</span>
   c<span class="token operator">:</span> <span class="token punctuation">&#123;</span> d<span class="token punctuation">,</span> e <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token comment">// d e => 2 3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构对象属性别名"><a href="#解构对象属性别名" class="headerlink" title="解构对象属性别名"></a>解构对象属性别名</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="解构对象属性别名"><a href="#解构对象属性别名" class="headerlink" title="解构对象属性别名"></a>解构对象属性别名</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> a<span class="token punctuation">,</span> b<span class="token operator">:</span> d<span class="token punctuation">,</span> c<span class="token operator">:</span> e <span class="token punctuation">&#125;</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token comment">// a d e => 0 1 2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="解构对象属性默认值"><a href="#解构对象属性默认值" class="headerlink" title="解构对象属性默认值"></a>解构对象属性默认值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="解构对象属性默认值"><a href="#解构对象属性默认值" class="headerlink" title="解构对象属性默认值"></a>解构对象属性默认值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span>
 <span class="token comment">// a b d => 0 1 3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Function-Skill"><a href="#Function-Skill" class="headerlink" title="Function Skill"></a>Function Skill</h2><h3 id="函数自执行"><a href="#函数自执行" class="headerlink" title="函数自执行"></a>函数自执行</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> Func <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 常用</span>
+<h2 id="Function-Skill"><a href="#Function-Skill" class="headerlink" title="Function Skill"></a>Function Skill</h2><h3 id="函数自执行"><a href="#函数自执行" class="headerlink" title="函数自执行"></a>函数自执行</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> Func <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 常用</span>
 
 <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 常用</span>
 <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 常用</span>
@@ -910,7 +910,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="隐式返回值"><a href="#隐式返回值" class="headerlink" title="隐式返回值"></a>隐式返回值</h3><blockquote>
 <p>只能用于<code>单语句返回值箭头函数</code>,如果返回值是对象必须使用<code>()</code>包住</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Func</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">Func</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token string">'I Love '</span> <span class="token operator">+</span> name<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -922,7 +922,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="一次性函数"><a href="#一次性函数" class="headerlink" title="一次性函数"></a>一次性函数</h3><blockquote>
 <p>适用于运行一些只需执行一次的初始化代码</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function-variable function">Func</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'y'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -932,7 +932,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="惰性载入函数"><a href="#惰性载入函数" class="headerlink" title="惰性载入函数"></a>惰性载入函数</h3><blockquote>
 <p>函数内判断分支较多较复杂时可大大节约资源开销</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">===</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
@@ -953,7 +953,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
   <span class="token keyword">return</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="检测非空参数"><a href="#检测非空参数" class="headerlink" title="检测非空参数"></a>检测非空参数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">IsRequired</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="检测非空参数"><a href="#检测非空参数" class="headerlink" title="检测非空参数"></a>检测非空参数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">IsRequired</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'param is required'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
@@ -966,21 +966,21 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">ES2015 默认参数</a>: 函数默认参数允许在没有值或 undefined 被传入时使用默认形参.</p>
 </blockquote>
-<h3 id="字符串创建函数"><a href="#字符串创建函数" class="headerlink" title="字符串创建函数"></a>字符串创建函数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> Func <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"console.log("</span><span class="token constant">I</span> Love <span class="token string">" + name)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="字符串创建函数"><a href="#字符串创建函数" class="headerlink" title="字符串创建函数"></a>字符串创建函数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> Func <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"console.log("</span><span class="token constant">I</span> Love <span class="token string">" + name)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="优雅处理错误信息"><a href="#优雅处理错误信息" class="headerlink" title="优雅处理错误信息"></a>优雅处理错误信息</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+<h3 id="优雅处理错误信息"><a href="#优雅处理错误信息" class="headerlink" title="优雅处理错误信息"></a>优雅处理错误信息</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
   <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   location<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token string">'https://stackoverflow.com/search?q=[js]+'</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="优雅处理-Async-Await-参数"><a href="#优雅处理-Async-Await-参数" class="headerlink" title="优雅处理 Async/Await 参数"></a>优雅处理 Async/Await 参数</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">AsyncTo</span><span class="token punctuation">(</span><span class="token parameter">promise</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="优雅处理-Async-Await-参数"><a href="#优雅处理-Async-Await-参数" class="headerlink" title="优雅处理 Async/Await 参数"></a>优雅处理 Async/Await 参数</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">AsyncTo</span><span class="token punctuation">(</span><span class="token parameter">promise</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token keyword">null</span><span class="token punctuation">,</span> data<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span>err<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">const</span> <span class="token punctuation">[</span>err<span class="token punctuation">,</span> res<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">AsyncTo</span><span class="token punctuation">(</span><span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="优雅处理多个函数返回值"><a href="#优雅处理多个函数返回值" class="headerlink" title="优雅处理多个函数返回值"></a>优雅处理多个函数返回值</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="优雅处理多个函数返回值"><a href="#优雅处理多个函数返回值" class="headerlink" title="优雅处理多个函数返回值"></a>优雅处理多个函数返回值</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/comment'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">const</span> <span class="token punctuation">[</span>user<span class="token punctuation">,</span> comment<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 需在async包围下使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
@@ -988,7 +988,7 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h2 id="DOM-Skill"><a href="#DOM-Skill" class="headerlink" title="DOM Skill"></a>DOM Skill</h2><h3 id="显示全部-DOM-边框"><a href="#显示全部-DOM-边框" class="headerlink" title="显示全部 DOM 边框"></a>显示全部 DOM 边框</h3><blockquote>
 <p>调试页面元素边界时使用</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ❌</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// ❌</span>
 <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token operator">?</span><span class="token punctuation">(</span><span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token parameter">dom</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     dom<span class="token punctuation">.</span>style<span class="token punctuation">.</span>outline <span class="token operator">=</span> <span class="token string">"1px solid #"</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">~</span><span class="token operator">~</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -997,14 +997,14 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="自适应页面"><a href="#自适应页面" class="headerlink" title="自适应页面"></a>自适应页面</h3><blockquote>
 <p>页面基于一张设计图但需做多款机型自适应,元素尺寸使用<code>rem</code>进行设置</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">AutoResponse</span><span class="token punctuation">(</span><span class="token parameter">width <span class="token operator">=</span> <span class="token number">750</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">AutoResponse</span><span class="token punctuation">(</span><span class="token parameter">width <span class="token operator">=</span> <span class="token number">750</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> target <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">;</span>
   target<span class="token punctuation">.</span>clientWidth <span class="token operator">>=</span> <span class="token number">600</span>
     <span class="token operator">?</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token string">'80px'</span><span class="token punctuation">)</span>
     <span class="token operator">:</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span>clientWidth <span class="token operator">/</span> width<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span> <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="过滤-XSS"><a href="#过滤-XSS" class="headerlink" title="过滤 XSS"></a>过滤 XSS</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">FilterXss</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="过滤-XSS"><a href="#过滤-XSS" class="headerlink" title="过滤 XSS"></a>过滤 XSS</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">FilterXss</span><span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> elem <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   elem<span class="token punctuation">.</span>innerText <span class="token operator">=</span> content<span class="token punctuation">;</span>
   <span class="token keyword">const</span> result <span class="token operator">=</span> elem<span class="token punctuation">.</span>innerHTML<span class="token punctuation">;</span>
@@ -1015,14 +1015,14 @@ arr <span class="token operator">=</span> <span class="token punctuation">[</spa
 <h3 id="存取-LocalStorage"><a href="#存取-LocalStorage" class="headerlink" title="存取 LocalStorage"></a>存取 LocalStorage</h3><blockquote>
 <p>反序列化取,序列化存</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> love <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'love'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> love <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'love'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'love'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'I Love You'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>写到最后总结得差不多了,如果后续我想起还有哪些遗漏的 <strong>JS 开发技巧</strong>,会继续在这篇文章上补全.</p>
 <!--
 最后送大家一个键盘！
 
-```js
+```javascript
 ((_) =>
   [..."`1234567890-=~~QWERTYUIOP[]~ASDFGHJKL;'~~ZXCVBNM,./~"].map(
     (x) =>
@@ -1044,303 +1044,118 @@ localStorage<span class="token punctuation">.</span><span class="token function"
 `)();
 ``` -->
 
-<!-- ![](https://www.assdrty.com/tupian/forum/202005/29/103604excclw8xl8tlwwf1.jpg)
-
-影片开场,在欢快的背景音乐伴奏下,女主真子和男主信二正在整理屋子.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/103808vswempidkd1n8hi9.jpg)
-
-看得出来,这是一对新婚夫妻,刚搬进新家.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/103843by2hc9c2zuz72wwh.jpg)
-
-拆箱的时候,真子发现了一套积木.
-原来是信二给他们未来的宝宝准备的.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/103808ajwz2x0tqikl7syi.jpg)
-
-虽然他们只是吃着泡面,却一起憧憬、营造着美好而幸福的将来.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104124mtqgbn476rdtcknx.jpg)
-
-第一幕,场景来到信二所在的公司.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104124oo9idcihdv9oedsh.jpg)
-
-信二的工作表现优异,提案得到上司的认可,同事也都欣赏和爱戴他.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104123mian9i9ij5kx6evn.jpg)
-
-而他的同事铃木看在眼里,恨在心里.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104124pnavn8sakqi7ue6y.jpg)
-
-场景再转到真子工作的咖啡馆.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104123tn25bz3xwvw22i58.jpg)
-
-这里有对她性骚扰的顾客,
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104123c91ax1b3en7aa37x.jpg)
-
-还有对她抱有企图的男同事.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104431yu0w68p8byb223j6.jpg)
-
-晚上,真子为了庆祝信二的提案成功,特地买了一支红酒.
-但信二提出留到下周再喝.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104431kobx7zphzd13dsyu.jpg)
-
-到了上床之后,信二很快就交了作业.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104431rark5sg6sdh00kll.jpg)
-
-真子虽然没有得到满足,但也没有多说什么.
-至此,影片将背景介绍完毕,剧情就此开始展开.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104431ffkybbd0u4fhq024.jpg)
-
-第二天,真子正独自在家,铃木却不请自来了.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104430m94aafslftza8f8a.jpg)
-
-看着真子和信二的合影、漫画,铃木内心更是恶念丛生.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104430rna1jvjyja8ymway.jpg)
-
-两人寒暄了几句,铃木突然掏出一个遥控器对着真子按下了开关.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104430onceby5qq1ps1nr5.jpg)
-
-原来这是一个催眠射线发射装置.
-只要中了这个射线,就会被洗脑+支配,完全服从铃木的命令.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104429imvfzwzuwwm3wwbw.jpg)
-
-在铃木的命令下,真子脱光了衣服,并对他下跪叩拜.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104429mfmgysg8sayu2yyu.jpg)
-
-接着,他又让全裸的真子泡咖啡.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104702tc2iczinf7s7hizi.jpg)
-
-当发现咖啡里没有牛奶后,他又命令真子吹箫、毒龙,
-最后将他的"牛奶"射入咖啡,还让真子喝了下去.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104702zyswrnnnw0e2tnr8.jpg)
-
-这一切完了之后,被洗脑的真子还对铃木连声道谢.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105111omad3v4d3z11uh8m.jpg)
-
-临走前,铃木命令真子不许把刚才发生的事情告诉信二.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104702b87jrwq080agjq50.jpg)
-
-当晚,信二回到家里,跟真子一起拼积木.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104702aggrqqp0regfigoi.jpg)
-
-心事重重的真子欲言又止.
-还失手将快要拼好的积木房子打翻了.
-这似乎预示着什么.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104701n4bi7d2dnbdhwo29.jpg)
-
-第二幕,也就是第二天,铃木又来到真子家里,让她做饭给他吃.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104701rkpgozqozp09kqop.jpg)
-
-还用催眠射线命令她,不能用上面的口,只能用下面的口,来试吃黄瓜、大葱.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104700wi5buuur95s78yux.jpg)
-
-真子一一照办.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104852jtflfslxm6tl2tsm.jpg)
-
-铃木又让真子小便在一个碗里,
-并命令她,这个碗和刚才她用过的那些蔬菜都不准洗,直接用来做晚餐.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104700yfmm54rzre4ppqfp.jpg)
-
-最后,还给她下了三道命令:
-一、上班的时候不准穿内衣裤;
-二、面对客人的任何要求都要笑脸相迎地完成;
-三、特定的手机铃声响起后进入绝对静止状态,铃声再响则恢复正常.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/104700q7wp5ugpoip1u1p0.jpg)
-
-所以,当曾经性骚扰她的顾客提出亲嘴、摸屁股的要求,真子都主动配合.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105236p7b584u2280ddsua.jpg)
-
-并且在静止状态下被男同事口爆.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105236atxf8z8qzzkjt8ll.jpg)
-
-到了晚上,真子和信二坐在一起共进晚餐.
-真子吐槽说今天嘴里黏黏的,莫名其妙.
-信二则说今天晚餐的味道有点怪怪的.
-到了这里,基本可以预见他们之后的命运会更加悲惨.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/133205rmmocsphpfvfhoch.jpg)
-
-这天,信二下班回家,却被眼前的一幕惊呆了.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105236eiqxxdjj74i4zzcz.jpg)
-
-原来铃木正骑在真子身上喝酒吃肉.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105235izj8zjdwu800jwi4.jpg)
-
-信二还没来得及做出反应,就被铃木的催眠射线命中了.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105234k36zrmj9jfzjrc6d.jpg)
-
-现在的真子,已经被催眠射线改造成认定铃木是她的丈夫、无视信二的存在了.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105234z22awha7zxw7gx8x.jpg)
-
-所以,在实际的丈夫信二面前,
-真子和现在她认定的丈夫铃木,上演了一出"夫妻恩爱"的肉戏.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105233dzy6zfnqv8h4hsw4.jpg)
-
-然而,至此,悲剧才刚刚拉开序幕.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105455s9frybyyxrk3byjk.jpg)
-
-接下来,铃木解除了对真子的洗脑,使她恢复了意识,但身体仍然由他支配.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105455vsc0gm9j6tcsjgio.jpg)
-
-恢复正常后的真子回想起这段时间发生的一切,无比哀羞.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105455kss7al1oft3foss7.jpg)
-
-然后,铃木提出,跟真子和信二玩一个小游戏.
-如果他插入真子体内,五分钟之内她没有高潮,就放过他们夫妻.
-如果五分钟之内她到了高潮,那么他们夫妻一生都要做他的奴隶.
-走投无路的夫妻俩只好答应陪他玩这个变态的游戏.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105455gx3hwywktlrbyxu3.jpg)
-
-在信二鼓励的眼神下,真子被铃木插入了.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105454e3wauja5nw3uu3yz.jpg)
-
-然而,还不到三分钟,真子就被铃木干到了高潮,并说愿意一生都做他的奴隶.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105454zffloil9zlg8u88i.jpg)
-
-铃木把信二当初向真子求婚时写的情书递给了他,
-并让他念出来,说是这样做也许真子就会回心转意.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105734cb0zy83zi3tsbvt3.jpg)
-
-为了挽回妻子,信二只好大声念出了那封情书.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105734h28tu58i5q9guqqj.jpg)
-
-然而,在他涕泪交加的告白后,真子不但不为所动,
-还说不能让她高潮、不能让她怀孕的男人就是没用的男人.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105734c2v57vs9qd5zq774.jpg)
-
-那封情书上,落满了从真子体内流出的精液.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105901vtueu985c1zfu6k1.jpg)
-
-影片的最后,被催眠的信二搬去了破旧公寓,
-那个原本他自己的家则让给了铃木和真子.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105940xjl33pklzzhz3hlz.jpg)
-
-而他被公司解雇后,还要每天挣钱供养他们,
-然后只能看着他们偶尔送来的性交影碟,聊以自慰.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/105940dg2rzur2slhh6696.jpg)
-
-在电视中真子欢快的笑声中,影片结束.
-
-个人以为,本片并不是一部真正意义上的色情片,而是一部彻头彻尾的悲剧.
-色情片应该要有的是,代入感,和爽感.
-但在本片中,完全找不到.
-把自己代入男主？那么悲惨的命运,没几个人能承受吧？
-把自己代入铃木？
-拥有那么强大的金手指,不去对付小看他的上司？或者弄个社长当当？
-而是降维打击一个可以说是无辜的同事,至于吗？
-就算这个同事无意间得罪过他,也罪不至死吧？
-仅仅因为嫉妒,就把人家搞得比死还痛苦,
-人性之阴暗之丑陋至此,确实叫人不寒而栗.
-所以,心目中最黑暗的 AV,本片可以跟曾经写过的 STAR-765 并列第一.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/110306jzthehekzrkru25j.jpg)
-
-从某个层面来看,本片跟传统电影里的大多数超级英雄类型片有着相似之处,
-展现的都是普通人获得金手指之后的故事.
-超级英雄片主要分为 DC 宇宙和漫威宇宙.
-DC 电影主要聚焦在超级英雄开挂后,责任的沉重,抉择的艰难,以此来探讨人性的复杂.
-漫威宇宙则更多的是呈现超级英雄开挂后,那种上天入地、无所不能的风光.
-所以,舆论界普遍认为 DC 方面更具深度,豆瓣评分最高的是《蝙蝠侠:黑暗骑士》9.2,
-漫威则被定义为爆米花电影,
-豆瓣评分最高的是《复仇者联盟 4:终局之战》8.5,其中一部分还是来自于钢铁侠牺牲的加成.
-以往对此类金手指或者超能力的 AV 看得不多,在有限的观影记录里,
-要么是一次性的侵犯,之后深藏身与名.
-观众代入进去后,会有一种猎奇的刺激感,一种 YY 得以实现的满足感.
-要么是下位者为主角,被上位者欺凌,因而开挂对其妻女实施报复,但通常也不会是终身侵害.
-这时候,当观众把自己代入到下位者的主角,就会在视听刺激之外,还有一种大仇得报的快感.
-所以,这类影片大多体现的是主角在获得金手指开挂之后的爽感,跟漫威电影有点相似.
-
-而本片恰恰反其道而行.
-但它不像 DC 那样将视角聚焦在金手指拥有者的内心挣扎,而是放在了受害人的方面.
-鲁迅说过:"悲剧是将人生有价值的东西毁灭给人看".
-这次真是鲁迅先生在《再论雷峰塔的倒掉》 说的.
-对于男女主来说,他们最有价值的,就是他们的爱情,他们的家庭.
-然而,却被天降横祸打击得爱情幻灭,家庭破碎,就连人格都崩坏了.
-在施害者眼中不值一哂的恶作剧,却成了受害方毁灭性的悲剧.
-所以,或许本片真正想讨论的是,
-当我们成为了金手指或者 NTR 的受害方,
-我们还能像旁观者那样爽得起来吗？.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/110704hdeqwgp7wrwqg9dw.jpg)
-
-或许,我们该庆幸,这是一部色情片.
-影片在前两幕花了很多的篇幅去表现一些所谓的调教,
-而不是丰富、鲜活男女主的人物.
-否则,当观众对男女主产生了情感羁绊之后,有几个能承受得了结局带来的心理冲击？
-
-当最后一幕的前半部分,
-铃木当着男主的面跟女主发生关系.
-即便是以暴虐凌辱为主要画风的 ATTACKERS"夫の目の前で犯されて"系列也就到此为止了.
-也属于绝大多数观众能够接受的范围.
-
-当后半部分,男主当着被奸淫的女主念出那封情书,他们的漫画被铃木的精液玷污时,
-丈夫被绿,妻子跟人跑了,一份美好的感情被当作笑话般被肆意践踏,
-即便是再黑暗向的 NTR 类影片也会在这里落幕了.
-观众就算强烈不适,但也还勉强可以接受.
-
-![](https://www.assdrty.com/tupian/forum/202005/29/112056gmeuujduegnhuhlo.jpg)
-
-但是本片的导演却毫无慈悲可言.
-他还要继续拉低下限,要挑战观众心理承受能力的极限,
-要将这种悲剧的毁灭性做到极致.
-
-当女主自愿被顾客性骚扰,静态地被同事口爆,
-在片尾的影碟里还说她跟男主的上司课长、部长都睡过,以至于根本不知道怀的是谁的种,
-并且对接下来的调教充满期待,
-我们可以知道,她已经不只是铃木的专属性奴隶,更沦为了公众肉便器,
-尤其她说这一切的时候,还是满脸欢笑,面对自己的凄惨命运全无知觉,
-而事业被摧毁、家宅被霸占的男主则是一脸麻木对着影碟自慰.
-虽然,这种结局曾经出现在神作《高树三姐妹》中,但那好歹只是相对抽象的文字,
-当它以声光影像的方式呈现时,
-那种冲击,怎不教人细思恐极？
-
-亦悲极. -->
-
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/103604excclw8xl8tlwwf1.jpg"></p>
+<p>影片开场,在欢快的背景音乐伴奏下,女主真子和男主信二正在整理屋子.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/103808vswempidkd1n8hi9.jpg"></p>
+<p>看得出来,这是一对新婚夫妻,刚搬进新家.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/103843by2hc9c2zuz72wwh.jpg"></p>
+<p>拆箱的时候,真子发现了一套积木.<br>原来是信二给他们未来的宝宝准备的.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/103808ajwz2x0tqikl7syi.jpg"></p>
+<p>虽然他们只是吃着泡面,却一起憧憬、营造着美好而幸福的将来.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104124mtqgbn476rdtcknx.jpg"></p>
+<p>第一幕,场景来到信二所在的公司.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104124oo9idcihdv9oedsh.jpg"></p>
+<p>信二的工作表现优异,提案得到上司的认可,同事也都欣赏和爱戴他.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104123mian9i9ij5kx6evn.jpg"></p>
+<p>而他的同事铃木看在眼里,恨在心里.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104124pnavn8sakqi7ue6y.jpg"></p>
+<p>场景再转到真子工作的咖啡馆.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104123tn25bz3xwvw22i58.jpg"></p>
+<p>这里有对她性骚扰的顾客,</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104123c91ax1b3en7aa37x.jpg"></p>
+<p>还有对她抱有企图的男同事.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104431yu0w68p8byb223j6.jpg"></p>
+<p>晚上,真子为了庆祝信二的提案成功,特地买了一支红酒.<br>但信二提出留到下周再喝.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104431kobx7zphzd13dsyu.jpg"></p>
+<p>到了上床之后,信二很快就交了作业.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104431rark5sg6sdh00kll.jpg"></p>
+<p>真子虽然没有得到满足,但也没有多说什么.<br>至此,影片将背景介绍完毕,剧情就此开始展开.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104431ffkybbd0u4fhq024.jpg"></p>
+<p>第二天,真子正独自在家,铃木却不请自来了.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104430m94aafslftza8f8a.jpg"></p>
+<p>看着真子和信二的合影、漫画,铃木内心更是恶念丛生.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104430rna1jvjyja8ymway.jpg"></p>
+<p>两人寒暄了几句,铃木突然掏出一个遥控器对着真子按下了开关.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104430onceby5qq1ps1nr5.jpg"></p>
+<p>原来这是一个催眠射线发射装置.<br>只要中了这个射线,就会被洗脑+支配,完全服从铃木的命令.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104429imvfzwzuwwm3wwbw.jpg"></p>
+<p>在铃木的命令下,真子脱光了衣服,并对他下跪叩拜.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104429mfmgysg8sayu2yyu.jpg"></p>
+<p>接着,他又让全裸的真子泡咖啡.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104702tc2iczinf7s7hizi.jpg"></p>
+<p>当发现咖啡里没有牛奶后,他又命令真子吹箫、毒龙,<br>最后将他的”牛奶”射入咖啡,还让真子喝了下去.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104702zyswrnnnw0e2tnr8.jpg"></p>
+<p>这一切完了之后,被洗脑的真子还对铃木连声道谢.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105111omad3v4d3z11uh8m.jpg"></p>
+<p>临走前,铃木命令真子不许把刚才发生的事情告诉信二.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104702b87jrwq080agjq50.jpg"></p>
+<p>当晚,信二回到家里,跟真子一起拼积木.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104702aggrqqp0regfigoi.jpg"></p>
+<p>心事重重的真子欲言又止.<br>还失手将快要拼好的积木房子打翻了.<br>这似乎预示着什么.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104701n4bi7d2dnbdhwo29.jpg"></p>
+<p>第二幕,也就是第二天,铃木又来到真子家里,让她做饭给他吃.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104701rkpgozqozp09kqop.jpg"></p>
+<p>还用催眠射线命令她,不能用上面的口,只能用下面的口,来试吃黄瓜、大葱.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104700wi5buuur95s78yux.jpg"></p>
+<p>真子一一照办.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104852jtflfslxm6tl2tsm.jpg"></p>
+<p>铃木又让真子小便在一个碗里,<br>并命令她,这个碗和刚才她用过的那些蔬菜都不准洗,直接用来做晚餐.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104700yfmm54rzre4ppqfp.jpg"></p>
+<p>最后,还给她下了三道命令:<br>一、上班的时候不准穿内衣裤;<br>二、面对客人的任何要求都要笑脸相迎地完成;<br>三、特定的手机铃声响起后进入绝对静止状态,铃声再响则恢复正常.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/104700q7wp5ugpoip1u1p0.jpg"></p>
+<p>所以,当曾经性骚扰她的顾客提出亲嘴、摸屁股的要求,真子都主动配合.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105236p7b584u2280ddsua.jpg"></p>
+<p>并且在静止状态下被男同事口爆.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105236atxf8z8qzzkjt8ll.jpg"></p>
+<p>到了晚上,真子和信二坐在一起共进晚餐.<br>真子吐槽说今天嘴里黏黏的,莫名其妙.<br>信二则说今天晚餐的味道有点怪怪的.<br>到了这里,基本可以预见他们之后的命运会更加悲惨.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/133205rmmocsphpfvfhoch.jpg"></p>
+<p>这天,信二下班回家,却被眼前的一幕惊呆了.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105236eiqxxdjj74i4zzcz.jpg"></p>
+<p>原来铃木正骑在真子身上喝酒吃肉.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105235izj8zjdwu800jwi4.jpg"></p>
+<p>信二还没来得及做出反应,就被铃木的催眠射线命中了.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105234k36zrmj9jfzjrc6d.jpg"></p>
+<p>现在的真子,已经被催眠射线改造成认定铃木是她的丈夫、无视信二的存在了.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105234z22awha7zxw7gx8x.jpg"></p>
+<p>所以,在实际的丈夫信二面前,<br>真子和现在她认定的丈夫铃木,上演了一出”夫妻恩爱”的肉戏.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105233dzy6zfnqv8h4hsw4.jpg"></p>
+<p>然而,至此,悲剧才刚刚拉开序幕.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105455s9frybyyxrk3byjk.jpg"></p>
+<p>接下来,铃木解除了对真子的洗脑,使她恢复了意识,但身体仍然由他支配.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105455vsc0gm9j6tcsjgio.jpg"></p>
+<p>恢复正常后的真子回想起这段时间发生的一切,无比哀羞.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105455kss7al1oft3foss7.jpg"></p>
+<p>然后,铃木提出,跟真子和信二玩一个小游戏.<br>如果他插入真子体内,五分钟之内她没有高潮,就放过他们夫妻.<br>如果五分钟之内她到了高潮,那么他们夫妻一生都要做他的奴隶.<br>走投无路的夫妻俩只好答应陪他玩这个变态的游戏.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105455gx3hwywktlrbyxu3.jpg"></p>
+<p>在信二鼓励的眼神下,真子被铃木插入了.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105454e3wauja5nw3uu3yz.jpg"></p>
+<p>然而,还不到三分钟,真子就被铃木干到了高潮,并说愿意一生都做他的奴隶.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105454zffloil9zlg8u88i.jpg"></p>
+<p>铃木把信二当初向真子求婚时写的情书递给了他,<br>并让他念出来,说是这样做也许真子就会回心转意.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105734cb0zy83zi3tsbvt3.jpg"></p>
+<p>为了挽回妻子,信二只好大声念出了那封情书.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105734h28tu58i5q9guqqj.jpg"></p>
+<p>然而,在他涕泪交加的告白后,真子不但不为所动,<br>还说不能让她高潮、不能让她怀孕的男人就是没用的男人.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105734c2v57vs9qd5zq774.jpg"></p>
+<p>那封情书上,落满了从真子体内流出的精液.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105901vtueu985c1zfu6k1.jpg"></p>
+<p>影片的最后,被催眠的信二搬去了破旧公寓,<br>那个原本他自己的家则让给了铃木和真子.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105940xjl33pklzzhz3hlz.jpg"></p>
+<p>而他被公司解雇后,还要每天挣钱供养他们,<br>然后只能看着他们偶尔送来的性交影碟,聊以自慰.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/105940dg2rzur2slhh6696.jpg"></p>
+<p>在电视中真子欢快的笑声中,影片结束.</p>
+<p>个人以为,本片并不是一部真正意义上的色情片,而是一部彻头彻尾的悲剧.<br>色情片应该要有的是,代入感,和爽感.<br>但在本片中,完全找不到.<br>把自己代入男主？那么悲惨的命运,没几个人能承受吧？<br>把自己代入铃木？<br>拥有那么强大的金手指,不去对付小看他的上司？或者弄个社长当当？<br>而是降维打击一个可以说是无辜的同事,至于吗？<br>就算这个同事无意间得罪过他,也罪不至死吧？<br>仅仅因为嫉妒,就把人家搞得比死还痛苦,<br>人性之阴暗之丑陋至此,确实叫人不寒而栗.<br>所以,心目中最黑暗的 AV,本片可以跟曾经写过的 STAR-765 并列第一.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/110306jzthehekzrkru25j.jpg"></p>
+<p>从某个层面来看,本片跟传统电影里的大多数超级英雄类型片有着相似之处,<br>展现的都是普通人获得金手指之后的故事.<br>超级英雄片主要分为 DC 宇宙和漫威宇宙.<br>DC 电影主要聚焦在超级英雄开挂后,责任的沉重,抉择的艰难,以此来探讨人性的复杂.<br>漫威宇宙则更多的是呈现超级英雄开挂后,那种上天入地、无所不能的风光.<br>所以,舆论界普遍认为 DC 方面更具深度,豆瓣评分最高的是《蝙蝠侠:黑暗骑士》9.2,<br>漫威则被定义为爆米花电影,<br>豆瓣评分最高的是《复仇者联盟 4:终局之战》8.5,其中一部分还是来自于钢铁侠牺牲的加成.<br>以往对此类金手指或者超能力的 AV 看得不多,在有限的观影记录里,<br>要么是一次性的侵犯,之后深藏身与名.<br>观众代入进去后,会有一种猎奇的刺激感,一种 YY 得以实现的满足感.<br>要么是下位者为主角,被上位者欺凌,因而开挂对其妻女实施报复,但通常也不会是终身侵害.<br>这时候,当观众把自己代入到下位者的主角,就会在视听刺激之外,还有一种大仇得报的快感.<br>所以,这类影片大多体现的是主角在获得金手指开挂之后的爽感,跟漫威电影有点相似.</p>
+<p>而本片恰恰反其道而行.<br>但它不像 DC 那样将视角聚焦在金手指拥有者的内心挣扎,而是放在了受害人的方面.<br>鲁迅说过:”悲剧是将人生有价值的东西毁灭给人看”.<br>这次真是鲁迅先生在《再论雷峰塔的倒掉》 说的.<br>对于男女主来说,他们最有价值的,就是他们的爱情,他们的家庭.<br>然而,却被天降横祸打击得爱情幻灭,家庭破碎,就连人格都崩坏了.<br>在施害者眼中不值一哂的恶作剧,却成了受害方毁灭性的悲剧.<br>所以,或许本片真正想讨论的是,<br>当我们成为了金手指或者 NTR 的受害方,<br>我们还能像旁观者那样爽得起来吗？.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/110704hdeqwgp7wrwqg9dw.jpg"></p>
+<p>或许,我们该庆幸,这是一部色情片.<br>影片在前两幕花了很多的篇幅去表现一些所谓的调教,<br>而不是丰富、鲜活男女主的人物.<br>否则,当观众对男女主产生了情感羁绊之后,有几个能承受得了结局带来的心理冲击？</p>
+<p>当最后一幕的前半部分,<br>铃木当着男主的面跟女主发生关系.<br>即便是以暴虐凌辱为主要画风的 ATTACKERS”夫の目の前で犯されて”系列也就到此为止了.<br>也属于绝大多数观众能够接受的范围.</p>
+<p>当后半部分,男主当着被奸淫的女主念出那封情书,他们的漫画被铃木的精液玷污时,<br>丈夫被绿,妻子跟人跑了,一份美好的感情被当作笑话般被肆意践踏,<br>即便是再黑暗向的 NTR 类影片也会在这里落幕了.<br>观众就算强烈不适,但也还勉强可以接受.</p>
+<p><img src="https://www.assdrty.com/tupian/forum/202005/29/112056gmeuujduegnhuhlo.jpg"></p>
+<p>但是本片的导演却毫无慈悲可言.<br>他还要继续拉低下限,要挑战观众心理承受能力的极限,<br>要将这种悲剧的毁灭性做到极致.</p>
+<p>当女主自愿被顾客性骚扰,静态地被同事口爆,<br>在片尾的影碟里还说她跟男主的上司课长、部长都睡过,以至于根本不知道怀的是谁的种,<br>并且对接下来的调教充满期待,<br>我们可以知道,她已经不只是铃木的专属性奴隶,更沦为了公众肉便器,<br>尤其她说这一切的时候,还是满脸欢笑,面对自己的凄惨命运全无知觉,<br>而事业被摧毁、家宅被霸占的男主则是一脸麻木对着影碟自慰.<br>虽然,这种结局曾经出现在神作《高树三姐妹》中,但那好歹只是相对抽象的文字,<br>当它以声光影像的方式呈现时,<br>那种冲击,怎不教人细思恐极？</p>
+<p>亦悲极.</p>
 <!--
 ## JUFE-073 超絶倫弟にハメられまくる無防備な爆乳姉 童貞弟を誘惑したつもりが…まさかの逆転！ 神咲詩織
 

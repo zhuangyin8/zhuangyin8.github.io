@@ -466,7 +466,7 @@
 <p>不要使用否定条件 (它们可能会造成混淆), 而对布尔变量使用条件速记. 我不能特别强调这一点, 尤其是关于否定条件的部分. 这是一种不自然的做事方式.</p>
 </blockquote>
 <p>Bad</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isEmailNotVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">isEmailNotVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// implementation</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -479,7 +479,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Good</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isEmailVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">isEmailVerified</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">email</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// implementation</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -500,7 +500,7 @@
 <blockquote>
 <p>假设我们要检查汽车模型在功能上是 <code>雷诺</code> 还是 <code>标致</code> . 该代码可能看起来像这样:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>model <span class="token operator">===</span> <span class="token string">'renault'</span> <span class="token operator">||</span> model <span class="token operator">===</span> <span class="token string">'peugeot'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'model valid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -512,7 +512,7 @@
 <blockquote>
 <p>考虑到我们只有两个模型, 这样做看起来是可以接受的, 但是如果我们要检查另一个模型怎么办？还是其中几个？如果我们添加更多或语句, 则代码将更难维护且不够清晰. 为了使其更整洁, 我们可以将函数重写为如下形式:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'peugeot'</span><span class="token punctuation">,</span> <span class="token string">'renault'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'model valid'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
@@ -524,7 +524,7 @@
 <blockquote>
 <p>上面的代码看起来已经更好了. 为了使它更好, 我们可以创建一个变量来保存汽车模型:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkCarModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> models <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'peugeot'</span><span class="token punctuation">,</span> <span class="token string">'renault'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span>models<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>model<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -545,7 +545,7 @@
 <blockquote>
 <p>在此示例中, 我们要检查是否每种汽车模型都能通过我们的函数. 为了以更紧急的方式实现这一目标, 我们将执行以下操作:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'renault'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1956</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'peugeot'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1968</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1977</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -570,7 +570,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>如果您喜欢命令式的处理方式, 则上面的代码可能会很好. 另一方面, 如果您不关心幕后情况, 则可以重写上面的函数, 并使用 <code>Array.every</code> 或 <code>Array.find</code> 来获得相同的结果.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 推荐</span>
   <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> car<span class="token punctuation">.</span>model <span class="token operator">===</span> model<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -581,7 +581,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>通过使用 <code>Array.find</code> 进行一些微调, 我们可以获得相同的结果, 并且性能应该是相同的, 因为两个函数都对数组中的每个元素执行回调, 并且如果发现虚假项, 则立即返回 <code>false</code>.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkEveryModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">model</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// 不推荐</span>
   <span class="token keyword">return</span> cars<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> car<span class="token punctuation">.</span>model <span class="token operator">!==</span> model<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -599,7 +599,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我们可以通过编写类似于上面编写的 <code>for...loop</code> 语句来获得相同的结果, 但是幸运的是, 我们有很酷的 JavaScript 函数为我们做事.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'renault'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1956</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'peugeot'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1968</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#123;</span>model<span class="token operator">:</span> <span class="token string">'ford'</span><span class="token punctuation">,</span> year<span class="token operator">:</span> <span class="token number">1977</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -626,7 +626,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>让我们创建一个示例来说明这一点, 并说我们要显示给定汽车的型号和制造年份.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">car</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">let</span> result<span class="token punctuation">;</span> <span class="token comment">// first, we need to define a result value</span>
 
   <span class="token comment">// check if car exists</span>
@@ -662,7 +662,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我们可以通过更多的步骤来重构上面的函数, 从而使每个函数都更好. 例如, 使用三元运算符, 包含 <code>&amp;&amp;</code> 条件等, 但是我将直接跳到最后, 向您展示如何使用现代 JavaScript 功能和多个 return 语句将其简化.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>model<span class="token punctuation">,</span> year<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkModel</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>model<span class="token punctuation">,</span> year<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>model <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>year<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car'</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>model<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car model'</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>year<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token string">'No car year'</span><span class="token punctuation">;</span>
@@ -701,7 +701,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>假设我们要根据给定状态获取汽车模型.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">getCarsByState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">getCarsByState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">switch</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">case</span> <span class="token string">'usa'</span><span class="token operator">:</span>
       <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -722,7 +722,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>上面的代码可以重构为完全排除 <code>switch</code> 语句.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> cars <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'usa'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'france'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Renault'</span><span class="token punctuation">,</span> <span class="token string">'Peugeot'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'italy'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'Fiat'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -739,7 +739,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>或者, 我们可以为每个状态创建一个带有可用汽车列表的类, 并在需要时使用它, 但这是另一篇文章的主题. 这篇文章是关于条件的. 更合适的更改是使用对象字面量.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> carState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> carState <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   usa<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Ford'</span><span class="token punctuation">,</span> <span class="token string">'Dodge'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   france<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Renault'</span><span class="token punctuation">,</span> <span class="token string">'Peugeot'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   italy<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Fiat'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -772,7 +772,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>让我们用一些示例来备份上面的语句, 并从旧的处理方式开始.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> car <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> car <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   model<span class="token operator">:</span> <span class="token string">'Fiesta'</span><span class="token punctuation">,</span>
   manufacturer<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     name<span class="token operator">:</span> <span class="token string">'Ford'</span><span class="token punctuation">,</span>
@@ -808,7 +808,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>因此, 如果我们想打印出这家汽车制造商来自美国, 那么代码将如下所示:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">checkCarManufacturerState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">checkCarManufacturerState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>
     car <span class="token operator">&amp;&amp;</span>
     car<span class="token punctuation">.</span>manufacturer <span class="token operator">&amp;&amp;</span>
@@ -825,7 +825,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我不需要告诉您在对象结构更复杂的情况下这会变得多么混乱. 例如, 诸如 lodash 的许多库都有其自身的变通办法, 但我们不希望那样, 我们希望能够在 vanilla js 中实现. 让我们看看一种新的做事方式.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// to get the car model</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// to get the car model</span>
 <span class="token keyword">const</span> model <span class="token operator">=</span> car<span class="token operator">?.</span>model <span class="token operator">??</span> <span class="token string">'default model'</span><span class="token punctuation">;</span>
 <span class="token comment">// to get the manufacturer street</span>
 <span class="token keyword">const</span> street <span class="token operator">=</span> car<span class="token operator">?.</span>manufacturer<span class="token operator">?.</span>address<span class="token operator">?.</span>street <span class="token operator">??</span> <span class="token string">'default street'</span><span class="token punctuation">;</span>
@@ -845,7 +845,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>还有一件事情是非常整洁的. 可选链操作符接还支持 DOM API, 这非常酷, 这意味着您可以执行以下操作:</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> value <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input#user-name'</span><span class="token punctuation">)</span><span class="token operator">?.</span>value<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> value <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input#user-name'</span><span class="token punctuation">)</span><span class="token operator">?.</span>value<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <ul>

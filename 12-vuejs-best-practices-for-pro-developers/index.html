@@ -448,43 +448,48 @@
 <p>Without keys, Vue will just try to make the DOM as efficient as possible. This may mean elements in the <code>v-for</code> may appear out of order, or their behavior will be less predictable. If we have a unique key reference to each element, then we can better predict how exactly our Vue application will handle DOM manipulation.</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- BAD --></span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 
 <span class="token comment">&lt;!-- GOOD! --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product.id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product.id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="2-Use-Kebab-Case-for-Events"><a href="#2-Use-Kebab-Case-for-Events" class="headerlink" title="2. Use Kebab Case for Events"></a>2. Use Kebab Case for Events</h2><p>When it comes to emitting custom events, it’s always best to use kebab case. This is because in the parent component, that’s the same syntax we use to listen to that event.</p>
 <p>So for consistency across our components, and to make your code more readable, stick to using kebab case in both places.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'close-window'</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'close-window'</span><span class="token punctuation">)</span>
 
 <span class="token comment">// then in the parent</span>
 <span class="token operator">&lt;</span>popup<span class="token operator">-</span>window @close<span class="token operator">-</span>window<span class="token operator">=</span><span class="token string">'handleEvent()'</span> <span class="token operator">/</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="3-Declare-Props-With-camelCase-and-Use-Kebab-Case-in-Templates"><a href="#3-Declare-Props-With-camelCase-and-Use-Kebab-Case-in-Templates" class="headerlink" title="3. Declare Props With camelCase, and Use Kebab Case in Templates"></a>3. Declare Props With camelCase, and Use Kebab Case in Templates</h2><p>This best practice simply just follows the conventions for each language. In JavaScript, camelCase is the standard, and in HTML, it’s kebab case. Therefore, we use them accordingly.</p>
 <p>Luckily, Vue.js converts between kebab case and camelCase for us so we don’t have to worry about anything besides actually declaring them.</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- BAD!   --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PopupWindow</span> <span class="token attr-name">titleText</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hello world<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PopupWindow</span> <span class="token attr-name">titleText</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello world<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
 props: &#123; 'title-text': String &#125;
 <span class="token comment">&lt;!-- GOOD!   --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PopupWindow</span> <span class="token attr-name">title-text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>hello world<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PopupWindow</span> <span class="token attr-name">title-text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hello world<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 
 props: &#123; titleText: String &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="4-Data-Should-Always-Return-a-Function"><a href="#4-Data-Should-Always-Return-a-Function" class="headerlink" title="4. Data Should Always Return a Function"></a>4. Data Should Always Return a Function</h2><p>When declaring component data, the data option should always return a function. If it doesn’t and we just simply return an object, then that data will be shared across <em>all</em> instances of the component.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// BAD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// BAD!</span>
 data<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
  name<span class="token operator">:</span> <span class="token string">'My Window'</span><span class="token punctuation">,</span>
  articles<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>However, most of the time, the goal is to build reusable components, so we want each component to return a unique object. We accomplish this by returning our data object inside a function.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// GOOD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// GOOD!</span>
 <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
  name<span class="token operator">:</span> <span class="token string">'My Window'</span><span class="token punctuation">,</span>
  articles<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
  <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>new Vue() 实例中, data 可以直接是一个对象, 为什么在 vue 组件中, data 必须是一个函数呢?</p>
 </blockquote>
@@ -497,24 +502,28 @@ data<span class="token operator">:</span> <span class="token punctuation">&#123;
 <hr>
 <h2 id="5-Don’t-Use-v-if-With-v-for-Elements"><a href="#5-Don’t-Use-v-if-With-v-for-Elements" class="headerlink" title="5. Don’t Use v-if With v-for Elements"></a>5. Don’t Use v-if With v-for Elements</h2><p>It’s super tempting to want to use <code>v-if</code> with <code>v-for</code> in order to filter elements of an array.</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- BAD! --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product.price &lt; 500<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product in products<span class="token punctuation">"</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product.price &lt; 500<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>The problem with this is that Vue.js prioritizes the <code>v-for</code> directive over the <code>v-if</code> directive. So under the hood, it loops through every element and <em>then</em> checks the <code>v-if</code> conditional.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>products<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">product</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>products<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">product</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>product<span class="token punctuation">.</span>price <span class="token operator">&lt;</span> <span class="token number">500</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> product<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This means that even if we only want to render a few elements from a list, we’ll have to loop through the entire array.</p>
 <p>This is no good.</p>
 <p>A smarter solution would be to iterate over a <a target="_blank" rel="noopener" href="https://learnvue.co/2019/12/mastering-computed-properties-in-vuejs/">computed property</a>. The above example would look something like this.</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>product in cheapProducts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>product in cheapProducts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">computed<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
   <span class="token function-variable function">cheapProducts</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>products<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">product</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> product<span class="token punctuation">.</span>price <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>This is good for a few reasons.</p>
 <ul>
 <li>Rendering is much more efficient because we don’t loop over every item</li>
@@ -528,7 +537,7 @@ data<span class="token operator">:</span> <span class="token punctuation">&#123;
 <p>And if you’re in a larger dev team, your coworkers aren’t mind readers, so make it clear to them how to use your components.</p>
 <p>So save everyone the hassle of having to painstakingly trace your component to determine a prop’s formatting, and please just write prop validations.</p>
 <p>Check out this example from the Vue docs.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
   status<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     type<span class="token operator">:</span> String<span class="token punctuation">,</span>
     required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -542,6 +551,7 @@ data<span class="token operator">:</span> <span class="token punctuation">&#123;
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="7-Use-PascalCase-or-Kebab-Case-for-Components"><a href="#7-Use-PascalCase-or-Kebab-Case-for-Components" class="headerlink" title="7. Use PascalCase or Kebab Case for Components"></a>7. Use PascalCase or Kebab Case for Components</h2><p>A common naming convention for components is to use PascalCase or kebab case. No matter which one you choose for your project, it’s most important that you stay consistent all the time.</p>
 <p>PascalCase works best, in my opinion, because it is supported by most IDE autocomplete features.</p>
@@ -554,6 +564,7 @@ Mycomponent.vue
 <span class="token comment"># GOOD</span>
 
 MyComponent.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="8-Base-Components-Should-Be-Prefixed-Accordingly"><a href="#8-Base-Components-Should-Be-Prefixed-Accordingly" class="headerlink" title="8. Base Components Should Be Prefixed Accordingly"></a>8. Base Components Should Be Prefixed Accordingly</h2><p>Another naming convention is focused around naming base components — or components that are purely presentational and help set up common styles across your app.</p>
 <p>According to the Vue style guide, <em>base components</em> are components that only contain:</p>
@@ -566,6 +577,7 @@ MyComponent.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">BaseButton.vue
 BaseIcon.vue
 BaseHeading.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <p>The purpose of this naming convention is it keeps your base components alphabetically grouped in your file system. Also, by using a webpack import function, you can search for components matching your naming-convention pattern and automatically import all of them as globals in your Vue project.</p>
 <hr>
 <h2 id="9-Components-Declared-and-Used-Once-Should-Have-the-Prefix-“The”"><a href="#9-Components-Declared-and-Used-Once-Should-Have-the-Prefix-“The”" class="headerlink" title="9. Components Declared and Used Once Should Have the Prefix “The”"></a>9. Components Declared and Used Once Should Have the Prefix “The”</h2><p>Similar to base components, <em>single-instance components</em> (used once per page and not accepting any props) have their own naming convention.</p>
@@ -575,6 +587,7 @@ BaseHeading.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><
 TheFooter.vue
 TheSidebar.vue
 ThePopup.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="10-Stay-Consistent-With-Your-Directive-Shorthand"><a href="#10-Stay-Consistent-With-Your-Directive-Shorthand" class="headerlink" title="10. Stay Consistent With Your Directive Shorthand"></a>10. Stay Consistent With Your Directive Shorthand</h2><p>A common technique among Vue developers is to use shorthand for directives. For example:</p>
 <ul>
@@ -585,7 +598,7 @@ ThePopup.vue<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p>It’s great to use these shorthands in your Vue project. But to create some sort of convention across your project, you should either always use them or <strong>never</strong> use them. This will make your project more cohesive and readable.</p>
 <hr>
 <h2 id="11-Don’t-Call-a-Method-on-“created”-and-“watch”"><a href="#11-Don’t-Call-a-Method-on-“created”-and-“watch”" class="headerlink" title="11. Don’t Call a Method on “created” and “watch”"></a>11. Don’t Call a Method on “created” and “watch”</h2><p>A common mistake Vue developers make (or maybe it was just me) is they unnecessarily call a method in <code>created</code> and <code>watch</code>. The thought behind this is we want to run the <code>watch</code> hook as soon as a component is initialized.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// BAD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// BAD!</span>
 created<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -599,13 +612,14 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>However, Vue has a built-in solution for this. It’s a property of <a target="_blank" rel="noopener" href="https://learnvue.co/2019/12/a-simple-vue-watcher-tutorial-for-beginners/">Vue watchers</a> that we often forget.</p>
 <p>All we have to do is restructure our watcher a little bit and declare two properties:</p>
 <ol>
-<li><code>handler (newVal, oldVal)</code> — this is our watcher method itself.</li>
-<li><code>immediate: true</code> — this makes our handler run when our instance is created.</li>
+<li> <code>handler (newVal, oldVal)</code> — this is our watcher method itself.</li>
+<li> <code>immediate: true</code> — this makes our handler run when our instance is created.</li>
 </ol>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// GOOD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// GOOD!</span>
 methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
   <span class="token function">handleChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// stuff happens</span>
@@ -619,10 +633,11 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="12-Template-Expressions-Should-Only-Have-Basic-JavaScript-Expressions"><a href="#12-Template-Expressions-Should-Only-Have-Basic-JavaScript-Expressions" class="headerlink" title="12. Template Expressions Should Only Have Basic JavaScript Expressions"></a>12. Template Expressions Should Only Have Basic JavaScript Expressions</h2><p>It’s natural to want to add as much inline functionality into your templates as possible. But this makes our template less declarative and more complex. Meaning our template just gets extremely cluttered.</p>
 <p>For this, let’s check out another example of normalizing a string from the Vue style guide. Look how confusing it is.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// BAD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// BAD!</span>
 <span class="token punctuation">&#123;</span>
   <span class="token punctuation">&#123;</span>
     fullName
@@ -633,9 +648,10 @@ methods<span class="token operator">:</span> <span class="token punctuation">&#1
       <span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Basically, we want everything in our template to be intuitive as to what it’s displaying. To keep this, we should refactor complex expressions into appropriately named component options.</p>
 <p>Another benefit of separating out complex expressions is it means these values can be reused.</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// GOOD!</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// GOOD!</span>
 <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> normalizedFullName <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span>
 
 
@@ -647,6 +663,7 @@ computed<span class="token operator">:</span> <span class="token punctuation">&#
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>And there you have it.</p>
 <p>Those were 12 of the most common best practices that’ll make your Vue code more maintainable, readable, and more professional.</p>

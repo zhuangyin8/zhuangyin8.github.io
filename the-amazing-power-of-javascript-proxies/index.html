@@ -483,7 +483,7 @@
 <li>handler:定义哪些操作将被拦截,以及如何重新定义被拦截的操作的对象,也可以以称为 “捕捉”.</li>
 </ul>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> target <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   message1<span class="token operator">:</span> <span class="token string">'hello'</span><span class="token punctuation">,</span>
   message2<span class="token operator">:</span> <span class="token string">'everyone'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -494,6 +494,7 @@
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>proxy1<span class="token punctuation">.</span>message1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// hello</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>proxy1<span class="token punctuation">.</span>message2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// everyone</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>Proxies are supported in most of the browsers but there few old ones that don’t support it(IE of course), you can check the full list <a target="_blank" rel="noopener" href="https://caniuse.com/?search=proxy">here</a>. There is a <a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/proxy-polyfill">polyfill</a> for Proxies by google but it doesn’t support all of the Proxy features.</p>
 <blockquote>
 <p>大多数浏览器都支持代理功能,但也有一些老的浏览器不支持(当然是 IE),你可以在这里查看完整的列表.google 有一个代理的 polyfill,但它不支持所有的代理功能.</p>
@@ -506,7 +507,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>让我们想象一下,我们是一家银行或一个忧心忡忡的女朋友.我们想知道每次银行账户余额被访问和被通知的时间.我们将使用最简单的处理程序操作/捕捉: get</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
   name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -529,6 +530,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// OUTPUT:</span>
 <span class="token comment">// Current Balance Of: Georgy Glezer Is: 2020</span>
 <span class="token comment">// 2020</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In the above example, we have a bank account object which contains my name and a balance of 2020.</p>
 <blockquote>
 <p>在上面的例子中,我们有一个银行账户对象,里面有我的名字和 2020 的余额.</p>
@@ -561,7 +563,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>继续我们银行的想法,要求每次有人从银行账户中取钱,我们都要得到通知.而另一个约束条件是,银行不允许出现负余额.为了达到这个目的,我们这次要使用设置处理程序/捕捉.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
   name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -592,6 +594,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// Current Balance: 20, New Balance: -30</span>
 <span class="token comment">// We don't allow Negative Balance!</span>
 <span class="token comment">// 20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>In the above example, we notify about the current balance and the new balance after the withdraw, and we also notify if the new balance is going to be negative and abort the withdrawal action.</p>
 <blockquote>
 <p>在上面的例子中,我们通知当前的余额和取款后的新余额,如果新的余额是负数,我们也会通知并中止取款操作.</p>
@@ -653,7 +656,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我们将再次使用 get 操作/捕捉,并将 “dollars” 属性添加到我们的对象中.在每次访问 “dollars” 属性时,我们将计算我们的余额价值多少美元.因为计算可能是一个沉重的操作,我们希望尽可能多的 Cache 它.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   balance<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
   name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
   <span class="token keyword">get</span> <span class="token function">dollars</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -687,6 +690,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// OUTPUT:</span>
 <span class="token comment">// Calculating Dollars</span>
 <span class="token comment">// 34.3008459</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>As you can see in the example, we have a cache object that holds the current bank balance and the balance worth in dollars. Each time someone accesses the “<em>dollars”</em> property we will calculate for the first time, and then we will cache it.</p>
 <blockquote>
 <p>正如你在例子中所看到的,我们有一个缓存对象,它保存着当前的银行余额和以美元为单位的余额价值.每次有人访问 “dollar “属性时,我们都会先进行计算,然后将其缓存起来.</p>
@@ -695,7 +699,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>我们想在每次余额发生变化时更新屏幕上的文字.我们将使用一个 set 操作符/捕捉,每次改变数值时,我们将更新屏幕上的 DOM 元素.</p>
 </blockquote>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> bankAccount <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   balance<span class="token operator">:</span> <span class="token number">2020</span><span class="token punctuation">,</span>
   name<span class="token operator">:</span> <span class="token string">'Georgy Glezer'</span><span class="token punctuation">,</span>
   <span class="token keyword">get</span> <span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -719,6 +723,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 wrappedBankAccount<span class="token punctuation">.</span>balance <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
 wrappedBankAccount<span class="token punctuation">.</span>balance <span class="token operator">=</span> <span class="token number">100000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="js,result" data-user="zhuangyin" data-slug-hash="XWjdmMJ" data-prefill='{"tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div id="bank-account">&lt;/div></pre>
   <pre data-lang="js">const bankAccount = {

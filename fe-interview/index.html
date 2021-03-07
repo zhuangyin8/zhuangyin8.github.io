@@ -859,9 +859,16 @@
 <h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/539">你有写过 vuex 中 store 的插件吗？</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/538">你有使用过 vuex 的 module 吗？主要是在什么场景下使用？</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/537">vuex 中 actions 和 mutations 有什么区别？</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/537">vuex 中 actions 和 mutations 有什么区别？</a><ul>
+<li>更改 Vuex 的 store 中的状态的唯一方法是提交 <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/mutations.html">mutations</a>。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数 你可以向 <code>store.commit</code> 传入额外的参数，即 mutation 的 载荷（payload）：</li>
+<li><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/guide/actions.html">actions</a>  类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作。Action 通过 <code>store.dispatch</code> 方法触发：</li>
+</ul>
+</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/413">vuex 使用 actions 时不支持多参数传递怎么办？</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/412">你觉得 vuex 有什么缺点？</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/412">你觉得 vuex 有什么缺点？</a><ul>
+<li>如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/state-management.html#%E7%AE%80%E5%8D%95%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E8%B5%B7%E6%AD%A5%E4%BD%BF%E7%94%A8">store 模式</a> (opens new window)就足够您所需了。</li>
+</ul>
+</li>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/411">你觉得要是不用 vuex 的话会带来哪些问题？</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/393">vuex 怎么知道 state 是通过 mutation 修改还是外部直接修改的？</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/haizlin/fe-interview/issues/392">请求数据是写在组件的 methods 中还是在 vuex 的 action 中？</a></li>

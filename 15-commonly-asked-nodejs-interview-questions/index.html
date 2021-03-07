@@ -472,7 +472,7 @@
 <p>However, Node.js’s unique qualities make it a less-than-ideal choice for some other types of applications. Applications that carry out CPU-intensive tasks, like complex mathematical computations, do not do well with Node.js because of its single-threaded execution.</p>
 <p>If you want to learn more about this, check out our article <a target="_blank" rel="noopener" href="https://livecodestream.dev/post/when-you-should-and-should-not-use-nodejs-for-your-project/">Node.js architecture and when to use Node.js in projects</a>.</p>
 <blockquote>
-<p>Node.js 是异步的、事件驱动的、非阻塞的和单线程的,使得它成为开发下面应用程序的完美候选：</p>
+<p>Node.js 是异步的、事件驱动的、非阻塞的和单线程的,使得它成为开发下面应用程序的完美候选:</p>
 <ul>
 <li>实时应用程序,如聊天和提供实时更新的应用程序</li>
 <li>将视频或其他多媒体内容流式传输给大量观众的流式应用程序</li>
@@ -504,7 +504,7 @@ eventEmitter<span class="token punctuation">.</span><span class="token function"
 </blockquote>
 <h2 id="5-What-are-Node-Streams"><a href="#5-What-are-Node-Streams" class="headerlink" title="5. What are Node Streams?"></a>5. What are Node Streams?</h2><p>Streams are pipelines that read or write data from a source and transfer it to a continuous flow destination. There are four types of streams:</p>
 <blockquote>
-<p>Stream 流是从源读取或写入数据并将其传输到连续流目标的管道.有四种类型：</p>
+<p>Stream 流是从源读取或写入数据并将其传输到连续流目标的管道.有四种类型:</p>
 </blockquote>
 <ul>
 <li>Readable.</li>
@@ -548,7 +548,7 @@ fs<span class="token punctuation">.</span><span class="token function">readFile<
 
 <h2 id="7-How-Do-You-Handle-Uncaught-Exceptions-in-node-js"><a href="#7-How-Do-You-Handle-Uncaught-Exceptions-in-node-js" class="headerlink" title="7. How Do You Handle Uncaught Exceptions in node.js?"></a>7. How Do You Handle Uncaught Exceptions in node.js?</h2><p>We can catch the uncaught exceptions thrown in the application in its process level. To do this we attach a listener to the <code>process</code> global object:</p>
 <blockquote>
-<p>我们可以在进程级别捕获应用程序中未捕获的异常.为此将侦听器附加到 <code>process</code> 全局对象：</p>
+<p>我们可以在进程级别捕获应用程序中未捕获的异常.为此将侦听器附加到 <code>process</code> 全局对象:</p>
 </blockquote>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">process<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'uncaughtException'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'exception caught: '</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -649,7 +649,7 @@ first<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <h2 id="14-Why-Is-It-Good-Practice-To-Separate-‘App’-and-‘Server’-in-Express"><a href="#14-Why-Is-It-Good-Practice-To-Separate-‘App’-and-‘Server’-in-Express" class="headerlink" title="14. Why Is It Good Practice To Separate ‘App’ and ‘Server’ in Express?"></a>14. Why Is It Good Practice To Separate ‘App’ and ‘Server’ in Express?</h2><p>By separating <code>app</code> and <code>server</code> in Express, we can separate the API implementation from the network-related configuration. This allows us to carry out API tests without performing network calls. This also guarantees faster test execution and better code coverage metrics.</p>
 <p>To achieve this separation, you should declare API and server in separate files. Here we use two files: <code>app.js</code> and <code>server.js</code>:</p>
 <blockquote>
-<p>通过在 Express 中分离应用程序和服务器,可以将 API 实现与网络相关配置分开.在不执行网络调用的情况下执行 API 测试,保证了更快的测试执行和更好的代码覆盖度量.<br>要实现这种分离,应该在单独的文件中声明 API 和 server,对应 <code>app.js</code> 和 <code>server.js</code>：</p>
+<p>通过在 Express 中分离应用程序和服务器,可以将 API 实现与网络相关配置分开.在不执行网络调用的情况下执行 API 测试,保证了更快的测试执行和更好的代码覆盖度量.<br>要实现这种分离,应该在单独的文件中声明 API 和 server,对应 <code>app.js</code> 和 <code>server.js</code>:</p>
 </blockquote>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//app.js</span>
 <span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -718,7 +718,7 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -729,7 +729,7 @@ app<span class="token punctuation">.</span><span class="token function">set</spa
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

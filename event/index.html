@@ -387,16 +387,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/event-bubbling/">
-                                <span class="chip bg-color">event bubbling</span>
+                            <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1/">
+                                <span class="chip bg-color">事件冒泡</span>
                             </a>
                         
-                            <a href="/tags/event-capturing/">
-                                <span class="chip bg-color">event capturing</span>
+                            <a href="/tags/%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7/">
+                                <span class="chip bg-color">事件捕获</span>
                             </a>
                         
-                            <a href="/tags/event-delegate/">
-                                <span class="chip bg-color">event delegate</span>
+                            <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/">
+                                <span class="chip bg-color">事件委托</span>
                             </a>
                         
                     </div>
@@ -444,309 +444,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>In the JavaScript, Event Flow process is completed by three concepts −</p>
-<ul>
-<li><p>Event Target − The actual DOM object on which the event occured.</p>
-</li>
-<li><p>Event Bubbling − Explained below</p>
-</li>
-<li><p>Event Capturing − Explained below</p>
-</li>
-</ul>
-<p>Event bubbling is the order in which event handlers are called when one element is nested inside a second element, and both elements have registered a listener for the same event (a click, for example). With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.</p>
-<p>With capturing, the event is first captured by the outermost element and propagated to the inner elements.</p>
-<p>Let’s look at examples of both.</p>
-<p>For both of the following examples, create the following HTML −</p>
-<p>Example</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>outer<span class="token punctuation">"</span></span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">background-color</span><span class="token punctuation">:</span>red<span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span>50px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
-  Outer Div
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inner<span class="token punctuation">"</span></span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">background-color</span><span class="token punctuation">:</span>yellow<span class="token punctuation">;</span><span class="token property">padding</span><span class="token punctuation">:</span>50px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>Inner Div<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Event-Bubbling"><a href="#Event-Bubbling" class="headerlink" title="Event Bubbling"></a>Event Bubbling</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#outer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
-  <span class="token string">'click'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Outer div is clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#inner'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
-  <span class="token string">'click'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Inner div is clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="qyqJNX" data-prefill='{"title":" 事件冒泡. demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;div id="outer" style="background-color:red;padding:50px;">
-  Outer Div
-  &lt;div id="inner" style="background-color:yellow;padding:50px;">
-    Inner Div
-  &lt;/div>
-&lt;/div>
-</pre>
-  <pre data-lang="scss">
-</pre>
-  <pre data-lang="js">
-document.querySelector('#outer').addEventListener(
-  'click',
-  () => {
-    alert('Outer div is clicked');
-  },
-  false,
-);
-document.querySelector('#inner').addEventListener(
-  'click',
-  () => {
-    alert('Inner div is clicked');
-  },
-  false,
-);
-</pre></div>
-
-<p>If you run the above code and click in the inner div, you’ll get the log −</p>
-<pre class="line-numbers language-none"><code class="language-none">Inner div is clicked
-
-Outer div is clicked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Event-Capturing"><a href="#Event-Capturing" class="headerlink" title="Event Capturing"></a>Event Capturing</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#outer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
-  <span class="token string">'click'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Outer div is clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token boolean">true</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#inner'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
-  <span class="token string">'click'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'Inner div is clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token boolean">true</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="qyqJNX" data-prefill='{"title":" 事件冒泡. demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;div id="outer" style="background-color:red;padding:50px;">
-  Outer Div
-  &lt;div id="inner" style="background-color:yellow;padding:50px;">
-    Inner Div
-  &lt;/div>
-&lt;/div>
-</pre>
-  <pre data-lang="scss">
-</pre>
-  <pre data-lang="js">
-document.querySelector('#outer').addEventListener(
-  'click',
-  () => {
-    alert('Outer div is clicked');
-  },
-  true,
-);
-document.querySelector('#inner').addEventListener(
-  'click',
-  () => {
-    alert('Inner div is clicked');
-  },
-  true,
-);
-</pre></div>
-
-<p>Output</p>
-<p>If you run the above code and click in the inner div, you’ll get the log −</p>
-<pre class="line-numbers language-none"><code class="language-none">Outer div is clicked
-Inner div is clicked<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><p>Events are responsible for interaction of JavaScript with HTML web pages. The general definition of event is any act can occur by someone. In the web development, the definition of events is also same. Events can be subscribed by listeners that occurs only when the particular event can be fired.</p>
-<h2 id="Event-Flow"><a href="#Event-Flow" class="headerlink" title="Event Flow"></a>Event Flow</h2><p>Event flow is the order in which event is received on the web page. If you click on an element like on div or on the button , which is nested to other elements, before the click is performed on the target element. It must trigger the click event each of its parent elements first, starting at the top with the global window object. By default, every element of HTML is child of the window object.</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener()</a></p>
-</blockquote>
-<p><img src="/images/eventflow.svg" alt="Graphical representation of an event dispatched in a DOM tree using the DOM event flow"></p>
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>当一个事件发生在一个元素上, 它会首先运行在该元素上的处理程序, 然后运行其父元素上的处理程序, 然后一直向上到其他祖先上的处理程序.</p>
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="qyqJNX" data-prefill='{"title":" 事件冒泡. demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;div class="t3">document
-  &lt;div class="t2">html
-    &lt;div class="t1">body
-      &lt;div class="t0">div&lt;/div>
-    &lt;/div>
-  &lt;/div>
-&lt;/div></pre>
-  <pre data-lang="scss">div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  text-align: center;
-  color: #555;
-  padding-top: 10px;
-  box-sizing: border-box;
-}
-.t3 {
-  width: 400px;
-  height: 400px;
-  background-color: orange;
-  .t2 {
-    width: 300px;
-    height: 300px;
-    background-color: pink;
-    .t1 {
-      width: 200px;
-      height: 200px;
-      background-color: yellow;
-      .t0 {
-        display: inline-block;
-        text-align: center;
-        width: 100px;
-        height: 100px;
-        background-color: #f00;
-      }
-    }
-  }
-}
-</pre>
-  <pre data-lang="js">
-document.querySelector(".t0").addEventListener("click", function(){alert("click div")}, false);
-document.querySelector(".t1").addEventListener("click", function(){alert("click body")}, false);
-document.querySelector(".t2").addEventListener("click", function(){alert("click html")}, false);
-document.querySelector(".t3").addEventListener("click", function(){alert("click document")}, false);
-</pre></div>
-
-<p>根据冒泡事件流模型由内向外的规则, 会依次弹出:<code>click div -&gt; click body -&gt; click html -&gt; click docuement</code></p>
-<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>将上一段代码中的 <code>false</code> 都改为 <code>ture</code>, 则变为捕获方式:</p>
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="qyqJNX" data-prefill='{"title":" 事件捕获. demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;div class="t3">document
-  &lt;div class="t2">html
-    &lt;div class="t1">body
-      &lt;div class="t0">div&lt;/div>
-    &lt;/div>
-  &lt;/div>
-&lt;/div></pre>
-  <pre data-lang="scss">div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  text-align: center;
-  color: #555;
-  padding-top: 10px;
-  box-sizing: border-box;
-}
-.t3 {
-  width: 400px;
-  height: 400px;
-  background-color: orange;
-  .t2 {
-    width: 300px;
-    height: 300px;
-    background-color: pink;
-    .t1 {
-      width: 200px;
-      height: 200px;
-      background-color: yellow;
-      .t0 {
-        display: inline-block;
-        text-align: center;
-        width: 100px;
-        height: 100px;
-        background-color: #f00;
-      }
-    }
-  }
-}
-</pre>
-  <pre data-lang="js">
-document.querySelector(".t0").addEventListener("click", function(){alert("click div")}, true);
-document.querySelector(".t1").addEventListener("click", function(){alert("click body")}, true);
-document.querySelector(".t2").addEventListener("click", function(){alert("click html")}, true);
-document.querySelector(".t3").addEventListener("click", function(){alert("click document")}, true);
-</pre></div>
-
-<p>根据捕获事件流模型由外向内的规则, 会依次弹出:<code>click document -&gt; click html -&gt; click body -&gt; click div</code></p>
-<h3 id="事件冒泡-amp-事件捕获同时存在"><a href="#事件冒泡-amp-事件捕获同时存在" class="headerlink" title="事件冒泡 &amp; 事件捕获同时存在"></a>事件冒泡 &amp; 事件捕获同时存在</h3><div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="qyqJNX" data-prefill='{"title":" 事件冒泡与事件捕获. demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;div class="t3">document
-  &lt;div class="t2">html
-    &lt;div class="t1">body
-      &lt;div class="t0">div&lt;/div>
-    &lt;/div>
-  &lt;/div>
-&lt;/div></pre>
-  <pre data-lang="scss">div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  text-align: center;
-  color: #555;
-  padding-top: 10px;
-  box-sizing: border-box;
-}
-.t3 {
-  width: 400px;
-  height: 400px;
-  background-color: orange;
-  .t2 {
-    width: 300px;
-    height: 300px;
-    background-color: pink;
-    .t1 {
-      width: 200px;
-      height: 200px;
-      background-color: yellow;
-      .t0 {
-        display: inline-block;
-        text-align: center;
-        width: 100px;
-        height: 100px;
-        background-color: #f00;
-      }
-    }
-  }
-}
-</pre>
-  <pre data-lang="js">
-document.querySelector(".t0").addEventListener("click", function(){alert("click div")}, false);
-document.querySelector(".t1").addEventListener("click", function(){alert("click body")}, false);
-document.querySelector(".t2").addEventListener("click", function(){alert("click html")}, true);
-document.querySelector(".t3").addEventListener("click", function(){alert("click document")}, true);
-</pre></div>
-
-<p>原则:</p>
-<ul>
-<li>从外向内, 捕获前进, 遇到捕获事件立即执行</li>
-<li>非 target 节点, 先捕获再冒泡</li>
-<li>target 节点, 按代码书写顺序执行 (无论冒泡还是捕获)</li>
-<li>因此会依次弹出:<code>click document -&gt; click html -&gt; click div -&gt; click body</code></li>
-</ul>
-<h2 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h2><p><code>事件委托</code> 又叫 <code>事件代理</code>, 指的是利用事件冒泡原理, 只需给外层父容器添加事件, 若内层子元素有点击事件, 则会冒泡到父容器上, 这就是事件委托, 简单说就是: 子元素委托它们的父级代为执行事件.</p>
-<p>例如, 一个播放列表有成千上万首歌曲, 如果遍历播放列表, 给每个 item 添加点击事件, 而这样无疑会多次访问 DOM, 每次 DOM 操作都会引起浏览器的重绘与重排, 非常不利于性能优化.</p>
-<p>这时候我们可以利用事件委托, 只给最外层的容器添加响应事件, 这样只需一次 DOM 操作, 就能达到目的.</p>
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="KBaRzR" data-prefill='{"title":" 事件委托 demo","tags":[],"scripts":[],"stylesheets":[]}'>
-  <pre data-lang="html">&lt;ul id="music">
-  &lt;li > 歌曲 11111&lt;/li>
-  &lt;li > 歌曲 22222&lt;/li>
-  &lt;li > 歌曲 33333&lt;/li>
-  &lt;li > 歌曲 44444&lt;/li>
-  &lt;li > 歌曲 55555&lt;/li>
-  &lt;li > 歌曲 66666&lt;/li>
-&lt;/ul></pre>
-  <pre data-lang="js">
-document.getElementById('music').addEventListener('click', function() {
-  if (e.target.matches('li')) { // e.target.nodeName.toLowerCase() === 'li'
-    let content = e.target.innerHTML;
-    alert(content);
-  }
-}, false)
-</pre></div>
-
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture">Event bubbling and capture</a> &gt; <a target="_blank" rel="noopener" href="https://zh.javascript.info/bubbling-and-capturing">冒泡和捕获</a> &gt; <a target="_blank" rel="noopener" href="https://zh.javascript.info/event-delegation">事件委托</a></p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events">Introduction to events</a></p>
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture">Event bubbling and capture</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/bubbling-and-capturing">冒泡和捕获</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/event-delegation">事件委托</a></p>
 </blockquote>
 
                 
@@ -779,7 +480,7 @@ document.getElementById('music').addEventListener('click', function() {
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -790,7 +491,7 @@ document.getElementById('music').addEventListener('click', function() {
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

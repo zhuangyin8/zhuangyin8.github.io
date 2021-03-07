@@ -41,14 +41,14 @@ nav i.material-icons {
   margin-left: 0;
 }
 
-/* 
-#articleContent > p:first-letter {
-  display: block;
-  float: left;
-  margin: 0 3px;
-  color: #f00;
-  font-size: 2rem;
-} */
+
+#articleContent > p {
+  /* display: block; */
+  /* float: left; */
+  margin: 0 0 20px;
+  /* color: #f00;
+  font-size: 2rem; */
+} 
 
 #articleContent blockquote p {
   text-indent: 0;

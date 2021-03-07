@@ -532,7 +532,7 @@ Router.route("/purple", function () {
 </pre></div>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script> -->
 
-<p>完整代码：</p>
+<p>完整代码:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -579,7 +579,7 @@ Router.route("/purple", function () {
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>浏览器展示效果如下：</p>
+<p>浏览器展示效果如下:</p>
 <p><img src="../images/c63.image"></p>
 <h3 id="2-History-模式"><a href="#2-History-模式" class="headerlink" title="2.History 模式"></a>2.History 模式</h3><p>HTML5 的 <code>History</code> API 为浏览器的全局 <code>history</code> 对象增加的扩展方法.</p>
 <p><code>history</code> 其实就是浏览器会话历史记录的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/History">接口</a></p>
@@ -605,8 +605,8 @@ Router.route("/purple", function () {
 <p>url: 新的历史记录条目的地址. 浏览器不会在调用 pushState() 方法后加载该地址, 但之后, 可能会试图加载, 例如用户重启浏览器. 新的 URL 不一定是绝对路径; 如果是相对路径, 它将以当前 URL 为基准; 传入的 URL 与当前 URL 应该是同源的, 否则, pushState() 会抛出异常. 该参数是可选的; 不指定的话则为文档当前 URL.</p>
 </blockquote>
 <p><code>a</code>  标签的点击事件也是不会被 <code>popstate</code>  监听.我们需要想个办法解决这个问题,才能实现 history  模式.</p>
-<p>解决思路： 我们可以通过遍历页面上的所有 <code>a</code> 标签,阻止 <code>a</code>  标签的默认事件的同时,加上点击事件的回调函数,在回调函数内获取 <code>a</code> 标签的 <code>href</code> 属性值,再通过 <code>pushState</code> 去改变浏览器的 <code>location.pathname</code> 属性值.然后手动执行 <code>popstate</code> 事件的回调函数,去匹配相应的路由.逻辑上可能有些饶,</p>
-<p>完整代码：</p>
+<p>解决思路: 我们可以通过遍历页面上的所有 <code>a</code> 标签,阻止 <code>a</code>  标签的默认事件的同时,加上点击事件的回调函数,在回调函数内获取 <code>a</code> 标签的 <code>href</code> 属性值,再通过 <code>pushState</code> 去改变浏览器的 <code>location.pathname</code> 属性值.然后手动执行 <code>popstate</code> 事件的回调函数,去匹配相应的路由.逻辑上可能有些饶,</p>
+<p>完整代码:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -663,7 +663,7 @@ Router.route("/purple", function () {
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>浏览器展示效果如下：</p>
+<p>浏览器展示效果如下:</p>
 <blockquote>
 <p>这不能在浏览器直接打开静态文件,需要通过 WEB 服务,启动端口去浏览网址.</p>
 </blockquote>
@@ -769,7 +769,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -780,7 +780,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

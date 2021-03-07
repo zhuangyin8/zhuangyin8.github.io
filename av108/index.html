@@ -436,17 +436,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><h2 id="百度-ECharts-resize-的坑"><a href="#百度-ECharts-resize-的坑" class="headerlink" title="百度 ECharts resize 的坑"></a>百度 ECharts resize 的坑</h2><p>需求：根据数据量的大小,动态调整 ECharts 柱形图的宽度.</p>
-<p>实现构想：根据数据的 size 调整 div 的大小,然后调用 ECharts 对象的 resize 方法重置柱状图的宽度：</p>
+                <h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><h2 id="百度-ECharts-resize-的坑"><a href="#百度-ECharts-resize-的坑" class="headerlink" title="百度 ECharts resize 的坑"></a>百度 ECharts resize 的坑</h2><p>需求:根据数据量的大小,动态调整 ECharts 柱形图的宽度.</p>
+<p>实现构想:根据数据的 size 调整 div 的大小,然后调用 ECharts 对象的 resize 方法重置柱状图的宽度:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 图的大小动态自动调整</span>
 <span class="token keyword">let</span> compactWidth <span class="token operator">=</span> data<span class="token punctuation">.</span>size <span class="token operator">*</span> <span class="token number">32</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> width <span class="token operator">=</span> compactWidth <span class="token operator">&lt;</span> <span class="token number">1860</span> <span class="token operator">?</span> <span class="token number">1860</span> <span class="token operator">:</span> compactWidth<span class="token punctuation">;</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>chartStyle<span class="token punctuation">.</span>width <span class="token operator">=</span> width <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
 vueVisit<span class="token punctuation">.</span>visitChart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>碰到的问题：柱状图并没有动态的改变了宽度,而是下次再调整一次才生效.</p>
-<p>原因分析：应该是 ECharts 渲染或者读取 div 的宽度什么的延迟了.</p>
-<p>解决方法：<strong>延时 100 毫秒再调用 ECharts 对象的 resize 方法</strong>：</p>
+<p>碰到的问题:柱状图并没有动态的改变了宽度,而是下次再调整一次才生效.</p>
+<p>原因分析:应该是 ECharts 渲染或者读取 div 的宽度什么的延迟了.</p>
+<p>解决方法:<strong>延时 100 毫秒再调用 ECharts 对象的 resize 方法</strong>:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 图的大小动态自动调整</span>
 <span class="token keyword">let</span> compactWidth <span class="token operator">=</span> data<span class="token punctuation">.</span>size <span class="token operator">*</span> <span class="token number">32</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> width <span class="token operator">=</span> compactWidth <span class="token operator">&lt;</span> <span class="token number">1860</span> <span class="token operator">?</span> <span class="token number">1860</span> <span class="token operator">:</span> compactWidth<span class="token punctuation">;</span>
@@ -464,7 +464,7 @@ ECharts 同一页面多个图表自适应浏览器窗口大小——window.onres
 
 在开发的过程中要把 ECharts 图标做成自适应浏览器宽高的效果.于是去翻看 ECharts 官网发现了 resize 方法,结果用了之后发现没用,而且根本不知道什么原因.
 
-解决办法：
+解决办法:
 不能给 ECharts 的容器设置固定的宽高.
 
 宽度要写百分比
@@ -527,8 +527,8 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 <p><a target="_blank" rel="noopener" href="https://codepen.io/zhuangyin/pen/BaLvaGr">Window: resize event demo</a></p>
 </blockquote>
 <h2 id="实现-input-组件"><a href="#实现-input-组件" class="headerlink" title="实现 input 组件"></a>实现 input 组件</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6862118954064674829">Vue 脚手架系列 07-表单组件设计-Input 实现双向数据绑定</a></p>
-<p>1.input 组件：</p>
-<p>🌵：这里需要了解的是,<code>v-model</code> 是 <code>v-bind:vlue</code> 和 <code>v-on:input</code> 的语法糖 🍬</p>
+<p>1.input 组件:</p>
+<p>🌵:这里需要了解的是,<code>v-model</code> 是 <code>v-bind:vlue</code> 和 <code>v-on:input</code> 的语法糖 🍬</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- //src/components/Input.vue --></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
@@ -602,18 +602,18 @@ window<span class="token punctuation">.</span><span class="token function">addEv
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>目录结构如下：</p>
+<p>目录结构如下:</p>
 <p><img src="/images/ab4.image"></p>
 <h2 id="实现-v-model"><a href="#实现-v-model" class="headerlink" title="实现 v-model"></a>实现 v-model</h2><blockquote>
 <p>你可以用 v-model 指令在表单<code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>及<code>&lt;select&gt;</code>元素上创建双向数据绑定.它会根据控件类型自动选取正确的方法来更新元素.尽管有些神奇,但 v-model 本质上不过是语法糖.它负责监听用户的输入事件以更新数据,并对一些极端场景进行一些特殊处理. ———— 摘自 vue 官网</p>
 </blockquote>
-<p>关于 v-model 的使用这里不再赘述.这里只讨论如何在自定义组件实现 v-model.根据 vue 的官网的描述,我们大概知道,v-model 的本质就是语法糖,即：</p>
+<p>关于 v-model 的使用这里不再赘述.这里只讨论如何在自定义组件实现 v-model.根据 vue 的官网的描述,我们大概知道,v-model 的本质就是语法糖,即:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>相当于：</p>
+<p>相当于:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">@input</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name = $event.target.value<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>因此只要在一个自定义组件内通过设置一个名为 value 的 prop,并且在数据发生变化时 $emit 一个带新值的 input 事件,就可以在该自定义组件中使用 v-model 进行双向绑定.非常简单,就像这种：</p>
+<p>因此只要在一个自定义组件内通过设置一个名为 value 的 prop,并且在数据发生变化时 $emit 一个带新值的 input 事件,就可以在该自定义组件中使用 v-model 进行双向绑定.非常简单,就像这种:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
     <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span>
@@ -658,7 +658,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
 <p><code>init()</code> 创建了一个局部变量 <code>name</code> 和一个名为 <code>displayName() </code>的函数.<code>displayName()</code> 是定义在 <code>init()</code> 里的内部函数,并且仅在 <code>init()</code> 函数体内可用.请注意,<code>displayName()</code> 没有自己的局部变量.然而,因为它可以访问到外部函数的变量,所以 <code>displayName()</code> 可以使用父函数 <code>init()</code> 中声明的变量 <code>name</code> .</p>
 <hr>
-<p>可以使用闭包来模拟私有方法.私有方法不仅仅有利于限制对代码的访问：还提供了管理全局命名空间的强大能力,避免非核心的方法弄乱了代码的公共接口部分.</p>
+<p>可以使用闭包来模拟私有方法.私有方法不仅仅有利于限制对代码的访问:还提供了管理全局命名空间的强大能力,避免非核心的方法弄乱了代码的公共接口部分.</p>
 <h2 id="内存回收"><a href="#内存回收" class="headerlink" title="内存回收"></a>内存回收</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">内存管理</a></p>
 </blockquote>
@@ -1456,7 +1456,7 @@ RKI-058
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -1467,7 +1467,7 @@ RKI-058
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

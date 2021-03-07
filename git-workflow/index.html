@@ -438,18 +438,18 @@
             <div id="articleContent">
                 <h2 id="初始化一个-Git-仓库"><a href="#初始化一个-Git-仓库" class="headerlink" title="初始化一个 Git 仓库"></a>初始化一个 Git 仓库</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了仓库初始化的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="从既有远程仓库建立"><a href="#从既有远程仓库建立" class="headerlink" title="从既有远程仓库建立"></a>从既有远程仓库建立</h3><ul>
-<li><p>场景：加入一个项目,或创建一个项目副本.</p>
+<li><p>场景:加入一个项目,或创建一个项目副本.</p>
 </li>
-<li><p>步骤：远程仓库已经存在的情况下,直接克隆即可得到一个仓库副本.</p>
+<li><p>步骤:远程仓库已经存在的情况下,直接克隆即可得到一个仓库副本.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone git@foo.com:bar.git
 <span class="token builtin class-name">cd</span> bar/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="从空的远程仓库建立"><a href="#从空的远程仓库建立" class="headerlink" title="从空的远程仓库建立"></a>从空的远程仓库建立</h3><ul>
-<li><p>场景：初始化一个远程仓库,例如建立一个 Github 仓库后.</p>
+<li><p>场景:初始化一个远程仓库,例如建立一个 Github 仓库后.</p>
 </li>
-<li><p>步骤：新建目录并将其初始化为 Git 仓库,然后添加远程仓库到 remote.</p>
+<li><p>步骤:新建目录并将其初始化为 Git 仓库,然后添加远程仓库到 remote.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> bar <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> bar
@@ -463,8 +463,8 @@
 <span class="token function">git</span> push -u origin master
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了 Git 代码提交相关的操作步骤以及涉及到的 Git 命令.主要包括：</p>
-<p><code>git add</code> 命令将工作区内容添加到暂存区,<code>git commit</code> 命令将暂存区内容提交到本地仓库. 添加 <code>-m</code> 参数可直接用指定的 message 提交本次 commit. 否则 Vim 会打开默认的文本编辑器提示你输入 commit message. <code>git commit</code> 时你的 Git 没有为你打开 Vim？ Git 打开哪个编辑器取决于 <code>GIT_EDITOR</code> 和 <code>EDITOR</code> 等环境变量, 一般在 <code>~/.bashrc</code> 加入下面的设置即可：</p>
+<h2 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了 Git 代码提交相关的操作步骤以及涉及到的 Git 命令.主要包括:</p>
+<p><code>git add</code> 命令将工作区内容添加到暂存区,<code>git commit</code> 命令将暂存区内容提交到本地仓库. 添加 <code>-m</code> 参数可直接用指定的 message 提交本次 commit. 否则 Vim 会打开默认的文本编辑器提示你输入 commit message. <code>git commit</code> 时你的 Git 没有为你打开 Vim？ Git 打开哪个编辑器取决于 <code>GIT_EDITOR</code> 和 <code>EDITOR</code> 等环境变量, 一般在 <code>~/.bashrc</code> 加入下面的设置即可:</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token comment"># 当然你可以设为 nano</span>
 
@@ -472,11 +472,11 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="添加到暂存区并提交"><a href="#添加到暂存区并提交" class="headerlink" title="添加到暂存区并提交"></a>添加到暂存区并提交</h3><ul>
-<li><p>场景 ：将新增或改动的文件添加到暂存区,并提交到 Git 仓库.</p>
+<li><p>场景 :将新增或改动的文件添加到暂存区,并提交到 Git 仓库.</p>
 </li>
-<li><p>步骤 ：使用 <code>git add</code> 命令即可将某个文件（的修改）添加到暂存区,再 <code>git commit</code> 来提交.</p>
+<li><p>步骤 :使用 <code>git add</code> 命令即可将某个文件（的修改）添加到暂存区,再 <code>git commit</code> 来提交.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-add">https://git-scm.com/docs/git-add</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-add">https://git-scm.com/docs/git-add</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加 README.md 到暂存区</span>
@@ -498,9 +498,9 @@
 <li>添加并提交是 Git 中最常见的代码提交方式. Git 提交总会完整地记录一次变更,即提交总会使 Git 仓库变大,不论是新增还是删除.真正从仓库中移除记录需要 <a href="/2016/03/22/purge-large-files-in-gitrepo.html">更改 Git 历史记录</a>.</li>
 </ul>
 <h3 id="提交对仓库中文件的改动"><a href="#提交对仓库中文件的改动" class="headerlink" title="提交对仓库中文件的改动"></a>提交对仓库中文件的改动</h3><ul>
-<li><p>场景 ：希望只提交仓库中既有文件的改动,而不想 <code>add</code> 其他的文件（仓库外）.</p>
+<li><p>场景 :希望只提交仓库中既有文件的改动,而不想 <code>add</code> 其他的文件（仓库外）.</p>
 </li>
-<li><p>步骤 ：省略 <code>git add</code> 命令,然后以 <code>-a</code> 参数运行 <code>commit</code>.</p>
+<li><p>步骤 :省略 <code>git add</code> 命令,然后以 <code>-a</code> 参数运行 <code>commit</code>.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -a
@@ -510,9 +510,9 @@
 <p>可通过 <code>git status</code> 来查看当前的改动情况,以及本地与远程的同步情况.</p>
 </blockquote>
 <h3 id="撤销-Add"><a href="#撤销-Add" class="headerlink" title="撤销 Add"></a>撤销 Add</h3><ul>
-<li><p>场景 ：不小心添加了文件到暂存区,现在需要撤销所有的 <code>git add</code>.</p>
+<li><p>场景 :不小心添加了文件到暂存区,现在需要撤销所有的 <code>git add</code>.</p>
 </li>
-<li><p>步骤 ：使用 <code>get reset</code>,重置暂存区到 HEAD.</p>
+<li><p>步骤 :使用 <code>get reset</code>,重置暂存区到 HEAD.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 取消 Add 某一个文件</span>
@@ -525,9 +525,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="撤销上次-Commit"><a href="#撤销上次-Commit" class="headerlink" title="撤销上次 Commit"></a>撤销上次 Commit</h3><ul>
-<li><p>场景 ：发现上次 <code>commit</code> 信息有误,或不小心 <code>commit</code> 了不合适的文件, 希望能撤销 <code>commit</code> 而文件不受改动.</p>
+<li><p>场景 :发现上次 <code>commit</code> 信息有误,或不小心 <code>commit</code> 了不合适的文件, 希望能撤销 <code>commit</code> 而文件不受改动.</p>
 </li>
-<li><p>步骤 ：使用 Git 的『软』（不改动文件）重置.</p>
+<li><p>步骤 :使用 Git 的『软』（不改动文件）重置.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --soft HEAD^
@@ -537,11 +537,11 @@
 <p><code>HEAD^</code> 回到表示重置到当前状态的前一个 <code>commit</code>.</p>
 </blockquote>
 <h3 id="修改上次-Commit"><a href="#修改上次-Commit" class="headerlink" title="修改上次 Commit"></a>修改上次 Commit</h3><ul>
-<li><p>场景 ：漏掉了某个文件,或者写错了 Commit 信息,希望能够补充一下而不是撤销再重新 Commit.</p>
+<li><p>场景 :漏掉了某个文件,或者写错了 Commit 信息,希望能够补充一下而不是撤销再重新 Commit.</p>
 </li>
-<li><p>步骤 ：使用 <code>--amend</code> 参数即可修改上次 Commit.</p>
+<li><p>步骤 :使用 <code>--amend</code> 参数即可修改上次 Commit.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -553,11 +553,11 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="撤销工作区所有改动"><a href="#撤销工作区所有改动" class="headerlink" title="撤销工作区所有改动"></a>撤销工作区所有改动</h3><ul>
-<li><p>场景 ：希望撤销所有工作区的改动,回到最后一次 commit 的状态.</p>
+<li><p>场景 :希望撤销所有工作区的改动,回到最后一次 commit 的状态.</p>
 </li>
-<li><p>步骤 ：<code>git checkout</code> 和 <code>git reset</code> 都可达到目的.</p>
+<li><p>步骤 :<code>git checkout</code> 和 <code>git reset</code> 都可达到目的.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-reset">https://git-scm.com/docs/git-reset</a>, <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-checkout">https://git-scm.com/docs/git-checkout</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-reset">https://git-scm.com/docs/git-reset</a>, <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-checkout">https://git-scm.com/docs/git-checkout</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -571,15 +571,15 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="空提交"><a href="#空提交" class="headerlink" title="空提交"></a>空提交</h3><ul>
-<li>场景 ：只想产生一个 commit 而不想改动文件.比如需要 push 一个 commit 以触发重新部署的 Git Hook 时. 步骤 ：使用 <code>--allow-empty</code> 参数来提交.</li>
+<li>场景 :只想产生一个 commit 而不想改动文件.比如需要 push 一个 commit 以触发重新部署的 Git Hook 时. 步骤 :使用 <code>--allow-empty</code> 参数来提交.</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --allow-empty -m <span class="token string">'empty commit'</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="将文件从仓库中移除"><a href="#将文件从仓库中移除" class="headerlink" title="将文件从仓库中移除"></a>将文件从仓库中移除</h3><ul>
-<li><p>场景 ：不小心把不应提交到仓库的文件（比如临时文件,大文件,配置文件等）提交了进去,现在希望将其删除.</p>
+<li><p>场景 :不小心把不应提交到仓库的文件（比如临时文件,大文件,配置文件等）提交了进去,现在希望将其删除.</p>
 </li>
-<li><p>步骤 ：使用 <code>git rm</code> 命令.</p>
+<li><p>步骤 :使用 <code>git rm</code> 命令.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -598,9 +598,9 @@
 </blockquote>
 <h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. Git 的一个分支相当于一个 commit 节点的命名指针.分支之间可互相 merge. 本文以实际的案例,总结了 Git 分支管理的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h3><ul>
-<li><p>场景 ：查看当前位于哪个分支,以及本地和远程各有什么分支.</p>
+<li><p>场景 :查看当前位于哪个分支,以及本地和远程各有什么分支.</p>
 </li>
-<li><p>步骤 ：使用 <code>git branch</code> 系列命令.</p>
+<li><p>步骤 :使用 <code>git branch</code> 系列命令.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看本地分支</span>
@@ -613,21 +613,21 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="分支增删"><a href="#分支增删" class="headerlink" title="分支增删"></a>分支增删</h3><ul>
-<li><p>场景 ：删除某个分支,分支只是 Commit 的指针,删除分支不会影响 Git 中的 Commit 树.</p>
+<li><p>场景 :删除某个分支,分支只是 Commit 的指针,删除分支不会影响 Git 中的 Commit 树.</p>
 </li>
-<li><p>步骤 ：使用 <code>git branch -D</code> 命令.</p>
+<li><p>步骤 :使用 <code>git branch -D</code> 命令.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token comment"># 创建一个名为 `test` 的分支并切换到该分支：</span>
+<span class="token comment"># 创建一个名为 `test` 的分支并切换到该分支:</span>
 
 <span class="token function">git</span> checkout -b <span class="token builtin class-name">test</span>
 
-<span class="token comment"># 切换回 `master` 分支：</span>
+<span class="token comment"># 切换回 `master` 分支:</span>
 
 <span class="token function">git</span> checkout master
 
-<span class="token comment"># 删除 `test` 分支：</span>
+<span class="token comment"># 删除 `test` 分支:</span>
 
 <span class="token function">git</span> branch -D <span class="token builtin class-name">test</span>
 
@@ -637,9 +637,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h3><ul>
-<li><p>场景 ：分支名写错了,或者找到了更合适的分支名.可能也会需要更改服务器上的分支名.</p>
+<li><p>场景 :分支名写错了,或者找到了更合适的分支名.可能也会需要更改服务器上的分支名.</p>
 </li>
-<li><p>步骤 ：使用 <code>git branch -m</code> 重命名,<code>git push --set-upstream</code> 来重新映射 track 关系（以及将新分支 Push 到远程）.</p>
+<li><p>步骤 :使用 <code>git branch -m</code> 重命名,<code>git push --set-upstream</code> 来重新映射 track 关系（以及将新分支 Push 到远程）.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在本地仓库重命名</span>
@@ -657,11 +657,11 @@
 
 <p>如果要重命名的是当前分支,可以直接 <code>git branch -m new_branch</code>.</p>
 <h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><ul>
-<li><p>场景 ：需要将某个分支合并到 <code>master</code>,或任意两个分支间希望合并.</p>
+<li><p>场景 :需要将某个分支合并到 <code>master</code>,或任意两个分支间希望合并.</p>
 </li>
-<li><p>步骤 ：使用 <code>git merge</code> 系列命令,merge 成功会产生一次 commit.</p>
+<li><p>步骤 :使用 <code>git merge</code> 系列命令,merge 成功会产生一次 commit.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-merge">https://git-scm.com/docs/git-merge</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-merge">https://git-scm.com/docs/git-merge</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -674,9 +674,9 @@
 <p>注意 merge 前必须 commit 工作区的更改,否则 merge 后无法回到当前工作区的状态.</p>
 </blockquote>
 <h3 id="查看分支图"><a href="#查看分支图" class="headerlink" title="查看分支图"></a>查看分支图</h3><ul>
-<li><p>场景 ：需要了解当前分支的父分支,或者仓库中分支之间的关系.</p>
+<li><p>场景 :需要了解当前分支的父分支,或者仓库中分支之间的关系.</p>
 </li>
-<li><p>步骤 ：使用 <code>git log</code> 系列命令.</p>
+<li><p>步骤 :使用 <code>git log</code> 系列命令.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -686,9 +686,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><ul>
-<li><p>场景 ：你的 commit 修改了某个文件,希望 merge 另一个 commit.然而你们修改了同一文件的同一行.</p>
+<li><p>场景 :你的 commit 修改了某个文件,希望 merge 另一个 commit.然而你们修改了同一文件的同一行.</p>
 </li>
-<li><p>步骤 ：1. 先解决冲突,打开 Git 提示有冲突的每个文件（其中有 Git 给出的冲突信息）,更改文件内容为你想要的最终内容并删除 Git 的冲突信息.2. <code>git add</code> 相应的冲突文件.3. <code>git commit</code> 本次合并.</p>
+<li><p>步骤 :1. 先解决冲突,打开 Git 提示有冲突的每个文件（其中有 Git 给出的冲突信息）,更改文件内容为你想要的最终内容并删除 Git 的冲突信息.2. <code>git add</code> 相应的冲突文件.3. <code>git commit</code> 本次合并.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -710,9 +710,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="新建-Tag"><a href="#新建-Tag" class="headerlink" title="新建 Tag"></a>新建 Tag</h3><ul>
-<li><p>场景 ：新建某个 Tag.</p>
+<li><p>场景 :新建某个 Tag.</p>
 </li>
-<li><p>步骤 ：使用 <code>-a</code>（annotated）,<code>-d</code>（delete）参数运行 <code>git tag</code>,最后更新到远程仓库.</p>
+<li><p>步骤 :使用 <code>-a</code>（annotated）,<code>-d</code>（delete）参数运行 <code>git tag</code>,最后更新到远程仓库.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建</span>
@@ -721,9 +721,9 @@
 <span class="token function">git</span> push --tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="删除-Tag"><a href="#删除-Tag" class="headerlink" title="删除 Tag"></a>删除 Tag</h3><ul>
-<li><p>场景 ：有一个错误的 Tag.</p>
+<li><p>场景 :有一个错误的 Tag.</p>
 </li>
-<li><p>步骤 ：先在本地仓库删除,然后 push 到远程仓库.</p>
+<li><p>步骤 :先在本地仓库删除,然后 push 到远程仓库.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -d old
@@ -731,9 +731,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="重命名-Tag"><a href="#重命名-Tag" class="headerlink" title="重命名 Tag"></a>重命名 Tag</h3><ul>
-<li><p>场景 ：当然是 Tag 名字起错了.</p>
+<li><p>场景 :当然是 Tag 名字起错了.</p>
 </li>
-<li><p>步骤 ：先从旧的 Tag 创建新的,删除 Tag,push 到远程.</p>
+<li><p>步骤 :先从旧的 Tag 创建新的,删除 Tag,push 到远程.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag new old
@@ -742,9 +742,9 @@
 <span class="token function">git</span> push --tags<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="列出所有-Tag"><a href="#列出所有-Tag" class="headerlink" title="列出所有 Tag"></a>列出所有 Tag</h3><ul>
-<li>场景 ：需要列出所有 Tag.</li>
+<li>场景 :需要列出所有 Tag.</li>
 <li></li>
-<li>步骤 ：<code>git tag</code> 即可.</li>
+<li>步骤 :<code>git tag</code> 即可.</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
 <span class="token comment"># 列出所有</span>
@@ -761,19 +761,19 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="列出-Tag-之间的-Commit-日志"><a href="#列出-Tag-之间的-Commit-日志" class="headerlink" title="列出 Tag 之间的 Commit 日志"></a>列出 Tag 之间的 Commit 日志</h3><ul>
-<li><p>场景 ：需要知道版本之间有哪些改动,以生成 Chnagelog 或 ReleaseNote.</p>
+<li><p>场景 :需要知道版本之间有哪些改动,以生成 Chnagelog 或 ReleaseNote.</p>
 </li>
-<li><p>步骤 ：查询 Git 日志,使用 <code>..</code> 来选择一段区间.</p>
+<li><p>步骤 :查询 Git 日志,使用 <code>..</code> 来选择一段区间.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log v1.1<span class="token punctuation">..</span>v1.2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="衍合"><a href="#衍合" class="headerlink" title="衍合"></a>衍合</h3><ul>
-<li><p>场景 ：开发者从主分支（<code>master</code>）checkout 一个分支（如 <code>feature-x</code>）进行开发, 当要合并入主分支时发现主分支已经改变. 仓库维护者合并 <code>feature-x</code> 到 <code>master</code> 时需要解决冲突并回归测试. 为了减少维护者的工作,开发者可以将 <code>feature-x</code> Rebase（衍合）到 <code>master</code>. 这样在 <code>master</code> 合并 <code>feature-x</code> 就是 Fast Forward 了.</p>
+<li><p>场景 :开发者从主分支（<code>master</code>）checkout 一个分支（如 <code>feature-x</code>）进行开发, 当要合并入主分支时发现主分支已经改变. 仓库维护者合并 <code>feature-x</code> 到 <code>master</code> 时需要解决冲突并回归测试. 为了减少维护者的工作,开发者可以将 <code>feature-x</code> Rebase（衍合）到 <code>master</code>. 这样在 <code>master</code> 合并 <code>feature-x</code> 就是 Fast Forward 了.</p>
 </li>
-<li><p>步骤 ：切换到 <code>feature-x</code>,进行衍合,Push 代码.</p>
+<li><p>步骤 :切换到 <code>feature-x</code>,进行衍合,Push 代码.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88">https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88">https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout feature-x
@@ -782,11 +782,11 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="重置分支指针"><a href="#重置分支指针" class="headerlink" title="重置分支指针"></a>重置分支指针</h3><ul>
-<li><p>场景 ：当前的工作（可以包括若干 commit,也可以只是工作区）不想要了,或者希望将的当前工作弄到别的分支. 需要恢复当前分支到之前的某个状态.</p>
+<li><p>场景 :当前的工作（可以包括若干 commit,也可以只是工作区）不想要了,或者希望将的当前工作弄到别的分支. 需要恢复当前分支到之前的某个状态.</p>
 </li>
-<li><p>步骤 ：如果要保存当前工作,首先 commit 掉并从当前分支 checkout 出来. 然后 <code>git reset</code> 当前分支到某个历史状态（通过 <code>git log</code> 可以看到当前分支的所有历史状态）.</p>
+<li><p>步骤 :如果要保存当前工作,首先 commit 掉并从当前分支 checkout 出来. 然后 <code>git reset</code> 当前分支到某个历史状态（通过 <code>git log</code> 可以看到当前分支的所有历史状态）.</p>
 </li>
-<li><p>文档 ：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-reset">https://git-scm.com/docs/git-reset</a></p>
+<li><p>文档 :<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-reset">https://git-scm.com/docs/git-reset</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 保存当前工作到 current-work 分支</span>
@@ -805,9 +805,9 @@
 
 <h2 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. Git 的一个分支相当于一个 commit 节点的命名指针.分支之间可互相 merge. 本文以实际的案例,总结了 Git 远程仓库的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="显示远程仓库"><a href="#显示远程仓库" class="headerlink" title="显示远程仓库"></a>显示远程仓库</h3><ul>
-<li><p>场景：需要查看远程仓库地址（比如想把它拷贝给别人）.</p>
+<li><p>场景:需要查看远程仓库地址（比如想把它拷贝给别人）.</p>
 </li>
-<li><p>步骤：使用 <code>git remote</code> 相关命令.</p>
+<li><p>步骤:使用 <code>git remote</code> 相关命令.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -825,9 +825,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="管理远程仓库"><a href="#管理远程仓库" class="headerlink" title="管理远程仓库"></a>管理远程仓库</h3><ul>
-<li><p>场景：需要添加、更改或删除远程仓库时.例如远程仓库从 Github 迁移到 Coding.net 时需要更改远程仓库 URL（不需重新 clone）.</p>
+<li><p>场景:需要添加、更改或删除远程仓库时.例如远程仓库从 Github 迁移到 Coding.net 时需要更改远程仓库 URL（不需重新 clone）.</p>
 </li>
-<li><p>步骤：使用 <code>git remote</code> 系列命令操作.</p>
+<li><p>步骤:使用 <code>git remote</code> 系列命令操作.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加远程仓库 bar.git 并命名为 bar</span>
@@ -837,11 +837,11 @@
 
 <p>更多命令请查询 <code>git remote --help</code></p>
 <h3 id="同步远程仓库"><a href="#同步远程仓库" class="headerlink" title="同步远程仓库"></a>同步远程仓库</h3><ul>
-<li><p>场景：将远程仓库同步到本地,或将本地仓库同步到远程.</p>
+<li><p>场景:将远程仓库同步到本地,或将本地仓库同步到远程.</p>
 </li>
-<li><p>步骤：使用 <code>git fetch</code> 和 <code>git push</code> 系列命令.</p>
+<li><p>步骤:使用 <code>git fetch</code> 和 <code>git push</code> 系列命令.</p>
 </li>
-<li><p>文档：<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-push">https://git-scm.com/docs/git-push</a></p>
+<li><p>文档:<a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-push">https://git-scm.com/docs/git-push</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -857,9 +857,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="多个远程仓库"><a href="#多个远程仓库" class="headerlink" title="多个远程仓库"></a>多个远程仓库</h3><ul>
-<li><p>场景：一个本地仓库需要与多个远程仓库同步,或需要 merge 其他远程仓库时. 例如 Github Pages 博客同时 Push 到 Github 和 Coding.net.</p>
+<li><p>场景:一个本地仓库需要与多个远程仓库同步,或需要 merge 其他远程仓库时. 例如 Github Pages 博客同时 Push 到 Github 和 Coding.net.</p>
 </li>
-<li><p>步骤：逐个添加远程仓库到 <code>remote</code>,逐一 Push.</p>
+<li><p>步骤:逐个添加远程仓库到 <code>remote</code>,逐一 Push.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 将 coding 仓库添加到 remote</span>
@@ -876,13 +876,13 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="checkout-一个远程分支"><a href="#checkout-一个远程分支" class="headerlink" title="checkout 一个远程分支"></a>checkout 一个远程分支</h3><ul>
-<li><p>场景：现有一个本地仓库不存在的远程分支,希望让当前工作区进入这个分支.</p>
+<li><p>场景:现有一个本地仓库不存在的远程分支,希望让当前工作区进入这个分支.</p>
 </li>
-<li><p>步骤：可以先同步本地仓库,再切换到该分支.也可以先切换到该分支再同步远程代码.</p>
+<li><p>步骤:可以先同步本地仓库,再切换到该分支.也可以先切换到该分支再同步远程代码.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
-<span class="token comment"># 方法一：同步本地仓库</span>
+<span class="token comment"># 方法一:同步本地仓库</span>
 
 <span class="token function">git</span> fetch
 
@@ -890,7 +890,7 @@
 
 <span class="token function">git</span> checkout feature-x
 
-<span class="token comment"># 方法二：切换到新的分支</span>
+<span class="token comment"># 方法二:切换到新的分支</span>
 
 <span class="token function">git</span> checkout -b feature-x
 <span class="token function">git</span> branch --set-upstream remote/feature-x
@@ -900,7 +900,7 @@
 <span class="token function">git</span> branch -u remote/feature-x
 <span class="token function">git</span> pull
 
-<span class="token comment"># 方法三：先创建分支以及 track 关系,再切换分支</span>
+<span class="token comment"># 方法三:先创建分支以及 track 关系,再切换分支</span>
 
 <span class="token function">git</span> branch feature-x
 <span class="token function">git</span> branch -u remote/feature-x feature-x
@@ -909,11 +909,11 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
-<li><p>场景：不小心把一个分支名 Push 上去了,需要在远程删除一个分支.</p>
+<li><p>场景:不小心把一个分支名 Push 上去了,需要在远程删除一个分支.</p>
 </li>
-<li><p>步骤：直接 push,添加–delete 参数即可.</p>
+<li><p>步骤:直接 push,添加–delete 参数即可.</p>
 </li>
-<li><p>文档：<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF</a></p>
+<li><p>文档:<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF</a></p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 删除远程 origin 上的 serverfix 分支</span>
@@ -922,9 +922,9 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="删除远程-Tag"><a href="#删除远程-Tag" class="headerlink" title="删除远程 Tag"></a>删除远程 Tag</h3><ul>
-<li><p>场景：Tag 命名错误,或者需要统一命名风格.</p>
+<li><p>场景:Tag 命名错误,或者需要统一命名风格.</p>
 </li>
-<li><p>步骤：在本地删除 Tag,然后 Push 到服务器.</p>
+<li><p>步骤:在本地删除 Tag,然后 Push 到服务器.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -d some-tag
@@ -932,18 +932,18 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="Push-到不同的分支"><a href="#Push-到不同的分支" class="headerlink" title="Push 到不同的分支"></a>Push 到不同的分支</h3><ul>
-<li><p>场景：同样的改动出现在本地和远程的不同分支,例如远程分支只用来部署时.</p>
+<li><p>场景:同样的改动出现在本地和远程的不同分支,例如远程分支只用来部署时.</p>
 </li>
-<li><p>步骤：Push 到远程时,指定本地分支与对应的远程分支.</p>
+<li><p>步骤:Push 到远程时,指定本地分支与对应的远程分支.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin branch-with-changes:another-branch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="日志与回滚"><a href="#日志与回滚" class="headerlink" title="日志与回滚"></a>日志与回滚</h2><p>Git 已经成为当今版本控制工具的主流,而分布式的结构和日志型的存储让 Git 不那么容易理解. 本文以实际的案例,总结了日志相关的操作步骤以及涉及到的 Git 命令.</p>
 <h3 id="提交记录"><a href="#提交记录" class="headerlink" title="提交记录"></a>提交记录</h3><ul>
-<li><p>场景：希望查看仓库的中所有提交的信息,比如提交人、提交时间、代码增删、Commit ID 等.</p>
+<li><p>场景:希望查看仓库的中所有提交的信息,比如提交人、提交时间、代码增删、Commit ID 等.</p>
 </li>
-<li><p>步骤：通过 <code>git status</code> 和 <code>git log</code> 可查询这些信息.</p>
+<li><p>步骤:通过 <code>git status</code> 和 <code>git log</code> 可查询这些信息.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -961,18 +961,18 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Git-Blame"><a href="#Git-Blame" class="headerlink" title="Git Blame"></a>Git Blame</h3><ul>
-<li><p>场景：查看每一行代码的最后改动时间,以及提交人.例如,追溯 <code>app.js</code> 文件中某一行是被谁改坏的.</p>
+<li><p>场景:查看每一行代码的最后改动时间,以及提交人.例如,追溯 <code>app.js</code> 文件中某一行是被谁改坏的.</p>
 </li>
-<li><p>步骤：通过 <code>git blame</code> 来查询.</p>
+<li><p>步骤:通过 <code>git blame</code> 来查询.</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> blame app.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>更多参数请查询 git blame –help</p>
 <h3 id="检出历史版本"><a href="#检出历史版本" class="headerlink" title="检出历史版本"></a>检出历史版本</h3><ul>
-<li><p>场景：希望将当前项目回到某个历史版本.例如：希望从某个历史版本建立分支时.</p>
+<li><p>场景:希望将当前项目回到某个历史版本.例如:希望从某个历史版本建立分支时.</p>
 </li>
-<li><p>步骤：git checkout</p>
+<li><p>步骤:git checkout</p>
 </li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">
@@ -985,7 +985,7 @@
 <span class="token function">git</span> checkout gh-pages
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>原则上讲 Git 历史是不允许更改的,这方面 Git 很像 日志结构的文件系统（Log-Structured File Systems）. 但也有办法可以更改日志,例如：寻找并删除 Git 记录中的大文件</p>
+<p>原则上讲 Git 历史是不允许更改的,这方面 Git 很像 日志结构的文件系统（Log-Structured File Systems）. 但也有办法可以更改日志,例如:寻找并删除 Git 记录中的大文件</p>
 
                 
             </div>
@@ -1017,7 +1017,7 @@
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -1028,7 +1028,7 @@
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

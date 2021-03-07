@@ -439,37 +439,37 @@
                 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://judes.me/frontend/2019/08/31/vue-custom-input.html">原文地址</a></p>
 </blockquote>
-<p>之前接到一个任务,要求用一个输入框让用户得以输入商品的折扣,但是折扣的形式根据用户所在的国家地区的不同而不同.具体来说：英语国家可以输入 1 ～ 99 的数值,表示商品的优惠 (discount)；中文地区可以输入 0.1 ～ 9.9 的数值,表示商品的折扣 (percentage).</p>
+<p>之前接到一个任务,要求用一个输入框让用户得以输入商品的折扣,但是折扣的形式根据用户所在的国家地区的不同而不同.具体来说:英语国家可以输入 1 ～ 99 的数值,表示商品的优惠 (discount)；中文地区可以输入 0.1 ～ 9.9 的数值,表示商品的折扣 (percentage).</p>
 <p>举例来说,英语国家的用户输入 15 ,表示商品会给用户原价 15% 的优惠；而中文地区的用户输入 8.5 ,表示商品实际价格是原价的 85% .</p>
 <p>二者在前端展示时刚好互补,但是后台保存数据时,统一使用英语国家的形式.</p>
 <p>也就是说,在展示数据和处理用户的输入时前端可能要转换一下.</p>
-<p>这种处理数据的逻辑,我个人有一个倾向：将逻辑向最底层或者最顶层两端推,而不是放在系统的中间.在这个例子中,要么将处理逻辑放在输入组件中,要么在接收数据、发送数据时做转换；这样系统的大部分代码都不用知道这个特殊的逻辑,而且出问题了也容易定位.</p>
+<p>这种处理数据的逻辑,我个人有一个倾向:将逻辑向最底层或者最顶层两端推,而不是放在系统的中间.在这个例子中,要么将处理逻辑放在输入组件中,要么在接收数据、发送数据时做转换；这样系统的大部分代码都不用知道这个特殊的逻辑,而且出问题了也容易定位.</p>
 <p>出于复用、以及更容易维护代码考虑,将处理逻辑放在输入组件中会更好.</p>
-<p>先声明一点：以下具体实现不是本人想出来的,也不是实际业务中运行的代码.虽然也不是什么高深的技巧,但我觉得写得好,分享出来希望能帮到有需要的人.</p>
+<p>先声明一点:以下具体实现不是本人想出来的,也不是实际业务中运行的代码.虽然也不是什么高深的技巧,但我觉得写得好,分享出来希望能帮到有需要的人.</p>
 <p>假设前端项目用的框架是 element ui ,我们要复用这个框架的 el-input 组件,同时要注入以上特殊的业务逻辑,实现一个<a target="_blank" rel="noopener" href="https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended">基础组件</a>.</p>
 <p>官方有实现基础组件的指南,其中有一点是 <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components-props.html#Disabling-Attribute-Inheritance">Disabling Attribute Inheritance</a>,这样做可以阻止组件的根元素继承上面传下来的属性,再配合使用 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/index.html#vm-attrs"><code>$attrs</code></a> 可以将上面传下来的属性 (除去 style/class 属性以及在 props 中定义的属性绑定) 传给真正需要的组件.</p>
 <p>具体来说,我们要实现一个封装了 el-input 组件的基础组件,将上面传下来的属性传进 el-input .</p>
-<p>template 的内容：</p>
+<p>template 的内容:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
   label:
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-input</span> <span class="token attr-name">v-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$attrs<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>请输入内容<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>script 的内容：</p>
+<p>script 的内容:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
   name<span class="token operator">:</span> <span class="token string">'CustomInput'</span><span class="token punctuation">,</span>
   inheritAttrs<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>接下来我们要在组件内部维护一个变量,显示输入框的内容,并且在用户输入时向上面触发一个事件.将这个变量命名为 <code>internalValue</code> ,作为 <code>v-model</code> 指令的属性值传到 el-input 组件.</p>
-<p>template 的内容：</p>
+<p>template 的内容:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>
   label:
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>internalValue<span class="token punctuation">"</span></span> <span class="token attr-name">v-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$attrs<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>请输入内容<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>说一下 <code>v-model</code> ,它是一个语法糖,假设你这样写：</p>
-<p>这种写法与下面的写法是等价的：</p>
+<p>说一下 <code>v-model</code> ,它是一个语法糖,假设你这样写:</p>
+<p>这种写法与下面的写法是等价的:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用 <code>v-model</code> 可以解决输入框显示的问题,但怎样在用户输入时向上面触发一个事件呢？</p>
@@ -583,7 +583,7 @@
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -594,7 +594,7 @@
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

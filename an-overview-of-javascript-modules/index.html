@@ -632,13 +632,13 @@ myModule<span class="token punctuation">.</span><span class="token function">foo
 <p>AMD 也是一种 JavaScript 模块化规范,与 CommonJS 最大的不同在于它采用异步的方式去加载依赖的模块. AMD 规范主要是为了解决针对浏览器环境的模块化问题,最具代表性的实现是 requirejs.</p>
 </blockquote>
 <blockquote>
-<p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。其中 RequireJS 是最佳实践者。</p>
+<p>AMD是”Asynchronous Module Definition”的缩写,意思就是”异步模块定义”.它采用异步方式加载模块,模块的加载不影响它后面语句的运行.所有依赖这个模块的语句,都定义在一个回调函数中,等到加载完成之后,这个回调函数才会运行.其中 RequireJS 是最佳实践者.</p>
 </blockquote>
 <blockquote>
-<p>CMD(Common Module Definition - 通用模块定义)规范主要是Sea.js推广中形成的，一个文件就是一个模块，可以像Node.js一般书写模块代码。主要在浏览器中运行，当然也可以在Node.js中运行。</p>
+<p>CMD(Common Module Definition - 通用模块定义)规范主要是Sea.js推广中形成的,一个文件就是一个模块,可以像Node.js一般书写模块代码.主要在浏览器中运行,当然也可以在Node.js中运行.</p>
 </blockquote>
 <blockquote>
-<p>它与AMD很类似，不同点在于：AMD 推崇依赖前置、提前执行，CMD推崇依赖就近、延迟执行。</p>
+<p>它与AMD很类似,不同点在于:AMD 推崇依赖前置、提前执行,CMD推崇依赖就近、延迟执行.</p>
 </blockquote>
 <p>AMD or (Asynchronous Module Definition) had life for a short while as a way to make bundles more front-end friendly however it is not widely used anymore.<br>They do not require a bundler and dependencies can be resolved by dynamically fetching them.<br>Pretty much the de-facto way to use these was through <a target="_blank" rel="noopener" href="https://requirejs.org/">requireJS</a>.<br>Unlike CJS, dependencies are declared first and the module code is executed inside a function closure. It looks like this:</p>
 <blockquote>
@@ -1104,7 +1104,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -1115,7 +1115,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

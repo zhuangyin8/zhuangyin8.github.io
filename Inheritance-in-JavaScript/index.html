@@ -485,11 +485,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>1.在通过原型来实现继承时,原型实际上会变成另一个类型的实例.于是,原先的实例属性也就顺理成章地变成了现在的原型属性,并且会被所有的实例共享.这样理解:<strong>在超类型构造函数中定义的引用类型值的实例属性,会在子类型原型上变成原型属性被所有子类型实例所共享</strong>.</p>
 <p>2.<strong>在创建子类型的实例时,不能向超类型的构造函数中传递参数</strong>.</p>
-<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点:"></a>特点:</h4><ul>
 <li>父类新增原型方法/原型属性,子类都能访问到</li>
 <li>简单,易于实现</li>
 </ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点:"></a>缺点:</h4><ul>
 <li>无法实现多继承</li>
 <li>来自原型对象的所有属性被所有实例共享</li>
 <li>创建子类实例时,无法向父类构造函数传参</li>
@@ -519,12 +519,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p><strong>借用构造函数的优点</strong>是解决了原型链实现继承存在的两个问题</p>
 <p><strong>借用构造函数的缺点</strong>是方法都在构造函数中定义,因此函数复用就无法实现了.而且,在超类型的原型中定义的方法,对子类型而言也是不可见的,结果所有类型都只能使用构造函数模式</p>
-<h4 id="特点：-1"><a href="#特点：-1" class="headerlink" title="特点："></a>特点：</h4><ul>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点:"></a>特点:</h4><ul>
 <li>解决了原型链继承中子类实例共享父类引用属性的问题</li>
 <li>创建子类实例时,可以向父类传递参数</li>
 <li>可以实现多继承(call 多个父类对象)</li>
 </ul>
-<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点:"></a>缺点:</h4><ul>
 <li>实例并不是父类的实例,只是子类的实例</li>
 <li>只能继承父类的实例属性和方法,不能继承原型属性和方法</li>
 <li>无法实现函数复用,每个子类都有父类实例函数的副本,影响性能</li>
@@ -560,14 +560,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>组合继承避免了原型链和借用构造函数的缺陷,融合了它们的优点,成为 javascript 中最常用的继承模式.而且,使用 <code>instanceof</code> 操作符和 <code>isPrototype()</code> 方法也能够用于识别基于组合继承创建的对象.</p>
 <p>但它也有自己的不足 – 无论在什么情况下,都会调用两次超类型构造函数:一次是在创建子类型原型的时候,另一次是在子类型构造函数内部.</p>
 <hr>
-<p>这种方式融合原型链继承和构造函数的优点,<del>是 JavaScript 中最常用的继承模式.</del>不过也存在缺点就是无论在什么情况下,都会调用两次构造函数：一次是在创建子类型原型的时候,另一次是在子类型构造函数的内部,子类型最终会包含父类型对象的全部实例属性,但我们不得不在调用子类构造函数时重写这些属性.</p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<p>这种方式融合原型链继承和构造函数的优点,<del>是 JavaScript 中最常用的继承模式.</del>不过也存在缺点就是无论在什么情况下,都会调用两次构造函数:一次是在创建子类型原型的时候,另一次是在子类型构造函数的内部,子类型最终会包含父类型对象的全部实例属性,但我们不得不在调用子类构造函数时重写这些属性.</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h4><ul>
 <li>可以继承实例属性/方法,也可以继承原型属性/方法</li>
 <li>不存在引用属性共享问题</li>
 <li>可传参</li>
 <li>函数可复用</li>
 </ul>
-<h4 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点:"></a>缺点:</h4><ul>
 <li>调用了两次父类构造函数,生成了两份实例</li>
 </ul>
 <h3 id="4-原型式继承"><a href="#4-原型式继承" class="headerlink" title="4.原型式继承"></a>4.原型式继承</h3><blockquote>
@@ -872,7 +872,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -883,7 +883,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

@@ -447,11 +447,11 @@
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Memory leaks are a problem every developer has to face eventually. Even when working with memory-managed languages there are cases where memory can be leaked. Leaks are the cause of whole class of problems: slowdowns, crashes, high latency, and even problems with other applications.</p>
 <h3 id="What-are-memory-leaks"><a href="#What-are-memory-leaks" class="headerlink" title="What are memory leaks?"></a>What are memory leaks?</h3><p>In essence, memory leaks can be defined as memory that is not required by an application anymore that for some reason is not returned to the operating system or the pool of free memory. Programming languages favor different ways of managing memory. These ways may reduce the chance of leaking memory. However, whether a certain piece of memory is unused or not is actually an <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#Release_when_the_memory_is_not_needed_anymore">undecidable problem</a>. In other words, only developers can make it clear whether a piece of memory can be returned to the operating system or not. Certain programming languages provide features that help developers do this. Others expect developers to be completely explicit about when a piece of memory is unused. Wikipedia has good articles on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Manual_memory_management">manual</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Manual_memory_management">automatic</a> memory management.</p>
 <blockquote>
-<p>本质上,内存泄漏可以定义为：应用程序不再需要占用内存的时候,由于某些原因,内存没有被操作系统或可用内存池回收.编程语言支持不同的内存管理方式.这些方法可以减少内存泄漏的机会.但是,某个内存是否未使用实际上是无法确定的问题.换句话说,只有开发人员才能弄清楚是否可以将一块内存返回给操作系统.某些编程语言提供的功能可帮助开发人员执行此操作.另一些则希望开发人员完全清楚何时未使用内存.维基百科上有很多有关手动和自动内存管理的文章.</p>
+<p>本质上,内存泄漏可以定义为:应用程序不再需要占用内存的时候,由于某些原因,内存没有被操作系统或可用内存池回收.编程语言支持不同的内存管理方式.这些方法可以减少内存泄漏的机会.但是,某个内存是否未使用实际上是无法确定的问题.换句话说,只有开发人员才能弄清楚是否可以将一块内存返回给操作系统.某些编程语言提供的功能可帮助开发人员执行此操作.另一些则希望开发人员完全清楚何时未使用内存.维基百科上有很多有关手动和自动内存管理的文章.</p>
 </blockquote>
 <h3 id="Memory-management-in-JavaScript"><a href="#Memory-management-in-JavaScript" class="headerlink" title="Memory management in JavaScript"></a>Memory management in JavaScript</h3><p>JavaScript is one of the so called <em>garbage collected</em> languages. Garbage collected languages help developers manage memory by periodically checking which previously allocated pieces of memory can still be “reached” from other parts of the application. In other words, garbage collected languages reduce the problem of managing memory from “what memory is still required?” to “what memory can still be reached from other parts of the application?”. The difference is subtle, but important: while only the developer knows whether a piece of allocated memory will be required in the future, unreachable memory can be algorithmically determined and marked for return to the OS.</p>
 <blockquote>
-<p>JavaScript 是所谓的垃圾收集语言之一.垃圾收集的语言通过定期检查仍可以从应用程序的其他部分“访问”哪些先前分配的内存,来帮助开发人员管理内存.换句话说,垃圾收集语言减少了“仍然需要什么内存”管理内存的问题. “仍然可以从应用程序的其他部分访问什么内存？”.差异是细微的,但很重要：虽然只有开发人员才能知道将来是否需要分配的内存,但是可以通过算法确定无法访问的内存并将其标记为返回操作系统.</p>
+<p>JavaScript 是所谓的垃圾收集语言之一.垃圾收集的语言通过定期检查仍可以从应用程序的其他部分“访问”哪些先前分配的内存,来帮助开发人员管理内存.换句话说,垃圾收集语言减少了“仍然需要什么内存”管理内存的问题. “仍然可以从应用程序的其他部分访问什么内存？”.差异是细微的,但很重要:虽然只有开发人员才能知道将来是否需要分配的内存,但是可以通过算法确定无法访问的内存并将其标记为返回操作系统.</p>
 </blockquote>
 <blockquote>
 <p>Non-garbage-collected languages usually employ other techniques to manage memory: explicit management, where the developer explicitly tells the compiler when a piece of memory is not required; and reference counting, in which a use count is associated with every block of memory (when the count reaches zero it is returned to the OS). These techniques come with their own trade-offs (and potential causes for leaks).</p>
@@ -1829,7 +1829,7 @@ Smd115
     </div>
 
     
-        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -1840,7 +1840,7 @@ Smd115
     <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
     let gitalk = new Gitalk({
         clientID: '215267d8d7dec30a72c0',

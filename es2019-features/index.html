@@ -524,7 +524,7 @@ string<span class="token punctuation">.</span><span class="token function">trim<
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'\uD800'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → '"�"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>The “well-formed <code>JSON.stringify</code>” proposal changes <code>JSON.stringify</code> so it outputs escape sequences for lone surrogates, making its output valid Unicode (and representable in UTF-8):</p>
+<p>The “well-formed <code>JSON.stringify</code>“ proposal changes <code>JSON.stringify</code> so it outputs escape sequences for lone surrogates, making its output valid Unicode (and representable in UTF-8):</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token string">'\uD800'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// → '"\\ud800"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 

@@ -874,7 +874,7 @@ FastClick<span class="token punctuation">.</span><span class="token function">at
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看完你肯定就会明白了,其实是在你写的组件的样式,添加了一个属性而已,这样就实现了所谓的私有作用域.但是也会有弊端,考虑到浏览器渲染各种 CSS 选择器的方式,当 <code>p &#123; color: red &#125;</code> 设置了作用域时 (即与特性选择器组合使用时) 会慢很多倍.如果你使用 class 或者 id 取而代之,比如 <code>.example &#123; color: red &#125;</code>,性能影响就会消除.所以,在你的样式里,进来避免直接使用标签,取而代之的你可以给标签起个 class 名.</p>
-<p>如果你希望 <code>scoped</code> 样式中的一个选择器能够作用得“更深”,例如影响子组件,你可以使用 <code>&gt;&gt;&gt;</code> 操作符:</p>
+<p>如果你希望 <code>scoped</code> 样式中的一个选择器能够作用得”更深”,例如影响子组件,你可以使用 <code>&gt;&gt;&gt;</code> 操作符:</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
   <span class="token selector">.parent >>> .child</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">/* ... */</span>
@@ -935,7 +935,7 @@ hiper -n <span class="token number">100</span> <span class="token string">"baidu
 <p>hiper 就是解决这个痛点的.</p>
 <h2 id="vue-获取数据的两种方式的实践-简单骨架屏实现"><a href="#vue-获取数据的两种方式的实践-简单骨架屏实现" class="headerlink" title="vue 获取数据的两种方式的实践+简单骨架屏实现"></a>vue 获取数据的两种方式的实践+简单骨架屏实现</h2><p>在 vue 中获取数据有两种方式,引入尤大大的话就是:</p>
 <ul>
-<li><strong>导航完成之后获取</strong>:先完成导航,然后在接下来的组件生命周期钩子中获取数据.在数据获取期间显示“加载中”之类的指示.</li>
+<li><strong>导航完成之后获取</strong>:先完成导航,然后在接下来的组件生命周期钩子中获取数据.在数据获取期间显示”加载中”之类的指示.</li>
 <li><strong>导航完成之前获取</strong>:导航完成前,在路由进入的守卫中获取数据,在数据获取成功后执行导航.</li>
 </ul>
 <p>从技术角度讲,两种方式都不错 —— 就看你想要的用户体验是哪种.那么我们来实践一下这两种获取数据的方式,以及用户体验优化的一点思考.</p>

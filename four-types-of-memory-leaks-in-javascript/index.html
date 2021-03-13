@@ -451,7 +451,7 @@
 </blockquote>
 <h3 id="Memory-management-in-JavaScript"><a href="#Memory-management-in-JavaScript" class="headerlink" title="Memory management in JavaScript"></a>Memory management in JavaScript</h3><p>JavaScript is one of the so called <em>garbage collected</em> languages. Garbage collected languages help developers manage memory by periodically checking which previously allocated pieces of memory can still be “reached” from other parts of the application. In other words, garbage collected languages reduce the problem of managing memory from “what memory is still required?” to “what memory can still be reached from other parts of the application?”. The difference is subtle, but important: while only the developer knows whether a piece of allocated memory will be required in the future, unreachable memory can be algorithmically determined and marked for return to the OS.</p>
 <blockquote>
-<p>JavaScript 是所谓的垃圾收集语言之一.垃圾收集的语言通过定期检查仍可以从应用程序的其他部分“访问”哪些先前分配的内存,来帮助开发人员管理内存.换句话说,垃圾收集语言减少了“仍然需要什么内存”管理内存的问题. “仍然可以从应用程序的其他部分访问什么内存？”.差异是细微的,但很重要:虽然只有开发人员才能知道将来是否需要分配的内存,但是可以通过算法确定无法访问的内存并将其标记为返回操作系统.</p>
+<p>JavaScript 是所谓的垃圾收集语言之一.垃圾收集的语言通过定期检查仍可以从应用程序的其他部分”访问”哪些先前分配的内存,来帮助开发人员管理内存.换句话说,垃圾收集语言减少了”仍然需要什么内存”管理内存的问题. “仍然可以从应用程序的其他部分访问什么内存？”.差异是细微的,但很重要:虽然只有开发人员才能知道将来是否需要分配的内存,但是可以通过算法确定无法访问的内存并将其标记为返回操作系统.</p>
 </blockquote>
 <blockquote>
 <p>Non-garbage-collected languages usually employ other techniques to manage memory: explicit management, where the developer explicitly tells the compiler when a piece of memory is not required; and reference counting, in which a use count is associated with every block of memory (when the count reaches zero it is returned to the OS). These techniques come with their own trade-offs (and potential causes for leaks).</p>

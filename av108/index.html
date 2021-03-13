@@ -436,7 +436,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><h2 id="百度-ECharts-resize-的坑"><a href="#百度-ECharts-resize-的坑" class="headerlink" title="百度 ECharts resize 的坑"></a>百度 ECharts resize 的坑</h2><p>需求:根据数据量的大小,动态调整 ECharts 柱形图的宽度.</p>
+                <h2 id="虚拟-DOM-实现原理-优缺点"><a href="#虚拟-DOM-实现原理-优缺点" class="headerlink" title="虚拟 DOM 实现原理 优缺点"></a>虚拟 DOM 实现原理 优缺点</h2><h2 id="百度-ECharts-resize-的坑"><a href="#百度-ECharts-resize-的坑" class="headerlink" title="百度 ECharts resize 的坑"></a>百度 ECharts resize 的坑</h2><p>需求:根据数据量的大小,动态调整 ECharts 柱形图的宽度.</p>
 <p>实现构想:根据数据的 size 调整 div 的大小,然后调用 ECharts 对象的 resize 方法重置柱状图的宽度:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 图的大小动态自动调整</span>
 <span class="token keyword">let</span> compactWidth <span class="token operator">=</span> data<span class="token punctuation">.</span>size <span class="token operator">*</span> <span class="token number">32</span><span class="token punctuation">;</span>
@@ -453,7 +453,8 @@ vueVisit<span class="token punctuation">.</span>visitChart<span class="token pun
 <span class="token keyword">this</span><span class="token punctuation">.</span>chartStyle<span class="token punctuation">.</span>width <span class="token operator">=</span> width <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   vueVisit<span class="token punctuation">.</span>visitChart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//需要一个延迟,resize()才能生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//需要一个延迟,resize()才能生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <!-- ECharts 随屏幕大小改变大小 chart.resize().
 

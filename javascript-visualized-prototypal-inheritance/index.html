@@ -1,0 +1,1346 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comments"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github-square"></i>Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Inheritance/">
+                                <span class="chip bg-color">Inheritance</span>
+                            </a>
+                        
+                            <a href="/tags/Visualized/">
+                                <span class="chip bg-color">Visualized</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus"></i>发布日期:;
+                    2020-01-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/javascript-visualized-prototypal-inheritance-47co">5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance</a></p>
+</blockquote>
+<p><img src="/images/yjxz6x93jaxk4wgmpnw5.png" alt="Cover image for 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance"></p>
+<p>Ever wondered why we can use built-in methods such as <code>.length</code>, <code>.split()</code>, <code>.join()</code> on our strings, arrays, or objects? We never explicitly specified them, where do they come from? Now don’t say”It’s JavaScript lol no one knows, it’s magic 🧚🏻‍♂️”, it’s actually because of something called <em>prototypal inheritance</em>. It’s pretty awesome, and you use it more often than you realize!</p>
+<blockquote>
+<p>有没有想过为什么我们可以在字符串,数组或对象上使用诸如 <code>.length</code>, <code>.split()</code>, <code>.join()</code> 之类的内置方法？我们从未明确指定它们,它们来自何处？现在不要说 “这是 JavaScript 没有人知道,这是神奇的 🧚🏻‍♂️”,这实际上是由于所谓的 <em>原型继承</em>.它非常棒,而且您使用它的次数比您想像的要多！</p>
+</blockquote>
+<p>We often have to create many objects of the same type. Say we have a website where people can browse dogs!</p>
+<p>For every dog, we need object that represents that dog! 🐕 Instead of writing a new object each time, I’ll use a constructor function (I know what you’re thinking, I’ll cover ES6 classes later on!) from which we can create Dog <strong>instances</strong> using the <code>new</code> keyword (this post isn’t really about explaining constructor functions though, so I won’t talk too much about that).</p>
+<blockquote>
+<p>我们经常必须创建许多相同类型的对象.假设我们有一个网站,人们可以浏览狗！ 对于每只狗,我们都需要代表那只狗的物体！ 🐕 不用每次都编写一个新对象,我将使用构造函数(我知道您在想什么,稍后将介绍 ES6 类！),我们可以使用 <code>new</code> 关键字从中创建 Dog ** 实例 **(本文并不是真正要解释构造函数,因此,我不会对此进行过多讨论.)</p>
+</blockquote>
+<p>Every dog has a name, a breed, a color, and a function to bark!</p>
+<blockquote>
+<p>每只狗都有名字,品种,颜色和吠叫功能！</p>
+</blockquote>
+<p><img src="/images/caurw7uuk62htpldgtln.png"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Dog</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> breed<span class="token punctuation">,</span> color</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>breed <span class="token operator">=</span> breed<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">bark</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token string">'Woof!'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>When we created the <code>Dog</code> constructor function, it wasn’t the only object we created. Automatically, we also created another object, called the <em>prototype</em>! By default, this object contains a <em>constructor</em> property, which is simply a reference to the original constructor function, <code>Dog</code> in this case.</p>
+<blockquote>
+<p>当我们创建 <code>Dog</code> 构造函数时,它并不是我们创建的唯一对象.自动地,我们还创建了另一个对象,称为 _原型_！默认情况下,此对象包含一个 <em>构造函数</em> 属性,该属性只是对原始构造函数(在这种情况下为 <code>Dog</code>)的引用.</p>
+</blockquote>
+<p><img src="/images/9howj4i3zvlgun3svppp.gif"></p>
+<p>The <code>prototype</code> property on the Dog constructor function is non-enumerable, meaning that it doesn’t show up when we try to access the objects properties. But it’s still there!</p>
+<p>Okay so.. Why do we have this <em>property</em> object? First, let’s create some dogs that we want to show. To keep it simple, I’ll call them <code>dog1</code> and <code>dog2</code>. <code>dog1</code> is Daisy, a cute black Labrador! <code>dog2</code> is Jack, the fearless white Jack Russell 😎</p>
+<blockquote>
+<p>Dog 构造函数上的 <code>prototype</code> 属性是不可枚举的,这意味着当我们尝试访问对象属性时,该属性不会显示.但它仍然在那里！ 好吧.. 为什么会有这个 <em>property</em> 对象？首先,让我们创建一些要展示的狗.为简单起见,我将它们分别称为 <code>dog1</code> 和 <code>dog2</code>. <code>dog1</code> 是黛西,一个可爱的黑色拉布拉多犬！ <code>dog2</code> 是杰克,无所畏惧的白色杰克罗素㹴 😎</p>
+</blockquote>
+<p><img src="/images/lyajz4lade30ci2koirq.png"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> dog1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">'Daisy'</span><span class="token punctuation">,</span> <span class="token string">'Labrador'</span><span class="token punctuation">,</span> <span class="token string">'black'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> dog2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token string">'Jack'</span><span class="token punctuation">,</span> <span class="token string">'Jack Russell'</span><span class="token punctuation">,</span> <span class="token string">' white'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Let’s log <code>dog1</code> to the console, and expand its properties!</p>
+<blockquote>
+<p>让我们将 <code>dog1</code> 输出到控制台,并展开其属性！</p>
+</blockquote>
+<p><img src="/images/tt4yfoz8ckmxfofv3f9v.gif"></p>
+<p>We see the properties we added, like <code>name</code>, <code>breed</code>, <code>color</code>, and <code>bark</code>.. but woah what is that <code>__proto__</code> property! It’s non-enumerable, meaning that it usually doesn’t show up when we try to get the properties on the object. Let’s expand it! 😃</p>
+<blockquote>
+<p>我们看到了我们添加的属性,例如 <code>name</code>,<code>breed</code>,<code>color</code> 和 <code>bark</code>.. 但是,哇,<code>__proto__</code> 属性是什么！它是不可枚举的,这意味着当我们尝试获取对象的属性时,通常不会显示它.让我们展开它！ 😃</p>
+</blockquote>
+<p><img src="/images/dye57pcku5cfaz0er60c.gif"></p>
+<p>Woah it looks exactly like the <code>Dog.prototype</code> object! Well guess what, <code>__proto__</code> is a reference to the <code>Dog.prototype</code> object. This is what <strong>prototypal inheritance</strong> is all about: each instance of the constructor has access to the prototype of the constructor! 🤯</p>
+<blockquote>
+<p>哇,看起来就像 <code>Dog.prototype</code> 对象一样！好吧,猜猜 <code>__proto__</code> 是对 <code>Dog.prototype</code> 对象的引用.这就是<strong>原型继承</strong>的全部内容:构造函数的每个实例都可以访问构造函数的原型！ 🤯</p>
+</blockquote>
+<p><img src="/images/t6kiav029gl2e0hv1xct.gif"></p>
+<p>So why is this cool? Sometimes we have properties that all instances share. For example the <code>bark</code> function in this case: it’s the exact same for every instance, why create a new function each time we create a new dog, consuming memory each time? Instead, we can add it to the <code>Dog.prototype</code> object! 🥳</p>
+<blockquote>
+<p>那么为什么这很酷？有时我们拥有所有实例共享的属性.例如,在这种情况下,<code>bark</code> 函数:每个实例都完全相同,为什么每次创建新狗时都创建一个新函数,却每次都要消耗内存？相反,我们可以将其添加到 <code>Dog.prototype</code> 对象中！ 🥳</p>
+</blockquote>
+<p><img src="/images/59nlnyqioosaowj09xn8.gif"></p>
+<p>Whenever we try to access a property on the instance, the engine first searches locally to see if the property is defined on the object itself. However, if it can’t find the property we’re trying to access, the engine <strong>walks down the prototype chain</strong> through the <code>__proto__</code> property!</p>
+<blockquote>
+<p>每当我们尝试访问实例上的属性时,引擎都会首先在本地搜索以查看该属性是否在对象本身上定义.但是,如果找不到我们要访问的属性,则引擎擎通过 <code>__proto__</code> 属性沿着原型链走下去！</p>
+</blockquote>
+<p><img src="/images/fabyyjot1s78mttyzzk8.gif"></p>
+<p>Now this is just one step, but it can contain several steps! If you followed along, you may have noticed that I didn’t include one property when I expanded the <code>__proto__</code> object showing <code>Dog.prototype</code>. <code>Dog.prototype</code> itself is an object, meaning that it’s actually an instance of the <code>Object</code> constructor! That means that <code>Dog.prototype</code> also contains a <code>__proto__</code> property, which is a reference to <code>Object.prototype</code>!</p>
+<blockquote>
+<p>现在这只是一个步骤,但可以包含多个步骤！如果您照做的话,您可能会注意到,当我展开显示 <code>Dog.prototype</code> 的 <code>__proto__</code> 对象时,我没有包含一个属性. <code>Dog.prototype</code> 本身是一个对象,这意味着它实际上是 <code>Object</code> 构造函数的一个实例！这意味着 <code>Dog.prototype</code> 还包含 <code>__proto__</code> 属性,该属性是对 <code>Object.prototype</code> 的引用！</p>
+</blockquote>
+<p><img src="/images/8vk5w6loliot818f2lcd.gif"></p>
+<p>Finally, we have an answer to where all the built-in methods come from: they’re on the prototype chain! 😃</p>
+<p>For example the <code>.toString()</code> method. Is it defined locally on the <code>dog1</code> object? Hmm no.. Is it defined on the object <code>dog1.__proto__</code> has a reference to, namely <code>Dog.prototype</code>? Also no! Is it defined on the object <code>Dog.prototype.__proto__</code> has a reference to, namely <code>Object.prototype</code>? Yes! 🙌🏼</p>
+<blockquote>
+<p>最后,我们对所有内置方法的来源都有一个解析:它们位于原型链上！ 😃 例如 <code>.toString()</code> 方法.它是在 <code>dog1</code> 对象上本地定义的吗？嗯.是否在对象 <code>dog1.__ proto__</code> 上定义了它的引用,即 <code>Dog.prototype</code>？也没有！它是否在对象 <code>Dog.prototype.__ proto__</code> 所引用的对象 <code>Object.prototype</code> 上定义？是的！ 🙌🏼</p>
+</blockquote>
+<p><img src="/images/fpt5nndkbq5kau0nqeqj.gif"></p>
+<p>Now, we’ve just been using constructor functions (<code>function Dog() &#123; ... &#125;</code>), which is still valid JavaScript. However, ES6 actually introduced an easier syntax for constructor functions and working with prototypes: classes!</p>
+<blockquote>
+<p>现在,我们一直在使用构造函数 (<code>function Dog() &#123; ... &#125;</code>),该函数仍然是有效的 JavaScript.但是,ES6 实际上为构造函数和原型使用了一种更简单的语法:类！</p>
+</blockquote>
+<blockquote>
+<p>Classes are only <strong>syntactical sugar</strong> for constructor functions. Everything still works the same way!</p>
+</blockquote>
+<p>We write classes with the <code>class</code> keyword. A class has a <code>constructor</code> function, which is basically the constructor function we wrote in the ES5 syntax! The properties that we want to add to the prototype, are defined on the classes body itself.</p>
+<blockquote>
+<p>我们使用 <code>class</code> 关键字编写类.一个类具有构造函数,基本上就是我们用 ES5 语法编写的构造函数！我们要添加到原型的属性是在类主体本身上定义的.</p>
+</blockquote>
+<p><img src="/images/qnbqubcipqjl5pb3i8ds.gif"></p>
+<p>Another great thing about classes, is that we can easily <strong>extend</strong> other classes.</p>
+<p>Say that we want to show several dogs of the same breed, namely Chihuahuas! A chihuahua is (somehow… 😐) still a dog. To keep this example simple, I’ll only pass the <code>name</code> property to the Dog class for now instead of <code>name</code>, <code>breed</code> and <code>color</code>. But these chihuahuas can also do something special, they have a small bark. Instead of saying <code>Woof!</code>, a chihuahua can also say <code>Small woof!</code> 🐕</p>
+<p>In an extended class, we can access the parent class’constructor using the <code>super</code> keyword. The arguments the parent class’ constructor expects, we have to pass to <code>super</code>: <code>name</code> in this case.</p>
+<blockquote>
+<p>关于类的另一个好处是,我们可以轻松扩展其他类. 假设我们要展示几只相同品种的狗,即奇瓦瓦狗！奇瓦瓦狗(某种程度上……)仍然是一只狗.为了使这个示例简单,我现在仅将 <code>name</code> 属性传递给 Dog 类,而不是 <code>name</code>,<code>breed</code> 和 <code>color</code>.但是这些吉娃娃也可以做一些特别的事情,它们的树皮很小.吉娃娃还可以说 “小汪汪”,而不是说 <code>Small woof!</code> 🐕 在扩展类中,我们可以使用 <code>super</code> 关键字访问父类的构造函数.父类的构造函数期望的参数,在这种情况下,我们必须传递给 <code>super</code>:<code>name</code>.</p>
+</blockquote>
+<p><img src="/images/tx25dar3duqo0z2bpfam.png"></p>
+<p><code>myPet</code> has access to both the <code>Chihuahua.prototype</code> and <code>Dog.prototype</code> (and automatically <code>Object.prototype</code>, since <code>Dog.prototype</code> is an object).</p>
+<blockquote>
+<p><code>myPet</code> 可以访问 <code>Chihuahua.prototype</code> 和 <code>Dog.prototype</code>(并自动访问 <code>Object.prototype</code>,因为 <code>Dog.prototype</code> 是对象).</p>
+</blockquote>
+<p><img src="/images/qija16dju8t5j1ksy0ps.gif"></p>
+<p>Since <code>Chihuahua.prototype</code> has the <code>smallBark</code> function, and <code>Dog.prototype</code> has the <code>bark</code> function, we can access both <code>smallBark</code> and <code>bark</code> on <code>myPet</code>!</p>
+<p>Now as you can imagine, the prototype chain doesn’t go on forever. Eventually there’s an object which prototype is equal to <code>null</code>: the <code>Object.prototype</code> object in this case! If we try to access a property that’s nowhere to be found locally or on the prototype chain, <code>undefined</code> gets returned.</p>
+<blockquote>
+<p>由于 <code>Chihuahua.prototype</code> 具有 <code>smallBark</code> 功能,而 <code>Dog.prototype</code> 具有 <code>bark</code> 功能,因此我们可以在 <code>myPet</code> 上访问 <code>smallBark</code> 和树皮！ 现在,您可以想象,原型链不会永远持续下去.最终有一个原型等于 <code>null</code> 的对象:在这种情况下为 <code>Object.prototype</code> 对象！如果我们尝试访问在本地或原型链上找不到的属性,则会返回 <code>undefined</code>.</p>
+</blockquote>
+<p><img src="/images/1905zxijp45soy0jzle2.gif"></p>
+<hr>
+<p>Although I explained everything with constructor functions and classes here, another way to add prototypes to objects is with the <code>Object.create</code> method. With this method, we create a new object, and can specify exactly what the prototype of that object should be! 💪🏼</p>
+<p>We do this, by passing an <em>existing object</em> as argument to the <code>Object.create</code> method. That object is the prototype of the object we create!</p>
+<blockquote>
+<p>尽管我在这里用构造函数和类解释了所有内容,但是将原型添加到对象的另一种方法是使用 <code>Object.create</code> 方法.使用此方法,我们可以创建一个新对象,并可以精确指定该对象的原型！ 💪🏼 为此,我们将现有对象作为参数传递给 <code>Object.create</code> 方法.该对象是我们创建的对象的原型！</p>
+</blockquote>
+<p><img src="/images/kbwwsn1fd4gngd05tm9a.png"></p>
+<p>Let’s log the <code>me</code> object we just created.</p>
+<p><img src="/images/6zzt8zpy85gtitxmpwi9.gif"></p>
+<p>We didn’t add any properties to the <code>me</code> object, it simply only contains the non-enumerable <code>__proto__</code> property! The <code>__proto__</code> property holds a reference to the object we defined as the prototype: the <code>person</code> object, which has a <code>name</code> and an <code>age</code> property. Since the <code>person</code> object is an object, the value of the <code>__proto__</code> property on the <code>person</code> object is <code>Object.prototype</code> (but to make it a bit easier to read, I didn’t expand that property in the gif!)</p>
+<blockquote>
+<p>我们没有向 <code>me</code> 对象添加任何属性,它仅包含不可枚举的 <code>__proto__</code> 属性！ <code>__proto__</code> 属性持有对我们定义为原型的对象的引用:<code>person</code> 对象,它具有 <code>name</code> 和 <code>age</code> 属性.由于 <code>person</code> 对象是一个对象,因此 <code>person</code> 对象上 <code>__proto__</code> 属性的值是 <code>Object.prototype</code>(但为了使其更易于阅读,我没有在 gif 中扩展该属性！)</p>
+</blockquote>
+<hr>
+<p>Hopefully, you now understand why prototypal inheritance is such an important feature in the wonderful world of JavaScript! If you have questions, feel free to reach out to me! 😊</p>
+<blockquote>
+<p>希望您现在了解为什么原型继承在 JavaScript 的奇妙世界中如此重要！如果您有任何疑问,请随时与我联系！ 😊</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            Lydia Hallie
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/javascript-visualized-prototypal-inheritance/">
+                            https://zhuangyin8.github.io
+                                /javascript-visualized-prototypal-inheritance/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    Lydia Hallie
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Inheritance/">
+                                    <span class="chip bg-color">Inheritance</span>
+                                </a>
+                            
+                                <a href="/tags/Visualized/">
+                                    <span class="chip bg-color">Visualized</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-01-03T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>上一篇</div>
+            <div class="card">
+                <a href="/12-vuejs-best-practices-for-pro-developers/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="12 Vue.js Best Practices for Pro Developers">
+                        
+                        <span class="card-title">12 Vue.js Best Practices for Pro Developers</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-01-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tips/">
+                        <span class="chip bg-color">Tips</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/javascript-visualized-the-javascript-engine/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="4️ 🚀⚙️ JavaScript Visualized: the JavaScript Engine">
+                        
+                        <span class="card-title">4️ 🚀⚙️ JavaScript Visualized: the JavaScript Engine</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2019-12-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript-Engine/">
+                        <span class="chip bg-color">JavaScript Engine</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy;
+            
+            <span id="year">2016-2021</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">庄引</a>
+            <br>
+            Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+            Theme <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="fa fa-eye"></i>
+                总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                <i class="fa fa-users"></i>
+                总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

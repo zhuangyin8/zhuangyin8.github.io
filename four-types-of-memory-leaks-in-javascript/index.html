@@ -1,0 +1,2561 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them | 庄引的博客</title><meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comments"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github-square"></i>Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Memory-Leak/">
+                                <span class="chip bg-color">Memory Leak</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus"></i>发布日期:;
+                    2016-01-26
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/">4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them</a></p>
+</blockquote>
+<blockquote>
+<p>Learn about memory leaks in JavaScript and what can be done to solve it!</p>
+</blockquote>
+<p>In this article we will explore common types of memory leaks in client-side JavaScript code. We will also learn how to use the Chrome Development Tools to find them. Read on!</p>
+<blockquote>
+<p>在本文中,我们将探讨客户端 JavaScript 代码中常见的内存泄漏类型.我们还将学习如何使用 Chrome 开发工具找到它们.继续阅读！</p>
+</blockquote>
+<hr>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Memory leaks are a problem every developer has to face eventually. Even when working with memory-managed languages there are cases where memory can be leaked. Leaks are the cause of whole class of problems: slowdowns, crashes, high latency, and even problems with other applications.</p>
+<blockquote>
+<p>内存泄漏是每个开发人员最终都必须面对的问题.即使使用内存管理的语言,在某些情况下也会泄漏内存.泄漏是整个问题的根源:减速,崩溃,高延迟,甚至其他应用程序也有问题.</p>
+</blockquote>
+<h3 id="What-are-memory-leaks"><a href="#What-are-memory-leaks" class="headerlink" title="What are memory leaks?"></a>What are memory leaks?</h3><p>In essence, memory leaks can be defined as memory that is not required by an application anymore that for some reason is not returned to the operating system or the pool of free memory. Programming languages favor different ways of managing memory. These ways may reduce the chance of leaking memory. However, whether a certain piece of memory is unused or not is actually an <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management#Release_when_the_memory_is_not_needed_anymore">undecidable problem</a>. In other words, only developers can make it clear whether a piece of memory can be returned to the operating system or not. Certain programming languages provide features that help developers do this. Others expect developers to be completely explicit about when a piece of memory is unused. Wikipedia has good articles on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Manual_memory_management">manual</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Manual_memory_management">automatic</a> memory management.</p>
+<blockquote>
+<p>本质上, 内存泄漏可以定义为: 应用程序不再需要占用内存的时候, 由于某些原因, 内存没有被操作系统或可用内存池回收. 编程语言支持不同的内存管理方式. 这些方法可以减少内存泄漏的机会. 但是, 某个内存是否未使用实际上是无法确定的问题. 换句话说, 只有开发人员才能弄清楚是否可以将一块内存返回给操作系统. 某些编程语言提供的功能可帮助开发人员执行此操作. 另一些则希望开发人员完全清楚何时未使用内存. 维基百科上有很多有关手动和自动内存管理的文章.</p>
+</blockquote>
+<h3 id="Memory-management-in-JavaScript"><a href="#Memory-management-in-JavaScript" class="headerlink" title="Memory management in JavaScript"></a>Memory management in JavaScript</h3><p>JavaScript is one of the so called <em>garbage collected</em> languages. Garbage collected languages help developers manage memory by periodically checking which previously allocated pieces of memory can still be “reached” from other parts of the application. In other words, garbage collected languages reduce the problem of managing memory from “what memory is still required?” to “what memory can still be reached from other parts of the application?”. The difference is subtle, but important: while only the developer knows whether a piece of allocated memory will be required in the future, unreachable memory can be algorithmically determined and marked for return to the OS.</p>
+<blockquote>
+<p>JavaScript 是所谓的垃圾收集语言之一. 垃圾收集的语言通过定期检查仍可以从应用程序的其他部分 “访问” 哪些先前分配的内存, 来帮助开发人员管理内存. 换句话说, 垃圾收集语言减少了 “仍然需要什么内存” 管理内存的问题. “仍然可以从应用程序的其他部分访问什么内存？”. 差异是细微的, 但很重要: 虽然只有开发人员才能知道将来是否需要分配的内存, 但是可以通过算法确定无法访问的内存并将其标记为返回操作系统.</p>
+</blockquote>
+<blockquote>
+<p>Non-garbage-collected languages usually employ other techniques to manage memory: explicit management, where the developer explicitly tells the compiler when a piece of memory is not required; and reference counting, in which a use count is associated with every block of memory (when the count reaches zero it is returned to the OS). These techniques come with their own trade-offs (and potential causes for leaks).</p>
+</blockquote>
+<blockquote>
+<p>非垃圾收集语言通常采用其他技术来管理内存:显式管理,即开发人员在不需要内存的情况下显式告知编译器;和引用计数,其中使用计数与每个内存块相关联（当计数达到零时,它将返回到 OS）.这些技术都有其自身的权衡（以及泄漏的潜在原因）.</p>
+</blockquote>
+<h2 id="Leaks-in-JavaScript"><a href="#Leaks-in-JavaScript" class="headerlink" title="Leaks in JavaScript"></a>Leaks in JavaScript</h2><p>The main cause for leaks in garbage collected languages are <em>unwanted references</em>. To understand what unwanted references are, first we need to understand how a garbage collector determines whether a piece of memory can be reached or not.</p>
+<blockquote>
+<p>垃圾收集语言泄漏的主要原因是不需要的引用.要了解什么是不需要的引用,首先我们需要了解垃圾回收器如何确定是否可以访问内存. 垃圾收集语言泄漏的主要原因是不需要的引用.</p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/">The main cause for leaks in garbage collected languages are unwanted references.</a></p>
+</blockquote>
+<h3 id="Mark-and-sweep"><a href="#Mark-and-sweep" class="headerlink" title="Mark-and-sweep"></a>Mark-and-sweep</h3><p>Most garbage collectors use an algorithm known as <em>mark-and-sweep</em>. The algorithm consists of the following steps:</p>
+<blockquote>
+<p>大多数垃圾收集器使用称为标记清除的算法.该算法包括以下步骤:</p>
+</blockquote>
+<ol>
+<li> The garbage collector builds a list of “roots”. Roots usually are global variables to which a reference is kept in code. In JavaScript, the “window” object is an example of a global variable that can act as a root. The window object is always present, so the garbage collector can consider it and all of its children to be always present (i.e. not garbage).</li>
+<li> All roots are inspected and marked as active (i.e. not garbage). All children are inspected recursively as well. Everything that can be reached from a root is not considered garbage.</li>
+<li> All pieces of memory not marked as active can now be considered garbage. The collector can now free that memory and return it to the OS.</li>
+</ol>
+<blockquote>
+<ul>
+<li><p>垃圾收集器构建 “根” 列表.根通常是在代码中保留引用的全局变量.在 JavaScript 中,“窗口” 对象是可以充当根的全局变量的示例.窗口对象始终存在,因此垃圾收集器可以认为它及其所有子对象始终存在（即不是垃圾）.</p>
+</li>
+<li><p>检查所有根并将其标记为活动（即不是垃圾）.还对所有儿童进行递归检查.从根可以访问的所有内容均不视为垃圾.</p>
+</li>
+<li><p>现在可以将所有未标记为活动的内存视为垃圾.收集器现在可以释放该内存并将其返回给 OS.</p>
+</li>
+</ul>
+</blockquote>
+<p>Modern garbage collectors improve on this algorithm in different ways, but the essence is the same: reachable pieces of memory are marked as such and the rest is considered garbage.</p>
+<blockquote>
+<p>现代垃圾收集器以不同的方式改进了该算法,但是本质是相同的:可访问的内存被标记为此类,其余的被视为垃圾.</p>
+</blockquote>
+<p>Unwanted references are references to pieces of memory that the developer knows he or she won’t be needing anymore but that for some reason are kept inside the tree of an active root. In the context of JavaScript, unwanted references are variables kept somewhere in the code that will not be used anymore and point to a piece of memory that could otherwise be freed. Some would argue these are developer mistakes.</p>
+<blockquote>
+<p>不需要的引用是对开发人员知道他或她不再需要的内存的引用,但是由于某种原因它们被保留在活动根目录树中.在 JavaScript 的上下文中,不需要的引用是保留在代码中某个位置的变量,这些变量将不再使用,并指向原本可以释放的内存.有人会说这些是开发人员的错误.</p>
+</blockquote>
+<p>So to understand which are the most common leaks in JavaScript, we need to know in which ways references are commonly forgotten.</p>
+<blockquote>
+<p>因此,要了解 JavaScript 中最常见的泄漏,我们需要知道通常忘记引用的方式.</p>
+</blockquote>
+<h2 id="The-Three-Types-of-Common-JavaScript-Leaks"><a href="#The-Three-Types-of-Common-JavaScript-Leaks" class="headerlink" title="The Three Types of Common JavaScript Leaks"></a>The Three Types of Common JavaScript Leaks</h2><h3 id="1-Accidental-global-variables"><a href="#1-Accidental-global-variables" class="headerlink" title="1: Accidental global variables"></a>1: Accidental global variables</h3><blockquote>
+<p>意外的全局变量</p>
+<p>是我们由于使用未声明的变量, 而意外的创建了一个全局变量, 而使这个变量一直留在内存中无法被回收.</p>
+</blockquote>
+<p>One of the objectives behind JavaScript was to develop a language that looked like Java but was permissive enough to be used by beginners. One of the ways in which JavaScript is permissive is in the way it handles undeclared variables: a reference to an undeclared variable creates a new variable inside the <em>global</em> object. In the case of browsers, the global object is <code>window</code>. In other words:</p>
+<blockquote>
+<p>JavaScript 的目标之一是开发一种看起来像 Java 的语言,但足以让初学者使用. JavaScript 允许的一种方式是处理未声明变量的方式:对未声明变量的引用会在 <em>全局</em> 对象内创建一个新变量.对于浏览器,全局对象是 <code>window</code>.换句话说:</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  bar <span class="token operator">=</span> <span class="token string">'this is a hidden global variable'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Is in fact:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  window<span class="token punctuation">.</span>bar <span class="token operator">=</span> <span class="token string">'this is an explicit global variable'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>If <code>bar</code> was supposed to hold a reference to a variable only inside the scope of the <code>foo</code> function and you forget to use <code>var</code> to declare it, an unexpected global variable is created. In this example, leaking a simple string won’t do much harm, but it could certainly be worse.</p>
+<blockquote>
+<p>如果 <code>bar</code> 应该仅在 <code>foo</code> 函数的作用域内保存对变量的引用,而您忘记使用 <code>var</code> 声明它,则会创建意外的全局变量.在此示例中,泄漏一个简单的字符串不会带来太大的危害,但是肯定会更糟.</p>
+</blockquote>
+<p>Another way in which an accidental global variable can be created is through <code>this</code>:</p>
+<blockquote>
+<p>可以通过 <code>this</code> 创建意外全局变量的另一种方式是通过以下方式:</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>variable <span class="token operator">=</span> <span class="token string">'potential accidental global'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Foo called on its own, this points to the global object (window)</span>
+<span class="token comment">// rather than being undefined.</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>To prevent these mistakes from happening, add <code>&#39;use strict&#39;;</code> at the beginning of your JavaScript files. This enables a stricter mode of parsing JavaScript that prevents accidental globals.</p>
+</blockquote>
+<blockquote>
+<p>为了防止这些错误的发生,请在您的 JavaScript 文件的开头添加 <code>&#39;use strict&#39;;</code> .这将启用更严格的 JavaScript 解析模式以防止意外的全局变量.</p>
+</blockquote>
+<h4 id="A-note-on-global-variables"><a href="#A-note-on-global-variables" class="headerlink" title="A note on global variables"></a>A note on global variables</h4><p>Even though we talk about unsuspected globals, it is still the case that much code is littered with explicit global variables. These are by definition noncollectable (unless nulled or reassigned). In particular, global variables used to temporarily store and process big amounts of information are of concern. If you must use a global variable to store lots of data, make sure to null it or reassign it after you are done with it. One common cause for increased memory consumption in connection with globals are <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cache_(computing)">caches</a>. Caches store data that is repeatedly used. For this to be efficient, <strong>caches must have an upper bound for its size</strong>. Caches that grow unbounded can result in high memory consumption because their contents cannot be collected.</p>
+<blockquote>
+<p>即使我们谈论的是毫无疑问的全局变量,仍然有很多代码被显式的全局变量所困扰.根据定义,这些是不可收集的（除非为 null 或重新分配）.特别是,用于临时存储和处理大量信息的全局变量值得关注.如果必须使用全局变量来存储大量数据,请确保在处理完数据后将其清空或重新分配.与全局变量相关的内存消耗增加的一个常见原因是缓存.缓存存储重复使用的数据.为使此方法有效,高速缓存必须为其大小设置上限.无限增长的高速缓存会导致高内存消耗,因为无法收集其内容.</p>
+</blockquote>
+<h3 id="2-Forgotten-timers-or-callbacks"><a href="#2-Forgotten-timers-or-callbacks" class="headerlink" title="2: Forgotten timers or callbacks"></a>2: Forgotten timers or callbacks</h3><blockquote>
+<p>被遗忘的计时器或回调函数</p>
+<ol>
+<li><p>设置了 setInterval 定时器, 而忘记取消它</p>
+</li>
+<li><p>循环函数有对外部变量的引用的话, 那么这个变量会被一直留在内存中, 而无法被回收.</p>
+</li>
+</ol>
+</blockquote>
+<p>The use of <code>setInterval</code> is quite common in JavaScript. Other libraries provide observers and other facilities that take callbacks. Most of these libraries take care of making any references to the callback unreachable after their own instances become unreachable as well. In the case of setInterval, however, code like this is quite common:</p>
+<blockquote>
+<p><code>setInterval</code> 在 JavaScript 中非常普遍.其他库提供了观察者和接受回调的其他工具.这些库中的大多数都负责在它们自己的实例也变得不可访问之后,使对回调的任何引用都无法访问.但是,在 setInterval 的情况下,这样的代码很常见:</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> someResource <span class="token operator">=</span> <span class="token function">getData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> node <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'Node'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Do stuff with node and someResource.</span>
+    node<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>someResource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This example illustrates what can happen with dangling timers: timers that make reference to nodes or data that is no longer required. The object represented by <code>node</code> may be removed in the future, making the whole block inside the interval handler unnecessary. However, the handler, as the interval is still active, cannot be collected (the interval needs to be stopped for that to happen). If the interval handler cannot be collected, its dependencies cannot be collected either. That means that <code>someResource</code>, which presumably stores sizable data, cannot be collected either.</p>
+<p>For the case of observers, it is important to make explicit calls to remove them once they are not needed anymore (or the associated object is about to be made unreachable). In the past, this used to be particularly important as certain browsers (Internet Explorer 6) were not able to manage cyclic references well (see below for more info on that). Nowadays, most browsers can and will collect observer handlers once the observed object becomes unreachable, even if the listener is not explicitly removed. It remains good practice, however, to explicitly remove these observers before the object is disposed. For instance:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  element<span class="token punctuation">.</span>innerHtml <span class="token operator">=</span> <span class="token string">'text'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+element<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> onClick<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Do stuff</span>
+element<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> onClick<span class="token punctuation">)</span><span class="token punctuation">;</span>
+element<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Now when element goes out of scope,</span>
+<span class="token comment">// both element and onClick will be collected even in old browsers that don't</span>
+<span class="token comment">// handle cycles well.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="A-note-about-object-observers-and-cyclic-references"><a href="#A-note-about-object-observers-and-cyclic-references" class="headerlink" title="A note about object observers and cyclic references"></a>A note about object observers and cyclic references</h4><p>Observers and cyclic references used to be the bane of JavaScript developers. This was the case due to a bug (or design decision) in Internet Explorer’s garbage collector. Old versions of Internet Explorer could not detect cyclic references between DOM nodes and JavaScript code. This is typical of an observer, which usually keeps a reference to the observable (as in the example above). In other words, every time an observer was added to a node in Internet Explorer, it resulted in a leak. This is the reason developers started explicitly removing handlers before nodes or nulling references inside observers. Nowadays, modern browsers (including Internet Explorer and Microsoft Edge) use modern garbage collection algorithms that can detect these cycles and deal with them correctly. In other words, it is not strictly necessary to call <code>removeEventListener</code> before making a node unreachable.</p>
+<p>Frameworks and libraries such as <em>jQuery</em> do remove listeners before disposing of a node (when using their specific APIs for that). This is handled internally by the libraries and makes sure that no leaks are produced, even when run under problematic browsers such as the old Internet Explorer.</p>
+<h3 id="3-Out-of-DOM-references"><a href="#3-Out-of-DOM-references" class="headerlink" title="3: Out of DOM references"></a>3: Out of DOM references</h3><blockquote>
+<p>脱离 DOM 的引用</p>
+<p>我们获取一个 DOM 元素的引用, 而后面这个元素被删除, 由于我们一直保留了对这个元素的引用, 所以它也无法被回收. DOM 被删除前, 没有解绑事件或对它的引用没有手动清除掉</p>
+</blockquote>
+<p>Sometimes it may be useful to store DOM nodes inside data structures. Suppose you want to rapidly update the contents of several rows in a table. It may make sense to store a reference to each DOM row in a dictionary or array. When this happens, two references to the same DOM element are kept: one in the DOM tree and the other in the dictionary. If at some point in the future you decide to remove these rows, you need to make both references unreachable.</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> elements <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  button<span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  image<span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'image'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  text<span class="token operator">:</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">doStuff</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  image<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://some.url/image'</span><span class="token punctuation">;</span>
+  button<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>text<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Much more logic</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">removeButton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// The button is a direct child of body.</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// At this point, we still have a reference to #button in the global</span>
+  <span class="token comment">// elements dictionary. In other words, the button element is still in</span>
+  <span class="token comment">// memory and cannot be collected by the GC.</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>An additional consideration for this has to do with references to inner or leaf nodes inside a DOM tree. Suppose you keep a reference to a specific cell of a table (a <code>&lt;td&gt;</code> tag) in your JavaScript code. At some point in the future you decide to remove the table from the DOM but keep the reference to that cell. Intuitively one may suppose the GC will collect everything but that cell. In practice this won’t happen: the cell is a child node of that table and children keep references to their parents. In other words, the reference to the table cell from JavaScript code causes the whole table to stay in memory. Consider this carefully when keeping references to DOM elements.</p>
+<h3 id="4-Closures"><a href="#4-Closures" class="headerlink" title="4: Closures"></a>4: Closures</h3><blockquote>
+<p>闭包</p>
+<p>不合理的使用闭包, 从而导致某些变量一直被留在内存当中.</p>
+</blockquote>
+<p>A key aspect of JavaScript development are closures: anonymous functions that capture variables from parent scopes. Meteor developers <a target="_blank" rel="noopener" href="https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156">found a particular case</a> in which due to implementation details of the JavaScript runtime, it is possible to leak memory in a subtle way:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> theThing <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">replaceThing</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> originalThing <span class="token operator">=</span> theThing<span class="token punctuation">;</span>
+  <span class="token keyword">var</span> <span class="token function-variable function">unused</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>originalThing<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  theThing <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    longStr<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">someMethod</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>someMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token function">setInterval</span><span class="token punctuation">(</span>replaceThing<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This snippet does one thing: every time <code>replaceThing</code> is called, <code>theThing</code> gets a new object which contains a big array and a new closure (<code>someMethod</code>). At the same time, the variable <code>unused</code> holds a closure that has a reference to <code>originalThing</code> (<code>theThing</code> from the previous call to <code>replaceThing</code>). Already somewhat confusing, huh? The important thing is that once a scope is created for closures that are in the same parent scope, that scope is shared. In this case, the scope created for the closure <code>someMethod</code> is shared by <code>unused</code>. <code>unused</code> has a reference to <code>originalThing</code>. Even though <code>unused</code> is never used, <code>someMethod</code> can be used through <code>theThing</code>. And as <code>someMethod</code> shares the closure scope with <code>unused</code>, even though <code>unused</code> is never used, its reference to <code>originalThing</code> forces it to stay active (prevents its collection). When this snippet is run repeatedly a steady increase in memory usage can be observed. This does not get smaller when the GC runs. In essence, a linked list of closures is created (with its root in the form of the <code>theThing</code> variable), and each of these closures’ scopes carries an indirect reference to the big array, resulting in a sizable leak.</p>
+<blockquote>
+<p>This is an implementation artifact. A different implementation of closures that can handle this matter is conceivable, as explained in the <a target="_blank" rel="noopener" href="https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156">Meteor blog post</a>.</p>
+</blockquote>
+<h2 id="Unintuitive-behavior-of-Garbage-Collectors"><a href="#Unintuitive-behavior-of-Garbage-Collectors" class="headerlink" title="Unintuitive behavior of Garbage Collectors"></a>Unintuitive behavior of Garbage Collectors</h2><p>Although Garbage Collectors are convenient they come with their own set of trade-offs. One of those trade-offs is <em>nondeterminism</em>. In other words, GCs are unpredictable. It is not usually possible to be certain when a collection will be performed. This means that in some cases more memory than is actually required by the program is being used. In other cases, short-pauses may be noticeable in particularly sensitive applications. Although nondeterminism means one cannot be certain when a collection will be performed, most GC implementations share the common pattern of doing collection passes during allocation. If no allocations are performed, most GCs stay at rest. Consider the following scenario:</p>
+<ol>
+<li> A sizable set of allocations is performed.</li>
+<li> Most of these elements (or all of them) are marked as unreachable (suppose we null a reference pointing to a cache we no longer need).</li>
+<li> No further allocations are performed.</li>
+</ol>
+<p>In this scenario, most GCs will not run any further collection passes. In other words, even though there are unreachable references available for collection, these are not claimed by the collector. These are not strictly leaks, but still result in higher-than-usual memory usage.</p>
+<p>Google provides an excellent example of this behavior in their <a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools/docs/demos/memory/example2">JavaScript Memory Profiling docs, example #2</a>.</p>
+<h2 id="Chrome-Memory-Profiling-Tools-Overview"><a href="#Chrome-Memory-Profiling-Tools-Overview" class="headerlink" title="Chrome Memory Profiling Tools Overview"></a>Chrome Memory Profiling Tools Overview</h2><p>Chrome provides a nice set of tools to profile memory usage of JavaScript code. There two essential views related to memory: the <em>timeline</em> view and the <em>profiles</em> view.</p>
+<h3 id="Timeline-view"><a href="#Timeline-view" class="headerlink" title="Timeline view"></a>Timeline view</h3><p><img src="/images/timeline.png" alt="Google Dev Tools Timeline in Action" title="Google Dev Tools Timeline in Action"> The timeline view is essential in discovering unusual memory patterns in our code. In case we are looking for big leaks, periodic jumps that do not shrink as much as they grew after a collection are a red flag. In this screenshot we can see what a steady growth of leaked objects can look like. Even after the big collection at the end, the total amount of memory used is higher than at the beginning. Node counts are also higher. These are all signs of leaked DOM nodes somewhere in the code.</p>
+<h3 id="Profiles-view"><a href="#Profiles-view" class="headerlink" title="Profiles view"></a>Profiles view</h3><p><img src="/images/profiles.png" alt="Google Dev Tools Profiles in Action" title="Google Dev Tools Profiles in Action"> This is the view you will spend most of the time looking at. The profiles view allows you to get a snapshot and compare snapshots of the memory use of your JavaScript code. It also allows you to record allocations along time. In every result view different types of lists are available, but the most relevant ones for our task are the summary list and the comparison list.</p>
+<p>The summary view gives us an overview of the different types of objects allocated and their aggregated size: shallow size (the sum of all objects of a specific type) and retained size (the shallow size plus the size of other objects retained due to this object). It also gives us a notion of how far an object is in relation to its GC root (the distance).</p>
+<p>The comparison list gives us the same information but allows us to compare different snapshots. This is specially useful to find leaks.</p>
+<h2 id="Example-Finding-Leaks-Using-Chrome"><a href="#Example-Finding-Leaks-Using-Chrome" class="headerlink" title="Example: Finding Leaks Using Chrome"></a>Example: Finding Leaks Using Chrome</h2><p>There are essentially two types of leaks: leaks that cause periodic increases in memory use and leaks that happen once and cause no further increases in memory. For obvious reasons, it is easier to find leaks when they are periodic. These are also the most troublesome: if memory increases in time, leaks of this type will eventually cause the browser to become slow or stop execution of the script. Leaks that are not periodic can easily be found when they are big enough to be noticeable among all other allocations. This is usually not the case, so they usually remain unnoticed. In a way, small leaks that are happen once could be considered an optimization issue. However, leaks that are periodic are bugs and must be fixed.</p>
+<p>For our example we will use one of the <a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools/docs/demos/memory/example1">examples in Chrome’s docs</a>. The full code is pasted below:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">createSomeNodes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">var</span> div<span class="token punctuation">,</span>
+    i <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    frag <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    div<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">'-'</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toTimeString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    frag<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'nodes'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>frag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">function</span> <span class="token function">grow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  x<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'x'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">createSomeNodes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span>grow<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>When <code>grow</code> is invoked it will start creating div nodes and appending them to the DOM. It will also allocate a big array and append it to an array referenced by a global variable. This will cause a steady increase in memory that can be found using the tools mentioned above.</p>
+<blockquote>
+<p>Garbage collected languages usually show a pattern of oscillating memory use. This is expected if code is running in a loop performing allocations, which is the usual case. We will be looking for periodic increases in memory that do not fall back to previous levels after a collection.</p>
+</blockquote>
+<h3 id="Find-out-if-memory-is-periodically-increasing"><a href="#Find-out-if-memory-is-periodically-increasing" class="headerlink" title="Find out if memory is periodically increasing"></a>Find out if memory is periodically increasing</h3><p>The timeline view is great for this. <a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools/docs/demos/memory/example1">Open the example</a> in Chrome, open the Dev Tools, go to <em>timeline</em>, select <em>memory</em> and click the record button. Then go to the page and click <code>The Button</code> to start leaking memory. After a while stop the recording and take a look at the results:</p>
+<p><img src="/images/example-timeline.png" alt="Memory leaks in the timeline view" title="Memory leaks in the timeline view"></p>
+<blockquote>
+<p>This example will continue leaking memory each second. After stopping the recording, set a breakpoint in the <code>grow</code> function to stop the script from forcing Chrome to close the page.</p>
+</blockquote>
+<p>There are two big signs in this image that show we are leaking memory. The graphs for <em>nodes</em> (green line) and <em>JS heap</em> (blue line). Nodes are steadily increasing and never decrease. This is a big warning sign.</p>
+<p>The JS heap also shows a steady increase in memory use. This is harder to see due to the effect of the garbage collector. You can see a pattern of initial memory growth, followed by a big decrease, followed by an increase and then a spike, continued by another drop in memory. The key in this case lies in the fact that after each drop in memory use, the size of the heap remains bigger than in the previous drop. In other words, although the garbage collector is succeeding in collecting a lot of memory, some of it is periodically being leaked.</p>
+<p>We are now certain we have a leak. Let’s find it.</p>
+<h3 id="Get-two-snapshots"><a href="#Get-two-snapshots" class="headerlink" title="Get two snapshots"></a>Get two snapshots</h3><p>To find a leak we will now go to the <em>profiles</em> section of Chrome’s Dev Tools. To keep memory use in a manageable levels, reload the page before doing this step. We will use the <em>Take Heap Snapshot</em> function.</p>
+<p>Reload the page and take a heap snapshot right after it finishes loading. We will use this snapshot as our baseline. After that, hit <code>The Button</code> again, wait a few seconds, and take a second snapshot. After the snapshot is taken, it is advisable to set a breakpoint in the script to stop the leak from using more memory.</p>
+<p><img src="/images/example-snapshots-1.png" alt="Heap Snapshots" title="Heap Snapshots"></p>
+<p>There are two ways in which we can take a look at allocations between the two snapshots. Either select <em>Summary</em> and then to the right pick <em>Objects allocated between Snapshot 1 and Snapshot 2</em>, or select <em>Comparison</em> rather than <em>Summary</em>. In both cases we will see a list of objects that were allocated between the two snapshots.</p>
+<p>In this case it is quite easy to find the leaks: they are big. Take a look at the <code>Size Delta</code> of the <code>(string)</code> constructor. 8MBs with 58 new objects. This looks suspicious: new objects are allocated but not freed and 8MBs get consumed.</p>
+<p>If we open the list of allocations for the <code>(string)</code> constructor we will notice there are a few big allocations among many small ones. The big ones immediately call our attention. If we select any single one of them we get something interesting in the <em>retainers</em> section below.</p>
+<p><img src="/images/example-snapshots-2.png" alt="Retainers for selected object" title="Retainers for selected object"></p>
+<p>We see our selected allocation is part of an array. In turn, the array is referenced by variable <code>x</code> inside the global <code>window</code> object. This gives us a full path from our big object to its noncollectable root (<code>window</code>). We found our potential leak and where it is referenced.</p>
+<p>So far so good. But our example was easy: big allocations such as the one in this example are not the norm. Fortunately our example is also leaking DOM nodes, which are smaller. It is easy to find these nodes using the snapshots above, but in bigger sites, things get messier. Recent versions of Chrome provide an additional tool that is best suited for our job: the <em>Record Heap Allocations</em> function.</p>
+<h3 id="Recording-heap-allocations-to-find-leaks"><a href="#Recording-heap-allocations-to-find-leaks" class="headerlink" title="Recording heap allocations to find leaks"></a>Recording heap allocations to find leaks</h3><p>Disable the breakpoint you set before, let the script continue running, and go back to the <em>Profiles</em> section of Chrome’s Dev Tools. Now hit <em>Record Heap Allocations</em>. While the tool is running you will notice blue spikes in the graph at the top. These represent allocations. Every second a big allocation is performed by our code. Let it run for a few seconds and then stop it (don’t forget to set the breakpoint again to prevent Chrome from eating more memory).</p>
+<p><img src="/images/example-recordedallocs-overview.png" alt="Recorded heap allocations" title="Recorded heap allocations"></p>
+<p>In this image you can see the killer feature of this tool: selecting a piece of the timeline to see what allocations where performed during that time span. We set the selection to be as close to one of the big spikes as possible. Only three constructors are shown in the list: one of them is the one related to our big leaks (<code>(string)</code>), the next one is related to DOM allocations, and the last one is the <code>Text</code> constructor (the constructor for leaf DOM nodes containing text).</p>
+<p>Select one of the <code>HTMLDivElement</code> constructors from the list and then pick <code>Allocation stack</code>.</p>
+<p><img src="/images/example-recordedallocs-selected.png" alt="Selected element in heap allocation results" title="Selected element in heap allocation results"></p>
+<p>BAM! We now know where that element was allocated (<code>grow</code> -&gt; <code>createSomeNodes</code>). If we pay close attention to each spike in the graph we will notice that the <code>HTMLDivElement</code> constructor is being called a lot. If we go back to our snapshot comparison view we will notice that this constructor shows many allocations but no deletions. In other words, it is steadily allocating memory without allowing the GC to reclaim some of it. This has all the signs of a leak plus we know exactly where these objects are being allocated (the <code>createSomeNodes</code> function). Now its time to go back to the code, study it, and fix the leaks.</p>
+<h3 id="Another-useful-feature"><a href="#Another-useful-feature" class="headerlink" title="Another useful feature"></a>Another useful feature</h3><p>In the heap allocations result view we can select the <em>Allocation</em> view instead of <em>Summary</em>.</p>
+<p><img src="/images/example-recordedallocs-list.png" alt="Allocations in heap allocations results" title="Allocations in heap allocations results"></p>
+<p>This view gives us a list of functions and memory allocations related to them. We can immediately see <code>grow</code> and <code>createSomeNodes</code> standing out. When selecting <code>grow</code> we get a look at the associated object constructors being called by it. We notice <code>(string)</code>, <code>HTMLDivElement</code> and <code>Text</code> which by now we already know are the constructors of the objects being leaked.</p>
+<p>The combination of these tools can help greatly in finding leaks. Play with them. Do different profiling runs in your production sites (ideally with non-minimized or obfuscated code). See if you can find leaks or objects that are retained more than they should (hint: these are harder to find).</p>
+<blockquote>
+<p>To use this feature go to Dev Tools -&gt; Settings and enable “record heap allocation stack traces”. It is necessary to do this before taking the recording.</p>
+</blockquote>
+<h2 id="Further-reading"><a href="#Further-reading" class="headerlink" title="Further reading"></a>Further reading</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">Memory Management - Mozilla Developer Network</a></li>
+<li><a target="_blank" rel="noopener" href="http://javascript.crockford.com/memory/leak.html">JScript Memory Leaks - Douglas Crockford (old, in relation to Internet Explorer 6 leaks)</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools/docs/javascript-memory-profiling">JavaScript Memory Profiling - Chrome Developer Docs</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools/profile/memory-problems/memory-diagnosis">Memory Diagnosis - Google Developers</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.meteor.com/an-interesting-kind-of-javascript-memory-leak-8b47d2e7f156">An Interesting Kind of JavaScript Memory Leak - Meteor blog</a></li>
+<li><a target="_blank" rel="noopener" href="http://mrale.ph/blog/2012/09/23/grokking-v8-closures-for-fun.html">Grokking V8 closures</a></li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Memory leaks can and do happen in garbage collected languages such as JavaScript. These can go unnoticed for some time, and eventually they will wreak havoc. For this reason, memory profiling tools are essential for finding memory leaks. Profiling runs should be part of the development cycle, especially for mid or big-sized applications. Start doing this to give your users the best possible experience. Hack on!</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhansingsong/js-leakage-patterns">常见的 JavaScript 内存泄露</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.lambdatest.com/blog/eradicating-memory-leaks-in-javascript/">Eradicating Memory Leaks In Javascript</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec">How JavaScript works: memory management + how to handle 4 common memory leaks</a></p>
+</blockquote>
+<!-- ## 个人收藏 + 番号
+
+
+### 个人收藏 + 番号 - 第 01 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 01 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 02 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 02 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/05/pic_quark_1596328914126.gif)
+ARBB-033
+![](https://www.picnew.org/images/2020/10/05/13821000037d1c88e4c32.gif)
+345SIMM-463
+![](https://qcc.woimg.net/images/2020/08/03/TIM20200803184849.gif)
+SGA-048
+![](https://www.privacypic.com/images/2020/07/20/xPJrL0.gif)
+ATID-371
+![](https://www.picnew.org/images/2020/10/05/ff090000a7658ca49b3c.gif)
+ABP-674
+![](https://www.picnew.org/images/2020/10/05/ff0a000181689d8be56c.gif)
+MIAE-327
+![](https://qcc.woimg.net/images/2020/08/02/IMG_7177.gif)
+ABP-656
+![](https://www.picnew.org/images/2020/10/05/917ccba985d847c09d475a060aece6db.gif)
+RKI-476
+![](https://www.privacypic.com/images/2020/07/31/GCacjj.gif)
+mide-302
+![](https://www.privacypic.com/images/2020/07/31/GCao9Z.gif)
+FC2-PPV-1168936
+![](https://www.privacypic.com/images/2020/07/31/GCa1fU.gif)
+IPZ-845
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 03 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 03 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/05/ff580000e3104dc5e414.gif)
+JDA003
+![](https://iwtf1.caching.ovh/to/that/2020/04/26/200426016b4e23c2c4e96321.gif)
+ABP-906
+![](https://www.picnew.org/images/2020/10/05/137a500007776b635b153.gif)
+SIRO-3183   FC2-PPV-1062957
+![](https://www.picnew.org/images/2020/10/05/-24a169ebfd75007c.gif)
+EKDV-440
+![](https://www.picnew.org/images/2020/10/05/fe930002859073de5ab7.gif)
+SW-259
+![](https://www.picnew.org/images/2020/10/05/-3ec2d03b68116395.gif)
+HUNTA-331
+![](https://p.pstatp.com/origin/ff240001451f7a930a92)
+SNIS-247
+![](https://www.picnew.org/images/2020/10/05/53.gif)
+CSCT-004
+![](https://www.privacypic.com/images/2020/07/27/GmN5Ju.gif)
+FC2-1444871
+![](https://p.pstatp.com/origin/ff680000907e8292e2b4)
+dvaj-261
+![](https://qcc.woimg.net/images/2020/07/26/fe570001be49af495fb1.gif)
+KIL-044
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 04 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 04 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 05 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 05 期 </b></summary>
+
+
+![](https://p.pstatp.com/origin/fff7000116a98de66e8d)
+EBOD-613
+![](https://p.pstatp.com/origin/1000d00013df925f59466)
+AP-753
+![](https://www.picnew.org/images/2020/10/06/QQ20200722193601.gif)
+HUNTA-337
+![](https://www.picnew.org/images/2020/10/06/QQ2020072220322427ac6.gif)
+FNEO014
+![](https://p.pstatp.com/origin/feef00024e0c97e58fc0)
+300MIUM-544
+![](https://www.picnew.org/images/2020/10/06/497B8267-45F1-458B-96F4-62764F4E2A90.gif)
+MSWD-10023
+![](https://www.picnew.org/images/2020/10/06/137cf0000349c1282c0ef.gif)
+STARS-256
+![](https://www.picnew.org/images/2020/10/06/200938netmyymzebnaww8n.gif)
+magnet:?xt=urn:btih:d2349315db28c0607e9c2cd49c5130909c2c4c86
+![](https://www.nsaimg.com/2020/06/30/4ce3085dc5bca.gif)
+EBOD-513
+![](https://www.mymypic.net/data/attachment/forum/202005/15/145000qlq1oiwfx1pa1zaf.gif)
+DEX-007 DECADE EX 7
+![](https://www.mymypic.net/data/attachment/forum/202005/15/145540buuranaqs6gzani5.gif)
+HUNTA-537
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 06 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 06 期 </b></summary>
+
+
+![](https://www.mymypic.net/data/attachment/forum/202005/15/150026z9xc69999je95rjv.gif)
+EBOD-339
+![](https://p26-tt.byteimg.com/large/pgc-image/2f25f397fc334bb6ac0551be83a996e1)
+magnet:?xt=urn:btih:1943DC934A6B92A42101E1380AD08953F85A599F
+![](https://www.picnew.org/images/2020/10/06/B30F4EB4-D5A3-4313-8206-DEB8FB3D9617.gif)
+SNIS-420
+![](https://p.pstatp.com/origin/ff280000d25c9e0b15b1)
+032417_504
+![](https://p.pstatp.com/origin/fff7000116a98de66e8d)
+EBOD-613
+![](https://p.pstatp.com/origin/ffb20002b5439523ccb7)
+HTMS-119
+![](https://p.pstatp.com/origin/fe8800018f2ac9e73da1)
+Heyzo-0134
+![](https://p.pstatp.com/origin/fead0000e1c34142e4f3)
+Tokyo Hot k1400
+![](https://p.pstatp.com/origin/ff66000193fbf4025970)
+AP-548
+![](https://p.pstatp.com/origin/fe990001539c2d547372)
+MSFH-014
+![](https://p.pstatp.com/origin/ffad0000e29ab1e868a9)
+111711_217
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 07 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 07 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 08 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 08 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 09 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 09 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 10 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 10 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 11 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 11 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 12 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 12 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 13 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 13 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/09/10Musume-080114_01.gif)
+10Musume-080114_01
+![](https://www.picnew.org/images/2020/10/09/072414_849.gif)
+072414_849
+![](https://www.picnew.org/images/2020/10/09/IPX-466.gif)
+IPX-466
+![](https://www.picnew.org/images/2020/10/09/IPX-536.gif)
+IPX-536
+![](https://www.picnew.org/images/2020/10/09/MIDE-634.gif)
+MIDE-634
+![](https://www.picnew.org/images/2020/10/09/NHDTB-102.gif)
+NHDTB-102
+![](https://www.picnew.org/images/2020/10/09/SSNI-730.gif)
+SSNI-730
+![](https://www.picnew.org/images/2020/10/09/STARS-029.gif)
+STARS-029
+![](https://www.picnew.org/images/2020/10/09/STARS-036.gif)
+STARS-036
+![](https://www.picnew.org/images/2020/10/09/VENU-559.gif)
+VENU-559
+![](https://www.picnew.org/images/2020/10/09/YSN-333.gif)
+YSN-333
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 14 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 14 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/09/193911.gif)
+magnet:?xt=urn:btih:457940256c8c82e240c9a057f807d5619b850f4c
+![](https://www.picnew.org/images/2020/10/09/EBOD-539.gif)
+EBOD-539
+![](https://www.picnew.org/images/2020/10/09/EZ252.gif)
+EZ252
+![](https://www.picnew.org/images/2020/10/09/INU-047.gif)
+INU-047
+![](https://www.picnew.org/images/2020/10/09/IPX-540.gif)
+IPX-540
+![](https://www.picnew.org/images/2020/10/09/JUFD-531.gif)
+JUFD-531
+![](https://www.picnew.org/images/2020/10/09/MIDE-719.gif)
+MIDE-719
+![](https://www.picnew.org/images/2020/10/09/NHDTA-770.gif)
+NHDTA-770
+![](https://www.picnew.org/images/2020/10/09/OAE-095.gif)
+OAE-095
+![](https://www.picnew.org/images/2020/10/09/SDDE-556.gif)
+SDDE-556
+![](https://www.picnew.org/images/2020/10/09/ssni-542-C.gif)
+ssni-542-C
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 15 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 15 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/09/2af0d8.gif)
+magnet:?xt=urn:btih:EBF0B6A5254C5EB62866E6383264F02488B49E86
+![](https://www.picnew.org/images/2020/10/09/ExploitedCollegeGirlsChelsea.gif)
+ExploitedCollegeGirls – Chelsea
+magnet:?xt=urn:btih:b6b6912978daf80432911cfd684ef49a2b288012
+![](https://www.picnew.org/images/2020/10/09/F55-05.gif)
+F55-05
+![](https://www.picnew.org/images/2020/10/09/FC2-PPV-1391490.gif)
+FC2-PPV-1391490
+![](https://www.picnew.org/images/2020/10/09/MDYD-674.gif)
+MDYD-674
+![](https://www.picnew.org/images/2020/10/09/ROYD-009.gif)
+ROYD-009
+![](https://www.picnew.org/images/2020/10/09/SCPX-393.gif)
+SCPX-393
+![](https://www.picnew.org/images/2020/10/09/SexJapanTVsjt_25660-7-def-1.gif)
+SexJapanTVsjt_25660-7-def-1
+![](https://www.picnew.org/images/2020/10/09/SNIS-258.gif)
+SNIS-258
+![](https://www.picnew.org/images/2020/10/09/SSNI-781.gif)
+SSNI-781
+![](https://www.picnew.org/images/2020/10/09/TAAK-017.gif)
+TAAK-017
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 16 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 16 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/10/200gana-2271.gif)
+200gana-2271
+![](https://www.picnew.org/images/2020/10/10/261ara-426-C.gif)
+261ara-426-C
+![](https://www.picnew.org/images/2020/10/10/435MFC-015.gif)
+435MFC-015
+![](https://www.picnew.org/images/2020/10/10/061920-001.gif)
+061920-001
+![](https://www.picnew.org/images/2020/10/10/103114-913.gif)
+103114-913
+![](https://www.picnew.org/images/2020/10/10/ABP-147.gif)
+ABP-147
+![](https://www.picnew.org/images/2020/10/10/ABS-095.gif)
+ABS-095
+![](https://www.picnew.org/images/2020/10/10/DPMI-050.gif)
+DPMI-050
+![](https://www.picnew.org/images/2020/10/10/EBOD-431.gif)
+EBOD-431
+![](https://www.picnew.org/images/2020/10/10/FC2-PPV-919347.gif)
+FC2-PPV-919347
+![](https://www.picnew.org/images/2020/10/10/HBAD-122.gif)
+HBAD-122
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 17 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 17 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/12/MEYD-418.gif)
+MEYD-418
+![](https://www.picnew.org/images/2020/10/12/miad-767.gif)
+miad-767
+![](https://www.picnew.org/images/2020/10/12/MKMP-021.gif)
+MKMP-021
+![](https://www.picnew.org/images/2020/10/12/MXGS346.gif)
+MXGS346
+![](https://www.picnew.org/images/2020/10/12/OMSE-028.gif)
+OMSE-028
+![](https://www.picnew.org/images/2020/10/12/RCTD-068.gif)
+RCTD-068
+![](https://www.picnew.org/images/2020/10/12/SAIT-013.gif)
+SAIT-013
+![](https://www.picnew.org/images/2020/10/12/SIRO-2997.gif)
+SIRO-2997
+![](https://www.picnew.org/images/2020/10/12/SNNI-424.gif)
+SNNI-424
+![](https://www.picnew.org/images/2020/10/12/SSNI-290.gif)
+SSNI-290
+![](https://www.picnew.org/images/2020/10/12/STAR-558.gif)
+STAR-558
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 18 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 18 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/12/300MAAN-401.gif)
+300MAAN-401
+![](https://www.picnew.org/images/2020/10/12/IBW-700Z.gif)
+IBW-700Z
+![](https://www.picnew.org/images/2020/10/12/SHKD-689.gif)
+SHKD-689
+![](https://www.picnew.org/images/2020/10/12/SNIS-441.gif)
+SNIS-441
+![](https://www.picnew.org/images/2020/10/12/SNIS-759.gif)
+SNIS-759
+![](https://www.picnew.org/images/2020/10/12/SNNI-424fb0a3.gif)
+SNNI-424fb0a3
+![](https://www.picnew.org/images/2020/10/12/SSNI-730.gif)
+SSNI-730
+![](https://www.picnew.org/images/2020/10/12/sspd-150-C.gif)
+sspd-150-C
+![](https://www.picnew.org/images/2020/10/12/star-923.gif)
+star-923
+![](https://www.picnew.org/images/2020/10/12/VANDR-040.gif)
+VANDR-040
+![](https://www.picnew.org/images/2020/10/12/VGD-157.gif)
+VGD-157
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 19 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 19 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/12/G-AreaPerfect-G452Anju007d2.gif)
+G-AreaPerfect-G452Anju
+![](https://www.picnew.org/images/2020/10/12/10musume012415_01.gif)
+10musume012415_01
+![](https://www.picnew.org/images/2020/10/12/259LUXU-801b4d9c.gif)
+259LUXU-801
+![](https://www.picnew.org/images/2020/10/12/261ARA-2414d1f6.gif)
+261ARA-241
+![](https://www.picnew.org/images/2020/10/12/062919_01.gif)
+062919_01
+![](https://www.picnew.org/images/2020/10/12/080918-001.gif)
+080918-001
+![](https://www.picnew.org/images/2020/10/12/123118_790.gif)
+123118_790
+![](https://www.picnew.org/images/2020/10/12/ABP-241.gif)
+ABP-241
+![](https://www.picnew.org/images/2020/10/12/ABP-243.gif)
+ABP-243
+![](https://www.picnew.org/images/2020/10/12/ABP-587.gif)
+ABP-587
+![](https://www.picnew.org/images/2020/10/12/ABP-651.gif)
+ABP-651
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 20 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 20 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/12/ABP-811.gif)
+ABP-811
+![](https://www.picnew.org/images/2020/10/12/adn-176.gif)
+adn-176
+![](https://www.picnew.org/images/2020/10/12/AKA-055.gif)
+AKA-055
+![](https://www.picnew.org/images/2020/10/12/ARM-395.gif)
+ARM-395
+![](https://www.picnew.org/images/2020/10/12/ARSO-10014.gif)
+ARSO-10014
+![](https://www.picnew.org/images/2020/10/12/Caribbean-090619-001-HD..gif)
+Caribbean-090619-001-HD
+![](https://www.picnew.org/images/2020/10/12/DOCP-168.gif)
+DOCP-168
+![](https://www.picnew.org/images/2020/10/12/DV-1682.gif)
+DV-1682
+![](https://www.picnew.org/images/2020/10/12/DVAJ-219.gif)
+DVAJ-219
+![](https://www.picnew.org/images/2020/10/12/ENBD-5015.gif)
+ENBD-5015
+![](https://www.picnew.org/images/2020/10/12/EYAN-003.gif)
+EYAN-003
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 21 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 21 期 </b></summary>
+
+
+
+![](https://www.picnew.org/images/2020/10/12/FC2-503082.gif)
+FC2-503082
+![](https://www.picnew.org/images/2020/10/12/FC2-PPV-1106023.gif)
+FC2-PPV-1106023
+![](https://www.picnew.org/images/2020/10/12/GDHH-108.gif)
+GDHH-108
+![](https://www.picnew.org/images/2020/10/12/HeyDouga-4181-010.gif)
+HeyDouga-4181-010
+![](https://www.picnew.org/images/2020/10/12/HUNTA-552.gif)
+HUNTA-552
+![](https://www.picnew.org/images/2020/10/12/HUNTA-867.gif)
+HUNTA-867
+![](https://www.picnew.org/images/2020/10/12/IPX-177.gif)
+IPX-177
+![](https://www.picnew.org/images/2020/10/12/JBS-009.gif)
+JBS-009
+![](https://www.picnew.org/images/2020/10/12/KANE-005.gif)
+KANE-005
+![](https://www.picnew.org/images/2020/10/12/KTB-018.gif)
+KTB-018
+![](https://www.picnew.org/images/2020/10/12/luxu-346.gif)
+luxu-346
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 22 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 22 期 </b></summary>
+
+![](https://www.picnew.org/images/2020/10/12/MDYD-716.gif)
+MDYD-716
+![](https://www.picnew.org/images/2020/10/12/MIAE-327.gif)
+MIAE-327
+![](https://www.picnew.org/images/2020/10/12/MIGD-688.gif)
+MIGD-688
+![](https://www.picnew.org/images/2020/10/12/n1217.gif)
+n1217
+![](https://www.picnew.org/images/2020/10/12/NHDTA-613.gif)
+NHDTA-613
+![](https://www.picnew.org/images/2020/10/12/ONEZ-141.gif)
+ONEZ-141
+![](https://www.picnew.org/images/2020/10/12/pppd-802.gif)
+pppd-802
+![](https://www.picnew.org/images/2020/10/12/RED070.gif)
+RED070
+![](https://www.picnew.org/images/2020/10/12/SHKD-856.gif)
+SHKD-856
+![](https://www.picnew.org/images/2020/10/12/YRMN-020.gif)
+YRMN-020
+![](https://www.picnew.org/images/2020/10/12/f775c08e911554c7.gif)
+倩女销魂
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 23 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 23 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 24 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 24 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/14/259LUXU-963.gif)
+259LUXU-963
+![](https://www.picnew.org/images/2020/10/14/300MAAN-401.gif)
+300MAAN-401
+![](https://www.picnew.org/images/2020/10/14/300MAAN-433.gif)
+300MAAN-433
+![](https://www.picnew.org/images/2020/10/14/300maan-435.gif)
+300maan-435
+![](https://www.picnew.org/images/2020/10/14/300mium168.gif)
+300mium168
+![](https://www.picnew.org/images/2020/10/14/ABP-822.gif)
+ABP-822
+![](https://www.picnew.org/images/2020/10/14/ABP-884.gif)
+ABP-884
+![](https://www.picnew.org/images/2020/10/14/ABP-890.gif)
+ABP-890
+![](https://www.picnew.org/images/2020/10/14/AP-677.gif)
+AP-677
+![](https://www.picnew.org/images/2020/10/14/docp-153.gif)
+docp-153
+![](https://www.picnew.org/images/2020/10/14/FC2-PPV-1106023.gif)
+FC2-PPV-1106023
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 25 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 25 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/14/FC2-PPV-1050737.gif)
+FC2-PPV-1050737
+![](https://www.picnew.org/images/2020/10/14/HEYZO-0929.gif)
+HEYZO-0929
+![](https://www.picnew.org/images/2020/10/14/IBW-700Z.gif)
+IBW-700Z
+![](https://www.picnew.org/images/2020/10/14/ipx-360.gif)
+ipx-360
+![](https://www.picnew.org/images/2020/10/14/JUY-601.gif)
+JUY-601
+![](https://www.picnew.org/images/2020/10/14/KTB-022.gif)
+KTB-022
+![](https://www.picnew.org/images/2020/10/14/mane-039.gif)
+mane-039
+![](https://www.picnew.org/images/2020/10/14/MDB-980.gif)
+MDB-980
+![](https://www.picnew.org/images/2020/10/14/SGA-129.gif)
+SGA-129
+![](https://www.picnew.org/images/2020/10/14/SHKD-808.gif)
+SHKD-808
+![](https://www.picnew.org/images/2020/10/14/SIRO3093.gif)
+SIRO3093
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 26 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 26 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/16/star-836.gif)
+star-836
+![](https://www.picnew.org/images/2020/10/16/SW-531.gif)
+SW-531
+![](https://www.picnew.org/images/2020/10/16/tem-059.gif)
+tem-059
+![](https://www.picnew.org/images/2020/10/16/TSDV-41544.gif)
+TSDV-41544
+![](https://www.picnew.org/images/2020/10/16/UPSM-136.gif)
+UPSM-136
+![](https://www.picnew.org/images/2020/10/16/VENU-902.gif)
+VENU-902
+![](https://www.picnew.org/images/2020/10/16/WANZ-085.gif)
+WANZ-085
+![](https://www.picnew.org/images/2020/10/16/WANZ-692.gif)
+WANZ-692
+![](https://www.picnew.org/images/2020/10/16/YRH-057.gif)
+YRH-057
+![](https://www.picnew.org/images/2020/10/16/ZUKO-065.gif)
+ZUKO-065
+![](https://www.picnew.org/images/2020/10/16/ZUKO-109.gif)
+ZUKO-109
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 27 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 27 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/16/RGD-173.gif)
+RGD-173
+![](https://www.picnew.org/images/2020/10/16/S-cute302Mika_2.gif)
+S-cute302Mika_2
+![](https://www.picnew.org/images/2020/10/16/Sdab-004.gif)
+Sdab-004
+![](https://www.picnew.org/images/2020/10/16/SDMU-255.gif)
+SDMU-255
+![](https://www.picnew.org/images/2020/10/16/SDMU-581.gif)
+SDMU-581
+![](https://www.picnew.org/images/2020/10/16/SGA-104.gif)
+SGA-104
+![](https://www.picnew.org/images/2020/10/16/shkd-770.gif)
+shkd-770
+![](https://www.picnew.org/images/2020/10/16/snis-990.gif)
+snis-990
+![](https://www.picnew.org/images/2020/10/16/ssni-036.gif)
+ssni-036
+![](https://www.picnew.org/images/2020/10/16/SSNI-081.gif)
+SSNI-081
+![](https://www.picnew.org/images/2020/10/16/SSNI-326.gif)
+SSNI-326
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 28 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 28 期 </b></summary>
+
+
+
+![](https://www.picnew.org/images/2020/10/16/NACS-005.gif)
+NACS-005
+![](https://www.picnew.org/images/2020/10/16/NAFI-006.gif)
+NAFI-006
+![](https://www.picnew.org/images/2020/10/16/NNPJ-073.gif)
+NNPJ-073
+![](https://www.picnew.org/images/2020/10/16/NOP-024.gif)
+NOP-024
+![](https://www.picnew.org/images/2020/10/16/NSPS-660.gif)
+NSPS-660
+![](https://www.picnew.org/images/2020/10/16/Ogy-004.gif)
+Ogy-004
+![](https://www.picnew.org/images/2020/10/16/pgd-932.gif)
+pgd-932
+![](https://www.picnew.org/images/2020/10/16/PPPD-481.gif)
+PPPD-481
+![](https://www.picnew.org/images/2020/10/16/RBD-470.gif)
+RBD-470
+![](https://www.picnew.org/images/2020/10/16/scpx-236.gif)
+scpx-236
+![](https://www.picnew.org/images/2020/10/16/S-cute301Mikuru.gif)
+S-cute301Mikuru
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 29 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 29 期 </b></summary>
+
+![](https://www.picnew.org/images/2020/10/18/090313_655.gif)
+090313_655
+![](https://www.picnew.org/images/2020/10/18/MIDE-390.gif)
+MIDE-390
+![](https://www.picnew.org/images/2020/10/18/MIDE-777.gif)
+MIDE-777
+![](https://www.picnew.org/images/2020/10/18/MIFD-070.gif)
+MIFD-070
+![](https://www.picnew.org/images/2020/10/18/MIGD-687.gif)
+MIGD-687
+![](https://www.picnew.org/images/2020/10/18/Mkz033.gif)
+Mkz033
+![](https://www.picnew.org/images/2020/10/18/MMR-422.gif)
+MMR-422
+![](https://www.picnew.org/images/2020/10/18/mstg-004.gif)
+mstg-004
+![](https://www.picnew.org/images/2020/10/18/Mum168.gif)
+Mum168
+![](https://www.picnew.org/images/2020/10/18/n0775.gif)
+n0775
+![](https://www.picnew.org/images/2020/10/18/Nhdta610.gif)
+Nhdta610
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 30 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 30 期 </b></summary>
+
+![](https://www.picnew.org/images/2020/10/18/GVG-97758e72.gif)
+GVG-977
+![](https://www.picnew.org/images/2020/10/18/ipx-04717faf.gif)
+ipx-047
+![](https://www.picnew.org/images/2020/10/18/IPX-065b129c.gif)
+IPX-065
+![](https://www.picnew.org/images/2020/10/18/IPX-321b247e.gif)
+IPX-321
+![](https://www.picnew.org/images/2020/10/18/JUFD-421db0c3.gif)
+JUFD-421
+![](https://www.picnew.org/images/2020/10/18/JUX-5879548e.gif)
+JUX-587
+![](https://www.picnew.org/images/2020/10/18/KAWD-744119ae.gif)
+KAWD-744
+![](https://www.picnew.org/images/2020/10/18/LZTD-00355daa.gif)
+LZTD-003
+![](https://www.picnew.org/images/2020/10/18/MIAD-675ed91d.gif)
+MIAD-675
+![](https://www.picnew.org/images/2020/10/18/MIDD-8772e2e0.gif)
+MIDD-877
+![](https://www.picnew.org/images/2020/10/18/MIDE-101.gif)
+MIDE-101
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 31 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 31 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/18/AQSH-013.gif)
+AQSH-013
+![](https://www.picnew.org/images/2020/10/18/DANDY-336.gif)
+DANDY-336
+![](https://www.picnew.org/images/2020/10/18/dtt-022.gif)
+dtt-022
+![](https://www.picnew.org/images/2020/10/18/EBOD-357.gif)
+EBOD-357
+![](https://www.picnew.org/images/2020/10/18/FC2PPV-1049731.gif)
+FC2PPV-1049731
+![](https://www.picnew.org/images/2020/10/18/FFA-223.gif)
+FFA-223
+![](https://www.picnew.org/images/2020/10/18/Heyzo-1636.gif)
+Heyzo-1636
+![](https://www.picnew.org/images/2020/10/18/HMGL-124.gif)
+HMGL-124
+![](https://www.picnew.org/images/2020/10/18/HTMS-119.gif)
+HTMS-119
+![](https://www.picnew.org/images/2020/10/18/IENE-846.gif)
+IENE-846
+![](https://www.picnew.org/images/2020/10/18/ipx-017.gif)
+ipx-017
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 32 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 32 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 33 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 33 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 34 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 34 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 36 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 36 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 37 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 37 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 38 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 38 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 39 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 39 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 40 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 40 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 41 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 41 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 42 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 42 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 43 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 43 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 44 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 44 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 45 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 45 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 46 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 46 期 </b></summary>
+
+
+![](https://www.picnew.org/images/2020/10/30/SGA-035.gif)
+SGA-035
+![](https://www.picnew.org/images/2020/10/30/SGA-037.gif)
+SGA-037
+![](https://www.picnew.org/images/2020/10/30/SGA041.gif)
+SGA041
+![](https://www.picnew.org/images/2020/10/30/SGA-049.gif)
+SGA-049
+![](https://www.picnew.org/images/2020/10/30/SHKD-622.gif)
+SHKD-622
+![](https://www.picnew.org/images/2020/10/30/SHKD-647.gif)
+SHKD-647
+![](https://www.picnew.org/images/2020/10/30/SHKD664.gif)
+SHKD664
+![](https://www.picnew.org/images/2020/10/30/SHKD-724.gif)
+SHKD-724
+![](https://www.picnew.org/images/2020/10/30/SHL-042.gif)
+SHL-042
+![](https://www.picnew.org/images/2020/10/30/SIRO-2455.gif)
+SIRO-2455
+![](https://www.picnew.org/images/2020/10/30/Smd115.gif)
+Smd115
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 47 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 47 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 48 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 48 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 49 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 49 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 50 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 50 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 51 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 51 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 52 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 52 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 53 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 53 期 </b></summary>
+
+
+
+</details>
+
+---
+
+### 个人收藏 + 番号 - 第 54 期
+
+<details><summary><b > 个人收藏 + 番号 - 第 54 期 </b></summary>
+
+
+
+</details>
+
+--- -->
+<!-- flag of hidden posts -->
+                
+            </div>
+            <hr/>
+
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            Sebastian Peyrott
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/four-types-of-memory-leaks-in-javascript/">
+                            https://zhuangyin8.github.io
+                                /four-types-of-memory-leaks-in-javascript/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    Sebastian Peyrott
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Memory-Leak/">
+                                    <span class="chip bg-color">Memory Leak</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2016-01-26T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>本篇
+            </div>
+            <div class="card">
+                <a href="/four-types-of-memory-leaks-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them">
+                        
+                        <span class="card-title">4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2016-01-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Memory-Leak/">
+                        <span class="chip bg-color">Memory Leak</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/four-types-of-memory-leaks-in-javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them">
+                        
+                        <span class="card-title">4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2016-01-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Memory-Leak/">
+                        <span class="chip bg-color">Memory Leak</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy;
+            
+            <span id="year">2016-2021</span>
+            
+            <span id="year">2016</span>
+            <a href="/about" target="_blank">庄引</a>
+            <br>
+            Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+            Theme <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                <i class="fa fa-eye"></i>
+                总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                <i class="fa fa-users"></i>
+                总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

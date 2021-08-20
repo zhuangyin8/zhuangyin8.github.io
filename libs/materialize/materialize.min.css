@@ -3330,7 +3330,7 @@ nav.nav-extended .nav-content {
 nav a {
   color: #fff;
 }
-nav i,
+/* nav i,
 nav [class^='mdi-'],
 nav [class*='mdi-'],
 nav i.material-icons {
@@ -3338,8 +3338,8 @@ nav i.material-icons {
   font-size: 20px;
   height: 56px;
   line-height: 56px;
-  /* margin-right: 15px; */
-}
+  margin-right: 15px;
+} */
 nav .nav-wrapper {
   position: relative;
   height: 100%;
@@ -3501,13 +3501,13 @@ nav .input-field label.active i {
   nav.nav-extended .nav-wrapper {
     min-height: 64px;
   }
-  nav,
+  /* nav,
   nav .nav-wrapper i,
   nav a.sidenav-trigger,
   nav a.sidenav-trigger i {
     height: 64px;
     line-height: 64px;
-  }
+  } */
   .navbar-fixed {
     height: 64px;
   }
@@ -6111,10 +6111,10 @@ input[type='range']::-ms-thumb {
 .sidenav li > a {
   color: rgba(0, 0, 0, 0.87);
   display: block;
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: 500;
-  height: 48px;
-  line-height: 48px;
+  /* height: 48px;
+  line-height: 48px; */
   padding: 0 32px;
 }
 .sidenav li > a:hover {

@@ -337,7 +337,7 @@ header .side-nav .mobile-head .logo-desc {
   /* padding-left: 10px; */
   padding-bottom: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 2;
   color: #e3e3e3;
 }
 
@@ -346,11 +346,11 @@ header .side-nav .menu-list li {
   margin-left: -15px;
 }
 
-header .side-nav .menu-list a {
+/* header .side-nav .menu-list a {
   height: 50px;
   line-height: 50px;
   color: #34495e !important;
-}
+} */
 
 header .side-nav .social-link {
   position: absolute;
@@ -2131,4 +2131,8 @@ footer .copy-right {
   height: 50px;
   padding: 0;
   margin: 0;
+}
+
+#mobile-nav i {
+  margin-right: 20px;
 }

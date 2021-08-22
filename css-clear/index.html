@@ -380,20 +380,20 @@
     #floating-toc-btn {
         position: fixed;
         right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
         z-index: 998;
     }
 
     #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
+        width: 58px;
+        height: 58px;
     }
 
     #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
+        line-height: 58px;
+        font-size: 1.5rem;
     }
 </style>
 <div class="row">
@@ -462,11 +462,11 @@
             <div id="articleContent">
                 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
-<h2 id="什么是-CSS-清除浮动"><a href="#什么是-CSS-清除浮动" class="headerlink" title="什么是 CSS 清除浮动"></a>什么是 CSS 清除浮动</h2><p>在非 IE 浏览器(如 Firefox)下,当容器的高度为 auto,且容器的内容中有浮动(<code>float</code> 为 <code>left</code> 或 <code>right</code>)的元素,在这种情况下,容器的高度不能自动伸长以适应内容的高度,使得内容溢出到容器外面而影响(甚至破坏)布局的现象.这个现象叫浮动溢出,为了防止这个现象的出现而进行的 CSS 处理,就叫 CSS 清除浮动.</p>
+<h2 id="什么是-CSS-清除浮动"><a href="#什么是-CSS-清除浮动" class="headerlink" title="什么是 CSS 清除浮动"></a>什么是 CSS 清除浮动</h2><p>在非 IE 浏览器 (如 Firefox) 下, 当容器的高度为 auto, 且容器的内容中有浮动 (<code>float</code> 为 <code>left</code> 或 <code>right</code>) 的元素,<br>在这种情况下, 容器的高度不能自动伸长以适应内容的高度, 使得内容溢出到容器外面而影响 (甚至破坏) 布局的现象.<br>这个现象叫浮动溢出, 为了防止这个现象的出现而进行的 CSS 处理, 就叫 CSS 清除浮动.</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="abpPJox" data-preview="true" data-editable="true"  data-prefill='{"title":"Without clear","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;h2>Without clear&lt;/h2>
 &lt;section>
-  &lt;img src="https://pics.javbus.com/actress/okq_a.jpg" />
+  &lt;img src="http://zhuangyin8.github.io/images/9mi_a.jpg" />
   &lt;p>Vertical margins between two floated elements on the other hand will not collapse. When applied to floating elements, the margin edge of the bottom element is moved below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.&lt;/p>
 &lt;/section></pre>
   <pre data-lang="css">section {
@@ -481,11 +481,12 @@ section p {
   background-color: red;
 }</pre></div>
 
-<h2 id="解决-CSS-清除浮动"><a href="#解决-CSS-清除浮动" class="headerlink" title="解决 CSS 清除浮动"></a>解决 CSS 清除浮动</h2><h3 id="使用带-clear-属性的空元素"><a href="#使用带-clear-属性的空元素" class="headerlink" title="使用带 clear 属性的空元素"></a>使用带 clear 属性的空元素</h3><p>在浮动元素后使用一个空元素如 <code>&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</code>,并在 CSS 中赋予 <code>.clear&#123;clear:both;&#125;</code> 属性即可清理浮动.亦可使用 <code>&lt;br class=&quot;clear&quot; /&gt;</code> 或 <code>&lt;hr class=&quot;clear&quot; /&gt;</code> 来进行清理.</p>
+<h2 id="解决-CSS-清除浮动"><a href="#解决-CSS-清除浮动" class="headerlink" title="解决 CSS 清除浮动"></a>解决 CSS 清除浮动</h2><p>float 布局会脱离文档流，对页面的布局造成影响，比如造成父级的高度坍塌等问题。清除浮动后，便不会影响文档流。下面介绍一下现在清除浮动的一些方式。</p>
+<h3 id="使用带-clear-属性的空元素"><a href="#使用带-clear-属性的空元素" class="headerlink" title="使用带 clear 属性的空元素"></a>使用带 <code>clear</code> 属性的空元素</h3><p>在浮动元素后使用一个空元素如 <code>&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</code>, 并在 CSS 中赋予 <code>.clear&#123;clear:both;&#125;</code> 属性即可清理浮动. 亦可使用 <code>&lt;br class=&quot;clear&quot; /&gt;</code> 或 <code>&lt;hr class=&quot;clear&quot; /&gt;</code> 来进行清理.</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="abpPJox" data-preview="true" data-editable="true"  data-prefill='{"title":"With clear","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;h2>Without clear&lt;/h2>
 &lt;section>
-  &lt;img src="https://pics.javbus.com/actress/okq_a.jpg" />
+  &lt;img src="http://zhuangyin8.github.io/images/9mi_a.jpg" />
   &lt;p>Vertical margins between two floated elements on the other hand will not collapse. When applied to floating elements, the margin edge of the bottom element is moved below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.&lt;/p>
   &lt;div class="clear">&lt;/div>
 &lt;/section></pre>
@@ -505,22 +506,21 @@ section p {
 }</pre></div>
 
 <ul>
-<li>优点:简单,代码少,浏览器兼容性好.</li>
-<li>缺点:需要添加大量无语义的 html 元素,代码不够优雅,后期不容易维护.</li>
+<li>优点: 简单, 代码少, 浏览器兼容性好.</li>
+<li>缺点: 需要添加大量无语义的 html 元素, 代码不够优雅, 后期不容易维护.</li>
 </ul>
-<h3 id="使用-CSS-的-overflow-属性"><a href="#使用-CSS-的-overflow-属性" class="headerlink" title="使用 CSS 的 overflow 属性"></a>使用 CSS 的 overflow 属性</h3><p>给浮动元素的容器添加 <code>overflow:hidden;</code> 或 <code>overflow:auto;</code> 可以清除浮动,另外在 IE6 中还需要触发 hasLayout ,例如为父元素设置容器宽高或设置 zoom:1.在添加 overflow 属性后,浮动元素又回到了容器层,把容器高度撑起,达到了清理浮动的效果.</p>
+<h3 id="使用-CSS-的-overflow-属性"><a href="#使用-CSS-的-overflow-属性" class="headerlink" title="使用 CSS 的 overflow 属性"></a>使用 CSS 的 <code>overflow</code> 属性</h3><p>给浮动元素的容器添加 <code>overflow: hidden;</code> 或 <code>overflow: auto;</code> 可以清除浮动, 在添加 overflow 属性后, 浮动元素又回到了容器层, 把容器高度撑起, 达到了清理浮动的效果.</p>
+<p>子元素浮动了，会造成父元素的高度坍塌。只要给父元素添加 <code>overflow: hidden;</code>属性，就可以解决浮动带来的影响。</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="abpPJox" data-preview="true" data-editable="true"  data-prefill='{"title":"With clear","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;h2>Without clear&lt;/h2>
 &lt;section>
-  &lt;img src="https://pics.javbus.com/actress/okq_a.jpg" />
+  &lt;img src="http://zhuangyin8.github.io/images/9mi_a.jpg" />
   &lt;p>Vertical margins between two floated elements on the other hand will not collapse. When applied to floating elements, the margin edge of the bottom element is moved below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.&lt;/p>
-  &lt;div class="clear">&lt;/div>
 &lt;/section></pre>
   <pre data-lang="css">section {
   background-color: gray;
   border: solid 1px black;
   overflow: hidden;
-  *zoom: 1;
 }
 section img {
   float: left;
@@ -528,24 +528,18 @@ section img {
 section p {
   float: right;
   background-color: red;
-}
-.clear {
-  clear: both;
 }</pre></div>
 
-<h3 id="使用-CSS-的-after-伪元素"><a href="#使用-CSS-的-after-伪元素" class="headerlink" title="使用 CSS 的: after 伪元素"></a>使用 CSS 的: after 伪元素</h3><p>结合 :after 伪元素(注意这不是伪类,而是伪元素,代表一个元素之后最近的元素)和 IEhack ,可以完美兼容当前主流的各大浏览器,这里的 IEhack 指的是触发 hasLayout.<br>给浮动元素的容器添加一个 clearfix 的 class,然后给这个 class 添加一个: after 伪元素实现元素末尾添加一个看不见的块元素(Block element)清理浮动.</p>
+<h3 id="使用-CSS-的-after-伪元素"><a href="#使用-CSS-的-after-伪元素" class="headerlink" title="使用 CSS 的 :after 伪元素"></a>使用 CSS 的 <code>:after</code> 伪元素</h3><p>结合 <code>:after</code> 伪元素 (注意这不是伪类, 而是伪元素, 代表一个元素之后最近的元素) 和 IEhack , 可以完美兼容当前主流的各大浏览器, 这里的 IEhack 指的是触发 hasLayout.<br>给浮动元素的容器添加一个 clearfix 的 class, 然后给这个 class 添加一个 <code>:after</code> 伪元素实现元素末尾添加一个看不见的块元素 (Block element) 清理浮动.</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="abpPJox" data-preview="true" data-editable="true"  data-prefill='{"title":"With clear","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;h2>Without clear&lt;/h2>
 &lt;section class="clearfix">
-  &lt;img src="https://pics.javbus.com/actress/okq_a.jpg" />
+  &lt;img src="http://zhuangyin8.github.io/images/9mi_a.jpg" />
   &lt;p>Vertical margins between two floated elements on the other hand will not collapse. When applied to floating elements, the margin edge of the bottom element is moved below the margin edge of all relevant floats. This affects the position of later floats, since later floats cannot be positioned higher than earlier ones.&lt;/p>
-  &lt;div class="clear">&lt;/div>
 &lt;/section></pre>
   <pre data-lang="css">section {
   background-color: gray;
   border: solid 1px black;
-  overflow: hidden;
-  *zoom: 1;
 }
 section img {
   float: left;
@@ -555,15 +549,11 @@ section p {
   background-color: red;
 }
 .clearfix:after{
-  content: "020";
+  content: "";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
-}
-.clearfix {
-/* 触发 hasLayout */
-  zoom: 1;
 }</pre></div>
 
 <blockquote>

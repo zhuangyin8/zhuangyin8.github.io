@@ -380,20 +380,20 @@
     #floating-toc-btn {
         position: fixed;
         right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
         z-index: 998;
     }
 
     #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
+        width: 58px;
+        height: 58px;
     }
 
     #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
+        line-height: 58px;
+        font-size: 1.5rem;
     }
 </style>
 <div class="row">
@@ -882,9 +882,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">类选择器</a> （例如，<code>.example</code>), 属性选择器 （例如，<code>[type=&quot;radio&quot;]</code>) 和伪类 （例如，<code>:hover</code>)</li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors">ID 选择器</a>（例如，<code>#example</code>).</li>
 </ol>
-<p>** 通配选择符 ** (universal selector)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Universal_selectors"><code>*</code></a>) ** 关系选择符 ** (combinators)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Adjacent_sibling_combinator"><code>+</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Child_combinator"><code>&gt;</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/General_sibling_combinator"><code>~</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator">‘ ‘</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Column_combinator"><code>||</code></a>) 和 ** 否定伪类 ** (negation pseudo-class)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not"><code>:not()</code></a>) 对优先级没有影响。（但是，** 在 <code>:not()</code> 内部声明的选择器会影响优先级 **).</p>
+<p><strong>通配选择符</strong> (universal selector)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Universal_selectors"><code>*</code></a>) <strong>关系选择符</strong> (combinators)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Adjacent_sibling_combinator"><code>+</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Child_combinator"><code>&gt;</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/General_sibling_combinator"><code>~</code></a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator">‘ ‘</a>, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Column_combinator"><code>||</code></a>) 和 <strong>否定伪类</strong> (negation pseudo-class)(<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not"><code>:not()</code></a>) 对优先级没有影响。（但是，<strong>在 <code>:not()</code> 内部声明的选择器会影响优先级</strong>).</p>
 <p>您可以访问  <a target="_blank" rel="noopener" href="https://wiki.developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#Specificity_2">“Specificity” in “Cascade and inheritance”</a>  或者  <a target="_blank" rel="noopener" href="https://specifishity.com/">https://specifishity.com</a>  来了解更多关于优先级的详细信息。</p>
-<p>给元素添加的 ** 内联样式 ** （例如，<code>style=&quot;font-weight:bold&quot;</code>) 总会覆盖外部样式表的任何样式 , 因此可看作是具有最高的优先级。</p>
+<p>给元素添加的 <strong>内联样式</strong> （例如，<code>style=&quot;font-weight:bold&quot;</code>) 总会覆盖外部样式表的任何样式 , 因此可看作是具有最高的优先级。</p>
 <blockquote>
 <p>CSS 选择器优先级从高到低的排序如下：</p>
 </blockquote>

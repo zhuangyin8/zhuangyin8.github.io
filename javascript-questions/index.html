@@ -491,7 +491,7 @@
 </blockquote>
 <p>Variables with the <code>let</code> keyword (and <code>const</code>) are hoisted, but unlike <code>var</code>, don’t get <em>initialized</em>. They are not accessible before the line we declare (initialize) them. This is called the”temporal dead zone”. When we try to access the variables before they are declared, JavaScript throws a <code>ReferenceError</code>.</p>
 <blockquote>
-<p>通过 <code>let</code> 和 <code>const</code> 关键字声明的变量也会提升，但是和 <code>var</code> 不同，它们不会被 <em>初始化</em>. 在我们声明（初始化） 之前是不能访问它们的。这个行为被称之为 ** 暂时性死区 **. 当我们试图在声明之前访问它们时，JavaScript 将会抛出一个 <code>ReferenceError: Cannot access &#39;age&#39; before initialization</code> 错误。</p>
+<p>通过 <code>let</code> 和 <code>const</code> 关键字声明的变量也会提升，但是和 <code>var</code> 不同，它们不会被 <em>初始化</em>. 在我们声明（初始化） 之前是不能访问它们的。这个行为被称之为 <strong>暂时性死区</strong>. 当我们试图在声明之前访问它们时，JavaScript 将会抛出一个 <code>ReferenceError: Cannot access &#39;age&#39; before initialization</code> 错误。</p>
 </blockquote>
 </details>
 
@@ -555,7 +555,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数</a> Does not have its own bindings to <code>this</code> or <code>super</code>, and should not be used as <code>methods</code>. Does not have <code>new.target</code> keyword.Not suitable for <code>call</code>, <code>apply</code> and <code>bind</code> methods, which generally rely on establishing a <code>scope</code>.Can not be used as <code>constructors</code>.Can not use <code>yield</code>, within its body.</p>
 </blockquote>
-<details><summary><b>解析</b></summary>P
+<details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
 <p>Note that the value of <code>diameter</code> is a regular function, whereas the value of <code>perimeter</code> is an arrow function.</p>
@@ -613,7 +613,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="6-What’s-the-output"><a href="#6-What’s-the-output" class="headerlink" title="6. What’s the output?"></a>6. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token punctuation">&#123;</span>greeting<span class="token operator">:</span> <span class="token string">'Hey!'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="6-What’s-the-output"><a href="#6-What’s-the-output" class="headerlink" title="6. What’s the output?"></a>6. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token punctuation">&#123;</span> greeting<span class="token operator">:</span> <span class="token string">'Hey!'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> d<span class="token punctuation">;</span>
 
 d <span class="token operator">=</span> c<span class="token punctuation">;</span>
@@ -663,7 +663,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>false</code> <code>true</code> <code>true</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">new 运算符</a> 创建一个用户定义的对象类型的实例或具有构造函数的内置对象的 ** 实例 **.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new">new 运算符</a> 创建一个用户定义的对象类型的实例或具有构造函数的内置对象的 <strong>实例</strong>.</p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality">宽松相等 (==)</a> 检查其两个操作数是否相等，并返回 Boolean 结果。它会尝试强制类型转换并且比较不同类型的操作数。</p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality">严格相等 (===)</a> 严格等于运算符不尝试类型转换。相反，严格相等运算符始终将不同类型的操作数视为不同。</p>
 </blockquote>
@@ -680,7 +680,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <p>However, when we use the <code>===</code> operator, both value <em>and</em> type should be the same. It’s not: <code>new Number()</code> is not a number, it’s an <strong>object</strong>. Both return <code>false.</code></p>
 <blockquote>
-<p>然后，当我们使用 <code>===</code> 操作符时，** 两者的值和类型都应该是相同的 **.<code>new Number()</code> 是一个对象而不是 number, 因此返回 <code>false</code>.</p>
+<p>然后，当我们使用 <code>===</code> 操作符时，<strong>两者的值和类型都应该是相同的</strong>.<code>new Number()</code> 是一个对象而不是 number, 因此返回 <code>false</code>.</p>
 </blockquote>
 </details>
 
@@ -691,12 +691,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>newColor<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 
-  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>newColor <span class="token operator">=</span> <span class="token string">'green'</span><span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> newColor <span class="token operator">=</span> <span class="token string">'green'</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>newColor <span class="token operator">=</span> newColor<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">const</span> freddie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Chameleon</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>newColor<span class="token operator">:</span> <span class="token string">'purple'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> freddie <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Chameleon</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> newColor<span class="token operator">:</span> <span class="token string">'purple'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 freddie<span class="token punctuation">.</span><span class="token function">colorChange</span><span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
@@ -847,10 +847,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture">Event bubbling and capture</a></p>
-<p>当一个事件发生在具有父元素的元素上时，现代浏览器运行两个不同的阶段 - 捕获阶段和冒泡阶段。在捕获阶段：</p>
+<p>当一个事件发生在具有父元素的元素上时，现代浏览器运行两个不同的阶段</p>
 <ul>
-<li>浏览器检查元素的最外层祖先 <code>&lt;html&gt;</code>, 是否在捕获阶段中注册了一个 <code>onclick</code> 事件处理程序，如果是，则运行它。</li>
-<li>然后，它移动到 <code>&lt;html&gt;</code> 中单击元素的下一个祖先元素，并执行相同的操作，然后是此元素再下一个祖先元素，依此类推，直到到达实际点击的元素。</li>
+<li><p>捕获阶段和冒泡阶段。在捕获阶段：</p>
+</li>
+<li><p>浏览器检查元素的最外层祖先 <code>&lt;html&gt;</code>, 是否在捕获阶段中注册了一个 <code>onclick</code> 事件处理程序，如果是，则运行它。</p>
+</li>
+<li><p>然后，它移动到 <code>&lt;html&gt;</code> 中单击元素的下一个祖先元素，并执行相同的操作，然后是此元素再下一个祖先元素，依此类推，直到到达实际点击的元素。</p>
+</li>
 </ul>
 <p>在冒泡阶段，恰恰相反：</p>
 <ul>
@@ -957,16 +961,16 @@ getPersonInfo<span class="token template-string"><span class="token template-pun
 
 <hr>
 <h3 id="18-What’s-the-output"><a href="#18-What’s-the-output" class="headerlink" title="18. What’s the output?"></a>18. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">checkAge</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">===</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">===</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'You are an adult!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">==</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'You are still an adult.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hmm.. You don't have an age I guess</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token function">checkAge</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">checkAge</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>A: <code>You are an adult!</code></li>
@@ -1093,7 +1097,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="24-What’s-the-output"><a href="#24-What’s-the-output" class="headerlink" title="24. What’s the output?"></a>24. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token operator">:</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span> <span class="token string">'c'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="24-What’s-the-output"><a href="#24-What’s-the-output" class="headerlink" title="24. What’s the output?"></a>24. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">1</span><span class="token operator">:</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">:</span> <span class="token string">'c'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> set <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1120,7 +1124,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="25-What’s-the-output"><a href="#25-What’s-the-output" class="headerlink" title="25. What’s the output?"></a>25. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>a<span class="token operator">:</span> <span class="token string">'one'</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token string">'two'</span><span class="token punctuation">,</span> a<span class="token operator">:</span> <span class="token string">'three'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="25-What’s-the-output"><a href="#25-What’s-the-output" class="headerlink" title="25. What’s the output?"></a>25. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> a<span class="token operator">:</span> <span class="token string">'one'</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token string">'two'</span><span class="token punctuation">,</span> a<span class="token operator">:</span> <span class="token string">'three'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
@@ -1197,8 +1201,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <hr>
 <h3 id="29-What’s-the-output"><a href="#29-What’s-the-output" class="headerlink" title="29. What’s the output?"></a>29. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">&#123;</span>key<span class="token operator">:</span> <span class="token string">'b'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">&#123;</span>key<span class="token operator">:</span> <span class="token string">'c'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">&#123;</span> key<span class="token operator">:</span> <span class="token string">'b'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">&#123;</span> key<span class="token operator">:</span> <span class="token string">'c'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 a<span class="token punctuation">[</span>b<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
 a<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">456</span><span class="token punctuation">;</span>
@@ -1305,7 +1309,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="33-What’s-the-output"><a href="#33-What’s-the-output" class="headerlink" title="33. What’s the output?"></a>33. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="33-What’s-the-output"><a href="#33-What’s-the-output" class="headerlink" title="33. What’s the output?"></a>33. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token parameter">age</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>age<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1620,7 +1624,7 @@ Promise<span class="token punctuation">.</span><span class="token function">race
 </details>
 
 <hr>
-<h3 id="46-What’s-the-output"><a href="#46-What’s-the-output" class="headerlink" title="46. What’s the output?"></a>46. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="46-What’s-the-output"><a href="#46-What’s-the-output" class="headerlink" title="46. What’s the output?"></a>46. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> members <span class="token operator">=</span> <span class="token punctuation">[</span>person<span class="token punctuation">]</span><span class="token punctuation">;</span>
 person <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
@@ -1750,7 +1754,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   year <span class="token operator">=</span> <span class="token string">'1998'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Sarah'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Sarah'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> birthYear <span class="token operator">=</span> <span class="token string">'1997'</span><span class="token punctuation">;</span>
 
 <span class="token function">getInfo</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> birthYear<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1803,7 +1807,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <hr>
 <h3 id="53-What’s-the-output"><a href="#53-What’s-the-output" class="headerlink" title="53. What’s the output?"></a>53. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>make <span class="token operator">=</span> <span class="token string">'Lamborghini'</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>make<span class="token operator">:</span> <span class="token string">'Maserati'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> make<span class="token operator">:</span> <span class="token string">'Maserati'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">const</span> myCar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1990,8 +1994,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="60-What’s-the-output"><a href="#60-What’s-the-output" class="headerlink" title="60. What’s the output?"></a>60. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">21</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> admin <span class="token operator">=</span> <span class="token punctuation">&#123;</span>admin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token operator">...</span>user<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="60-What’s-the-output"><a href="#60-What’s-the-output" class="headerlink" title="60. What’s the output?"></a>60. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">21</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> admin <span class="token operator">=</span> <span class="token punctuation">&#123;</span> admin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token operator">...</span>user <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>admin<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -2011,9 +2015,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="61-What’s-the-output"><a href="#61-What’s-the-output" class="headerlink" title="61. What’s the output?"></a>61. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="61-What’s-the-output"><a href="#61-What’s-the-output" class="headerlink" title="61. What’s the output?"></a>61. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> value<span class="token operator">:</span> <span class="token number">21</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> value<span class="token operator">:</span> <span class="token number">21</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -2088,9 +2092,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="64-What’s-the-output"><a href="#64-What’s-the-output" class="headerlink" title="64. What’s the output?"></a>64. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token punctuation">&#123;</span>number<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="64-What’s-the-output"><a href="#64-What’s-the-output" class="headerlink" title="64. What’s the output?"></a>64. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token punctuation">&#123;</span> number<span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>value<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">multiply</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>value <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>number <span class="token operator">*=</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -2184,7 +2188,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <hr>
 <h3 id="67-What’s-the-output"><a href="#67-What’s-the-output" class="headerlink" title="67. What’s the output?"></a>67. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// index.js</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'running index.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>sum<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./sum.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> sum <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'./sum.js'</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// sum.js</span>
@@ -2376,7 +2380,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="75-What’s-the-output"><a href="#75-What’s-the-output" class="headerlink" title="75. What’s the output?"></a>75. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> box <span class="token operator">=</span> <span class="token punctuation">&#123;</span>x<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="75-What’s-the-output"><a href="#75-What’s-the-output" class="headerlink" title="75. What’s the output?"></a>75. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> box <span class="token operator">=</span> <span class="token punctuation">&#123;</span> x<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -2403,7 +2407,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="76-What’s-the-output"><a href="#76-What’s-the-output" class="headerlink" title="76. What’s the output?"></a>76. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> myName<span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="76-What’s-the-output"><a href="#76-What’s-the-output" class="headerlink" title="76. What’s the output?"></a>76. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> myName <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -2690,7 +2694,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>使用逻辑非运算符 <code>!</code> , 将返回一个布尔值，使用 <code>!! name</code> , 我们可以确定 <code>name</code> 的值是真的还是假的。如果 <code>name</code> 是真值的，那么 <code>!name</code> 返回 <code> false</code> . <code>!false</code> 返回 <code>true</code> .</p>
+<p>使用逻辑非运算符 <code>!</code> , 将返回一个布尔值，使用 <code>!! name</code> , 我们可以确定 <code>name</code> 的值是真的还是假的。如果 <code>name</code> 是真值的，那么 <code>!name</code> 返回 <code>false</code> . <code>!false</code> 返回 <code>true</code> .</p>
 <p>通过将 <code>hasName</code> 设置为 <code>name</code> , 可以将 <code>hasName</code> 设置为等于传递给 <code>getName</code> 函数的值，而不是布尔值 <code>true</code> .</p>
 <p><code>new Boolean(true)</code> 返回一个对象包装器，而不是布尔值本身。</p>
 <p><code>name.length</code> 返回传递的参数的长度，而不是布尔值 <code>true</code> .</p>
@@ -2840,9 +2844,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>C: <code>&#123;constructor: ...&#125;</code> <code>&#123;&#125;</code></li>
 <li>D: <code>&#123;constructor: ...&#125;</code> <code>undefined</code></li>
 </ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数</a> 表达式的语法比函数表达式更简洁，并且没有自己的 this,arguments,super 或 new.target. 更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。</p>
-</blockquote>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
@@ -2895,7 +2896,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>SyntaxError</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Rest_parameters">剩余参数</a> 语法允许我们将一个不定数量的参数表示为一个数组。** 只有最后一个参数可以是 “剩余参数”**.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Rest_parameters">剩余参数</a> 语法允许我们将一个不定数量的参数表示为一个数组。<strong>只有最后一个参数可以是 “剩余参数”</strong>.</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
@@ -2912,7 +2913,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <hr>
 <h3 id="95-What’s-the-output"><a href="#95-What’s-the-output" class="headerlink" title="95. What’s the output?"></a>95. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">nums</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token operator">></span> b<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a is bigger'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">></span> b<span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a is bigger'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">else</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b is bigger'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span><span class="token punctuation">;</span>
   a <span class="token operator">+</span> b<span class="token punctuation">;</span>
@@ -2933,7 +2934,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>在 JavaScript 中，我们不必显式地编写分号 (<code>;</code>), 但是 JavaScript 引擎仍然在语句之后自动添加分号。这称为 ** 自动分号插入 **. 例如，一个语句可以是变量，或者像 <code>throw</code> 、 <code>return</code> 、 <code>break</code> 这样的关键字。</p>
+<p>在 JavaScript 中，我们不必显式地编写分号 (<code>;</code>), 但是 JavaScript 引擎仍然在语句之后自动添加分号。这称为 <strong>自动分号插入</strong>. 例如，一个语句可以是变量，或者像 <code>throw</code> 、 <code>return</code> 、 <code>break</code> 这样的关键字。</p>
 <p>在这里，我们在新的一行上写了一个 <code>return</code> 语句和另一个值 <code>a + b</code> . 然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在 <code>return</code> 后面自动添加分号。你可以这样看：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">return</span><span class="token punctuation">;</span>
 a <span class="token operator">+</span> b<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -3011,7 +3012,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>[1, 2, 3, 4]</code> and <code>&#123; name: &quot;Lydia&quot;, age: 21 &#125;</code></li>
 </ul>
 <blockquote>
-<p>箭头函数 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F">返回对象字面量</a> 用圆括号把对象字面量包起来</p>
+<p>箭头函数 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">返回对象字面量</a> 用圆括号把对象字面量包起来</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
@@ -3023,7 +3024,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><code>const getUser = user =&gt; (&#123;name: user.name, age: user.age&#125;)</code></p>
 <p>Since no value gets returned in this case, the function returns <code>undefined</code>.</p>
 <blockquote>
-<p>** 从一个箭头函数返回一个对象，您必须在圆括号之间编写它 **, 否则报错如下：<code>Uncaught SyntaxError: Unexpected token &#39;:&#39;</code>.</p>
+<p><strong>返回一个对象，您必须在圆括号之间编写它</strong>, 否则报错如下：<code>Uncaught SyntaxError: Unexpected token &#39;:&#39;</code>.</p>
 </blockquote>
 <p>正确的写法如下：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">getUser</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> user<span class="token punctuation">.</span>name<span class="token punctuation">,</span> age<span class="token operator">:</span> user<span class="token punctuation">.</span>age <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -3045,17 +3046,19 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
+<p>The variable <code>name</code> holds the value of a string, which is not a function, thus cannot invoke.</p>
 <p>变量 <code>name</code> 保存字符串的值，该字符串不是函数，因此无法调用。</p>
+<p>TypeErrors get thrown when a value is not of the expected type. JavaScript expected <code>name</code> to be a function since we’re trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!</p>
 <p>当值不是预期类型时，会抛出 <code>TypeErrors</code> . JavaScript 期望 <code>name</code> 是一个函数，因为我们试图调用它。但它是一个字符串，因此抛出 <code>TypeError</code>: <code>name is not a function</code> .</p>
-<p>当你编写了一些非有效的 JavaScript 时，会抛出语法错误，例如当你把 <code>return</code> 这个词写成 <code>retrun</code> 时。</p>
-<p>当 JavaScript 无法找到您尝试访问的值的引用时，抛出 <code>ReferenceErrors</code>.</p>
+<p>SyntaxErrors get thrown when you’ve written something that isn’t valid JavaScript, for example when you’ve written the word <code>return</code> as <code>retrun</code>.<br>ReferenceErrors get thrown when JavaScript isn’t able to find a reference to a value that you’re trying to access.</p>
+<p>当你编写了一些非有效的 JavaScript 时，会抛出语法错误，例如当你把 <code>return</code> 这个词写成 <code>retrun</code> 时。当 JavaScript 无法找到您尝试访问的值的引用时，抛出 <code>ReferenceErrors</code>.</p>
 </details>
 
 <hr>
 <h3 id="100-What’s-the-output"><a href="#100-What’s-the-output" class="headerlink" title="100. What’s the output?"></a>100. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 🎉✨ This is my 100th question! ✨🎉</span>
 
 <span class="token keyword">const</span> output <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token string">'Im'</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">possible! You should</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>
-  <span class="token string">''</span><span class="token operator">&amp;&amp;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">n't</span><span class="token template-punctuation string">`</span></span>
+  <span class="token string">''</span> <span class="token operator">&amp;&amp;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">n't</span><span class="token template-punctuation string">`</span></span>
 <span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> see a therapist after so much JavaScript lol</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -3074,7 +3077,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
+<p><code>[]</code> is a truthy value. With the <code>&amp;&amp;</code> operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value <code>[]</code> is a truthy value, so <code>&quot;Im&#39;</code> gets returned.</p>
 <p><code>[]</code> 是一个真值。使用 <code>&amp;&amp;</code> 运算符，如果左侧值是真值，则返回右侧值。在这种情况下，左侧值 <code>[]</code> 是一个真值，所以返回 <code>Im</code>.</p>
+<p><code>&quot;&quot;</code> is a falsy value. If the left-hand value is falsy, nothing gets returned. <code>n&#39;t</code> doesn’t get returned.</p>
 <p><code>&quot;&quot;</code> （空字符串）是一个假值。如果左侧值是假的，则不返回任何内容。<code>n&#39;t</code> 不会被返回。</p>
 </details>
 
@@ -3142,7 +3147,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'Lydia'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">of</span> set<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -3197,7 +3202,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 <span class="token function">compareMembers</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -3297,7 +3302,7 @@ emojis<span class="token punctuation">.</span><span class="token function">splic
 
 <hr>
 <h3 id="109-What’s-the-output"><a href="#109-What’s-the-output" class="headerlink" title="109. What’s the output?"></a>109. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> food <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'🍕'</span><span class="token punctuation">,</span> <span class="token string">'🍫'</span><span class="token punctuation">,</span> <span class="token string">'🥑'</span><span class="token punctuation">,</span> <span class="token string">'🍔'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> info <span class="token operator">=</span> <span class="token punctuation">&#123;</span>favoriteFood<span class="token operator">:</span> food<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> info <span class="token operator">=</span> <span class="token punctuation">&#123;</span> favoriteFood<span class="token operator">:</span> food<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 info<span class="token punctuation">.</span>favoriteFood <span class="token operator">=</span> <span class="token string">'🍝'</span><span class="token punctuation">;</span>
 
@@ -3341,7 +3346,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>jsonArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2, 3]</span>
 
 <span class="token comment">// 将对象字符串化为有效的 JSON, 然后将 JSON 字符串解析为 JavaScript 值：</span>
-<span class="token keyword">const</span> jsonArray <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// '&#123;"name":"Lydia"&#125;'</span>
+<span class="token keyword">const</span> jsonArray <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// '&#123;"name":"Lydia"&#125;'</span>
 <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>jsonArray<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123; name: 'Lydia' &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
@@ -3433,7 +3438,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>带有模板字面量的表达式首先被执行。相当于字符串会包含表达式，这个立即执行函数 <code>(x =&gt; x)(&#39;I love&#39;)</code> 返回的值。我们向箭头函数 <code>x =&gt; x</code> 传递 <code>&#39;I love&#39;</code> 作为参数。<code>x</code> 等价于返回的 <code>&#39;I love&#39;</code>. 这就是结果 <code>I love to program</code>.</p>
+<p>Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function <code>(x =&gt; x)(&#39;I love&#39;)</code> in this case. We pass the value <code>&#39;I love&#39;</code> as an argument to the <code>x =&gt; x</code> arrow function. <code>x</code> is equal to <code>&#39;I love&#39;</code>, which gets returned. This results in <code>I love to program</code>.</p>
 </details>
 
 <hr>
@@ -3483,8 +3488,8 @@ myMap<span class="token punctuation">.</span><span class="token function">get</s
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>当通过 <code>set</code> 方法添加一个键值对，一个传递给 <code>set</code> 方法的参数将会是键名，第二个参数将会是值。在这个 case 里，键名为 <em>函数</em> <code>() =&gt; &#39;greeting&#39;</code>, 值为 <code>&#39;Hello world&#39;</code>. <code>myMap</code> 现在就是 <code>&#123; () =&gt; &#39;greeting&#39; =&gt; &#39;Hello world!&#39; &#125;</code>.</p>
-<p>1 是错的，因为键名不是 <code>&#39;greeting&#39;</code> 而是 <code>() =&gt; &#39;greeting&#39;</code>.<br>3 是错的，因为我们给 <code>get</code> 方法传递了一个新的函数。对象受 <em>引用</em> 影响。函数也是对象，因此两个函数严格上并不等价，尽管他们相同：他们有两个不同的内存引用地址。</p>
+<p>When adding a key/value pair using the <code>set</code> method, the key will be the value of the first argument passed to the <code>set</code> function, and the value will be the second argument passed to the <code>set</code> function. The key is the <em>function</em> <code>() =&gt; &#39;greeting&#39;</code> in this case, and the value <code>&#39;Hello world&#39;</code>. <code>myMap</code> is now <code>&#123; () =&gt; &#39;greeting&#39; =&gt; &#39;Hello world!&#39; &#125;</code>.</p>
+<p>1 is wrong, since the key is not <code>&#39;greeting&#39;</code> but <code>() =&gt; &#39;greeting&#39;</code>.<br>3 is wrong, since we’re creating a new function by passing it as a parameter to the <code>get</code> method. Object interact by <em>reference</em>. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.</p>
 </details>
 
 <hr>
@@ -3493,8 +3498,8 @@ myMap<span class="token punctuation">.</span><span class="token function">get</s
   age<span class="token operator">:</span> <span class="token number">21</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> <span class="token function-variable function">changeAge</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>person<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>age <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token function-variable function">changeAgeAndName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>person<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">changeAge</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>person <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>x<span class="token punctuation">.</span>age <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">changeAgeAndName</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>person <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   x<span class="token punctuation">.</span>age <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
   x<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Sarah'</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -3510,7 +3515,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>C: <code>&#123;name: &quot;Lydia&quot;, age: 22&#125;</code></li>
 <li>D: <code>&#123;name: &quot;Lydia&quot;, age: 23&#125;</code></li>
 </ul>
-<div class="codepen" data-height="700" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="KBaRzR" data-preview="true" data-editable="true"  data-prefill='{"title":" 事件委托 demo","tags":[],"scripts":[],"stylesheets":[]}'>
+<div class="codepen" data-height="700" data-theme-id="30013" data-default-tab="result" data-user="cecillia" data-slug-hash="KBaRzR" data-preview="true" data-editable="true"  data-prefill='{"title":" ","tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;iframe src="https://lydiahallie-quiz.lydiahallie.now.sh/question/5" /></pre>
   <pre data-lang="css">html, body {
   margin: 0px;
@@ -3526,9 +3531,9 @@ iframe {
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>函数 <code>changeAge</code> 和函数 <code>changeAgeAndName</code> 有着不同的参数，定义一个 <em>新</em> 生成的对象 <code>&#123;...person&#125;</code>. 这个对象有着所有 <code>person</code> 对象 中 ** 键 / 值 ** 的副本。</p>
-<p>首项，我们调用 <code>changeAge</code> 函数并传递 <code>person</code> 对象作为它的参数。这个函数对 <code>age</code> 属性进行加一操作。<code>person</code> 现在是 <code>&#123;name: &quot;Lydia&quot;, age: 22&#125;</code>.</p>
-<p>然后，我们调用函数 <code>changeAgeAndName</code> , 然而我们没有传递参数。取而代之，<code>x</code> 的值等价 <em>new</em> 生成的对象：<code>&#123;...person&#125;</code>. 因为它是一个 ** 新生成的对象 **, 它并不会对对象 <code>person</code> 造成任何副作用。<code>person</code> 仍然等价于 <code>&#123; name: &quot;Lydia&quot;, age: 22 &#125;</code>.</p>
+<p>Both the <code>changeAge</code> and <code>changeAgeAndName</code> functions have a default parameter, namely a <em>newly</em> created object <code>&#123; ...person &#125;</code>. This object has copies of all the key/values in the <code>person</code> object.</p>
+<p>First, we invoke the <code>changeAge</code> function and pass the <code>person</code> object as its argument. This function increases the value of the <code>age</code> property by 1. <code>person</code> is now <code>&#123; name: &quot;Lydia&quot;, age: 22 &#125;</code>.</p>
+<p>Then, we invoke the <code>changeAgeAndName</code> function, however we don’t pass a parameter. Instead, the value of <code>x</code> is equal to a <em>new</em> object: <code>&#123; ...person &#125;</code>. Since it’s a new object, it doesn’t affect the values of the properties on the <code>person</code> object. <code>person</code> is still equal to <code>&#123; name: &quot;Lydia&quot;, age: 22 &#125;</code>.</p>
 </details>
 
 <hr>
@@ -3543,12 +3548,12 @@ iframe {
 <li>D: <code>sumValues([1, 2, 3])</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US//docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a> 可以在函数调用 / 数组构造时，将 ** 数组表达式 ** 或者 <strong>string</strong> 在语法层面展开；还可以在构造 ** 字面量对象 ** 时，将对象表达式按 key-value 的方式展开。（字面量一般指 [1, 2, 3] 或者 {name: “mdn”} 这种简洁的构造方式）</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a> 可以在函数调用 / 数组构造时，将 <strong>数组表达式</strong> 或者 <strong>string</strong> 在语法层面展开；还可以在构造 <strong>字面量对象</strong> 时，将对象表达式按 key-value 的方式展开。（字面量一般指 [1, 2, 3] 或者 {name: “mdn”} 这种简洁的构造方式）</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>通过展开操作符 <code>...</code>, 我们可以 <em>展开</em> 单个可迭代的元素。函数 <code>sumValues</code> function 接收三个参数：<code>x</code>, <code>y</code> 和 <code>z</code>.<code>...[1, 2, 3]</code> 的执行结果为 <code>1, 2, 3</code>, 将会传递给函数 <code>sumValues</code>.</p>
+<p>With the spread operator <code>...</code>, we can <em>spread</em> iterables to individual elements. The <code>sumValues</code> function receives three arguments: <code>x</code>, <code>y</code> and <code>z</code>. <code>...[1, 2, 3]</code> will result in <code>1, 2, 3</code>, which we pass to the <code>sumValues</code> function.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sumValues</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =>6</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </details>
@@ -3566,12 +3571,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>ReferenceError</code></li>
 </ul>
 <blockquote>
-<p>加赋值运算符 (+=) 把一个右值与一个变量相加，然后把相加的结果赋给该变量。两个操作数的类型决定了加赋值运算符的行为。算术相加或字符串连接都有可能。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition_assignment">加赋值运算符(+=)</a> 把一个右值与一个变量相加，然后把相加的结果赋给该变量。两个操作数的类型决定了加赋值运算符的行为。算术相加或字符串连接都有可能。</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>通过 <code>+=</code> 操作符，我们对值 <code>num</code> 进行加 <code>1</code> 操作。<code>num</code> 有初始值 <code>1</code>, 因此 <code>1 + 1</code> 的执行结果为 <code>2</code>. 数组 <code>list</code> 的第二项为 🥰,<code>console.log(list[2])</code> 输出 🥰.</p>
+<p>With the <code>+=</code> operand, we’re incrementing the value of <code>num</code> by <code>1</code>. <code>num</code> had the initial value <code>1</code>, so <code>1 + 1</code> is <code>2</code>. The item on the second index in the <code>list</code> array is 🥰, <code>console.log(list[2])</code> prints 🥰.</p>
 </details>
 
 <hr>
@@ -3599,16 +3604,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>null</code> <code>ReferenceError</code> <code>null</code> <code>ReferenceError</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE">可选链操作符</a> ( ?. ) 允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。?. 操作符的功能类似于 . 链式操作符，不同之处在于，在引用为空 (nullish ) (null 或者 undefined) 的情况下不会引起错误，该表达式短路返回值是 undefined. 与函数调用一起使用时，如果给定的函数不存在，则返回 undefined.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">可选链操作符(?.)</a> 允许读取位于连接对象链深处的属性的值，而不必明确验证链中的每个引用是否有效。?. 操作符的功能类似于 . 链式操作符，不同之处在于，在引用为空 (nullish ) (null 或者 undefined) 的情况下不会引起错误，该表达式短路返回值是 undefined. 与函数调用一起使用时，如果给定的函数不存在，则返回 undefined.</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>ES2020 或 <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html">TypeScript 3.7</a> 支持 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/%E5%8F%AF%E9%80%89%E9%93%BE">可选链操作符 <code>?.</code></a>, 我们不再需要显式检测更深层的嵌套值是否有效。如果我们尝试获取 <code>undefined</code> 或 <code>null</code> 的值 (<em>nullish</em>), 表达将会短路并返回 <code>undefined</code>.</p>
-<p><code>person.pet?.name</code>: <code>person</code> 有一个名为 <code>pet</code> 的属性：<code>person.pet</code> 不是 nullish. 它有个名为 <code>name</code> 的属性，并返回字符串 <code>Mara</code>.</p>
-<p><code>person.pet?.family?.name</code>: <code>person</code> 有一个名为 <code>pet</code> 的属性：<code>person.pet</code> 不是 nullish. <code>pet</code> <em>并没有</em> 一个名为 <code>family</code> 的属性，<code>person.pet.family</code> 是 nullish. 表达式返回 <code>undefined</code>.</p>
-<p><code>person.getFullName?.()</code>: <code>person</code> 有一个名为 <code>getFullName</code> 的属性：<code>person.getFullName()</code> 不是 nullish 并可以被调用，返回字符串 <code>Lydia Hallie</code>.</p>
-<p><del><code>member.getLastName?.()</code>: <code>member</code> is not defined: <code>member.getLastName()</code> is nullish. The expression returns <code>undefined</code>.</del></p>
+<p>With the optional chaining operator <code>?.</code>, we no longer have to explicitly check whether the deeper nested values are valid or not. If we’re trying to access a property on an <code>undefined</code> or <code>null</code> value (<em>nullish</em>), the expression short-circuits and returns <code>undefined</code>.</p>
+<p><code>person.pet?.name</code>: <code>person</code> has a property named <code>pet</code>: <code>person.pet</code> is not nullish. It has a property called <code>name</code>, and returns <code>Mara</code>.<br><code>person.pet?.family?.name</code>: <code>person</code> has a property named <code>pet</code>: <code>person.pet</code> is not nullish. <code>pet</code> does <em>not</em> have a property called <code>family</code>, <code>person.pet.family</code> is nullish. The expression returns <code>undefined</code>.<br><code>person.getFullName?.()</code>: <code>person</code> has a property named <code>getFullName</code>: <code>person.getFullName()</code> is not nullish and can get invoked, which returns <code>Lydia Hallie</code>.<br><code>member.getLastName?.()</code>: <code>member</code> is not defined: <code>member.getLastName()</code> is nullish. The expression returns <code>undefined</code>.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>member<span class="token punctuation">.</span>getLastName<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//Uncaught ReferenceError: member is not defined</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>getLastName<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -3757,7 +3759,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="125-What’s-the-output"><a href="#125-What’s-the-output" class="headerlink" title="125. What’s the output?"></a>125. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">myFunc</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<h3 id="125-What’s-the-output"><a href="#125-What’s-the-output" class="headerlink" title="125. What’s the output?"></a>125. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">myFunc</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
@@ -3810,7 +3812,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <hr>
 <h3 id="127-What’s-the-output"><a href="#127-What’s-the-output" class="headerlink" title="127. What’s the output?"></a>127. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> spookyItems <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'👻'</span><span class="token punctuation">,</span> <span class="token string">'🎃'</span><span class="token punctuation">,</span> <span class="token string">'🕸'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>item<span class="token operator">:</span> spookyItems<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> item<span class="token operator">:</span> <span class="token string">'💀'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token punctuation">&#123;</span> item<span class="token operator">:</span> spookyItems<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> item<span class="token operator">:</span> <span class="token string">'💀'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>spookyItems<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -3824,7 +3826,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: B</p>
 <p>通过解构对象们，我们可以从右手边的对象中拆出值，并且将拆出的值分配给左手边对象同名的属性。在这种情况下，我们将值 “💀” 分配给 <code>spookyItems[3]</code>. 相当于我们正在篡改数组 <code>spookyItems</code>, 我们给它添加了值 “💀”. 当输出 <code>spookyItems</code> 时，结果为 <code>[&quot;👻&quot;, &quot;🎃&quot;, &quot;🕸&quot;, &quot;💀&quot;]</code>.</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>item<span class="token operator">:</span> spookyItems<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> item<span class="token operator">:</span> <span class="token string">'💀'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> item<span class="token operator">:</span> spookyItems<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> item<span class="token operator">:</span> <span class="token string">'💀'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//=></span>
 spookyItems<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'💀'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -4079,7 +4081,7 @@ person<span class="token punctuation">.</span>name<span class="token punctuation
 </details>
 
 <hr>
-<h3 id="136-Which-of-the-following-will-modify-the-person-object"><a href="#136-Which-of-the-following-will-modify-the-person-object" class="headerlink" title="136. Which of the following will modify the person object?"></a>136. Which of the following will modify the <code>person</code> object?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia Hallie'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="136-Which-of-the-following-will-modify-the-person-object"><a href="#136-Which-of-the-following-will-modify-the-person-object" class="headerlink" title="136. Which of the following will modify the person object?"></a>136. Which of the following will modify the <code>person</code> object?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia Hallie'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 Object<span class="token punctuation">.</span><span class="token function">seal</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -4103,7 +4105,7 @@ person<span class="token punctuation">.</span>age <span class="token operator">=
 <span class="token comment">//21</span>
 <span class="token keyword">delete</span> person<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
 <span class="token comment">//false</span>
-Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">21</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>person<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> age<span class="token operator">:</span> <span class="token number">21</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// VM343:1 Uncaught TypeError: Cannot add property age, object is not extensible</span>
 <span class="token comment">//     at Function.assign (&lt;anonymous>)</span>
 <span class="token comment">//     at &lt;anonymous>:1:8</span>
@@ -4138,7 +4140,7 @@ Object<span class="token punctuation">.</span><span class="token function">freez
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">person<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Evan Bacon'</span><span class="token punctuation">;</span> <span class="token comment">//"Evan Bacon"</span>
 <span class="token keyword">delete</span> person<span class="token punctuation">.</span>address<span class="token punctuation">;</span> <span class="token comment">//false</span>
 person<span class="token punctuation">.</span>address<span class="token punctuation">.</span>street <span class="token operator">=</span> <span class="token string">'101 Main St'</span><span class="token punctuation">;</span> <span class="token comment">//"101 Main St"</span>
-person<span class="token punctuation">.</span>pet <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Mara'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">//&#123;name: "Mara"&#125;</span>
+person<span class="token punctuation">.</span>pet <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Mara'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span class="token comment">//&#123;name: "Mara"&#125;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#123;name: "Evan Bacon", address: &#123;street: '101 Main St'&#125;&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -4204,8 +4206,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <hr>
 <h3 id="140-What’s-missing"><a href="#140-What’s-missing" class="headerlink" title="140. What’s missing?"></a>140. What’s missing?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> teams <span class="token operator">=</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Team 1'</span><span class="token punctuation">,</span> members<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Paul'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Team 2'</span><span class="token punctuation">,</span> members<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Laura'</span><span class="token punctuation">,</span> <span class="token string">'Tim'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Team 1'</span><span class="token punctuation">,</span> members<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Paul'</span><span class="token punctuation">,</span> <span class="token string">'Lisa'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Team 2'</span><span class="token punctuation">,</span> members<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'Laura'</span><span class="token punctuation">,</span> <span class="token string">'Tim'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">getMembers</span><span class="token punctuation">(</span><span class="token parameter">members</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -4482,9 +4484,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
   password<span class="token operator">:</span> <span class="token string">'12345'</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> <span class="token function-variable function">updateUser</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>email<span class="token punctuation">,</span> password<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">updateUser</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> email<span class="token punctuation">,</span> password <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>email<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> email<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> email <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -4494,7 +4496,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">return</span> user<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> updatedUser <span class="token operator">=</span> <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>email<span class="token operator">:</span> <span class="token string">'new@email.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> updatedUser <span class="token operator">=</span> <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> email<span class="token operator">:</span> <span class="token string">'new@email.com'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>updatedUser <span class="token operator">===</span> user<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -4511,9 +4513,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: B</p>
 <p>The <code>updateUser</code> function updates the values of the <code>email</code> and <code>password</code> properties on user, if their values are passed to the function, after which the function returns the <code>user</code> object. The returned value of the <code>updateUser</code> function is the <code>user</code> object, which means that the value of updatedUser is a reference to the same <code>user</code> object that <code>user</code> points to. <code>updatedUser === user</code> equals <code>true</code>.</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">updateUser</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>email<span class="token punctuation">,</span> password<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">updateUser</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> email<span class="token punctuation">,</span> password <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>email<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> email<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> email <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span>password<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -4565,8 +4567,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <hr>
 <h3 id="150-What’s-the-output"><a href="#150-What’s-the-output" class="headerlink" title="150. What’s the output?"></a>150. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> animals <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token punctuation">&#123;</span>emoji<span class="token operator">:</span> <span class="token string">'🐶'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> cat <span class="token operator">=</span> <span class="token punctuation">&#123;</span>emoji<span class="token operator">:</span> <span class="token string">'🐈'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> dog <span class="token operator">=</span> <span class="token punctuation">&#123;</span> emoji<span class="token operator">:</span> <span class="token string">'🐶'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> cat <span class="token operator">=</span> <span class="token punctuation">&#123;</span> emoji<span class="token operator">:</span> <span class="token string">'🐈'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
 animals<span class="token punctuation">[</span>dog<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>dog<span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'Mara'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 animals<span class="token punctuation">[</span>cat<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>cat<span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'Sara'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -4707,7 +4709,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="154-What’s-the-output"><a href="#154-What’s-the-output" class="headerlink" title="154 What’s the output?"></a>154 What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">createMember</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>email<span class="token punctuation">,</span> address <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<h3 id="154-What’s-the-output"><a href="#154-What’s-the-output" class="headerlink" title="154 What’s the output?"></a>154 What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">createMember</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> email<span class="token punctuation">,</span> address <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> validEmail <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">.+\@.+\..+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>validEmail<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Valid email pls'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -4717,7 +4719,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> member <span class="token operator">=</span> <span class="token function">createMember</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>email<span class="token operator">:</span> <span class="token string">'my@email.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> member <span class="token operator">=</span> <span class="token function">createMember</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> email<span class="token operator">:</span> <span class="token string">'my@email.com'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
@@ -4733,7 +4735,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: C</p>
 <p>The default value of <code>address</code> is an empty object <code>&#123;&#125;</code>. When we set the variable <code>member</code> equal to the object returned by the <code>createMember</code> function, we didn’t pass a value for address, which means that the value of address is the default empty object <code>&#123;&#125;</code>. An empty object is a truthy value, which means that the condition of the <code>address ? address : null</code> conditional returns <code>true</code>. The value of address is the empty object <code>&#123;&#125;</code>.</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">createMember</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>email<span class="token punctuation">,</span> address <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">createMember</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> email<span class="token punctuation">,</span> address <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> validEmail <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">.+\@.+\..+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>email<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>validEmail<span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Valid email pls'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
@@ -4741,13 +4743,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
     address<span class="token operator">:</span> address <span class="token operator">||</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token comment">// 更简洁的写法</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> member <span class="token operator">=</span> <span class="token function">createMember</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>email<span class="token operator">:</span> <span class="token string">'my@email.com'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> member <span class="token operator">=</span> <span class="token function">createMember</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> email<span class="token operator">:</span> <span class="token string">'my@email.com'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
 <hr>
-<h3 id="155-What’s-the-output"><a href="#155-What’s-the-output" class="headerlink" title="155. What’s the output?"></a>155. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> randomValue <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<h3 id="155-What’s-the-output"><a href="#155-What’s-the-output" class="headerlink" title="155. What’s the output?"></a>155. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> randomValue <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 randomValue <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span>
 
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">typeof</span> randomValue <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -4767,7 +4769,7 @@ randomValue <span class="token operator">=</span> <span class="token number">23<
 <p>Answer: B</p>
 <p>The condition within the <code>if</code> statement checks whether the value of <code>!typeof randomValue</code> is equal to <code>&quot;string&quot;</code>. The <code>!</code> operator converts the value to a boolean value. If the value is truthy, the returned value will be <code>false</code>, if the value is falsy, the returned value will be <code>true</code>. In this case, the returned value of <code>typeof randomValue</code> is the truthy value <code>&quot;number&quot;</code>, meaning that the value of <code>!typeof randomValue</code> is the boolean value <code>false</code>.</p>
 <p><code>!typeof randomValue === &quot;string&quot;</code> always returns false, since we’re actually checking <code>false ===&quot;string&quot;</code>. Since the condition returned <code>false</code>, the code block of the <code>else</code> statement gets run, and <code>Yay it&#39;s a string!</code> gets logged.</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> randomValue <span class="token operator">=</span> <span class="token punctuation">&#123;</span>name<span class="token operator">:</span> <span class="token string">'Lydia'</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> randomValue <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Lydia'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 randomValue <span class="token operator">=</span> <span class="token string">'23'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 检测 randomValue 是否为字符串  下面这种方式较好：</span>

@@ -456,10 +456,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <!-- <details><summary><b>详解</b></summary></details>
---- -->
-
-<blockquote>
+                <blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/CavsZhouyou/Front-End-Interview-Notebook/blob/master/JavaScript/JavaScript.md">JavaScript 面试知识点总结</a></p>
 </blockquote>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
@@ -492,7 +489,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 全局 a 已经是 20 了</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 首先又一次执行了 sayHi(), 结果把 a 改成了 30,</span>
-<span class="token comment">// 然后打印了一次 30, 执行完以后返回了 30, 然后在加 10, 打印结果 40</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">// 然后打印了一次 30, 执行完以后返回了 30, 然后再加 10, 打印结果 40</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
@@ -545,7 +542,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <details><summary><b>解析</b></summary>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">1</span>, NaN, NaN<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token number">1</span>, NaN, NaN<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><code>parseInt()</code> 支持两个参数 (val, radix), 其中 radix 表示要解析的数字的基数。（该值介于 2 ~ 36 之间，并且字符串中的数字不能大于 radix 才能正确返回数字结果值）.</p>
 <p><code>Array.prototype.map()</code> 支持 3 个参数 (element, index)，因此三次传入的参数分别为 “1-0”, “2-1”, “3-2”</p>

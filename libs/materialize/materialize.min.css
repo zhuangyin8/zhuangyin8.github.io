@@ -3750,7 +3750,7 @@ small {
   border-radius: 0 0 2px 2px;
 }
 .card .card-content p {
-  margin: 0;
+  margin-bottom: 20px;
 }
 .card .card-content .card-title {
   display: block;

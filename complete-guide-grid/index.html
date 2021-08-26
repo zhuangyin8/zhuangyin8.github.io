@@ -470,17 +470,15 @@
 <blockquote>
 <p>CSS 网格布局是 CSS 中功能最强大的布局系统. 它是一个二维系统, 这意味着它既可以处理列又可以处理行, 而 flexbox 很大程度上是一维系统. 通过将 CSS 规则应用于父元素 (成为 Grid 容器) 和该元素的子元素(成为 Grid Items), 您可以使用 Grid 布局.</p>
 </blockquote>
-<p><img src="/images/flex-layout.png" alt="Representative Flex Layout Example" title="An example of flex layout: two rows of items, the first being three items a third of the space each, and the second being five items, a fifth of the space each.  There is therefore alignment along the&quot;rows&quot;, but not along the&quot;columns&quot;."></p>
-<p><img src="/images/grid-layout.png" alt="Representative Grid Layout Example"></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>CSS Grid Layout (aka “Grid”), is a two-dimensional grid-based layout system that aims to do nothing less than completely change the way we design grid-based user interfaces. CSS has always been used to lay out our web pages, but it’s never done a very good job of it. First, we used tables, then floats, positioning and inline-block, but all of these methods were essentially hacks and left out a lot of important functionality (vertical centering, for instance). Flexbox helped out, but it’s intended for simpler one-dimensional layouts, not complex two-dimensional ones (Flexbox and Grid actually work very well together). Grid is the very first CSS module created specifically to solve the layout problems we’ve all been hacking our way around for as long as we’ve been making websites.</p>
+<img src="/images/flex-layout.png" width="400" alt="Representative Flex Layout Example">
+
+<img src="/images/grid-layout.png" width="400" alt="Representative Grid Layout Example">
+
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>CSS Grid Layout (aka “Grid” or “CSS Grid”), is a two-dimensional grid-based layout system that, compared to any web layout system of the past, completely changes the way we design user interfaces. CSS has always been used to layout our web pages, but it’s never done a very good job of it. First, we used tables, then floats, positioning and inline-block, but all of these methods were essentially hacks and left out a lot of important functionality (vertical centering, for instance). <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> is also a very great layout tool, but its one-directional flow has <a target="_blank" rel="noopener" href="https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/">different use cases</a> — and they actually <a target="_blank" rel="noopener" href="https://css-tricks.com/css-grid-replace-flexbox/">work together</a> quite well! Grid is the very first CSS module created specifically to solve the layout problems we’ve all been hacking our way around for as long as we’ve been making websites.</p>
 <blockquote>
-<p>CSS 网格布局 (又称 “网格”) 是基于二维网格的布局系统, 旨在完全改变我们设计基于网格的用户界面的方式. CSS 一直被用来布置我们的网页, 但是它从来没有做得很好. 首先, 我们使用表格, 然后使用浮动, 定位和内联块, 但是所有这些方法本质上都是 hack, 并且遗漏了许多重要功能(例如, 垂直居中). Flexbox 提供了帮助, 但它适用于更简单的一维布局, 而不适用于复杂的二维布局(Flexbox 和 Grid 实际上可以很好地协同工作). 网格是第一个专门为解决布局问题而创建的 CSS 模块, 自创建网站以来, 我们就一直在研究布局问题.</p>
+<p>CSS Grid Layout（又名“Grid”或“CSS Grid”）是一种基于二维网格的布局系统，与过去的任何 Web 布局系统相比，它完全改变了我们设计用户界面的方式。 CSS 一直被用来布局我们的网页，但它从来没有做得很好。首先，我们使用表格，然后是浮动、定位和内联块，但所有这些方法本质上都是黑客，遗漏了许多重要的功能（例如垂直居中）。 Flexbox 也是一个非常棒的布局工具，但它的单向流有不同的用例——它们实际上可以很好地协同工作！ Grid 是第一个专门为解决布局问题而创建的 CSS 模块，我们一直在制作网站。</p>
 </blockquote>
-<p>There are two primary things that inspired me to create this guide. The first is Rachel Andrew’s awesome book <a target="_blank" rel="noopener" href="https://abookapart.com/products/get-ready-for-css-grid-layout">Get Ready for CSS Grid Layout.</a> It’s a thorough, clear introduction to Grid and is the basis of this entire article. I <em>highly</em> encourage you to buy it and read it. My other big inspiration is Chris Coyier’s <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>, which has been my go-to resource for everything flexbox. It’s helped a ton of people, evident by the fact that it’s the top result when you Google “flexbox.” You’ll notice many similarities between his post and mine, because why not steal from the best?</p>
-<blockquote>
-<p>有两个主要的方面启发了我创建本指南. 第一本是雷切尔 · 安德鲁 (Rachel Andrew) 出色的著作《为 CSS 网格布局做好准备》. 这是对 Grid 的透彻且清晰的介绍, 并且是整篇文章的基础. 我强烈建议您购买并阅读. 我的另一个主要灵感来自 Chris Coyier 的《 Flexbox 完整指南》, 这是我所有 flexbox 的首选资源. 它帮助了无数人, 事实证明, 这是您在 Google”flexbox” 上获得的最高结果. 您会注意到他的文章和我的文章之间有许多相似之处, 因为为什么不向最好的文章上学习呢？</p>
-</blockquote>
-<p>My intention with this guide is to present the Grid concepts as they exist in the very latest version of the specification. So I won’t be covering the out of date IE syntax, and I’ll do my best to update this guide regularly as the spec matures.</p>
+<p>The intention of this guide is to present the Grid concepts as they exist in the latest version of the specification. So I won’t be covering the out-of-date Internet Explorer syntax (even though you can absolutely <a target="_blank" rel="noopener" href="https://css-tricks.com/css-grid-in-ie-debunking-common-ie-grid-misconceptions/">use Grid in IE 11</a>) or other historical hacks.</p>
 <blockquote>
 <p>本指南的目的是介绍规范最新版本中存在的网格概念. 因此, 我不会介绍过时的 IE 语法, 并且会尽力在规范成熟时定期更新本指南.</p>
 </blockquote>
@@ -488,7 +486,7 @@
 <blockquote>
 <p>截至 2017 年 3 月, 大多数浏览器都提供了对 CSS Grid 的原生, 无前缀支持: Chrome(包括 Android),Firefox,Safari(包括 iOS) 和 Opera. 另一方面, Internet Explorer 10 和 11 支持它, 但是它是一个过时的实现, 语法已经过时. 现在是使用网格的时候了！</p>
 </blockquote>
-<p>To get started you have to define a container element as a grid with <code>display: grid</code>, set the column and row sizes with <code>grid-template-columns</code> and <code>grid-template-rows</code>, and then place its child elements into the grid with <code>grid-column</code> and <code>grid-row</code>. Similarly to flexbox, the source order of the grid items doesn’t matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries. Imagine defining the layout of your entire page, and then completely rearranging it to accommodate a different screen width all with only a couple lines of CSS. Grid is one of the most powerful CSS modules ever introduced.</p>
+<p>To get started you have to define a container element as a grid with <code>[display: grid](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-display)</code>, set the column and row sizes with <code>[grid-template-columns](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows)</code> and <code>[grid-template-rows](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows)</code>, and then place its child elements into the grid with <code>[grid-column](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row)</code> and <code>[grid-row](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row)</code>. Similarly to flexbox, the source order of the grid items doesn’t matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries. Imagine defining the layout of your entire page, and then completely rearranging it to accommodate a different screen width all with only a couple lines of CSS. Grid is one of the most powerful CSS modules ever introduced.</p>
 <blockquote>
 <p>首先, 您必须将容器元素定义为 <code>display: grid</code>, 使用 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> 设置列和行的大小, 然后将其子元素放入带有 <code>grid-column</code> 和 <code>grid-rows</code> 的网格中. 与 flexbox 类似, 网格项目的原始顺序无关紧要. 您的 CSS 可以按任何顺序放置它们, 这使得通过媒体查询重新排列网格非常容易. 想象一下定义整个页面的布局, 然后完全重新排列它以适应不同的屏幕宽度, 而只需要几行 CSS. 网格是有史以来最强大的 CSS 模块之一.</p>
 </blockquote>
@@ -516,17 +514,21 @@
 <blockquote>
 <p>组成网格结构的分隔线. 它们可以是垂直的 (“列网格线”) 或水平的(“行网格线”), 并位于行或列的任一侧. 这里的黄线是列网格线的示例.</p>
 </blockquote>
-<p><img src="/images/terms-grid-line.svg" alt="网格线"></p>
+<img src="/images/terms-grid-line.svg" width="400" alt="网格线">
+
+
 <h3 id="Grid-Track-网格轨道"><a href="#Grid-Track-网格轨道" class="headerlink" title="Grid Track 网格轨道"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Track">Grid Track</a> 网格轨道</h3><p>The space between two adjacent grid lines. You can think of them like the columns or rows of the grid. Here’s the grid track between the second and third row grid lines.</p>
 <blockquote>
 <p>两条相邻的网格线之间的间隔. 您可以将它们视为网格的列或行. 这是第二行和第三行网格线之间的网格线.</p>
 </blockquote>
-<p><a href="/images/terms-grid-track.svg"><img src="/images/terms-grid-track.svg" alt="网格轨道"></a></p>
+<img src="/images/terms-grid-track.svg" width="400" alt="网格轨道">
+
 <h3 id="Grid-Area"><a href="#Grid-Area" class="headerlink" title="Grid Area"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Areas">Grid Area</a></h3><p>The total space surrounded by four grid lines. A grid area may be composed of any number of grid cells. Here’s the grid area between row grid lines 1 and 3, and column grid lines 1 and 3.</p>
 <blockquote>
 <p>四格线包围的总空间. 网格区域可以由任意数量的网格单元组成. 这是行网格线 1 和 3 以及列网格线 1 和 3 之间的网格区域.</p>
 </blockquote>
-<p><img src="/images/terms-grid-area.svg" alt="网格区域"></p>
+<img src="/images/terms-grid-area.svg" width="400" alt="网格区域">
+
 <h3 id="Grid-Item"><a href="#Grid-Item" class="headerlink" title="Grid Item"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Item">Grid Item</a></h3><p>The children (i.e. <em>direct</em> descendants) of the grid container. Here the <code>item</code> elements are grid items, but <code>sub-item</code> isn’t.</p>
 <blockquote>
 <p>网格容器的子代 (即直接后代). 这里的 <code>item</code> 元素是网格项目, 但 <code>sub-item</code> 不是.</p>
@@ -545,7 +547,9 @@
 <blockquote>
 <p>两个相邻的行和两个相邻的列网格线之间的空间. 它是网格的单个 “单位”. 这是行网格线 1 和 2, 列网格线 2 和 3 之间的网格单元.</p>
 </blockquote>
-<p><a href="/images/terms-grid-cell.svg"><img src="/images/terms-grid-cell.svg" alt="网格单元"></a></p>
+<img src="/images/terms-grid-cell.svg" width="400" alt="网格单元">
+
+
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Column">Grid Column</a> 网格列沿着纵轴运行</p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Row">Grid Row</a> 网格行沿着横轴运行</p>
@@ -587,14 +591,17 @@
   <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> 25% 100px auto<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/template-columns-rows-01.svg"></p>
+
+<img src="/images/template-columns-rows-01.svg" width="400" alt="Grid with user named lines">
+
 <p>But you can choose to explicitly name the lines. Note the bracket syntax for the line names:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end]<span class="token punctuation">;</span>
   <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/template-column-rows-02.svg" alt="Grid with user named lines"></p>
+<img src="/images/template-column-rows-02.svg" width="400" alt="Grid with user named lines">
+
 <p>Note that a line can have more than one name. For example, here the second line will have two names: row1-end and row2-start:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> [row1-start] 25% [row1-end row2-start] 25% [row2-end]<span class="token punctuation">;</span>
@@ -669,7 +676,8 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of the <strong>header</strong> area. The middle row will be composed of two <strong>main</strong> areas, one empty cell, and one <strong>sidebar</strong> area. The last row is all <strong>footer</strong>.</p>
-<p><img src="/images/dddgrid-template-areas.svg" alt="Example of grid-template-areas"></p>
+<img src="/images/dddgrid-template-areas.svg" width="400" alt="Example of grid-template-areas">
+
 <p>Each row in your declaration needs to have the same number of cells.</p>
 <p>You can use any number of adjacent periods to declare a single empty cell. As long as the periods have no spaces between them they represent a single cell.</p>
 <p>Notice that you’re not naming lines with this syntax, just areas. When you use this syntax the lines on either end of the areas are actually getting named automatically. If the name of your grid area is <strong>foo</strong>, the name of the area’s starting row line and starting column line will be <strong>foo-start</strong>, and the name of its last row line and last column line will be <strong>foo-end</strong>. This means that some lines might have multiple names, such as the far left line in the above example, which will have three names: header-start, main-start, and footer-start.</p>
@@ -730,7 +738,8 @@
   <span class="token property">row-gap</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/dddgrid-gap.svg" alt="Example of grid-column-gap and grid-row-gap"></p>
+<img src="/images/dddgrid-gap.svg" width="400" alt="Example of grid-column-gap and grid-row-gap">
+
 <p>The gutters(网格间距) are only created <em>between</em> the columns/rows, not on the outer edges.</p>
 <p>Note: The <code>grid-</code> prefix will be removed and <code>grid-column-gap</code> and <code>grid-row-gap</code> renamed to <code>column-gap</code> and <code>row-gap</code>. The unprefixed properties are already supported in Chrome 68+, Safari 11.2 Release 50+ and Opera 54+.</p>
 <h4 id="gap"><a href="#gap" class="headerlink" title="gap"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap"><code>gap</code></a></h4><blockquote>
@@ -784,22 +793,26 @@
   <span class="token property">justify-items</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-items-start.svg" alt="Example of justify-items set to start"></p>
+<img src="/images/justify-items-start.svg" width="400" alt="Example of justify-items set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-items</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-items-end.svg" alt="Example of justify-items set to end"></p>
+<img src="/images/justify-items-end.svg" width="400" alt="Example of justify-items set to end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-items-center.svg" alt="Example of justify-items set to center"></p>
+<img src="/images/justify-items-center.svg" width="400" alt="Example of justify-items set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-items</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-items-stretch.svg" alt="Example of justify-items set to stretch"></p>
+<img src="/images/justify-items-stretch.svg" width="400" alt="Example of justify-items set to stretch">
+
 <p>This behavior can also be set on individual grid items via the <code>justify-self</code> property.</p>
 <h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items"><code>align-items</code></a></h4><p>Aligns grid items along the <em>block (column)</em> axis (as opposed to <code>justify-items</code> which aligns along the <em>inline (row)</em> axis). This value applies to all grid items inside the container.</p>
 <blockquote>
@@ -821,22 +834,26 @@
   <span class="token property">align-items</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-items-start.svg" alt="Example of align-items set to start"></p>
+<img src="/images/align-items-start.svg" width="400" alt="Example of align-items set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-items-end.svg" alt="Example of align-items set to end"></p>
+<img src="/images/align-items-end.svg" width="400" alt="Example of align-items set to end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-items-center.svg" alt="Example of align-items set to center"></p>
+<img src="/images/align-items-center.svg" width="400" alt="Example of align-items set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-items-stretch.svg" alt="Example of align-items set to stretch"></p>
+<img src="/images/align-items-stretch.svg" width="400" alt="Example of align-items set to stretch">
+
 <p>This behavior can also be set on individual grid items via the <code>align-self</code> property.</p>
 <h4 id="place-items"><a href="#place-items" class="headerlink" title="place-items"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-items"><code>place-items</code></a></h4><p><code>place-items</code> sets both the <code>align-items</code> and <code>justify-items</code> properties in a single declaration.</p>
 <blockquote>
@@ -871,37 +888,44 @@
   <span class="token property">justify-content</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-start.svg" alt="Example of justify-content set to start"></p>
+<img src="/images/justify-content-start.svg" width="400" alt="Example of justify-content set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-end.svg" alt="Example of justify-content set to end"></p>
+<img src="/images/justify-content-end.svg" width="400" alt="Example of justify-content set to end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-center.svg" alt="Example of justify-content set to center"></p>
+<img src="/images/justify-content-center.svg" width="400" alt="Example of justify-content set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-stretch.svg" alt="Example of justify-content set to stretch"></p>
+<img src="/images/justify-content-stretch.svg" width="400" alt="Example of justify-content set to stretch">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-space-around.svg" alt="Example of justify-content set to space-around"></p>
+<img src="/images/justify-content-space-around.svg" width="400" alt="Example of justify-content set to space-around">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-space-between.svg" alt="Example of justify-content set to space-between"></p>
+<img src="/images/justify-content-space-between.svg" width="400" alt="Example of justify-content set to space-between">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-content-space-evenly.svg" alt="Example of justify-content set to space-evenly"></p>
+<img src="/images/justify-content-space-evenly.svg" width="400" alt="Example of justify-content set to space-evenly">
+
 <h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content"><code>align-content</code></a></h4><p>Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like <code>px</code>. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the <em>block (column)</em> axis (as opposed to <code>justify-conten</code> which aligns the grid along the <em>inline (row)</em> axis).</p>
 <blockquote>
 <p><code>align-content</code> 属性是整个内容区域的垂直位置 (上中下).</p>
@@ -925,37 +949,52 @@
   <span class="token property">align-content</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-start.svg" alt="Example of align-content set to start"></p>
+<!-- ![Example of align-content set to start](/images/align-content-start.svg) -->
+
+<img src="/images/align-content-start.svg" width="400" alt="Example of align-content set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-end.svg" alt="Example of align-content set to end"></p>
+<!-- ![Example of align-content set to end](/images/align-content-end.svg) -->
+<img src="/images/align-content-end.svg" width="400" alt="Example of align-content set to end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-center.svg" alt="Example of align-content set to center"></p>
+<!-- ![Example of align-content set to center](/images/align-content-center.svg) -->
+<img src="/images/align-content-center.svg" width="400" alt="Example of align-content set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-stretch.svg" alt="Example of align-content set to stretch"></p>
+<!-- ![Example of align-content set to stretch](/images/align-content-stretch.svg) -->
+<img src="/images/align-content-stretch.svg" width="400" alt="Example of align-content set to stretch">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> space-around<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-space-around.svg" alt="Example of align-content set to space-around"></p>
+<!-- ![Example of align-content set to space-around](/images/align-content-space-around.svg) -->
+<img src="/images/align-content- space-around.svg" width="400" alt="Example of align-content set to  space-around">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> space-between<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-space-between.svg" alt="Example of align-content set to space-between"></p>
+<!-- ![Example of align-content set to space-between](/images/align-content-space-between.svg) -->
+<img src="/images/align-content-space-between.svg" width="400" alt="Example of align-content set to space-between">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-content</span><span class="token punctuation">:</span> space-evenly<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-content-space-evenly.svg" alt="Example of align-content set to space-evenly"></p>
+<!-- ![Example of align-content set to space-evenly](/images/align-content-space-evenly.svg) -->
+<img src="/images/align-content-space-evenly.svg" width="400" alt="Example of align-content set to space-evenly">
+
 <h4 id="place-content"><a href="#place-content" class="headerlink" title="place-content"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content"><code>place-content</code></a></h4><p><code>place-content</code> sets both the <code>align-content</code> and <code>justify-content</code> properties in a single declaration.</p>
 <blockquote>
 <p><code>place-content</code> 属性是 <code>align-content</code> 属性和 <code>justify-content</code> 属性的合并简写形式.</p>
@@ -985,7 +1024,8 @@
   <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> 90px 90px<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-auto-columns-rows-01.svg" alt="Example of 2x2 grid"></p>
+<img src="/images/grid-auto-columns-rows-01.svg" width="400" alt="Example of 2x2 grid">
+
 <p>This creates a 2 x 2 grid.</p>
 <p>But now imagine you use <code>grid-column</code> and <code>grid-row</code> to position your grid items like this:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
@@ -997,13 +1037,15 @@
   <span class="token property">grid-row</span><span class="token punctuation">:</span> 2 / 3<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-auto-columns-rows-02.svg" alt="Example of implicit tracks"></p>
+<img src="/images/grid-auto-columns-rows-02.svg" width="400" alt="Example of implicit tracks">
+
 <p>We told .item-b to start on column line 5 and end at column line 6, <em>but we never defined a column line 5 or 6</em>. Because we referenced lines that don’t exist, implicit tracks with widths of 0 are created to fill in the gaps. We can use <code>grid-auto-columns</code> and <code>grid-auto-rows</code> to specify the widths of these implicit tracks:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-auto-columns</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-auto-columns-rows-03.svg" alt="grid-auto-columns-rows"></p>
+<img src="/images/grid-auto-columns-rows-03.svg" width="400" alt="grid-auto-columns-rows">
+
 <h4 id="grid-auto-flow"><a href="#grid-auto-flow" class="headerlink" title="grid-auto-flow"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow"><code>grid-auto-flow</code></a></h4><p>If you have grid items that you don’t explicitly place on the grid, the <em>auto-placement algorithm</em> kicks in to automatically place the items. This property controls how the auto-placement algorithm works.</p>
 <blockquote>
 <p>划分网格以后, 容器的子元素会按照顺序, 自动放置在每一个网格. 默认的放置顺序是 “先行后列”, 即先填满第一行, 再开始放入第二行, 即下图数字的顺序.</p>
@@ -1051,7 +1093,8 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Because we set <code>grid-auto-flow</code> to <code>row</code>, our grid will look like this. Notice how the three items we didn’t place (<strong>item-b</strong>, <strong>item-c</strong> and <strong>item-d</strong>) flow across the available rows:</p>
-<p><img src="/images/grid-auto-flow-01.svg" alt="Example of grid-auto-flow set to row"></p>
+<img src="/images/grid-auto-flow-01.svg" width="400" alt="Example of grid-auto-flow set to row">
+
 <p>If we instead set <code>grid-auto-flow</code> to <code>column</code>, <strong>item-b</strong>, <strong>item-c</strong> and <strong>item-d</strong> flow down the columns:</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
@@ -1060,7 +1103,8 @@
   <span class="token property">grid-auto-flow</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-auto-flow-02.svg" alt="Example of grid-auto-flow set to column"></p>
+<img src="/images/grid-auto-flow-02.svg" width="400" alt="Example of grid-auto-flow set to column">
+
 <h4 id="grid"><a href="#grid" class="headerlink" title="grid"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid"><code>grid</code></a></h4><p>A shorthand for setting all of the following properties in a single declaration: <code>grid-template-rows]</code>, <code>grid-template-columns</code>, <code>grid-template-areas</code>, <code>grid-auto-rows</code>, <code>grid-auto-columns]</code>, and <code>grid-auto-flow</code> (Note: You can only specify the explicit or the implicit grid properties in a single grid declaration).</p>
 <p><code>grid</code> 属性是 <code>grid-template-rows</code>、<code>grid-template-columns</code>、<code>grid-template-areas</code>、 <code>grid-auto-rows</code>、<code>grid-auto-columns</code>、<code>grid-auto-flow</code> 这六个属性的合并简写形式.</p>
 <p>Values:</p>
@@ -1156,7 +1200,8 @@
   <span class="token property">grid-row-end</span><span class="token punctuation">:</span> 3<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-column-row-start-end-01.svg" alt="Example of grid-row/column-start/end"></p>
+<img src="/images/grid-column-row-start-end-01.svg" width="400" alt="Example of grid-row/column-start/end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-b</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-column-start</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
   <span class="token property">grid-column-end</span><span class="token punctuation">:</span> span col4-start<span class="token punctuation">;</span>
@@ -1164,7 +1209,8 @@
   <span class="token property">grid-row-end</span><span class="token punctuation">:</span> span 2<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-column-row-start-end-02.svg" alt="Example of grid-row/column-start/end"></p>
+<img src="/images/grid-column-row-start-end-02.svg" width="400" alt="Example of grid-row/column-start/end">
+
 <p>If no <code>grid-column-end</code>/<code>grid-row-end</code> is declared, the item will span 1 track by default.</p>
 <p>Items can overlap each other. You can use <code>z-index</code> to control their stacking order.</p>
 <h4 id="grid-column-grid-row"><a href="#grid-column-grid-row" class="headerlink" title="grid-column grid-row"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column"><code>grid-column</code></a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row"><code>grid-row</code></a></h4><p>Shorthand for <code>grid-column-start</code> + <code>grid-column-end</code>, and <code>grid-row-start</code> + <code>grid-row-end</code>, respectively.</p>
@@ -1186,7 +1232,8 @@
   <span class="token property">grid-row</span><span class="token punctuation">:</span> third-line / 4<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-column-row.svg" alt="Example of grid-column/grid-row"></p>
+<img src="/images/grid-column-row.svg" width="400" alt="Example of grid-column/grid-row">
+
 <p>If no end line value is declared, the item will span 1 track by default.</p>
 <h4 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area"><code>grid-area</code></a></h4><p>Gives an item a name so that it can be referenced by a template created with the <code>grid-template-areas</code> property. Alternatively, this property can be used as an even shorter shorthand for <code>grid-row-start</code> + <code>grid-column-start</code> + <code>grid-row-end</code> + <code>grid-column-end</code>.</p>
 <blockquote>
@@ -1215,7 +1262,8 @@
   <span class="token property">grid-area</span><span class="token punctuation">:</span> 1 / col4-start / last-line / 6<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/grid-area.svg" alt="Example of grid-area"></p>
+<img src="/images/grid-area.svg" width="400" alt="Example of grid-area">
+
 <h4 id="justify-self"><a href="#justify-self" class="headerlink" title="justify-self"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self"><code>justify-self</code></a></h4><p>Aligns a grid item inside a cell along the <em>inline (row)</em> axis (as opposed to <code>align-self</code> which aligns along the <em>block (column)</em> axis). This value applies to a grid item inside a single cell.</p>
 <blockquote>
 <p><code>justify-self</code> 属性设置单元格内容的水平位置 (左中右)</p>
@@ -1235,22 +1283,25 @@
   <span class="token property">justify-self</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-self-start.svg" alt="Example of justify-self set to start"></p>
+<img src="/images/justify-self-start.svg" width="400" alt="Example of justify-self set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-self</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-self-end.svg" alt="alt=&quot;Example"></p>
+<p>&lt;img src=”/images/justify-self-end.svg” width=”400” alt=”alt=”Example”&gt;</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-self-center.svg" alt="Example of justify-self set to center"></p>
+<img src="/images/justify-self-center.svg" width="400" alt="Example of justify-self set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">justify-self</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/justify-self-stretch.svg" alt="Example of justify-self set to stretch"></p>
+<img src="/images/justify-self-stretch.svg" width="400" alt="Example of justify-self set to stretch">
+
 <p>To set alignment for <em>all</em> the items in a grid, this behavior can also be set on the grid container via the <code>justify-items</code> property.</p>
 <h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self"><code>align-self</code></a></h4><p>Aligns a grid item inside a cell along the <em>block (column)</em> axis (as opposed to <code>justify-self</code> which aligns along the <em>inline (row)</em> axis). This value applies to the content inside a single grid item.</p>
 <blockquote>
@@ -1271,22 +1322,26 @@
   <span class="token property">align-self</span><span class="token punctuation">:</span> start<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-self-start.svg" alt="Example of align-self set to start"></p>
+<img src="/images/align-self-start.svg" width="400" alt="Example of align-self set to start">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-self</span><span class="token punctuation">:</span> end<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-self-end.svg" alt="Example of align-self set to end"></p>
+<img src="/images/align-self-end.svg" width="400" alt="Example of align-self set to end">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-self-center.svg" alt="Example of align-self set to center"></p>
+<img src="/images/align-self-center.svg" width="400" alt="Example of align-self set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">align-self</span><span class="token punctuation">:</span> stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/align-self-stretch.svg" alt="Example of align-self set to stretch"></p>
+<img src="/images/align-self-stretch.svg" width="400" alt="Example of align-self set to stretch">
+
 <p>To align <em>all</em> the items in a grid, this behavior can also be set on the grid container via the <code>align-items</code> property.</p>
 <h4 id="place-self"><a href="#place-self" class="headerlink" title="place-self"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-self"><code>place-self</code></a></h4><p><code>place-self</code> sets both the <code>align-self</code> and <code>justify-self</code> properties in a single declaration.</p>
 <blockquote>
@@ -1302,19 +1357,100 @@
   <span class="token property">place-self</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/place-self-center.svg" alt="place self set to center"></p>
+<img src="/images/place-self-center.svg" width="400" alt="place self set to center">
+
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.item-a</span> <span class="token punctuation">&#123;</span>
   <span class="token property">place-self</span><span class="token punctuation">:</span> center stretch<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/images/place-self-center-stretch.svg" alt="place set set to center stretch"></p>
+<img src="/images/place-self-center-stretch.svg" width="400" alt="place set set to center stretch">
+
 <p>All major browsers except Edge support the <code>place-self</code> shorthand property.</p>
-<h2 id="Special-Functions-and-Keywords"><a href="#Special-Functions-and-Keywords" class="headerlink" title="Special Functions and Keywords"></a>Special Functions and Keywords</h2><ul>
+<h2 id="Special-Units-amp-Functions"><a href="#Special-Units-amp-Functions" class="headerlink" title="Special Units &amp; Functions"></a>Special Units &amp; Functions</h2><ul>
 <li>When sizing rows and columns, you can use all the <a target="_blank" rel="noopener" href="https://css-tricks.com/the-lengths-of-css/">lengths</a> you are used to, like <code>px</code>, rem, %, etc, but you also have keywords like <code>min-content</code>, <code>max-content</code>, <code>auto</code>, and perhaps the most useful, fractional units. <code>grid-template-columns: 200px 1fr 2fr min-content;</code></li>
 <li>You also have access to a function which can help set boundaries for otherwise flexible units. For example to set a column to be 1fr, but shrink no further than 200px: <code>grid-template-columns: 1fr minmax(200px, 1fr);</code></li>
 <li>There is <code>repeat()</code> function, which saves some typing, like making 10 columns: <code>grid-template-columns: repeat(10, 1fr);</code></li>
 <li>Combining all of these things can be extremely powerful, like <code>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</code> See the demo at the top of the page about “The Most Powerful Lines in Grid”.</li>
 </ul>
+<h3 id="fr-units"><a href="#fr-units" class="headerlink" title="fr units"></a>fr units</h3><p>You’ll likely end up using a lot of <a target="_blank" rel="noopener" href="https://css-tricks.com/introduction-fr-css-unit/">fractional units</a> in CSS Grid, like <code>1fr</code>. They essentially mean “portion of the remaining space”. So a declaration like:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 1fr 3fr<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Means, loosely, <code>25% 75%</code>. Except that those percentage values are much more firm than fractional units are. For example, if you added padding to those percentage-based columns, now you’ve broken 100% width (assuming a <code>content-box</code> box model). Fractional units also much more friendly in combination with other units, as you can imagine:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 50px min-content 1fr<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Sizing-Keywords"><a href="#Sizing-Keywords" class="headerlink" title="Sizing Keywords"></a>Sizing Keywords</h3><p>When sizing rows and columns, you can use all the <a target="_blank" rel="noopener" href="https://css-tricks.com/the-lengths-of-css/">lengths</a> you are used to, like <code>px</code>, rem, %, etc, but you also have keywords:</p>
+<ul>
+<li><code>min-content</code>: the minimum size of the content. Imagine a line of text like “The very long hotdog.”, the min-content is likely the width of the world “The”.</li>
+<li><code>max-content</code>: the maximum size of the content. Imagine the sentence above, the <code>max-content</code> is the length of the whole sentence.</li>
+<li><code>auto</code>: this keyword is a lot like <code>fr</code> units, except that they “lose” the fight in sizing against <code>fr</code> units when allocating the remaining space.</li>
+<li><code>fit-content</code>: use the space available, but never less than min-content and never more than <code>max-content</code>.</li>
+<li>fractional units: see above</li>
+</ul>
+<h3 id="Sizing-Functions"><a href="#Sizing-Functions" class="headerlink" title="Sizing Functions"></a>Sizing Functions</h3><ul>
+<li>The <code>minmax()</code> function does exactly what it seems like: it sets a minimum and maximum value for what the length is able to be. This is useful for in combination with relative units. Like you may want a column to be only able to shrink so far. This is <a target="_blank" rel="noopener" href="https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/">extremely useful and probably what you want</a>:</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">minmax</span><span class="token punctuation">(</span>100px<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span> 3fr<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>The <code>min()</code> function.</li>
+<li>The <code>max()</code> function.</li>
+</ul>
+<h3 id="The-repeat-Function-and-Keywords"><a href="#The-repeat-Function-and-Keywords" class="headerlink" title="The repeat() Function and Keywords"></a>The repeat() Function and Keywords</h3><p>The <code>repeat()</code> function can save some typing:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span>1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr<span class="token punctuation">;</span>
+
+<span class="token comment">/* easier: */</span>
+<span class="token property">grid-template-columns</span><span class="token punctuation">:</span><span class="token function">repeat</span><span class="token punctuation">(</span>8<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/* especially when: */</span>
+<span class="token property">grid-template-columns</span><span class="token punctuation">:</span><span class="token function">repeat</span><span class="token punctuation">(</span>8<span class="token punctuation">,</span> <span class="token function">minmax</span><span class="token punctuation">(</span>10px<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>But <code>repeat()</code> can get extra fancy when combined with keywords:</p>
+<ul>
+<li><code>auto-fill</code>: Fit as many possible columns as possible on a row, even if they are empty.</li>
+<li><code>auto-fit:</code> Fit whatever columns there are into the space. Prefer expanding columns to fill space rather than empty columns.</li>
+</ul>
+<p>This bears the most famous snippet in all of CSS Grid and one of the <a target="_blank" rel="noopener" href="https://css-tricks.com/books/greatest-css-tricks/flexible-grids/">all-time great CSS tricks</a>:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>auto-fit<span class="token punctuation">,</span> <span class="token function">minmax</span><span class="token punctuation">(</span>250px<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>The difference between the keywords is <a target="_blank" rel="noopener" href="https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/">spelled out in detail here</a>.</p>
+<h3 id="Masonry"><a href="#Masonry" class="headerlink" title="Masonry"></a>Masonry</h3><p>An experimental feature of CSS grid is masonry layout. Note that there are <a target="_blank" rel="noopener" href="https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/">lots of approaches to CSS masonry</a>, but mostly of them are trickery and either have major downsides or aren’t what you quite expect.</p>
+<p><a target="_blank" rel="noopener" href="https://drafts.csswg.org/css-grid-3/#masonry-layout">The spec has an official way</a> now, and this is behind a flag in Firefox:</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>4<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> masonry<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/">See Rachel’s article</a> for a deep dive.</p>
+<h4 id="Subgrid"><a href="#Subgrid" class="headerlink" title="Subgrid"></a><a href="#subgrid"></a>Subgrid</h4><p>Subgrid is an extremely useful feature of grids that allows grid items to have a grid of their own that inherits grid lines from the parent grid.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent-grid</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span>9<span class="token punctuation">,</span> 1fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.grid-item</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">grid-column</span><span class="token punctuation">:</span> 2 / 7<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> subgrid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.child-of-grid-item</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/* gets to participate on parent grid! */</span>
+  <span class="token property">grid-column</span><span class="token punctuation">:</span> 3 / 6<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This is <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid#browser_compatibility">only supported in Firefox</a> right now, but it really <a target="_blank" rel="noopener" href="http://meyerweb.com/eric/thoughts/2016/01/15/subgrids-considered-essential/">needs</a> to get everywhere.</p>
+<p>It’s also useful to know about <code>display: contents;</code>. This is <em>not</em> the same as subgrid, but it can be a useful tool sometimes in a similar fashion.</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-parent<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">display</span><span class="token punctuation">:</span> contents<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- These grid-items get to participate on 
+             the same grid!--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>grid-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="Fluid-columns-snippet"><a href="#Fluid-columns-snippet" class="headerlink" title="Fluid columns snippet"></a>Fluid columns snippet</h2><p>Fluid width columns that break into more or less columns as space is available, with no media queries!</p>
 <blockquote>
 <p>流体宽度列会分成或多或少的可用空间列, 没有媒体查询！</p>

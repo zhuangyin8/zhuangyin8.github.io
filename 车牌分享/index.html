@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript 设置 CSS 样式, 庄引的博客">
+    <meta name="keywords" content="资本家可以割韭菜，年轻人也可以“躺平”, 庄引的博客">
     <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
-    <title>JavaScript 设置 CSS 样式 | 庄引的博客</title><meta name="robots" content="noindex">
+    <title>资本家可以割韭菜，年轻人也可以“躺平” | 庄引的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
   <div class="container" style="right: 0px;left: 0px;">
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="brand">
-          <h1 class="description center-align post-title">JavaScript 设置 CSS 样式</h1>
+          <h1 class="description center-align post-title">资本家可以割韭菜，年轻人也可以“躺平”</h1>
         </div>
       </div>
     </div>
@@ -407,8 +407,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/CSS/">
-                                <span class="chip bg-color">CSS</span>
+                            <a href="/tags/%E8%BA%BA%E5%B9%B3/">
+                                <span class="chip bg-color">躺平</span>
                             </a>
                         
                     </div>
@@ -419,8 +419,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark icon-category"></i>
                         
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                政治
                             </a>
                         
                     </div>
@@ -433,7 +433,7 @@
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus"></i>
                     发布日期:;
-                    2015-11-13
+                    2021-05-28
                 </div>
                 
 
@@ -457,59 +457,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>用 JavaScript 来动态设置 CSS 样式, 常见的有以下几种</p>
-<h2 id="ElementCSSInlineStyle-style-直接设置-style-的属性"><a href="#ElementCSSInlineStyle-style-直接设置-style-的属性" class="headerlink" title="ElementCSSInlineStyle.style 直接设置 style 的属性"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/ElementCSSInlineStyle/style">ElementCSSInlineStyle.style</a> 直接设置 style 的属性</h2><p>某些情况用这个设置 !important 值无效</p>
-<p>如果属性有’-‘号, 就写成驼峰的形式 (如 textAlign) 如果想保留 - 号, 就中括号的形式</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">[</span><span class="token string">'text-align'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'100px'</span><span class="token punctuation">;</span>
-
-element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token string">'100px'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Element-setAttribute-直接设置属性"><a href="#Element-setAttribute-直接设置属性" class="headerlink" title="Element.setAttribute() 直接设置属性"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">Element.setAttribute()</a> 直接设置属性</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'100px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="Element-setAttribute-设置-style-的属性"><a href="#Element-setAttribute-设置-style-的属性" class="headerlink" title="Element.setAttribute() 设置 style 的属性"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">Element.setAttribute()</a> 设置 style 的属性</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px !important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="CSSStyleDeclaration-setProperty-设置多个样式"><a href="#CSSStyleDeclaration-setProperty-设置多个样式" class="headerlink" title="CSSStyleDeclaration.setProperty() 设置多个样式"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty">CSSStyleDeclaration.setProperty()</a> 设置多个样式</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'color:red; border: 1px solid blue;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果要设置! important, 推荐用这种方法设置第三个参数</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span><span class="token function">setProperty</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'300px'</span><span class="token punctuation">,</span> <span class="token string">'important'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="Element-className-来修改样式表的类名"><a href="#Element-className-来修改样式表的类名" class="headerlink" title="Element.className 来修改样式表的类名"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/className">Element.className</a> 来修改样式表的类名</h2><p>因 JavaScript 获取不到 CSS 的伪元素, 所以可以通过改变伪元素父级的 class 来动态更改伪元素的样式</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
-element<span class="token punctuation">.</span>className <span class="token operator">+=</span> <span class="token string">'blue fb'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="使用-obj-style-cssText-来修改嵌入式的-css"><a href="#使用-obj-style-cssText-来修改嵌入式的-css" class="headerlink" title="使用 obj.style.cssText 来修改嵌入式的 css"></a>使用 obj.style.cssText 来修改嵌入式的 css</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">element<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token string">'color: blue; border: 1px solid black'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="创建引入新的-CSS-样式文件"><a href="#创建引入新的-CSS-样式文件" class="headerlink" title="创建引入新的 CSS 样式文件"></a>创建引入新的 CSS 样式文件</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">addNewStyle</span><span class="token punctuation">(</span><span class="token parameter">newStyle</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">var</span> styleElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'styles_js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>styleElement<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    styleElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    styleElement<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text/css'</span><span class="token punctuation">;</span>
-    styleElement<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'styles_js'</span><span class="token punctuation">;</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'head'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>styleElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-
-  styleElement<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>newStyle<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token function">addNewStyle</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px !important;&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="使用-CSSStyleSheet-addRule-CSSStyleSheet-insertRule"><a href="#使用-CSSStyleSheet-addRule-CSSStyleSheet-insertRule" class="headerlink" title="使用 CSSStyleSheet.addRule() CSSStyleSheet.insertRule()"></a>使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/addRule">CSSStyleSheet.addRule()</a> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet/insertRule">CSSStyleSheet.insertRule()</a></h2><blockquote>
+                <h2 id="太阳底下从来没有新鲜事"><a href="#太阳底下从来没有新鲜事" class="headerlink" title="太阳底下从来没有新鲜事"></a>太阳底下从来没有新鲜事</h2><p>最近“躺平”二字成为了网络热词，我用最简练的语言总结一下躺平的内涵：是一种在内卷社会中，选择“非暴力不合作”式的生活态度。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/52ChNWeJuicfD22KFLLAg6MEyI9ufApPa6hZbRKNnEJ4JMxZtQ4mz3SC2via7Kj2XqSUZSulicrhIKJMhZcVXqXJg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p>
+<p>然而年轻人的“躺平”缺引发了一众媒体的批判。上周《南方日报》写了一篇《“躺平”可耻，哪来的正义感？》并被新华网转发，其文章论调充满了无聊的说教与精神上位者的优越感：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/52ChNWeJuicfD22KFLLAg6MEyI9ufApPaqDj8aH915aD5KgYN06EFaa801dUcVXF6pVscQDiaibr5aSCjTaZwHJ6g/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="Image"></p>
+<blockquote>
+<p>奋斗本身就是一种幸福，只有奋斗的人生才称得上是幸福的人生。虽然来自外部的压力不容忽视，但与其嗟叹抱怨，不如奋起直追，有志青年大都会正视压力，用奋斗闯出自己的路。一代人有一代人的困难和挑战，没有谁的人生是一帆风顺的，动不动就被小困难打败，时不时受“丧文化”所左右，显然不是一个当代青年应有的气质。如果一遇到压力就喊“内卷”，一遇到挫折就想“躺平”，我们又怎能改变人生呢？——《南方日报：“躺平”可耻，哪来的正义感？》</p>
 </blockquote>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在原有样式操作</span>
-document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addRule</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">insertRule</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px&#125;'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>无独有偶，犹记当年《光明日报》写过一篇文章批判“丧文化”，我们来看一下，语气与《南方日报》这篇如出一辙：</p>
+<blockquote>
+<p>我差不多是个废人了”“其实并不是很想活”“漫无目的的颓废”“什么都不想干”“颓废到忧伤”，这些散发着绝望特质的话语，配上生动的“葛优瘫”“懒猫瘫”等表情包，成了新聊天形式的流行内容。从这些话里，我们明显地感受到了某种情绪——什么都不想干、只想蹉跎岁月、找一个最省事省力的方式活着的消极情绪。这与大家对青年朝气蓬勃的一贯印象格格不入，令人费解，也令人担忧。——《光明日报：引导青年人远离“丧文化”侵蚀》</p>
+</blockquote>
+<p>从批判丧文化，到批判躺平，官方的媒体看问题倒是看到了，然而看到了能说明什么问题呢？单靠喊几个口号，进行几轮思想教育，强迫学生背点正能量价值观，年轻人就能不“丧文化”了？真正的马克思主义者，永远坚持唯物史观的立场，永远从经济基础与上层建筑的矛盾关系分析问题，年轻人为什么“丧”，简单得很，工作压力过大，上升渠道渺茫，别说事业有成开创未来什么的，就连房子都买不起。人又不傻，你能看到的未来预期就这么点，努不努力差别不大，那肯定就“丧”起来了。日本的现在就是我们的一面镜子。还是那句话，当你发现努力、奋斗都改变不了什么的时候，那还奋斗做什么呢？</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/fc176403j00qttg74001md000qs00d6p.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>太阳底下然而终究没有新鲜事，这是我三年多前 2018 年 1 月写的一篇文章<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650673717&idx=1&sn=38db9d5aa80ef4cf3e7768d8f9a6f766&chksm=bed49d1489a31402eed3531e8de1ae45c9dfad013ca8805ddd83da95634dd15d8dccea0376da&scene=21#wechat_redirect">《从“葛优躺”到“保温杯”：不同的社会热词，相同的社会问题》</a>，文章中分析了五年前的网络热词——</p>
+<p>每一年网络上都会产生新鲜的词语，这些新鲜的词语，有的已经消失在历史的长河中，有的已经成为了我们生活一部分，有的改头换面以另一种表达方式再次出现。我们来看一下在 2017 年年初，光明日报总结的 2016 年度网路用语：</p>
+<blockquote>
+<p>“年度十大网络用语”充满正能量。与往年相比，今年的十大网络用语总体上充满阳光向上的气息，不用说“洪荒之力”“定个小目标”的激励作用，就是“葛优躺”“辣眼睛”“老司机”“蓝瘦香菇”“吃瓜群众”“全是套路”“友谊的小船”“厉害了我的哥”，也都饱含着对生活诙谐的调侃与热爱，充满正能量。——《光明日报：洪荒之力、吃瓜群众等年度十大网络用语充满正能量》</p>
+</blockquote>
+<p>这一段新闻怎么说呢，满满都是槽点。如果非要说“正能量”吧，也就“洪荒之力”稍微搭一点边。剩下的词语都是一言难尽：“定个小目标”紧跟着的话是“先挣一个亿”，王健林这一句话迅速走红网络不过是对巨大的贫富差距的自嘲。“葛优躺”是在高强度、高压力工作下的一种慵懒态度，是对学习工作生活低动力、低期望的表现。“蓝瘦香菇”也类似如此，不过是对负面情绪的一种诙谐化派遣。至于“辣眼睛”“全是套路”，怎么也看不出是正能量吧？</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/b75689f2j00qttg7c000hd000cg007rp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>而最不能理解的是《光明日报》为何要把“老司机”划作年度正能量网络词语——这话出自于云南当地带有情色味道的调情山歌：“老司机，带带我，我是初中生”。而网络上使用“老司机”这一词的时候，最多的后面都要跟一句“求种子”。类似的还有“友谊的小船”，紧跟着下一句就是“说翻就翻”……虽然说有许多调侃的性质在其中，但是要强行“正能量”也说不过去吧。</p>
+<p>“吃瓜群众”则更值得说道说道，最早的“吃瓜群众”前面还有一个定语是“不明真相的”——是从“不明真相的围观群众”和“前排吃瓜”两句话中演化而来。而“不明真相的围观群众”就是为了调侃出现群体性事件后官方报道中常见的那句“不明真相的群众被别有用心的人利用”。说白了还是对几年前许多地方处理应急事件、高关注度事件遮遮掩掩不尽如人意的表达。后来才发展到对明星八卦关注、围观网络撕逼时应用。</p>
+<p>《光明日报》的文章中强行将这些网络用语赋予“正能量”的属性，不外乎两种情况：一是作者确实不了解这些词的来源与使用环境，对网络用语的称赞只是叶公好龙；另一种可能是作者明知道这些词语的真正用途，但还要强行说成正能量，这就是掩耳盗铃了——最大的用处就是糊弄一下几个不熟悉互联网生态、没用过社交媒体但喜欢听漂亮话的领导。</p>
+<p>非常有趣的是，2017 年人民日报微博发表了九图年度热词，包括了“皮皮虾，我们走”“扎心了，老铁”“保温杯”等，而其中一句“贫穷限制了我的想象力”人日是这样诠释的：“用来自嘲有钱人的世界难以想象，但只是一句玩笑话。”</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/45513222j00qttg7k001bd000dw00fvp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>最后一句显得着实有点“揣着明白装糊涂”，是不是玩笑话，我们用的人心理不清楚么？</p>
+<p>2018 年，在一些民间商业机构评选的年度网络热词中，“佛系 XX”“脱发”“第一批 90 后已经秃了”纷纷上榜。2015 年的“我能怎么办，我也绝望啊”，2016 年的“葛优躺”“咸鱼”，2017 年的“佛系青年”，2019 年的“小确丧”，2021 年的“躺平”这些都是一脉相承的。然而有些人还要装糊涂。</p>
+<h2 id="装糊涂的高手"><a href="#装糊涂的高手" class="headerlink" title="装糊涂的高手"></a>装糊涂的高手</h2><p>这些官媒肯定不是不知道，而是他们都是装糊涂的高手：避重就轻，忽略问题的根源，只是从表面现象入手，树个假稻草人批判一番，反正胡诌一篇文章就有 KPI、就能完成领导的任务。</p>
+<p>然而年轻人可不会配合着装糊涂，一切试图和稀泥的老油条在年轻人这里都讨不到什么好话，甚至还会取得适得其反的效果。譬如共青团中央官微昨天晚上发的这条，主要思想是年轻人为国奉献，并未躺平。</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/d3624f4bj00qttg7s0062d000u001qap.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>这个糊涂装的很高明，直接提升到了为国为民的层次，然而很遗憾的是，评论区又喜闻乐见地翻车了，可见年轻人虽然身体上被动“躺平”，但是思想上还是拒绝官微一切和稀泥的装糊涂行为。</p>
+<p><img src="/images/63f9d916ly1gqxys5qfobj20zo256b29.jpg"></p>
+<!-- ![Image](https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F0528%2F430776edj00qttg7z006gd000u001plp.jpg&thumbnail=650x2147483647&quality=80&type=jpg) -->
 
-<span class="token comment">// 或者插入新样式时操作</span>
-<span class="token keyword">var</span> styleEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  styleSheet <span class="token operator">=</span> styleEl<span class="token punctuation">.</span>sheet<span class="token punctuation">;</span>
-
-styleSheet<span class="token punctuation">.</span><span class="token function">addRule</span><span class="token punctuation">(</span><span class="token string">'.box'</span><span class="token punctuation">,</span> <span class="token string">'height: 100px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-styleSheet<span class="token punctuation">.</span><span class="token function">insertRule</span><span class="token punctuation">(</span><span class="token string">'.box &#123;height: 100px&#125;'</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>styleEl<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/27f24c94j00qttg86004pd000u001qfp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>说白了还是人民对于官媒的定位不同，官媒不为民做主，不去关注社会矛盾激化的根源于本质，反而在这里和稀泥，就算躺平也得生气。我之前分析过《后浪》这一则宣传视频的口碑变化趋势：当 B 站官方账号发布了这则视频之后，都是铺天盖地的溢美之词：小破站牛逼、眼里进沙子之类的。然而当人民日报等媒体发布了之后评论的画风就变成了这样：</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/0d5d8964j00qttg8e005ad000u001pfp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/7fb2cd60j00qttg8m005rd000u001pfp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>原因很简单，大家对官方账号发布内容的要求跟一个商业网站宣传视频的要求是不一样的。做个不恰当的类比，任何公司做虚拟偶像都行，关我屁事；但是共青团做虚拟偶像就要批判。而这一次 B 站的“本站形象宣传片”拉上了大量官媒站台，引起普遍讨论也是自然而然的事情。既然你拉上了一种官媒，又打上了“献给新一代”的题目，那为什么看不见“我们”呢？只是因为我们昏天黑地的上班，只是我们的生产工作没他们欢天喜地的消费“美”，我们就不配被展示了吗？既然不配你何苦打上“青年”这样的标签呢？</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/5369901bj00qttg8s000od000u000a8p.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>什么不是装糊涂？就是必须要正视当今社会贫富分化与阶级固化的问题。年轻人不是不努力，而是努力之后上升通道狭窄，社会资源和资源的分配依旧把持在少数人手里，奋斗并没有用，那还不如“躺平”呢。根源就是我上一篇文章<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650682256&idx=1&sn=621b4372ad0d9ee8165b9f273815f1a7&chksm=bed4bcb189a335a7028ecdbeb4c012abb78e05f9a4375e80a0901fcf64c07de42c37a6b98560&scene=21#wechat_redirect">《社会内卷的根源，在于资本家们太坏了》</a>中详细分析论证的：资本家因为掌握了社会资源，他们可以凭借优势地位制定分配规则，资本家要保证自己足够的既得利益，于是劳动者们的奋斗与努力的成果都被剥削了，于是他们的奋斗与努力反而变成了会让群体环境更加恶化的“内卷”，于是劳动者们宁可“躺平”。</p>
+<p>骂了这么多官媒，我举一个媒体不装糊涂的例子。人物杂志那一篇《外卖骑手，困在系统里》就写的非常好，直指背后平台剥削、资本吃人的本质。同时央视财经对于那篇报道的评论确实说到点子上了：</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/247c758dj00qttg90003ud000op00hmp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>“创造了数十亿利润，却难分一杯羹”；“数千亿美元的商业帝国，谁饿了，美了谁？”。这不就是我们教科书里讲的“剩余价值剥削”嘛。遍身罗绮者，不是养蚕人；采得百花成蜜后，为谁辛苦为谁甜？</p>
+<p>还有另一种不装糊涂，而是“真糊涂”的既得利益者。前日，白岩松一条毒鸡汤又被年轻人们冲得很惨：“难道我们现在指望的是房价很低？然后工作到处随便找？然后一点压力都没有？然后看到喜欢的女孩只要一追求就同意?不会吧！”</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/996d98aaj00qttg980024d000s600r4p.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>老白估计不是装糊涂，而是成功太容易、居高位太久了，真糊涂了。现在年轻人想不想房价很低的问题，而是房价太高的问题；现在不是年轻人想要一点压力都没有的问题，而是压力太大的问题。这就叫抓住主要矛盾，抓不住主要矛盾，就只能像傻子一样问几句“不会吧不会吧”，沦为年轻人讨论中的笑柄。</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/0fe48c0ej00qttg9e000pd000u00085p.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<h2 id="捅破意识形态的窗户纸"><a href="#捅破意识形态的窗户纸" class="headerlink" title="捅破意识形态的窗户纸"></a>捅破意识形态的窗户纸</h2><p>所以年轻人本质上既不佛系，也不躺平，他们只是面对资本制造的内卷进行“非暴力不合作”，面对装糊涂的官媒或者何不食肉糜的既得利益者，我们还是有力气坐起来锤爆他们的狗头的。</p>
+<p>于是舆论终于还是进入真刀真枪的阶段，譬如企鹅新闻的《为国捐躯可以，为资本家不行，年轻人的思想或走入误区》：</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/2a866fbcj00qttg9l003yd000tv014ep.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>这篇文章会让你觉得愚蠢到是个反串黑，但是读来读去竟然发现作者是认真的。这是好事啊，年轻人不许和稀泥，不许装糊涂，不许何不食肉糜，终于图穷匕见，逼出了资本家和他们的乏走狗真实嘴脸：你为国家奉献可以，就不能给我们贡献点剩余价值吗？</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/28d307e2j00qttg9q000pd000fu007vp.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>我在两年前批判马云“福报论”的文章里就说过：这次事情的本质是一个忍无可忍无需再忍的故事，资本家们得寸进尺步步紧逼，突破最后的底线都毫无顾虑；于是那些曾经被消费主义和资产阶级成功学洗脑的精神上的小资产阶级们，终于开始有一点回过味来了。而且这群人，与血汗工厂那些被驱离的体力劳动者们不同，他们能熟练运用社交网络表达自己的观点立场，是稍微有一点话语权的。而当千千万万个有这么一点点话语权的人开始“是可忍孰不可忍”了，曾经岁月静好灌鸡汤的资本家也终于坐不住了，开始撕破“温情脉脉的面纱”不惜自打脸亲自下场了，只能说明一个问题：意识形态的窗户纸，快要捅破了。</p>
+<p>无产阶级的觉醒是一个漫长而艰巨的过程，《让子弹飞》中张麻子又发枪又发钱，还让漂亮的小姐姐们敲鼓助威，最后跟他来的也只是一群鹅。这个世界就是一个利益割裂的世界，资产阶级无产阶级注定利益会有冲突，那我们你代表你的我代表我的，我们堂堂正正威武之师，正面对抗去分割这些利益，没有毛病。怕就怕那些臀脑分离的人，被资产阶级价值观洗脑，明明自己每个月月光甚至还要靠父母接济，但就因为透支收入买了点上档次的消费品以为自己晋级上流社会了，瞧不起体力劳动者，一边抱怨着加班一边鄙视那些维护自身权益的人。正所谓“千防万防，工贼难防”，因此，提防被资本家和传教士洗脑到福至心灵的臀脑分离者，成为了重中之重。</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/c8a127c9j00qttg9w000od000u000aep.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>总而言之，无产阶级的阶级意识觉醒，年轻人阶级认同的重塑，是一个不可逆的历史潮流。我在<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650680297&idx=1&sn=b5e3687ef20e15aaca6641c9d96184d9&chksm=bed4a4c889a32dde0a0b20aaea962c459ebb1005bae34ab5e6a43bebab05e96fffb1fca17ae4&scene=21#wechat_redirect">《2020 年的一条主线：从我们不是“后浪”到我们都是“打工人”》</a>这篇文章中分析过：2020 年上半年最火的一个词是“后浪”，下半年最火的一个词是“打工人”。对于“后浪”一种普遍的观点是：我们不是后浪。B 站宣传片中所展示的冲浪、滑雪、汉服、滑翔翼、全球旅行、手办、无人机、摄影等等元素不是我们绝大多数年轻人的生活。对于“打工人”一种普遍观点是：你们不是打工人。譬如，各种流量明星蹭热点说自己是打工人，被挂在热搜骂了好几天；宝马汽车官微曾打工人的热度，被全网嘲讽；智障富二代曹译文去工地体验生活，被喷得销声匿迹。</p>
+<p>这两种情绪可以简单的概括为：“我们不是这样的”与“这样的不是我们”。说明当代的无产阶级在重修阶级认同这一门课程，历史兜兜转转又走了一个轮回。</p>
+<p><img src="https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2021/0528/1d78d407j00qttga3002yd000m700t3p.jpg&thumbnail=650x2147483647&quality=80&type=jpg" alt="Image"></p>
+<p>总而言之，当乏走狗、工贼、奋斗逼、传教士，甚至资本家自己，都无法再通过鸡汤、鸡血、画大饼、温情脉脉的面纱来唤起“躺平”的年轻人，当装糊涂和不食肉糜的既得利益者们持续翻车丢人现眼，阶级斗争——这一意识形态领域中被遗忘已久的四个字终将会被重新提起，一轮无法回避的新的较量即将展开。</p>
+<hr>
+<p>相关阅读：<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650680339&idx=1&sn=5a2cfd8e7ab015b2fbd439a2af98c9ae&chksm=bed4a33289a32a248cc6898a03aa55d7d8313227a0ba18713749d77c3bf7244b244d09f9f1bc&scene=21#wechat_redirect">暴打资本家的乏走狗</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650677170&idx=1&sn=a46cdf4ca547cd4c656ba47b579e9446&chksm=bed4909389a319857fd0b78e0d92d255451eae1b883a97c4008a866125d8b63e24222a7d353f&scene=21#wechat_redirect">砸烂资本家的毒鸡汤</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650679288&idx=1&sn=86107020d2055265031277cd920696ad&chksm=bed4a8d989a321cfadc89d29f553099ac55408f5125a5d5c247db11f1a82fd407c2e0197f0f6&scene=21#wechat_redirect">刷了几天“打工人”的梗，你却还不肯称我一声“无产阶级同志”</a></p>
+<p>第二本新书正在付费连载中：<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650680940&idx=2&sn=29323ce4bfe76dc3c20f3db166f69155&chksm=bed4a14d89a3285b121514cefbbb501610fe21f5141baedfecf001027da953331192e3793f97&scene=21#wechat_redirect">《资本囚笼》：结语——革命尽头</a>（上）；<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MjM5NzE2NTY0Ng==&mid=2650681061&idx=2&sn=14874ebbd35b3c00f754d62e22e4978c&chksm=bed4a1c489a328d2b887d19ac39bfbce46cf0f5fa0bfe5a82bc220b463ddde6e3d8266f9a25a&scene=21#wechat_redirect">革命尽头（下）</a></p>
+<p>上一篇 <a target="_blank" rel="noopener" href="https://weibo.com/ttarticle/p/show?id=2309404641874521751842">我是年轻人，我十分反感流量明星，以及他们的邪教粉圈</a></p>
+<hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://politics.gmw.cn/2021-05/15/content_34847222.htm">光明时评：拒绝“内卷”，年轻人开始信奉“躺平学”了？</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.xinhuanet.com/2021-05/20/c_1127467232.htm">“躺平”可耻，哪来的正义感？</a></p>
+</blockquote>
 <!-- A:
 他外出, 对坐在家里看电视的她说:'我出去一下'.
 她起身拿了一件外套给他, 说:'外面冷, 早点回来.'
@@ -687,7 +705,7 @@ B: 他:'你是我所遇到最好的女孩儿.'
 > 一个人, 是因为你对他好, 所以觉得你好.
 > 一个人, 是因为懂得你的好, 所以想要对你好.
 > 幸福的爱人, 首先应该是一对彼此欣赏的知己. -->
-<!-- flag of hidden posts -->
+
                 
             </div>
             <hr/>
@@ -704,7 +722,7 @@ B: 他:'你是我所遇到最好的女孩儿.'
                     </span>
                     <span class="reprint-info">
                         <a href="/about" rel="external nofollow noreferrer">
-                            庄引
+                            赵皓阳
                         </a>
                     </span>
                 </div>
@@ -734,7 +752,7 @@ B: 他:'你是我所遇到最好的女孩儿.'
                             </a>
                             许可协议。转载请注明来源
                                 <a href="/about" target="_blank">
-                                    庄引
+                                    赵皓阳
                                 </a>
                                 !
                     </span>
@@ -757,8 +775,8 @@ B: 他:'你是我所遇到最好的女孩儿.'
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/CSS/">
-                                    <span class="chip bg-color">CSS</span>
+                                <a href="/tags/%E8%BA%BA%E5%B9%B3/">
+                                    <span class="chip bg-color">躺平</span>
                                 </a>
                             
                         </div>
@@ -927,7 +945,7 @@ B: 他:'你是我所遇到最好的女孩儿.'
         repo: 'zhuangyin8.github.io',
         owner: 'zhuangyin8',
         admin: "zhuangyin8",
-        id: '2015-11-13T00-00-00',
+        id: '2021-05-28T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -964,9 +982,9 @@ B: 他:'你是我所遇到最好的女孩儿.'
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="JavaScript 设置 CSS 样式">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="资本家可以割韭菜，年轻人也可以“躺平”">
                         
-                        <span class="card-title">JavaScript 设置 CSS 样式</span>
+                        <span class="card-title">资本家可以割韭菜，年轻人也可以“躺平”</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -977,14 +995,14 @@ B: 他:'你是我所遇到最好的女孩儿.'
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock icon-date"></i>2015-11-13
+                            <i class="far fa-clock icon-date"></i>2021-05-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/%E6%94%BF%E6%B2%BB/" class="post-category">
+                                政治
                             </a>
                             
                             
@@ -995,8 +1013,8 @@ B: 他:'你是我所遇到最好的女孩儿.'
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
+                    <a href="/tags/%E8%BA%BA%E5%B9%B3/">
+                        <span class="chip bg-color">躺平</span>
                     </a>
                     
                 </div>
@@ -1007,16 +1025,16 @@ B: 他:'你是我所遇到最好的女孩儿.'
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇<i class="far fa-dot-circle"></i>
+                下一篇<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/%E8%BD%A6%E7%89%8C%E5%88%86%E4%BA%AB/">
+                <a href="/javascript-questions/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="JavaScript 设置 CSS 样式">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript Questions">
                         
-                        <span class="card-title">JavaScript 设置 CSS 样式</span>
+                        <span class="card-title">JavaScript Questions</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1027,26 +1045,25 @@ B: 他:'你是我所遇到最好的女孩儿.'
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock icon-date"></i>2015-11-13
+                            <i class="far fa-clock icon-date"></i>2021-05-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category">
-                                JavaScript
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
                             </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
+                    <a href="/tags/Q-A/">
+                        <span class="chip bg-color">Q&amp;A</span>
                     </a>
                     
                 </div>

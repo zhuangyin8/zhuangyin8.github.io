@@ -45,6 +45,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .container {
   width: 100%;
 }
@@ -64,20 +65,7 @@ h2 {
   /* margin: 20px 0 20px -5px; */
   font-size: 1.6rem;
   /* line-height: 1.1; */
-  color: #005bb7;
-}
-
-h2:before {
-  content: '「';
-  position: absolute;
-  /* top: -6px; */
-  left: 0;
-}
-h2:after {
-  content: '」';
-  position: absolute;
-  /* top: 6px; */
-  right: auto;
+  color: #0080ff;
 }
 
 h3 {
@@ -257,11 +245,7 @@ mark {
   /* 修改文章列表图片填充样式为 cover 以覆盖整个区域而不会被缩放 */
   object-fit: cover;
 }
-
-.container .row {
-  /* margin-bottom: 0; */
-}
-
+ 
 .bg-color {
   background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
@@ -314,11 +298,10 @@ header nav .brand-span {
 header .brand-logo .logo-img {
   height: 45px;
   vertical-align: middle;
-  padding-bottom: 6px;
 }
 
 header .brand-logo .logo-span {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
@@ -1118,11 +1101,6 @@ article .card .card-action {
   text-transform: none !important;
 }
 
-#artDetail .article-info {
-  padding: 20px 30px 1px 40px;
-  margin-bottom: -5px;
-}
-
 #artDetail .tag_share .article-tag .chip:hover {
   color: #fff;
   background: #42b983;
@@ -1169,10 +1147,15 @@ article .card .card-action {
   color: #525f7f;
 }
 
+
+#artDetail .article-info {
+  padding: 20px;
+}
+
+
 @media only screen and (max-width: 601px) {
   #artDetail .article-info {
-    padding: 15px 15px 1px 15px;
-    margin-bottom: -5px;
+    padding: 15px ;
   }
 }
 
@@ -1182,8 +1165,7 @@ article .card .card-action {
   }
 
   #artDetail .article-info {
-    padding: 15px 20px 0 28px;
-    margin-bottom: -5px;
+    padding: 15px;
   }
 }
 
@@ -1715,7 +1697,7 @@ thead {
 .my-skills .title,
 .my-gallery .title {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .my-projects .info {

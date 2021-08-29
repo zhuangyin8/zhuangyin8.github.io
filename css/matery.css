@@ -2,7 +2,7 @@
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
   html {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
@@ -64,6 +64,20 @@ h2 {
   /* margin: 20px 0 20px -5px; */
   font-size: 1.6rem;
   /* line-height: 1.1; */
+  color: #005bb7;
+}
+
+h2:before {
+  content: '「';
+  position: absolute;
+  /* top: -6px; */
+  left: 0;
+}
+h2:after {
+  content: '」';
+  position: absolute;
+  /* top: 6px; */
+  right: auto;
 }
 
 h3 {
@@ -990,7 +1004,6 @@ article .tag-image img {
   height: 220px;
 }
 
-
 article .article-content .summary {
   padding-bottom: 2px;
   padding-left: 0;
@@ -1165,7 +1178,7 @@ article .card .card-action {
 
 @media only screen and (min-width: 600px) and (max-width: 992px) {
   #artDetail .article-card-content {
-    padding: 0 30px 20px 32px;
+    padding: 0 20px;
   }
 
   #artDetail .article-info {
@@ -1176,13 +1189,13 @@ article .card .card-action {
 
 @media only screen and (min-width: 993px) {
   #artDetail .article-card-content {
-    padding: 1px 50px;
+    padding: 1px 20px;
   }
 }
 
 #artDetail .reprint {
-  margin: 15px 0 0.4rem;
-  padding: 0.5rem 0.8rem;
+  margin: 0.4rem;
+  padding: 0.5rem;
   border: 1px solid #eee;
   line-height: 2;
   transition: box-shadow 0.3s ease-in-out;

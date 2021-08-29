@@ -305,7 +305,7 @@
     
     <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
-    #articleContent h1::before,
+    /* #articleContent h1::before,
     #articleContent h2::before,
     #articleContent h3::before,
     #articleContent h4::before,
@@ -316,7 +316,7 @@
         height: 100px;
         margin-top: -100px;
         visibility: hidden;
-    }
+    } */
 
     #articleContent :focus {
         outline: none;
@@ -1065,7 +1065,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">Window.sessionStorage</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Window.localStorage</a></p>
-<p>存储在 localStorage 的数据可以长期保留；而当页面会话结束——也就是说，当页面被关闭时，存储在 sessionStorage 的数据会被清除 .</p>
+<p>不同之处在于 <code>localStorage</code> 里面存储的数据没有过期时间设置 浏览器关闭 然后重新打开后数据仍然存在 而存储在 <code>sessionStorage</code> 里面的数据在页面会话结束时会被清除.</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
@@ -5176,7 +5176,9 @@ randomValue <span class="token operator">=</span> <span class="token string">'23
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>目录</div>
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
             <div id="toc-content"></div>
         </div>
     </div>

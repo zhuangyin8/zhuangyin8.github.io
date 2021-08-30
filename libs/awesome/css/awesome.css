@@ -597,10 +597,10 @@
   content: '\2304';
 }
 .fa-angle-left:before {
-  content: '\2039';
+  content: '\f104';
 }
 .fa-angle-right:before {
-  content: '\203a';
+  content: '\f105';
 }
 .fa-angle-up:before {
   content: '\2303';
@@ -11273,18 +11273,6 @@
 .fa-duotone.fa-angle-down:after,
 .fad.fa-angle-down:after {
   content: '\2304\fe02';
-}
-.fa-duotone.fa-angle-left:before,
-.fad.fa-angle-left:before {
-  content: '\2039\fe01';
-}
-.fa-duotone.fa-angle-left:after,
-.fad.fa-angle-left:after {
-  content: '\2039\fe02';
-}
-.fa-duotone.fa-angle-right:before,
-.fad.fa-angle-right:before {
-  content: '\203a\fe01';
 }
 .fa-duotone.fa-angle-right:after,
 .fad.fa-angle-right:after {

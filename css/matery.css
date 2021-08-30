@@ -5,10 +5,16 @@ html {
 }
 
 @media only screen and (max-width: 601px) {
+  .card .card-content {
+    padding: 10px;
+  }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
+  .card .card-content {
+    padding: 15px;
+  }
 }
 
 /*大屏幕下(桌面类)的样式*/
@@ -486,27 +492,7 @@ header .go-back i {
 }
 
 .bg-cover .container {
-  position: relative;
-  color: #fff;
   z-index: 2;
-}
-
-.bg-cover .title {
-  font-size: 2rem;
-  /* line-height: 1.2em; */
-  /* margin-bottom: 20px;
-  position: relative; */
-}
-
-.bg-cover .description {
-  font-size: 1.25rem;
-  line-height: 1.4em;
-  color: #eee;
-}
-
-.bg-cover .post-title {
-  margin: 0 auto;
-  font-size: 2.2rem;
 }
 
 @keyframes rainbow {
@@ -611,23 +597,6 @@ header .go-back i {
   font-size: 2.6rem;
 }
 
-/* .dream {
-  margin-top: 20px;
-  margin-bottom: 40px;
-} */
-
-/* .dream .title,
-.music-player .title,
-.video-player .title {
-  margin-bottom: 20px;
-  font-size: 2rem;
- } */
-
-/* .dream .text {
-  opacity: 0.6;
-  font-size: 1.1rem;
-} */
-
 .music-player,
 .video-player {
   margin-top: 10px;
@@ -646,26 +615,6 @@ header .go-back i {
 
 .card .card-content {
   padding: 20px;
-}
-
-@media only screen and (min-width: 1418px) {
-  .recommend {
-    margin-top: 20px;
-    padding: 0 0.75rem;
-  }
-}
-
-@media only screen and (max-width: 601px) {
-  .card .card-content {
-    padding: 10px;
-  }
-}
-
-/*中等屏幕下(平板类)的样式*/
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-  .card .card-content {
-    padding: 15px;
-  }
 }
 
 .recommend .row .col {
@@ -905,20 +854,6 @@ article .card .card-action {
   margin-top: -60px;
 }
 
-/* 修改小屏幕下文章详情table样式. */
-@media only screen and (max-width: 550px) {
-  #articleContent table {
-    table-layout: fixed;
-  }
-}
-
-@media only screen and (min-width: 1418px) {
-  #artDetail {
-    /* margin-top: -60px; */
-    padding: 0 0.75rem;
-  }
-}
-
 #artDetail .card {
   box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07),
     0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
@@ -981,28 +916,6 @@ article .card .card-action {
 
 #artDetail .article-info {
   padding: 20px;
-}
-
-@media only screen and (max-width: 601px) {
-  #artDetail .article-info {
-    padding: 15px;
-  }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-  #artDetail .article-card-content {
-    padding: 0 20px;
-  }
-
-  #artDetail .article-info {
-    padding: 15px;
-  }
-}
-
-@media only screen and (min-width: 993px) {
-  #artDetail .article-card-content {
-    padding: 1px 20px;
-  }
 }
 
 #artDetail .reprint {
@@ -1128,22 +1041,6 @@ thead {
   left: unset;
   visibility: visible;
 }
-
-@media only screen and (min-width: 600px) {
-  #article-share .social-share a {
-    margin-left: 15px !important;
-  }
-}
-
-.chip-container {
-  /* margin-top: -60px; */
-}
-
-/* .chip-container .tag-title {
-  margin-bottom: 10px;
-  color: #3c4858;
-  font-size: 1.75rem;
-} */
 
 .chip-container .tag-chips {
   margin: 1rem auto 0.5rem;
@@ -1415,18 +1312,6 @@ thead {
 }
 
 /* about page styles. */
-
-.about-container {
-  /* width: 90%; */
-  /* max-width: 1225px;*/
-  /* margin-top: -60px;  */
-}
-
-@media only screen and (max-width: 601px) {
-  .about-container {
-    /* width: 95%; */
-  }
-}
 
 .post-statis {
   text-align: center;

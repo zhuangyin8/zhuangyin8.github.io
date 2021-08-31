@@ -564,33 +564,6 @@ div {
   align-self:center;
 }</pre></div>
 
-<!-- ### ❌`display:flex;` + `flex-direction:column;` + `align-content:center;`
-
-通过 [CSS Flexible Box Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) 实现水平居中的原理是父元素 `display:flex;` + `flex-direction:column;` + [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content):center;（此属性对单行 flex 容器（即带有 的容器 flex-wrap:nowrap）没有影响。)
-
-<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stxk0ylesheets":[]}'>
-  <pre data-lang="html">&lt;div class="parent">
-  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
-&lt;/div></pre>
-  <pre data-lang="css">body {
-  background:#f06d06;
-}
-.parent {
-  background:white;
-  margin:10px 0;
-  padding:10px;
-  display:flex;
-  flex-direction:column;
-  align-content:center;
-}
-.children {
-  background:black;
-  color:white;
-  padding:10px;
-  width:300px;
-  margin:10px;
-}</pre></div> -->
-
 <h3 id="display-flex-justify-content-center"><a href="#display-flex-justify-content-center" class="headerlink" title="display:flex; + justify-content:center;"></a><code>display:flex;</code> + <code>justify-content:center;</code></h3><p>通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">CSS Flexible Box Layout</a> 实现水平居中的原理是父元素 <code>display:flex;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a>:center;</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="parent">
@@ -638,6 +611,9 @@ div {
 }</pre></div>
 
 <h3 id="display-grid-justify-items-center"><a href="#display-grid-justify-items-center" class="headerlink" title="display:grid; + justify-items:center;"></a><code>display:grid;</code> + <code>justify-items:center;</code></h3><p>通过 CSS Grid Layout 实现水平居中的原理是父元素 <code>display:grid;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items">justify-items</a>:center;</p>
+<blockquote>
+<p>In flexbox layouts, <code>justify-items</code> property is ignored</p>
+</blockquote>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="parent">
   &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
@@ -1415,7 +1391,7 @@ $height: 200px;
   align-items:center;
 }</pre></div>
 
-<h3 id="display-grid-justify-content-center-align-content-center"><a href="#display-grid-justify-content-center-align-content-center" class="headerlink" title="display:grid; + justify-content:center; + align-content:center;"></a><code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-content:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-content:center;</code></p>
+<h3 id="display-grid-justify-content-center-align-content-center"><a href="#display-grid-justify-content-center-align-content-center" class="headerlink" title="display:grid; + justify-content:center; + align-content:center;"></a><code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-content:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-content:center;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content"><code>align-content</code></a>:center;（此属性对单行 flex 容器（即带有 的容器 flex-wrap:nowrap）没有影响。)</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;div class="parent">
   &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。

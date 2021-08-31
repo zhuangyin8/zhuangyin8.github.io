@@ -3360,6 +3360,9 @@ nav .sidenav-trigger i {
   height: 56px;
   line-height: 56px;
 }
+.brand {
+  color: #fff;
+}
 nav .brand-logo {
   position: absolute;
   color: #fff;
@@ -3746,7 +3749,7 @@ small {
   padding: 1rem;
 }
 .card .card-content {
-  padding: 0 1rem;
+  padding: 0 2rem;
   border-radius: 0 0 2px 2px;
 }
 .card .card-content p {

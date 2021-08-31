@@ -5,16 +5,10 @@ html {
 }
 
 @media only screen and (max-width: 601px) {
-  .card .card-content {
-    padding: 10px;
-  }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
-  .card .card-content {
-    padding: 15px;
-  }
 }
 
 /*大屏幕下(桌面类)的样式*/
@@ -611,10 +605,6 @@ header .go-back i {
 #recommend-sections {
   margin-top: -30px;
   padding-top: 30px;
-}
-
-.card .card-content {
-  padding: 20px;
 }
 
 .recommend .row .col {

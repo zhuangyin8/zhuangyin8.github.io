@@ -1707,7 +1707,8 @@ body {
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list">HTML5 标签列表</a></p>
 </blockquote>
-<p>5 个 CSS3 新增属性：<code>box-shadow</code>, <code>text-shadow</code>,<code>background-size</code>,<code>background-clip</code>,<code>mask</code>, <code>transform</code>,<code>filter</code></p>
+<p>5 个 CSS3 新增属性： <code>word-wrap</code> 文字换行 <code>text-overflow</code> 超过指定容器的边界时如何显示 <code>text-decoration</code> 文字渲染 <code>text-shadow</code> 文字阴影 <code>gradient</code> 渐变效果 <code>transition</code> 过渡效果 <code>transition-duration</code> 过渡的持续时间 <code>transform</code> 拉伸，压缩，旋转，偏移等变换 <code>animation</code> 动画</p>
+<p><code>transition</code> 需要触发一个事件才能改变属性，而 <code>animation</code> 不需要触发任何事件的情况下才会随时间改变属性值，并且 <code>transition</code> 为 2 帧，从 from … to，而 <code>animation</code> 可以一帧一帧的。</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Archive/CSS3">CSS3</a></p>
 </blockquote>
@@ -1889,7 +1890,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p><code>clear</code> CSS 属性指定一个元素是否必须移动 （清除浮动后） 到在它之前的浮动元素下面。<code>clear</code> 属性适用于浮动和非浮动元素。</p>
 <ul>
 <li>父元素结束标签之前插入清除浮动的块级元素</li>
-<li>利用 after 伪元素 (clearfix)  </li>
+<li>利用 after 伪元素 (clearfix)</li>
 <li>利用 overflow 清除浮动</li>
 </ul>
 </details>
@@ -2314,7 +2315,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jack'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> <span class="token punctuation">&#123;</span>name<span class="token punctuation">,</span> age<span class="token punctuation">&#125;</span> <span class="token operator">=</span> a<span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">&#123;</span> name<span class="token punctuation">,</span> age <span class="token punctuation">&#125;</span> <span class="token operator">=</span> a<span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Jack</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 </details>

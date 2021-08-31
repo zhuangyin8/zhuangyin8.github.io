@@ -523,6 +523,9 @@ p {
 </blockquote>
 <p>The options to center vertically are vast depending on your situation really. Let’s look at a few of my favorites which do not include some other weird or, in my opinion, unmaintainable hacks.</p>
 <p><em>Vertically center anything inside a display flex container:</em></p>
+<blockquote>
+<p>弹性布局容器内垂直居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.flex-vertically-center</span> <span class="token punctuation">&#123;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
@@ -532,6 +535,9 @@ p {
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a></p>
 </blockquote>
 <p><em>Vertical alignment an inline, inline-block, or table-cell box:</em></p>
+<blockquote>
+<p>行内元素垂直居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">img</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/* only for block tags */</span>
   <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
@@ -542,6 +548,9 @@ p {
 <p><a target="_blank" rel="noopener" href="https://css-tricks.com/almanac/properties/v/vertical-align/">vertical-align</a></p>
 </blockquote>
 <p><em>Vertically center absolute element inside a relative container:</em></p>
+<blockquote>
+<p>相对定位容器内绝对定位垂直居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -557,6 +566,9 @@ p {
 </blockquote>
 <p>Similar to vertically align you will need to align things horizontally as well. These are my favorite minus the weird stuff.</p>
 <p><em>Center block items:</em></p>
+<blockquote>
+<p>块级元素水平居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.block-element</span> <span class="token punctuation">&#123;</span>
   <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
   <span class="token comment">/* use display only if element is not block already */</span>
@@ -564,11 +576,17 @@ p {
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><em>Center text and inline or inline-block elements:</em></p>
+<blockquote>
+<p>行内元素水平居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><em>Horizontally center absolute element inside a relative container:</em></p>
+<blockquote>
+<p>相对定位容器内绝对定位水平居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -580,8 +598,20 @@ p {
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><em>Horizontally center anything inside a display flex container:</em></p>
+<blockquote>
+<p>弹性布局容器内水平居中</p>
+</blockquote>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.flex-vertically-center</span> <span class="token punctuation">&#123;</span>
   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><em>Horizontally center anything inside a display grid container:</em></p>
+<blockquote>
+<p>网格布局容器内水平居中</p>
+</blockquote>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.flex-vertically-center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
   <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 

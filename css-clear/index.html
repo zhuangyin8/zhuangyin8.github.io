@@ -463,6 +463,8 @@
             <div id="articleContent">
                 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<h2 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h2><h3 id="正常文档流"><a href="#正常文档流" class="headerlink" title="正常文档流"></a>正常文档流</h3><p>文档流即元素在页面中出现的先后顺序；正常文档流又称为普通文档流或者普通流，即 W3C 标准所说的 normal flow。正常文档流，将一个页面从上到下分为多行，其中块元素独占一行，相邻行内元素在每一行中按照从左到右排列，直到该行排满，也就是默认情况下页面内的元素布局情况。<br>正常文档流也可以说成是没有使用浮动和定位去改变的默认情况下的 HTML 文档结构。</p>
+<h3 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h3><p>脱离文档流即脱离正常的文档流，可以使用两种方式改变正常的文档流：浮动和定位。</p>
 <h2 id="什么是-CSS-清除浮动"><a href="#什么是-CSS-清除浮动" class="headerlink" title="什么是 CSS 清除浮动"></a>什么是 CSS 清除浮动</h2><p>在非 IE 浏览器 (如 Firefox) 下, 当容器的高度为 auto, 且容器的内容中有浮动 (<code>float</code> 为 <code>left</code> 或 <code>right</code>) 的元素,<br>在这种情况下, 容器的高度不能自动伸长以适应内容的高度, 使得内容溢出到容器外面而影响 (甚至破坏) 布局的现象.<br>这个现象叫浮动溢出, 为了防止这个现象的出现而进行的 CSS 处理, 就叫 CSS 清除浮动.</p>
 <div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="abpPJox" data-preview="true" data-editable="true"  data-prefill='{"title":"Without clear","tags":["center"],"scripts":[],"stylesheets":[]}'>
   <pre data-lang="html">&lt;h2>Without clear&lt;/h2>
@@ -479,7 +481,7 @@ section img {
 }
 section p {
   float: right;
-  background-color: red;
+  background: red;
 }</pre></div>
 
 <h2 id="解决-CSS-清除浮动"><a href="#解决-CSS-清除浮动" class="headerlink" title="解决 CSS 清除浮动"></a>解决 CSS 清除浮动</h2><p>float 布局会脱离文档流，对页面的布局造成影响，比如造成父级的高度坍塌等问题。清除浮动后，便不会影响文档流。下面介绍一下现在清除浮动的一些方式。</p>

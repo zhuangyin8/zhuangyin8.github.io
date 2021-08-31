@@ -849,10 +849,6 @@ article .card .card-action {
     0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
 }
 
-#artDetail .tag-cate {
-  padding-bottom: 15px;
-}
-
 #artDetail a {
   margin-right: 0 !important;
   text-transform: none !important;
@@ -902,10 +898,6 @@ article .card .card-action {
 #artDetail .post-info .post-read {
   margin-left: 15px;
   color: #525f7f;
-}
-
-#artDetail .article-info {
-  padding: 20px;
 }
 
 #artDetail .reprint {
@@ -1616,42 +1608,6 @@ footer .copy-right {
   background: linear-gradient(to bottom right, #ff5e3a 0%, #ff2a68 100%);
   width: 58px;
   height: 58px;
-}
-
-@media screen and (min-width: 368px) and (max-width: 767px) {
-  .info-break-policy {
-    word-break: keep-all;
-    float: left;
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .info-break-policy {
-    word-break: keep-all;
-    float: left;
-    margin-right: 15px;
-  }
-}
-
-@media screen and (max-width: 367px) {
-  .info-break-policy {
-    word-break: keep-all;
-    float: left;
-    width: 100%;
-  }
-
-  .custom-card {
-    padding: 0 2px !important;
-  }
-}
-
-.info-break-policy {
-  margin-bottom: 8px;
-}
-
-.clearfix {
-  clear: left;
 }
 
 .img-shadow {

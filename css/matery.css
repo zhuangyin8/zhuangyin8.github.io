@@ -758,6 +758,11 @@ article .tag-image img {
   height: 220px;
 }
 
+.article-info,#articleContent,.card-content {
+  border-bottom: 1px solid gray;
+  padding: 0  1rem 2rem 1rem;
+}
+
 article .article-content .summary {
   padding-bottom: 2px;
   padding-left: 0;
@@ -921,11 +926,6 @@ article .card .card-action {
   color: #42b983;
 }
 
-/* #articleContent p {
-  margin: 2px 2px 10px;
-  font-size: 1rem;
-  line-height: 1.85rem;
-} */
 
 #articleContent blockquote p {
   text-indent: 0.2rem;

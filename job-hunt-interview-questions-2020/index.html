@@ -407,9 +407,9 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Interview/">
-                                <span class="chip bg-color">Interview</span>
-                            </a>
+                        <a href="/tags/Interview/">
+                            <span class="chip bg-color">Interview</span>
+                        </a>
                         
                     </div>
                     
@@ -419,9 +419,9 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark icon-category"></i>
                         
-                            <a href="/categories/Front-End/" class="post-category">
-                                Front-End
-                            </a>
+                        <a href="/categories/Front-End/" class="post-category">
+                            Front-End
+                        </a>
                         
                     </div>
                     
@@ -456,9 +456,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://dev.to/devabhijeet/all-front-end-interview-questions-asked-during-my-recent-job-hunt-1kge">原文链接</a></p>
-</blockquote>
-<blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/devabhijeet/all-front-end-interview-questions-asked-during-my-recent-job-hunt-1kge">All front end Interview questions asked during my recent job hunt.</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/devAbhijeet/job-hunt-interview-questions-2020">All front end Interview questions asked during my recent job hunt</a></p>
 </blockquote>
 <h2 id="Front-end-interview-1-Part-Series"><a href="#Front-end-interview-1-Part-Series" class="headerlink" title="Front end interview (1 Part Series)"></a>Front end interview (1 Part Series)</h2><h3 id="Interview-questions-for-front-end"><a href="#Interview-questions-for-front-end" class="headerlink" title="Interview questions for front end"></a>Interview questions for front end</h3><hr>
@@ -475,8 +473,6 @@
 <blockquote>
 <p>The solution are not production ready code and just represents a rough idea of my approach. Try implementing your own approach.</p>
 <p>Edits made on 20/08/2020. <a target="_blank" rel="noopener" href="https://github.com/devAbhijeet/job-hunt-interview-questions-2020/commit/f4be0455a740db89e6c1dc48108123168b0e2ee9">Click</a> to view changes</p>
-</blockquote>
-<blockquote>
 <p>这里提出的解法并不能直接生产使用，只代表我个人的粗略想法。大家不妨尝试用自己的办法解决这些问题。</p>
 </blockquote>
 <h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ol>
@@ -827,7 +823,7 @@ promise
 </ol>
 <blockquote>
 <ol start="8">
-<li>实现 debounce（防抖）函数。</li>
+<li>实现 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/debounce">debounce</a>（防抖）函数。防抖就是通过 setTimeout 的方式，在一定的时间间隔内，将多次触发变成一次触发。</li>
 </ol>
 </blockquote>
 <details><summary>Answer</summary>
@@ -843,6 +839,25 @@ promise
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token function">debounce</span><span class="token punctuation">(</span>apiCall<span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>Creates a debounced function that delays invoking the provided function until at least <code>ms</code> milliseconds have elapsed since the last time it was invoked.</p>
+<p>Each time the debounced function is invoked, clear the current pending timeout with <code>clearTimeout()</code> and use <code>setTimeout()</code> to create a new timeout that delays invoking the function until at least <code>ms</code> milliseconds has elapsed.<br>Use <code>Function.prototype.apply()</code> to apply the <code>this</code> context to the function and provide the necessary arguments.<br>Omit the second argument, <code>ms</code>, to set the timeout at a default of <code>0</code> ms.</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">debounce</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> ms <span class="token operator">=</span> <span class="token number">0</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> timeoutId<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeoutId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    timeoutId <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">,</span> ms<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Examples</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+  <span class="token string">'resize'</span><span class="token punctuation">,</span>
+  <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Will log the window dimensions at most every 250ms</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </details>
 
 <hr>
@@ -851,7 +866,7 @@ promise
 </ol>
 <blockquote>
 <ol start="9">
-<li>实现 throttling（节流）函数。</li>
+<li>实现 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/throttle">throttling</a>（节流）函数。 节流其实就是减少一段时间的触发频率。简单来说，就是你一直狂点不停的话，它会每隔一定时间就执行一次。它与防抖最大的区别就是，无论事件触发多么频繁，都可以保证在规定时间内可以执行一次执行函数。</li>
 </ol>
 </blockquote>
 <details><summary>Answer</summary>
@@ -873,6 +888,39 @@ promise
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<p>Creates a throttled function that only invokes the provided function at most once per every wait milliseconds</p>
+<p>Use setTimeout() and clearTimeout() to throttle the given method, fn.<br>Use Function.prototype.apply() to apply the this context to the function and provide the necessary arguments.<br>Use Date.now() to keep track of the last time the throttled function was invoked.<br>Use a variable, inThrottle, to prevent a race condition between the first execution of fn and the next loop.<br>Omit the second argument, wait, to set the timeout at a default of 0 ms.</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">throttle</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> wait</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> inThrottle<span class="token punctuation">,</span> lastFn<span class="token punctuation">,</span> lastTime<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">,</span>
+      args <span class="token operator">=</span> arguments<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>inThrottle<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      lastTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      inThrottle <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>lastFn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      lastFn <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> lastTime <span class="token operator">>=</span> wait<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          lastTime <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>wait <span class="token operator">-</span> <span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> lastTime<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Examples</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+  <span class="token string">'resize'</span><span class="token punctuation">,</span>
+  <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Will log the window dimensions at most every 250ms</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 </details>
 
@@ -2124,9 +2172,9 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
                         </i>
                     </span>
                     <span class="reprint-info">
-                        <a href="https://zhuangyin8.github.io/all-front-end-interview-questions-asked-during-my-recent-job-hunt/">
+                        <a href="https://zhuangyin8.github.io/job-hunt-interview-questions-2020/">
                             https://zhuangyin8.github.io
-                                /all-front-end-interview-questions-asked-during-my-recent-job-hunt/
+                                /job-hunt-interview-questions-2020/
                         </a>
                     </span>
                 </div>
@@ -2163,13 +2211,13 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
             <div class="tag_share">
                 <div class="post-meta__tag-list">
                     
-                        <div class="article-tag">
-                            
-                                <a href="/tags/Interview/">
-                                    <span class="chip bg-color">Interview</span>
-                                </a>
-                            
-                        </div>
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Interview/">
+                            <span class="chip bg-color">Interview</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="post_share">
@@ -2187,7 +2235,7 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
                 </div>
             </div>
             
-                <style>
+            <style>
     #reward {
         margin: 40px 0;
         text-align: center;
@@ -2316,7 +2364,7 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
     </div>
 
     
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
 <link rel="stylesheet" href="/css/my-gitalk.css">
 
 <div class="card gitalk-card" data-aos="fade-up">
@@ -2365,7 +2413,8 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>上一篇</div>
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
             <div class="card">
                 <a href="/a-guide-to-flexbox/">
                     <div class="card-image">
@@ -2417,7 +2466,8 @@ maxOverall <span class="token operator">=</span> <span class="token keyword">if<
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇<i class="fas fa-chevron-right"></i>
+                下一篇
+                <i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/cs-visualized-cors/">

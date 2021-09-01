@@ -608,7 +608,7 @@ header .go-back i {
 }
 
 .recommend .row .col {
-  padding: 0 1.25rem;
+  padding: 0;
 }
 
 .recommend .title {
@@ -733,11 +733,6 @@ article a:hover {
   text-decoration: underline;
 }
 
-.articles .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 article .card {
   border-radius: 8px;
   overflow: hidden;
@@ -758,9 +753,10 @@ article .tag-image img {
   height: 220px;
 }
 
-.article-info,#articleContent,.card-content {
+.article-info,
+#articleContent {
   border-bottom: 1px solid gray;
-  padding: 0  1rem 2rem 1rem;
+  padding: 0;
 }
 
 article .article-content .summary {
@@ -821,11 +817,6 @@ article .card .card-action {
   margin-bottom: 15px;
 }
 
-.paging .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 .paging .page-info {
   font-size: 1.4rem;
   color: #888;
@@ -845,10 +836,6 @@ article .card .card-action {
 }
 
 /*文章详情样式*/
-#artDetail {
-  margin-top: -60px;
-}
-
 #artDetail .card {
   box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07),
     0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
@@ -925,7 +912,6 @@ article .card .card-action {
   font-size: 1rem;
   color: #42b983;
 }
-
 
 #articleContent blockquote p {
   text-indent: 0.2rem;

@@ -2565,7 +2565,8 @@ table span.badge {
 .row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  padding: .5rem 0;
 }
 .row:after {
   content: '';
@@ -3749,7 +3750,7 @@ small {
   padding: 1rem;
 }
 .card .card-content {
-  padding: 1rem 2rem;
+  padding: .5rem;
   border-radius: 0 0 2px 2px;
 }
 .card .card-content p {

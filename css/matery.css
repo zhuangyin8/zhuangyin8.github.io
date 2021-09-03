@@ -841,10 +841,6 @@ article .card .card-action {
     0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
 }
 
-#artDetail a {
-  margin-right: 0 !important;
-  text-transform: none !important;
-}
 
 #artDetail .tag_share .article-tag .chip:hover {
   color: #fff;

@@ -1768,15 +1768,14 @@ document<span class="token punctuation">.</span>body<span class="token punctuati
 <p>此列表非常全面，完成所有优化可能需要很长时间。那么，如果你只有 1 小时的时间来获得显着的改进，你会怎么做？让我们把它全部归结为 17 个低垂的果实。显然，在开始之前和完成之后，测量结果，包括最大内容绘制和 3G 和电缆连接上的交互时间。</p>
 </blockquote>
 <ol>
-<li> Measure the real world experience and set appropriate goals. Aim to be at least 20% faster than your fastest competitor. Stay within Largest Contentful Paint &lt; 2.5s, a First Input Delay &lt; 100ms, Time to Interactive &lt; 5s on slow 3G, for repeat visits, TTI &lt; 2s. Optimize at least for First Contentful Paint and Time To Interactive.</li>
-<li> Optimize images with <a target="_blank" rel="noopener" href="https://squoosh.app/">Squoosh</a>, <a target="_blank" rel="noopener" href="https://github.com/mozilla/mozjpeg">mozjpeg</a>, <a target="_blank" rel="noopener" href="https://github.com/google/guetzli">guetzli</a>, <a target="_blank" rel="noopener" href="http://css-ig.net/pingo">pingo</a> and <a target="_blank" rel="noopener" href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>, and serve AVIF/WebP with an image CDN.</li>
-<li> Prepare critical CSS for your main templates, and inline them in the <code>&lt;head&gt;</code> of each template. For CSS/JS, operate within a critical file size <a target="_blank" rel="noopener" href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">budget of max. 170KB gzipped</a> (0.7MB decompressed).</li>
-<li> Trim, optimize, defer and lazy-load scripts. Invest in the config of your bundler to remove redundancies and check lightweight alternatives.</li>
-<li> Always self-host your static assets and always prefer to self-host third-party assets. Limit the impact of third-party scripts. Use facades, load widgets on interaction and beware of anti-flicker snippets.</li>
-<li> Be selective when choosing a framework. For single-page-applications, identify critical pages and serve them statically, or at least prerender them, and use progressive hydration on component-level and import modules on interaction.</li>
-<li> Client-side rendering alone isn’t a good choice for performance. Prerender if your pages don’t change much, and defer the booting of frameworks if you can. If possible, use streaming server-side rendering.</li>
-<li> Serve legacy code only to legacy browsers with <code>&lt;script type=&quot;module&quot;&gt;</code> and <a target="_blank" rel="noopener" href="https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/">module/nomodule pattern</a>.</li>
-<li> Experiment with regrouping your CSS rules and test in-body CSS.</li>
+<li>Measure the real world experience and set appropriate goals. Aim to be at least 20% faster than your fastest competitor. Stay within Largest Contentful Paint &lt; 2.5s, a First Input Delay &lt; 100ms, Time to Interactive &lt; 5s on slow 3G, for repeat visits, TTI &lt; 2s. Optimize at least for First Contentful Paint and Time To Interactive.</li>
+<li>Optimize images with <a target="_blank" rel="noopener" href="https://squoosh.app/">Squoosh</a>, <a target="_blank" rel="noopener" href="https://github.com/mozilla/mozjpeg">mozjpeg</a>, <a target="_blank" rel="noopener" href="https://github.com/google/guetzli">guetzli</a>, <a target="_blank" rel="noopener" href="http://css-ig.net/pingo">pingo</a> and <a target="_blank" rel="noopener" href="https://jakearchibald.github.io/svgomg/">SVGOMG</a>, and serve AVIF/WebP with an image CDN.</li>
+<li>Prepare critical CSS for your main templates, and inline them in the <code>&lt;head&gt;</code> of each template. For CSS/JS, operate within a critical file size <a target="_blank" rel="noopener" href="https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/">budget of max. 170KB gzipped</a> (0.7MB decompressed).</li>
+<li>Trim, optimize, defer and lazy-load scripts. Invest in the config of your bundler to remove redundancies and check lightweight alternatives.</li>
+<li>Always self-host your static assets and always prefer to self-host third-party assets. Limit the impact of third-party scripts. Use facades, load widgets on interaction and beware of anti-flicker snippets.</li>
+<li>Be selective when choosing a framework. For single-page-applications, identify critical pages and serve them statically, or at least prerender them, and use progressive hydration on component-level and import modules on interaction.</li>
+<li>Client-side rendering alone isn’t a good choice for performance. Prerender if your pages don’t change much, and defer the booting of frameworks if you can. If possible, use streaming server-side rendering.</li>
+<li>Serve legacy code only to legacy browsers with <code>&lt;script type=&quot;module&quot;&gt;</code> and <a target="_blank" rel="noopener" href="https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/">module/nomodule pattern</a>.<br> Experiment with regrouping your CSS rules and test in-body CSS.</li>
 <li>Add resource hints to speed up delivery with faster <code>dns-lookup</code>, <code>preconnect</code>, <code>prefetch</code>, <code>preload</code> and <code>prerender</code>.</li>
 <li>Subset web fonts and load them asynchronously, and utilize <code>font-display</code> in CSS for fast first rendering.</li>
 <li>Check that HTTP cache headers and security headers are set properly.</li>
@@ -1795,7 +1794,7 @@ document<span class="token punctuation">.</span>body<span class="token punctuati
 <li>始终自托管您的静态资产，并且始终更喜欢自托管第三方资产。限制第三方脚本的影响。使用外观，在交互时加载小部件并注意防闪烁片段。</li>
 <li>选择框架时要有选择性。对于单页应用程序，识别关键页面并静态提供它们，或至少预渲染它们，并在组件级使用渐进式水化，在交互上使用导入模块。</li>
 <li>单独的客户端渲染不是性能的好选择。如果您的页面变化不大，则预渲染，如果可以，则推迟框架的启动。如果可能，请使用流式服务器端渲染。</li>
-<li>仅使用 <code>&lt;script type=&quot;module&quot;&gt; </code>和 module/nomodule 模式</li>
+<li>仅使用 <code>&lt;script type=&quot;module&quot;&gt;</code> 和 module/nomodule 模式</li>
 <li>将遗留代码提供给遗留浏览器。 尝试重新组合 CSS 规则并测试 in-body CSS。</li>
 <li>添加资源提示以通过更快的 <code>dns-lookup</code>、<code>preconnect</code>、<code>prefetch</code>、<code>preload</code> 和 <code>prerender</code> 加速交付。</li>
 <li>子集网络字体并异步加载它们，并利用 CSS 中的字体显示进行快速首次渲染。</li>

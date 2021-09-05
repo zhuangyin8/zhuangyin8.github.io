@@ -1,7 +1,7 @@
 /*全局基础样式*/
 /*小屏幕下(手机类)的样式*/
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 @media only screen and (max-width: 601px) {
@@ -324,12 +324,12 @@ header .side-nav .mobile-head .logo-name {
 }
 
 header .side-nav .mobile-head .logo-desc {
-  /* margin-top: -10px; */
-  /* padding-left: 10px; */
+  /* margin-top: -10px;
+  padding-left: 10px; */
   padding-bottom: 10px;
   font-size: 1rem;
-  line-height: 2;
-  color: #e3e3e3;
+  line-height: 1.5;
+  /* color: #a09696; */
 }
 
 header .side-nav .menu-list li {
@@ -840,7 +840,6 @@ article .card .card-action {
   box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07),
     0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
 }
-
 
 #artDetail .tag_share .article-tag .chip:hover {
   color: #fff;

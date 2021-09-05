@@ -1600,11 +1600,6 @@
 .transparent-text {
   color: rgba(0, 0, 0, 0) !important;
 }
-html {
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
 body {
   margin: 0;
 }
@@ -1794,9 +1789,7 @@ template {
 [hidden] {
   display: none;
 }
-html {
-  box-sizing: border-box;
-}
+
 *,
 *:before,
 *:after {
@@ -2566,7 +2559,7 @@ table span.badge {
   margin-left: auto;
   margin-right: auto;
   /* margin-bottom: 20px; */
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 .row:after {
   content: '';
@@ -3525,6 +3518,8 @@ html {
     'Helvetica Neue', sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
+  letter-spacing: 0.1rem;
+
 }
 h1,
 h2,
@@ -3755,6 +3750,7 @@ small {
 }
 .card .card-content p {
   margin-bottom: 20px;
+  /* letter-spacing: 0.1rem; */
 }
 .card .card-content .card-title {
   display: block;

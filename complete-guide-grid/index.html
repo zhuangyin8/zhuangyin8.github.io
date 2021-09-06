@@ -502,19 +502,16 @@
 <p>在元素上声明 <code>display:grid</code> 的元素. 它是所有网格项的直接父项. 在此示例中,<code>container</code> 是网格容器.</p>
 </blockquote>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Grid-Line"><a href="#Grid-Line" class="headerlink" title="Grid Line"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Lines">Grid Line</a></h3><p>The dividing lines that make up the structure of the grid. They can be either vertical (“column grid lines”) or horizontal (“row grid lines”) and reside on either side of a row or column. Here the yellow line is an example of a column grid line.</p>
 <blockquote>
 <p>组成网格结构的分隔线. 它们可以是垂直的 (“列网格线”) 或水平的(“行网格线”), 并位于行或列的任一侧. 这里的黄线是列网格线的示例.</p>
 </blockquote>
 <img src="/images/terms-grid-line.svg" width="400" alt="网格线">
-
 
 <h3 id="Grid-Track-网格轨道"><a href="#Grid-Track-网格轨道" class="headerlink" title="Grid Track 网格轨道"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Track">Grid Track</a> 网格轨道</h3><p>The space between two adjacent grid lines. You can think of them like the columns or rows of the grid. Here’s the grid track between the second and third row grid lines.</p>
 <blockquote>
@@ -533,21 +530,18 @@
 <p>网格容器的子代 (即直接后代). 这里的 <code>item</code> 元素是网格项目, 但 <code>sub-item</code> 不是.</p>
 </blockquote>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sub-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sub-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="Grid-Cell"><a href="#Grid-Cell" class="headerlink" title="Grid Cell"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Cell">Grid Cell</a></h3><p>The space between two adjacent row and two adjacent column grid lines. It’s a single “unit” of the grid. Here’s the grid cell between row grid lines 1 and 2, and column grid lines 2 and 3.</p>
 <blockquote>
 <p>两个相邻的行和两个相邻的列网格线之间的空间. 它是网格的单个 “单位”. 这是行网格线 1 和 2, 列网格线 2 和 3 之间的网格单元.</p>
 </blockquote>
 <img src="/images/terms-grid-cell.svg" width="400" alt="网格单元">
-
 
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Grid_Column">Grid Column</a> 网格列沿着纵轴运行</p>
@@ -589,7 +583,6 @@
   <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 40px 50px auto 50px 40px<span class="token punctuation">;</span>
   <span class="token property">grid-template-rows</span><span class="token punctuation">:</span> 25% 100px auto<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 
 <img src="/images/template-columns-rows-01.svg" width="400" alt="Grid with user named lines">
 
@@ -640,7 +633,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><grid-area-name></strong> – the name of a grid area specified with <code>grid-area</code></li>
+<li><strong><code>&lt;grid-area-name&gt;</code></strong> – the name of a grid area specified with <code>grid-area</code></li>
 <li><strong>.</strong> – a period signifies an empty grid cell</li>
 <li><strong>none</strong> – no grid areas are defined</li>
 </ul>
@@ -684,7 +677,7 @@
 <p>Values:</p>
 <ul>
 <li><strong>none</strong> – sets all three properties to their initial values</li>
-<li><strong><grid-template-rows> / <grid-template-columns></strong> – sets <code>grid-template-columns</code> and <code>grid-template-rows</code> to the specified values, respectively, and sets <code>grid-template-areas</code> to <code>none</code></li>
+<li><strong><code>&lt;grid-template-rows&gt;</code> / <code>&lt;grid-template-columns&gt;</code></strong> – sets <code>grid-template-columns</code> and <code>grid-template-rows</code> to the specified values, respectively, and sets <code>grid-template-areas</code> to <code>none</code></li>
 </ul>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-template</span><span class="token punctuation">:</span> none | &lt;grid-template-rows> / &lt;grid-template-columns><span class="token punctuation">;</span>
@@ -717,7 +710,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><line-size></strong> – a length value</li>
+<li><strong><code>&lt;line-size&gt;</code></strong> – a length value</li>
 </ul>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/* standard */</span>
@@ -750,7 +743,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><grid-row-gap> <grid-column-gap></strong> – length values</li>
+<li><strong><code>&lt;grid-row-gap&gt;</code> <code>&lt;grid-column-gap&gt;</code></strong> – length values</li>
 </ul>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token comment">/* standard */</span>
@@ -860,7 +853,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><align-items> / <justify-items></strong> – The first value sets <code>align-items</code>, the second value <code>justify-items</code>. If the second value is omitted, the first value is assigned to both properties.</li>
+<li><strong><code>&lt;align-items&gt;</code> / <code>&lt;justify-items&gt;</code></strong> – The first value sets <code>align-items</code>, the second value <code>justify-items</code>. If the second value is omitted, the first value is assigned to both properties.</li>
 </ul>
 <p>All major browsers except Edge support the <code>place-items</code> shorthand property.</p>
 <p>For more details, see <code>align-items</code> and <code>justify-items</code>.</p>
@@ -1000,7 +993,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><align-content> / <justify-content></strong> – The first value sets <code>align-content</code>, the second value <code>justify-content</code>. If the second value is omitted, the first value is assigned to both properties.</li>
+<li><strong><code>&lt;align-content&gt;</code> / <code>&lt;justify-content&gt;</code></strong> – The first value sets <code>align-content</code>, the second value <code>justify-content</code>. If the second value is omitted, the first value is assigned to both properties.</li>
 </ul>
 <p>All major browsers except Edge support the <code>place-content</code> shorthand property.</p>
 <p>For more details, see <code>align-content</code> and <code>justify-content</code>.</p>
@@ -1010,7 +1003,7 @@
 </blockquote>
 <p>Values:</p>
 <ul>
-<li><strong><track-size></strong> – can be a length, a percentage, or a fraction of the free space in the grid (using the `[fr</li>
+<li><strong><code>&lt;track-size&gt;</code></strong> – can be a length, a percentage, or a fraction of the free space in the grid (using the `[fr</li>
 </ul>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">&#123;</span>
   <span class="token property">grid-auto-columns</span><span class="token punctuation">:</span> &lt;track-size>...<span class="token punctuation">;</span>
@@ -1109,8 +1102,8 @@
 <p>Values:</p>
 <ul>
 <li><strong>none</strong> – sets all sub-properties to their initial values.</li>
-<li><strong><grid-template></strong> – works the same as the <code>grid-template</code> shorthand.</li>
-<li><strong><grid-template-rows> / [ auto-flow &amp;&amp; dense? ] <grid-auto-columns>?</strong> – sets <code>grid-columns-rows</code> to the specified value. If the <code>auto-flow</code> keyword is to the right of the slash, it sets <code>grid-auto-flow</code> to <code>column</code>. If the <code>dense</code> keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If <code>grid-auto-columns</code> is omitted, it is set to <code>auto</code>.</li>
+<li><strong><code>&lt;grid-template&gt;</code></strong> – works the same as the <code>grid-template</code> shorthand.</li>
+<li><strong><code>&lt;grid-template-rows&gt;</code> / [ auto-flow &amp;&amp; dense? ] <grid-auto-columns>?</strong> – sets <code>grid-columns-rows</code> to the specified value. If the <code>auto-flow</code> keyword is to the right of the slash, it sets <code>grid-auto-flow</code> to <code>column</code>. If the <code>dense</code> keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If <code>grid-auto-columns</code> is omitted, it is set to <code>auto</code>.</li>
 <li><strong>[auto-flow &amp;&amp; dense? ] <grid-auto-rows>? / <grid-template-columns></strong> – sets <code>grid-template-columns</code> to the specified value. If the <code>auto-flow</code> keyword is to the left of the slash, it sets <code>grid-auto-flow</code> to <code>row</code>. If the <code>dense</code> keyword is specified additionally, the auto-placement algorithm uses a “dense” packing algorithm. If <code>grid-auto-rows</code> is omitted, it is set to <code>auto</code>.</li>
 </ul>
 <p>Examples:</p>

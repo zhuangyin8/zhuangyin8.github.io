@@ -836,7 +836,7 @@ article .card .card-action {
 }
 
 .paging i {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .paging .disabled {
@@ -1648,33 +1648,6 @@ footer .copy-right {
   padding-right: 1rem;
 }
 
-/* create the ... style */
-.block-with-text:before {
-  /* points in the end */
-  content: '...';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of block */
-  right: 0.2em;
-  bottom: 0;
-}
-
-/* hide ... if we have text, which is less than or equal to max lines */
-.block-with-text:after {
-  /* points in the end */
-  content: '';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of text */
-  right: 0;
-  /* set width and height */
-  width: 1em;
-  height: 1em;
-  /* fix the problem of hidden failure */
-  margin-top: 0.4em;
-  /* bg color = bg color under block */
-  background: white;
-}
 
 /*二级菜单*/
 

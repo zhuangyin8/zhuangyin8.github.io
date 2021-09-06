@@ -3518,8 +3518,7 @@ html {
     'Helvetica Neue', sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
-  letter-spacing: 0.1rem;
-
+  letter-spacing: 1px;
 }
 h1,
 h2,
@@ -3745,12 +3744,11 @@ small {
   padding: 1rem;
 }
 .card .card-content {
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0 0 2px 2px;
 }
 .card .card-content p {
   margin-bottom: 20px;
-  /* letter-spacing: 0.1rem; */
 }
 .card .card-content .card-title {
   display: block;

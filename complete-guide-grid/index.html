@@ -485,7 +485,7 @@
 <blockquote>
 <p>截至 2017 年 3 月, 大多数浏览器都提供了对 CSS Grid 的原生, 无前缀支持: Chrome(包括 Android),Firefox,Safari(包括 iOS) 和 Opera. 另一方面, Internet Explorer 10 和 11 支持它, 但是它是一个过时的实现, 语法已经过时. 现在是使用网格的时候了！</p>
 </blockquote>
-<p>To get started you have to define a container element as a grid with <code>[display: grid](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-display)</code>, set the column and row sizes with <code>[grid-template-columns](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows)</code> and <code>[grid-template-rows](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows)</code>, and then place its child elements into the grid with <code>[grid-column](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row)</code> and <code>[grid-row](https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row)</code>. Similarly to flexbox, the source order of the grid items doesn’t matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries. Imagine defining the layout of your entire page, and then completely rearranging it to accommodate a different screen width all with only a couple lines of CSS. Grid is one of the most powerful CSS modules ever introduced.</p>
+<p>To get started you have to define a container element as a grid with <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-display"><code>display: grid</code></a>, set the column and row sizes with <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows"><code>grid-template-columns</code></a> and <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-template-columns-rows"><code>grid-template-rows</code></a>, and then place its child elements into the grid with <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row"><code>grid-column</code></a> and <a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-column-row"><code>grid-row</code></a>. Similarly to flexbox, the source order of the grid items doesn’t matter. Your CSS can place them in any order, which makes it super easy to rearrange your grid with media queries. Imagine defining the layout of your entire page, and then completely rearranging it to accommodate a different screen width all with only a couple lines of CSS. Grid is one of the most powerful CSS modules ever introduced.</p>
 <blockquote>
 <p>首先, 您必须将容器元素定义为 <code>display: grid</code>, 使用 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> 设置列和行的大小, 然后将其子元素放入带有 <code>grid-column</code> 和 <code>grid-rows</code> 的网格中. 与 flexbox 类似, 网格项目的原始顺序无关紧要. 您的 CSS 可以按任何顺序放置它们, 这使得通过媒体查询重新排列网格非常容易. 想象一下定义整个页面的布局, 然后完全重新排列它以适应不同的屏幕宽度, 而只需要几行 CSS. 网格是有史以来最强大的 CSS 模块之一.</p>
 </blockquote>
@@ -847,6 +847,114 @@
 <img src="/images/align-items-stretch.svg" width="400" alt="Example of align-items set to stretch">
 
 <p>This behavior can also be set on individual grid items via the <code>align-self</code> property.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWpjWgq" data-preview="true" data-editable="true"  data-prefill='{"title":"CSS Grid Layout: Animation","tags":[],"scripts":[],"stylesheets":["https://codepen.io/matuzo/pen/vmpaWe/"]}'>
+  <pre data-lang="html">&lt;div id="container" class="flex">
+  &lt;div id="item1">1&lt;/div>
+  &lt;div id="item2">2&lt;/div>
+  &lt;div id="item3">3&lt;/div>
+  &lt;div id="item4">4&lt;/div>
+  &lt;div id="item5">5&lt;/div>
+  &lt;div id="item6">6&lt;/div>
+&lt;/div>
+&lt;div class="row">
+  &lt;label for="display">display: &lt;/label>
+  &lt;select id="display">
+    &lt;option value="flex">flex&lt;/option>
+    &lt;option value="grid">grid&lt;/option>
+  &lt;/select>
+&lt;/div>
+&lt;div class="row">
+  &lt;label for="values">align-items: &lt;/label>
+  &lt;select id="values">
+    &lt;option value="normal">normal&lt;/option>
+    &lt;option value="stretch">stretch&lt;/option>
+    &lt;option value="flex-start">flex-start&lt;/option>
+    &lt;option value="flex-end">flex-end&lt;/option>
+    &lt;option value="center" selected>center&lt;/option>
+    &lt;option value="space-between">space-between&lt;/option>
+    &lt;option value="space-around">space-around&lt;/option>
+    &lt;option value="space-evenly">space-evenly&lt;/option>
+    &lt;option value="start">start&lt;/option>
+    &lt;option value="end">end&lt;/option>
+    &lt;option value="left">left&lt;/option>
+    &lt;option value="right">right&lt;/option>
+    &lt;option value="baseline">baseline&lt;/option>
+    &lt;option value="first baseline">first baseline&lt;/option>
+    &lt;option value="last baseline">last baseline&lt;/option>
+    &lt;option value="safe center">safe center&lt;/option>
+    &lt;option value="unsafe center">unsafe center&lt;/option>
+    &lt;option value="safe right">safe right&lt;/option>
+    &lt;option value="unsafe right">unsafe right&lt;/option>
+    &lt;option value="safe end">safe end&lt;/option>
+    &lt;option value="unsafe end">unsafe end&lt;/option>
+    &lt;option value="safe flex-end">safe flex-end&lt;/option>
+    &lt;option value="unsafe flex-end">unsafe flex-end&lt;/option>
+  &lt;/select>
+&lt;/div>
+</pre>
+  <pre data-lang="css">#container {
+  height:200px;
+  width: 240px;
+  align-content: center; /* Can be changed in the live sample */
+  background-color: #8c8c8c;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 50px);
+}
+div > div {
+  box-sizing: border-box;
+  border: 2px solid #8c8c8c;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#item1 {
+  background-color: #8cffa0;
+  min-height: 30px;
+}
+#item2 {
+  background-color: #a0c8ff;
+  min-height: 50px;
+}
+#item3 {
+  background-color: #ffa08c;
+  min-height: 40px;
+}
+#item4 {
+  background-color: #ffff8c;
+  min-height: 60px;
+}
+#item5 {
+  background-color: #ff8cff;
+  min-height: 70px;
+}
+#item6 {
+  background-color: #8cffff;
+  min-height: 50px;
+  font-size: 30px;
+}
+select {
+  font-size: 16px;
+}
+.row {
+  margin-top: 10px;
+}</pre>
+  <pre data-lang="js">var values = document.getElementById('values');
+var display = document.getElementById('display');
+var container = document.getElementById('container');
+values.addEventListener('change', function (evt) {
+  container.style.alignContent = evt.target.value;
+});
+display.addEventListener('change', function (evt) {
+  container.className = evt.target.value;
+});</pre></div>
+
 <h4 id="place-items"><a href="#place-items" class="headerlink" title="place-items"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-items"><code>place-items</code></a></h4><p><code>place-items</code> sets both the <code>align-items</code> and <code>justify-items</code> properties in a single declaration.</p>
 <blockquote>
 <p><code>place-items</code> 属性是 <code>align-items</code> 属性和 <code>justify-items</code> 属性的合并简写形式.</p>
@@ -986,6 +1094,115 @@
 
 <!-- ![Example of align-content set to space-evenly](/images/align-content-space-evenly.svg) -->
 <img src="/images/align-content-space-evenly.svg" width="400" alt="Example of align-content set to space-evenly">
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWpjWgq" data-preview="true" data-editable="true"  data-prefill='{"title":"CSS Grid Layout: Animation","tags":[],"scripts":[],"stylesheets":["https://codepen.io/matuzo/pen/vmpaWe/"]}'>
+  <pre data-lang="html">&lt;div id="container" class="flex">
+  &lt;div id="item1">1&lt;/div>
+  &lt;div id="item2">2&lt;/div>
+  &lt;div id="item3">3&lt;/div>
+  &lt;div id="item4">4&lt;/div>
+  &lt;div id="item5">5&lt;/div>
+  &lt;div id="item6">6&lt;/div>
+&lt;/div>
+&lt;div class="row">
+  &lt;label for="display">display: &lt;/label>
+  &lt;select id="display">
+    &lt;option value="flex">flex&lt;/option>
+    &lt;option value="grid">grid&lt;/option>
+  &lt;/select>
+&lt;/div>
+&lt;div class="row">
+  &lt;label for="values">align-content: &lt;/label>
+  &lt;select id="values">
+    &lt;option value="normal">normal&lt;/option>
+    &lt;option value="stretch">stretch&lt;/option>
+    &lt;option value="flex-start">flex-start&lt;/option>
+    &lt;option value="flex-end">flex-end&lt;/option>
+    &lt;option value="center" selected>center&lt;/option>
+    &lt;option value="space-between">space-between&lt;/option>
+    &lt;option value="space-around">space-around&lt;/option>
+    &lt;option value="space-evenly">space-evenly&lt;/option>
+    &lt;option value="start">start&lt;/option>
+    &lt;option value="end">end&lt;/option>
+    &lt;option value="left">left&lt;/option>
+    &lt;option value="right">right&lt;/option>
+    &lt;option value="baseline">baseline&lt;/option>
+    &lt;option value="first baseline">first baseline&lt;/option>
+    &lt;option value="last baseline">last baseline&lt;/option>
+    &lt;option value="safe center">safe center&lt;/option>
+    &lt;option value="unsafe center">unsafe center&lt;/option>
+    &lt;option value="safe right">safe right&lt;/option>
+    &lt;option value="unsafe right">unsafe right&lt;/option>
+    &lt;option value="safe end">safe end&lt;/option>
+    &lt;option value="unsafe end">unsafe end&lt;/option>
+    &lt;option value="safe flex-end">safe flex-end&lt;/option>
+    &lt;option value="unsafe flex-end">unsafe flex-end&lt;/option>
+  &lt;/select>
+&lt;/div>
+</pre>
+  <pre data-lang="css">#container {
+  height:200px;
+  width: 240px;
+  align-content: center; /* Can be changed in the live sample */
+  background-color: #8c8c8c;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 50px);
+}
+div > div {
+  box-sizing: border-box;
+  border: 2px solid #8c8c8c;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#item1 {
+  background-color: #8cffa0;
+  min-height: 30px;
+}
+#item2 {
+  background-color: #a0c8ff;
+  min-height: 50px;
+}
+#item3 {
+  background-color: #ffa08c;
+  min-height: 40px;
+}
+#item4 {
+  background-color: #ffff8c;
+  min-height: 60px;
+}
+#item5 {
+  background-color: #ff8cff;
+  min-height: 70px;
+}
+#item6 {
+  background-color: #8cffff;
+  min-height: 50px;
+  font-size: 30px;
+}
+select {
+  font-size: 16px;
+}
+.row {
+  margin-top: 10px;
+}</pre>
+  <pre data-lang="js">var values = document.getElementById('values');
+var display = document.getElementById('display');
+var container = document.getElementById('container');
+values.addEventListener('change', function (evt) {
+  container.style.alignContent = evt.target.value;
+});
+display.addEventListener('change', function (evt) {
+  container.className = evt.target.value;
+});</pre></div>
+
 
 <h4 id="place-content"><a href="#place-content" class="headerlink" title="place-content"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content"><code>place-content</code></a></h4><p><code>place-content</code> sets both the <code>align-content</code> and <code>justify-content</code> properties in a single declaration.</p>
 <blockquote>

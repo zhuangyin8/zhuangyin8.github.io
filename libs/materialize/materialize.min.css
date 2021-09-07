@@ -2096,6 +2096,9 @@ ul.staggered-list li {
     display: none !important;
   }
 }
+footer {
+  padding: 1rem;
+}
 .page-footer {
   /* padding-top: 20px; */
   color: #666;
@@ -2556,8 +2559,6 @@ table span.badge {
 .row {
   margin-left: auto;
   margin-right: auto;
-  /* margin-bottom: 20px; */
-  padding: 0.5rem 0;
 }
 .row:after {
   content: '';
@@ -3740,10 +3741,7 @@ small {
   max-width: 100%;
   padding: 1rem;
 }
-.card .card-content {
-  padding: 1.5rem;
-  border-radius: 0 0 2px 2px;
-}
+
 .card .card-content p {
   margin-bottom: 20px;
 }
@@ -4692,10 +4690,10 @@ body.keyboard-focused .dropdown-content li:focus {
   color: rgba(0, 0, 0, 0.6);
   line-height: 32px;
   padding: 0 12px;
-  border-radius: 16px;
+  border-radius: 1rem;
   background-color: #e4e4e4;
-  margin-bottom: 15px;
-  margin-right: 15px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 .chip:focus {
   outline: none;

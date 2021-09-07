@@ -4,6 +4,9 @@
   html {
     font-size: 13px;
   }
+  .card .card-content {
+    padding: 1rem ;
+  }
 }
 
 /*中等屏幕下(平板类)的样式*/
@@ -11,12 +14,19 @@
   html {
     font-size: 14px;
   }
+  .card .card-content {
+    padding: 1rem;
+  }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
   html {
     font-size: 15px;
+  }
+  .card .card-content {
+    padding: 1rem 1.5rem;
+    border-radius: 0 0 2px 2px;
   }
   .head-container {
     position: absolute;
@@ -756,7 +766,7 @@ article .tag-image img {
 .article-info,
 #articleContent {
   border-bottom: 1px solid gray;
-  padding: 0;
+  padding-bottom: 1rem;
 }
 
 article .article-content .summary {
@@ -778,12 +788,12 @@ article .article-content .publish-author {
   padding-left: 10px;
 }
 
-.article-content .publish-author .post-category {
+/* .article-content .publish-author .post-category {
   padding-left: 5px;
-}
+} */
 
 article .card .card-action {
-  padding: 10px 15px 10px 18px;
+  padding: .5rem 1rem;
   border-radius: 0 0 8px 8px !important;
 }
 
@@ -818,7 +828,7 @@ article .card .card-action {
 }
 
 .paging .page-info {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #888;
   padding-top: 1rem;
 }
@@ -888,9 +898,9 @@ article .card .card-action {
 }
 
 #artDetail .reprint {
-  margin: 0.4rem;
-  padding: 0.5rem;
-  border: 1px solid #eee;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #999;
   line-height: 2;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -903,10 +913,10 @@ article .card .card-action {
   box-shadow: 0 0 10px 0 rgba(232, 237, 250, 0.6), 0 4px 8px 0 rgba(232, 237, 250, 0.5);
 }
 
-#artDetail .reprint a {
+/* #artDetail .reprint a {
   font-size: 1rem;
   color: #42b983;
-}
+} */
 
 #articleContent blockquote p {
   text-indent: 0.2rem;

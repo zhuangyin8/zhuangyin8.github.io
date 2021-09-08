@@ -460,6 +460,20 @@
 </blockquote>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<h3 id="以下选项中有变量提升的定义方式是"><a href="#以下选项中有变量提升的定义方式是" class="headerlink" title="以下选项中有变量提升的定义方式是"></a>以下选项中有变量提升的定义方式是</h3><p>A、 <code>const num = 0</code><br>B、 <code>function num()&#123;&#125;</code><br>C、 <code>var num = 0</code><br>D、 <code>num = 0</code></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">Hoisting（变量提升）</a> 意味着变量和函数的 <strong>声明</strong> 会在物理层面移动到代码的最前面，但这么说并不准确。实际上变量和函数声明在代码里的位置是不会动的，而是在编译阶段被放入内存中。</p>
+</blockquote>
+<details><summary><b>详解</b></summary>
+
+<blockquote>
+<p>BC</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting">var hoisting</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function#function_declaration_hoisting">Function declaration hoisting</a></p>
+<p>Class declarations are not hoisted</p>
+</details>
+
 <h3 id="1-What’s-the-output"><a href="#1-What’s-the-output" class="headerlink" title="1. What’s the output?"></a>1. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1852,21 +1866,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </details>
 
 <hr>
-<h3 id="以下选项中有变量提升的定义方式是-3-分）"><a href="#以下选项中有变量提升的定义方式是-3-分）" class="headerlink" title="以下选项中有变量提升的定义方式是 (3 分）"></a>以下选项中有变量提升的定义方式是 (3 分）</h3><p>A、 <code>const num = 0</code><br>B、 <code>function num()&#123;&#125;</code><br>C、 <code>var num = 0</code><br>D、 <code>num = 0</code></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">Hoisting（变量提升）</a> 意味着变量和函数的 ** 声明 ** 会在物理层面移动到代码的最前面，但这么说并不准确。实际上变量和函数声明在代码里的位置是不会动的，而是在编译阶段被放入内存中。</p>
-</blockquote>
-<details><summary><b>详解</b></summary>
-
-<blockquote>
-<p>BC</p>
-</blockquote>
-<p><code>var</code> 声明会在代码执行之前就将创建变量，并将其初始化为 <code>undefined</code>. 即创建和初始化会被提升。<br><code>let</code> 只有创建过程会提升，初始化和赋值都不会提升，所以会形成暂时性死区，这也是为什么在定义前使用 <code>let</code> 会抛错。<br><code>const</code> 的创建过程也会提升，但是与 <code>let</code> 不同之处在于 <code>const</code> 只有创建和初始化两个过程，没有赋值过程。若不初始化则会直接抛错。</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">函数声明</a> 的「创建」「初始化」和「赋值」都被提升。你可以在函数声明之前使用该函数 但 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function">函数表达式</a> 不会被提升。</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class">类声明</a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class">类表达式</a> 都不会被提升。</p>
-</details>
-
-<hr>
 <h3 id="以下属-Javascript-原始数据类型的是-2-分）"><a href="#以下属-Javascript-原始数据类型的是-2-分）" class="headerlink" title="以下属 Javascript 原始数据类型的是 (2 分）"></a>以下属 Javascript 原始数据类型的是 (2 分）</h3><p>A、 <code>undefined</code><br>B、 <code>array</code><br>C、 <code>symbol</code><br>D、 <code>object</code></p>
 <details><summary><b>详解</b></summary>
 
@@ -2571,7 +2570,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 </div>
                 <div class="reprint__notice">
                     <span class="reprint-meta" style="font-weight: bold;">
-                        <i class="fas fa-copyright">
+                        <i class="far fa-copyright">
                             版权声明:
                         </i>
                     </span>

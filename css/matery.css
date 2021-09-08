@@ -5,7 +5,7 @@
     font-size: 13px;
   }
   .card .card-content {
-    padding: 1rem ;
+    padding: 1rem;
   }
 }
 
@@ -770,7 +770,7 @@ article .tag-image img {
 }
 
 article .article-content .summary {
-  padding-left: 0;
+  padding-bottom: 1rem;
   word-break: break-all;
 }
 
@@ -791,7 +791,7 @@ article .article-content .publish-author {
 } */
 
 article .card .card-action {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0 0 8px 8px !important;
 }
 
@@ -802,7 +802,7 @@ article .card .card-action {
 .prev-next .article-badge {
   min-width: 3rem;
   margin-top: 7px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
   font-size: 1rem;
   line-height: inherit;
@@ -1371,18 +1371,11 @@ thead {
 }
 
 .post-charts,
-.my-projects,
-.my-skills,
-.post-charts {
-  /* padding: 3.8rem 1.5rem 0.8rem 1.5rem; */
-}
-
-.post-charts,
 .title,
 .my-projects .title,
 .my-skills .title,
 .my-gallery .title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
@@ -1625,10 +1618,10 @@ footer .copy-right {
 
 /* styles for '...' */
 .block-with-text {
-  overflow : hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 

@@ -3620,8 +3620,13 @@ small {
   border-radius: 2px;
 }
 .card .card-title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 300;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding:1rem;
 }
 .card .card-title.activator {
   cursor: pointer;
@@ -3733,15 +3738,6 @@ small {
   bottom: 0;
   width: 100%;
 }
-.card .card-image .card-title {
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  max-width: 100%;
-  padding: 1rem;
-}
-
 .card .card-content p {
   margin-bottom: 20px;
 }

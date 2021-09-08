@@ -485,13 +485,7 @@
 
 <p>Answer: D</p>
 <p>Within the function, we first declare the <code>name</code> variable with the <code>var</code> keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of <code>undefined</code>, until we actually get to the line where we define the variable. We haven’t defined the variable yet on the line where we try to log the <code>name</code> variable, so it still holds the value of <code>undefined</code>.</p>
-<blockquote>
-<p>在函数内部，我们首先通过 <code>var</code> 关键字声明了 <code>name</code> 变量。这意味着变量被提升了（内存空间在创建阶段就被设置好了）, 直到程序运行到定义变量位置之前默认值都是 <code>undefined</code>. 因为当我们打印 <code>name</code> 变量时还没有执行到定义变量的位置，因此变量的值保持为 <code>undefined</code>.</p>
-</blockquote>
 <p>Variables with the <code>let</code> keyword (and <code>const</code>) are hoisted, but unlike <code>var</code>, don’t get <em>initialized</em>. They are not accessible before the line we declare (initialize) them. This is called the”temporal dead zone”. When we try to access the variables before they are declared, JavaScript throws a <code>ReferenceError</code>.</p>
-<blockquote>
-<p>通过 <code>let</code> 和 <code>const</code> 关键字声明的变量也会提升，但是和 <code>var</code> 不同，它们不会被 <em>初始化</em>. 在我们声明（初始化） 之前是不能访问它们的。这个行为被称之为 <strong>暂时性死区</strong>. 当我们试图在声明之前访问它们时，JavaScript 将会抛出一个 <code>ReferenceError: Cannot access &#39;age&#39; before initialization</code> 错误。</p>
-</blockquote>
 </details>
 
 <hr>
@@ -517,13 +511,7 @@
 
 <p>Answer: C</p>
 <p>Because of the event queue in JavaScript, the <code>setTimeout</code> callback function is called <em>after</em> the loop has been executed. Since the variable <code>i</code> in the first loop was declared using the <code>var</code> keyword, this value was global. During the loop, we incremented the value of <code>i</code> by <code>1</code> each time, using the unary operator <code>++</code>. By the time the <code>setTimeout</code> callback function was invoked, <code>i</code> was equal to <code>3</code> in the first example.</p>
-<blockquote>
-<p>由于 JavaScript 的事件循环，<code>setTimeout</code> 回调会在 <em>遍历结束后</em> 才执行。因为在第一个遍历中遍历 <code>i</code> 是通过 <code>var</code> 关键字声明的，所以这个值是全局作用域下的。在遍历过程中，我们通过一元操作符 <code>++</code> 来每次递增 <code>i</code> 的值。当 <code>setTimeout</code> 回调执行的时候，<code>i</code> 的值等于 3.</p>
-</blockquote>
 <p>In the second loop, the variable <code>i</code> was declared using the <code>let</code> keyword: variables declared with the <code>let</code> (and <code>const</code>) keyword are block-scoped (a block is anything between <code>&#123; &#125;</code>). During each iteration, <code>i</code> will have a new value, and each value is scoped inside the loop.</p>
-<blockquote>
-<p>在第二个遍历中，遍历 <code>i</code> 是通过 <code>let</code> 关键字声明的：通过 <code>let</code> 和 <code>const</code> 关键字声明的变量是拥有块级作用域（指的是任何在 {} 中的内容）. 在每次的遍历过程中，<code>i</code> 都有一个新值，并且每个值都在循环内的作用域中。</p>
-</blockquote>
 <hr>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -630,20 +618,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: A</p>
 <p>In JavaScript, all objects interact by <em>reference</em> when setting them equal to each other.</p>
-<blockquote>
-<p>在 JavaScript 中，当设置两个对象彼此相等时，它们会通过 <em>引用</em> 进行交互。</p>
-</blockquote>
 <p>First, variable <code>c</code> holds a value to an object. Later, we assign <code>d</code> with the same reference that <code>c</code> has to the object.</p>
-<blockquote>
-<p>首先，变量 <code>c</code> 的值是一个对象。接下来，我们给 <code>d</code> 分配了一个和 <code>c</code> 对象相同的引用。</p>
-</blockquote>
 <!-- <img src="https://i.imgur.c·om/ko5k0fs.png"> -->
 
 <p><img src="/images/ko5k0fs.png"></p>
 <p>When you change one object, you change all of them.</p>
-<blockquote>
-<p>因此当我们改变其中一个对象时，其实是改变了所有的对象。</p>
-</blockquote>
 </details>
 
 <hr>
@@ -669,18 +648,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>new Number()</code> is a built-in function constructor. Although it looks like a number, it’s not really a number: it has a bunch of extra features and is an object.</p>
-<blockquote>
-<p><code>new Number()</code> 是一个内建的函数构造器。虽然它看着像是一个 number, 但它实际上并不是一个真实的 number: 它有一堆额外的功能并且它是一个对象。</p>
-</blockquote>
+<p><code>new Number()</code> is a built-in function constructor. Although it looks like a number, it’s not really a number: it has a bunch of extra features and is an <strong>object</strong>.</p>
 <p>When we use the <code>==</code> operator, it only checks whether it has the same <em>value</em>. They both have the value of <code>3</code>, so it returns <code>true</code>.</p>
-<blockquote>
-<p>当我们使用 <code>==</code> 操作符时，它只会检查两者是否拥有 <strong>相同的值</strong>. 因为它们的值都是 <code>3</code>, 因此返回 <code>true</code>.</p>
-</blockquote>
 <p>However, when we use the <code>===</code> operator, both value <em>and</em> type should be the same. It’s not: <code>new Number()</code> is not a number, it’s an <strong>object</strong>. Both return <code>false.</code></p>
-<blockquote>
-<p>然后，当我们使用 <code>===</code> 操作符时，<strong>两者的值和类型都应该是相同的</strong>.<code>new Number()</code> 是一个对象而不是 number, 因此返回 <code>false</code>.</p>
-</blockquote>
 </details>
 
 <hr>
@@ -711,9 +681,6 @@ freddie<span class="token punctuation">.</span><span class="token function">colo
 
 <p>Answer: D</p>
 <p>The <code>colorChange</code> function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since <code>freddie</code> is a child, the function is not passed down, and not available on the <code>freddie</code> instance: a <code>TypeError</code> is thrown.</p>
-<blockquote>
-<p><code>colorChange</code> 是一个静态方法。静态方法被设计为只能被创建它们的构造器使用（也就是 <code>Chameleon</code>), 并且不能传递给实例。因为 <code>freddie</code> 是一个实例，静态方法不能被实例使用，因此抛出了 <code>TypeError: freddie.colorChange is not a function</code> 错误。</p>
-</blockquote>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Chameleon<span class="token punctuation">.</span><span class="token function">colorChange</span><span class="token punctuation">(</span><span class="token string">'orange'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => "orange"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </details>
@@ -730,14 +697,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <details><summary><b>解析</b></summary>
 
-<p>Answer: A<br>It logs the object, because we just created an empty object on the global object! When we mistyped <code>greeting</code> as <code>greetign</code>, the JS interpreter actually saw this as <code>global.greetign = &#123;&#125;</code> (or <code>window.greetign = &#123;&#125;</code> in a browser).</p>
-<blockquote>
-<p>代码打印出了一个对象，这是因为我们在全局对象上创建了一个空对象！当我们将 <code>greeting</code> 写错成 <code>greetign</code> 时，JavaScript 解释器实际在上浏览器中将它视为 <code>global.greetign = &#123;&#125;</code> （或者 <code>window.greetign = &#123;&#125;</code>).</p>
-</blockquote>
+<p>Answer: A</p>
+<p>It logs the object, because we just created an empty object on the global object! When we mistyped <code>greeting</code> as <code>greetign</code>, the JS interpreter actually saw this as <code>global.greetign = &#123;&#125;</code> (or <code>window.greetign = &#123;&#125;</code> in a browser).</p>
 <p>In order to avoid this, we can use <code>&quot;use strict&quot;</code>. This makes sure that you have declared a variable before setting it equal to anything.</p>
-<blockquote>
-<p>为了避免这个，我们可以使用 <code>&quot;use strict&quot;</code>. 这能确保当你声明变量时必须赋值。</p>
-</blockquote>
 </details>
 
 <hr>
@@ -789,13 +751,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: A</p>
 <p>In JavaScript, functions are objects, and therefore, the method <code>getFullName</code> gets added to the constructor function object itself. For that reason, we can call <code>Person.getFullName()</code>, but <code>member.getFullName</code> throws a <code>TypeError</code>.</p>
-<blockquote>
-<p>你不能像常规对象那样，给构造函数直接添加属性。因此抛出了 <code>TypeError: member.getFullName is not a function</code> 错误。</p>
-</blockquote>
 <p>If you want a method to be available to all object instances, you have to add it to the prototype property:</p>
-<blockquote>
-<p>如果你想一次性给所有实例添加特性，你应该使用原型。因此本例中，使用如下方式：</p>
-</blockquote>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">getFullName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>firstName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1556,7 +1512,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>[[&quot;L&quot;, &quot;y&quot;, &quot;d&quot;, &quot;i&quot;, &quot;a&quot;]]</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US//docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a> 可以在函数调用 / 数组构造时，将 ** 数组表达式 ** 或者 <strong>string</strong> 在语法层面展开；还可以在构造 ** 字面量对象 ** 时，将对象表达式按 key-value 的方式展开。（字面量一般指 [1, 2, 3] 或者 {name: “mdn”} 这种简洁的构造方式） .</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US//docs/Web/JavaScript/Reference/Operators/Spread_syntax">展开语法</a> 可以在函数调用 / 数组构造时，将 <strong>数组表达式</strong> 或者 <strong>string</strong> 在语法层面展开；还可以在构造 <strong>字面量对象</strong> 时，将对象表达式按 key-value 的方式展开。（字面量一般指 [1, 2, 3] 或者 {name: “mdn”} 这种简洁的构造方式） .</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
@@ -1641,17 +1597,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>First, we declare a variable <code>person</code> with the value of an object that has a <code>name</code> property.</p>
 <img src="/images/TML1MbS.png" width="400">
 
-<img src="https://i.imgur.com/TML1MbS.png" width="400">
+<!-- <img src="https://i.imgur.com/TML1MbS.png" width="400"> -->
 
 <p>Then, we declare a variable called <code>members</code>. We set the first element of that array equal to the value of the <code>person</code> variable. Objects interact by <em>reference</em> when setting them equal to each other. When you assign a reference from one variable to another, you make a <em>copy</em> of that reference. (note that they don’t have the <em>same</em> reference!)</p>
 <img src="/images/FSG5K3F.png" width="400">
 
-<img src="https://i.imgur.com/FSG5K3F.png" width="400">
+<!-- <img src="https://i.imgur.com/FSG5K3F.png" width="400"> -->
 
 <p>Then, we set the variable <code>person</code> equal to <code>null</code>.</p>
 <img src="/images/sYjcsMT.png" width="400">
 
-<img src="https://i.imgur.com/sYjcsMT.png" width="400">
+<!-- <img src="https://i.imgur.com/sYjcsMT.png" width="400"> -->
 
 <p>We are only modifying the value of the <code>person</code> variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in <code>members</code> still holds its reference to the original object. When we log the <code>members</code> array, the first element still holds the value of the object, which gets logged.</p>
 </details>
@@ -2179,9 +2135,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>在子类中，在调用 <code>super</code> 之前不能访问到 <code>this</code> 关键字。如果这样做，它将抛出一个 <code>ReferenceError</code>: 1 和 4 将引发一个引用错误。</p>
-<p>使用 <code>super</code> 关键字，需要用给定的参数来调用父类的构造函数。父类的构造函数接收 <code>name</code> 参数，因此我们需要将 <code>name</code> 传递给 <code>super</code>.</p>
-<p><code>Labrador</code> 类接收两个参数，<code>name</code> 参数是由于它继承了 <code>Dog</code>,<code>size</code> 作为 <code>Labrador</code> 类的额外属性，它们都需要传递给 <code>Labrador</code> 的构造函数，因此使用构造函数 2 正确完成。</p>
+<p>In a derived class, you cannot access the <code>this</code> keyword before calling <code>super</code>. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.</p>
+<p>With the <code>super</code> keyword, we call that parent class’s constructor with the given arguments. The parent’s constructor receives the <code>name</code> argument, so we need to pass <code>name</code> to <code>super</code>.</p>
+<p>The <code>Labrador</code> class receives two arguments, <code>name</code> since it extends <code>Dog</code>, and <code>size</code> as an extra property on the <code>Labrador</code> class. They both need to be passed to the constructor function on <code>Labrador</code>, which is done correctly using constructor 2.</p>
 </details>
 
 <hr>
@@ -2201,13 +2157,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>D: <code>running index.js</code>, <code>undefined</code>, <code>running sum.js</code></li>
 </ul>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a> 是编译阶段执行的，在代码运行之前。因此这意味着 ** 被导入的模块会先运行 **, 而 ** 导入模块的文件会后执行 **.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a> 是编译阶段执行的，在代码运行之前。因此这意味着 <strong>被导入的模块会先运行</strong>, 而 <strong>导入模块的文件会后执行</strong>.</p>
 </blockquote>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p><code>import</code> 命令是编译阶段执行的，在代码运行之前。因此这意味着被导入的模块会先运行，而导入模块的文件会后执行。</p>
-<p>这是 CommonJavaScript 中 <code>require()</code> 和 <code>import</code> 之间的区别。使用 <code>require()</code> , 您可以在运行代码时根据需要加载依赖项。如果我们使用 <code>require</code> 而不是 <code>import</code> , <code>running index.js</code> , <code>running sum.js</code> , <code>3</code> 会被依次打印。</p>
+<p>With the <code>import</code> keyword, all imported modules are <em>pre-parsed</em>. This means that the imported modules get run <em>first</em>, the code in the file which imports the module gets executed <em>after</em>.</p>
+<p>This is a difference between <code>require()</code> in CommonJS and <code>import</code>! With <code>require()</code>, you can load dependencies on demand while the code is being run. If we would have used <code>require</code> instead of <code>import</code>, <code>running index.js</code>, <code>running sum.js</code>, <code>3</code> would have been logged to the console.</p>
 </details>
 
 <hr>
@@ -2229,7 +2185,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>每个 <code>Symbol</code> 都是完全唯一的。传递给 <code>Symbol</code> 的参数只是给 <code>Symbol</code> 的一个描述。<code>Symbol</code> 的值不依赖于传递的参数。当我们测试相等时，我们创建了两个全新的符号：第一个 <code>Symbol(&#39;foo&#39;)</code> , 第二个 <code>Symbol(&#39;foo&#39;)</code> , 这两个值是唯一的，彼此不相等，因此返回 <code>false</code> .</p>
+<p>Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first <code>Symbol(&#39;foo&#39;)</code>, and the second <code>Symbol(&#39;foo&#39;)</code>. These two values are unique and not equal to each other, <code>Symbol(&#39;foo&#39;) === Symbol(&#39;foo&#39;)</code> returns <code>false</code>.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//?</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </details>
@@ -2251,8 +2207,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>使用 <code>padStart</code> 方法，我们可以在字符串的开头添加填充。传递给此方法的参数是字符串的总长度（包含填充）. 字符串 <code>Lydia Hallie</code> 的长度为 <code>12</code> , 因此 <code>name.padStart(13)</code> 在字符串的开头只会插入 1 ( <code>13 - 12 = 1</code> ) 个空格。</p>
-<p>如果传递给 <code>padStart</code> 方法的参数小于字符串的长度，则不会添加填充。</p>
+<p>With the <code>padStart</code> method, we can add padding to the beginning of a string. The value passed to this method is the <em>total</em> length of the string together with the padding. The string <code>&quot;Lydia Hallie&quot;</code> has a length of <code>12</code>. <code>name.padStart(13)</code> inserts 1 space at the start of the string, because 12 + 1 is 13.</p>
+<p>If the argument passed to the <code>padStart</code> method is smaller than the length of the array, no padding will be added.</p>
 </details>
 
 <hr>
@@ -2267,11 +2223,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>使用 <code>+</code> 运算符，您可以连接字符串。上述情况，我们将字符串 <code>&quot;🥑&quot;</code> 与字符串 <code>&quot;💻&quot;</code> 连接起来，产生 <code>&quot;🥑💻&quot;</code> .</p>
+<p>With the <code>+</code> operator, you can concatenate strings. In this case, we are concatenating the string <code>&quot;🥑&quot;</code> with the string <code>&quot;💻&quot;</code>, resulting in <code>&quot;🥑💻&quot;</code>.</p>
 </details>
 
 <hr>
-<h3 id="71-How-can-we-log-the-values-that-are-commented-out-after-the-console-logstatement"><a href="#71-How-can-we-log-the-values-that-are-commented-out-after-the-console-logstatement" class="headerlink" title="71. How can we log the values that are commented out after the console.logstatement?"></a>71. How can we log the values that are commented out after the <code>console.log</code>statement?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">startGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="71-How-can-we-log-the-values-that-are-commented-out-after-the-console-log-statement"><a href="#71-How-can-we-log-the-values-that-are-commented-out-after-the-console-log-statement" class="headerlink" title="71. How can we log the values that are commented out after the console.log statement?"></a>71. How can we log the values that are commented out after the <code>console.log</code> statement?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">startGame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> answer <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token string">'Do you love JavaScript?'</span><span class="token punctuation">;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>answer <span class="token operator">!==</span> <span class="token string">'Yes'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">return</span> <span class="token string">"Oh wow... Guess we're gone here"</span><span class="token punctuation">;</span>
@@ -2295,8 +2251,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>generator</code> 函数在遇到 <code>yield</code> 关键字时会 ** 暂停 ** 其执行。首先，我们需要让函数产生字符串 <code>Do you love JavaScript?</code>, 这可以通过调用 <code>game.next().value</code> 来完成。上述函数的第一行就有一个 <code>yield</code> 关键字，那么运行立即停止了，<code>yield</code> 表达式本身没有返回值，或者说总是返回 <code>undefined</code>, 这意味着此时变量 <code>answer</code> 为 <code>undefined</code> .</p>
-<p><code>next</code> 方法可以带一个参数，该参数会被当作上一个 <code>yield</code> 表达式的返回值。当我们调用 <code>game.next(&quot;Yes&quot;).value</code> 时，先前的 <code>yield</code> 的返回值将被替换为传递给 <code>next()</code> 函数的参数 <code>&quot;Yes&quot;</code>. 此时变量 <code>answer</code> 被赋值为 <code>&quot;Yes&quot;</code> , <code>if</code> 语句返回 <code>false</code> , 所以 <code>JavaScript loves you back ❤️</code> 被打印。</p>
+<p>A generator function “pauses” its execution when it sees the <code>yield</code> keyword. First, we have to let the function yield the string “Do you love JavaScript?”, which can be done by calling <code>game.next().value</code>.</p>
+<p>Every line is executed, until it finds the first <code>yield</code> keyword. There is a <code>yield</code> keyword on the first line within the function: the execution stops with the first yield! <em>This means that the variable <code>answer</code> is not defined yet!</em></p>
+<p>When we call <code>game.next(&quot;Yes&quot;).value</code>, the previous <code>yield</code> is replaced with the value of the parameters passed to the <code>next()</code> function, <code>&quot;Yes&quot;</code> in this case. The value of the variable <code>answer</code> is now equal to <code>&quot;Yes&quot;</code>. The condition of the if-statement returns <code>false</code>, and <code>JavaScript loves you back ❤️</code> gets logged.</p>
 </details>
 
 <hr>
@@ -2314,17 +2271,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>String.raw</code> 函数是用来获取一个模板字符串的原始字符串的，它返回一个字符串，其中忽略了转义符 ( <code>\n</code> , <code>\v</code> , <code>\t</code> 等）. 但反斜杠可能造成问题，因为你可能会遇到下面这种类似情况：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">C:\Documents\Projects\table.html</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-String<span class="token punctuation">.</span>raw<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>path<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这将导致：</p>
+<p><code>String.raw</code> returns a string where the escapes (<code>\n</code>, <code>\v</code>, <code>\t</code> etc.) are ignored! Backslashes can be an issue since you could end up with something like:</p>
+<p><code>const path = `C:\Documents\Projects\table.html`</code></p>
+<p>Which would result in:</p>
 <p><code>&quot;C:DocumentsProjects able.html&quot;</code></p>
-<p>直接使用 <code>String.raw</code></p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">String<span class="token punctuation">.</span>raw<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">C:\Documents\Projects\table.html</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>它会忽略转义字符并打印：<code>C:\Documents\Projects\table.html</code></p>
-<p>上述情况，字符串是 <code>Hello\nworld</code> 被打印出。</p>
+<p>With <code>String.raw</code>, it would simply ignore the escape and print:</p>
+<p><code>C:\Documents\Projects\table.html</code></p>
+<p>In this case, the string is <code>Hello\nworld</code>, which gets logged.</p>
 </details>
 
 <hr>
@@ -2347,11 +2300,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>异步函数始终返回一个 promise.<code>await</code> 仍然需要等待 promise 的解决：当我们调用 <code>getData()</code> 并将其赋值给 <code>data</code> , 此时 <code>data</code> 为 <code>getData</code> 方法返回的一个挂起的 promise, 该 promise 并没有解决。</p>
-<p>如果我们想要访问已解决的值 <code>&quot;I made it!&quot;</code> , 可以在 <code>data</code> 上使用 <code>.then()</code> 方法：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">data<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//=>"I made it!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这样将打印 <code>&quot;I made it!&quot;</code></p>
+<p>An async function always returns a promise. The <code>await</code> still has to wait for the promise to resolve: a pending promise gets returned when we call <code>getData()</code> in order to set <code>data</code> equal to it.</p>
+<p>If we wanted to get access to the resolved value <code>&quot;I made it&quot;</code>, we could have used the <code>.then()</code> method on <code>data</code>:</p>
+<p><code>data.then(res =&gt; console.log(res))</code></p>
+<p>This would’ve logged <code>&quot;I made it!&quot;</code></p>
 </details>
 
 <hr>
@@ -2374,8 +2326,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p><code>push()</code> 方法返回新数组的长度。一开始，数组包含一个元素（字符串 <code>&quot;banana&quot;</code>), 长度为 1. 在数组中添加字符串 <code>&quot;apple&quot;</code> 后，长度变为 2, 并将从 <code>addToList</code> 函数返回。</p>
-<p><code>push</code> 方法修改原始数组，如果你想从函数返回数组而不是数组长度，那么应该在 push <code>item</code> 之后返回 <code>list</code> .</p>
+<p>The <code>.push()</code> method returns the <em>length</em> of the new array! Previously, the array contained one element (the string <code>&quot;banana&quot;</code>) and had a length of <code>1</code>. After adding the string <code>&quot;apple&quot;</code> to the array, the array contains two elements, and has a length of <code>2</code>. This gets returned from the <code>addToList</code> function.</p>
+<p>The <code>push</code> method modifies the original array. If you wanted to return the <em>array</em> from the function rather than the <em>length of the array</em>, you should have returned <code>list</code> after pushing <code>item</code> to it.</p>
 </details>
 
 <hr>
@@ -2399,10 +2351,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p><code>Object.freeze</code> 使得 ** 无法 ** ** 添加 <strong>、</strong> 删除 ** 或 ** 修改 ** 对象的属性（除非属性的值是另一个对象）.</p>
-<p>当我们创建变量 <code>shape</code> 并将其设置为等于冻结对象 <code>box</code> 时，<code>shape</code> 指向的也是冻结对象。你可以使用 <code>Object.isFrozen</code> 检查一个对象是否被冻结，上述情况，<code>Object.isFrozen(shape)</code> 将返回 <code>true</code> .</p>
-<p>由于 <code>shape</code> 被冻结，并且 <code>x</code> 的值不是对象，所以我们不能修改属性 <code>x</code> . <code>x</code> 仍然等于 <code>10</code> ,<code>&#123;x: 10,y: 20&#125;</code> 被打印。</p>
-<p>注意，上述例子我们对属性 <code>x</code> 进行修改，可能会导致抛出 <code>TypeError: Cannot assign to read only property &#39;x&#39; of object</code> 异常（最常见但不仅限于严格模式下时）.</p>
+<p><code>Object.freeze</code> makes it impossible to add, remove, or modify properties of an object (unless the property’s value is another object).</p>
+<p>When we create the variable <code>shape</code> and set it equal to the frozen object <code>box</code>, <code>shape</code> also refers to a frozen object. You can check whether an object is frozen by using <code>Object.isFrozen</code>. In this case, <code>Object.isFrozen(shape)</code> returns true, since the variable <code>shape</code> has a reference to a frozen object.</p>
+<p>Since <code>shape</code> is frozen, and since the value of <code>x</code> is not an object, we cannot modify the property <code>x</code>. <code>x</code> is still equal to <code>10</code>, and <code>&#123; x: 10, y: 20 &#125;</code> gets logged.</p>
 </details>
 
 <hr>
@@ -2422,9 +2373,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
-<p>当我们从右侧的对象解构属性 <code>name</code> 时，我们将其值 <code>Lydia</code> 分配给名为 <code>myName</code> 的变量。</p>
-<p>使用 <code>&#123;name: myName&#125;</code> , 我们是在告诉 JavaScript 我们要创建一个名为 <code>myName</code> 的新变量，并且其值是右侧对象的 <code>name</code> 属性的值。</p>
-<p>当我们尝试打印 <code>name</code> , 一个未定义的变量时，就会引发 <code>ReferenceError: name is not defined</code> .</p>
+<p>When we unpack the property <code>name</code> from the object on the right-hand side, we assign its value <code>&quot;Lydia&quot;</code> to a variable with the name <code>myName</code>.</p>
+<p>With <code>&#123; name: myName &#125;</code>, we tell JavaScript that we want to create a new variable called <code>myName</code> with the value of the <code>name</code> property on the right-hand side.</p>
+<p>Since we try to log <code>name</code>, a variable that is not defined, a ReferenceError gets thrown.</p>
 </details>
 
 <hr>
@@ -2442,8 +2393,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>纯函数一种若输入参数相同，则永远会得到相同输出的函数。</p>
-<p><code>sum</code> 函数总是返回相同的结果。如果我们传递 <code>1</code> 和 <code>2</code> , 它将总是返回 <code>3</code> 而没有副作用。如果我们传递 <code>5</code> 和 <code>10</code> , 它将总是返回 <code>15</code> , 依此类推，这是纯函数的定义。</p>
+<p>A pure function is a function that <em>always</em> returns the same result, if the same arguments are passed.</p>
+<p>The <code>sum</code> function always returns the same result. If we pass <code>1</code> and <code>2</code>, it will <em>always</em> return <code>3</code> without side effects. If we pass <code>5</code> and <code>10</code>, it will <em>always</em> return <code>15</code>, and so on. This is the definition of a pure function.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -2485,12 +2436,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>add</code> 函数是一个记忆函数。通过记忆化，我们可以缓存函数的结果，以加快其执行速度。上述情况，我们创建一个 <code>cache</code> 对象，用于存储先前返回过的值。</p>
-<p>如果我们使用相同的参数多次调用 <code>addFunction</code> 函数，它首先检查缓存中是否已有该值，如果有，则返回缓存值，这将节省执行时间。如果没有，那么它将计算该值，并存储在缓存中。</p>
-<p>我们用相同的值三次调用了 <code>addFunction</code> 函数：</p>
-<p>在第一次调用，<code>num</code> 等于 <code>10</code> 时函数的值尚未缓存，if 语句 <code>num in cache</code> 返回 <code>false</code> ,else 块的代码被执行：<code>Calculated! 20</code> , 并且其结果被添加到缓存对象，<code>cache</code> 现在看起来像 <code>&#123;10: 20&#125;</code> .</p>
-<p>第二次，<code>cache</code> 对象包含 <code>10</code> 的返回值。if 语句 <code>num in cache</code> 返回 <code>true</code> , <code>From cache! 20</code> 被打印。</p>
-<p>第三次，我们将 <code>5 * 2</code> （值为 10) 传递给函数。<code>cache</code> 对象包含 <code>10</code> 的返回值。if 语句 <code>num in cache</code> 返回 <code>true</code> , <code>From cache! 20</code> 被打印。</p>
+<p>The <code>add</code> function is a <em>memoized</em> function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a <code>cache</code> object that stores the previously returned values.</p>
+<p>If we call the <code>addFunction</code> function again with the same argument, it first checks whether it has already gotten that value in its cache. If that’s the case, the caches value will be returned, which saves on execution time. Else, if it’s not cached, it will calculate the value and store it afterwards.</p>
+<p>We call the <code>addFunction</code> function three times with the same value: on the first invocation, the value of the function when <code>num</code> is equal to <code>10</code> isn’t cached yet. The condition of the if-statement <code>num in cache</code> returns <code>false</code>, and the else block gets executed: <code>Calculated! 20</code> gets logged, and the value of the result gets added to the cache object. <code>cache</code> now looks like <code>&#123; 10: 20 &#125;</code>.</p>
+<p>The second time, the <code>cache</code> object contains the value that gets returned for <code>10</code>. The condition of the if-statement <code>num in cache</code> returns <code>true</code>, and <code>&#39;From cache! 20&#39;</code> gets logged.</p>
+<p>The third time, we pass <code>5 * 2</code> to the function which gets evaluated to <code>10</code>. The <code>cache</code> object contains the value that gets returned for <code>10</code>. The condition of the if-statement <code>num in cache</code> returns <code>true</code>, and <code>&#39;From cache! 20&#39;</code> gets logged.</p>
 </details>
 
 <hr>
@@ -2517,10 +2467,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>通过 <code>for...in</code> 循环，我们可以遍历一个对象 ** 自有的 <strong>、</strong> 继承的 <strong>、</strong> 可枚举的 <strong>、</strong> 非 Symbol 的 ** 属性。在数组中，可枚举属性是数组元素的 “键”, 即它们的索引。类似于下面这个对象：</p>
-<p><code>&#123;0: &quot;🔓&quot;, 1: &quot;💻&quot;, 2: &quot;🍷&quot;, 3: &quot;🍫&quot;&#125;</code></p>
-<p>其中键则是可枚举属性，因此 <code>0</code>,<code>1</code>,<code>2</code>,<code>3</code> 被输出。</p>
-<p>通过 <code>for-of</code> 循环，我们可以迭代 ** 可迭代对象 **（包括 <code>Array</code>,<code>Map</code>,<code>Set</code>,<code>String</code>,<code>arguments</code> 等）. 当我们迭代数组时，在每次迭代中，不同属性的值将被分配给变量 <code>item</code> , 因此 <code>&quot;🔓&quot;</code> , <code>&quot;💻&quot;</code> , <code>&quot;🍷&quot;</code> , <code>&quot;🍫&quot;</code> 被输出。</p>
+<p>With a <em>for-in</em> loop, we can iterate over <strong>enumerable</strong> properties. In an array, the enumerable properties are the “keys” of array elements, which are actually their indexes. You could see an array as:</p>
+<p><code>&#123;0: &quot;☕&quot;, 1: &quot;💻&quot;, 2: &quot;🍷&quot;, 3: &quot;🍫&quot;&#125;</code></p>
+<p>Where the keys are the enumerable properties. <code>0</code> <code>1</code> <code>2</code> <code>3</code> get logged.</p>
+<p>With a <em>for-of</em> loop, we can iterate over <strong>iterables</strong>. An array is an iterable. When we iterate over the array, the variable “item” is equal to the element it’s currently iterating over, <code>&quot;☕&quot;</code> <code>&quot;💻&quot;</code> <code>&quot;🍷&quot;</code> <code>&quot;🍫&quot;</code> get logged.<br>🍷”<code>,</code>“🍫”` 被输出。</p>
 </details>
 
 <hr>
@@ -2541,8 +2491,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>数组元素可以包含任何值。数字，字符串，布尔值，对象，数组，<code>null</code>,<code>undeifned</code>, 以及其他表达式，如日期，函数和计算。</p>
-<p>元素将等于返回的值。<code>1 + 2</code> 返回 <code>3</code> ,<code>1 * 2</code> 返回 <code>2</code> , <code>1 / 2</code> 返回 <code>0.5</code> .</p>
+<p>Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.</p>
+<p>The element will be equal to the returned value. <code>1 + 2</code> returns <code>3</code>, <code>1 * 2</code> returns <code>2</code>, and <code>1 / 2</code> returns <code>0.5</code>.</p>
 </details>
 
 <hr>
@@ -2561,43 +2511,40 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>默认情况下，如果不给函数传参，参数的值将为 <code>undefined</code> . 上述情况，我们没有给参数 <code>name</code> 传值。<code>name</code> 等于 <code>undefined</code> , 并被打印。</p>
-<p>在 ES6 中，我们可以使用默认参数覆盖此默认的 <code>undefined</code> 值。例如：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">'Lydia'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hi there, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>name<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>在这种情况下，如果我们没有传递值或者如果我们传递 <code>undefined</code> ,<code>name</code> 总是等于字符串 <code>Lydia</code> .</p>
+<p>By default, arguments have the value of <code>undefined</code>, unless a value has been passed to the function. In this case, we didn’t pass a value for the <code>name</code> argument. <code>name</code> is equal to <code>undefined</code> which gets logged.</p>
+<p>In ES6, we can overwrite this default <code>undefined</code> value with default parameters. For example:</p>
+<p><code>function sayHi(name = &quot;Lydia&quot;) &#123; ... &#125;</code></p>
+<p>In this case, if we didn’t pass a value or if we passed <code>undefined</code>, <code>name</code> would always be equal to the string <code>Lydia</code></p>
 </details>
 
 <hr>
-<h3 id="82-What’s-the-output"><a href="#82-What’s-the-output" class="headerlink" title="82. What’s the output?"></a>82. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> status <span class="token operator">=</span> <span class="token string">'aaa'</span><span class="token punctuation">;</span>
+<h3 id="82-What’s-the-output"><a href="#82-What’s-the-output" class="headerlink" title="82. What’s the output?"></a>82. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> status <span class="token operator">=</span> <span class="token string">'😎'</span><span class="token punctuation">;</span>
 
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> status <span class="token operator">=</span> <span class="token string">'bbb'</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> status <span class="token operator">=</span> <span class="token string">'😍'</span><span class="token punctuation">;</span>
 
   <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-    status<span class="token operator">:</span> <span class="token string">'ccc'</span><span class="token punctuation">,</span>
+    status<span class="token operator">:</span> <span class="token string">'🥑'</span><span class="token punctuation">,</span>
     <span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
       <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>status<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 要在浏览器环境运行</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">getStatus</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>A: <code>&quot;ccc&quot;</code> and <code>&quot;bbb&quot;</code></li>
-<li>B: <code>&quot;ccc&quot;</code> and <code>&quot;aaa&quot;</code></li>
-<li>C: <code>&quot;bbb&quot;</code> and <code>&quot;aaa&quot;</code></li>
-<li>D: <code>&quot;aaa&quot;</code> and <code>&quot;aaa&quot;</code></li>
+<li>A: <code>&quot;🥑&quot;</code> and <code>&quot;😍&quot;</code></li>
+<li>B: <code>&quot;🥑&quot;</code> and <code>&quot;😎&quot;</code></li>
+<li>C: <code>&quot;😍&quot;</code> and <code>&quot;😎&quot;</code></li>
+<li>D: <code>&quot;😎&quot;</code> and <code>&quot;😎&quot;</code></li>
 </ul>
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p><code>this</code> 关键字的指向取决于使用它的位置。在 ** 函数 ** 中，比如 <code>getStatus</code> ,<code>this</code> 指向的是调用它的对象，上述例子中 <code>data</code> 对象调用了 <code>getStatus</code> , 因此 <code>this</code> 指向的就是 <code>data</code> 对象。当我们打印 <code>this.status</code> 时，<code>data</code> 对象的 <code>status</code> 属性被打印，即 <code>&quot;ccc&quot;</code> .</p>
-<p>使用 <code>call</code> 方法，可以更改 <code>this</code> 指向的对象。<code>data.getStatus.call(this)</code> 是将 <code>this</code> 的指向由 <code>data</code> 对象更改为全局对象。在全局对象上，有一个名为 <code>status</code> 的变量，其值为 <code>&quot;aaa&quot;</code> . 因此打印 <code>this.status</code> 时，会打印 <code>&quot;aaa&quot;</code>.</p>
+<p>The value of the <code>this</code> keyword is dependent on where you use it. In a <strong>method</strong>, like the <code>getStatus</code> method, the <code>this</code> keyword refers to <em>the object that the method belongs to</em>. The method belongs to the <code>data</code> object, so <code>this</code> refers to the <code>data</code> object. When we log <code>this.status</code>, the <code>status</code> property on the <code>data</code> object gets logged, which is <code>&quot;🥑&quot;</code>.</p>
+<p>With the <code>call</code> method, we can change the object to which the <code>this</code> keyword refers. In <strong>functions</strong>, the <code>this</code> keyword refers to the <em>the object that the function belongs to</em>. We declared the <code>setTimeout</code> function on the <em>global object</em>, so within the <code>setTimeout</code> function, the <code>this</code> keyword refers to the <em>global object</em>. On the global object, there is a variable called <em>status</em> with the value of <code>&quot;😎&quot;</code>. When logging <code>this.status</code>, <code>&quot;😎&quot;</code> gets logged.</p>
 </details>
 
 <hr>
@@ -2620,10 +2567,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>我们将变量 <code>city</code> 设置为等于 <code>person</code> 对象上名为 <code>city</code> 的属性的值。这个对象上没有名为 <code>city</code> 的属性，因此变量 <code>city</code> 的值为 <code>undefined</code> .</p>
-<p>请注意，我们没有引用 <code>person</code> 对象本身，只是将变量 <code>city</code> 设置为等于 <code>person</code> 对象 <code>city</code> 属性的当前值。</p>
-<p>然后，我们将 <code>city</code> 设置为等于字符串 <code>&quot;Amsterdam&quot;</code> . 这不会更改 person 对象：没有对该对象的引用。</p>
-<p>因此打印 <code>person</code> 对象时，会返回未修改的对象。</p>
+<p>We set the variable <code>city</code> equal to the value of the property called <code>city</code> on the <code>person</code> object. There is no property on this object called <code>city</code>, so the variable <code>city</code> has the value of <code>undefined</code>.</p>
+<p>Note that we are <em>not</em> referencing the <code>person</code> object itself! We simply set the variable <code>city</code> equal to the current value of the <code>city</code> property on the <code>person</code> object.</p>
+<p>Then, we set <code>city</code> equal to the string <code>&quot;Amsterdam&quot;</code>. This doesn’t change the person object: there is no reference to that object.</p>
+<p>When logging the <code>person</code> object, the unmodified object gets returned.</p>
 </details>
 
 <hr>
@@ -2650,7 +2597,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>const</code> 和 <code>let</code> 声明的变量是具有 ** 块级作用域 ** 的，块是大括号 (<code>&#123;&#125;</code>) 之间的任何东西，即上述情况 <code>if / else</code> 语句的花括号。由于块级作用域，我们无法在声明的块之外引用变量，因此抛出 <code>ReferenceError: message is not defined</code> .</p>
+<p>Variables with the <code>const</code> and <code>let</code> keyword are <em>block-scoped</em>. A block is anything between curly brackets (<code>&#123; &#125;</code>). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it’s declared in, a ReferenceError gets thrown.</p>
 </details>
 
 <hr>
@@ -2673,7 +2620,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>第二个 <code>.then </code> 中 <code>res</code> 的值等于前一个 <code>.then</code> 中的回调函数返回的值。你可以像这样继续链接 <code>.then</code> , 将值传递给下一个处理程序。</p>
+<p>The value of <code>res</code> in the second <code>.then</code> is equal to the returned value of the previous <code>.then</code>. You can keep chaining <code>.then</code>s like this, where the value is passed to the next handler.</p>
 </details>
 
 <hr>
@@ -2693,10 +2640,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>使用逻辑非运算符 <code>!</code> , 将返回一个布尔值，使用 <code>!! name</code> , 我们可以确定 <code>name</code> 的值是真的还是假的。如果 <code>name</code> 是真值的，那么 <code>!name</code> 返回 <code>false</code> . <code>!false</code> 返回 <code>true</code> .</p>
-<p>通过将 <code>hasName</code> 设置为 <code>name</code> , 可以将 <code>hasName</code> 设置为等于传递给 <code>getName</code> 函数的值，而不是布尔值 <code>true</code> .</p>
-<p><code>new Boolean(true)</code> 返回一个对象包装器，而不是布尔值本身。</p>
-<p><code>name.length</code> 返回传递的参数的长度，而不是布尔值 <code>true</code> .</p>
+<p>With <code>!!name</code>, we determine whether the value of <code>name</code> is truthy or falsy. If name is truthy, which we want to test for, <code>!name</code> returns <code>false</code>. <code>!false</code> (which is what <code>!!name</code> practically is) returns <code>true</code>.</p>
+<p>By setting <code>hasName</code> equal to <code>name</code>, you set <code>hasName</code> equal to whatever value you passed to the <code>getName</code> function, not the boolean value <code>true</code>.</p>
+<p><code>new Boolean(true)</code> returns an object wrapper, not the boolean value itself.</p>
+<p><code>name.length</code> returns the length of the passed argument, not whether it’s <code>true</code>.</p>
 <p>还有另一种方法：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">const</span> hasName <span class="token operator">=</span> <span class="token function">Boolean</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2718,8 +2665,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>可以使用方括号表示法获取字符串中特定索引的字符，字符串中的第一个字符具有索引 0, 依此类推。在这种情况下，我们想要得到索引为 0 的元素，字符 <code>&#39;I&#39;</code> 被记录。</p>
-<p>请注意，IE7 及更低版本不支持此方法。在这种情况下，应该使用 <code>.charAt()</code> .</p>
+<p>In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character <code>&quot;I&#39;</code>, which gets logged.</p>
+<p>Note that this method is not supported in IE7 and below. In that case, use <code>.charAt()</code></p>
 </details>
 
 <hr>
@@ -2738,8 +2685,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>您可以将默认参数的值设置为函数的另一个参数，只要另一个参数定义在其之前即可。我们将值 <code>10</code> 传递给 <code>sum</code> 函数。如果 <code>sum</code> 函数只接收 1 个参数，则意味着没有传递 <code>num2</code> 的值，这种情况下，<code>num1</code> 的值等于传递的值 <code>10</code> . <code>num2</code> 的默认值是 <code>num1</code> 的值，即 <code>10</code> . <code>num1 + num2</code> 返回 <code>20</code> .</p>
-<p>如果您尝试将默认参数的值设置为后面定义的参数，则可能导致参数的值尚未初始化，从而引发错误。比如：</p>
+<p>You can set a default parameter’s value equal to another parameter of the function, as long as they’ve been defined <em>before</em> the default parameter. We pass the value <code>10</code> to the <code>sum</code> function. If the <code>sum</code> function only receives 1 argument, it means that the value for <code>num2</code> is not passed, and the value of <code>num1</code> is equal to the passed value <code>10</code> in this case. The default value of <code>num2</code> is the value of <code>num1</code>, which is <code>10</code>. <code>num1 + num2</code> returns <code>20</code>.</p>
+<p>If you’re trying to set a default parameter’s value equal to a parameter which is defined <em>after</em> (to the right), the parameter’s value hasn’t been initialized yet, which will throw an error.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token parameter">m <span class="token operator">=</span> n<span class="token punctuation">,</span> n <span class="token operator">=</span> <span class="token number">2</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
@@ -2772,8 +2719,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p>使用 <code>import * as name</code> 语法，我们将 <code>module.js</code> 文件中所有 <code>export</code> 导入到 <code>index.js</code> 文件中，并且创建了一个名为 <code>data</code> 的新对象。在 <code>module.js</code> 文件中，有两个导出：默认导出和命名导出。默认导出是一个返回字符串 <code>&quot;Hello World&quot;</code> 的函数，命名导出是一个名为 <code>name</code> 的变量，其值为字符串 <code>&quot;Lydia&quot;</code> .</p>
-<p><code>data</code> 对象具有默认导出的 <code>default</code> 属性，其他属性具有指定 exports 的名称及其对应的值。</p>
+<p>With the <code>import * as name</code> syntax, we import <em>all exports</em> from the <code>module.js</code> file into the <code>index.js</code> file as a new object called <code>data</code> is created. In the <code>module.js</code> file, there are two exports: the default export, and a named export. The default export is a function which returns the string <code>&quot;Hello World&quot;</code>, and the named export is a variable called <code>name</code> which has the value of the string <code>&quot;Lydia&quot;</code>.</p>
+<p>The <code>data</code> object has a <code>default</code> property for the default export, other properties have the names of the named exports and their corresponding values.</p>
 </details>
 
 <hr>
@@ -2798,12 +2745,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>类是构造函数的语法糖，如果用构造函数的方式来重写 <code>Person</code> 类则将是：</p>
+<p>Classes are syntactical sugar for function constructors. The equivalent of the <code>Person</code> class as a function constructor would be:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>通过 <code>new</code> 来调用构造函数，将会生成构造函数 <code>Person</code> 的实例，对实例执行 <code>typeof</code> 关键字将返回 <code>&quot;object&quot;</code> , 上述情况打印出 <code>&quot;object&quot;</code> .</p>
+<p>Calling a function constructor with <code>new</code> results in the creation of an instance of <code>Person</code>, <code>typeof</code> keyword returns <code>&quot;object&quot;</code> for an instance. <code>typeof member</code> returns <code>&quot;object&quot;</code>.</p>
 </details>
 
 <hr>
@@ -2823,8 +2770,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
-<p><code>.push</code> 方法返回数组的长度，而不是数组本身！ 通过将 <code>newList</code> 设置为 <code>[1,2,3].push(4)</code> , 实际上 <code>newList</code> 等于数组的新长度：<code>4</code> .</p>
-<p>然后，尝试在 <code>newList</code> 上使用 <code>.push</code> 方法。由于 <code>newList</code> 是数值 <code>4</code> , 抛出 <code>TypeError: newList.push is not a function</code>.</p>
+<p>The <code>.push</code> method returns the <em>new length</em> of the array, not the array itself! By setting <code>newList</code> equal to <code>[1, 2, 3].push(4)</code>, we set <code>newList</code> equal to the new length of the array: <code>4</code>.</p>
+<p>Then, we try to use the <code>.push</code> method on <code>newList</code>. Since <code>newList</code> is the numerical value <code>4</code>, we cannot use the <code>.push</code> method: a TypeError is thrown.</p>
 </details>
 
 <hr>
@@ -2847,9 +2794,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: D</p>
 <p>Regular functions, such as the <code>giveLydiaPizza</code> function, have a <code>prototype</code> property, which is an object (prototype object) with a <code>constructor</code> property. Arrow functions however, such as the <code>giveLydiaChocolate</code> function, do not have this <code>prototype</code> property. <code>undefined</code> gets returned when trying to access the <code>prototype</code> property using <code>giveLydiaChocolate.prototype</code>.</p>
-<blockquote>
-<p>常规函数，例如 <code>giveLydiaPizza</code> 函数，有一个 <code>prototype</code> 属性，它是一个带有 <code>constructor</code> 属性的对象（原型对象）. 然而，箭头函数，例如 <code>giveLydiaChocolate</code> 函数，没有这个 <code>prototype</code> 属性。尝试使用 <code>giveLydiaChocolate.prototype</code> 访问 <code>prototype</code> 属性时会返回 <code>undefined</code> .</p>
-</blockquote>
 </details>
 
 <hr>
@@ -2875,10 +2819,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: A</p>
-<p><code>Object.entries()</code> 方法返回一个给定对象自身可枚举属性的键值对数组，上述情况返回一个二维数组，数组每个元素是一个包含键和值的数组：</p>
-<p><code>[[&#39;name&#39;,&#39;Lydia&#39;],[&#39;age&#39;,21]]</code></p>
-<p>使用 <code>for-of</code> 循环，我们可以迭代数组中的每个元素，上述情况是子数组。我们可以使用 <code>const [x,y]</code> 在 <code>for-of</code> 循环中解构子数组。<code>x</code> 等于子数组中的第一个元素，<code>y</code> 等于子数组中的第二个元素。</p>
-<p>第一个子数组是 <code>[&quot;name&quot;,&quot;Lydia&quot;]</code> , 其中 <code>x</code> 等于 <code>name</code> , 而 <code>y</code> 等于 <code>Lydia</code> .<br>第二个子数组是 <code>[&quot;age&quot;,21]</code> , 其中 <code>x</code> 等于 <code>age</code> , 而 <code>y</code> 等于 <code>21</code> .</p>
+<p><code>Object.entries(person)</code> returns an array of nested arrays, containing the keys and objects:</p>
+<p><code>[ [ &#39;name&#39;, &#39;Lydia&#39; ], [ &#39;age&#39;, 21 ] ]</code></p>
+<p>Using the <code>for-of</code> loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using <code>const [x, y]</code>. <code>x</code> is equal to the first element in the subarray, <code>y</code> is equal to the second element in the subarray.</p>
+<p>The first subarray is <code>[ &quot;name&quot;, &quot;Lydia&quot; ]</code>, with <code>x</code> equal to <code>&quot;name&quot;</code>, and <code>y</code> equal to <code>&quot;Lydia&quot;</code>, which get logged.<br>The second subarray is <code>[ &quot;age&quot;, 21 ]</code>, with <code>x</code> equal to <code>&quot;age&quot;</code>, and <code>y</code> equal to <code>21</code>, which get logged.</p>
 </details>
 
 <hr>
@@ -2900,14 +2844,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
-<p><code>...args</code> 是剩余参数，剩余参数的值是一个包含所有剩余参数的数组，** 并且只能作为最后一个参数 **. 上述示例中，剩余参数是第二个参数，这是不可能的，并会抛出语法错误 <code>SyntaxError: Rest parameter must be last formal parameter</code>.</p>
+<p><code>...args</code> is a rest parameter. The rest parameter’s value is an array containing all remaining arguments, <strong>and can only be the last parameter</strong>! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getItems</span><span class="token punctuation">(</span><span class="token parameter">fruitList<span class="token punctuation">,</span> favoriteFruit<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>fruitList<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">,</span> favoriteFruit<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'apple'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'pear'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>上述例子是有效的，将会返回数组：<code>[&#39;banana&#39;, &#39;apple&#39;, &#39;orange&#39;, &#39;pear&#39;]</code></p>
+<p>The above example works. This returns the array <code>[ &#39;banana&#39;, &#39;apple&#39;, &#39;orange&#39;, &#39;pear&#39; ]</code></p>
 </details>
 
 <hr>
@@ -2933,12 +2877,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>在 JavaScript 中，我们不必显式地编写分号 (<code>;</code>), 但是 JavaScript 引擎仍然在语句之后自动添加分号。这称为 <strong>自动分号插入</strong>. 例如，一个语句可以是变量，或者像 <code>throw</code> 、 <code>return</code> 、 <code>break</code> 这样的关键字。</p>
-<p>在这里，我们在新的一行上写了一个 <code>return</code> 语句和另一个值 <code>a + b</code> . 然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在 <code>return</code> 后面自动添加分号。你可以这样看：</p>
+<p>In JavaScript, we don’t <em>have</em> to write the semicolon (<code>;</code>) explicitly, however the JavaScript engine still adds them after statements. This is called <strong>Automatic Semicolon Insertion</strong>. A statement can for example be variables, or keywords like <code>throw</code>, <code>return</code>, <code>break</code>, etc.</p>
+<p>Here, we wrote a <code>return</code> statement, and another value <code>a + b</code> on a <em>new line</em>. However, since it’s a new line, the engine doesn’t know that it’s actually the value that we wanted to return. Instead, it automatically added a semicolon after <code>return</code>. You could see this as:</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">return</span><span class="token punctuation">;</span>
 a <span class="token operator">+</span> b<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>这意味着永远不会到达 <code>a + b</code> , 因为函数在 <code>return</code> 关键字之后停止运行。如果没有返回值，就像这里，函数返回 <code>undefined</code> . 注意，在 <code>if/else</code> 语句之后没有自动插入！</p>
+<p>This means that <code>a + b</code> is never reached, since a function stops running after the <code>return</code> keyword. If no value gets returned, like here, the function returns <code>undefined</code>. Note that there is no automatic insertion after <code>if/else</code> statements!</p>
 </details>
 
 <hr>
@@ -2966,7 +2910,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: B</p>
-<p>我们可以将类设置为等于其他类 / 函数构造函数。在这种情况下，我们将 <code>Person</code> 设置为 <code>AnotherPerson</code> . 这个构造函数的名字是 <code>Sarah</code> , 所以新的 <code>Person</code> 实例 <code>member</code> 上的 name 属性是 <code>Sarah</code> .</p>
+<p>We can set classes equal to other classes/function constructors. In this case, we set <code>Person</code> equal to <code>AnotherPerson</code>. The name on this constructor is <code>Sarah</code>, so the name property on the new <code>Person</code> instance <code>member</code> is <code>&quot;Sarah&quot;</code>.</p>
 </details>
 
 <hr>
@@ -2990,8 +2934,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
-<p><code>Symbol</code> 类型是不可枚举的。<code>Object.keys</code> 方法返回对象上的所有可枚举的键属性。<code>Symbol</code> 类型是不可见的，并返回一个空数组。记录整个对象时，所有属性都是可见的，甚至是不可枚举的属性。</p>
-<p>这是 <code>Symbol</code> 的众多特性之一：除了表示完全唯一的值（防止对象意外名称冲突，例如当使用 2 个想要向同一对象添加属性的库时）, 您还可以 <code>隐藏</code> 这种方式对象的属性（尽管不完全。你仍然可以使用 <code>Object.getOwnPropertySymbols()</code> 方法访问 <code>Symbol</code> .</p>
+<p>A Symbol is not <em>enumerable</em>. The Object.keys method returns all <em>enumerable</em> key properties on an object. The Symbol won’t be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.</p>
+<p>This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also “hide” properties on objects this way (although not entirely. You can still access symbols using the <code>Object.getOwnPropertySymbols()</code> method).</p>
 </details>
 
 <hr>
@@ -3046,11 +2990,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: C</p>
 <p>The variable <code>name</code> holds the value of a string, which is not a function, thus cannot invoke.</p>
-<p>变量 <code>name</code> 保存字符串的值，该字符串不是函数，因此无法调用。</p>
 <p>TypeErrors get thrown when a value is not of the expected type. JavaScript expected <code>name</code> to be a function since we’re trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!</p>
-<p>当值不是预期类型时，会抛出 <code>TypeErrors</code> . JavaScript 期望 <code>name</code> 是一个函数，因为我们试图调用它。但它是一个字符串，因此抛出 <code>TypeError</code>: <code>name is not a function</code> .</p>
 <p>SyntaxErrors get thrown when you’ve written something that isn’t valid JavaScript, for example when you’ve written the word <code>return</code> as <code>retrun</code>.<br>ReferenceErrors get thrown when JavaScript isn’t able to find a reference to a value that you’re trying to access.</p>
-<p>当你编写了一些非有效的 JavaScript 时，会抛出语法错误，例如当你把 <code>return</code> 这个词写成 <code>retrun</code> 时。当 JavaScript 无法找到您尝试访问的值的引用时，抛出 <code>ReferenceErrors</code>.</p>
 </details>
 
 <hr>
@@ -3077,9 +3018,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <p>Answer: B</p>
 <p><code>[]</code> is a truthy value. With the <code>&amp;&amp;</code> operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value <code>[]</code> is a truthy value, so <code>&quot;Im&#39;</code> gets returned.</p>
-<p><code>[]</code> 是一个真值。使用 <code>&amp;&amp;</code> 运算符，如果左侧值是真值，则返回右侧值。在这种情况下，左侧值 <code>[]</code> 是一个真值，所以返回 <code>Im</code>.</p>
 <p><code>&quot;&quot;</code> is a falsy value. If the left-hand value is falsy, nothing gets returned. <code>n&#39;t</code> doesn’t get returned.</p>
-<p><code>&quot;&quot;</code> （空字符串）是一个假值。如果左侧值是假的，则不返回任何内容。<code>n&#39;t</code> 不会被返回。</p>
 </details>
 
 <hr>
@@ -3101,10 +3040,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>使用 <code>||</code> 运算符，我们可以返回第一个真值。如果所有值都是假值，则返回最后一个值。</p>
-<p><code>(false || &#123;&#125; || null)</code> : 空对象 <code>&#123;&#125;</code> 是一个真值。这是第一个（也是唯一的） 真值，它将被返回。<code>one</code> 等于 <code>&#123;&#125;</code> .</p>
-<p><code>(null || false ||&quot;&quot;)</code> : 所有值都是假值。这意味着返回传递的值 <code>&quot;&quot;</code> . <code>two</code> 等于 <code>&quot;&quot;</code> .</p>
-<p><code>([] || 0 ||&quot;&quot;)</code> : 空数组 <code>[]</code> 是一个真值。这是第一个返回的真值。<code>three</code> 等于 <code>[]</code> .</p>
+<p>With the <code>||</code> operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.</p>
+<p><code>(false || &#123;&#125; || null)</code>: the empty object <code>&#123;&#125;</code> is a truthy value. This is the first (and only) truthy value, which gets returned. <code>one</code> is equal to <code>&#123;&#125;</code>.</p>
+<p><code>(null || false || &quot;&quot;)</code>: all operands are falsy values. This means that the last operand, <code>&quot;&quot;</code> gets returned. <code>two</code> is equal to <code>&quot;&quot;</code>.</p>
+<p><code>([] || 0 || &quot;&quot;)</code>: the empty array<code>[]</code> is a truthy value. This is the first truthy value, which gets returned. <code>three</code> is equal to <code>[]</code>.</p>
 </details>
 
 <hr>
@@ -3135,10 +3074,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: D</p>
-<p>有了 promise, 我们通常会说：当我想要调用某个方法，但是由于它可能需要一段时间，因此暂时将它放在一边。只有当某个值被 resolved/rejected, 并且执行栈为空时才使用这个值。</p>
-<p>我们可以在 <code>async</code> 函数中通过 <code>.then</code> 和 <code>await</code> 关键字获得该值。尽管我们可以通过 <code>.then</code> 和 <code>await</code> 获得 promise 的价值，但是它们的工作方式有所不同。</p>
-<p>在 <code>firstFunction</code> 中，当运行到 <code>myPromise</code> 方法时我们将其放在一边，即 promise 进入微任务队列，其他后面的代码 (<code>console.log(&#39;second&#39;)</code>) 照常运行，因此 <code>second</code> 被打印出，<code>firstFunction</code> 方法到此执行完毕，执行栈中宏任务队列被清空，此时开始执行微任务队列中的任务，<code>I have resolved</code> 被打印出。</p>
-<p>在 <code>secondFunction</code> 方法中，我们通过 <code>await</code> 关键字，暂停了后面代码的执行，直到异步函数的值被解析才开始后面代码的执行。这意味着，它会等着直到 <code>myPromise</code> 以值 <code>I have resolved</code> 被解决之后，下一行 <code>second</code> 才开始执行。</p>
+<p>With a promise, we basically say <em>I want to execute this function, but I’ll put it aside for now while it’s running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value.</em></p>
+<p>We can get this value with both <code>.then</code> and the <code>await</code> keyword in an <code>async</code> function. Although we can get a promise’s value with both <code>.then</code> and <code>await</code>, they work a bit differently.</p>
+<p>In the <code>firstFunction</code>, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is <code>console.log(&#39;second&#39;)</code> in this case. Then, the function resolved with the string <code>I have resolved</code>, which then got logged after it saw that the callstack was empty.</p>
+<p>With the await keyword in <code>secondFunction</code>, we literally pause the execution of an async function until the value has been resolved before moving to the next line.</p>
+<p>This means that it waited for the <code>myPromise</code> to resolve with the value <code>I have resolved</code>, and only once that happened, we moved to the next line: <code>second</code> got logged.</p>
 </details>
 
 <hr>
@@ -3164,10 +3104,10 @@ set<span class="token punctuation">.</span><span class="token function">add</spa
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p><code>+</code> 运算符不仅用于添加数值，还可以使用它来连接字符串。当 JavaScript 引擎发现一个或多个值不是数字时，就会将数字强制为字符串。</p>
-<p>第一个是数字 <code>1</code> . <code>1 + 2</code> 返回数字 3.</p>
-<p>但是，第二个是字符串 <code>&quot;Lydia&quot;</code>. <code>&quot;Lydia&quot;</code> 是一个字符串，<code>2</code> 是一个数字：<code>2</code> 被强制转换为字符串。<code>&quot;Lydia&quot;</code> 和 <code>2</code> 被连接起来，产生字符串 <code>&quot;Lydia2&quot;</code> .</p>
-<p><code>&#123;name: &quot;Lydia&quot;&#125;</code> 是一个对象。数字和对象都不是字符串，因此将二者都字符串化。每当我们对常规对象进行字符串化时，它就会变成 <code>[Object object]</code>. 与 <code>&quot;2&quot;</code> 串联的 <code>&quot;[object Object]&quot;</code> 成为 <code>&quot;[object Object]2&quot;</code> .</p>
+<p>The <code>+</code> operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.</p>
+<p>The first one is <code>1</code>, which is a numerical value. <code>1 + 2</code> returns the number 3.</p>
+<p>However, the second one is a string <code>&quot;Lydia&quot;</code>. <code>&quot;Lydia&quot;</code> is a string and <code>2</code> is a number: <code>2</code> gets coerced into a string. <code>&quot;Lydia&quot;</code> and <code>&quot;2&quot;</code> get concatenated, which results in the string <code>&quot;Lydia2&quot;</code>.</p>
+<p><code>&#123; name: &quot;Lydia&quot; &#125;</code> is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes <code>&quot;[object Object]&quot;</code>. <code>&quot;[object Object]&quot;</code> concatenated with <code>&quot;2&quot;</code> becomes <code>&quot;[object Object]2&quot;</code>.</p>
 </details>
 
 <hr>
@@ -3186,14 +3126,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <details><summary><b>解析</b></summary>
 
 <p>Answer: C</p>
-<p>我们可以将我们想要的任何类型的值传递 <code>Promise.resolve</code>, 无论是否 <code>promise</code>. 该方法本身返回带有已解析值的 <code>Promise</code> (<code>&lt;fulfilled&gt;</code>). 如果您传递常规函数，它将是具有常规值的已解决 <code>promise</code>. 如果你通过了 promise, 它将是一个已经 resolved 的且带有传的值的 promise.</p>
-<p>上述情况，我们传了数字 <code>5</code> , 因此返回一个 resolved 状态的 promise,resolve 值为 <code>5</code> .</p>
+<p>We can pass any type of value we want to <code>Promise.resolve</code>, either a promise or a non-promise. The method itself returns a promise with the resolved value (<code>&lt;fulfilled&gt;</code>). If you pass a regular function, it’ll be a resolved promise with a regular value. If you pass a promise, it’ll be a resolved promise with the resolved value of that passed promise.</p>
+<p>In this case, we just passed the numerical value <code>5</code>. It returns a resolved promise with the value <code>5</code>.</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => 5</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 </details>
 
 <hr>
-<h3 id="105-What’s-the-output"><a href="#105-What’s-the-output" class="headerlink" title="105. What’s the output?"></a>105. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">compareMembers</span><span class="token punctuation">(</span><span class="token parameter">person1<span class="token punctuation">,</span> person2 <span class="token operator">=</span> person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<h3 id="🚀105-What’s-the-output"><a href="#🚀105-What’s-the-output" class="headerlink" title="🚀105. What’s the output?"></a>🚀105. What’s the output?</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">compareMembers</span><span class="token punctuation">(</span><span class="token parameter">person1<span class="token punctuation">,</span> person2 <span class="token operator">=</span> person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>person1 <span class="token operator">!==</span> person2<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Not the same!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
@@ -4811,7 +4751,7 @@ randomValue <span class="token operator">=</span> <span class="token string">'23
                 </div>
                 <div class="reprint__notice">
                     <span class="reprint-meta" style="font-weight: bold;">
-                        <i class="fas fa-copyright">
+                        <i class="far fa-copyright">
                             版权声明:
                         </i>
                     </span>

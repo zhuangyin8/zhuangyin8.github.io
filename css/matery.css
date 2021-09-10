@@ -1,6 +1,9 @@
 /*全局基础样式*/
 /*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
+  html {
+    font-size: 13px;
+  }
 }
 
 /*中等屏幕下(平板类)的样式*/
@@ -9,10 +12,9 @@
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
-}
-
-html {
-  font-size: 15px;
+  html {
+    font-size: 15px;
+  }
 }
 
 .card .card-content {

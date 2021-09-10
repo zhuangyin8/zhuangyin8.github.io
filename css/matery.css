@@ -4,16 +4,28 @@
   html {
     font-size: 13px;
   }
+  .article-info {
+    background-color: #b6e9bf;
+  }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+  .article-info {
+    background-color: #9fe9ee;
+  }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
   html {
     font-size: 15px;
+  }
+  .article-info {
+    background-color: #ebacac;
   }
 }
 
@@ -39,7 +51,7 @@
 
 body {
   font-family: '霞鹜文楷';
-  background-color: #eaeaea;
+  /* background-color: #eaeaea; */
   margin: 0;
   color: #34495e;
   overflow-x: hidden;

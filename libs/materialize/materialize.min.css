@@ -3010,7 +3010,7 @@ body.keyboard-focused .dropdown-content li:focus {
   font-weight: 500;
   color: rgba(0, 0, 0, 0.6);
   line-height: 32px;
-  padding: 0 12px;
+  padding: 0 .5rem;
   border-radius: 1rem;
   background-color: #e4e4e4;
   margin-bottom: 1rem;

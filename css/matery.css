@@ -220,8 +220,7 @@ kbd {
   border: 1px solid #b4b4b4;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 2px 1px 0 rgba(255, 255, 255, 0.6) inset;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 0.9rem;
-
+  
   background-color: #f8f8f8;
   color: #34495e;
   line-height: 1.8rem;
@@ -705,8 +704,7 @@ header .go-back i {
 .recommend .post-card .read-more {
   height: 40px;
   margin: 0.6rem 1px;
-  font-size: 0.9rem;
-
+  
   line-height: 40px;
   color: #fff;
   border-radius: 30px;
@@ -1312,7 +1310,6 @@ thead {
 }
 
 .post-statis .statis .name {
-  font-size: 0.9rem;
   color: #777;
 }
 
@@ -1331,8 +1328,7 @@ thead {
   color: #fff;
   border: 1px solid #0f9d58;
   background: radial-gradient(#4cbf30, #0f9d58);
-  font-size: 0.9rem;
-  border-radius: 50%;
+    border-radius: 50%;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.21), 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -1360,8 +1356,7 @@ thead {
 
 .profile .author .career {
   margin: 8px 0;
-  font-size: 0.9rem;
-
+  
   color: #777;
 }
 
@@ -1414,8 +1409,7 @@ thead {
 
 .my-projects .info .info-desc {
   margin: 0 0 10px;
-  font-size: 0.9rem;
-  color: #999;
+    color: #999;
 }
 
 .my-skills .skillbar {
@@ -1443,8 +1437,7 @@ thead {
   top: 0;
   left: 0;
   width: 110px;
-  font-size: 0.9rem;
-  color: #ffffff;
+    color: #ffffff;
   border-radius: 35px;
   -webkit-border-radius: 35px;
   -moz-border-radius: 35px;

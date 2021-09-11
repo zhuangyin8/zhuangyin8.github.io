@@ -40,7 +40,6 @@ abbr[title] {
 b,
 strong {
   color: rgb(255, 79, 121);
-
   font-weight: bold;
 }
 code,
@@ -4177,10 +4176,9 @@ input[type='range']::-ms-thumb {
 .sidenav li > a {
   color: rgba(0, 0, 0, 0.87);
   display: block;
-  font-weight: 500;
   height: 48px;
   line-height: 48px;
-  padding: 0 32px;
+  padding: 0 2rem;
 }
 .sidenav li > a:hover {
   background-color: rgba(0, 0, 0, 0.05);

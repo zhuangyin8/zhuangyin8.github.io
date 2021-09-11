@@ -6,7 +6,7 @@
   }
   .article-info,
   .reprint {
-    background-color: #b6e9bf;
+    background-color: #df9494;
   }
 }
 
@@ -17,7 +17,7 @@
   }
   .article-info,
   .reprint {
-    background-color: #9fe9ee;
+    background-color: #b9a6e6;
   }
 }
 
@@ -28,10 +28,14 @@
   }
   .article-info,
   .reprint {
-    background-color: #ebacac;
+    background-color: #b9eec4;
   }
 }
 
+footer a,
+footer i {
+  color: #fff;
+}
 .card .card-content {
   padding: 1rem;
   border-radius: 0 0 2px 2px;
@@ -56,9 +60,9 @@ body {
   font-family: '霞鹜文楷';
   /* background-color: #eaeaea; */
   margin: 0;
-  color: #34495e;
   overflow-x: hidden;
   overflow-y: auto;
+  line-height: 1.1;
 }
 
 .container {
@@ -69,43 +73,6 @@ em {
   text-decoration: #7b0099 wavy underline;
   color: #7e3878;
 }
-
-h1 {
-  /* margin: 20px 0 20px -5px; */
-  font-size: 1.8rem;
-  /* line-height: 1.1; */
-}
-
-h2 {
-  /* margin: 20px 0 20px -5px; */
-  font-size: 1.6rem;
-  /* line-height: 1.1; */
-  color: #0080ff;
-}
-
-h3 {
-  /* margin: 20px 0 20px -4px; */
-  font-size: 1.4rem;
-  /* line-height: 1.1; */
-}
-
-h4 {
-  /* margin: 20px 0 20px -4px; */
-  font-size: 1.2rem;
-  /* line-height: 1.1; */
-}
-
-/*h5 {
-  margin: 20px 0 20px -4px;
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
- h6 {
-  margin: 20px 0 20px -4px;
-  font-size: 1.1rem;
-  line-height: 150%;
-} */
 
 p {
   font-size: 1rem;
@@ -122,7 +89,6 @@ blockquote {
   border-left: 5px solid #42b983;
   /* padding: 1rem 0.8rem 0.2rem 0.8rem; */
   padding-left: 1rem;
-  color: #666;
   background-color: rgba(66, 185, 131, 0.1);
 }
 
@@ -142,7 +108,6 @@ pre {
   top: 0;
   left: 12px;
   margin-top: 12px;
-  -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
   box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
 }
 
@@ -220,9 +185,8 @@ kbd {
   border: 1px solid #b4b4b4;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 2px 1px 0 rgba(255, 255, 255, 0.6) inset;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  
+
   background-color: #f8f8f8;
-  color: #34495e;
   line-height: 1.8rem;
   white-space: nowrap;
 }
@@ -356,7 +320,6 @@ header .side-nav .menu-list li {
 /* header .side-nav .menu-list a {
   height: 50px;
   line-height: 50px;
-  color: #34495e !important;
 } */
 
 header .side-nav .social-link {
@@ -405,9 +368,6 @@ header .side-nav .social-link {
 .scroll-down {
   background: #333;
   margin: 100px auto;
-  -webkit-animation: scroll-down 1.5s infinite;
-  -moz-animation: scroll-down 1.5s infinite;
-  -o-animation: scroll-down 1.5s infinite;
   animation: scroll-down 1.5s infinite;
 }
 
@@ -485,7 +445,6 @@ header .go-back i {
 }
 
 .bg-cover:after {
-  -webkit-animation: rainbow 60s infinite;
   animation: rainbow 60s infinite;
 }
 
@@ -510,91 +469,31 @@ header .go-back i {
   100% {
     background: rgba(156, 39, 176, 0.75);
     background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(156, 39, 176, 0.75) 0%,
-      rgba(156, 39, 176, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(156, 39, 176, 0.75) 0%,
-      rgba(156, 39, 176, 0.65) 100%
-    );
   }
 
   16% {
     background: rgba(132, 13, 121, 0.75);
     background: linear-gradient(45deg, rgba(132, 13, 121, 0.75) 0%, rgba(132, 13, 121, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(132, 13, 121, 0.75) 0%,
-      rgba(132, 13, 121, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(132, 13, 121, 0.75) 0%,
-      rgba(132, 13, 121, 0.65) 100%
-    );
   }
 
   32% {
     background: rgba(239, 83, 80, 0.75);
     background: linear-gradient(45deg, rgba(239, 83, 80, 0.75) 0%, rgba(239, 83, 80, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(239, 83, 80, 0.75) 0%,
-      rgba(239, 83, 80, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(239, 83, 80, 0.75) 0%,
-      rgba(239, 83, 80, 0.65) 100%
-    );
   }
 
   48% {
     background: rgba(255, 87, 34, 0.75);
     background: linear-gradient(45deg, rgba(255, 87, 34, 0.75) 0%, rgba(255, 87, 34, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(255, 87, 34, 0.75) 0%,
-      rgba(255, 87, 34, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(255, 87, 34, 0.75) 0%,
-      rgba(255, 87, 34, 0.65) 100%
-    );
   }
 
   64% {
     background: rgba(255, 160, 0, 0.75);
     background: linear-gradient(45deg, rgba(255, 160, 0, 0.75) 0%, rgba(255, 160, 0, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(255, 160, 0, 0.75) 0%,
-      rgba(255, 112, 66, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(255, 160, 0, 0.75) 0%,
-      rgba(255, 160, 0, 0.65) 100%
-    );
   }
 
   80% {
     background: rgba(233, 30, 99, 0.75);
     background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
-    background: -moz-linear-gradient(
-      135deg,
-      rgba(233, 30, 99, 0.75) 0%,
-      rgba(233, 30, 99, 0.65) 100%
-    );
-    background: -webkit-linear-gradient(
-      135deg,
-      rgba(2233, 30, 99, 0.75) 0%,
-      rgba(233, 30, 99, 0.65) 100%
-    );
   }
 }
 
@@ -704,7 +603,6 @@ header .go-back i {
 .recommend .post-card .read-more {
   height: 40px;
   margin: 0.6rem 1px;
-  
   line-height: 40px;
   color: #fff;
   border-radius: 30px;
@@ -830,8 +728,6 @@ article .card .card-action {
 }
 
 .paging .page-info {
-  font-size: 1rem;
-  color: #888;
   padding-top: 1rem;
 }
 
@@ -842,11 +738,6 @@ article .card .card-action {
 .paging .disabled {
   background-color: #ccc !important;
 }
-
-.paging .disabled i {
-  color: #999 !important;
-}
-
 /*文章详情样式*/
 #artDetail .card {
   box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.07),
@@ -901,7 +792,7 @@ article .card .card-action {
 
 #artDetail .reprint {
   margin: 1rem -1rem;
-  padding: .5rem;
+  padding: 0.5rem;
   line-height: 2;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -1027,7 +918,6 @@ thead {
 }
 
 .chip-container .chip-default {
-  color: #34495e;
 }
 
 .chip-container .chip-active {
@@ -1279,8 +1169,6 @@ thead {
 
   .cssanimations .cd-timeline-content.bounce-in {
     visibility: visible;
-    -webkit-animation: cd-bounce-2 0.6s;
-    -moz-animation: cd-bounce-2 0.6s;
     animation: cd-bounce-2 0.6s;
   }
 }
@@ -1309,10 +1197,6 @@ thead {
   color: #42b983;
 }
 
-.post-statis .statis .name {
-  color: #777;
-}
-
 #aboutme .social-link {
   margin: 0.5rem 0;
   text-align: center;
@@ -1328,7 +1212,7 @@ thead {
   color: #fff;
   border: 1px solid #0f9d58;
   background: radial-gradient(#4cbf30, #0f9d58);
-    border-radius: 50%;
+  border-radius: 50%;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.21), 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -1355,9 +1239,7 @@ thead {
 }
 
 .profile .author .career {
-  margin: 8px 0;
-  
-  color: #777;
+  margin: 0.5rem 0;
 }
 
 #aboutme .profile .social-link {
@@ -1365,9 +1247,7 @@ thead {
 }
 
 #aboutme .introduction {
-  margin: 1.5rem auto 3rem;
-  max-width: 600px;
-  color: #999;
+  margin: 1rem auto;
 }
 
 .post-charts,
@@ -1403,13 +1283,8 @@ thead {
   line-height: 1.5em;
 }
 
-.my-projects .info .info-title a {
-  color: #34495e;
-}
-
 .my-projects .info .info-desc {
   margin: 0 0 10px;
-    color: #999;
 }
 
 .my-skills .skillbar {
@@ -1420,15 +1295,7 @@ thead {
   background: #eee;
   height: 30px;
   border-radius: 35px;
-  -moz-border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -webkit-transition: 0.4s linear;
-  -moz-transition: 0.4s linear;
-  -o-transition: 0.4s linear;
   transition: 0.4s linear;
-  -webkit-transition-property: width, background-color;
-  -moz-transition-property: width, background-color;
-  -o-transition-property: width, background-color;
   transition-property: width, background-color;
 }
 
@@ -1437,10 +1304,8 @@ thead {
   top: 0;
   left: 0;
   width: 110px;
-    color: #ffffff;
+  color: #ffffff;
   border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
 }
 
 .skillbar .skillbar-title span {
@@ -1450,16 +1315,12 @@ thead {
   height: 30px;
   line-height: 30px;
   border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
 }
 
 .skillbar .skillbar-bar {
   height: 30px;
   width: 0;
   border-radius: 35px;
-  -moz-border-radius: 35px;
-  -webkit-border-radius: 35px;
 }
 
 .skillbar .skill-bar-percent {
@@ -1469,7 +1330,6 @@ thead {
   font-size: 0.8rem;
   height: 30px;
   line-height: 30px;
-  color: #ffffff;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -1515,14 +1375,6 @@ footer .social-statis {
   position: relative;
 }
 
-footer a {
-  color: #fff;
-}
-
-footer .copy-right {
-  color: #dbdbdb;
-}
-
 /*搜索层样式*/
 #searchIcon {
   /* font-size: 1.2rem; */
@@ -1546,7 +1398,6 @@ footer .copy-right {
 #searchResult .search-result-list {
   margin-left: -8px;
   padding-left: 0;
-  color: #666;
 }
 
 .search-result-list .search-result-title {

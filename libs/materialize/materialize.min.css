@@ -286,7 +286,7 @@ i {
 }
 i.left {
   float: left;
-  margin-right: 15px;
+  margin-right: 1rem;
 }
 i.right {
   float: right;
@@ -479,7 +479,6 @@ footer {
   padding: .8rem;
 }
 .page-footer {
-  color: #666;
   background-color: #ee6e73;
 }
 .page-footer .footer-copyright {
@@ -1698,7 +1697,7 @@ nav i.material-icons {
   font-size: 1.2rem;
   height: 56px;
   line-height: 56px;
-  margin-right: 15px;
+  margin-right: 1rem;
 }
 nav .nav-wrapper {
   position: relative;
@@ -1764,7 +1763,7 @@ nav .brand-logo [class^='mdi-'],
 nav .brand-logo [class*='mdi-'],
 nav .brand-logo i.material-icons {
   float: left;
-  margin-right: 15px;
+  margin-right: 1rem;
 }
 nav .nav-title {
   display: inline-block;
@@ -1798,7 +1797,7 @@ nav ul a.btn-flat,
 nav ul a.btn-floating {
   margin-top: -2px;
   margin-left: 15px;
-  margin-right: 15px;
+  margin-right: 1rem;
 }
 nav ul a.btn > .material-icons,
 nav ul a.btn-large > .material-icons,
@@ -1898,33 +1897,33 @@ h6 a {
   font-weight: inherit;
 }
 h1 {
-  font-size: 4.2rem;
-  line-height: 110%;
+  font-size: 1.6rem;
+  line-height: 150%;
   margin: 2.8rem 0 1.68rem 0;
 }
 h2 {
-  font-size: 3.56rem;
-  line-height: 110%;
+  font-size: 1.5rem;
+  line-height: 150%;
   margin: 2.3733333333rem 0 1.424rem 0;
 }
 h3 {
-  font-size: 2.92rem;
-  line-height: 110%;
+  font-size: 1.4rem;
+  line-height: 150%;
   margin: 1.9466666667rem 0 1.168rem 0;
 }
 h4 {
-  font-size: 2.28rem;
-  line-height: 110%;
+  font-size: 1.3rem;
+  line-height: 150%;
   margin: 1.52rem 0 0.912rem 0;
 }
 h5 {
-  font-size: 1.64rem;
-  line-height: 110%;
+  font-size: 1.2rem;
+  line-height: 150%;
   margin: 1.0933333333rem 0 0.656rem 0;
 }
 h6 {
-  font-size: 1.15rem;
-  line-height: 110%;
+  font-size: 1.1rem;
+  line-height: 150%;
   margin: 0.7666666667rem 0 0.46rem 0;
 }
 em {

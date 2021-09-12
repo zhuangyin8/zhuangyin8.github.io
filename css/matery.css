@@ -62,7 +62,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 
 .container {
@@ -307,15 +307,15 @@ header .side-nav .social-link {
 }
 
 .cover-btns a {
-  margin: 10px 15px;
-  padding: 0 35px;
-  height: 45px;
-  line-height: 45px;
+  margin: 1rem;
+  padding: .8rem ;
+  height: 2rem;
+  line-height: 2rem;
   font-size: 1rem;
   color: #fff;
   border: 1px solid #fff;
   background-color: transparent;
-  border-radius: 30px;
+  border-radius: 2rem;
   box-shadow: none;
 }
 
@@ -1340,6 +1340,8 @@ footer .social-statis {
   margin-top: 1rem;
   position: relative;
 }
+
+
 
 /*搜索层样式*/
 #searchIcon {

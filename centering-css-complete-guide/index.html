@@ -1,0 +1,2301 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Centering in CSS - A Complete Guide, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>Centering in CSS - A Complete Guide | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      首页
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      标签
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      分类
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      关于
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment"></i>
+      
+      留言板
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      友情链接
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comment"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github"></i>
+    Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">Centering in CSS - A Complete Guide</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    /* #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    } */
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 58px;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Flexbox/">
+                            <span class="chip bg-color">Flexbox</span>
+                        </a>
+                        
+                        <a href="/tags/Grid/">
+                            <span class="chip bg-color">Grid</span>
+                        </a>
+                        
+                        <a href="/tags/Centering/">
+                            <span class="chip bg-color">Centering</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark"></i>
+                        
+                        <a href="/categories/CSS/">
+                            CSS
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar"></i>
+                    发布日期:
+                    2021-03-02
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/centering-css-complete-guide/">Centering in CSS:A Complete Guide | CSS-Tricks</a></p>
+</blockquote>
+<p>Centering things in CSS is the poster child of CSS complaining. <em>Why does it have to be so hard?</em> They jeer. I think the issue isn’t that it’s difficult to do, but in that there so many different ways of doing it, depending on the situation, it’s hard to know which to reach for.</p>
+<p>So let’s make it a decision tree and hopefully make it easier.</p>
+<p>I need to center…</p>
+<h2 id="Horizontally"><a href="#Horizontally" class="headerlink" title="Horizontally"></a>Horizontally</h2><p>You can center inline elements horizontally, within a block-level parent element, with just:</p>
+<h3 id="inline-text-align-center"><a href="#inline-text-align-center" class="headerlink" title="inline-* + text-align:center;"></a><code>inline-*</code> + <code>text-align:center;</code></h3><div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj"  data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div>
+  &lt;p>“要让群众讲话，哪怕是骂自己的话”
+  &lt;/p>
+&lt;div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+div {
+  text-align:center;
+  background:white;
+}</pre></div>
+
+<p>This will work for inline, inline-block, inline-table, inline-flex, etc.</p>
+<p>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> CSS property sets the horizontal alignment of a block element or table-cell box. This means it works like vertical-align but in the horizontal direction.</p>
+<p><code>text-align:center;</code> The inline contents are centered within the line box.</p>
+<p>父元素设置为 <code>text-align:center;</code> 会使父元素内的文本和行内元素水平居中，但是对块级元素无效。</p>
+<p>缺点：为了水平居中元素，使文本也水平居中了，因此可能需要重置文本的 <code>text-align</code>.</p>
+<p>优点：不需要固定居中元素的宽。</p>
+<h3 id="margin-auto"><a href="#margin-auto" class="headerlink" title="margin:auto"></a><code>margin:auto</code></h3><p>You can center a block-level element by giving it <code>margin-left</code> and <code>margin-right</code> of <code>auto</code> (and it has a set <code>width</code>, otherwise it would be full width and wouldn’t need centering). That’s often done with shorthand like this:</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj" data-preview="true" data-editable="true" data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="center">“要让群众讲话，哪怕是骂自己的话”1962 年 1 月 30 日，毛泽东在人民大会堂主持扩大的中央工作会议全体会议，并作长篇讲话。中心是讲民主集中制问题，突出强调在党内外发扬民主的重要性。他说：“要真正把问题敞开，让群众讲话，哪怕是骂自己的话，也要让人家讲。骂的结果，无非是自己倒台，不能做这项工作了，降到下级机关去做工作，或者调到别的地方去做工作。现在有些同志，很怕群众开展讨论，怕他们提出同领导机关、领导者不同的意见。一讨论问题，就压抑群众的积极性，不许人家讲话。”(《毛泽东年谱》第五卷 77 页&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  padding:10px;
+}
+.center {
+  margin:0 auto;
+  width:300px;
+  background:black;
+  color:white;
+}</pre></div>
+
+<p>This will work no matter what the width of the block level element you’re centering, or the parent.</p>
+<p>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin"><code>margin</code></a> CSS property sets the margin area on all four sides of an element.</p>
+<p>元素被设置成块级后，会独占一行，如果其宽度没有占满横向空间，此时将该元素本身设置 <code>margin:auto;</code> 那么剩余的空间就分配给 <code>margin</code>, 并且左右均分，所以就实现了水平居中。</p>
+<p>Note that you can’t <code>float</code> an element to the center. There is a trick though.(<a target="_blank" rel="noopener" href="https://css-tricks.com/float-center/">https://css-tricks.com/float-center/</a>)</p>
+<h3 id="display-flex-flex-direction-column-align-items-center"><a href="#display-flex-flex-direction-column-align-items-center" class="headerlink" title="display:flex; + flex-direction:column; + align-items:center;"></a><code>display:flex;</code> + <code>flex-direction:column;</code> + <code>align-items:center;</code></h3><p>通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">CSS Flexible Box Layout</a> 实现水平居中的原理是父元素 <code>display:flex;</code> + <code>flex-direction:column;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self"><code>align-items</code></a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+}</pre></div>
+
+<h3 id="display-flex-flex-direction-column-align-self-center"><a href="#display-flex-flex-direction-column-align-self-center" class="headerlink" title="display:flex; + flex-direction:column; + align-self:center;"></a><code>display:flex;</code> + <code>flex-direction:column;</code> + <code>align-self:center;</code></h3><p>通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">CSS Flexible Box Layout</a> 实现水平居中的原理是父元素 <code>display:flex;</code> + <code>flex-direction:column;</code>而子元素 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self"><code>align-self</code></a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editaxble="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+  align-self:center;
+}</pre></div>
+
+<h3 id="display-flex-justify-content-center"><a href="#display-flex-justify-content-center" class="headerlink" title="display:flex; + justify-content:center;"></a><code>display:flex;</code> + <code>justify-content:center;</code></h3><p>通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">CSS Flexible Box Layout</a> 实现水平居中的原理是父元素 <code>display:flex;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:flex;
+  justify-content:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+}</pre></div>
+
+<h3 id="display-grid-justify-content-center"><a href="#display-grid-justify-content-center" class="headerlink" title="display:grid; + justify-content:center;"></a><code>display:grid;</code> + <code>justify-content:center;</code></h3><p>通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a> 实现水平居中的原理是父元素 <code>display:grid;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:grid;
+  justify-content:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+}</pre></div>
+
+<h3 id="display-grid-justify-items-center"><a href="#display-grid-justify-items-center" class="headerlink" title="display:grid; + justify-items:center;"></a><code>display:grid;</code> + <code>justify-items:center;</code></h3><p>通过 CSS Grid Layout 实现水平居中的原理是父元素 <code>display:grid;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items">justify-items</a>:center;</p>
+<blockquote>
+<p>In flexbox layouts, <code>justify-items</code> property is ignored</p>
+</blockquote>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:grid;
+  justify-items:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+}</pre></div>
+
+<h3 id="display-grid-justify-self-center"><a href="#display-grid-justify-self-center" class="headerlink" title="display:grid; + justify-self:center;"></a><code>display:grid;</code> + <code>justify-self:center;</code></h3><p>通过 CSS Grid Layout 实现水平居中的原理是父元素 <code>display:grid;</code> 子元素 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">justify-self</a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="rNjBxOZ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">你们习惯把人群分成罪犯和非罪犯，就是所谓的好人和坏人，并且由此延伸出一些高尚啊、卑微之类的概念，但是我要告诉你，其实一切都是机会而已，穷乡僻壤的犯罪率低，不意味着那儿的人就高尚，因为他们没有选择，没有选择就不会有痛苦。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:10px 0;
+  padding:10px;
+  display:grid;
+}
+.children {
+  background:black;
+  color:white;
+  padding:10px;
+  width:300px;
+  margin:10px;
+  justify-self:center;
+}</pre></div>
+
+<h3 id="display-table-cell-margin-left"><a href="#display-table-cell-margin-left" class="headerlink" title="display:table-cell + margin-left"></a><code>display:table-cell</code> + <code>margin-left</code></h3><p>对于父元素和子元素的宽度都确定的情况，父元素 <code>display:table-cell</code>，子元素给剩余宽度一半的 <code>margin-left</code> 实现 CSS 水平居中。</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj" data-preview="true" data-editable="true" data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">“要让群众讲话，哪怕是骂自己的话”1962 年 1 月 30 日，毛泽东在人民大会堂主持扩大的中央工作会议全体会议，并作长篇讲话。中心是讲民主集中制问题，突出强调在党内外发扬民主的重要性。他说：“要真正把问题敞开，让群众讲话，哪怕是骂自己的话，也要让人家讲。骂的结果，无非是自己倒台，不能做这项工作了，降到下级机关去做工作，或者调到别的地方去做工作。现在有些同志，很怕群众开展讨论，怕他们提出同领导机关、领导者不同的意见。一讨论问题，就压抑群众的积极性，不许人家讲话。”(《毛泽东年谱》第五卷 77 页&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  padding:10px 0;
+  display:table-cell;
+  width:600px;
+}
+.children {
+  padding:10px 0;
+  margin-left:150px;
+  width:300px;
+  background:#abcdef;
+}</pre></div>
+
+<h3 id="position-absolute-margin-left"><a href="#position-absolute-margin-left" class="headerlink" title="position:absolute + margin-left"></a><code>position:absolute</code> + <code>margin-left</code></h3><p>适用于父元素和子元素的宽度都确定的情况。</p>
+<p>父元素 <code>position:absolute</code>，子元素给剩余宽度一半的 <code>margin-left</code>。</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj" data-preview="true" data-editable="true" data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">“要让群众讲话，哪怕是骂自己的话”1962 年 1 月 30 日，毛泽东在人民大会堂主持扩大的中央工作会议全体会议，并作长篇讲话。中心是讲民主集中制问题，突出强调在党内外发扬民主的重要性。他说：“要真正把问题敞开，让群众讲话，哪怕是骂自己的话，也要让人家讲。骂的结果，无非是自己倒台，不能做这项工作了，降到下级机关去做工作，或者调到别的地方去做工作。现在有些同志，很怕群众开展讨论，怕他们提出同领导机关、领导者不同的意见。一讨论问题，就压抑群众的积极性，不许人家讲话。”(《毛泽东年谱》第五卷 77 页
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  padding:10px 0;
+  display:absolute;
+  width:600px;
+}
+.children {
+  padding:10px 0;
+  margin-left:150px;
+  width:300px;
+  background:#abcdef;
+}</pre></div>
+
+<h3 id="width-fit-content"><a href="#width-fit-content" class="headerlink" title="width:fit-content"></a><code>width:fit-content</code></h3><p>子元素宽度不确定的情况下，也能实现 CSS 水平居中。</p>
+<p>需要注意的是，需要配合<code>margin:0 auto;</code> + <code>text-align:center;</code>使用。</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj" data-preview="true" data-editable="true" data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">“要让群众讲话，哪怕是骂自己的话”
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  padding:10px 0;
+}
+.children {
+  padding:10px 0;
+  background:#abcdef;
+  width:fit-content;
+  margin:0 auto;
+  text-align:center;
+}</pre></div>
+
+<h3 id="position-relative-float-left-margin-left"><a href="#position-relative-float-left-margin-left" class="headerlink" title="position:relative; +float:left; + margin-left"></a><code>position:relative;</code> +<code>float:left;</code> + <code>margin-left</code></h3><p>给父元素样式 <code>position:relative;</code>，给子元素 <code>float:left;</code> 和 <code>margin-left</code> 就可以实现 CSS 水平居中。</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="XWKOgWj" data-preview="true" data-editable="true" data-prefill='{"title":"@","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">“要让群众讲话，哪怕是骂自己的话”1962 年 1 月 30 日，毛泽东在人民大会堂主持扩大的中央工作会议全体会议，并作长篇讲话。中心是讲民主集中制问题，突出强调在党内外发扬民主的重要性。他说：“要真正把问题敞开，让群众讲话，哪怕是骂自己的话，也要让人家讲。骂的结果，无非是自己倒台，不能做这项工作了，降到下级机关去做工作，或者调到别的地方去做工作。现在有些同志，很怕群众开展讨论，怕他们提出同领导机关、领导者不同的意见。一讨论问题，就压抑群众的积极性，不许人家讲话。”(《毛泽东年谱》第五卷 77 页
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  padding:10px 0;
+  position:relative;
+  width:600px;
+  height:380px;
+}
+.children {
+  padding:10px 0;
+  background:#abcdef;
+  float:left;
+  width:300px;
+  margin-left:150px;
+}</pre></div>
+
+<h3 id="position-absolute-left-50-transform-translateX-50"><a href="#position-absolute-left-50-transform-translateX-50" class="headerlink" title="position:absolute; + left:50%; + transform:translateX(-50%);"></a><code>position:absolute;</code> + <code>left:50%;</code> + <code>transform:translateX(-50%);</code></h3><p>未知宽度块状元素水平居中</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="lpema" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">这是一个多么可怕的世界啊！他们把人分成三六九等，最高层的人，能够充分享受物质和精神的供应，然后随着层次的递减，供应就开始减少了；最低层次的人，通常他们接受的物质能量只能勉强维持他们的生活，而精神供应几乎是零，本人曾经就活在这个层面里！&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:280px;
+  margin:20px 0;
+  padding:10px;
+}
+.children {
+  position:absolute;
+  left:50%;
+  background:black;
+  color:white;
+  padding:20px;
+  transform:translateX(-50%);
+}</pre></div>
+
+<p>也适用多个未知高度块状元素水平居中</p>
+<h2 id="Vertically"><a href="#Vertically" class="headerlink" title="Vertically"></a>Vertically</h2><p>Vertical centering is a bit trickier in CSS.</p>
+<h3 id="上下-padding-相等"><a href="#上下-padding-相等" class="headerlink" title="上下 padding 相等"></a>上下 <code>padding</code> 相等</h3><p>Sometimes inline / text elements can appear vertically centered, just because there is <strong>equal padding above and below them</strong>.</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="ldcwq" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;p>但数年来，全国范围内，到三明学习医改的考察团已有千余批次，无论是堵浪费，还是阳光年薪制，均未见落实。&lt;/p>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">.parent {
+  background:#f06d06;
+  margin:20px 0;
+  padding:50px;
+}
+.parent p {
+  background:white;
+  padding:20px;
+  text-decoration:none;
+}</pre></div>
+
+<p>If padding isn’t an option for some reason, and you’re trying to center some text that you know will not wrap, there is a trick were making <strong>the <code>line-height</code> equal to the height</strong> will <code>center</code> the text.</p>
+<h3 id="height-和-line-height-相等-不换行文本素垂直居中"><a href="#height-和-line-height-相等-不换行文本素垂直居中" class="headerlink" title="height 和 line-height 相等 不换行文本素垂直居中"></a><code>height</code> 和 <code>line-height</code> 相等 不换行文本素垂直居中</h3><div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="LxHmK" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div>但是三明医改经革如何更好地推进，或许是摆在各级政府面前的新问题。​​​​&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">.parent {
+  background:#f06d06;
+  margin:20px 0;
+  padding:40px;
+}
+.parent div {
+  background:white;
+  height:60px;
+  line-height:60px;
+  white-space:nowrap;
+}</pre></div>
+
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">white-space - CSS:Cascading Style Sheets | MDN</a></p>
+<h3 id="display-flex-justify-content-center-flex-direction-column-垂直居中"><a href="#display-flex-justify-content-center-flex-direction-column-垂直居中" class="headerlink" title="display:flex; + justify-content:center; + flex-direction:column;垂直居中"></a><code>display:flex;</code> + <code>justify-content:center;</code> + <code>flex-direction:column;</code>垂直居中</h3><p>父容器设置 <code>display:flex;</code> + <code>justify-content:center;</code> + <code>flex-direction:column;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="uHygv" data-preview="true" data-editable="true"  data-prefill='{"title":"","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">.parent {
+  background:#f06d06;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+}
+.children {
+  background:white;
+  margin:20px;
+  padding:20px;
+}</pre></div>
+
+<h3 id="display-flex-align-items-center-垂直居中"><a href="#display-flex-align-items-center-垂直居中" class="headerlink" title="display:flex; + align-items:center; 垂直居中"></a><code>display:flex;</code> + <code>align-items:center;</code> 垂直居中</h3><p>父容器设置 <code>display:flex;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="uHygv" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">.parent {
+  background:#f06d06;
+  display:flex;
+  align-items:center;
+}
+.children {
+  background:white;
+  margin:20px;
+  padding:20px;
+}</pre></div>
+
+<h3 id="display-flex-align-self-center-垂直居中"><a href="#display-flex-align-self-center-垂直居中" class="headerlink" title="display:flex; + align-self:center; 垂直居中"></a><code>display:flex;</code> + <code>align-self:center;</code> 垂直居中</h3><p>父容器设置 <code>display:flex;</code> 子容器设置 <code>align-self:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="uHygv" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">.parent {
+  background:#f06d06;
+  display:flex;
+}
+.children {
+  background:white;
+  margin:20px;
+  padding:20px;
+  align-self:center;
+}</pre></div>
+
+<p>Remember that it’s only really relevant if the parent container has a fixed height (px, %, etc), which is why the container here has a height.</p>
+<h3 id="⊙▽⊙"><a href="#⊙▽⊙" class="headerlink" title="⊙▽⊙"></a>⊙▽⊙</h3><p>If both of these techniques are out, you could employ the “ghost element” technique, in which a full-height pseudo-element is placed inside the container and the text is vertically aligned with that.</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.ghost-center</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.ghost-center::before</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">' '</span><span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 1%<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.ghost-center p</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="ofwgD" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="ghost-center">
+  &lt;p>I'm vertically centered multiple lines of text in a container. Centered with a ghost pseudo element&lt;/p>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+div {
+  background:white;
+  height:250px;
+  margin:20px;
+  color:white;
+  padding:20px;
+}
+.ghost-center {
+  position:relative;
+}
+.ghost-center::before {
+  content:" ";
+  display:inline-block;
+  height:100%;
+  width:1%;
+  vertical-align:middle;
+}
+.ghost-center p {
+  display:inline-block;
+  vertical-align:middle;
+  width:190px;
+  margin:0;
+  padding:20px;
+  background:black;
+}</pre></div>
+
+<h3 id="固定高度垂直居中"><a href="#固定高度垂直居中" class="headerlink" title="固定高度垂直居中"></a>固定高度垂直居中</h3><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> -50px<span class="token punctuation">;</span> <span class="token comment">/* account for padding and border if not using box-sizing:border-box; */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="HiydJ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:300px;
+  margin:20px;
+  position:relative;
+}
+.children {
+  position:absolute;
+  top:50%;
+  height:100px;
+  margin-top:-70px;
+  background:black;
+  color:white;
+  padding:20px;
+}</pre></div>
+
+<hr>
+<h3 id="未知高度垂直居中"><a href="#未知高度垂直居中" class="headerlink" title="未知高度垂直居中"></a>未知高度垂直居中</h3><p>It’s still possible to center it by nudging it up half of it’s height after bumping it down halfway:</p>
+<p>固定高度父容器设置 <code>position:relative;</code><br>子容器设置 <code>position:absolute;</code> + <code>top:50%;</code> + <code>transform:translateY(-50%);</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="lpema" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:300px;
+  margin:20px;
+  padding:20px;
+  position:relative;
+}
+.children {
+  position:absolute;
+  top:50%; 
+  left:20px;
+  right:20px;
+  background:black;
+  color:white;
+  padding:20px;
+  transform:translateY(-50%);
+}</pre></div>
+
+<h3 id="Do-you-care-if-the-element-stretches-the-height-of-the-container"><a href="#Do-you-care-if-the-element-stretches-the-height-of-the-container" class="headerlink" title="Do you care if the element stretches the height of the container?"></a>Do you care if the element stretches the height of the container?</h3><p>If you don’t, you just need the content inside vertically centered, using tables or CSS display to make elements into tables can do the trick.</p>
+<p>父容器设置 <code>display:table;</code><br>子容器设置 <code>display:table-cell;</code> + <code>vertical-align:middle;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="RmeWvQ" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div>
+   I'm a block-level element with an unknown height, centered vertically within my parent.
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  margin:20px;
+  position:relative;
+  padding:20px;
+  display:table;
+}
+.parent div {
+  background:black;
+  color:white;
+  padding:20px;
+  display:table-cell;
+  vertical-align:middle;
+}</pre></div>
+
+<h3 id="display-grid-align-items-center"><a href="#display-grid-align-items-center" class="headerlink" title="display:grid;+ align-items:center;"></a><code>display:grid;</code>+ <code>align-items:center;</code></h3><p>固定高度父容器设置 <code>display:grid;</code>+ <code>align-items:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="oNBvjKR" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  height:300px;
+  margin:20px;
+  display:grid;
+  align-items:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:20px;
+  margin:20px;
+}
+</pre></div>
+
+<h3 id="display-grid-align-content-center"><a href="#display-grid-align-content-center" class="headerlink" title="display:grid;+ align-content:center;"></a><code>display:grid;</code>+ <code>align-content:center;</code></h3><p>固定高度父容器设置 <code>display:grid;</code>+ <code>align-content:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="oNBvjKR" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  height:300px;
+  margin:20px;
+  display:grid;
+  align-content:center;
+}
+.children {
+  background:black;
+  color:white;
+  padding:20px;
+  margin:20px;
+}
+</pre></div>
+
+<h3 id="display-grid-align-self-center"><a href="#display-grid-align-self-center" class="headerlink" title="display:grid; + align-self:center;"></a><code>display:grid;</code> + <code>align-self:center;</code></h3><p>固定高度父容器设置 <code>display:grid;</code><br>子容器设置 <code>align-self:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="oNBvjKR" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">国家卫生健康委体改司司长许树强：总结三明医改的精髓，主要有以下几个方面：一是改革整体联动；二是完善医改经济政策；三是健全医院内部激励和约束机制；四是推动医疗资源下沉。三明医改从实际出发，大胆实践、勇于创新，打出了一套适合三明实际情况的医改组合拳，也为各地因地制宜推广积累了非常好的经验
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">.parent {
+  background:#f06d06;
+  height:300px;
+  margin:20px;
+  display:grid;
+}
+.children {
+  background:black;
+  color:white;
+  padding:20px;
+  margin:20px;
+  align-self:center;
+}</pre></div>
+
+<h2 id="Both-Horizontally-and-Vertically"><a href="#Both-Horizontally-and-Vertically" class="headerlink" title="Both Horizontally and Vertically"></a>Both Horizontally and Vertically</h2><p>You can combine the techniques above in any fashion to get perfectly centered elements. But I find this generally falls into three camps:</p>
+<h3 id="absolute-负-margin"><a href="#absolute-负-margin" class="headerlink" title="absolute + 负 margin"></a><code>absolute</code> + 负 <code>margin</code></h3><p>Using negative margins equal to half of that width and height, after you’ve absolutely positioned it at 50% / 50% will center it with great cross browser support:</p>
+<pre class="line-numbers language-scss" data-language="scss"><code class="language-scss"><span class="token property"><span class="token variable">$width</span></span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$height</span></span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+
+<span class="token selector">.parent </span><span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children </span><span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token variable">$height</span>/-2 0 0 <span class="token variable">$width</span>/-2<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$width</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="JGofm" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="scss" data-option-autoprefixer="true">$width: 300px;
+$height: 200px;
+body {
+  background: #f06d06;
+}
+.parent {
+  background: white;
+  height: 400px;
+}
+.children {
+  background: black;
+  color: white;
+}
+.parent {
+  position: relative;
+}
+.children {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: $height/-2 0 0 $width/-2;
+  width: $width;
+  height: $height;
+}</pre></div>
+
+<h3 id="absolute-margin-auto"><a href="#absolute-margin-auto" class="headerlink" title="absolute + margin:auto;"></a><code>absolute</code> + <code>margin:auto;</code></h3><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="JGofm" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+}
+.parent {
+  position:relative;
+}
+.children {
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  margin:auto;
+  width:300px;
+  height:200px;
+}</pre></div>
+
+<p>该方案的原理是：使用了 CSS 中的定位属性 (<code>absolute</code>、<code>fixed</code> 等）后，如果 <code>left</code> 设置了具体值，没有设置 <code>right</code> 和 <code>width</code>, 那么就会自动计算，把剩余的空间分配给 <code>right</code> 和 <code>width</code>. 如果 <code>left</code>、<code>right</code> 和 <code>width</code> 都设置了具体值，并且没有占满横向空间，那么剩余空间就处于待分配状态，此时设置 <code>margin:auto;</code> 意味着把剩余的空间分配给 <code>margin</code>, 并且左右均分，所以就实现了水平居中，垂直方向同理。</p>
+<blockquote>
+<p>副作用：<code>left:0; right:0;</code> 相当于 <code>width:100%;</code> ; <code>top:0; bottom:0;</code> 相当于 <code>height:100%;</code></p>
+<p>需要固定居中元素的宽高，否则其宽高会被设为 <code>100%</code>（副作用）.</p>
+</blockquote>
+<h3 id="absolute-calc"><a href="#absolute-calc" class="headerlink" title="absolute + calc"></a><code>absolute</code> + <code>calc</code></h3><blockquote>
+<p>需要父元素及居中元素的固定宽高。</p>
+</blockquote>
+<pre class="line-numbers language-scss" data-language="scss"><code class="language-scss"><span class="token property"><span class="token variable">$width</span></span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$height</span></span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+
+<span class="token selector">.parent </span><span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children </span><span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">$width</span><span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% <span class="token operator">-</span> #<span class="token punctuation">&#123;</span><span class="token variable">$width</span>/2<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>50% <span class="token operator">-</span> #<span class="token punctuation">&#123;</span><span class="token variable">$height</span>/2<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="JGofm" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="scss" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+}
+.children {
+  background:black;
+  color:white;
+}
+$width: 300px;
+$height: 200px;
+.parent {
+  position: relative;
+  height: 400px;
+}
+.children {
+  position: absolute;
+  width: $width;
+  height: $height;
+  left: calc(50% - #{$width/2});
+  top: calc(50% - #{$height/2});
+}</pre></div>
+
+<h3 id="absolute-transform-translate-50-50"><a href="#absolute-transform-translate-50-50" class="headerlink" title="absolute + transform:translate(-50%,-50%);"></a><code>absolute</code> + <code>transform:translate(-50%,-50%);</code></h3><p>If you don’t know the width or height, you can use the transform property and a negative translate of 50% in both directions (it is based on the current width/height of the element) to center:</p>
+<blockquote>
+<p>不需要父元素及居中元素的固定宽高。</p>
+</blockquote>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="lgFiq" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  position:relative;
+}
+.children {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}</pre></div>
+
+<h3 id="absolute-transform-translate3d-50-50-0"><a href="#absolute-transform-translate3d-50-50-0" class="headerlink" title="absolute + transform:translate3d(-50%,-50%,0);"></a><code>absolute</code> + <code>transform:translate3d(-50%,-50%,0);</code></h3><p>垂直水平居中未知高度宽度块状元素</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.parent</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.children</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span>-50%<span class="token punctuation">,</span> -50%<span class="token punctuation">,</span> 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="lgFiq" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  position:relative;
+}
+.children {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}</pre></div>
+
+<h3 id="display-flex-justify-content-center-align-items-center"><a href="#display-flex-justify-content-center-align-items-center" class="headerlink" title="display:flex; + justify-content:center; + align-items:center;"></a><code>display:flex;</code> + <code>justify-content:center;</code> + <code>align-items:center;</code></h3><p>父容器设置 <code>display:flex;</code> + <code>justify-content:center;</code> + <code>align-items:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="msItD" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">
+  body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}</pre></div>
+
+<h3 id="display-flex-justify-content-center-align-self-center"><a href="#display-flex-justify-content-center-align-self-center" class="headerlink" title="display:flex; + justify-content:center; + align-self:center;"></a><code>display:flex;</code> + <code>justify-content:center;</code> + <code>align-self:center;</code></h3><p>父容器设置 <code>display:flex;</code> + <code>justify-content:center;</code><br>子容器设置 <code>align-items:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="LXvqBe" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  display:flex;
+  justify-content:center;  
+}
+.children {
+  align-self:center;
+}</pre></div>
+
+<h3 id="display-flex-margin-auto"><a href="#display-flex-margin-auto" class="headerlink" title="display:flex; + margin:auto;"></a><code>display:flex;</code> + <code>margin:auto;</code></h3><p>父容器设置 <code>display:flex;</code><br>子容器设置 <code>margin:auto;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="LXvqBe" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  display:flex;
+}
+.children {
+  margin:auto;
+}</pre></div>
+
+<h3 id="display-grid-justify-content-center-align-items-center"><a href="#display-grid-justify-content-center-align-items-center" class="headerlink" title="display:grid; + justify-content:center; + align-items:center;"></a><code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-items:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-items:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+  justify-content:center;
+  align-items:center;
+}</pre></div>
+
+<h3 id="display-grid-justify-items-center-align-items-center"><a href="#display-grid-justify-items-center-align-items-center" class="headerlink" title="display:grid; + justify-items:center; + align-items:center;"></a><code>display:grid;</code> + <code>justify-items:center;</code> + <code>align-items:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-items:center;</code> + <code>align-items:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+  justify-items:center;
+  align-items:center;
+}</pre></div>
+
+<h3 id="display-grid-justify-content-center-align-content-center"><a href="#display-grid-justify-content-center-align-content-center" class="headerlink" title="display:grid; + justify-content:center; + align-content:center;"></a><code>display:grid;</code> + <code>justify-content:center;</code> + <code>align-content:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-content:center;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content"><code>align-content</code></a>:center;（此属性对单行 flex 容器（即带有 的容器 flex-wrap:nowrap）没有影响。)</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+  justify-content:center;
+  align-content:center;
+}</pre></div>
+
+<h3 id="display-grid-place-content-center"><a href="#display-grid-place-content-center" class="headerlink" title="display:grid; + place-content:center;"></a><code>display:grid;</code> + <code>place-content:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/place-content">place-content</a>:center;</p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="msItD" data-preview="true" data-editable="true"  data-prefill='{"title":"@","tags":["center"],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css" data-option-autoprefixer="true">
+  body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:400px;
+}
+.parent {
+  display:grid;
+  place-content:center;
+}</pre></div>
+
+<h3 id="display-grid-justify-self-center-align-self-center"><a href="#display-grid-justify-self-center-align-self-center" class="headerlink" title="display:grid; + justify-self:center; + align-self:center;"></a><code>display:grid;</code> + <code>justify-self:center;</code> + <code>align-self:center;</code></h3><p>父容器设置 <code>display:grid;</code><br>子容器设置 <code>justify-self:center;</code> + <code>align-self:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+}
+.children {
+  justify-self:center;
+  align-self:center;
+}</pre></div>
+
+<h3 id="display-grid-justify-items-center-align-self-center"><a href="#display-grid-justify-items-center-align-self-center" class="headerlink" title="display:grid; + justify-items:center; + align-self:center;"></a><code>display:grid;</code> + <code>justify-items:center;</code> + <code>align-self:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>justify-items:center;</code><br>子容器设置 <code>align-self:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+  justify-items:center;
+}
+.children {
+  align-self:center;
+}</pre></div>
+
+<h3 id="display-grid-justify-self-center-align-items-center"><a href="#display-grid-justify-self-center-align-items-center" class="headerlink" title="display:grid; + justify-self:center; + align-items:center;"></a><code>display:grid;</code> + <code>justify-self:center;</code> + <code>align-items:center;</code></h3><p>父容器设置 <code>display:grid;</code> + <code>align-items:center;</code><br>子容器设置 <code>justify-self:center;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="dQLaxj" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。
+  &lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  width:400px;
+  background:black;
+  color:white;
+}
+.parent {
+  display:grid;
+  align-items:center;
+}
+.children {
+  justify-self:center;
+}</pre></div>
+
+<h3 id="display-grid-margin-auto"><a href="#display-grid-margin-auto" class="headerlink" title="display:grid; + margin:auto;"></a><code>display:grid;</code> + <code>margin:auto;</code></h3><p>父容器设置 <code>display:grid;</code><br>子容器设置 <code>margin:auto;</code></p>
+<div class="codepen" data-height="500" data-theme-id="30013" data-default-tab="result" data-user="zhuangyin" data-slug-hash="LXvqBe" data-preview="true" data-editable="true"  data-prefill='{"title":"@", "tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;div class="parent">
+  &lt;div class="children">得道多助，失道寡助，出自《孟子·公孙丑下》, 指站在正义方面会得到多数人的支持帮助；违背正义必然陷于孤立。文章通过对"天时"、"地利"、"人和", 并将这三者加以比较，层层递进。论证了"天时不如地利，地利不如人和"的道理。&lt;/div>
+&lt;/div></pre>
+  <pre data-lang="css">body {
+  background:#f06d06;
+}
+.parent {
+  background:white;
+  height:400px;
+}
+.children {
+  background:black;
+  color:white;
+  width:50%;
+}
+.parent {
+  display:grid;
+}
+.children {
+  margin:auto;
+}</pre></div>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>You can totally center things in CSS.</p>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/centering-in-the-unknown/">Centering in the Unknown | CSS-Tricks</a></p>
+<p><a target="_blank" rel="noopener" href="https://css-tricks.com/centering-percentage-widthheight-elements/">Centering Percentage Width/Height Elements</a></p>
+
+                
+            </div>
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            庄引
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/centering-css-complete-guide/">
+                            https://zhuangyin8.github.io
+                                /centering-css-complete-guide/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="far fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    庄引
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Flexbox/">
+                            <span class="chip bg-color">Flexbox</span>
+                        </a>
+                        
+                        <a href="/tags/Grid/">
+                            <span class="chip bg-color">Grid</span>
+                        </a>
+                        
+                        <a href="/tags/Centering/">
+                            <span class="chip bg-color">Centering</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="post_share">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<!-- <div id="article-share"> -->
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+<!-- </div> -->
+
+
+                </div>
+            </div>
+            
+            <style>
+    #reward {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comment" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2021-03-02T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
+            <div class="card">
+                <a href="/javascript-questions/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="JavaScript Questions">
+                        
+                        <span class="card-title">JavaScript Questions</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2021-05-10
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Q-A/">
+                        <span class="chip bg-color">Q&amp;A</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/25-more-javascript-code-solutions-you-need-to-know-about/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="25 JavaScript Tricks You Need To Know About (Part 2)">
+                        
+                        <span class="card-title">25 JavaScript Tricks You Need To Know About (Part 2)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2021-02-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Debounce/">
+                        <span class="chip bg-color">Debounce</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      <span>Copyright <i class="far fa-copyright"></i></span>
+      
+      <span id="year">2016-2021</span>
+      
+      <span id="year">2016</span>
+      <a href="/about" target="_blank">庄引</a>
+      <br />
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> Theme
+      <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye"></i>
+        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        <i class="fa fa-users"></i>
+        总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+      </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

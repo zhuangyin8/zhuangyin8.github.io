@@ -1,0 +1,1501 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="✋🏼🔥 CS Visualized: CORS, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>✋🏼🔥 CS Visualized: CORS | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      首页
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      标签
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      分类
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      关于
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment"></i>
+      
+      留言板
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      友情链接
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comment"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github"></i>
+    Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">✋🏼🔥 CS Visualized: CORS</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    /* #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    } */
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 58px;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/CORS/">
+                            <span class="chip bg-color">CORS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark"></i>
+                        
+                        <a href="/categories/Front-End/">
+                            Front-End
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar"></i>
+                    发布日期:
+                    2020-07-27
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/cs-visualized-cors-5b8h">✋🏼🔥 CS Visualized: CORS - DEV</a></p>
+</blockquote>
+<p><img src="/images/pokn6wy4nwkx7s5bkd9w.png" alt="Cover image for ✋🏼🔥 CS Visualized: CORS"></p>
+<p>It’s every developer’s frustration once in a while to see that big red <code>Access to fetched has been blocked by CORS policy</code> error in your console! 😬 Although there are some ways to quickly get rid of this error, let’s not take anything for granted today! Instead, let’s see what CORS is actually doing, and why it’s actually our friend 👏🏼</p>
+<blockquote>
+<p>每个开发人员都会不时感到沮丧,控制台中的因为 CORS 政策已阻止对获取访问的大红色错误！ 😬 尽管有一些方法可以快速消除此错误,但今天我们不要将任何事情视为理所当然！相反,让我们看看 CORS 实际在做什么,以及为什么它实际上是我们的朋友 👏🏼</p>
+</blockquote>
+<blockquote>
+<p>❗️ In this blog post I won’t explain HTTP basics. In case you’d like to know more about HTTP requests and responses, I wrote <a target="_blank" rel="noopener" href="https://www.lydiahallie.dev/blog/http11">a small blog post</a> about it a while ago though 🙂 In my examples I use HTTP/1.1 instead of HTTP/2, this doesn’t affect CORS.</p>
+</blockquote>
+<blockquote>
+<p>❗️ 在此博客文章中,我不会解释 HTTP 基础知识.如果您想了解更多有关 HTTP 请求和响应的信息,尽管我在前不久写了一篇有关它的小博客文章 在我的示例中,我使用 HTTP / 1.1 代替 HTTP / 2,但这不会影响 CORS.</p>
+</blockquote>
+<hr>
+<p>On the frontend, we often want to display data that’s located elsewhere! Before we can display this data, the browser first has to make a request to a server in order to fetch that data! The client sends an HTTP request with all the information that the server needs in order to send that data back to the client 🙂</p>
+<blockquote>
+<p>在前端,我们经常要显示其他地方的数据！在我们可以显示这些数据之前,浏览器首先必须向服务器发出请求以获取该数据！客户端发送 HTTP 请求,其中包含服务器需要的所有信息,以便将该数据发送回客户端.</p>
+</blockquote>
+<p>Let’s say we’re trying to fetch some user information on our <code>www.mywebsite.com</code> website from a server that’s located at <code>api.website.com</code>!</p>
+<blockquote>
+<p>假设我们正在尝试从 <code>api.website.com</code> 上的服务器上获取我们的 <code>www.mywebsite.com</code> 网站上的一些用户信息！</p>
+</blockquote>
+<p><img src="/images/qyeikeonofi8dfl0jz2t.gif" alt="从 api.website.com 上的服务器上获取我们的 www.mywebsite.com 网站上的一些用户信息"></p>
+<p>Perfect! 😃 We just sent an HTTP request to the server, which then responded with the JSON data we asked for.</p>
+<blockquote>
+<p>完美！ 我们只是向服务器发送了 HTTP 请求,然后服务器用我们要求的 JSON 数据进行响应.</p>
+</blockquote>
+<p>Let’s try the <em>exact same</em> request but from <strong>another domain</strong>. Instead of making the request from <code>www.mywebsite.com</code>, we’re now making the request from a website located at <code>www.anotherdomain.com</code>.</p>
+<blockquote>
+<p>让我们尝试完全相同的请求,但来自另一个域.现在,我们不是从 <code>www.mywebsite.com</code> 发出请求,而是从位于 <code>www.anotherdomain.com</code> 的网站发出请求.</p>
+</blockquote>
+<p><img src="/images/lxhuh29biuwhefs3k9d9.gif" alt="从位于 www.anotherdomain.com 的网站发出请求 浏览器向我们显示了一个奇怪的错误"></p>
+<p>Wait, what? We sent the exact same request, but this time the browser shows us a weird error?</p>
+<blockquote>
+<p>等一下我们发送了完全相同的请求,但是这次浏览器向我们显示了一个奇怪的错误？</p>
+</blockquote>
+<p>We just saw CORS in action! 💪🏼 Let’s see why this error occurred, and what it exactly means.</p>
+<blockquote>
+<p>我们刚刚看到 CORS 发挥了作用！ 💪🏼 让我们看看发生此错误的原因及其确切含义.</p>
+</blockquote>
+<hr>
+<h2 id="✋🏼-Same-Origin-Policy"><a href="#✋🏼-Same-Origin-Policy" class="headerlink" title="✋🏼 Same-Origin Policy"></a>✋🏼 Same-Origin Policy</h2><p>The web enforces something called the <strong>same-origin policy</strong>. By default, we can only access resources that are located at the <strong>same origin</strong> as the origin of our request! 💪🏼 It’s totally okay to load an image that’s located at <code>https://mywebsite.com/image1.png</code>, for example.</p>
+<blockquote>
+<p>网络强制执行一种称为”同源策略”的策略.默认情况下,我们只能访问与请求源相同的资源！ 💪🏼 例如,完全可以加载位于 <code>https://mywebsite.com/image1.png</code> 的图像.</p>
+</blockquote>
+<p>A resource is cross-origin when it’s located at a different (sub)domain, protocol, or port!</p>
+<blockquote>
+<p><strong>当资源位于不同的(子)域,协议或端口时,它就是跨域的</strong>！</p>
+</blockquote>
+<p><img src="/images/ibyoyo1yqta9cdvh0tbv.jpeg" alt="当资源位于不同的(子)域,协议或端口时,它就是跨域的"></p>
+<p>Cool, but why does the same-origin policy even exist?</p>
+<blockquote>
+<p>但是为什么存在同源政策？</p>
+</blockquote>
+<p>Let’s say that the same-origin policy didn’t exist, and you accidentally clicked one of the many virus links your aunt sent you on Facebook. This link redirects you to an “evil website” that has an iframe embedded which loads your bank’s website, and successfully logs you in by some set cookies! 😬</p>
+<blockquote>
+<p>假设不存在同源政策,您无意中单击了姑姑在 Facebook 上发送给您的众多病毒链接之一.此链接会将您重定向到一个嵌入了 iframe 的”邪恶网站”,该 iframe 会加载您的银行网站,并通过设置的 Cookie 成功登录您！ 😬</p>
+</blockquote>
+<p>The developers of this “evil website” made it possible for the website to access this iframe and interact with the DOM contents of your bank’s website in order to send money to their account on your behalf!</p>
+<blockquote>
+<p>这个”邪恶网站”的开发人员使该网站可以访问此 iframe,并与您银行网站的 DOM 内容进行交互,以便冒充您汇款到他们的帐户！</p>
+</blockquote>
+<p><img src="/images/50nmgrnkf6pb6gphno06.gif" alt="Alt Text"></p>
+<p>Yeah… this is a huge security risk! We don’t want anyone to just be able to access everything 😧</p>
+<blockquote>
+<p>是的…这是巨大的安全风险！我们不希望任何人都能访问所有内容 😧</p>
+</blockquote>
+<p>Luckily, the same-origin policy helps us out here! This policy makes sure that we can only access resources from the <strong>same origin</strong>.</p>
+<blockquote>
+<p>幸运的是,同源政策可以帮助我们解决问题！这项政策确保我们只能访问同一来源的资源.</p>
+</blockquote>
+<p><img src="/images/8unei9l9enunbpr58o54.gif" alt="Alt Text"></p>
+<p>In this case, the origin <code>www.evilwebsite.com</code> tried to access cross-origin resources from <code>www.bank.com</code>! The same-origin policy blocked this from happening and made sure that the evil website’s devs couldn’t just access our bank data 🥳</p>
+<blockquote>
+<p>在这种情况下,当 <code>www.evilwebsite.com</code> 试图从 <code>www.bank.com</code> 访问跨域资源！同源政策阻止了这种情况的发生,并确保邪恶网站的开发人员不能访问我们的银行数据</p>
+</blockquote>
+<p>Okay, so… what does this have to do with CORS?</p>
+<blockquote>
+<p>好的,那…这与 CORS 有什么关系？</p>
+</blockquote>
+<hr>
+<h2 id="🔥-Client-side-CORS"><a href="#🔥-Client-side-CORS" class="headerlink" title="🔥 Client-side CORS"></a>🔥 Client-side CORS</h2><p>Although the same-origin policy actually only applies to scripts, browsers “extended” this policy for JavaScript requests: by default, we can only access fetched resources from the <strong>same origin</strong>!</p>
+<blockquote>
+<p>尽管同源策略实际上仅适用于脚本,但是浏览器将此策略”扩展”用于 JavaScript 请求:默认情况下,我们只能访问来自相同源的资源！</p>
+</blockquote>
+<p><img src="/images/0qe4yzasvrm7r0a76kui.gif" alt="我们只能访问来自相同源的资源"></p>
+<p>Hmm, but… We often have to access cross-origin resources 🤔 Maybe our frontend needs to interact with our backend API in order to load the data? In order to allow cross-origin requests safely, the browser uses a mechanism called <strong>CORS</strong>! 🥳</p>
+<blockquote>
+<p>嗯,但是…我们经常必须访问跨域资源 🤔 也许我们的前端需要与后端 API 进行交互才能加载数据？为了安全地允许跨域请求,浏览器使用了一种称为 CORS 的机制！ 🥳</p>
+</blockquote>
+<p>CORS stands for <strong>Cross-Origin Resource Sharing</strong>. Although the browser disallows us from accessing resources that aren’t located at the same origin, we can use CORS to change those security restrictions a bit while still making sure that we’re accessing those resources safely 🎉</p>
+<blockquote>
+<p>CORS 代表跨域资源共享.尽管浏览器禁止我们访问不同来源的资源,我们可以使用 CORS 稍微更改这些安全限制,同时仍然确保我们可以安全地访问这些资源 🎉</p>
+</blockquote>
+<p>User agents (a browser, for example) can use the CORS mechanism in order to <strong>allow cross-origin requests</strong> which otherwise would’ve been blocked, based on the values of certain CORS-specific headers in the HTTP response! ✅</p>
+<blockquote>
+<p>用户代理(例如浏览器)可以使用 CORS 机制,以允许基于 HTTP 响应中某些 CORS 特定标头的值的跨域请求,否则该跨域请求将被阻止！ ✅</p>
+</blockquote>
+<p>When a cross-origin request is made, the client automatically adds an extra header to our HTTP request: <code>Origin</code>. The value of the <code>Origin</code> header is the origin where the request came from!</p>
+<blockquote>
+<p>进行跨域请求时,客户端会自动向我们的 HTTP 请求中添加一个额外的标头:Origin. Origin 标头的值是请求的来源！</p>
+</blockquote>
+<p><img src="/images/91qh9mo3q5lcl0ng4t0r.gif" alt="Alt Text"></p>
+<p>In order for the browser to allow accessing cross-origin resources, it expects certain headers from the server’s response, which specify whether this server allows cross-origin requests!</p>
+<blockquote>
+<p>为了使浏览器允许访问跨域资源,它需要服务器响应中的某些标头,这些标头指定此服务器是否允许跨域请求！</p>
+</blockquote>
+<hr>
+<h2 id="💻-Server-side-CORS"><a href="#💻-Server-side-CORS" class="headerlink" title="💻 Server-side CORS"></a>💻 Server-side CORS</h2><p>As a server developer, we can make sure that cross-origin requests are allowed by adding extra headers to the HTTP response, which all start with <code>Access-Control-*</code> 🔥 Based on the values of these CORS response headers, the browser can now allow certain cross-origin responses which would’ve normally been blocked by the same-origin policy!</p>
+<blockquote>
+<p>作为服务器开发人员,我们可以通过向 HTTP 响应添加额外的标头来确保允许跨域请求,这些标头均以 <code>Access-Control-*</code>开头 基于这些 CORS 响应标头的值,浏览器现在可以允许某些通常会被跨域策略阻止跨域响应！</p>
+</blockquote>
+<p>Although there are <a target="_blank" rel="noopener" href="https://fetch.spec.whatwg.org/#http-responses">several CORS headers</a> we can use, there is one header that the browser needs in order to allow cross-origin resource access: <code>Access-Control-Allow-Origin</code>! 🙂</p>
+<blockquote>
+<p>尽管我们可以使用多个 CORS 标头,但是浏览器需要一个标头才能允许跨域资源访问:<code>Access-Control-Allow-Origin</code>！ 🙂</p>
+</blockquote>
+<p>The value of this header specifies <strong>which origins are allowed to access the resources</strong> that they’re requesting from the server.</p>
+<blockquote>
+<p>此标头的值指定允许哪些来源访问它们从服务器请求的资源.</p>
+</blockquote>
+<p>If we’re developing a server that <code>https://mywebsite.com</code> should have access to, we can add the value of that domain to the <code>Access-Control-Allow-Origin</code> header!</p>
+<blockquote>
+<p>如果我们正在开发<a target="_blank" rel="noopener" href="https://mywebsite.com应该可以访问的服务器,则可以将该域的值添加到access-control-allow-origin标头中!/">https://mywebsite.com应该可以访问的服务器,则可以将该域的值添加到Access-Control-Allow-Origin标头中！</a></p>
+</blockquote>
+<p><img src="/images/bpw6vwe6w5tm3cadqg7j.gif" alt="Alt Text"></p>
+<p>Awesome! 🎉 This header is now added to the response that the server sends back to the client. By adding this header, the <strong>same-policy origin will no longer restrict us from receiving resources</strong> that were located at the <code>https://api.mywebsite.com</code> origin, if we sent the request from <code>https://mywebsite.com</code>!</p>
+<blockquote>
+<p>太棒了！ 现在 header 已添加到服务器发送回客户端的响应标头中.通过添加此标头,如果我们从 <code>https://mywebsite.com</code> 发送请求,则相同策略来源将不再限制我们接收位于 <code>https://api.mywebsite.com</code> 来源的资源！</p>
+</blockquote>
+<p><img src="/images/akf0epavr00o2vo857lc.gif" alt="Alt Text"></p>
+<p>The CORS mechanism within the browser checks whether the value of the <code>Access-Control-Allow-Origin</code> header equals the value of the <code>Origin</code> that was sent by the request 🤚🏼</p>
+<blockquote>
+<p>浏览器中的 CORS 机制检查 <code>Access-Control-Allow-Origin</code> 标头的值是否等于请求 sent 发送的 <code>Origin</code> 的值</p>
+</blockquote>
+<p>In this case, the origin of our request is <code>https://www.mywebsite.com</code>, which is listed in the <code>Access-Control-Allow-Origin</code> response header!</p>
+<blockquote>
+<p>在这种情况下,我们的请求的来源是 <code>https://www.mywebsite.com</code> ,它列在 <code>Access-Control-Allow-Origin</code> 响应标头中！</p>
+</blockquote>
+<p><img src="/images/foathske6a5prjf02dyf.gif" alt="Alt Text"></p>
+<p>Perfect! 🎉 We were able to receive the cross-origin resources successfully! So what happens when we’re trying to access these resources from an origin that’s not listed in the <code>Access-Control-Allow-Origin</code> header? 🤔</p>
+<blockquote>
+<p>完美！ 🎉 我们能够成功接收跨域资源！那么,当我们尝试从未在 <code>Access-Control-Allow-Origin</code> 标头中列出的来源访问这些资源时,会发生什么情况？ 🤔</p>
+</blockquote>
+<p><img src="/images/lqtoobekf1h1d08lcl56.gif" alt="Alt Text"></p>
+<p>Ahh yeah, CORS throws the notorious error that can be so frustrating at times! But now we actually see that it makes total sense</p>
+<blockquote>
+<p>嗯,是的,CORS 抛出了一个臭名昭著的错误,有时可能会令人沮丧！但是现在我们实际上看到这完全有意义</p>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">The &#39;Access-Control-Allow-Origin&#39; header has a value
+  &#39;https:&#x2F;&#x2F;www.mywebsite.com&#39; that is not equal
+to the supplied origin.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>In this case, the supplied origin was <code>https://www.anotherwebsite.com</code>. However, the server didn’t have this supplied origin in the list of allowed origins in the <code>Access-Control-Allow-Origin</code> header! CORS successfully blocked the request, and we cannot access the fetched data in our code 😃</p>
+<blockquote>
+<p>在这种情况下,提供的来源是 <code>https://www.anotherwebsite.com</code> .但是,服务器在 <code>Access-Control-Allow-Origin</code> 标头中的允许来源列表中没有提供的来源！ CORS 成功阻止了该请求,因此我们代码中的无法访问提取数据</p>
+</blockquote>
+<blockquote>
+<p>CORS also allows us to add the wildcard <code>*</code> as the value for the allowed origins. This means that requests from <em>all origins</em> should have access to the requested resources, so be careful!</p>
+</blockquote>
+<blockquote>
+<p>CORS 还允许我们将通配符 <code>*</code> 添加为允许的来源的值.这意味着来自所有来源的请求都应该可以访问所请求的资源,因此请小心！</p>
+</blockquote>
+<hr>
+<p><code>Access-Control-Allow-Origin</code> is one of the many CORS headers we can provide. A server developer can extend the server’s CORS policies in order to (dis)allow certain requests! 💪🏼</p>
+<blockquote>
+<p><code>Access-Control-Allow-Origin</code> 是我们可以提供的许多 CORS 标头之一.服务器开发人员可以扩展服务器的 CORS 策略,以(禁止)某些请求！ 💪🏼</p>
+</blockquote>
+<p>Another common header is the <code>Access-Control-Allow-Methods</code> header! CORS will only allow cross-origin requests if they were sent with the listed methods.</p>
+<blockquote>
+<p>另一个常见的标头是 <code>Access-Control-Allow-Methods</code> 标头！如果 CORS 是使用列出的方法发送的,则仅允许跨域请求.</p>
+</blockquote>
+<p><img src="/images/yjjhg7yr3kjrh1nm44mo.gif" alt="Alt Text"></p>
+<p>In this case, only requests with a <code>GET</code>, <code>POST</code>, or <code>PUT</code> method will be allowed! Other methods such as <code>PATCH</code> or <code>DELETE</code> will be blocked ❌</p>
+<blockquote>
+<p>在这种情况下,仅允许使用 <code>GET</code>,<code>POST</code> 或 <code>PUT</code> 方法的请求！诸如 <code>PATCH</code> 或 <code>DELETE</code> 之类的其他方法将被阻止 ❌</p>
+</blockquote>
+<blockquote>
+<p>If you’re curious about what the other possible CORS headers are and what they’re used for, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#The_HTTP_response_headers">check out this list</a>.</p>
+</blockquote>
+<blockquote>
+<p>如果您对其他可能的 CORS 标头是什么以及它们的用途感到好奇,请查看此列表.</p>
+</blockquote>
+<p>Speaking of <code>PUT</code>, <code>PATCH</code>, and <code>DELETE</code> requests, CORS actually handles those requests differently! 🙃 These “<em>non-simple</em>“ requests initiate something called a <strong>preflight request</strong>!</p>
+<blockquote>
+<p>说到 <code>PUT</code>,<code>PATCH</code> 和 <code>DELETE</code> 请求,CORS 实际上以不同的方式处理这些请求！ 🙃 这些”非简单”请求会启动所谓的预检请求！</p>
+</blockquote>
+<hr>
+<h2 id="🚀-Preflighted-Requests"><a href="#🚀-Preflighted-Requests" class="headerlink" title="🚀 Preflighted Requests"></a>🚀 Preflighted Requests</h2><p>CORS has two types of requests: a <strong>simple request</strong> and a <strong>preflighted request</strong>. Whether a request is simple or preflighted depends on some values within the request (don’t worry, you don’t have to memorize this lol).</p>
+<blockquote>
+<p>CORS 有两种类型的请求:简单请求和预检请求.请求是简单的还是预检的取决于请求中的某些值(不用担心,您不必记住这个).</p>
+</blockquote>
+<p>A request is simple when the request is a <code>GET</code> or <code>POST</code> method and doesn’t have any custom headers! Any other request, such as requests with a <code>PUT</code>, <code>PATCH</code>, or <code>DELETE</code> method, will be preflighted.</p>
+<blockquote>
+<p>如果请求是 <code>GET</code> 或 <code>POST</code> 方法且没有任何自定义标头,则请求是简单！其他任何请求(例如带有 <code>PUT</code>,<code>PATCH</code> 或 <code>DELETE</code> 方法的请求)将被预检.</p>
+</blockquote>
+<blockquote>
+<p>In case you’re just curious about which requirements a request has to meet in order to be a simple request, MDN has <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests">a useful list</a>!</p>
+</blockquote>
+<blockquote>
+<p>如果您只是想知道一个简单的请求必须满足哪些要求,MDN 会提供有用的清单！</p>
+</blockquote>
+<p>Okay sure, but what does “preflighted request” even mean, and why does this happen?</p>
+<blockquote>
+<p>好的,但是”预检请求”到底是什么意思,为什么会这样？</p>
+</blockquote>
+<hr>
+<p>Before the actual request gets sent, the client generates a preflighted request! The preflighted request contains information about the actual request we’re about to in its <code>Access-Control-Request-*</code> headers 🔥</p>
+<blockquote>
+<p>在发送实际请求之前,客户端会生成预检请求！预检请求在其 <code>Access-Control-Request-*</code> 标头中包含有关我们实际要处理的请求的信息 🔥</p>
+</blockquote>
+<p>This gives the server information about the actual request that the browser is trying to make: what is the <strong>method</strong> of the request, what are the <strong>additional headers</strong>, and so on.</p>
+<blockquote>
+<p>这为服务器提供了有关浏览器试图发出的实际请求的信息:请求的方法是什么,附加的头是什么,等等.</p>
+</blockquote>
+<p><img src="/images/pp30p7ej496f8bqta4he.gif" alt="Alt Text"></p>
+<p>The server receives this preflighted request, and sends an empty HTTP response back with the server’s CORS headers! The browser receives the preflight response, which contains no data besides the CORS headers, and checks whether the HTTP request should be allowed! ✅</p>
+<blockquote>
+<p>服务器接收到此预检请求,并使用服务器的 CORS 标头发送回空的 HTTP 响应！浏览器收到预检响应,该响应除了 CORS 标头外不包含任何数据,并检查是否应允许 HTTP 请求！ ✅</p>
+</blockquote>
+<p><img src="/images/py19auar8xhs933ilmsc.gif" alt="Alt Text"></p>
+<p>If that’s the case, the browser sends the actual request to the server, which then responds with the data we asked for!</p>
+<blockquote>
+<p>如果是这种情况,浏览器会将实际请求发送到服务器,然后服务器用我们要求的数据进行响应！</p>
+</blockquote>
+<p><img src="/images/pfv1dcg77yjxbue5ryzf.gif" alt="Alt Text"></p>
+<p>However, if it’s not the case, CORS will block the preflighted request, and the actual request never gets sent ✋🏼 The preflighted request is a great way to prevent us from accessing or modifying resources on servers that don’t have any CORS policies enabled (yet)! Servers are now protected from potentially unwanted cross-origin requests 😃</p>
+<blockquote>
+<p>但是,如果不是这种情况,CORS 将阻止预检请求,并且实际请求将永远不会发送 ✋🏼 预检请求是防止我们访问或修改未启用任何 CORS 策略的服务器上资源的一种好方法！现在可以保护服务器免受潜在的跨域请求的攻击 😃</p>
+</blockquote>
+<blockquote>
+<p>💡 In order to reduce the number of roundtrips to our server, we can cache the preflighted responses by adding an <code>Access-Control-Max-Age</code> header to our CORS requests! We can cache the preflighted response this way, which the browser can use instead of sending a new preflighted request!</p>
+</blockquote>
+<blockquote>
+<p>💡 为了减少往返服务器的次数,我们可以通过在 CORS 请求中添加 <code>Access-Control-Max-Age</code> 标头来缓存预检响应！我们可以通过这种方式缓存预检响应,浏览器可以使用它来代替发送新的预检请求！</p>
+</blockquote>
+<hr>
+<h2 id="🍪-Credentials"><a href="#🍪-Credentials" class="headerlink" title="🍪 Credentials"></a>🍪 Credentials</h2><p>Cookies, authorization headers, and TLS certificates are by default only set on same-origin requests! However, we may want to use these credentials in our cross-origin request. Maybe we want to include cookies on the request that the server can use in order to identify the user!</p>
+<blockquote>
+<p>Cookie,授权标头和 TLS 证书默认情况下仅在同源请求上设置！但是,我们可能需要在跨域请求中使用这些凭据.也许我们想在服务器可以使用的请求中包含 cookie 以便识别用户！</p>
+</blockquote>
+<p>Although CORS doesn’t include credentials by default, we can change this by adding the <code>Access-Control-Allow-Credentials</code> CORS header! 🎉</p>
+<blockquote>
+<p>尽管 CORS 默认情况下不包括凭据,但我们可以通过添加 <code>Access-Control-Allow-Credentials</code> CORS 标头来更改此设置！ 🎉</p>
+</blockquote>
+<p>If we want to include cookies and other authorization headers to our cross-origin request, we need to set the <code>withCredentials</code> field to <code>true</code> on the request and add the <code>Access-Control-Allow-Credentials</code> header to the response.</p>
+<blockquote>
+<p>如果我们想在跨域请求中包含 cookie 和其他授权标头,则需要在请求上将 withCredentials 字段设置为 true,并将 Access-Control-Allow-Credentials 标头添加到响应中.</p>
+</blockquote>
+<p><img src="/images/vg3yo6qfqw12oh0f68yg.gif" alt="Alt Text"></p>
+<p>All set! We can now include credentials in our cross-origin request 🥳</p>
+<blockquote>
+<p>搞定！现在,我们可以在跨域请求中包含凭据 🥳</p>
+</blockquote>
+<hr>
+<p>Although I think we can all agree that CORS errors can be frustrating at times, it’s amazing that it enables us to safely make cross-origin requests in the browser (it should receive a bit more love lol) ✨</p>
+<blockquote>
+<p>尽管我认为我们都同意 CORS 错误有时会令人沮丧,但令人惊奇的是,它使我们能够在浏览器中安全地进行跨域请求(它应该会收到更多的欢笑)✨</p>
+</blockquote>
+<p>Obviously there is so much more to the same-origin policy and CORS than I was able to cover here in this blog post! Luckily, there are many great resources out there like <a target="_blank" rel="noopener" href="https://livebook.manning.com/book/cors-in-action/part-1/">this one</a> or <a target="_blank" rel="noopener" href="https://www.w3.org/wiki/CORS_Enabled">the W3 spec</a> if you want to read more about it 💪🏼</p>
+<blockquote>
+<p>显然,同源策略和 CORS 远远超出了我在本博文中能够介绍的范围！幸运的是,如果您想了解更多有关它的信息,那么这里有很多很棒的资源,例如《 W3 规范》.</p>
+</blockquote>
+<p>And as always, feel free to reach out to me! 😊</p>
+<blockquote>
+<p>和往常一样,随时与我联系！ 😊</p>
+</blockquote>
+<!--
+✨ [Twitter](https://www.twitter.com/lydiahallie)
+
+👩🏽‍💻 [Instagram](https://www.instagram.com/theavocoder)
+
+💻 [GitHub](https://www.github.com/lydiahallie)
+
+💡 [LinkedIn](https://www.linkedin.com/in/lydia-hallie)
+
+📷 [YouTube](https://www.youtube.com/channel/UC4EWKIKdKiDtAscQ9BIXwUw)
+
+💌 [Email](mailto:lydiahallie.dev@gmail.com%22) -->
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">跨源资源共享(CORS)</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">浏览器的同源策略</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">CORS-safelisted response header</a></p>
+</blockquote>
+
+                
+            </div>
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            Lydia Hallie
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/cs-visualized-cors/">
+                            https://zhuangyin8.github.io
+                                /cs-visualized-cors/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="far fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    Lydia Hallie
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/CORS/">
+                            <span class="chip bg-color">CORS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="post_share">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<!-- <div id="article-share"> -->
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+<!-- </div> -->
+
+
+                </div>
+            </div>
+            
+            <style>
+    #reward {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comment" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-07-27T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
+            <div class="card">
+                <a href="/job-hunt-interview-questions-2020/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="All front end Interview questions asked during my recent job hunt">
+                        
+                        <span class="card-title">All front end Interview questions asked during my recent job hunt</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-08-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/Front-End/" class="post-category">
+                                Front-End
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Interview/">
+                        <span class="chip bg-color">Interview</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/10-css-tricks-you-need-to-know-about-part-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="10 CSS Tricks You Need to Know About (Part 2)">
+                        
+                        <span class="card-title">10 CSS Tricks You Need to Know About (Part 2)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-05-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tricks/">
+                        <span class="chip bg-color">Tricks</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      <span>Copyright <i class="far fa-copyright"></i></span>
+      
+      <span id="year">2016-2021</span>
+      
+      <span id="year">2016</span>
+      <a href="/about" target="_blank">庄引</a>
+      <br />
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> Theme
+      <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye"></i>
+        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        <i class="fa fa-users"></i>
+        总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+      </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

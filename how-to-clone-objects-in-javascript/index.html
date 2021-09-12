@@ -1,0 +1,1480 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="How to Clone Objects in JavaScript, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>How to Clone Objects in JavaScript | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      首页
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      标签
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      分类
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      关于
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment"></i>
+      
+      留言板
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      友情链接
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comment"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github"></i>
+    Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">How to Clone Objects in JavaScript</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    /* #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    } */
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 58px;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Clone/">
+                            <span class="chip bg-color">Clone</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark"></i>
+                        
+                        <a href="/categories/JavaScript/">
+                            JavaScript
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar"></i>
+                    发布日期:
+                    2019-06-19
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Because objects in JavaScript are references values, you can’t simply just copy using the <code>=</code>. But no worries, here are 4 ways for you to clone an object 👍</p>
+<ul>
+<li>Using Spread(<code>...</code>) operator</li>
+<li>Using <code>Object.assign()</code></li>
+<li>Using <code>JSON.stringify()</code> and <code>JSON.parse()</code></li>
+<li>Using recursive function</li>
+</ul>
+<h2 id="Objects-are-Reference-Types"><a href="#Objects-are-Reference-Types" class="headerlink" title="Objects are Reference Types"></a>Objects are Reference Types</h2><p>Your first question might be, why can’t I use <code>=</code>. Let’s see what happens if we do that:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> one<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> two<span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> obj2 <span class="token operator">=</span> obj<span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+  obj<span class="token punctuation">,</span> <span class="token comment">// &#123;one: 1, two: 2&#125;;</span>
+  obj2<span class="token punctuation">,</span> <span class="token comment">// &#123;one: 1, two: 2&#125;;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>So far, both object seems to output the same thing. So no problem, right. But let’s see what happens if we edit our second object:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj2<span class="token punctuation">.</span>three <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123;one: 1, two: 2, three: 3&#125;; &lt;-- ✅</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123;one: 1, two: 2, three: 3&#125;; &lt;-- 😱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>WTH?! I changed <code>obj2</code> but why was <code>obj</code> also affected. That’s because Objects are reference types. So when you use <code>=</code>, it copied the pointer to the memory space it occupies. Reference types don’t hold values, they are a pointer to the value in memory.</p>
+<h2 id="Shallow-Clone-vs-Deep-Clone"><a href="#Shallow-Clone-vs-Deep-Clone" class="headerlink" title="Shallow Clone vs Deep Clone"></a>Shallow Clone vs Deep Clone</h2><p>Object cloning is something that we may often come across while coding. As we know, Objects and Arrays in JavaScript are reference type, if we normally copies an object or array then it will do a shallow copy, not a deep copy. If nested objects are present inside an object then deep copy is must.</p>
+<blockquote>
+<p>对象克隆是我们在编码时经常会遇到的问题.众所周知,JavaScript 中的对象和数组是引用类型,我们通常复制对象或数组,对它进行浅复制,而不是深复制.如果对象内部存在嵌套对象,则必须进行深复制.</p>
+</blockquote>
+<p>When working with functional programming a good rule of thumb is to always create new objects instead of changing old ones. In doing so we can be sure that our meddling with the object’s structure won’t affect some seemingly unrelated part of the application, which in turn makes the entire code more predictable.</p>
+<blockquote>
+<p>使用函数式编程时,一个好的法则是始终创建新对象,而不是更改旧对象.这样一来,我们可以确保干预对象的结构不会影响应用程序中某些看似无关的部分,从而使整个代码更具可预测性.</p>
+</blockquote>
+<p>How exactly can we be sure that the changes we make to an object do not affect the code elsewhere? Removing the unwanted references altogether seems like a good idea. To get rid of a reference we need to copy all of the object’s properties to a new object.</p>
+<blockquote>
+<p>我们如何确切地确定对对象所做的更改不会影响其他地方的代码？完全删除不需要的引用似乎是个好主意.为了摆脱参考,我们需要将对象的所有属性复制到新对象.</p>
+</blockquote>
+<!-- There are many ways to do this and each of them yields a slightly different result. We are going to take a look at the most popular ones: _shallow copy_, _deep copy_, _merging_ and _assigning_. -->
+
+<h2 id="Shallow-Cloning"><a href="#Shallow-Cloning" class="headerlink" title="Shallow Cloning"></a>Shallow Cloning</h2><p>To <em>shallow copy,</em> an object means to simply create a new object with the exact same set of properties. We call the copy <em>shallow</em> because the properties in the target object can still hold references to those in the source object.</p>
+<blockquote>
+<p>对于浅复制,对象意味着简单地创建具有完全相同的一组属性的新对象.我们称为浅复制,因为目标对象中的属性仍然可以保留对源对象中那些属性的引用.</p>
+</blockquote>
+<h3 id="Using-Spread-operator"><a href="#Using-Spread-operator" class="headerlink" title="Using Spread(...) operator"></a>Using <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread(<code>...</code>) operator</a></h3><p>When I used spread <code>...</code> to copy an object, I’m only creating a shallow copy. If the array is nested or multi-dimensional, it won’t work. Here’s our example we will be using:</p>
+<blockquote>
+<p>Using spread will clone the object. Note this will be a shallow copy.</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
+  storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
+    memory<span class="token operator">:</span> <span class="token string">'128GB'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Let’s clone our object using spread:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> shallowClone <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>obj <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Changed our cloned object</span>
+shallowClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
+shallowClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>So we changed our cloned object. Let’s see the output.</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Apple", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125; &lt;-- 😱</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>shallowClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>A shallow copy means the first level is copied, deeper levels are referenced.</p>
+<p>If nested objects are not present, then spread(…) operator can work fine for cloning objects.</p>
+<blockquote>
+<p>如果不存在嵌套对象,展开语法可以很好地用于克隆对象.</p>
+</blockquote>
+<h3 id="Using-Object-assign"><a href="#Using-Object-assign" class="headerlink" title="Using Object.assign()"></a>Using <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign()</code></a></h3><p>Alternatively, <code>Object.assign</code> is in the official released and will also create a shallow copy of the object.</p>
+<p>Note the empty <code>&#123;&#125;</code> as the first argument, this will ensure you don’t mutate the original object 👍</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
+  storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
+    memory<span class="token operator">:</span> <span class="token string">'128GB'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> shallowClone <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+shallowClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
+shallowClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Apple", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125; &lt;-- 😱</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>shallowClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>If nested objects are not present, then <code>Object.assign()</code> can work fine for cloning objects.</p>
+<blockquote>
+<p>如果不存在嵌套对象,<code>Object.assign()</code>可以很好地用于克隆对象.</p>
+</blockquote>
+<p>Let’s see how we can achieve deep cloning for multi level objects also in JavaScript.</p>
+<h2 id="Deep-Cloning-of-multi-level-Objects"><a href="#Deep-Cloning-of-multi-level-Objects" class="headerlink" title="Deep Cloning of multi level Objects"></a>Deep Cloning of multi level Objects</h2><p>When we make a <em>deep copy</em> we create a completely new object which holds no references to the original.</p>
+<blockquote>
+<p>进行深复制时,我们将创建一个全新的对象,该对象不包含对原始对象的引用.</p>
+</blockquote>
+<h3 id="Using-JSON-stringify-and-JSON-parse"><a href="#Using-JSON-stringify-and-JSON-parse" class="headerlink" title="Using JSON.stringify() and JSON.parse()"></a>Using <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.stringify()</code></a> and <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse"><code>JSON.parse()</code></a></h3><p>This final way will give you a deep copy. Now I will mention, this is a quick and dirty way of deep cloning an object. For a more robust solution, I would recommend using something like <a target="_blank" rel="noopener" href="https://lodash.com/docs/#cloneDeep">lodash</a></p>
+<p>Now, let’s take a different approach. Our goal is to create a new object without any reference to the previous one, right? Why don’t we use the <code>JSON</code> object then? First, we <code>stringify</code> the object, then <code>parse</code> the resulting string. What we get is a new object totally unaware of its origin.</p>
+<blockquote>
+<p>现在,让我们采用另一种方法.我们的目标是创建一个新对象,而不引用任何上一个对象,对吗？那为什么我们不使用 JSON 对象呢？首先,我们对对象进行字符串化,然后解析结果字符串.我们得到的是一个完全不知道其起源的新物体.</p>
+</blockquote>
+<p>Note: In the solution the methods of the object aren’t retained. <code>JSON</code> format does not support functions, therefore they are just removed altogether.</p>
+<blockquote>
+<p>注意:在解决方案中,没有保留了对象的方法. JSON 格式不支持功能,因此将它们完全删除.</p>
+</blockquote>
+<p>First convert your original object into string and then parse it back to JSON object from it and voila! Your new deeply cloned object is ready.</p>
+<blockquote>
+<p>首先将原始对象转换为字符串,然后将其解析回 JSON 对象,瞧！您的新的深度克隆对象已准备就绪.</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
+  storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
+    memory<span class="token operator">:</span> <span class="token string">'128GB'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> deepClone <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+deepClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
+deepClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Apple", storage: Object &#123; ram: "8GB", memory: "128GB" &#125; &#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>deepClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123; brand: "Huawei", storage: Object &#123; ram: "8GB", memory: "512GB" &#125; &#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>This technique (<code>JSON.parse(JSON.stringify(obj))</code>) doesn’t work if your object property contains function as value. Because when you JSON.stringify the object, the property containing function as value gets removed from the object. So go for recursive function approach in such case.</p>
+</blockquote>
+<blockquote>
+<p>⚠️ 如果你的对象包含 <code>function</code>, <code>undefined</code> or <code>NaN</code> 值的话,<code>JSON.parse(JSON.stringify(obj))</code> 就不会有效.因为当你 JSON.stringify 对象的时候,包含<code>function</code>, <code>undefined</code> or <code>NaN</code>值的属性会从对象中移除. 因此,在这种情况下,请使用递归函数方法.</p>
+</blockquote>
+<h3 id="Using-recursive-function"><a href="#Using-recursive-function" class="headerlink" title="Using recursive function"></a>Using recursive function</h3><p>Our first implementation works recursively. We write a <code>deep</code> function, which checks the type of the argument sent to it and either calls an appropriate function for the argument being an array or an object or simply returns the value of the argument (if it is neither an array nor an object).</p>
+<blockquote>
+<p>我们的第一个实现是递归工作的.我们编写了一个深函数,该函数检查发送给它的参数的类型,并为作为数组或对象的参数调用适当的函数,或者简单地返回参数的值(如果它既不是数组又不是对象) .</p>
+</blockquote>
+<p>To deep clone an object, you need to iterate through each property and check if the current property contains an object. If yes, then do a recursive call to the same function by passing the current property value (i.e. the nested object). Look at the below example.</p>
+<blockquote>
+<p>要深度克隆对象,您需要遍历每个属性,并检查当前属性是否包含对象.如果是,则通过传递当前属性值(即嵌套对象)对同一函数进行递归调用.看下面的例子.</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> phone <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  brand<span class="token operator">:</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span>
+  storage<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    ram<span class="token operator">:</span> <span class="token string">'8GB'</span><span class="token punctuation">,</span>
+    memory<span class="token operator">:</span> <span class="token string">'128GB'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">makeDeepClone</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">phone</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> newObject <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> phone<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      newObject<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">makeDeepClone</span><span class="token punctuation">(</span>phone<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      newObject<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> phone<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> newObject<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> deepClone <span class="token operator">=</span> <span class="token function">makeDeepClone</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+deepClone<span class="token punctuation">.</span>brand <span class="token operator">=</span> <span class="token string">'Huawei'</span><span class="token punctuation">;</span>
+
+deepClone<span class="token punctuation">.</span>storage<span class="token punctuation">.</span>memory <span class="token operator">=</span> <span class="token string">'512GB'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>phone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123;brand: 'Apple', storage:&#123;ram: '8GB', memory: '128GB'&#125;&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>deepClone<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// &#123;brand: 'Huawei', storage:&#123;ram: '8GB', memory: '512GB'&#125;&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>The <code>makeDeepClone</code> function takes all of the keys of an object and iterates over them, recursively calling the <code>makeDeepClone</code> function for each value.</p>
+<blockquote>
+<p><code>makeDeepClone</code> 函数获取对象的所有键并对其进行迭代,为每个值递归调用 <code>makeDeepClone</code> 函数.</p>
+</blockquote>
+<h2 id="Deep-Clone-using-External-Libraries"><a href="#Deep-Clone-using-External-Libraries" class="headerlink" title="Deep Clone using External Libraries"></a>Deep Clone using External Libraries</h2><ul>
+<li><em><a target="_blank" rel="noopener" href="https://twitter.com/lesjeuxdebebel/status/1153259251705503744">@lesjeuxdebebel</a> :</em> Personally I use jQuerywith <code>$.extend();</code> function</li>
+<li><em><a target="_blank" rel="noopener" href="https://twitter.com/edlinkiii/status/1153035836356747267">@edlinkiii</a> :</em> underscore.js ~~ <code>_.clone()</code></li>
+<li><em><a target="_blank" rel="noopener" href="https://twitter.com/Percy_Burton/status/1152671704155660289">@Percy_Burton</a> :</em> The only way I’ve known to do this is with the Lodash library, cloneDeep method.</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://lodash.com/docs/#cloneDeepWith">cloneDeepWith</a> This method is like <code>_.cloneWith</code> except that it recursively clones value.</p>
+</blockquote>
+<h3 id="Lodash-DeepClone-vs-JSON"><a href="#Lodash-DeepClone-vs-JSON" class="headerlink" title="Lodash DeepClone vs JSON"></a>Lodash DeepClone vs JSON</h3><p>Here’s a comment from the community. Yes, it was for my previous post, <a target="_blank" rel="noopener" href="https://www.samanthaming.com/tidbits/50-how-to-deep-clone-an-array">How to Deep Clone an Array</a> . But the idea still applies to objects.</p>
+<p><em><a target="_blank" rel="noopener" href="https://dev.to/alfredosalzillo/comment/96ne">Alfredo Salzillo</a> :</em> I’d like you to note that there are some differences between deepClone and JSON.stringify/parse.</p>
+<ul>
+<li><strong>JSON.stringify/parse</strong> only work with Number and String and Object literal without function or Symbol properties.</li>
+<li><a target="_blank" rel="noopener" href="https://lodash.com/docs/#cloneDeep">deepClone</a> work with all types, function and Symbol are copied by reference.</li>
+</ul>
+<p>Here’s an example:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> lodashClonedeep <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lodash.clonedeep'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> arrOfFunction <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">2</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token function-variable function">test</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token number">3</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'4'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// deepClone copy by refence function and Symbol</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">lodashClonedeep</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// JSON replace function with null and function in object with undefined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// function and symbol are copied by reference in deepClone</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">lodashClonedeep</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token function">lodashClonedeep</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">lodashClonedeep</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token function">lodashClonedeep</span><span class="token punctuation">(</span>arrOfFunction<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><em><a target="_blank" rel="noopener" href="https://twitter.com/OlegVaraksin/status/1152850845303824384">@OlegVaraksin</a> :</em> The JSON method has troubles with circular dependencies. Furthermore, the order of properties in the cloned object may be different.</p>
+<h3 id="More-Ways-using-JavaScript"><a href="#More-Ways-using-JavaScript" class="headerlink" title="More Ways using JavaScript"></a>More Ways using JavaScript</h3><ul>
+<li><em><a target="_blank" rel="noopener" href="https://twitter.com/hariharan_d3v/status/1152815791009460224">@hariharan_d3v</a> :</em> <code>Object.fromEntries(Object.entries(food))</code> [shallow] clones the object.</li>
+</ul>
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN Web Docs: Object.assign</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript">Stack Overflow: What is the most efficient way to deep clone an object in JavaScript?</a></li>
+<li><a target="_blank" rel="noopener" href="https://2ality.com/2016/10/rest-spread-properties.html">2ality: Rest/Spread Properties</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/32925460/object-spread-vs-object-assign">Stack Overflow: Object spread vs. Object.assign</a></li>
+</ul>
+<hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vXbFsG59L1Ba0DMcZeU2Bg">如何写出一个惊艳面试官的深拷贝</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/">3 Ways to Clone Objects in JavaScript</a></p>
+<p><a target="_blank" rel="noopener" href="https://jscurious.com/how-to-deep-clone-objects-in-javascript/">How to Deep Clone Objects in JavaScript</a></p>
+<p><a target="_blank" rel="noopener" href="https://jscurious.com/difference-between-shallow-copy-and-deep-copy-in-javascript/">Difference between Shallow copy and Deep copy in JavaScript</a></p>
+</blockquote>
+<p>实现一个函数 clone(), 可以对 JavaScript 中的 5 种主要的数据类型 (包括 Number、String、Object、Array、Boolean) 进行值复制.</p>
+<details><summary><b>解析</b></summary>
+
+<p>这道题考察了以下知识点:</p>
+<ul>
+<li>使用 <code>typeof</code> 判断值得类型;</li>
+<li>使用 <code>toString</code> 区分数组和对象;</li>
+<li>递归函数的使用;</li>
+</ul>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 判断是对象, 就进行循环复制</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'null'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 区分是数组还是对象, 创建空的数组或对象</span>
+    <span class="token keyword">var</span> o <span class="token operator">=</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'Array'</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> k <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 如果属性对应的值为对象, 则递归复制</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'null'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        o<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">clone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        o<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 不是对象, 直接把值返回</span>
+    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> o<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice">String.prototype.slice() - JavaScript | MDN</a>: <code>slice()</code> 方法提取某个字符串的一部分, 并返回一个新的字符串, 且不会改动原字符串.</p>
+</blockquote>
+</details>
+
+                
+            </div>
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            庄引
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/how-to-clone-objects-in-javascript/">
+                            https://zhuangyin8.github.io
+                                /how-to-clone-objects-in-javascript/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="far fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    庄引
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Clone/">
+                            <span class="chip bg-color">Clone</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="post_share">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<!-- <div id="article-share"> -->
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+<!-- </div> -->
+
+
+                </div>
+            </div>
+            
+            <style>
+    #reward {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comment" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-06-19T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
+            <div class="card">
+                <a href="/vue-interview/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Vue 面试题">
+                        
+                        <span class="card-title">Vue 面试题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2019-07-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Q-A/">
+                        <span class="chip bg-color">Q&amp;A</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/removing-duplicate-objects-from-an-array/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Removing duplicate objects from an Array">
+                        
+                        <span class="card-title">Removing duplicate objects from an Array</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2019-03-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Array/">
+                        <span class="chip bg-color">Array</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      <span>Copyright <i class="far fa-copyright"></i></span>
+      
+      <span id="year">2016-2021</span>
+      
+      <span id="year">2016</span>
+      <a href="/about" target="_blank">庄引</a>
+      <br />
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> Theme
+      <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye"></i>
+        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        <i class="fa fa-users"></i>
+        总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+      </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

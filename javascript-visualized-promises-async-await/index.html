@@ -1,0 +1,1652 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      首页
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      标签
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      分类
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      关于
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment"></i>
+      
+      留言板
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      友情链接
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comment"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github"></i>
+    Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    /* #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    } */
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 58px;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/Promises/">
+                            <span class="chip bg-color">Promises</span>
+                        </a>
+                        
+                        <a href="/tags/Async/">
+                            <span class="chip bg-color">Async</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark"></i>
+                        
+                        <a href="/categories/JavaScript/">
+                            JavaScript
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar"></i>
+                    发布日期:
+                    2020-04-15
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke">7 ⭐️🎀 JavaScript Visualized: Promises &amp; Async/Await</a></p>
+</blockquote>
+<p><img src="/images/lbkswjafvaeynxnrjuoq.png" alt="Cover image for ⭐️🎀  JavaScript Visualized: Promises &amp; Async/Await"></p>
+<p>Ever had to deal with JS code that just… didn’t run the way you expected it to? Maybe it seemed like functions got executed at random, unpredictable times, or the execution got delayed. There’s a chance you were dealing with a cool new feature that ES6 introduced: <strong>Promises</strong>!</p>
+<p>My curiosity from many years ago has paid off and my sleepless nights have once again given me the time to make some animations. Time to talk about Promises: <strong>why</strong> would you use them, <strong>how</strong> do they work “under the hood”, and how can we write them in the most <strong>modern</strong> way?</p>
+<blockquote>
+<p>If you haven’t read my previous post on the JavaScript Event Loop yet, it may be useful to read that first! I’ll be covering the event loop again assuming some basic knowledge about the call stack, Web API and the queue, but this time we’ll also be covering some exciting extra features 🤩</p>
+</blockquote>
+<p>If you’re already somewhat familiar with promises, here are some shortcuts to save you some precious scrolling time.</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>When writing JavaScript, we often have to deal with tasks that rely on other tasks! Let’s say that we want to get an image, compress it, apply a filter, and save it 📸</p>
+<blockquote>
+<p>在编写 JavaScript 时，我们经常要处理依赖其他任务的任务！假设我们想要获取一个图像，压缩它，应用过滤器，然后保存它 📸</p>
+</blockquote>
+<p>The very first thing we need to do, is <em>get</em> the image that we want to edit. A <code>getImage</code> function can take care of this! Only once that image has been loaded successfully, we can pass that value to a <del><code>resizeImage</code></del> <code>compressImage</code> function. When the image has been resized successfully, we want to apply a filter to the image in the <code>applyFilter</code> function. After the image has been compressed and we’ve added a filter, we want to save the image and let the user know that everything worked correctly! 🥳</p>
+<blockquote>
+<p>我们需要做的第一件事就是 <em>获取</em> 我们想要编辑的图像。 <code>getImage</code> 函数可以解决这个问题！只有成功加载该图像后，我们才能将该值传递给 <code>compressImage</code> 函数。成功调整图像大小后，我们希望在 <code>applyFilter</code> 函数中对图像应用过滤器。在图像被压缩并添加过滤器后，我们想在 <code>saveImage</code> 函数保存图像并让用户知道一切正常！ 🥳</p>
+</blockquote>
+<p>In the end, we’ll end up with something like this:</p>
+<p><img src="/images/ixceqsql5hpdq8txx43s.png" alt="回调函数版本的 getImage"></p>
+<p>Hmm… Notice anything here? Although it’s… <em>fine</em>, it’s not great. We end up with many nested callback functions that are dependent on the previous callback function. This is often referred to as a <a target="_blank" rel="noopener" href="http://callbackhell.com/"><em>callback hell</em></a>, as we end up with tons of nested callback functions that make the code quite difficult to read!</p>
+<blockquote>
+<p>嗯…… 注意到这里有什么吗？虽然…… 还好，但不是很好。我们最终得到了许多依赖于前一个回调函数的嵌套回调函数。这通常被称为回调地狱，因为我们最终会得到大量嵌套的回调函数，这使得代码很难阅读！</p>
+</blockquote>
+<p>Luckily, we now got something called <strong>promises</strong> to help us out! Let’s take a look at what promises are, and how they can help us in situations like these! 😃</p>
+<blockquote>
+<p>幸运的是，我们现在有了一个叫做 promises 的东西来帮助我们！让我们来看看 Promise 是什么，以及它们如何在这样的情况下帮助我们！ 😃</p>
+</blockquote>
+<hr>
+<h3 id="Promise-Syntax"><a href="#Promise-Syntax" class="headerlink" title="Promise Syntax"></a>Promise Syntax</h3><p>ES6 introduced <strong>Promises</strong>. In many tutorials, you’ll read something like:</p>
+<blockquote>
+<p>“A promise is a placeholder for a value that can either resolve or reject at some time in the future”</p>
+</blockquote>
+<p>Yeah… That explanation never made things clearer for me. In fact it only made me feel like a Promise was a weird, vague, unpredictable piece of magic. So let’s look at what promises <em>really</em> are.</p>
+<p>We can create a promise, using a <code>Promise</code> constructor that receives a callback. Okay cool, let’s try it out!</p>
+<blockquote>
+<p>我们可以创建一个 promise，使用一个接收回调的 Promise 构造函数。不错，快来试试吧！</p>
+</blockquote>
+<p><img src="/images/79zi452hphe7ecylhozy.gif"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Promise &#123;&lt;pending>&#125;</span>
+<span class="token comment">// __proto__: Promise</span>
+<span class="token comment">// [[PromiseState]]: "pending"</span>
+<span class="token comment">// [[PromiseResult]]: undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Wait woah, what just got returned?</p>
+<p>A <code>Promise</code> is an object that contains a <strong>status</strong>, (<code>[[PromiseStatus]]</code>) and a <strong>value</strong> (<code>[[PromiseValue]]</code>). In the above example, you can see that the value of <code>[[PromiseStatus]]</code> is <code>&quot;pending&quot;</code>, and the value of the promise is <code>undefined</code>.</p>
+<blockquote>
+<p><code>Promise</code> 是一个包含状态 (<code>[[PromiseStatus]]</code>) 和值 (<code>[[PromiseValue]]</code>) 的对象。在上面的例子中，可以看到 <code>[[PromiseStatus]]</code> 的值为 <code>&quot;pending&quot;</code>，promise 的值为 <code>undefined</code>。</p>
+</blockquote>
+<p>Don’t worry - you’ll never have to interact with this object, you can’t even access the <code>[[PromiseStatus]]</code> and <code>[[PromiseValue]]</code> properties! However, the values of these properties are important when working with promises.</p>
+<blockquote>
+<p>别担心 - 你永远不必与这个对象打交道，你甚至不能访问 <code>[[PromiseStatus]]</code> 和 <code>[[PromiseValue]]</code> 属性！但是，在使用 Promise 时，这些属性的值很重要。</p>
+</blockquote>
+<hr>
+<p>The value of the <code>PromiseStatus</code>, the <strong>state</strong>, can be one of three values:</p>
+<ul>
+<li>✅ <code>fulfilled</code>: The promise has been <code>resolved</code>. Everything went fine, no errors occurred within the promise 🥳</li>
+<li>❌ <code>rejected</code> : The promise has been <code>rejected</code>. Argh, something went wrong..</li>
+<li>⏳ <code>pending</code>: The promise has neither resolved nor rejected (yet), the promise is still <code>pending</code>.</li>
+</ul>
+<p>Alright this all sounds great, but <em>when</em> is a promise status <code>&quot;pending&quot;</code>, <code>&quot;fulfilled&quot;</code> or <code>&quot;rejected&quot;</code>? And why does that status even matter?</p>
+<blockquote>
+<p>好吧，这一切听起来都不错，但是承诺状态何时是 “待定”、“已实现” 或 “已拒绝”？为什么这种状态很重要？</p>
+</blockquote>
+<p>In the above example, we just passed the simple callback function <code>() =&gt; &#123;&#125;</code> to the <code>Promise</code> constructor. However, this callback function actually receives two arguments. The value of the first argument, often called <code>resolve</code> or <code>res</code>, is the method to be called when the Promise should <strong>resolve</strong>. The value of the second argument, often called <code>reject</code> or <code>rej</code>, is the value method to be called when the Promise should <strong>reject</strong>, something went wrong.</p>
+<blockquote>
+<p>在上面的例子中，我们只是将简单的回调函数 <code>() =&gt; &#123;&#125;</code> 传递给了 <code>Promise</code> 构造函数。然而，这个回调函数实际上接收两个参数。第一个参数的值，通常称为 <code>resolve</code> 或 <code>res</code>，是 Promise 应该解析时要调用的方法。第二个参数的值，通常称为 <code>reject</code> 或 <code>rej</code>，是当 Promise 应该拒绝时调用的值方法，出现问题。</p>
+</blockquote>
+<p><img src="/images/duen4peq0bdr55cka5ya.png"></p>
+<p>Let’s try and see that gets logged when we invoke either the <code>resolve</code> or <code>reject</code> method! In my example, I called the <code>resolve</code> method <code>res</code>, and the <code>reject</code> method <code>rej</code>.</p>
+<blockquote>
+<p>让我们试着看看当我们调用 <code>resolve</code> 或 <code>reject</code> 方法时会被记录下来！在我的示例中，我调用了解析方法 <code>res</code> 和拒绝方法 <code>rej</code>。</p>
+</blockquote>
+<p><img src="/images/z0b9v0h7aiq073l5tl2l.gif"></p>
+<p>Awesome! We finally know how to get rid of the <code>&quot;pending&quot;</code> status and the <code>undefined</code> value! The <strong>status</strong> of a promise is <code>&quot;fulfilled&quot;</code> if we invoked the <code>resolve</code> method, and the status of the promise is <code>&quot;rejected</code>“ if we invoked the <code>rejected</code> method.</p>
+<blockquote>
+<p>惊人的！我们终于知道如何摆脱 <code>&quot;pending&quot;</code> 状态和 <code>undefined</code> 值了！如果我们调用了 <code>resolve</code> 方法，promise 的状态就是 <code>&quot;fulfilled&quot;</code> ，如果我们调用了 <code>rejected</code> 方法，promise 的状态就是 <code>&quot;rejected</code>“。</p>
+</blockquote>
+<p>The <strong>value</strong> of a promise, the value of <code>[[PromiseValue]]</code>, is the value that we pass to the either the <code>resolved</code> or <code>rejected</code> method as their argument.</p>
+<blockquote>
+<p>一个 promise 的值，即 <code>[[PromiseValue]]</code> 的值，是我们作为参数传递给 <code>resolved</code> 或 <code>rejected</code> 方法的值。</p>
+</blockquote>
+<blockquote>
+<p>Fun fact, I let Jake Archibald proofread this article and he actually pointed out there’s a bug in Chrome that currently shows the status as <code>&quot;resolved&quot;</code> instead of <code>&quot;fulfilled&quot;</code>. Thanks to <a target="_blank" rel="noopener" href="https://twitter.com/mathias">Mathias Bynens</a> it’s now fixed in Canary! 🥳🕺🏼</p>
+<p><img src="https://pbs.twimg.com/media/EVJqgKLUwAEocsG.png" alt="unknown tweet media content"></p>
+<p>Chrome and Safari call this a “resolved” promise, which is true, but kinda misleading…</p>
+</blockquote>
+<hr>
+<p>Okay so, now we know a little bit better how to control that vague <code>Promise</code> object. But what is it used for?</p>
+<blockquote>
+<p>好的，现在我们对如何控制那个模糊的 <code>Promise</code> 对象有了更好的了解。但是它有什么用呢？</p>
+</blockquote>
+<p>In the introductory section, I showed an example in which we get an image, compress it, apply a filer, and save it! Eventually, this ended up being a nested callback mess.</p>
+<blockquote>
+<p>在介绍部分，我展示了一个示例，其中我们获取图像、压缩它、应用文件管理器并保存它！最终，这最终成为一个嵌套的回调混乱。</p>
+</blockquote>
+<p>Luckily, Promises can help us fix this! First, let’s rewrite the entire code block, so that each function returns a <code>Promise</code> instead.</p>
+<blockquote>
+<p>幸运的是，Promises 可以帮助我们解决这个问题！首先，让我们重写整个代码块，让每个函数都返回一个 Promise。</p>
+</blockquote>
+<p>If the image is loaded and everything went fine, let’s <strong>resolve</strong> the promise with the loaded image! Else, if there was an error somewhere while loading the file, let’s <strong>reject</strong> the promise with the error that occurred.</p>
+<blockquote>
+<p>如果图像已加载并且一切正常，让我们用加载的图像解决 promise！否则，如果在加载文件时某处出现错误，让我们拒绝发生错误的承诺。</p>
+</blockquote>
+<p><img src="/images/iebp0rzfnfqsrmmjplme.png"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">getImage</span><span class="token punctuation">(</span><span class="token parameter">file</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">rs<span class="token punctuation">,</span> rej</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">readFile</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Let’s see what happens when we run this in the terminal!</p>
+<p><img src="/images/wsu5nn26dp4elcwh764m.gif"></p>
+<p>Cool! A promise got returned with the value of the parsed data, just like we expected.</p>
+<blockquote>
+<p>凉爽的！正如我们预期的那样，一个带有解析数据值的承诺被返回。</p>
+</blockquote>
+<p>But… what now? We don’t care about that entire promise object, we only care about the value of the data! Luckily, there are built-in methods to get a promise’s value. To a promise, we can attach 3 methods:</p>
+<blockquote>
+<p>但是……现在怎么办？我们不关心整个 promise 对象，我们只关心数据的价值！幸运的是，有一些内置方法可以获取 Promise 的值。对于 promise，我们可以附加 3 个方法：</p>
+</blockquote>
+<ul>
+<li><code>.then()</code>: Gets called after a promise <em>resolved</em>.</li>
+<li><code>.catch()</code>: Gets called after a promise <em>rejected</em>.</li>
+<li><code>.finally()</code>: <em>Always</em> gets called, whether the promise resolved or rejected.</li>
+</ul>
+<p><img src="/images/mu1aqqnyfjsfon5hwrtw.png"></p>
+<p>The <code>.then</code> method receives the value passed to the <code>resolve</code> method.</p>
+<p><img src="/images/11vxhn9cun7stpjbdi80.gif"></p>
+<p>The <code>.catch</code> method receives the value passed to the <code>rejected</code> method</p>
+<p><img src="/images/v5y24jz4u89flazvdyn4.gif"></p>
+<p>Finally, we have the value that got resolved by the promise without having that entire promise object! We can now do whatever we want with this value.</p>
+<blockquote>
+<p>最后，我们有了由 Promise 解析的值，而没有整个 Promise 对象！我们现在可以用这个值做任何我们想做的事情。</p>
+</blockquote>
+<hr>
+<p>FYI, when you know that a promise will always resolve or always reject, you can write <code>Promise.resolve</code> or <code>Promise.reject</code> , with the value you want to reject or resolve the promise with!</p>
+<blockquote>
+<p>仅供参考，当您知道承诺将始终解决或始终拒绝时，您可以编写 <code>Promise.resolve</code> 或 <code>Promise.reject</code>，并使用您想要拒绝或解决承诺的值！</p>
+</blockquote>
+<p><img src="/images/90hxwjfadzslvdbkr4l8.png"></p>
+<p>You’ll often see this syntax in the following examples 😄</p>
+<hr>
+<p>In the <code>getImage</code> example, we ended up having to nest multiple callbacks in order to run them. Luckily, the <code>.then</code> handlers can help us with that! 🥳</p>
+<blockquote>
+<p>在 <code>getImage</code> 示例中，我们最终不得不嵌套多个回调以运行它们。幸运的是，<code>.then </code>处理程序可以帮助我们解决这个问题！ 🥳</p>
+</blockquote>
+<p>The result of the <code>.then</code> itself is a promise value. This means that we can chain as many <code>.then</code>s as we want: the result of the previous <code>then</code> callback will be passed as an argument to the next <code>then</code> callback!</p>
+<blockquote>
+<p><code>.then</code> 本身的结果是一个 promise 值。这意味着我们可以根据需要链接任意数量的 <code>.then</code>：前一个 then 回调的结果将作为参数传递给下一个 <code>then</code> 回调！</p>
+</blockquote>
+<p><img src="/images/i6busbetmoya9vny2eku.png"></p>
+<p>In the case of the <code>getImage</code> example, we can chain multiple <code>then</code> callbacks in order to pass the processed image onto the next function! Instead of ending up with many nested callbacks, we get a clean <code>then</code> chain.</p>
+<blockquote>
+<p>在 <code>getImage</code> 示例中，我们可以链接多个 <code>then</code> 回调，以便将处理后的图像传递给下一个函数！我们得到了一个干净的 <code>then</code> 链，而不是以许多嵌套的回调结束。</p>
+</blockquote>
+<p><img src="/images/u9l3lxwxlxgv2edv79xh.png" alt="Promise 版本的 getImage"></p>
+<p>Perfect! This syntax already looks way better than the nested callbacks.</p>
+<blockquote>
+<p>完美的！这种语法看起来比嵌套回调更好。</p>
+</blockquote>
+<hr>
+<h2 id="Microtasks-and-Macro-tasks"><a href="#Microtasks-and-Macro-tasks" class="headerlink" title="Microtasks and (Macro)tasks"></a>Microtasks and (Macro)tasks</h2><blockquote>
+<p>微任务和（宏）任务</p>
+</blockquote>
+<p>Okay so we know a little better how to create a promise and how to extract values out of a promise. Let’s add some more code to the script, and run it again:</p>
+<blockquote>
+<p>好的，所以我们对如何创建承诺以及如何从承诺中提取值有了更好的了解。让我们向脚本添加更多代码，然后再次运行它：</p>
+</blockquote>
+<p><img src="/images/ey4ubnv5yjgi6hbh97xq.gif"></p>
+<p>Wait what?! 🤯</p>
+<p>First, <code>Start!</code> got logged. Okay we could’ve seen that one coming: <code>console.log(&#39;Start!&#39;)</code> is on the very first line! However, the second value that got logged was <code>End!</code>, and <em>not</em> the value of the resolved promise! Only after <code>End!</code> was logged, the value of the promise got logged. What’s going on here?</p>
+<blockquote>
+<p>首先，<code>Start!</code>被登录了。好吧，我们已经看到了：<code>console.log(&#39;Start!&#39;)</code> 在第一行！但是，记录的第二个值是 <code>End!</code>，而不是已解决的 Promise 的值！只有 <code>End!</code> 被记录，promise 的值被记录。这里发生了什么？</p>
+</blockquote>
+<p>We’ve finally seen the true power of promises! 🚀 Although JavaScript is single-threaded, we can add asynchronous behavior using a <code>Promise</code>!</p>
+<blockquote>
+<p>我们终于看到了 Promise 的真正力量！ 🚀 虽然 JavaScript 是单线程的，但我们可以使用 Promise 添加异步行为！</p>
+</blockquote>
+<hr>
+<p>But wait, haven’t we seen that before? 🤔 In the <a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">JavaScript event loop</a>, can’t we also use methods native to the browser such as <code>setTimeout</code> to create some sort of asynchronous behavior?</p>
+<blockquote>
+<p>但是等等，我们以前没见过吗？ 🤔 在 JavaScript 事件循环中，我们不能也使用浏览器原生的方法，例如 <code>setTimeout</code> 来创建某种异步行为吗？</p>
+</blockquote>
+<p>Yes! However, within the Event Loop, there are actually two types of queues: the <strong>(macro)task queue</strong> (or just called the <strong>task queue</strong>), and the <strong>microtask queue</strong>. The (macro)task queue is for <strong>(macro)tasks</strong> and the microtask queue is for <strong>microtasks</strong>.</p>
+<blockquote>
+<p>是的！然而，在事件循环内部，实际上有两种类型的队列：（宏）任务队列（或简称为任务队列）和微任务队列。 （宏）任务队列用于（宏）任务，微任务队列用于微任务。</p>
+</blockquote>
+<p>So what’s a <em>(macro)task</em> and what’s a <em>microtask</em>? Although there are a few more than I’ll cover here, the most common are shown in the table below!</p>
+<blockquote>
+<p>那么什么是（宏）任务，什么是微任务？虽然有一些比我在这里介绍的要多，但最常见的如下表所示！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(Macro)task</td>
+<td><code>setTimeout</code></td>
+<td><code>setInterval</code></td>
+<td><code>setImmediate</code></td>
+</tr>
+<tr>
+<td>Microtask</td>
+<td><code>process.nextTick</code></td>
+<td><code>Promise callback</code></td>
+<td><code>queueMicrotask</code></td>
+</tr>
+</tbody></table>
+<p>Ahh, we see <code>Promise</code> in the microtask list! 😃 When a <code>Promise</code> resolves and calls its <code>then()</code>, <code>catch()</code> or <code>finally()</code>, method, the callback within the method gets added to the <strong>microtask queue</strong>! This means that the callback within the <code>then()</code>, <code>catch()</code> or <code>finally()</code> method isn’t executed immediately, essentially adding some async behavior to our JavaScript code!</p>
+<blockquote>
+<p>啊，我们在微任务列表中看到了 Promise！ 😃 当 Promise 解析并调用其 <code>then()</code>、<code>catch()</code> 或 <code>finally()</code> 方法时，该方法中的回调会被添加到微任务队列中！这意味着 <code>then()</code>、<code>catch()</code> 或 <code>finally()</code> 方法中的回调不会立即执行，实质上是向我们的 JavaScript 代码添加了一些异步行为！</p>
+</blockquote>
+<p>So when <em>is</em> a <code>then()</code>, <code>catch()</code> or <code>finally()</code> callback executed? The event loop gives a different priority to the tasks:</p>
+<blockquote>
+<p>那么什么时候执行 <code>then()</code>、<code>catch()</code> 或 <code>finally()</code> 回调？事件循环为任务赋予不同的优先级：</p>
+</blockquote>
+<ol>
+<li>All functions in that are currently in the <strong>call stack</strong> get executed. When they returned a value, they get popped off the stack.</li>
+<li>When the call stack is empty, <em>all</em> queued up <strong>microtasks</strong> are popped onto the callstack one by one, and get executed! (Microtasks themselves can also return new microtasks, effectively creating an infinite microtask loop 😬)</li>
+<li>If both the call stack and microtask queue are empty, the event loop checks if there are tasks left on the (macro)task queue. The tasks get popped onto the callstack, executed, and popped off!</li>
+</ol>
+<blockquote>
+<ul>
+<li>当前在调用堆栈中的所有函数都将执行. 当它们返回一个值时, 它们就会从堆栈中弹出.</li>
+<li>当调用堆栈为空时, 所有排队的微任务都会一一弹出到调用堆栈上, 然后执行！(微任务本身也可以返回新的微任务, 从而有效地创建无限的微任务循环 loop)</li>
+<li>如果调用堆栈和微任务队列都为空, 则事件循环将检查 (宏) 任务队列上是否还有任务. 任务被弹出到调用堆栈上, 执行并弹出！</li>
+</ul>
+</blockquote>
+<hr>
+<p>Let’s take a look at a quick example, simply using:</p>
+<ul>
+<li><code>Task1</code>: a function that’s added to the call stack immediately, for example by invoking it instantly in our code.</li>
+<li><code>Task2</code>, <code>Task3</code>, <code>Task4</code>: microtasks, for example a promise <code>then</code> callback, or a task added with <code>queueMicrotask</code>.</li>
+<li><code>Task5</code>, <code>Task6</code>: a (macro)task, for example a <code>setTimeout</code> or <code>setImmediate</code> callback</li>
+</ul>
+<p><img src="/images/42eatw03fcha0e1qcrf0.gif"></p>
+<p>First, <code>Task1</code> returned a value and got popped off the call stack. Then, the engine checked for tasks queued in the microtask queue. Once all the tasks were put on the call stack and eventually popped off, the engine checked for tasks on the (macro)task queue, which got popped onto the call stack, and popped off when they returned a value.</p>
+<blockquote>
+<p>首先，<code>Task1</code> 返回一个值并从调用堆栈中弹出。然后，引擎检查在微任务队列中排队的任务。一旦所有任务都被放入调用堆栈并最终弹出，引擎就会检查（宏）任务队列中的任务，这些任务被弹出到调用堆栈中，并在它们返回值时弹出。</p>
+</blockquote>
+<p>Okay okay enough pink boxes. Let’s use it with some real code!</p>
+<p><img src="/images/g61wwyi8wchk2hpzeq4u.png"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Start!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Timeout!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'Promise!'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'End!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//> "Start!"</span>
+<span class="token comment">//> "End!"</span>
+<span class="token comment">//> "Promise!"</span>
+<span class="token comment">//> "Timeout!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>In this code, we have the macro task <code>setTimeout</code>, and the microtask promise <code>then()</code> callback. Once the engine reaches the line of the <code>setTimeout</code> function. Let’s run this code step-by-step, and see what gets logged!</p>
+<blockquote>
+<p>在这段代码中，我们有宏任务 <code>setTimeout</code> 和微任务 promise <code>then()</code> 回调。一旦引擎到达 <code>setTimeout</code> 函数的行。让我们一步一步地运行这段代码，看看记录了什么！</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Quick FYI - in the following examples I’m showing methods like <code>console.log</code>, <code>setTimeout</code> and <code>Promise.resolve</code> being added to the call stack. They’re internal methods and actually don’t appear in stack traces - so don’t worry if you’re using the debugger and you don’t see them anywhere! It just makes explaining this concept easier without adding a bunch of boilerplate code 🙂</p>
+</blockquote>
+<blockquote>
+<p>快速参考 - 在以下示例中，我将展示诸如 <code>console.log</code>、<code>setTimeout</code> 和 <code>Promise.resolve</code> 之类的方法被添加到调用堆栈中。它们是内部方法，实际上不会出现在堆栈跟踪中 - 所以如果您正在使用调试器并且在任何地方都看不到它们，请不要担心！它只是使解释这个概念更容易，而无需添加一堆样板代码 🙂</p>
+</blockquote>
+<p>On the first line, the engine encounters the <code>console.log()</code> method. It gets added to the call stack, after which it logs the value <code>Start!</code> to the console. The method gets popped off the call stack, and the engine continues.</p>
+<blockquote>
+<p>在第一行，引擎遇到了 <code>console.log()</code> 方法。它被添加到调用堆栈中，之后它会记录值 <code>Start!</code> 到控制台。该方法从调用堆栈中弹出，引擎继续。</p>
+</blockquote>
+<p><img src="/images/6cbjuexvy6z9ltk0bi18.gif"></p>
+<p>The engine encounters the <code>setTimeout</code> method, which gets popped on to the call stack. The <code>setTimeout</code> method is native to the browser: its callback function (<code>() =&gt; console.log(&#39;In timeout&#39;)</code>) will get added to the Web API, until the timer is done. Although we provided the value <code>0</code> for the timer, the call back still gets pushed to the Web API first, after which it gets added to the <strong>(macro)task queue</strong>: <code>setTimeout</code> is a macro task!</p>
+<blockquote>
+<p>引擎遇到 <code>setTimeout</code> 方法，该方法被弹出到调用堆栈中。 <code>setTimeout</code> 方法是浏览器本机的：它的回调函数 <code>(() =&gt; console.log(&#39;In timeout&#39;))</code> 将被添加到 Web API，直到计时器完成。尽管我们为计时器提供了值 <code>0</code>，但回调仍然首先被推送到 Web API，然后它会被添加到（宏）任务队列中：<code>setTimeout </code>是一个宏任务！</p>
+</blockquote>
+<p><img src="/images/yqoemb6f32lvovge8yrp.gif"></p>
+<hr>
+<p>The engine encounters the <code>Promise.resolve()</code> method. The <code>Promise.resolve()</code> method gets added to the call stack, after which is resolves with the value <code>Promise!</code>. Its <code>then</code> callback function gets added to the <strong>microtask queue</strong>.</p>
+<blockquote>
+<p>引擎遇到了 <code>Promise.resolve()</code> 方法。 <code>Promise.resolve()</code> 方法被添加到调用堆栈中，之后使用值 <code>Promise!</code> 解析。它的 <code>then</code> 回调函数被添加到微任务队列中。</p>
+</blockquote>
+<p><img src="/images/6wxjxduh62fqt531e2rc.gif"></p>
+<hr>
+<p>The engine encounters the <code>console.log()</code> method. It gets added to the call stack immediately, after which it logs the value <code>End!</code> to the console, gets popped off the call stack, and the engine continues.</p>
+<blockquote>
+<p>引擎遇到了 <code>console.log()</code> 方法。它会立即添加到调用堆栈中，然后记录值 <code>End！</code> 到控制台，从调用堆栈中弹出，然后引擎继续。</p>
+</blockquote>
+<p><img src="/images/a6jk0exl137yka3oq9k4.gif"></p>
+<p>The engine sees the callstack is empty now. Since the call stack is empty, it’s going to check whether there are queued tasks in the <strong>microtask queue</strong>! And yes there are, the promise <code>then</code> callback is waiting for its turn! It gets popped onto the call stack, after which it logs the resolved value of the promise: the string <code>Promise!</code>in this case.</p>
+<blockquote>
+<p>引擎现在看到调用堆栈是空的。由于调用栈是空的，它会检查微任务队列中是否有排队的任务！是的，承诺<code>then</code> 回调正在等待轮到它！它被弹出到调用堆栈中，之后它会记录承诺的解析值：在这种情况下是字符串 <code>Promise!</code>。</p>
+</blockquote>
+<p><img src="/images/lczn4fca41is4vpicr6w.gif"></p>
+<p>The engine sees the call stack is empty, so it’s going to check the microtask queue once again to see if tasks are queued. Nope, the microtask queue is all empty.</p>
+<blockquote>
+<p>引擎看到调用堆栈是空的，所以它会再次检查微任务队列以查看任务是否在队列中。不，微任务队列全是空的。</p>
+</blockquote>
+<p>It’s time to check the <strong>(macro)task queue</strong>: the <code>setTimeout</code> callback is still waiting there! The <code>setTimeout</code> callback gets popped on to the callstack. The callback function returns the <code>console.log</code> method, which logs the string <del><code>&quot;In timeout!&quot;</code></del> <code>&quot;Timeout!&quot;</code>. The <code>setTimeout</code> callback get popped off the callstack.</p>
+<blockquote>
+<p>是时候检查（宏）任务队列了：<code>setTimeout</code> 回调仍在那里等待！ <code>setTimeout</code> 回调被弹出到调用堆栈。回调函数返回 <code>console.log</code> 方法，该方法记录字符串 <del><code>&quot;In timeout!&quot;</code></del> <code>&quot;Timeout!&quot;</code>。 <code>setTimeout</code> 回调从调用堆栈中弹出。</p>
+</blockquote>
+<p><img src="/images/p54casaaz9oq0g8ztpi5.gif"></p>
+<p>Finally, all done! 🥳 It seems like the output we saw earlier wasn’t so unexpected after all.</p>
+<blockquote>
+<p>最后，一切都完成了！ 🥳 看来我们之前看到的输出毕竟不是那么出人意料。</p>
+</blockquote>
+<hr>
+<h2 id="Async-Await"><a href="#Async-Await" class="headerlink" title="Async/Await"></a>Async/Await</h2><p>ES7 introduced a new way to add async behavior in JavaScript and make working with promises easier! With the introduction of the <code>async</code> and <code>await</code> keywords, we can create <strong>async</strong> functions which implicitly return a promise. But.. how can we do that? 😮</p>
+<blockquote>
+<p>ES7 引入了一种在 JavaScript 中添加异步行为的新方法，并使使用 Promise 更容易！通过引入 <code>async</code> 和 <code>await</code> 关键字，我们可以创建隐式返回承诺的异步函数。但是..我们怎么能做到这一点？ 😮</p>
+</blockquote>
+<p>Previously, we saw that we can explicitly create promises using the <code>Promise</code> object, whether it was by typing <code>new Promise(() =&gt; &#123;&#125;)</code>, <code>Promise.resolve</code>, or <code>Promise.reject</code>.</p>
+<blockquote>
+<p>之前，我们看到我们可以使用 Promise 对象显式创建 Promise，无论是通过键入 <code>new Promise(() =&gt; &#123;&#125;)</code>、<code>Promise.resolve</code> 还是 <code>Promise.reject</code>。</p>
+</blockquote>
+<p>Instead of explicitly using the <code>Promise</code> object, we can now create asynchronous functions that <em>implicitly</em> return an object! This means that we no longer have to write any <code>Promise</code> object ourselves.</p>
+<blockquote>
+<p>我们现在可以创建隐式返回对象的异步函数，而不是显式使用 Promise 对象！这意味着我们不再需要自己编写任何 Promise 对象。</p>
+</blockquote>
+<p><img src="/images/72lqrcvy9lc8ehbpitd0.png"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> funcion <span class="token function">greet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token string">'Hello!'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Although the fact that <strong>async</strong> functions implicitly return promises is pretty great, the real power of <code>async</code> functions can be seen when using the <code>await</code> keyword! With the <code>await</code> keyword, we can <em>suspend(暂停)</em> the asynchronous function while we wait for the <code>await</code>ed value return a resolved promise. If we want to get the value of this resolved promise, like we previously did with the <code>then()</code> callback, we can assign variables to the <code>await</code>ed promise value!</p>
+<blockquote>
+<p>尽管 async 函数隐式返回 promise 的事实非常好，但是使用 await 关键字时可以看到 async 函数的真正威力！使用 await 关键字，我们可以暂停（暂停）异步函数，同时等待等待的值返回已解决的承诺。如果我们想获得这个已解析的 promise 的值，就像我们之前对 then() 回调所做的那样，我们可以为等待的 promise 值分配变量！</p>
+</blockquote>
+<p>So, we can <em>suspend</em> an async function? Okay great but.. what does that even mean?</p>
+<p>Let’s see what happens when we run the following block of code:</p>
+<p><img src="/images/e5duygomitj9o455107a.gif"></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">one</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'One!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'In Function!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">one</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Before function!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'After function!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token string">"Before function!"</span>
+<span class="token string">"In Function!"</span>
+<span class="token string">"After function!"</span>
+<span class="token string">"One!"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Hmm.. What’s happening here?</p>
+<hr>
+<p><img src="/images/d27d7xxiekczftjyic4b.gif"></p>
+<p>First, the engine encounters a <code>console.log</code>. It gets popped onto the call stack, after which <code>Before function!</code> gets logged.</p>
+<blockquote>
+<p>首先，引擎遇到一个 <code>console.log</code>。它被弹出到调用堆栈中，之后是 <code>Before function!</code> 被记录。</p>
+</blockquote>
+<hr>
+<p><img src="/images/9wqej2269vmntfcuxs9t.gif"></p>
+<p>Then, we invoke the async function <code>myFunc()</code>, after which the function body of <code>myFunc</code> runs. On the very first line within the function body, we call another <code>console.log</code>, this time with the string <code>In function!</code>. The <code>console.log</code> gets added to the call stack, logs the value, and gets popped off.</p>
+<blockquote>
+<p>然后，我们调用异步函数 <code>myFunc()</code>，然后运行 <code>​​myFunc</code> 的函数体。在函数体的第一行，我们调用另一个 <code>console.log</code>，这次使用字符串 <code>In function!</code>。 <code>console.log</code> 被添加到调用堆栈中，记录值，然后弹出。</p>
+</blockquote>
+<hr>
+<p><img src="/images/lch6lutxnl88j0durpyh.gif"></p>
+<p>The function body keeps on being executed, which gets us to the second line. Finally, we see an <code>await</code> keyword! 🎉</p>
+<blockquote>
+<p>函数体继续执行，这让我们进入第二行。最后，我们看到了一个 await 关键字！ 🎉</p>
+</blockquote>
+<p>The first thing that happens is that the value that gets awaited gets executed: the function <code>one</code> in this case. It gets popped onto the call stack, and eventually returns a resolved promise. Once the promise has resolved and <code>one</code> returned a value, the engine encounters the <code>await</code> keyword.</p>
+<blockquote>
+<p>发生的第一件事是等待的值被执行：在这种情况下是函数 <code>one</code>。它被弹出到调用堆栈中，并最终返回一个已解决的承诺。一旦 promise 得到解决并返回一个值，引擎就会遇到 await 关键字。</p>
+</blockquote>
+<p>When encountering an <code>await</code> keyword, the <code>async</code> function gets <em>suspended</em>. ✋🏼 The execution of the function body <strong>gets paused</strong>, and the rest of the async function gets run in a <em>microtask</em> instead of a regular task!</p>
+<blockquote>
+<p>遇到 <code>await</code> 关键字时，异步函数会暂停。 ✋🏼 函数体的执行被暂停，异步函数的其余部分在微任务而不是常规任务中运行！</p>
+</blockquote>
+<hr>
+<p><img src="/images/b6l3psgewvtrtmrr60tg.gif"></p>
+<p>Now that the async function <code>myFunc</code> is suspended as it encountered the <code>await</code> keyword, the engine jumps out of the async function and continues executing the code in the execution context in which the async function got called: the <strong>global execution context</strong> in this case! 🏃🏽‍♀️</p>
+<blockquote>
+<p>现在异步函数 <code>myFunc</code> 在遇到 await 关键字时被挂起，引擎跳出异步函数并继续在调用异步函数的执行上下文中执行代码：在这种情况下为全局执行上下文！ 🏃🏽‍♀️</p>
+</blockquote>
+<hr>
+<p><img src="/images/hlhrtuspjyrstifubdhs.gif"></p>
+<p>Finally, there are no more tasks to run in the global execution context! The event loop checks to see if there are any microtasks queued up: and there are! The async <code>myFunc</code> function is queued up after resolving the valued of <code>one</code>. <code>myFunc</code> gets popped back onto the call stack, and continues running where it previously left off(中断).</p>
+<blockquote>
+<p>最后，在全局执行上下文中没有更多的任务要运行了！事件循环检查是否有任何微任务排队：确实有！ async myFunc 函数在解析值 1 后排队。 myFunc 被弹回调用堆栈，并在它之前停止的地方继续运行（中断）。</p>
+</blockquote>
+<p>The variable <code>res</code> finally gets its value, namely the value of the resolved promise that <code>one</code> returned! We invoke <code>console.log</code> with the value of <code>res</code>: the string <code>One!</code> in this case. <code>One!</code> gets logged to the console and gets popped off the call stack! 😊</p>
+<blockquote>
+<p>变量 res 终于得到了它的值，即返回的已解决的 promise 的值！我们使用 res 的值调用 console.log：字符串 One！在这种情况下。一！登录到控制台并从调用堆栈中弹出！ 😊</p>
+</blockquote>
+<p>Finally, all done! Did you notice how <code>async</code> functions are different compared to a promise <code>then</code>? The <code>await</code> keyword <em>suspends</em> the <code>async</code> function, whereas the Promise body would’ve kept on being executed if we would’ve used <code>then</code>!</p>
+<blockquote>
+<p>最后，一切都完成了！您是否注意到异步函数与 promise 相比有何不同？ await 关键字暂停了异步函数，而如果我们当时使用的话，Promise 主体将继续执行！</p>
+</blockquote>
+<hr>
+<p>Hm that was quite a lot of information! 🤯 No worries at all if you still feel a bit overwhelmed when working with Promises, I personally feel that it just takes experience to notice patterns and feel confident when working with asynchronous JavaScript.</p>
+<blockquote>
+<p>嗯，这是相当多的信息！ 🤯 如果您在使用 Promises 时仍然感到有点不知所措，请完全不用担心，我个人认为只需要经验来注意模式并在使用异步 JavaScript 时感到自信。</p>
+</blockquote>
+<p>However, I hope that the “unexpected” or “unpredictable” behavior that you might encounter when working with async JavaScript makes a bit more sense now!</p>
+<blockquote>
+<p>但是，我希望您在使用异步 JavaScript 时可能遇到的“意外”或“不可预测”行为现在更有意义了！</p>
+</blockquote>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh.javascript.info/async">Promise,async/await</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise - JavaScript | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async function</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">await</a></li>
+</ul>
+
+                
+            </div>
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            Lydia Hallie
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/javascript-visualized-promises-async-await/">
+                            https://zhuangyin8.github.io
+                                /javascript-visualized-promises-async-await/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="far fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    Lydia Hallie
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/Promises/">
+                            <span class="chip bg-color">Promises</span>
+                        </a>
+                        
+                        <a href="/tags/Async/">
+                            <span class="chip bg-color">Async</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="post_share">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<!-- <div id="article-share"> -->
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+<!-- </div> -->
+
+
+                </div>
+            </div>
+            
+            <style>
+    #reward {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comment" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2020-04-15T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
+            <div class="card">
+                <a href="/10-css-tricks-you-need-to-know-about/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="10 CSS Tricks You Need to Know About">
+                        
+                        <span class="card-title">10 CSS Tricks You Need to Know About</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-05-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tricks/">
+                        <span class="chip bg-color">Tricks</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/cs-visualized-useful-git-commands/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="🌳🚀 CS Visualized: Useful Git Commands">
+                        
+                        <span class="card-title">🌳🚀 CS Visualized: Useful Git Commands</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-04-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/Git/" class="post-category">
+                                Git
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      <span>Copyright <i class="far fa-copyright"></i></span>
+      
+      <span id="year">2016-2021</span>
+      
+      <span id="year">2016</span>
+      <a href="/about" target="_blank">庄引</a>
+      <br />
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> Theme
+      <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye"></i>
+        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        <i class="fa fa-users"></i>
+        总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+      </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

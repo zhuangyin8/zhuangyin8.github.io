@@ -1,0 +1,1669 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="1️ ✨♻️ JavaScript Visualized : Event Loop, 庄引的博客">
+    <meta name="description" content="无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <title>1️ ✨♻️ JavaScript Visualized : Event Loop | 庄引的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/awesome.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">庄引的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fa fa-home"></i>
+      
+      首页
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fa fa-tags"></i>
+      
+      标签
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fa fa-bookmark"></i>
+      
+      分类
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fa fa-user-circle"></i>
+      
+      关于
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment"></i>
+      
+      留言板
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fa fa-users"></i>
+      
+      友情链接
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+  <div class="mobile-head bg-color">
+    
+    <img src="/medias/logo.png" class="logo-img circle responsive-img">
+    
+    <div class="logo-name">庄引的博客</div>
+    <div class="logo-desc">
+      
+      无神论者 无党派人士 若批评不自由 则赞美无意义 但毫无根据的污蔑诋毁则无耻至极
+      
+    </div>
+  </div>
+
+  
+
+  <ul class="menu-list mobile-menu-list">
+    
+    <li class="m-nav-item">
+      
+      <a href="/" class="waves-effect waves-light">
+        
+        <i class="fa fa-home"></i>
+        
+        首页
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/tags" class="waves-effect waves-light">
+        
+        <i class="fa fa-tags"></i>
+        
+        标签
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/categories" class="waves-effect waves-light">
+        
+        <i class="fa fa-bookmark"></i>
+        
+        分类
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/about" class="waves-effect waves-light">
+        
+        <i class="fa fa-user-circle"></i>
+        
+        关于
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/contact" class="waves-effect waves-light">
+        
+        <i class="fas fa-comment"></i>
+        
+        留言板
+      </a>
+      
+        </li>
+        
+    <li class="m-nav-item">
+      
+      <a href="/friends" class="waves-effect waves-light">
+        
+        <i class="fa fa-users"></i>
+        
+        友情链接
+      </a>
+      
+        </li>
+        
+        
+        <li><div class=" divider">
+</div>
+</li>
+<li>
+  <a href="https://github.com/zhuangyin8" class="waves-effect waves-light" target="_blank">
+    <i class="fab fa-github"></i>
+    Fork Me
+  </a>
+</li>
+
+</ul>
+</div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhuangyin8" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+  <div class="container" style="right: 0px;left: 0px;">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="brand">
+          <h1 class="description center-align post-title">1️ ✨♻️ JavaScript Visualized : Event Loop</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    /* #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    } */
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 400px;
+        /* padding-left: 20px; */
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+        max-height: 900px;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 96px;
+        /* padding-top: 15px;
+        margin-bottom: 0; */
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 58px;
+        height: 58px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 58px;
+        font-size: 1.5rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s8">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/Event-Loop/">
+                            <span class="chip bg-color">Event Loop</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s4 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark"></i>
+                        
+                        <a href="/categories/JavaScript/">
+                            JavaScript
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar"></i>
+                    发布日期:
+                    2019-11-20
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p><a target="_blank" rel="noopener" href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">1️ ✨♻️ JavaScript Visualized: Event Loop</a></p>
+</blockquote>
+<p><img src="/images/ek7ji4zrimozpp2yzk0a.png" alt="Cover image for  ✨♻️ JavaScript Visualized: Event Loop"></p>
+<h2 id="JavaScript-是单线程的语言"><a href="#JavaScript-是单线程的语言" class="headerlink" title="JavaScript 是单线程的语言"></a>JavaScript 是单线程的语言</h2><p>事件循环 <code>Event Loop</code>，这是目前浏览器和 <code>NodeJS</code> 处理 <code>JavaScript</code> 代码的一种机制，而这种机制存在的背后，就有因为 <code>JavaScript</code> 是一门 <strong>单线程</strong> 的语言。</p>
+<p>单线程和多线程最简单的区别就是：单线程同一个时间只能做一件事情，而多线程同一个时间能做多件事情。</p>
+<p>而 <code>JavaScript</code> 之所谓设计为单线程语言，主要是因为它作为浏览器脚本语言，主要的用途就是与用户互动，操作 <code>DOM</code> 节点。</p>
+<p>而在这个情景设定下，假设 <code>JavaScript</code> 同时有两个进程，一个是操作 A 节点，一个是删除 A 节点，这时候浏览器就不知道要以哪个线程为准了。</p>
+<p>因此为了避免这类型的问题，<code>JavaScript</code> 从一开始就属于单线程语言。</p>
+<h3 id="调用栈-Call-Stack"><a href="#调用栈-Call-Stack" class="headerlink" title="调用栈 Call Stack"></a>调用栈 Call Stack</h3><p>在 <code>JavaScript</code> 运行的时候，主线程会形成一个栈，这个栈主要是解释器用来最终函数执行流的一种机制。通常这个栈被称为调用栈 <code>Call Stack</code>，或者执行栈（<code>Execution Context Stack</code>）。</p>
+<p>调用栈，顾名思义是具有 LIFO（后进先出，Last in First Out）的结构。调用栈内存放的是代码执行期间的所有执行上下文。</p>
+<ul>
+<li>每调用一个函数，解释器就会把该函数的执行上下文添加到调用栈并开始执行；</li>
+<li>正在调用栈中执行的函数，如果还调用了其他函数，那么新函数也会被添加到调用栈，并立即执行；</li>
+<li>当前函数执行完毕后，解释器会将其执行上下文清除调用栈，继续执行剩余执行上下文中的剩余代码；</li>
+<li>但分配的调用栈空间被占满，会引发” 堆栈溢出 “的报错。</li>
+</ul>
+<p>现在用个小案例来演示一下调用栈。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 输出结果：c a b
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行这段代码的时候，首先调用的是函数 <code>c()</code>。因此 <code>function c()&#123;&#125;</code> 的执行上下文就会被放入调用栈中。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/536eeb3dad9b407a8a7368d6b44fc341~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_1.gif"></p>
+<p>然后开始执行函数 <code>c</code>，执行的第一个语句是 <code>console.log(&#39;c&#39;)</code>。</p>
+<p>因此解释器也会将其放入调用栈中。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ba9a90a86764cd2bd89ea5d4fbf1267~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_2.gif"></p>
+<p>当 <code>console.log(&#39;c&#39;)</code> 方法执行完后，控制台打印了 <code>&#39;c&#39;</code>，调用栈就会将其移除。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87d57cfc86d145269c5ddd448c2e94d4~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_3.gif"></p>
+<p>接着就是执行 <code>a()</code> 函数。</p>
+<p>解释器就将 <code>function a() &#123;&#125;</code> 的执行上下文放入调用栈中。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/91d45a91e7754d94a2773f80057f37fe~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_4.gif"></p>
+<p>紧接着就执行 <code>a()</code> 中的语句——<code>console.log(&#39;a&#39;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dac105f219444da0bd053edd2a85b2b6~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_5.gif"></p>
+<p>当函数 <code>a</code> 执行结束后，调用栈就将执行上下文移除。</p>
+<p>然后接着执行 <code>c()</code> 函数剩下的语句，也就是执行 <code>b()</code> 函数，因此它的执行上下文就加入调用栈中。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2c4801b80d914722aa808b116b53a888~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_6.gif"></p>
+<p>紧接着就执行 <code>b()</code> 中的语句——<code>console.log(&#39;b&#39;)</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13c11b0b95aa42c5a9ef94edc5008358~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_7.gif"></p>
+<p><code>b()</code> 执行完后，调用栈就将其移出。</p>
+<p>这时 <code>c()</code> 也执行结束了，调用栈也将其移出栈。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d529cd9b0a3435681763466f634c8e1~tplv-k3u1fbpfcp-watermark.awebp" alt="call_stack_8.gif"></p>
+<p>这时候，我们这段语句就执行结束了。</p>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>上面的案例简单的介绍了关于 <code>JavaScript</code> 单线程的执行方式。</p>
+<p>但这其中会存在一些问题，就是如果当一个语句也需要执行很长时间的话，比如请求数据、定时器、读取文件等等，后面的语句就得一直等着前面的语句执行结束后才会开始执行。</p>
+<p>显而易见，这是不可取的。</p>
+<h3 id="同步任务和异步任务"><a href="#同步任务和异步任务" class="headerlink" title="同步任务和异步任务"></a>同步任务和异步任务</h3><p>因此，<code>JavaScript</code> 将所有执行任务分为了同步任务和异步任务。</p>
+<p>其实我们每个任务都是在做两件事情，就是 <strong>发起调用</strong> 和 <strong>得到结果</strong>。</p>
+<p>而同步任务和异步任务最主要的差别就是，同步任务发起调用后，很快就可以得到结果，而异步任务是无法立即得到结果，比如请求接口，每个接口都会有一定的响应时间，根据网速、服务器等等因素决定，再比如定时器，它需要固定时间后才会返回结果。</p>
+<p>因此，对于同步任务和异步任务的执行机制也不同。</p>
+<p>同步任务的执行，其实就是跟前面那个案例一样，按照代码顺序和调用顺序，支持进入调用栈中并执行，执行结束后就移除调用栈。</p>
+<p>而异步任务的执行，首先它依旧会进入调用栈中，然后发起调用，然后解释器会将其 <strong>响应回调任务</strong> 放入一个 <strong>任务队列</strong>，紧接着调用栈会将这个任务移除。当主线程清空后，即所有同步任务结束后，解释器会读取任务队列，并依次将 <strong>已完成的异步任务</strong> 加入调用栈中并执行。</p>
+<p>这里有个重点，就是异步任务不是直接进入任务队列的。</p>
+<p>这里举一个简单的例子。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://jsonplaceholder.typicode.com/todos/1'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token operator">=></span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">json</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很显然，<code>fetch()</code> 就是一个异步任务。</p>
+<p>但执行到 <code>console.log(2)</code> 之前，其实 <code>fetch()</code> 已经被调用且发起请求了，但是还未响应数据。而响应数据和处理数据的函数 <code>then()</code> 此时已经在 <strong>任务队列</strong> 中，等候 <code>console.log(2)</code> 执行结束后，所以同步任务清空后，再进入调用栈执行响应动作。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b36396fc5924451c8e73169a1885a505~tplv-k3u1fbpfcp-watermark.awebp" alt="async.png"></p>
+<h3 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h3><p>前面聊到同步任务和异步任务的时候，提及到了 <strong>任务队列</strong>。</p>
+<p>在任务队列中，其实还分为 <strong>宏任务队列（Task Queue）</strong> 和 <strong>微任务队列（Microtask Queue）</strong>，对应的里面存放的就是 <strong>宏任务</strong> 和 <strong>微任务</strong>。</p>
+<p>首先，<strong>宏任务和微任务都是异步任务</strong>。</p>
+<p>而宏任务和微任务的区别，就是它们执行的顺序，这也是为什么要区分宏任务和微任务。</p>
+<p>在同步任务中，任务的执行都是按照代码顺序执行的，而异步任务的执行也是需要按顺序的，队列的属性就是 <strong>先进先出（FIFO，First in First Out）</strong>，因此异步任务会按照进入队列的顺序依次执行。</p>
+<p>但在一些场景下，如果只按照进入队列的顺序依次执行的话，也会出问题。比如队列先进入一个一小时的定时器，接着再进入一个请求接口函数，而如果根据进入队列的顺序执行的话，请求接口函数可能需要一个小时后才会响应数据。</p>
+<p>因此浏览器就会将异步任务分为宏任务和微任务，然后按照事件循环的机制去执行，因此不同的任务会有不同的执行优先级，具体会在事件循环讲到。</p>
+<h4 id="任务入队"><a href="#任务入队" class="headerlink" title="任务入队"></a>任务入队</h4><p>这里还有一个知识点，就是关于任务入队。</p>
+<p>任务进入任务队列，其实会利用到浏览器的其他线程。虽然说 <code>JavaScript</code> 是单线程语言，但是浏览器不是单线程的。而不同的线程就会对不同的事件进行处理，当对应事件可以执行的时候，对应线程就会将其放入任务队列。</p>
+<ul>
+<li><strong>js 引擎线程</strong>：用于解释执行 js 代码、用户输入、网络请求等；</li>
+<li><strong>GUI 渲染线程</strong>：绘制用户界面，与 JS 主线程互斥（因为 js 可以操作 DOM，进而会影响到 GUI 的渲染结果）；</li>
+<li><strong>http 异步网络请求线程</strong>：处理用户的 get、post 等请求，等返回结果后将回调函数推入到任务队列；</li>
+<li><strong>定时触发器线程</strong>：<code>setInterval</code>、<code>setTimeout</code> 等待时间结束后，会把执行函数推入任务队列中；</li>
+<li><strong>浏览器事件处理线程</strong>：将 <code>click</code>、<code>mouse</code> 等 UI 交互事件发生后，将要执行的回调函数放入到事件队列中。</li>
+</ul>
+<p>这个其实就可以解释了下列代码为什么后面的定时器会比前面的定时器先执行。因为后者的定时器会先被推进宏任务队列，而前者会之后到点了再被推入宏任务队列。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="宏任务"><a href="#宏任务" class="headerlink" title="宏任务"></a>宏任务</h4><table>
+<thead>
+<tr>
+<th>-</th>
+<th>浏览器</th>
+<th>Node</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>整体代码 (script)</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>UI 交互事件</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>I/O</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>setTimeout</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>setInterval</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>setImmediate</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>requestAnimationFrame</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<h4 id="微任务"><a href="#微任务" class="headerlink" title="微任务"></a>微任务</h4><table>
+<thead>
+<tr>
+<th>-</th>
+<th>浏览器</th>
+<th>Node</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>process.nextTick</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>MutationObserver</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Promise.then catch finally</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<h2 id="事件循环-Event-Loop"><a href="#事件循环-Event-Loop" class="headerlink" title="事件循环 Event Loop"></a>事件循环 Event Loop</h2><p>其实宏任务队列和微任务队列的执行，就是事件循环的一部分了，所以放在这里一起说。</p>
+<p>事件循环的具体流程如下：</p>
+<ol>
+<li> 从宏任务队列中，按照 <strong>入队顺序</strong>，找到第一个执行的宏任务，放入调用栈，开始执行；</li>
+<li> 执行完 <strong>该宏任务</strong> 下所有同步任务后，即调用栈清空后，该宏任务被推出宏任务队列，然后微任务队列开始按照入队顺序，依次执行其中的微任务，<strong>直至微任务队列清空为止</strong>；</li>
+<li> 当微任务队列清空后，一个事件循环结束；</li>
+<li> 接着从宏任务队列中，找到下一个执行的宏任务，开始第二个事件循环，直至宏任务队列清空为止。</li>
+</ol>
+<p>这里有几个重点：</p>
+<ul>
+<li>当我们第一次执行的时候，解释器会将整体代码 <code>script</code> 放入宏任务队列中，因此事件循环是从第一个宏任务开始的；</li>
+<li>如果在执行微任务的过程中，产生新的微任务添加到微任务队列中，也需要一起清空；微任务队列没清空之前，是不会执行下一个宏任务的。</li>
+</ul>
+<p>接下来，通过一个常见的面试题例子来模拟一下事件循环。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 输出结果：a c f d e b
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先，当代码执行的时候，整体代码 <code>script</code> 被推入宏任务队列中，并开始执行该宏任务。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63e0812fe4fb443ba65ab26d5de95f44~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_1.gif"></p>
+<p>按照代码顺序，首先执行 <code>console.log(&quot;a&quot;)</code>。</p>
+<p>该函数上下文被推入调用栈，执行完后，即移除调用栈。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c753d28cb8374f5f9d13569cf3934347~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_2.gif"></p>
+<p>接下来执行 <code>setTimeout()</code>，该函数上下文也进入调用栈中。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5c80331146b64fd1bcfe070ccf080fc2~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_3.gif"></p>
+<p>因为 <code>setTimeout</code> 是一个宏任务，因此将其 <code>callback</code> 函数推入宏任务队列中，然后该函数就被移除调用栈，继续往下执行。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/847d9b53ab974f78b810235f38448d90~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_4.gif"></p>
+<p>紧接着是 <code>Promise</code> 语句，先将其放入调用栈，然后接着往下执行。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/532fa46bfa654e17a5e494c94b377977~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_5.gif"></p>
+<p>执行 <code>console.log(&quot;c&quot;)</code> 和 <code>resolve()</code>，这里就不多说了。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9265e6b57c2a42ebacf7d50d673cb4de~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_6.gif"></p>
+<p>接着来到 <code>new Promise().then()</code> 方法，这是一个微任务，因此将其推入微任务队列中。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de71bda0eeb64a2690cef27a9c687011~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_7.gif"></p>
+<p>这时 <code>new Promise</code> 语句已经执行结束了，就被移除调用栈。</p>
+<p>接着做执行 <code>console.log(&#39;f&#39;)</code>。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1af0dff172334d37914a4ca4c9c1ce07~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_8.gif"></p>
+<p>这时候，<code>script</code> 宏任务已经执行结束了，因此被推出宏任务队列。</p>
+<p>紧接着开始清空微任务队列了。首先执行的是 <code>Promise then</code>，因此它被推入调用栈中。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/039d9e6974c245b58f40b0baaf9fb36b~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_9.gif"></p>
+<p>然后开始执行其中的 <code>console.log(&quot;d&quot;)</code>。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/414a340f94454d4e8c18b81bc759382b~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_10.gif"></p>
+<p>执行结束后，检测到后面还有一个 <code>then()</code> 函数，因此将其推入微任务队列中。</p>
+<p>此时第一个 <code>then()</code> 函数已经执行结束了，就会移除调用栈和微任务队列。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e15c103346f1434d87136abf91c5123c~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_11.gif"></p>
+<p>此时微任务队列还没被清空，因此继续执行下一个微任务。</p>
+<p>执行过程跟前面差不多，就不多说了。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07ea9badd02d4e3986091cc212aae6d4~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_12.gif"></p>
+<p>此时微任务队列已经清空了，第一个事件循环已经结束了。</p>
+<p>接下来执行下一个宏任务，即 <code>setTimeout callback</code>。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d061a0487bbe4b36a0230a90a9d35b82~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_13.gif"></p>
+<p>执行结束后，它也被移除宏任务队列和调用栈。</p>
+<p>这时候微任务队列里面没有任务，因此第二个事件循环也结束了。</p>
+<p>宏任务也被清空了，因此这段代码已经执行结束了。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3785ff320d644deb4476e81f3825be2~tplv-k3u1fbpfcp-watermark.awebp" alt="task_queque_14.gif"></p>
+<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><p>ECMAScript2017 中添加了 <code>async functions</code> 和 <code>await</code>。</p>
+<p><code>async</code> 关键字是将一个同步函数变成一个异步函数，并将返回值变为 <code>promise</code>。</p>
+<p>而 <code>await</code> 可以放在任何异步的、基于 <code>promise</code> 的函数之前。在执行过程中，它会暂停代码在该行上，直到 <code>promise</code> 完成，然后返回结果值。而在暂停的同时，其他正在等待执行的代码就有机会执行了。</p>
+<p>下面通过一个例子来体验一下。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">async2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">async1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'g'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'h'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 输出结果：d a c g i b h f e
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先，开始执行前，将整体代码 <code>script</code> 放入宏任务队列中，并开始执行。</p>
+<p>第一个执行的是 <code>console.log(&quot;d&quot;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7d6c329638ec409ba5f11e6fd3d29c36~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_1.gif"></p>
+<p>紧接着是 <code>setTimeout</code>，将其回调放入宏任务中，然后继续执行。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f1f04859bfb442198a52b1d9902c918~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_2.gif"></p>
+<p>紧接着是调用 <code>async1()</code> 函数，因此将其函数上下文放置到调用栈。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/225d46f2cc5e4452883c01623768745e~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_3.gif"></p>
+<p>然后开始执行 <code>async1</code> 中的 <code>console.log(&quot;a&quot;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6abde34a5244282a0ac63006c4e0501~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_4.gif"></p>
+<p>接下来就是 <code>await</code> 关键字语句。</p>
+<p><code>await</code> 后面调用的是 <code>async2</code> 函数，因此我们将其放入调用栈。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/293e3d885e044c4ea345e5e24e4177a3~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_5.gif"></p>
+<p>然后开始执行 <code>async2</code> 中的 <code>console.log(&quot;c&quot;)</code>，并 <code>return</code> 一个值。</p>
+<p>执行完成后，<code>async2</code> 就被移出调用栈。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f2810e9d4d34119a1e93a08f5b03761~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_6.gif"></p>
+<p>这时候，<code>await</code> 会阻塞 <code>async2</code> 的返回值，先跳出 <code>async1</code> 进行往下执行。</p>
+<p>需要注意的是，现在 <code>async1</code> 中的 <code>res</code> 变量，还是 <code>undefined</code>，没有赋值。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0283181a9fff49159069afdc414c16d7~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_7.gif"></p>
+<p>紧接着是执行 <code>new Promise</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb63b3737a464753ba59e92b01d5f209~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_8.gif"></p>
+<p>执行 <code>console.log(&quot;i&quot;)</code>。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a319d8c9c5154d0f8d508154db114178~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_9.gif"></p>
+<p>这时，<code>async1</code> 外面的同步任务都执行完成了，因此就重新回到前面阻塞的位置，进行往下执行。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a202e7f34c50443f8901d31a45e60449~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_10.gif"></p>
+<p>这时 <code>res</code> 成功赋值了 <code>async2</code> 的结果值，然后往下执行 <code>console.log(&quot;b&quot;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d359c31825bc4e4ea5c8ab4f46e69567~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_11.gif"></p>
+<p>这时候 <code>async1</code> 才算是执行结束，紧接着再将其调用的 <code>then()</code> 函数放入微任务队列中。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0f4b126608fc4547874af93a42533bac~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_12.gif"></p>
+<p>这时 <code>script</code> 宏任务已经全部执行完了，开始准备清空微任务队列了。</p>
+<p>第一个被执行的微任务队列是 <code>promise then</code>，也就是将执行其中的 <code>console.log(&quot;h&quot;)</code> 语句。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/06091de35b924bee886429fcc017b995~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_13.gif"></p>
+<p>执行完 <code>Promise then</code> 微任务后，紧接着开始执行 <code>async1</code> 的 <code>promise then</code> 微任务。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/81c010740652497897471c3237ee6580~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_14.gif"></p>
+<p>这时候微任务队列已经清空了，即开始执行下一个宏任务。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82eed4406c724eb78b38daea49b5b697~tplv-k3u1fbpfcp-watermark.awebp" alt="async_await_15.gif"></p>
+<h2 id="页面渲染"><a href="#页面渲染" class="headerlink" title="页面渲染"></a>页面渲染</h2><p>最后来讲将事件循环中的页面更新渲染，这也是 <code>Vue</code> 中异步更新的逻辑所在。</p>
+<p>每次当一次事件循环结束后，即一个宏任务执行完成后以及微任务队列被清空后，浏览器就会进行一次页面更新渲染。</p>
+<p>通常我们浏览器页面刷新频率是 60fps，也就是意味着 16.67ms 要刷新一次，因此我们也要尽量保证一次事件循环控制在 16.67ms 之内，这也是我们需要做代码性能优化的一个原因。</p>
+<p>接下来还是通过一个案例来看一下。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Event Loop<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./src/render1.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>./src/render2.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// render1</span>
+<span class="token keyword">const</span> demoEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'渲染完成！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'开始渲染！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+demoEl<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// render2</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+demoEl<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'Hi World!'</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'第二次渲染！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>根据 <code>HTML</code> 的执行顺序，第一个被执行的 <code>JavaScript</code> 代码是 <code>render1.js</code>，因此解释器将其推入宏任务队列，并开始执行。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5feea5835373440582ccb2a63aef1abe~tplv-k3u1fbpfcp-watermark.awebp" alt="render_1.gif"></p>
+<p>第一个被执行的是 <code>console.log(&quot;a&quot;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3cffb8442d2d481b8c78fec5b748e2a2~tplv-k3u1fbpfcp-watermark.awebp" alt="render_2.gif"></p>
+<p>其次是 <code>setTimeout</code>，并将其回调加入宏任务队列中。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5446c61f921849c7ba934160adcfab51~tplv-k3u1fbpfcp-watermark.awebp" alt="render_3.gif"></p>
+<p>紧接着执行 <code>new Promise</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ce18a8c48c1249f79be3e892f1bf21d0~tplv-k3u1fbpfcp-watermark.awebp" alt="render_4.gif"></p>
+<p>同样，将其 <code>then()</code> 推入微任务队列中去。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/306b21e3e50e4156a47119fec8a52082~tplv-k3u1fbpfcp-watermark.awebp" alt="render_5.gif"></p>
+<p>紧接着执行 <code>console.log(&quot;e&quot;)</code>。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2190021a82a04f5c8311ebde4f288a61~tplv-k3u1fbpfcp-watermark.awebp" alt="render_6.gif"></p>
+<p>最后，修改 DOM 节点的文本内容，但是这时候页面还不会更新渲染。</p>
+<p>这时候 <code>script</code> 宏任务也执行结束了。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d82b272153ff4c049ad630160a3969df~tplv-k3u1fbpfcp-watermark.awebp" alt="render_7.gif"></p>
+<p>紧接着，开始清空微任务队列，执行 <code>Promise then</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9182947f295e436a8509e5fe6ee646a3~tplv-k3u1fbpfcp-watermark.awebp" alt="render_8.gif"></p>
+<p>这时候，<code>alert</code> 一个通知，而这个语句结束后，则微任务队列清空，代表第一个事件循环结束，即将要开始渲染页面了。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5d917f9014de43f7b014ec5060749b6f~tplv-k3u1fbpfcp-watermark.awebp" alt="render_9.gif"></p>
+<p>当点击关闭 <code>alert</code> 后，事件循环结束，页面也开始渲染。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d3c77f7ff3be423c80f88185e5d98995~tplv-k3u1fbpfcp-watermark.awebp" alt="render_10.gif"></p>
+<p>渲染结束后，就开始执行下一个宏任务，即 <code>setTimeout callback</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/734b05f4724e49c4bcfc62777fc2caf2~tplv-k3u1fbpfcp-watermark.awebp" alt="render_11.gif"></p>
+<p>紧接着执行 <code>console.log(&quot;b&quot;)</code>。</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6db3b70b11634fb7b1d4d87376a729d5~tplv-k3u1fbpfcp-watermark.awebp" alt="render_12.gif"></p>
+<p>这时候宏任务队列已清空了，但是 <code>html</code> 文件还没执行结束，因此进入 <code>render2.js</code> 继续执行。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/62aa89b72a97404b8ab3972464753f85~tplv-k3u1fbpfcp-watermark.awebp" alt="render_13.gif"></p>
+<p>首先执行 <code>console.log(&#39;f&#39;)</code>。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8ca3d1b9bd0a41c5813fe3fbe6d146d1~tplv-k3u1fbpfcp-watermark.awebp" alt="render_14.gif"></p>
+<p>紧接着，再次修改节点的文本信息，此时依旧不会更新页面渲染。</p>
+<p>接着执行 <code>alert</code> 语句，当关闭 <code>alert</code> 通知后，该宏任务结束，微任务队列也为空，因此该事件循环也结束了，这时候就开始第二次页面更新。</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a20d047d08e4ac0a1d031473adea88f~tplv-k3u1fbpfcp-watermark.awebp" alt="render_15.gif"></p>
+<p>但如果将所有 <code>JavaScript</code> 代码使用内嵌方式的话，浏览器会先把两个 <code>script</code> 丢到宏任务队列中去，因此执行的顺序也会不一样，这里就不一一推导了。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Event Loop<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      <span class="token keyword">const</span> demoEl <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'demo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'渲染完成！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'开始渲染！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      demoEl<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'Hello World!'</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'f'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      demoEl<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'Hi World!'</span><span class="token punctuation">;</span>
+      <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'第二次渲染！'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>输出：a c e d “开始渲染！” f “第二次渲染！” “渲染完成！” b</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop">并发模型与事件循环</a></li>
+</ul>
+
+                
+            </div>
+            
+    
+        <div class="reprint" id="reprint-statement">
+            
+                <div class="reprint__author">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-user">
+                            文章作者:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="/about" rel="external nofollow noreferrer">
+                            Lydia Hallie
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__type">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="fas fa-link">
+                            文章链接:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        <a href="https://zhuangyin8.github.io/javascript-visualized-event-loop/">
+                            https://zhuangyin8.github.io
+                                /javascript-visualized-event-loop/
+                        </a>
+                    </span>
+                </div>
+                <div class="reprint__notice">
+                    <span class="reprint-meta" style="font-weight: bold;">
+                        <i class="far fa-copyright">
+                            版权声明:
+                        </i>
+                    </span>
+                    <span class="reprint-info">
+                        本博客所有文章除特別声明外，均采用
+                            <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">
+                                CC BY 4.0
+                            </a>
+                            许可协议。转载请注明来源
+                                <a href="/about" target="_blank">
+                                    Lydia Hallie
+                                </a>
+                                !
+                    </span>
+                </div>
+                
+        </div>
+        <script async defer>
+            document.addEventListener("copy", function (e) {
+                let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+                M.toast({ html: toastHTML })
+            });
+            function navToReprintStatement() {
+                $("html, body").animate({ scrollTop: $("#reprint-statement").offset().top - 80 }, 800);
+            }
+        </script>
+        
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                    <div class="article-tag">
+                        
+                        <a href="/tags/Visualized/">
+                            <span class="chip bg-color">Visualized</span>
+                        </a>
+                        
+                        <a href="/tags/Event-Loop/">
+                            <span class="chip bg-color">Event Loop</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="post_share">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<!-- <div id="article-share"> -->
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+<!-- </div> -->
+
+
+                </div>
+            </div>
+            
+            <style>
+    #reward {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 450px;
+        height: 600px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform: scale(1.3);
+        -webkit-transform: scale(1.3);
+        -o-transform: scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 420px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 380px;
+        height: 450px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpeg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+    <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comment" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '215267d8d7dec30a72c0',
+        clientSecret: 'ffb94989b6dda7c638a855388a4bb4b95417bfc2',
+        repo: 'zhuangyin8.github.io',
+        owner: 'zhuangyin8',
+        admin: "zhuangyin8",
+        id: '2019-11-20T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>
+                上一篇</div>
+            <div class="card">
+                <a href="/javascript-visualized-prototypal-inheritance/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance">
+                        
+                        <span class="card-title">5 🎉👨‍👩‍👧‍👧 JavaScript Visualized: Prototypal Inheritance</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2020-01-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Inheritance/">
+                        <span class="chip bg-color">Inheritance</span>
+                    </a>
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/javascript-visualized-hoisting/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2️ 🔥🕺🏼 JavaScript Visualized: Hoisting">
+                        
+                        <span class="card-title">2️ 🔥🕺🏼 JavaScript Visualized: Hoisting</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                        
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock icon-date"></i>2019-11-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Visualized/">
+                        <span class="chip bg-color">Visualized</span>
+                    </a>
+                    
+                    <a href="/tags/Hoisting/">
+                        <span class="chip bg-color">Hoisting</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i> 
+                目录
+            </div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+            /* 修复文章卡片 div 的宽度. */
+            let fixPostCardWidth = function (srcId, targetId) {
+                let srcDiv = $('#' + srcId);
+                if (srcDiv.length === 0) {
+                    return;
+                }
+
+                let w = srcDiv.width();
+                if (w >= 450) {
+                    w = w + 21;
+                } else if (w >= 350 && w < 450) {
+                    w = w + 18;
+                } else if (w >= 300 && w < 350) {
+                    w = w + 16;
+                } else {
+                    w = w + 14;
+                }
+                $('#' + targetId).width(w);
+            };
+
+            // 切换TOC目录展开收缩的相关操作.
+            const expandedClass = 'expanded';
+            let $tocAside = $('#toc-aside');
+            let $mainContent = $('#main-content');
+            $('#floating-toc-btn .btn-floating').click(function () {
+                if ($tocAside.hasClass(expandedClass)) {
+                    $tocAside.removeClass(expandedClass).hide();
+                    $mainContent.removeClass('l9');
+                } else {
+                    $tocAside.addClass(expandedClass).show();
+                    $mainContent.addClass('l9');
+                }
+                fixPostCardWidth('artDetail', 'prenext-posts');
+            }); 
+        
+    });
+</script>
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        display: none;
+            font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        display: none;
+            font-size: 15px;
+        color: #42b983;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+            left: -66px !important;
+        }
+
+        .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+            left: 0px !important;
+        }
+
+        
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12" server="netease" type="playlist" id="694322774" fixed='true' autoplay='false' theme='#42b983' loop='all' order='random' preload='auto' volume='0.7' list-folded='true'>
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script> 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 0px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      <span>Copyright <i class="far fa-copyright"></i></span>
+      
+      <span id="year">2016-2021</span>
+      
+      <span id="year">2016</span>
+      <a href="/about" target="_blank">庄引</a>
+      <br />
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> Theme
+      <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        <i class="fa fa-eye"></i>
+        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span> 次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        <i class="fa fa-users"></i>
+        总访问人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+      </span>
+      
+      <br />
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a href="https://github.com/zhuangyin8" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fab fa-github"></i>
+</a>
+
+
+
+<a href="mailto:zhuangyin8@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fas fa-envelope-open"></i>
+</a>
+
+
+
+
+
+
+
+
+
+<a href="https://weibo.com/zhuangyinzhi" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/zhuangyinzhi" data-position="top" data-delay="50">
+    <i class="fab fa-weibo"></i>
+</a>
+
+
+
+
+
+<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <i class="fas fa-rss"></i>
+</a>
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var searchFunc = function (path, search_id, content_id) {
+            'use strict';
+            $.ajax({
+                url: path,
+                dataType: "xml",
+                success: function (xmlResponse) {
+                    // get the contents from search data
+                    var datas = $("entry", xmlResponse).map(function () {
+                        return {
+                            title: $("title", this).text(),
+                            content: $("content", this).text(),
+                            url: $("url", this).text()
+                        };
+                    }).get();
+                    var $input = document.getElementById(search_id);
+                    var $resultContent = document.getElementById(content_id);
+                    $input.addEventListener('input', function () {
+                        var str = '<ul class=\"search-result-list\">';
+                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                        $resultContent.innerHTML = "";
+                        if (this.value.trim().length <= 0) {
+                            return;
+                        }
+                        // perform local searching
+                        datas.forEach(function (data) {
+                            var isMatch = true;
+                            var data_title = data.title.trim().toLowerCase();
+                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                            var data_url = data.url;
+                            data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                            var index_title = -1;
+                            var index_content = -1;
+                            var first_occur = -1;
+                            // only match artiles with not empty titles and contents
+                            if (data_title !== '' && data_content !== '') {
+                                keywords.forEach(function (keyword, i) {
+                                    index_title = data_title.indexOf(keyword);
+                                    index_content = data_content.indexOf(keyword);
+                                    if (index_title < 0 && index_content < 0) {
+                                        isMatch = false;
+                                    } else {
+                                        if (index_content < 0) {
+                                            index_content = 0;
+                                        }
+                                        if (i === 0) {
+                                            first_occur = index_content;
+                                        }
+                                    }
+                                });
+                            }
+                            // show search results
+                            if (isMatch) {
+                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                                if (first_occur >= 0) {
+                                    // cut out 100 characters
+                                    var start = first_occur - 20;
+                                    var end = first_occur + 80;
+                                    if (start < 0) {
+                                        start = 0;
+                                    }
+                                    if (start === 0) {
+                                        end = 100;
+                                    }
+                                    if (end > content.length) {
+                                        end = content.length;
+                                    }
+                                    var match_content = content.substr(start, end);
+                                    // highlight all keywords
+                                    keywords.forEach(function (keyword) {
+                                        var regS = new RegExp(keyword, "gi");
+                                        match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                    });
+                                    str += "<p class=\"search-result\">" + match_content + "...</p>"
+                                }
+                                str += "</li>";
+                            }
+                        });
+                        str += "</ul>";
+                        $resultContent.innerHTML = str;
+                    });
+                }
+            });
+        };
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    });
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-double-up"></i>
+    </a>
+</div>
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

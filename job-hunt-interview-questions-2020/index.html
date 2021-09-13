@@ -823,7 +823,7 @@ promise
 </ol>
 <blockquote>
 <ol start="8">
-<li>实现 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/debounce">debounce</a>（防抖）函数。 防抖就是指触发事件特定时间间隔内后才执行函数，如果在特定时间间隔内又触发了事件，则会重新计算函数执行时间。  发送请求 输入验证 浏览器窗口resize</li>
+<li>实现防抖函数 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/debounce">防抖</a>就是指触发事件特定时间间隔内后才执行函数，如果在特定时间间隔内又触发了事件，则会重新计算函数执行时间。节流就是指连续触发事件但是在特定时间间隔内内只执行一次函数<br><strong>发送请求</strong> <strong>输入验证</strong> <strong>浏览器窗口 resize</strong></li>
 </ol>
 </blockquote>
 <details><summary>Answer</summary>
@@ -862,11 +862,11 @@ promise
 
 <hr>
 <ol start="9">
-<li>Implement throttling function</li>
+<li>Implement throttle function</li>
 </ol>
 <blockquote>
 <ol start="9">
-<li>实现 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/throttle">throttling</a>（节流）函数。 节流就是指连续触发事件但是在特定时间间隔内内只执行一次函数</li>
+<li>实现 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/throttle">节流</a>函数。 节流就是指连续触发事件但是在特定时间间隔内内只执行一次函数</li>
 </ol>
 </blockquote>
 <details><summary>Answer</summary>
@@ -925,6 +925,11 @@ promise
 </details>
 
 <hr>
+<blockquote>
+<p>函数防抖：将几次操作合并为一此操作进行。原理是维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。</p>
+<p>函数节流：使得一定时间内只触发一次函数。原理是通过判断是否到达一定时间来触发函数。</p>
+<p>区别： 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。</p>
+</blockquote>
 <ol start="10">
 <li>Design API polling mechanism. The API is called after a fixed interval. The API is a stock API that fetches the latest price of stock. Upon fetching the results, render the UI.</li>
 </ol>

@@ -2831,11 +2831,10 @@ body.keyboard-focused .dropdown-content li:focus {
   height: 32px;
   color: rgba(0, 0, 0, 0.6);
   line-height: 32px;
-  padding: 0 .5rem;
-  border-radius: 1rem;
+  padding: 0 1rem;
+  border-radius: 2rem;
   background-color: #e4e4e4;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  margin: 0 1rem 1rem 0;
 }
 .chip:focus {
   outline: none;

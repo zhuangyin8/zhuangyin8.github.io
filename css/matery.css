@@ -8,6 +8,10 @@
   .reprint {
     background-color: #df9494;
   }
+  #searchModal {
+    min-height: 500px;
+    width: 100%;
+  }
 }
 
 /*中等屏幕下(平板类)的样式*/
@@ -19,6 +23,10 @@
   .reprint {
     background-color: #b9a6e6;
   }
+  #searchModal {
+    min-height: 500px;
+    width: 80%;
+  }
 }
 
 /*大屏幕下(桌面类)的样式*/
@@ -29,6 +37,10 @@
   .article-info,
   .reprint {
     background-color: #b9eec4;
+  }
+  #searchModal {
+    min-height: 500px;
+    width: 80%;
   }
 }
 
@@ -308,7 +320,7 @@ header .side-nav .social-link {
 
 .cover-btns a {
   margin: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   height: 2rem;
   line-height: 2rem;
   font-size: 1rem;
@@ -661,32 +673,6 @@ article .article-content .publish-author {
 article .card .card-action {
   padding: 0.5rem 1rem;
   border-radius: 0 0 8px 8px !important;
-}
-
-.prev-next {
-  margin-left: -0.75rem;
-}
-
-.prev-next .article-badge {
-  min-width: 3rem;
-  margin-top: 7px;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  line-height: inherit;
-  position: absolute;
-  box-sizing: border-box;
-  z-index: 200;
-  background-color: #fff;
-}
-
-.prev-next .left-badge {
-  border-radius: 8px 0 8px 0;
-}
-
-.prev-next .right-badge {
-  border-radius: 0 8px 0 8px;
-  right: 10px;
 }
 
 .paging {
@@ -1341,16 +1327,9 @@ footer .social-statis {
   position: relative;
 }
 
-
-
 /*搜索层样式*/
 #searchIcon {
   /* font-size: 1.2rem; */
-}
-
-#searchModal {
-  /* min-height: 500px; */
-  /* width: 80%; */
 }
 
 #searchModal .search-header .title {

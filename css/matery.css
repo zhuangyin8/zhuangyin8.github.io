@@ -6,7 +6,7 @@
   }
   .article-info,
   .reprint {
-    background-color: #df9494;
+    background-color: #e9d4d4;
   }
   #searchModal {
     min-height: 500px;
@@ -21,7 +21,7 @@
   }
   .article-info,
   .reprint {
-    background-color: #b9a6e6;
+    background-color: #d0c3ec;
   }
   #searchModal {
     min-height: 500px;
@@ -36,7 +36,7 @@
   }
   .article-info,
   .reprint {
-    background-color: #b9eec4;
+    background-color: #cdf0d4;
   }
   #searchModal {
     min-height: 500px;
@@ -49,7 +49,7 @@ footer i {
   color: #fff;
 }
 .card .card-content {
-  padding: 1rem;
+  padding: .8rem;
   border-radius: 0 0 2px 2px;
 }
 .head-container {

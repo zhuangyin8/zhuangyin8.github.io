@@ -615,7 +615,7 @@ header .go-back i {
 
 article a {
   margin-right: 0 !important;
-  color: #525f7f;
+  /* color: #525f7f; */
   text-transform: none !important;
 }
 
@@ -716,12 +716,12 @@ article .card .card-action {
 }
 
 #artDetail .post-info {
-  color: #525f7f;
+  /* color: #525f7f; */
 }
 
 #artDetail .post-info .post-category {
   padding-right: 4px;
-  color: #525f7f;
+  /* color: #525f7f; */
 }
 
 #artDetail .post-info .post-category:hover {
@@ -730,7 +730,7 @@ article .card .card-action {
 }
 
 #artDetail .post-info .post-date {
-  color: #525f7f;
+  /* color: #525f7f; */
 }
 
 #artDetail .post-info .post-word-count {
@@ -739,7 +739,7 @@ article .card .card-action {
 
 #artDetail .post-info .post-read {
   margin-left: 1rem;
-  color: #525f7f;
+  /* color: #525f7f; */
 }
 
 #artDetail .reprint {
@@ -1396,7 +1396,7 @@ footer .social-statis {
 }
 
 .center-caption {
-  color: #525f7f;
+  /* color: #525f7f; */
   padding: 5px;
   border-bottom: 1px solid #d9d9d9;
 }

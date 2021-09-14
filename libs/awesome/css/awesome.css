@@ -650,11 +650,14 @@
 }
 
 .fa-angle-left:before {
-	content: "\2039"
+	/* content: "\2039" */
+	content: "\f104"
+
 }
 
 .fa-angle-right:before {
-	content: "\203a"
+	/* content: "\203a" */
+	content: "\f105"
 }
 
 .fa-angle-up:before {
@@ -2486,11 +2489,14 @@
 }
 
 .fa-chevron-left:before {
-	content: "\2329"
+	/* content: "\2329" */
+	content: "\f053"
+
 }
 
 .fa-chevron-right:before {
-	content: "\232a"
+	/* content: "\232a" */
+	content: "\f054"
 }
 
 .fa-chevron-up:before {

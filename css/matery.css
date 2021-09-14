@@ -505,11 +505,8 @@ header .go-back i {
 }
 
 .recommend .title {
-  margin-top: 25px;
-  margin-bottom: 25px;
   text-align: center;
   font-size: 1.8rem;
-
   line-height: 1.8rem;
 }
 
@@ -1183,12 +1180,6 @@ thead {
   margin: 0.5rem 0 1.4rem 0;
 }
 
-.profile .author .title {
-  margin-bottom: 0.1rem;
-  font-size: 1.8rem;
-
-  color: #3c4858;
-}
 
 .profile .author .career {
   margin: 0.5rem 0;
@@ -1206,8 +1197,9 @@ thead {
 .title,
 .my-projects .title,
 .my-skills .title,
-.my-gallery .title {
-  font-size: 1.8rem;
+.my-gallery .title ,
+.profile .author .title{
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 

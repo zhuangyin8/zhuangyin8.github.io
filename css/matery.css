@@ -49,7 +49,7 @@ footer i {
   color: #fff;
 }
 .card .card-content {
-  padding: .8rem;
+  padding: 0.8rem;
   border-radius: 0 0 2px 2px;
 }
 .head-container {
@@ -610,12 +610,6 @@ header .go-back i {
   margin-bottom: 10px;
 }
 
-article a {
-  margin-right: 0 !important;
-  /* color: #525f7f; */
-  text-transform: none !important;
-}
-
 article a:hover {
   color: #42b983;
   text-decoration: underline;
@@ -759,16 +753,24 @@ article .card .card-action {
   color: #42b983;
 } */
 
-#articleContent blockquote p {
-  text-indent: 0.2rem;
+/* #articleContent a {
+} */
+a {
+  text-decoration: none;
+  background-image: linear-gradient(to bottom, #ee802f 0%, #ee802f 100%);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0 3px;
+  transition: background-size 500ms ease-in-out;
 }
 
-#articleContent a {
-  padding: 0 3px;
-  color: #42b983;
+a:hover {
+  background-size: 100% 3px;
+  color: #ee802f;
+}
 
-  text-decoration: underline;
-  word-wrap: break-word;
+#articleContent blockquote p {
+  text-indent: 0.2rem;
 }
 
 #articleContent .img-item {
@@ -818,16 +820,13 @@ article .card .card-action {
   overflow: auto;
 }
 
-/**
-#articleContent table,
+* #articleContent table,
 th,
 td {
-    padding: 12px 13px;
-    border: 1px solid #dfe2e5;
+  padding: 12px 13px;
+  border: 1px solid #dfe2e5;
 }
-**/
-
-table tr:nth-child(2n),
+* table tr:nth-child(2n),
 thead {
   background-color: #fafafa;
 }
@@ -1180,7 +1179,6 @@ thead {
   margin: 0.5rem 0 1.4rem 0;
 }
 
-
 .profile .author .career {
   margin: 0.5rem 0;
 }
@@ -1197,8 +1195,8 @@ thead {
 .title,
 .my-projects .title,
 .my-skills .title,
-.my-gallery .title ,
-.profile .author .title{
+.my-gallery .title,
+.profile .author .title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }

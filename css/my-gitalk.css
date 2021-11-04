@@ -3,7 +3,7 @@
 }
 
 .gitalk-card .card-content {
-    padding: 10px;
+    padding: 1px 20px 20px 20px;
 }
 
 #gitalk-container .gt-no-init a {
@@ -170,7 +170,7 @@ table tr:nth-child(2n), thead {
 }
 
 .markdown-body hr {
-    /* margin: 12px 0; */
+    margin: 12px 0;
     border: 0;
     border-top: 1px solid #ccc;
 }
@@ -236,7 +236,7 @@ strong {
 }
 
 .markdown-body small {
-    font-size: .8rem;
+    font-size: 85%;
 }
 
 .markdown-body cite {

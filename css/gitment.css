@@ -212,25 +212,25 @@ table tr:nth-child(2n), thead {
 }
 
 .gitment-markdown h1 {
-    font-size: 1.8rem;
+    font-size: 1.85rem;
     font-weight: bold;
     line-height: 2.2rem;
 }
 
 .gitment-markdown h2 {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: bold;
     line-height: 1.9rem;
 }
 
 .gitment-markdown h3 {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     font-weight: bold;
     line-height: 1.7rem;
 }
 
 .gitment-markdown h4 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: bold;
     line-height: 1.5rem;
 }
@@ -307,6 +307,9 @@ strong {
     font-style: italic;
 }
 
+.gitment-markdown small {
+    font-size: 85%;
+}
 
 .gitment-markdown cite {
     font-style: normal;

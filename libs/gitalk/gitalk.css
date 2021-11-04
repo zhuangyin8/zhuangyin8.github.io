@@ -1002,11 +1002,11 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-left: .5em;
+  margin-left: 1.25em;
 }
 @media (max-width: 479px) {
   .gt-container .gt-header-comment {
-    margin-left: 0.5em;
+    margin-left: 0.875em;
   }
 }
 .gt-container .gt-header-textarea {
@@ -1066,7 +1066,7 @@
 }
 .gt-container .gt-header-controls .gt-btn {
   float: right;
-  margin-left: .5em;
+  margin-left: 1.25em;
 }
 @media (max-width: 479px) {
   .gt-container .gt-header-controls .gt-btn {
@@ -1121,9 +1121,11 @@
   display: flex;
 }
 .gt-container .gt-comment-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
           flex: 1;
-  margin-left: .5em;
-  padding: 0.5em;
+  margin-left: 1.25em;
+  padding: 0.75em 1em;
   background-color: #f9f9f9;
   overflow: auto;
   -webkit-transition: all ease 0.25s;
